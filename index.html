@@ -106,8 +106,16 @@
       color: #888;
     }
 
-    .toc {
-      margin: 1rem 0;
+    .unsupported {
+      border-left: 5px solid #ff3b30;
+      background: #fff8f8;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .note {
+      color: #888;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -127,6 +135,10 @@
         <li><a href="#text-fields">Text Fields</a></li>
         <li><a href="#selection-widgets">Selection Widgets</a></li>
         <li><a href="#other-widgets">Other Standard Widgets</a></li>
+        <li><a href="#meta">Dynamic Title</a></li>
+        <li><a href="#file-inputs">File & Camera Inputs</a></li>
+        <li><a href="#media">Media Context Menus</a></li>
+        <li><a href="#context-menus">Context Menus</a></li>
       </ul>
     </nav>
   </section>
@@ -139,72 +151,27 @@
   <section id="specialized-inputs">
     <h2>Specialized Input Widgets (HTML5)</h2>
     <form>
-      <div>
-        <label for="color">Color Picker</label>
-        <input type="color" id="color" />
-      </div>
-      <div>
-        <label for="date">Date Picker</label>
-        <input type="date" id="date" />
-      </div>
-      <div>
-        <label for="datetime">Datetime Local Picker</label>
-        <input type="datetime-local" id="datetime" />
-      </div>
-      <div>
-        <label for="email">Email Field</label>
-        <input type="email" id="email" />
-      </div>
-      <div>
-        <label for="month">Month Picker</label>
-        <input type="month" id="month" />
-      </div>
-      <div>
-        <label for="number">Number Field</label>
-        <input type="number" id="number" min="0" max="100" />
-      </div>
-      <div>
-        <label for="range">Range Slider</label>
-        <input type="range" id="range" min="0" max="100" />
-      </div>
-      <div>
-        <label for="search">Search Field</label>
-        <input type="search" id="search" />
-      </div>
-      <div>
-        <label for="tel">Telephone Field</label>
-        <input type="tel" id="tel" />
-      </div>
-      <div>
-        <label for="time">Time Picker</label>
-        <input type="time" id="time" />
-      </div>
-      <div>
-        <label for="url">URL Field</label>
-        <input type="url" id="url" />
-      </div>
-      <div>
-        <label for="week">Week Picker</label>
-        <input type="week" id="week" />
-      </div>
+      <div><label for="color">Color Picker</label><input type="color" id="color" /></div>
+      <div><label for="date">Date Picker</label><input type="date" id="date" /></div>
+      <div><label for="datetime">Datetime Local Picker</label><input type="datetime-local" id="datetime" /></div>
+      <div><label for="email">Email Field</label><input type="email" id="email" /></div>
+      <div><label for="month">Month Picker</label><input type="month" id="month" /></div>
+      <div><label for="number">Number Field</label><input type="number" id="number" min="0" max="100" /></div>
+      <div><label for="range">Range Slider</label><input type="range" id="range" min="0" max="100" /></div>
+      <div><label for="search">Search Field</label><input type="search" id="search" /></div>
+      <div><label for="tel">Telephone Field</label><input type="tel" id="tel" /></div>
+      <div><label for="time">Time Picker</label><input type="time" id="time" /></div>
+      <div><label for="url">URL Field</label><input type="url" id="url" /></div>
+      <div><label for="week">Week Picker</label><input type="week" id="week" /></div>
     </form>
   </section>
 
   <section id="text-fields">
     <h2>Text Fields</h2>
     <form>
-      <div>
-        <label for="text">Text Field</label>
-        <input type="text" id="text" />
-      </div>
-      <div>
-        <label for="password">Password Field</label>
-        <input type="password" id="password" />
-      </div>
-      <div>
-        <label for="textarea">Textarea</label>
-        <textarea id="textarea" rows="4"></textarea>
-      </div>
+      <div><label for="text">Text Field</label><input type="text" id="text" /></div>
+      <div><label for="password">Password Field</label><input type="password" id="password" /></div>
+      <div><label for="textarea">Textarea</label><textarea id="textarea" rows="4"></textarea></div>
     </form>
   </section>
 
@@ -214,29 +181,24 @@
       <div>
         <label for="select">Dropdown Select</label>
         <select id="select">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
+          <option>Option 1</option><option>Option 2</option><option>Option 3</option>
         </select>
       </div>
       <div>
         <label>Radio Buttons</label>
-        <label><input type="radio" name="radio-group" value="1" /> Option 1</label><br />
+        <label><input type="radio" name="radio-group" value="1" /> Option 1</label><br/>
         <label><input type="radio" name="radio-group" value="2" /> Option 2</label>
       </div>
       <div>
         <label>Checkboxes</label>
-        <label><input type="checkbox" /> Option A</label><br />
+        <label><input type="checkbox" /> Option A</label><br/>
         <label><input type="checkbox" /> Option B</label>
       </div>
       <div>
         <label for="datalist">Datalist</label>
         <input list="options" id="datalist" />
         <datalist id="options">
-          <option value="Apple" />
-          <option value="Banana" />
-          <option value="Cherry" />
-          <option value="Date" />
+          <option value="Apple"/><option value="Banana"/><option value="Cherry"/><option value="Date"/>
         </datalist>
       </div>
     </form>
@@ -245,48 +207,84 @@
   <section id="other-widgets">
     <h2>Other Standard Widgets</h2>
     <form>
-      <div>
-        <label for="file">File Upload</label>
-        <input type="file" id="file" />
-      </div>
-      <div>
-        <label for="hidden">Hidden Field</label>
-        <input type="hidden" id="hidden" value="secret" />
-        <p>(Not visible to user)</p>
-      </div>
-      <div>
-        <label for="image-button">Image Button</label><br />
-        <input type="image" src="https://via.placeholder.com/100x30?text=Click" alt="Submit Image" />
-      </div>
-      <div>
-        <label>Submit Button</label>
-        <input type="submit" value="Submit" />
-      </div>
-      <div>
-        <label>Reset Button</label>
-        <input type="reset" value="Reset" />
-      </div>
-      <div>
-        <label>Generic Button</label>
-        <button type="button" onclick="alert('Button clicked!')">Click Me</button>
-      </div>
+      <div><label for="file">File Upload</label><input type="file" id="file" /></div>
+      <div><label for="hidden">Hidden Field</label><input type="hidden" id="hidden" value="secret" /><p>(Not visible)</p></div>
+      <div><label for="image-button">Image Button</label><input type="image" src="https://via.placeholder.com/100x30?text=Click" alt="Submit Image" /></div>
+      <div><label>Submit Button</label><input type="submit" value="Submit" /></div>
+      <div><label>Reset Button</label><input type="reset" value="Reset" /></div>
+      <div><label>Generic Button</label><button type="button" onclick="alert('Button clicked!')">Click Me</button></div>
     </form>
   </section>
 
+  <!-- New sections start here -->
+  <section id="meta">
+    <h2>Dynamic Title Test</h2>
+    <p>This test checks if the <code>&lt;title&gt;</code> element propagates to the native OS window or tab label.</p>
+    <button id="update-title-btn" type="button">🔁 Update Title</button>
+    <p id="title-status" style="margin-top:0.5rem;color:#007aff;font-weight:500;"></p>
+  </section>
+
+  <section id="file-inputs">
+    <h2>File and Image Inputs</h2>
+    <form>
+      <div><label for="file">File Picker</label><input type="file" id="file" /></div>
+      <div><label for="file-multiple">Multiple File Picker</label><input type="file" id="file-multiple" multiple /></div>
+      <div><label for="camera">Capture (Camera Input)</label><input type="file" id="camera" accept="image/*" capture="environment" /></div>
+      <div><label for="image-button">Image Button</label><input type="image" src="https://via.placeholder.com/100x40?text=Submit" alt="Submit Button" /></div>
+    </form>
+  </section>
+
+  <section id="media">
+    <h2>Media Elements with Context Menu</h2>
+    <p>Right-click or long-press to check if native context menus appear for video/audio elements.</p>
+    <video controls width="320"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video>
+    <audio controls><source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"></audio>
+  </section>
+
+  <section id="context-menus">
+    <h2>Context Menu Tests</h2>
+    <div class="unsupported">
+      <p><strong>Try long-pressing or right-clicking on these elements:</strong></p>
+      <ul>
+        <li><a href="https://example.com" target="_blank">A link element</a></li>
+        <li><img src="https://via.placeholder.com/150" alt="Test Image" /></li>
+        <li><span>Select this text to test text-selection context menu.</span></li>
+      </ul>
+      <p class="note">Expected: OS-level or custom JS-based context menus appear.</p>
+    </div>
+  </section>
+
   <footer>
-    <p>End of Widget Showcase</p>
+    <p>End of Widget Showcase — includes extended tests for dropdowns, pickers, file inputs, and context menus.</p>
   </footer>
 
   <script>
-    // Smooth scrolling for TOC links
+    // Smooth scrolling for TOC
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
+      anchor.addEventListener("click", e => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
+        const target = document.querySelector(anchor.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
       });
+    });
+
+    // Title update logic
+    const btn = document.getElementById('update-title-btn');
+    const status = document.getElementById('title-status');
+    if (btn) {
+      const updateTitle = () => {
+        const newTitle = 'Title Updated: ' + new Date().toLocaleTimeString();
+        document.title = newTitle;
+        status.textContent = '✅ Title changed to: "' + newTitle + '"';
+        console.log('[Title Update]', newTitle);
+      };
+      btn.addEventListener('click', updateTitle);
+      btn.addEventListener('pointerup', updateTitle);
+    }
+
+    // Context menu logger
+    document.addEventListener('contextmenu', e => {
+      console.log('Context menu triggered on:', e.target.tagName);
     });
   </script>
 </body>
