@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo — Persistence, Tables, & Permissions</title>
+    <style>
+      /* Inherit/echo the style language of the provided page */
+      :root {
+        --bg1: #f9f9f9;
+        --bg2: #e0e0e0;
+        --card: #ffffff;
+        --ink: #1c1c1e;
+        --brand: #007aff;
+        --muted: #888;
+        --border: #e6e6ef;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 2rem 1rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+      h1 {
+        margin: 0.2rem 0;
+        font-size: 2.1rem;
+      }
+      .sub {
+        color: var(--muted);
+      }
+      main {
+        padding: 0 1rem 3rem;
+      }
+      section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 1000px;
+        background: var(--card);
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 0.5rem;
+        margin: 0 0 1rem;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      nav li {
+        background: #f0f0f5;
+        padding: 0.5rem 0.8rem;
+        border-radius: 8px;
+      }
+      nav a {
+        color: var(--brand);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      input,
+      button,
+      select {
+        width: 100%;
+        padding: 0.6rem 0.7rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background: #f9f9f9;
+        font-size: 1rem;
+      }
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--brand);
+        background: #fff;
+      }
+      button {
+        cursor: pointer;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        font-weight: 600;
+      }
+      button.ghost {
+        background: #f0f0f5;
+        color: #111;
+        border: 1px solid #ddd;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+      }
+      .row {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .row > * {
+        flex: 1;
+      }
+
+      .title {
+        margin: 0.75rem 0 0;
+        font-weight: 700;
+        color: #0f5132;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 0.65rem 0.8rem;
+        border: 1px solid var(--border);
+        text-align: left;
+      }
+      th {
+        background: #f6f7fb;
+        position: sticky;
+        top: 0;
+      }
+      tbody tr:nth-child(odd) {
+        background: #fbfbfe;
+      }
+      .tbl-wrap {
+        overflow: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .sort {
+        cursor: pointer;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        border: 1px solid var(--border);
+      }
+      .ok {
+        background: #eaffea;
+        border-color: #b6e3b6;
+      }
+      .warn {
+        background: #fff7e6;
+        border-color: #ffe1a6;
+      }
+      .bad {
+        background: #ffeaea;
+        border-color: #f2b8b8;
+      }
+      .pill {
+        font-weight: 700;
+        color: #0a662e;
+      }
+
+      iframe {
+        width: 100%;
+        height: 540px;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Persistence, Tables & Permissions</h1>
+      <p class="sub">
+        Login sections with independent persistence (Cookies / Cache / Data),
+        table examples, weekly perks, and permission requests.
+      </p>
+    </header>
+    <main>
+      <section id="toc">
+        <h2>Table of Contents</h2>
+        <nav>
+          <ul>
+            <li><a href="#login">Login & GUID (3 ways)</a></li>
+            <li><a href="#tables">Table Examples</a></li>
+            <li><a href="#perks">Weekly Perks Table</a></li>
+            <li><a href="#permissions">Permissions & Indicators</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- LOGIN & PERSISTENCE -->
+      <section id="login">
+        <h2>Username / Password + Random GUID (Persists per Section)</h2>
+        <p class="note">
+          Each card is standalone and uses a different persistence mechanism. On
+          submit, a title with a random GUID appears and persists.
+        </p>
+        <div class="grid grid-3">
+          <!-- Cookies -->
+          <div class="card" id="cookies-card">
+            <h3>Cookies</h3>
+            <form id="cookies-form">
+              <label for="cookies-username">Username</label>
+              <input id="cookies-username" autocomplete="username" />
+              <label for="cookies-password">Password</label>
+              <input
+                id="cookies-password"
+                type="password"
+                autocomplete="current-password"
+              />
+              <button type="submit" style="margin-top: 0.75rem">Submit</button>
+            </form>
+            <p class="title" id="cookies-title"></p>
+            <p class="note">Stored as a cookie (<code>guid-cookie</code>).</p>
+          </div>
+
+          <!-- Cache Storage API -->
+          <div class="card" id="cache-card">
+            <h3>Cache</h3>
+            <form id="cache-form">
+              <label for="cache-username">Username</label>
+              <input id="cache-username" autocomplete="username" />
+              <label for="cache-password">Password</label>
+              <input
+                id="cache-password"
+                type="password"
+                autocomplete="current-password"
+              />
+              <button type="submit" style="margin-top: 0.75rem">Submit</button>
+            </form>
+            <p class="title" id="cache-title"></p>
+            <p class="note">
+              Stored via <code>caches.put()</code> in a named Cache entry.
+            </p>
+          </div>
+
+          <!-- Local Data (localStorage) -->
+          <div class="card" id="data-card">
+            <h3>Data</h3>
+            <form id="data-form">
+              <label for="data-username">Username</label>
+              <input id="data-username" autocomplete="username" />
+              <label for="data-password">Password</label>
+              <input
+                id="data-password"
+                type="password"
+                autocomplete="current-password"
+              />
+              <button type="submit" style="margin-top: 0.75rem">Submit</button>
+            </form>
+            <p class="title" id="data-title"></p>
+            <p class="note">
+              Stored in <code>localStorage</code> under <code>guid-data</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABLE EXAMPLES -->
+      <section id="tables">
+        <h2>Table Examples</h2>
+        <div class="tbl-wrap" style="margin-bottom: 1rem">
+          <table id="basic-table">
+            <thead>
+              <tr>
+                <th class="sort" data-key="name">Name</th>
+                <th class="sort" data-key="role">Role</th>
+                <th class="sort" data-key="points" data-type="number">
+                  Points
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Feature</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Sticky header</td>
+                <td>
+                  <span class="status ok"><span>●</span>Enabled</span>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Zebra rows</td>
+                <td>
+                  <span class="status ok"><span>●</span>Enabled</span>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sorting</td>
+                <td>
+                  <span class="status warn"><span>●</span>Click headers</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- WEEKLY PERKS -->
+      <section id="perks">
+        <h2>Weekly Perks Table</h2>
+        <p class="note">
+          Embedded from <code>weekly_perks_table.html</code> to keep
+          source-of-truth formatting.
+        </p>
+        <iframe src="weekly_perks_table.html" title="Weekly Perks"></iframe>
+      </section>
+
+      <!-- WEEKLY PERKS (SOURCE CODE INJECTED) -->
+      <section id="perks-direct">
+        <h2>Weekly Perks Table (Direct Source)</h2>
+        <p class="note">
+          Injected directly from <code>weekly_perks_table.html</code> with
+          original styling preserved.
+        </p>
+        <style>
+          #perks-direct .perks-table-container {
+            background: #f5f5f5;
+            padding: 0;
+            margin: 0 -1.5rem;
+          }
+          #perks-direct .perks-table {
+            border-collapse: collapse;
+            width: auto;
+            background-color: #ffffff;
+            margin: 30px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+          }
+          #perks-direct .perks-table th,
+          #perks-direct .perks-table td {
+            padding: 14px 18px;
+            text-align: center;
+            border: 1px solid #e9eaee;
+          }
+          #perks-direct .perks-table th {
+            background-color: #ff884e;
+            color: white;
+            font-weight: bold;
+          }
+          #perks-direct .perks-table td strong {
+            color: #1a1a1a;
+            display: block;
+            font-weight: 700;
+            margin-bottom: 2px;
+          }
+          #perks-direct .perks-table td {
+            color: #1a1a1a;
+            font-size: 15px;
+          }
+        </style>
+        <div class="perks-table-container">
+          <table class="perks-table">
+            <tbody>
+              <tr>
+                <th>Weekly Perks</th>
+                <th>Bronze</th>
+                <th>Silver</th>
+                <th>Gold</th>
+                <th>Diamond</th>
+                <th>Red</th>
+                <th>Black</th>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP 3x EXP Coupon (30 min)</strong>(Tradable within
+                  world, 30-day duration)
+                </td>
+                <td>x3</td>
+                <td>x5</td>
+                <td>x7</td>
+                <td>x10</td>
+                <td>x10</td>
+                <td>x10</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP 50% Bonus EXP Coupon</strong>(Tradable, 30-day
+                  duration)
+                </td>
+                <td>x3</td>
+                <td>x5</td>
+                <td>x7</td>
+                <td>x10</td>
+                <td>x10</td>
+                <td>x10</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP Superpower Buff</strong>(Tradable within world,
+                  30-day duration)
+                </td>
+                <td>x3</td>
+                <td>x5</td>
+                <td>x7</td>
+                <td>x10</td>
+                <td>x14</td>
+                <td>x14</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP 4x EXP Coupon (30 min)</strong>(Tradable within
+                  world, 30-day duration)
+                </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>x14</td>
+                <td>x14</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP 70% Bonus EXP Coupon</strong>(Tradable, 30-day
+                  duration)
+                </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>x14</td>
+                <td>x14</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>MVP 70% Bonus EXP Coupon Atmospheric Effect</strong
+                  >(Untradable, 30-day duration)
+                </td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>x10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PERMISSIONS -->
+      <section id="permissions">
+        <h2>Permission Requests & Indicators</h2>
+        <div class="grid grid-3">
+          <!-- Geolocation -->
+          <div class="card">
+            <h3>Geolocation</h3>
+            <div class="row">
+              <button id="geo-check" class="ghost">Check Status</button
+              ><button id="geo-request">Request</button>
+            </div>
+            <p class="title" id="geo-status">
+              Status: <span class="status" id="geo-chip">Unknown</span>
+            </p>
+            <p class="note" id="geo-note"></p>
+          </div>
+          <!-- Notifications -->
+          <div class="card">
+            <h3>Notifications</h3>
+            <div class="row">
+              <button id="noti-check" class="ghost">Check Status</button
+              ><button id="noti-request">Request</button>
+            </div>
+            <p class="title" id="noti-status">
+              Status: <span class="status" id="noti-chip">Unknown</span>
+            </p>
+            <p class="note">
+              If denied at the browser level, re-enabling requires site
+              settings.
+            </p>
+          </div>
+          <!-- Clipboard Read -->
+          <div class="card">
+            <h3>Clipboard Read</h3>
+            <div class="row">
+              <button id="clip-check" class="ghost">Check Status</button
+              ><button id="clip-request">Request</button>
+            </div>
+            <p class="title" id="clip-status">
+              Status: <span class="status" id="clip-chip">Unknown</span>
+            </p>
+            <p class="note" id="clip-note"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Smooth scrolling for TOC
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault()
+          const t = document.querySelector(a.getAttribute("href"))
+          if (t) t.scrollIntoView({ behavior: "smooth" })
+        })
+      })
+
+      // Utility: GUID
+      function newGUID() {
+        if (window.crypto?.randomUUID) return crypto.randomUUID()
+        // Fallback
+        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+          const r = (Math.random() * 16) | 0,
+            v = c === "x" ? r : (r & 0x3) | 0x8
+          return v.toString(16)
+        })
+      }
+
+      // --- Cookies Section ---
+      const cookiesKey = "guid-cookie"
+      const cookiesTitle = document.getElementById("cookies-title")
+      function setCookie(name, value, days = 365) {
+        const d = new Date()
+        d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000)
+        document.cookie = `${name}=${encodeURIComponent(
+          value
+        )}; expires=${d.toUTCString()}; path=/`
+      }
+      function getCookie(name) {
+        return document.cookie.split("; ").reduce((acc, cur) => {
+          const [k, v] = cur.split("=")
+          if (k === name) acc = decodeURIComponent(v)
+          return acc
+        }, "")
+      }
+      document
+        .getElementById("cookies-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault()
+          const guid = newGUID()
+          setCookie(cookiesKey, guid)
+          cookiesTitle.textContent = `✅ GUID (Cookies): ${guid}`
+          document.title = `Cookies GUID: ${guid}`
+        })
+      // Load existing cookie
+      ;(function () {
+        const existing = getCookie(cookiesKey)
+        if (existing)
+          cookiesTitle.textContent = `✅ GUID (Cookies): ${existing}`
+      })()
+
+      // --- Cache Storage Section ---
+      const cacheName = "guid-cache-v1"
+      const cacheKey = new Request("/__guid__/cache")
+      const cacheTitle = document.getElementById("cache-title")
+      document
+        .getElementById("cache-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault()
+          const guid = newGUID()
+          if ("caches" in window) {
+            const c = await caches.open(cacheName)
+            await c.put(
+              cacheKey,
+              new Response(guid, { headers: { "Content-Type": "text/plain" } })
+            )
+            cacheTitle.textContent = `✅ GUID (Cache): ${guid}`
+            document.title = `Cache GUID: ${guid}`
+          } else {
+            cacheTitle.textContent =
+              "❌ Cache API not supported in this browser."
+          }
+        })
+      ;(async function () {
+        try {
+          if ("caches" in window) {
+            const c = await caches.open(cacheName)
+            const match = await c.match(cacheKey)
+            if (match) {
+              const guid = await match.text()
+              cacheTitle.textContent = `✅ GUID (Cache): ${guid}`
+            }
+          }
+        } catch (err) {
+          console.warn("Cache load error", err)
+        }
+      })()
+
+      // --- Data (localStorage) Section ---
+      const dataKey = "guid-data"
+      const dataTitle = document.getElementById("data-title")
+      document.getElementById("data-form").addEventListener("submit", (e) => {
+        e.preventDefault()
+        try {
+          const guid = newGUID()
+          localStorage.setItem(dataKey, guid)
+          dataTitle.textContent = `✅ GUID (Data): ${guid}`
+          document.title = `Data GUID: ${guid}`
+        } catch (err) {
+          dataTitle.textContent =
+            "❌ localStorage is unavailable (possibly blocked)."
+        }
+      })
+      ;(function () {
+        try {
+          const existing = localStorage.getItem(dataKey)
+          if (existing) dataTitle.textContent = `✅ GUID (Data): ${existing}`
+        } catch (err) {
+          /* ignore */
+        }
+      })()
+
+      // --- Table Examples (basic sortable) ---
+      const people = [
+        { name: "Alex", role: "Admin", points: 128 },
+        { name: "Brooke", role: "Editor", points: 86 },
+        { name: "Casey", role: "Viewer", points: 42 },
+        { name: "Devon", role: "Editor", points: 91 },
+        { name: "Elliot", role: "Admin", points: 155 },
+      ]
+      const tbody = document.querySelector("#basic-table tbody")
+      function render(rows) {
+        tbody.innerHTML = rows
+          .map(
+            (r) =>
+              `<tr><td>${r.name}</td><td>${r.role}</td><td>${r.points}</td></tr>`
+          )
+          .join("")
+      }
+      render(people)
+      const headers = document.querySelectorAll("#basic-table th.sort")
+      let sortState = { key: "", dir: 1 }
+      headers.forEach((h) =>
+        h.addEventListener("click", () => {
+          const key = h.dataset.key
+          const type = h.dataset.type || "string"
+          sortState.dir = sortState.key === key ? -sortState.dir : 1
+          sortState.key = key
+          const sorted = [...people].sort((a, b) => {
+            const A = a[key],
+              B = b[key]
+            if (type === "number") return (A - B) * sortState.dir
+            return String(A).localeCompare(String(B)) * sortState.dir
+          })
+          render(sorted)
+        })
+      )
+
+      // --- Permissions ---
+      function setChip(el, state) {
+        el.className = "status"
+        if (state === "granted") el.classList.add("ok")
+        else if (state === "denied") el.classList.add("bad")
+        else el.classList.add("warn")
+        el.textContent = state.charAt(0).toUpperCase() + state.slice(1)
+      }
+
+      // Geolocation
+      async function checkGeo() {
+        try {
+          if (!navigator.permissions)
+            throw new Error("Permissions API unsupported")
+          const p = await navigator.permissions.query({ name: "geolocation" })
+          setChip(document.getElementById("geo-chip"), p.state)
+        } catch (e) {
+          document.getElementById("geo-chip").textContent = "Unavailable"
+        }
+      }
+      document.getElementById("geo-check").addEventListener("click", checkGeo)
+      document.getElementById("geo-request").addEventListener("click", () => {
+        if (!navigator.geolocation)
+          return (document.getElementById("geo-note").textContent =
+            "Geolocation not supported.")
+        navigator.geolocation.getCurrentPosition(
+          () => {
+            setChip(document.getElementById("geo-chip"), "granted")
+            document.getElementById("geo-note").textContent =
+              "Location acquired."
+          },
+          (err) => {
+            setChip(document.getElementById("geo-chip"), "denied")
+            document.getElementById("geo-note").textContent = err.message
+          }
+        )
+      })
+
+      // Notifications
+      async function checkNoti() {
+        const state =
+          typeof Notification === "undefined"
+            ? "unavailable"
+            : Notification.permission
+        const chip = document.getElementById("noti-chip")
+        if (state === "granted" || state === "denied" || state === "default")
+          setChip(chip, state === "default" ? "prompt" : state)
+        else chip.textContent = "Unavailable"
+      }
+      document.getElementById("noti-check").addEventListener("click", checkNoti)
+      document
+        .getElementById("noti-request")
+        .addEventListener("click", async () => {
+          if (typeof Notification === "undefined") return
+          const res = await Notification.requestPermission()
+          setChip(
+            document.getElementById("noti-chip"),
+            res === "default" ? "prompt" : res
+          )
+        })
+
+      // Clipboard Read
+      async function checkClip() {
+        try {
+          if (!navigator.permissions)
+            throw new Error("Permissions API unsupported")
+          const p = await navigator.permissions.query({
+            name: "clipboard-read",
+          })
+          setChip(document.getElementById("clip-chip"), p.state)
+        } catch (e) {
+          document.getElementById("clip-chip").textContent = "Unavailable"
+        }
+      }
+      document.getElementById("clip-check").addEventListener("click", checkClip)
+      document
+        .getElementById("clip-request")
+        .addEventListener("click", async () => {
+          try {
+            const txt = await navigator.clipboard.readText()
+            setChip(document.getElementById("clip-chip"), "granted")
+            document.getElementById("clip-note").textContent = txt
+              ? `Read: "${txt.slice(0, 50)}"`
+              : "Clipboard empty or unreadable."
+          } catch (e) {
+            setChip(document.getElementById("clip-chip"), "denied")
+            document.getElementById("clip-note").textContent = e.message
+          }
+        })
+
+      // Initial permission chips where possible
+      checkGeo()
+      checkNoti()
+      checkClip()
+    </script>
+  </body>
+</html>
