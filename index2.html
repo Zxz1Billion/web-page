@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo — Persistence, Tables, & Permissions</title>
     <style>
-      /* Inherit/echo the style language of the provided page */
       :root {
         --bg1: #f9f9f9;
         --bg2: #e0e0e0;
@@ -49,7 +48,7 @@
       section {
         padding: 1.5rem;
         margin: 1rem auto;
-        max-width: 1000px;
+        max-width: 1100px;
         background: var(--card);
         border-radius: 12px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -191,17 +190,49 @@
         background: #ffeaea;
         border-color: #f2b8b8;
       }
-      .pill {
-        font-weight: 700;
-        color: #0a662e;
+      .neutral {
+        background: #f3f4f6;
+        border-color: #d8dce3;
       }
 
-      iframe {
-        width: 100%;
-        height: 540px;
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      .permission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .permission-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+      }
+
+      .meta {
+        margin-top: 0.65rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .demo-area {
+        margin-top: 0.75rem;
+        min-height: 90px;
+        border: 1px dashed #cfd5df;
+        border-radius: 10px;
+        padding: 0.9rem;
+        background: #fafbfc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        user-select: none;
+      }
+
+      .demo-area.locked {
+        background: #eef6ff;
+        border-color: #9ac5ff;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       }
     </style>
   </head>
@@ -209,10 +240,11 @@
     <header>
       <h1>Persistence, Tables & Permissions</h1>
       <p class="sub">
-        Login sections with independent persistence (Cookies / Cache / Data),
-        table examples, weekly perks, and permission requests.
+        Login sections with independent persistence, table examples, and expanded
+        permission/capability requests.
       </p>
     </header>
+
     <main>
       <section id="toc">
         <h2>Table of Contents</h2>
@@ -220,13 +252,11 @@
           <ul>
             <li><a href="#login">Login & GUID (3 ways)</a></li>
             <li><a href="#tables">Table Examples</a></li>
-            <li><a href="#perks">Weekly Perks Table</a></li>
             <li><a href="#permissions">Permissions & Indicators</a></li>
           </ul>
         </nav>
       </section>
 
-      <!-- LOGIN & PERSISTENCE -->
       <section id="login">
         <h2>Username / Password + Random GUID (Persists per Section)</h2>
         <p class="note">
@@ -234,7 +264,6 @@
           submit, a title with a random GUID appears and persists.
         </p>
         <div class="grid grid-3">
-          <!-- Cookies -->
           <div class="card" id="cookies-card">
             <h3>Cookies</h3>
             <form id="cookies-form">
@@ -252,7 +281,6 @@
             <p class="note">Stored as a cookie (<code>guid-cookie</code>).</p>
           </div>
 
-          <!-- Cache Storage API -->
           <div class="card" id="cache-card">
             <h3>Cache</h3>
             <form id="cache-form">
@@ -272,7 +300,6 @@
             </p>
           </div>
 
-          <!-- Local Data (localStorage) -->
           <div class="card" id="data-card">
             <h3>Data</h3>
             <form id="data-form">
@@ -294,7 +321,6 @@
         </div>
       </section>
 
-      <!-- TABLE EXAMPLES -->
       <section id="tables">
         <h2>Table Examples</h2>
         <div class="tbl-wrap" style="margin-bottom: 1rem">
@@ -347,198 +373,28 @@
         </div>
       </section>
 
-      <!-- WEEKLY PERKS -->
-      <section id="perks">
-        <h2>Weekly Perks Table</h2>
-        <p class="note">
-          Embedded from <code>weekly_perks_table.html</code> to keep
-          source-of-truth formatting.
-        </p>
-        <iframe src="weekly_perks_table.html" title="Weekly Perks"></iframe>
-      </section>
-
-      <!-- WEEKLY PERKS (SOURCE CODE INJECTED) -->
-      <section id="perks-direct">
-        <h2>Weekly Perks Table (Direct Source)</h2>
-        <p class="note">
-          Injected directly from <code>weekly_perks_table.html</code> with
-          original styling preserved.
-        </p>
-        <style>
-          #perks-direct .perks-table-container {
-            background: #f5f5f5;
-            padding: 0;
-            margin: 0 -1.5rem;
-          }
-          #perks-direct .perks-table {
-            border-collapse: collapse;
-            width: auto;
-            background-color: #ffffff;
-            margin: 30px auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-          }
-          #perks-direct .perks-table th,
-          #perks-direct .perks-table td {
-            padding: 14px 18px;
-            text-align: center;
-            border: 1px solid #e9eaee;
-          }
-          #perks-direct .perks-table th {
-            background-color: #ff884e;
-            color: white;
-            font-weight: bold;
-          }
-          #perks-direct .perks-table td strong {
-            color: #1a1a1a;
-            display: block;
-            font-weight: 700;
-            margin-bottom: 2px;
-          }
-          #perks-direct .perks-table td {
-            color: #1a1a1a;
-            font-size: 15px;
-          }
-        </style>
-        <div class="perks-table-container">
-          <table class="perks-table">
-            <tbody>
-              <tr>
-                <th>Weekly Perks</th>
-                <th>Bronze</th>
-                <th>Silver</th>
-                <th>Gold</th>
-                <th>Diamond</th>
-                <th>Red</th>
-                <th>Black</th>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP 3x EXP Coupon (30 min)</strong>(Tradable within
-                  world, 30-day duration)
-                </td>
-                <td>x3</td>
-                <td>x5</td>
-                <td>x7</td>
-                <td>x10</td>
-                <td>x10</td>
-                <td>x10</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP 50% Bonus EXP Coupon</strong>(Tradable, 30-day
-                  duration)
-                </td>
-                <td>x3</td>
-                <td>x5</td>
-                <td>x7</td>
-                <td>x10</td>
-                <td>x10</td>
-                <td>x10</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP Superpower Buff</strong>(Tradable within world,
-                  30-day duration)
-                </td>
-                <td>x3</td>
-                <td>x5</td>
-                <td>x7</td>
-                <td>x10</td>
-                <td>x14</td>
-                <td>x14</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP 4x EXP Coupon (30 min)</strong>(Tradable within
-                  world, 30-day duration)
-                </td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>x14</td>
-                <td>x14</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP 70% Bonus EXP Coupon</strong>(Tradable, 30-day
-                  duration)
-                </td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>x14</td>
-                <td>x14</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>MVP 70% Bonus EXP Coupon Atmospheric Effect</strong
-                  >(Untradable, 30-day duration)
-                </td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>x10</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- PERMISSIONS -->
       <section id="permissions">
         <h2>Permission Requests & Indicators</h2>
-        <div class="grid grid-3">
-          <!-- Geolocation -->
-          <div class="card">
-            <h3>Geolocation</h3>
-            <div class="row">
-              <button id="geo-check" class="ghost">Check Status</button
-              ><button id="geo-request">Request</button>
-            </div>
-            <p class="title" id="geo-status">
-              Status: <span class="status" id="geo-chip">Unknown</span>
-            </p>
-            <p class="note" id="geo-note"></p>
-          </div>
-          <!-- Notifications -->
-          <div class="card">
-            <h3>Notifications</h3>
-            <div class="row">
-              <button id="noti-check" class="ghost">Check Status</button
-              ><button id="noti-request">Request</button>
-            </div>
-            <p class="title" id="noti-status">
-              Status: <span class="status" id="noti-chip">Unknown</span>
-            </p>
-            <p class="note">
-              If denied at the browser level, re-enabling requires site
-              settings.
-            </p>
-          </div>
-          <!-- Clipboard Read -->
-          <div class="card">
-            <h3>Clipboard Read</h3>
-            <div class="row">
-              <button id="clip-check" class="ghost">Check Status</button
-              ><button id="clip-request">Request</button>
-            </div>
-            <p class="title" id="clip-status">
-              Status: <span class="status" id="clip-chip">Unknown</span>
-            </p>
-            <p class="note" id="clip-note"></p>
+        <p class="note">
+          Some browser features expose a real permission state, while others only
+          allow capability checks or request-at-use-time flows.
+        </p>
+
+        <div id="permission-grid" class="permission-grid"></div>
+
+        <div class="card" style="margin-top: 1rem">
+          <h3>Pointer Lock Demo Area</h3>
+          <p class="note">
+            Click the box, then use the Request button on the Pointer Lock card.
+          </p>
+          <div id="pointer-lock-target" class="demo-area" tabindex="0">
+            Click here first, then request pointer lock.
           </div>
         </div>
       </section>
     </main>
 
     <script>
-      // Smooth scrolling for TOC
       document.querySelectorAll('a[href^="#"]').forEach((a) => {
         a.addEventListener("click", (e) => {
           e.preventDefault()
@@ -547,20 +403,18 @@
         })
       })
 
-      // Utility: GUID
       function newGUID() {
         if (window.crypto?.randomUUID) return crypto.randomUUID()
-        // Fallback
         return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-          const r = (Math.random() * 16) | 0,
-            v = c === "x" ? r : (r & 0x3) | 0x8
+          const r = (Math.random() * 16) | 0
+          const v = c === "x" ? r : (r & 0x3) | 0x8
           return v.toString(16)
         })
       }
 
-      // --- Cookies Section ---
       const cookiesKey = "guid-cookie"
       const cookiesTitle = document.getElementById("cookies-title")
+
       function setCookie(name, value, days = 365) {
         const d = new Date()
         d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000)
@@ -568,6 +422,7 @@
           value
         )}; expires=${d.toUTCString()}; path=/`
       }
+
       function getCookie(name) {
         return document.cookie.split("; ").reduce((acc, cur) => {
           const [k, v] = cur.split("=")
@@ -575,6 +430,7 @@
           return acc
         }, "")
       }
+
       document
         .getElementById("cookies-form")
         .addEventListener("submit", (e) => {
@@ -584,17 +440,16 @@
           cookiesTitle.textContent = `✅ GUID (Cookies): ${guid}`
           document.title = `Cookies GUID: ${guid}`
         })
-      // Load existing cookie
-      ;(function () {
+
+      ;(() => {
         const existing = getCookie(cookiesKey)
-        if (existing)
-          cookiesTitle.textContent = `✅ GUID (Cookies): ${existing}`
+        if (existing) cookiesTitle.textContent = `✅ GUID (Cookies): ${existing}`
       })()
 
-      // --- Cache Storage Section ---
       const cacheName = "guid-cache-v1"
       const cacheKey = new Request("/__guid__/cache")
       const cacheTitle = document.getElementById("cache-title")
+
       document
         .getElementById("cache-form")
         .addEventListener("submit", async (e) => {
@@ -604,7 +459,9 @@
             const c = await caches.open(cacheName)
             await c.put(
               cacheKey,
-              new Response(guid, { headers: { "Content-Type": "text/plain" } })
+              new Response(guid, {
+                headers: { "Content-Type": "text/plain" },
+              })
             )
             cacheTitle.textContent = `✅ GUID (Cache): ${guid}`
             document.title = `Cache GUID: ${guid}`
@@ -613,7 +470,8 @@
               "❌ Cache API not supported in this browser."
           }
         })
-      ;(async function () {
+
+      ;(async () => {
         try {
           if ("caches" in window) {
             const c = await caches.open(cacheName)
@@ -628,9 +486,9 @@
         }
       })()
 
-      // --- Data (localStorage) Section ---
       const dataKey = "guid-data"
       const dataTitle = document.getElementById("data-title")
+
       document.getElementById("data-form").addEventListener("submit", (e) => {
         e.preventDefault()
         try {
@@ -643,16 +501,14 @@
             "❌ localStorage is unavailable (possibly blocked)."
         }
       })
-      ;(function () {
+
+      ;(() => {
         try {
           const existing = localStorage.getItem(dataKey)
           if (existing) dataTitle.textContent = `✅ GUID (Data): ${existing}`
-        } catch (err) {
-          /* ignore */
-        }
+        } catch (err) {}
       })()
 
-      // --- Table Examples (basic sortable) ---
       const people = [
         { name: "Alex", role: "Admin", points: 128 },
         { name: "Brooke", role: "Editor", points: 86 },
@@ -660,7 +516,9 @@
         { name: "Devon", role: "Editor", points: 91 },
         { name: "Elliot", role: "Admin", points: 155 },
       ]
+
       const tbody = document.querySelector("#basic-table tbody")
+
       function render(rows) {
         tbody.innerHTML = rows
           .map(
@@ -669,9 +527,12 @@
           )
           .join("")
       }
+
       render(people)
+
       const headers = document.querySelectorAll("#basic-table th.sort")
       let sortState = { key: "", dir: 1 }
+
       headers.forEach((h) =>
         h.addEventListener("click", () => {
           const key = h.dataset.key
@@ -679,8 +540,8 @@
           sortState.dir = sortState.key === key ? -sortState.dir : 1
           sortState.key = key
           const sorted = [...people].sort((a, b) => {
-            const A = a[key],
-              B = b[key]
+            const A = a[key]
+            const B = b[key]
             if (type === "number") return (A - B) * sortState.dir
             return String(A).localeCompare(String(B)) * sortState.dir
           })
@@ -688,100 +549,460 @@
         })
       )
 
-      // --- Permissions ---
-      function setChip(el, state) {
-        el.className = "status"
-        if (state === "granted") el.classList.add("ok")
-        else if (state === "denied") el.classList.add("bad")
-        else el.classList.add("warn")
-        el.textContent = state.charAt(0).toUpperCase() + state.slice(1)
+      function prettyState(state) {
+        if (!state) return "Unknown"
+        return state.charAt(0).toUpperCase() + state.slice(1)
       }
 
-      // Geolocation
-      async function checkGeo() {
-        try {
-          if (!navigator.permissions)
-            throw new Error("Permissions API unsupported")
-          const p = await navigator.permissions.query({ name: "geolocation" })
-          setChip(document.getElementById("geo-chip"), p.state)
-        } catch (e) {
-          document.getElementById("geo-chip").textContent = "Unavailable"
+      function applyChip(el, state) {
+        el.className = "status"
+        const normalized = String(state || "unknown").toLowerCase()
+
+        if (normalized === "granted" || normalized === "supported" || normalized === "available" || normalized === "active") {
+          el.classList.add("ok")
+        } else if (
+          normalized === "denied" ||
+          normalized === "unsupported" ||
+          normalized === "error" ||
+          normalized === "inactive"
+        ) {
+          el.classList.add("bad")
+        } else {
+          el.classList.add("warn")
         }
+
+        el.textContent = prettyState(normalized)
       }
-      document.getElementById("geo-check").addEventListener("click", checkGeo)
-      document.getElementById("geo-request").addEventListener("click", () => {
-        if (!navigator.geolocation)
-          return (document.getElementById("geo-note").textContent =
-            "Geolocation not supported.")
-        navigator.geolocation.getCurrentPosition(
-          () => {
-            setChip(document.getElementById("geo-chip"), "granted")
-            document.getElementById("geo-note").textContent =
-              "Location acquired."
+
+      function makePermissionCard(id, label, note = "") {
+        const wrapper = document.createElement("div")
+        wrapper.className = "card permission-card"
+        wrapper.innerHTML = `
+          <h3>${label}</h3>
+          <div class="row">
+            <button type="button" class="ghost" data-action="check">Check Status</button>
+            <button type="button" data-action="request">Request</button>
+          </div>
+          <p class="title">Status: <span class="status neutral" data-role="chip">Unknown</span></p>
+          <p class="note" data-role="note">${note}</p>
+          <p class="meta"><code>${id}</code></p>
+        `
+        return wrapper
+      }
+
+      const permissionGrid = document.getElementById("permission-grid")
+      const pointerTarget = document.getElementById("pointer-lock-target")
+
+      const permissionDefs = [
+        {
+          id: "geolocation",
+          label: "Location",
+          note: "Uses the Geolocation API and Permissions API where available.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.permissions) throw new Error("Permissions API unsupported")
+              const p = await navigator.permissions.query({ name: "geolocation" })
+              applyChip(chip, p.state)
+              note.textContent = `Permissions API state: ${p.state}`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = "Cannot query geolocation permission state in this browser."
+            }
           },
-          (err) => {
-            setChip(document.getElementById("geo-chip"), "denied")
-            document.getElementById("geo-note").textContent = err.message
-          }
-        )
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            if (!navigator.geolocation) {
+              applyChip(chip, "unsupported")
+              note.textContent = "Geolocation is not supported."
+              return
+            }
+            navigator.geolocation.getCurrentPosition(
+              (pos) => {
+                applyChip(chip, "granted")
+                note.textContent = `Location acquired: ${pos.coords.latitude.toFixed(
+                  4
+                )}, ${pos.coords.longitude.toFixed(4)}`
+              },
+              (err) => {
+                applyChip(chip, "denied")
+                note.textContent = err.message
+              }
+            )
+          },
+        },
+        {
+          id: "microphone",
+          label: "Microphone",
+          note: "Uses getUserMedia({ audio: true }).",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.permissions) throw new Error("Permissions API unsupported")
+              const p = await navigator.permissions.query({ name: "microphone" })
+              applyChip(chip, p.state)
+              note.textContent = `Permissions API state: ${p.state}`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = "Microphone status cannot be queried here."
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.mediaDevices?.getUserMedia) {
+                throw new Error("getUserMedia unsupported")
+              }
+              const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+              stream.getTracks().forEach((t) => t.stop())
+              applyChip(chip, "granted")
+              note.textContent = "Microphone access granted."
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "camera",
+          label: "Camera",
+          note: "Uses getUserMedia({ video: true }).",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.permissions) throw new Error("Permissions API unsupported")
+              const p = await navigator.permissions.query({ name: "camera" })
+              applyChip(chip, p.state)
+              note.textContent = `Permissions API state: ${p.state}`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = "Camera status cannot be queried here."
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.mediaDevices?.getUserMedia) {
+                throw new Error("getUserMedia unsupported")
+              }
+              const stream = await navigator.mediaDevices.getUserMedia({ video: true })
+              stream.getTracks().forEach((t) => t.stop())
+              applyChip(chip, "granted")
+              note.textContent = "Camera access granted."
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "display-capture",
+          label: "Screen Sharing",
+          note: "Uses getDisplayMedia(). Browsers usually prompt only at request time.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            if (navigator.mediaDevices?.getDisplayMedia) {
+              applyChip(chip, "supported")
+              note.textContent = "Screen capture is supported, but preflight permission state is not exposed."
+            } else {
+              applyChip(chip, "unsupported")
+              note.textContent = "Screen capture is not supported in this browser."
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.mediaDevices?.getDisplayMedia) {
+                throw new Error("getDisplayMedia unsupported")
+              }
+              const stream = await navigator.mediaDevices.getDisplayMedia({ video: true })
+              stream.getTracks().forEach((t) => t.stop())
+              applyChip(chip, "granted")
+              note.textContent = "Screen sharing permission granted."
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "notifications",
+          label: "Notifications",
+          note: "Uses Notification.requestPermission().",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            if (typeof Notification === "undefined") {
+              applyChip(chip, "unsupported")
+              note.textContent = "Notifications are unavailable in this browser."
+              return
+            }
+            const state = Notification.permission === "default" ? "prompt" : Notification.permission
+            applyChip(chip, state)
+            note.textContent = `Notification.permission: ${Notification.permission}`
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (typeof Notification === "undefined") throw new Error("Notification API unsupported")
+              const res = await Notification.requestPermission()
+              applyChip(chip, res === "default" ? "prompt" : res)
+              note.textContent = `Notification permission result: ${res}`
+            } catch (e) {
+              applyChip(chip, "error")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "clipboard-read",
+          label: "Clipboard",
+          note: "Uses navigator.clipboard.readText(). Usually requires a secure context and user gesture.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.permissions) throw new Error("Permissions API unsupported")
+              const p = await navigator.permissions.query({ name: "clipboard-read" })
+              applyChip(chip, p.state)
+              note.textContent = `Permissions API state: ${p.state}`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = "Clipboard permission state is not queryable here."
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.clipboard?.readText) throw new Error("Clipboard API unsupported")
+              const txt = await navigator.clipboard.readText()
+              applyChip(chip, "granted")
+              note.textContent = txt
+                ? `Read clipboard: "${txt.slice(0, 80)}"`
+                : "Clipboard read succeeded, but it is empty."
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "webxr",
+          label: "WebXR",
+          note: "Checks XR availability. Session requests depend on device/browser support.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.xr) {
+                applyChip(chip, "unsupported")
+                note.textContent = "navigator.xr is not available."
+                return
+              }
+              const supported = await navigator.xr.isSessionSupported("immersive-vr")
+              applyChip(chip, supported ? "supported" : "unsupported")
+              note.textContent = supported
+                ? "WebXR immersive-vr session is supported."
+                : "WebXR exists, but immersive-vr is not supported."
+            } catch (e) {
+              applyChip(chip, "error")
+              note.textContent = e.message
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.xr) throw new Error("WebXR unsupported")
+              const session = await navigator.xr.requestSession("immersive-vr")
+              applyChip(chip, "granted")
+              note.textContent = "WebXR session started."
+              await session.end()
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "device-info",
+          label: "Device Info",
+          note: "Approximated via mediaDevices.enumerateDevices(). Labels are often hidden until media permission is granted.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.mediaDevices?.enumerateDevices) {
+                throw new Error("enumerateDevices unsupported")
+              }
+              const devices = await navigator.mediaDevices.enumerateDevices()
+              applyChip(chip, "available")
+              note.textContent = `Detected ${devices.length} media device entries. Labels may be blank until permission is granted.`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = e.message
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.mediaDevices?.getUserMedia || !navigator.mediaDevices.enumerateDevices) {
+                throw new Error("Media device APIs unsupported")
+              }
+              const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+              const devices = await navigator.mediaDevices.enumerateDevices()
+              stream.getTracks().forEach((t) => t.stop())
+              applyChip(chip, "granted")
+              note.textContent = `Permission granted; found ${devices.length} media device entries.`
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "media-key-system",
+          label: "Media Keys",
+          note: "Tests EME availability with a Widevine-style request. Browser support varies heavily.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            if ("requestMediaKeySystemAccess" in navigator) {
+              applyChip(chip, "supported")
+              note.textContent = "Encrypted Media Extensions API is available."
+            } else {
+              applyChip(chip, "unsupported")
+              note.textContent = "EME API is unavailable."
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!("requestMediaKeySystemAccess" in navigator)) {
+                throw new Error("EME API unavailable")
+              }
+              await navigator.requestMediaKeySystemAccess("com.widevine.alpha", [
+                {
+                  initDataTypes: ["cenc"],
+                  videoCapabilities: [
+                    { contentType: 'video/mp4; codecs="avc1.42E01E"' },
+                  ],
+                },
+              ])
+              applyChip(chip, "granted")
+              note.textContent = "Media key system access succeeded."
+            } catch (e) {
+              applyChip(chip, "denied")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "website-data",
+          label: "Website Data",
+          note: "Approximated with Storage API persistence and quota info. This is not a universal browser permission prompt.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.storage) throw new Error("Storage API unavailable")
+              const [persisted, estimate] = await Promise.all([
+                navigator.storage.persisted?.() ?? false,
+                navigator.storage.estimate?.() ?? {},
+              ])
+              applyChip(chip, persisted ? "granted" : "prompt")
+              note.textContent = `Persisted: ${persisted}. Usage: ${estimate.usage || 0} bytes / Quota: ${estimate.quota || 0} bytes.`
+            } catch (e) {
+              applyChip(chip, "unsupported")
+              note.textContent = e.message
+            }
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!navigator.storage?.persist) throw new Error("Persistent storage request unsupported")
+              const granted = await navigator.storage.persist()
+              applyChip(chip, granted ? "granted" : "denied")
+              note.textContent = granted
+                ? "Persistent storage enabled for this site."
+                : "Persistent storage was not granted."
+            } catch (e) {
+              applyChip(chip, "error")
+              note.textContent = e.message
+            }
+          },
+        },
+        {
+          id: "pointer-lock",
+          label: "Pointer Lock",
+          note: "Requires a user gesture and a target element. Click the demo box first.",
+          async check(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            const active = document.pointerLockElement === pointerTarget
+            applyChip(chip, active ? "active" : "inactive")
+            note.textContent = active
+              ? "Pointer lock is currently active on the demo area."
+              : "Pointer lock is not active."
+          },
+          async request(card) {
+            const chip = card.querySelector('[data-role="chip"]')
+            const note = card.querySelector('[data-role="note"]')
+            try {
+              if (!pointerTarget.requestPointerLock) {
+                throw new Error("Pointer Lock API unsupported")
+              }
+              pointerTarget.requestPointerLock()
+              setTimeout(() => {
+                const active = document.pointerLockElement === pointerTarget
+                applyChip(chip, active ? "granted" : "denied")
+                note.textContent = active
+                  ? "Pointer lock is active."
+                  : "Pointer lock request did not activate."
+              }, 150)
+            } catch (e) {
+              applyChip(chip, "error")
+              note.textContent = e.message
+            }
+          },
+        },
+      ]
+
+      function wirePermissionCard(def) {
+        const card = makePermissionCard(def.id, def.label, def.note)
+        card.querySelector('[data-action="check"]').addEventListener("click", () => def.check(card))
+        card.querySelector('[data-action="request"]').addEventListener("click", () => def.request(card))
+        permissionGrid.appendChild(card)
+        def.check(card)
+      }
+
+      permissionDefs.forEach(wirePermissionCard)
+
+      pointerTarget.addEventListener("click", () => {
+        pointerTarget.focus()
+        pointerTarget.textContent = "Focused. Now use the Pointer Lock request button."
       })
 
-      // Notifications
-      async function checkNoti() {
-        const state =
-          typeof Notification === "undefined"
-            ? "unavailable"
-            : Notification.permission
-        const chip = document.getElementById("noti-chip")
-        if (state === "granted" || state === "denied" || state === "default")
-          setChip(chip, state === "default" ? "prompt" : state)
-        else chip.textContent = "Unavailable"
-      }
-      document.getElementById("noti-check").addEventListener("click", checkNoti)
-      document
-        .getElementById("noti-request")
-        .addEventListener("click", async () => {
-          if (typeof Notification === "undefined") return
-          const res = await Notification.requestPermission()
-          setChip(
-            document.getElementById("noti-chip"),
-            res === "default" ? "prompt" : res
-          )
-        })
-
-      // Clipboard Read
-      async function checkClip() {
-        try {
-          if (!navigator.permissions)
-            throw new Error("Permissions API unsupported")
-          const p = await navigator.permissions.query({
-            name: "clipboard-read",
-          })
-          setChip(document.getElementById("clip-chip"), p.state)
-        } catch (e) {
-          document.getElementById("clip-chip").textContent = "Unavailable"
-        }
-      }
-      document.getElementById("clip-check").addEventListener("click", checkClip)
-      document
-        .getElementById("clip-request")
-        .addEventListener("click", async () => {
-          try {
-            const txt = await navigator.clipboard.readText()
-            setChip(document.getElementById("clip-chip"), "granted")
-            document.getElementById("clip-note").textContent = txt
-              ? `Read: "${txt.slice(0, 50)}"`
-              : "Clipboard empty or unreadable."
-          } catch (e) {
-            setChip(document.getElementById("clip-chip"), "denied")
-            document.getElementById("clip-note").textContent = e.message
-          }
-        })
-
-      // Initial permission chips where possible
-      checkGeo()
-      checkNoti()
-      checkClip()
+      document.addEventListener("pointerlockchange", () => {
+        const active = document.pointerLockElement === pointerTarget
+        pointerTarget.classList.toggle("locked", active)
+        pointerTarget.textContent = active
+          ? "Pointer lock active. Press Esc to exit."
+          : "Click here first, then request pointer lock."
+      })
     </script>
   </body>
 </html>
