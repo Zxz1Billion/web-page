@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Sanguine Scientum — a Blood Magic 3.3.0 field grimoire (MC 1.19.2)</title>
+<meta name="description" content="A step-by-step Blood Magic 3.3.0 (Minecraft 1.19.2 Forge) progression guide with interactive top-down schematics for the Blood Altar and the decorative Sanguine Crypt." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true"></span>
+      <span class="wordmark">Sanguine<br>Scientum<small>BLOOD MAGIC · 3.3.0</small></span>
+    </div>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Work</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#first-blood"><span class="ix">01</span> First Blood</a>
+      <a href="#altar"><span class="ix">02</span> The Blood Altar</a>
+      <a href="#runes"><span class="ix">03</span> Blood Runes</a>
+      <a href="#orbs"><span class="ix">04</span> Orbs &amp; Soul Network</a>
+      <a href="#slates"><span class="ix">05</span> Slates &amp; Sigils</a>
+      <a href="#rituals"><span class="ix">06</span> Rituals</a>
+      <a href="#demon-will"><span class="ix">07</span> Demon Will &amp; Forge</a>
+      <a href="#living-armor"><span class="ix">08</span> Living Armor</a>
+      <a href="#alchemy"><span class="ix">09</span> Alchemy</a>
+      <p class="group-label">The Sanctum</p>
+      <a href="#crypt"><span class="ix">10</span> Build It Beautiful</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--bone-faint);line-height:1.7">
+      Numbers verified against the<br>BloodMagic 3.3.x source &amp;<br>the in-game guidebook.<br>Recipes may differ in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · WayofTime</p>
+      <h1>The Sanguine<br>Scientum</h1>
+      <p class="lede">A working grimoire for <strong>Blood Magic 3.3.0</strong> — from your first self-inflicted heart of LP to a Tier-5 altar humming over a Well of Suffering, then dressed in the gothic stone of <em>The Sanguine Crypt</em>. Every number here was read from the mod's own source; every build is an interactive, layer-by-layer schematic.</p>
+      <div class="badges">
+        <span class="badge">Blood Magic 3.3.0</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">Ragnarok Reincarnated</span>
+        <span class="badge danger">⚠ It will hurt</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Blood Magic is a progression mod about spending your own life — and other lives — as a crafting resource called <strong>Life Points (LP)</strong>. You bleed LP into a <strong>Blood Altar</strong>, store it in a <strong>Soul Network</strong> via Blood Orbs, and spend it on runes, sigils, rituals, demonic tooling, living armour, and alchemy.</p>
+
+      <div class="note warn">
+        <span class="label">Version reality check</span>
+        <p>The CurseForge page “Ragnaroks Unofficial Blood Magic” is <strong>not a custom mod</strong> — it is the classic <strong>Blood Magic by WayofTime</strong>, repackaged for the Ragnarok Reincarnated server as <code>BloodMagic-1.19.2-3.3.0-42.jar</code>.</p>
+        <p>One honest caveat: WayofTime's mod jumped <strong>1.18.2 → 1.20.1</strong>, and the “3.3.0” version tag belongs to the 1.20.1 line — there is no <em>official</em> 1.19.2 build. The Ragnarok jar is a backport/repackage of that same <strong>3.3.x codebase</strong>, so all of the mechanics and numbers in this guide (read straight from the 3.3.x source and the in-game <em>Sanguine Scientum</em> guidebook) apply. If a recipe in your pack disagrees, trust the in-game book.</p>
+      </div>
+
+      <h3>What this version actually includes</h3>
+      <p>3.3.x is the <strong>modern rewrite</strong>, not the old 1.7.10 altar-and-rituals mod. Expect all of:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>Blood Altar</h4><p>Six tiers, runes, blood orbs and the Soul Network. The spine of everything.</p></div>
+        <div class="card"><span class="tag">utility</span><h4>Slates &amp; Sigils</h4><p>Imbued slates and a toolbox of toggle/use sigils — water, lava, mining, flight, magnetism.</p></div>
+        <div class="card"><span class="tag">automation</span><h4>Rituals</h4><p>Master Ritual Stone multiblocks like the Well of Suffering that auto-generate LP.</p></div>
+        <div class="card"><span class="tag">combat</span><h4>Demon Will</h4><p>Hellfire Forge, Tartaric Gems, five Will aspects and sentient weapons.</p></div>
+        <div class="card"><span class="tag">defense</span><h4>Living Armor</h4><p>Armour that trains as you play and spends a shared pool of upgrade points.</p></div>
+        <div class="card"><span class="tag">crafting</span><h4>Alchemy</h4><p>Alchemy Table, Arcane-Ash arrays, and the Incense Altar that supercharges self-sacrifice.</p></div>
+      </div>
+
+      <div class="note danger" style="border-left-color:var(--blood-bright);background:rgba(158,27,27,0.12)">
+        <span class="label">The danger framing</span>
+        <p>Self-sacrifice <em>really</em> drains your health. Early on you will be one careless tap away from death, with no LP to show for it. Build a safe, well-lit altar room, keep food and regeneration handy, and never sacrifice at low health. This guide will tell you when each shortcut becomes safe.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 01 FIRST BLOOD -->
+    <section class="doc" id="first-blood">
+      <p class="sec-index">01 — The opening</p>
+      <h2>First Blood</h2>
+      <p>Everything starts with a bare altar and a knife. Here is the exact opening sequence.</p>
+
+      <ol class="flow">
+        <li><strong>Craft a Blood Altar.</strong> A standalone altar (no runes around it) is <strong>Tier 1</strong> with a base capacity of <strong>10,000 LP</strong>.</li>
+        <li><strong>Craft a Sacrificial Dagger.</strong> Right-clicking near the altar with it adds <strong>+200 LP</strong> to the altar and costs you about <strong>one heart</strong> of health <span class="vflag">100 LP / HP, ×2 = 200</span>. Eat, wait to regen, repeat.</li>
+        <li><strong>Drop a Diamond in the altar</strong> and bleed until it has absorbed <strong>2,000 LP</strong>. The diamond transmutes into a <strong>Weak Blood Orb</strong>.</li>
+        <li><strong>Bind the orb</strong> — hold right-click with it in an empty hand. It now represents your personal <strong>Soul Network</strong> (a Weak orb holds <strong>5,000 LP</strong>).</li>
+        <li><strong>Make Blank Slates</strong> in the altar from Stone (<strong>1,000 LP</strong> each).</li>
+        <li><strong>Craft Blood Runes</strong> (Blank Runes) from a Blank Slate + your bound orb + stone, and ring the altar with <strong>8 of them</strong> to reach Tier 2.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">First sigil first</span>
+        <p>Your very first craft should arguably be the <strong>Divination Sigil</strong> (free to use). Right-click it to read your network LP; right-click an altar to read its tier, contents and capacity. You are flying blind without it.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 ALTAR (viewer) -->
+    <section class="doc" id="altar">
+      <p class="sec-index">02 — The engine</p>
+      <h2>The Blood Altar</h2>
+      <p>The altar builds <strong>downward and outward like a beacon</strong>: each new tier adds a ring one level lower and wider, with the altar block riding the apex. Step through the tiers below — the plate is the top-down footprint, the profile beside it is the side elevation.</p>
+
+      <div id="altar-viewer"></div>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Altar tiers — footprint, structure &amp; capacity (3.3.x)</caption>
+          <thead><tr><th>Tier</th><th>Footprint</th><th>Runes</th><th>Extra structure</th><th>Capacity*</th></tr></thead>
+          <tbody>
+            <tr><td>T1</td><td>1×1</td><td class="num">0</td><td>—</td><td class="num">10,000</td></tr>
+            <tr><td>T2</td><td>3×3</td><td class="num">8</td><td>—</td><td class="num">10,000</td></tr>
+            <tr><td>T3</td><td>7×7</td><td class="num">28</td><td>4× 2-tall pillars → Glowstone caps</td><td class="num">66,000</td></tr>
+            <tr><td>T4</td><td>11×11</td><td class="num">56</td><td>4× 4-tall pillars → Lg. Bloodstone Brick</td><td class="num">122,000</td></tr>
+            <tr><td>T5</td><td>19×19</td><td class="num">108</td><td>4× Beacons</td><td class="num">226,000</td></tr>
+            <tr><td>T6</td><td>23×23</td><td class="num">184</td><td>4× 7-tall pillars → Crystal Clusters</td><td class="num">378,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Read this before you dig</span>
+        <p><strong>*Capacity</strong> isn't fixed by tier — base capacity is <strong>10,000 LP</strong>, raised by <em>Capacity</em> runes (+2,000 each) and <em>Augmented Capacity</em> runes (×1.075 each). The figures above are the typical fully-runed ceilings the community quotes per footprint.</p>
+        <p><strong>Tier 6 is not survival-craftable by default</strong> — Crystal Clusters need creative or a config tweak. Treat <strong>Tier 5</strong> as the real survival ceiling. A T5 altar wants a cleared volume of roughly <strong>27×27 × ~18–20 tall</strong>, plus a separate flat pad for rituals.</p>
+        <p>Rune <em>counts</em> are solid; exact rune <em>cells</em> can shift between versions. Safe rule: <strong>fill each ring's whole perimeter</strong> — over-filling valid positions is harmless. The grid above is schematic; match the in-game guidebook for precise cells.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 RUNES -->
+    <section class="doc" id="runes">
+      <p class="sec-index">03 — Inscriptions</p>
+      <h2>Blood Runes</h2>
+      <p>The altar reads <strong>11 rune types</strong>. Effects stack <strong>additively per rune</strong> (except where noted multiplicative). You build everything on the <strong>Blank Rune</strong>, then upgrade in place.</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Rune roster &amp; exact per-rune effect (from 3.3.x source)</caption>
+          <thead><tr><th>Rune</th><th>Effect</th><th>Per rune</th></tr></thead>
+          <tbody>
+            <tr><td>Blank Rune</td><td>Structural base; counts toward tier. No effect.</td><td class="num">—</td></tr>
+            <tr><td>Rune of Speed</td><td>More LP processed per work cycle.</td><td class="num">+20%</td></tr>
+            <tr><td>Rune of Efficiency</td><td>Reduces LP wasted/leaked (multiplicative).</td><td class="num">×0.85 waste</td></tr>
+            <tr><td>Rune of Sacrifice</td><td>More LP from killing mobs (Dagger of Sacrifice).</td><td class="num">+10%</td></tr>
+            <tr><td>Rune of Self Sacrifice</td><td>More LP from self-sacrifice (Sacrificial Dagger).</td><td class="num">+10%</td></tr>
+            <tr><td>Rune of Capacity</td><td>Raises altar LP capacity.</td><td class="num">+2,000</td></tr>
+            <tr><td>Rune of Augmented Capacity</td><td>Multiplies capacity (on top of Capacity runes).</td><td class="num">×1.075</td></tr>
+            <tr><td>Rune of Dislocation</td><td>Faster fluid transfer / fill rate (multiplicative).</td><td class="num">×1.2</td></tr>
+            <tr><td>Rune of the Orb</td><td>Raises your Soul Network (orb) max storage.</td><td class="num">+2%</td></tr>
+            <tr><td>Rune of Acceleration</td><td>Shaves a tick off the 20-tick craft cycle (min 1).</td><td class="num">−1 tick</td></tr>
+            <tr><td>Rune of Charging</td><td>Pre-stores “charge” so a craft can finish instantly.</td><td class="num">~10 LP/tick</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Build order</span><p>Early altars love <strong>Speed</strong> + <strong>Self Sacrifice</strong> (faster, richer bleeding). As crafts get expensive, mix in <strong>Capacity</strong> and <strong>Augmented Capacity</strong> so a single craft fits in the tank. “Rune of Suppression” is a <em>sigil</em>, not a rune — don't go looking for it here.</p></div>
+    </section>
+
+    <!-- ============================================ 04 ORBS -->
+    <section class="doc" id="orbs">
+      <p class="sec-index">04 — The reservoir</p>
+      <h2>Blood Orbs &amp; the Soul Network</h2>
+      <p>A bound Blood Orb is your portable LP battery. Crafting a higher orb both <strong>raises your storage ceiling</strong> and <strong>unlocks higher-tier crafts</strong>. The orb is made <em>in the altar</em>; the listed “craft LP” is what the altar must spend to transmute it.</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Blood Orb tiers (exact values from 3.3.x source)</caption>
+          <thead><tr><th>Orb</th><th>Network capacity</th><th>Made from</th><th>Altar tier</th><th>Craft LP</th></tr></thead>
+          <tbody>
+            <tr><td>Weak Blood Orb</td><td class="num">5,000</td><td>Diamond</td><td>T1</td><td class="num">2,000</td></tr>
+            <tr><td>Apprentice Blood Orb</td><td class="num">25,000</td><td>Redstone Block</td><td>T2</td><td class="num">5,000</td></tr>
+            <tr><td>Magician's Blood Orb</td><td class="num">150,000</td><td>Gold Block</td><td>T3</td><td class="num">25,000</td></tr>
+            <tr><td>Master Blood Orb</td><td class="num">1,000,000</td><td>Weak Blood Shard</td><td>T4</td><td class="num">40,000</td></tr>
+            <tr><td>Archmage Blood Orb</td><td class="num">10,000,000</td><td>Dungeon Metal</td><td>T5</td><td class="num">80,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each orb also has an internal fill-rate (how fast it absorbs from the altar): 2 / 5 / 15 / 25 / 50 LP per tick respectively. <strong>Rune of the Orb</strong> bumps the network ceiling by +2% per rune on top of these.</p>
+    </section>
+
+    <!-- ============================================ 05 SLATES & SIGILS -->
+    <section class="doc" id="slates">
+      <p class="sec-index">05 — The toolkit</p>
+      <h2>Slates &amp; Sigils</h2>
+      <p>Slates are the altar-forged substrate every sigil is built on. In 3.3.x sigils are assembled on an <strong>Alchemy Array</strong> (slate + reagent on the ground), not in the altar.</p>
+
+      <h3>Blood Slates</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Slate tiers — altar-crafted</caption>
+          <thead><tr><th>Slate</th><th>Altar tier</th><th>From</th><th>LP cost</th></tr></thead>
+          <tbody>
+            <tr><td>Blank Slate</td><td>T1</td><td>Stone</td><td class="num">1,000</td></tr>
+            <tr><td>Reinforced Slate</td><td>T2</td><td>Blank Slate</td><td class="num">2,000</td></tr>
+            <tr><td>Imbued Slate</td><td>T3</td><td>Reinforced Slate</td><td class="num">5,000</td></tr>
+            <tr><td>Demonic Slate</td><td>T4</td><td>Imbued Slate</td><td class="num">15,000</td></tr>
+            <tr><td>Ethereal Slate</td><td>T5</td><td>Demonic Slate</td><td class="num">30,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Core Sigils</h3>
+      <p>LP cost is drained from your Soul Network <strong>per use</strong> (single-use sigils) or <strong>per drain tick while active</strong> (toggles). All sigil costs are configurable in 3.3.x packs.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Sigil roster (LP from 3.3.x source constructors)</caption>
+          <thead><tr><th>Sigil</th><th>Effect</th><th>Slate</th><th>LP</th></tr></thead>
+          <tbody>
+            <tr><td>Divination Sigil</td><td>Reads network LP; altar tier/contents/capacity.</td><td>Blank</td><td class="num">free</td></tr>
+            <tr><td>Sigil of the Seer</td><td>Divination + altar crafting progress &amp; incense bonus.</td><td>Reinforced</td><td class="num">free</td></tr>
+            <tr><td>Sigil of Water</td><td>Places a water source.</td><td>Blank</td><td class="num">100</td></tr>
+            <tr><td>Sigil of Lava</td><td>Places a lava source.</td><td>Blank</td><td class="num">1,000</td></tr>
+            <tr><td>Void Sigil</td><td>Removes/voids fluids.</td><td>Reinforced</td><td class="num">50</td></tr>
+            <tr><td>Sigil of the Fast Miner</td><td>Haste while active.</td><td>Reinforced</td><td class="num">100</td></tr>
+            <tr><td>Sigil of the Green Grove</td><td>Bonemeal-like crop growth.</td><td>Reinforced</td><td class="num">150</td></tr>
+            <tr><td>Sigil of Elemental Affinity (Air)</td><td>Negates fall damage, air-movement utility.</td><td>Reinforced</td><td class="num">50</td></tr>
+            <tr><td>Sigil of Magnetism</td><td>Pulls nearby item drops to you.</td><td>Imbued</td><td class="num">50</td></tr>
+            <tr><td>Sigil of Holding</td><td>Holds &amp; cycles up to 5 sigils.</td><td>Imbued</td><td class="num">free</td></tr>
+            <tr><td>Sigil of the Bloodlight</td><td>Fires a placeable light source.</td><td>Imbued</td><td class="num">10</td></tr>
+            <tr><td>Sigil of the Frozen Lake</td><td>Frost-walker: freezes water you cross.</td><td>Imbued</td><td class="num">100</td></tr>
+            <tr><td>Sigil of Suppression</td><td>Holds back liquids in a radius (no removal).</td><td>Demonic</td><td class="num">400</td></tr>
+            <tr><td>Sigil of Teleposition</td><td>Teleports you to a linked focus.</td><td>Demonic</td><td class="num">1,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">Not in 3.3.x</span><p>Sigils of <em>Haste</em>, the <em>Phantom Bridge</em>, and the <em>Whirlwind</em> are older-version items — they aren't in the 3.3.x registry. Fast Miner covers Haste.</p></div>
+    </section>
+
+    <!-- ============================================ 06 RITUALS (viewer) -->
+    <section class="doc" id="rituals">
+      <p class="sec-index">06 — Automation</p>
+      <h2>Rituals</h2>
+      <p>A ritual is a <strong>Master Ritual Stone (MRS)</strong> surrounded by painted <strong>Ritual Stones</strong>. Hold a <strong>Ritual Diviner</strong>, pick a ritual, then right-click the MRS to ghost-build every stone from your inventory; activate by right-clicking the MRS with an <strong>Activation Crystal</strong>. The activation LP is pulled from your network at once, so the network must already hold the cost.</p>
+
+      <div id="ritual-viewer"></div>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Staple rituals — LP from 3.3.x source</caption>
+          <thead><tr><th>Ritual</th><th>Does</th><th>Activation</th><th>Upkeep</th></tr></thead>
+          <tbody>
+            <tr><td>Well of Suffering</td><td>Damages nearby mobs, feeding LP to an adjacent altar.</td><td class="num">40,000</td><td class="num">2 LP / dmg · 25t</td></tr>
+            <tr><td>Ritual of the Feathered Knife</td><td>Auto self-sacrifices nearby players into an altar.</td><td class="num">25,000</td><td class="num">20 LP · 20t</td></tr>
+            <tr><td>Ritual of Regeneration</td><td>Regen to hurt entities in range.</td><td class="num">25,000</td><td class="num">100 LP/player · 50t</td></tr>
+            <tr><td>Serenade of the Nether</td><td>Generates lava in range.</td><td class="num">10,000</td><td class="num">500 LP · 1t</td></tr>
+            <tr><td>Ritual of the Crusher</td><td>Breaks an area into a chest.</td><td class="num">5,000</td><td class="num">7 LP/block · ~40t</td></tr>
+            <tr><td>Gathering of the Forsaken Souls</td><td><strong>3.x:</strong> grows/converts Will crystals from a chest of catalysts.</td><td class="num">40,000</td><td class="num">2 LP · 25t</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Two big version gotchas</span>
+        <p>The <strong>Well of Suffering</strong> activation is <strong>40,000</strong> in 3.3.x (old wikis say 50,000), and the “25” you'll read is the LP each mob is worth, not a flat rate. Build it <em>above</em> the altar with a mob spawner/grinder; it is the headline hands-off LP engine.</p>
+        <p><strong>Gathering of the Forsaken Souls</strong> changed meaning: in 3.3.x it's a <em>crystal-growth</em> ritual (it applies Will catalysts from a chest), <strong>not</strong> the old “kill mobs for Will” ritual. Get raw Will from Snares and Sentient tools instead (see §07).</p>
+      </div>
+      <p>The base Ritual Diviner only builds basic rituals; advanced (Dusk) rituals need a <strong>Dusk-upgraded Diviner</strong> (Tier-4 altar + Dusk Elemental Inscription Tools, 2,000 LP each). The <strong>Weak Activation Crystal</strong> handles every staple above; <strong>Awakened</strong> is for higher tiers.</p>
+    </section>
+
+    <!-- ============================================ 07 DEMON WILL -->
+    <section class="doc" id="demon-will">
+      <p class="sec-index">07 — The other currency</p>
+      <h2>Demon Will &amp; the Hellfire Forge</h2>
+      <p>Demon Will is a second resource, gathered from kills and spent in the <strong>Hellfire Forge</strong> on sentient gear and gem upgrades. You store it in <strong>Tartaric Gems</strong>.</p>
+
+      <h3>Tartaric Gems</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Will storage (from 3.3.x source)</caption>
+          <thead><tr><th>Gem</th><th>Max Will</th></tr></thead>
+          <tbody>
+            <tr><td>Petty Tartaric Gem</td><td class="num">64</td></tr>
+            <tr><td>Lesser Tartaric Gem</td><td class="num">256</td></tr>
+            <tr><td>Common Tartaric Gem</td><td class="num">1,024</td></tr>
+            <tr><td>Greater Tartaric Gem</td><td class="num">4,096</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">No “Grand” gem</span><p>A <em>Grand</em> Tartaric Gem is <strong>not</strong> registered in the 3.3.x source — the ladder stops at Greater. Don't promise players one.</p></div>
+
+      <h3>The five Will aspects</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">default</span><h4>Raw</h4><p>The base Will every mob drops. On sentient tools: raises damage &amp; attack speed.</p></div>
+        <div class="card"><span class="tag">earth rune</span><h4>Corrosive</h4><p>Chance to apply Poison/Wither on hit; damage-over-time in rituals.</p></div>
+        <div class="card"><span class="tag">air rune</span><h4>Destructive</h4><p>Highest raw damage; boosts yields (Fortune on Crusher, LP on Feathered Knife).</p></div>
+        <div class="card"><span class="tag">fire rune</span><h4>Vengeful</h4><p>Less damage, highest attack speed, plus a movement-speed buff scaling with Will held.</p></div>
+        <div class="card"><span class="tag">water rune</span><h4>Steadfast</h4><p>Moderate damage + Absorption after a kill; protective effects (fire resist, silk touch) in rituals.</p></div>
+      </div>
+
+      <h3>Getting &amp; growing Will</h3>
+      <ul>
+        <li><strong>Soul Snare</strong> — throw at a mob; when it sparkles white, kill it inside the window to drop a Demonic Will chunk.</li>
+        <li><strong>Sentient Sword</strong> (and Axe, Pickaxe, Shovel, Scythe, Bow) — kills drop Will far more reliably and auto-fill the gem you carry. The standard farm once you can craft one.</li>
+        <li><strong>Demon Crucible</strong> burns Will Crystals of an aspect into the chunk's <em>Demon Will Aura</em>; clusters in that aura grow up to <strong>7 spires</strong>. Will Catalysts (applied via Gathering of the Forsaken Souls) speed growth ~10× and cut the per-spire cost from 45 to 25.</li>
+      </ul>
+      <p>A <strong>Sentient Gem</strong> lets you pick the dominant aspect; sentient gear pulls Will from a held/equipped Tartaric Gem and gets stronger the more Will you carry.</p>
+    </section>
+
+    <!-- ============================================ 08 LIVING ARMOR -->
+    <section class="doc" id="living-armor">
+      <p class="sec-index">08 — The carapace</p>
+      <h2>Living Armor</h2>
+      <p>Living Armour is a full set that <strong>trains as you play</strong> and spends a shared pool of <strong>upgrade points</strong>. Craft each piece from <strong>iron armour + Binding Reagent + Arcane Ashes</strong> (place them and wait for the transform).</p>
+      <ul>
+        <li><strong>Point cap:</strong> the set starts with a <strong>100-point</strong> budget. The <em>Draft of Angelus</em> raises it to <strong>200</strong>; the <em>Ritual of Living Evolution</em> pushes it to <strong>300</strong>. You choose a build inside that budget.</li>
+        <li><strong>Training:</strong> upgrades level up by doing the matching activity — mining, taking hits, sprinting, eating.</li>
+        <li><strong>Re-spec:</strong> the <em>Sound of the Cleansing Soul</em> ritual strips all upgrades into <strong>Upgrade Tomes</strong> (one per ability, level retained). Re-apply a tome in hand, or combine two identical tomes in an anvil.</li>
+      </ul>
+      <div class="cards">
+        <div class="card"><h4>Dwarven Might</h4><p>Mining-speed surge after breaking blocks.</p></div>
+        <div class="card"><h4>Healthy</h4><p>Bonus max HP and knockback resistance (caps near 100% KB).</p></div>
+        <div class="card"><h4>Brilliance</h4><p>Extra armour &amp; armour toughness on the chest.</p></div>
+        <div class="card"><h4>+ Speed · Arrow Protection · Step Assist · Jump · Grave Digger · Experienced…</h4><p>Spend points where your playstyle leans.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================================ 09 ALCHEMY -->
+    <section class="doc" id="alchemy">
+      <p class="sec-index">09 — The bench</p>
+      <h2>Alchemy</h2>
+
+      <h3>Alchemy Table</h3>
+      <p>A bench that runs recipes on <strong>LP from your network</strong>. A <strong>Blood Orb</strong> in its slot sets both the available LP and the recipe <strong>tier</strong> you can craft — it makes Arcane Ash, reagents and many early intermediates that used to be altar-only.</p>
+
+      <h3>Alchemy Arrays</h3>
+      <p>Right-click the ground with <strong>Arcane Ashes</strong> (~20 uses) to draw a blank array; the placement also sets the array's <strong>facing</strong>. Each effect takes <strong>two items</strong> — a reagent (defines it) and a catalyst (activates it). Break the array to recover both.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">feather + redstone</span><h4>Movement Array</h4><p>Launches entities horizontally in the array's facing.</p></div>
+        <div class="card"><span class="tag">feather + glowstone</span><h4>Updraft / Jump</h4><p>Flings entities upward.</p></div>
+        <div class="card"><span class="tag">arrow + feather</span><h4>Skeleton Turret</h4><p>Fires arrows at nearby mobs.</p></div>
+        <div class="card"><span class="tag">utility</span><h4>Bounce &amp; bound-tool arrays</h4><p>The cheap toolbox you reach for before rituals.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Teleport, honestly</span><p>A true teleport <em>array</em> is limited/experimental in 3.3.x. For reliable teleportation use the <strong>Teleposer + Sigil of Teleposition</strong> (1,000 LP/use).</p></div>
+
+      <h3>Incense Altar (Tranquility)</h3>
+      <p>The Incense Altar multiblock supercharges <strong>self-sacrifice</strong>. When active your Sacrificial Dagger “shines” — hold and release right-click near the Blood Altar to sacrifice <strong>~90% of your health at once</strong>, multiplied by the surrounding <strong>Tranquility</strong>. You raise Tranquility by laying 3-wide path blocks outward in all four directions from a 3×3 base:</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Incense path tiers → self-sacrifice bonus</caption>
+          <thead><tr><th>Path</th><th>Max bonus</th></tr></thead>
+          <tbody>
+            <tr><td>No path</td><td class="num">+20%</td></tr>
+            <tr><td>Wooden Path</td><td class="num">+60%</td></tr>
+            <tr><td>Stone Path</td><td class="num">+120%</td></tr>
+            <tr><td>Worn Stone Path</td><td class="num">+200%</td></tr>
+            <tr><td>Obsidian Path</td><td class="num">+300%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================ 10 THE CRYPT -->
+    <section class="doc" id="crypt">
+      <p class="sec-index">10 — The sanctum</p>
+      <h2>Build It Beautiful — The Sanguine Crypt</h2>
+      <p class="lead">A functional altar is a pile of runes in a hole. <em>The Sanguine Crypt</em> sinks that altar into a circular ritual pit at the base of your spire, open to a vertical skylight, ringed by a balcony of ritual stones. Darker and more gothic than the coastal spruce-and-grey above it — deepslate, blackstone, crimson, and cold soul-fire blue against the altar's warm glow.</p>
+      <p>Each module below is a small, symmetric, tileable piece with its own palette. Step through the <strong>Y-layers</strong> (bottom → top); the rail tallies the <strong>full-build block list</strong> for that piece.</p>
+
+      <h3>1 · Blood-Channel Floor</h3>
+      <p>The first thing anyone sees: red veins fanning from the altar across a deepslate-brick floor.</p>
+      <div id="decor-floor"></div>
+
+      <h3>2 · Ribbed Vault Bay</h3>
+      <p>A repeatable wall section — polished blackstone with dark-oak ribs that arch into a lantern-lit vault. Tile it around the pit's circumference.</p>
+      <div id="decor-vault"></div>
+
+      <h3>3 · Pillar &amp; Sconce</h3>
+      <p>A column that lines up with the altar's own corner pillars, carrying a crimson banner and a cold soul-fire sconce.</p>
+      <div id="decor-pillar"></div>
+
+      <h3>4 · Skylight Shaft</h3>
+      <p>The vertical light-well punched up through the spire — crying obsidian weeping faint purple, glass-quoined corners, a ring of soul-lantern light partway up.</p>
+      <div id="decor-skylight"></div>
+
+      <h3>5 · Balcony Ring</h3>
+      <p>The upper gallery overlooking the pit, where your real ritual stones live and you stand to watch the altar work.</p>
+      <div id="decor-balcony"></div>
+
+      <div class="note tip">
+        <span class="label">Putting it together</span>
+        <p>Sink the altar (§02) at the centre of the pit; lay the <strong>Blood-Channel Floor</strong> around it; ring the pit wall with <strong>Ribbed Vault Bays</strong> punctuated by <strong>Pillar &amp; Sconce</strong> modules aligned to the altar's corners; punch the <strong>Skylight Shaft</strong> straight up the middle; and crown the whole pit with the <strong>Balcony Ring</strong>. Keep the functional ritual pad (Well of Suffering, §06) on the balcony level or just off the pit so mobs don't fall onto your head.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#e9d9b6">The Sanguine Scientum</strong><br>
+      An unofficial field grimoire for Blood Magic 3.3.0 on Minecraft 1.19.2 (Forge).<br>
+      Blood Magic is by <a href="https://github.com/WayofTime/BloodMagic">WayofTime</a>. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Verified against:<br>
+      · BloodMagic 3.3.x source<br>
+      · the in-game Sanguine Scientum<br>
+      · the FTB altar tier table
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--bone-faint)">When your pack disagrees with this page, the in-game guidebook wins. Numbers are configurable.</p>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
