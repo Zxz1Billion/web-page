@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>To the Moon — Mod Addition Proposal (1.19.2 Forge)</title>
-<meta name="description" content="A proposal of mods to add to the To the Moon modpack (Minecraft 1.19.2 Forge), with compatibility and performance notes for the server host." />
+<title>To the Moon — Proposed Mod Additions (1.19.2 Forge)</title>
+<meta name="description" content="A drop-in mod proposal for the To the Moon server (Minecraft 1.19.2 Forge) — no world reset required, with compatibility and performance notes for the server owner." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -15,34 +15,45 @@
 <header class="hero">
   <div class="wrap">
     <p style="margin:0 0 12px"><a href="index.html" style="font-family:var(--f-mono);font-size:0.75rem;letter-spacing:0.1em;color:var(--ink-dim);text-decoration:none">← Home</a></p>
-    <p class="eyebrow">Modpack Proposal · for the server host</p>
-    <h1>To the <span class="moon">Moon</span> — Mod Additions</h1>
-    <p class="lede">A shortlist of mods to add to our custom pack, organised so you can approve, cut, or veto each one at a glance. Everything here is confirmed available for <strong>Minecraft 1.19.2 · Forge</strong> (matching the pack), with overlap and performance caveats called out honestly — nothing that fights AE2/IC2 or tanks Distant Horizons gets a free pass.</p>
+    <p class="eyebrow">Mod proposal · submitted for the server owner's review</p>
+    <h1>To the <span class="moon">Moon</span> — Proposed Additions</h1>
+    <p class="lede">A wishlist of mods for the server, put together by one of your players and written for <strong>you</strong> to approve, trim, or veto. Every entry is a <strong>drop-in on the current world</strong> — no reset, no regen — is confirmed for <strong>Minecraft 1.19.2 · Forge</strong>, and was picked not to fight the pack's existing AE2/IC2 tech spine or its Distant Horizons performance.</p>
     <div class="meta">
       <span class="chip"><b>MC</b> 1.19.2</span>
       <span class="chip"><b>Loader</b> Forge 43.5.0</span>
-      <span class="chip"><b>Pack</b> To the Moon</span>
-      <span class="chip"><b>Tag legend</b> <span class="tag req">Requested</span> <span class="tag sug">Suggested</span> <span class="tag flag">Heads-up</span></span>
+      <span class="chip"><b>World</b> keep existing — no reset</span>
+      <span class="chip"><b>Legend</b> <span class="tag req">Requested</span> <span class="tag sug">Suggested</span> <span class="tag flag">Heads-up</span></span>
     </div>
     <nav class="toc">
+      <a href="#rules">⚑ Ground rules</a>
       <a href="#requested">① Requested</a>
-      <a href="#building">② Building &amp; Deco</a>
+      <a href="#building">② Building</a>
       <a href="#storage">③ Storage</a>
-      <a href="#exploration">④ Exploration &amp; Travel</a>
-      <a href="#synergy">⑤ Magic / Tech Synergy</a>
-      <a href="#qol">⑥ Quality of Life</a>
-      <a href="#compat">⚠ Compatibility notes</a>
-      <a href="#shortlist">★ Tight shortlist</a>
+      <a href="#exploration">④ Exploration</a>
+      <a href="#synergy">⑤ AE2 / Tinkers / Magic</a>
+      <a href="#extensions">⑥ Pack extensions</a>
+      <a href="#performance">⑦ Performance</a>
+      <a href="#server">⑧ Server &amp; QoL</a>
+      <a href="#compat">⚠ Compatibility</a>
+      <a href="#shortlist">★ Shortlist</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
 
+  <!-- GROUND RULES -->
+  <section id="rules">
+    <div class="sec-head"><span class="n">⚑</span><h2>The guardrails (please read first)</h2></div>
+    <p class="sec-sub">Everything on this page was filtered against four rules so it's an easy yes/no for you.</p>
+    <div class="note warn"><span class="label">1 · No world reset</span><p>Every mod here is safe to add to the existing save. Some mods add new structures, mobs, ores, or wild crops — where they do, that content only appears in <strong>newly-generated chunks</strong> (areas players haven't explored yet). That needs <em>no</em> regeneration; it just means already-explored terrain stays as-is. Each such mod is marked <span class="tag flag">new chunks</span>. Anything that would genuinely require a fresh world was excluded (see §Compatibility).</p></div>
+    <div class="note"><span class="label">2 · 1.19.2 Forge only · 3 · No tech-spine overlap · 4 · Performance-aware</span><p>Each pick is confirmed for 1.19.2 Forge. Anything that overlaps the pack's existing <strong>AE2 / IC2</strong> systems, or adds a parallel power/storage system, is flagged so you can rule on it deliberately. And because the pack runs <strong>Distant Horizons + Rubidium</strong>, the proposal leans into performance helpers and flags the few heavier picks.</p></div>
+  </section>
+
   <!-- CURRENT PACK -->
   <section id="current">
-    <div class="sec-head"><span class="n">00</span><h2>What we're already running</h2></div>
-    <p class="sec-sub">Context so nothing below is a duplicate. The pack is an <strong>exploration + structures + tech + magic + space</strong> build, and it's performance-conscious (Distant Horizons + Rubidium).</p>
+    <div class="sec-head"><span class="n">00</span><h2>What the pack already runs</h2></div>
+    <p class="sec-sub">Context so none of this duplicates what you've installed. The pack is an <strong>exploration + structures + tech + magic + space</strong> build, performance-conscious already.</p>
     <div class="existing">
       <span>YUNG's full suite (11 structure mods + API)</span><span>The Twilight Forest</span><span>Ad Astra (space)</span>
       <span>Applied Energistics 2</span><span>IC2 Classic</span><span>Botarium</span><span>Ragnarok Blood Magic</span>
@@ -56,24 +67,17 @@
 
   <!-- REQUESTED -->
   <section id="requested">
-    <div class="sec-head"><span class="n">01</span><h2>The five you asked for</h2></div>
-    <p class="sec-sub">Your starting list, with the exact mod I'd pick for each and a note where there's more than one good option.</p>
+    <div class="sec-head"><span class="n">01</span><h2>The core requests</h2></div>
+    <p class="sec-sub">The mods the players specifically asked for, with the exact pick for each.</p>
 
-    <h3 class="cat"><span class="ico">🌾</span> Right-click crop harvest (no re-tilling)</h3>
+    <h3 class="cat"><span class="ico">🌾</span> Right-click crop harvest (auto-replant)</h3>
     <div class="mods">
       <div class="mod">
         <div class="top"><h4>RightClickHarvest</h4><span class="tag req">Requested</span></div>
         <div class="by">by czechzol (orig. WitherToby)</div>
-        <p>Right-click a mature crop to harvest it and <strong>auto-replant</strong> the seed — nearly all vanilla + modded crops out of the box, with an optional hunger cost.</p>
-        <p class="why"><b>Why:</b> the most popular &amp; maintained option (~53M downloads), and <b>confirmed 1.19.2 Forge</b>. Use this one.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/rightclickharvest">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Right Click, Get Crops! <span class="tag sug">alt</span></h4><span></span></div>
-        <div class="by">Forge-native fallback</div>
-        <p>Same idea with an allow/deny list and a replant toggle; handles CoFH perennial / double-height crops. Confirmed 1.19.2 Forge. Pick one, not both.</p>
-        <p class="why"><b>Note:</b> don't confuse with the similarly-named <code>right-click-harvest</code> (by kosmx) — that one is <b>Fabric-only</b>.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/right-click-get-crops">CurseForge</a></div>
+        <p>Right-click a mature crop to harvest it and auto-replant the seed — nearly all vanilla and modded crops, with an optional hunger cost.</p>
+        <p class="why"><b>For the owner:</b> the most-used, best-maintained Forge option (~53M downloads), confirmed 1.19.2 Forge, pure drop-in. (Don't confuse with the Fabric-only <code>right-click-harvest</code>.)</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/rightclickharvest">CurseForge</a></div>
       </div>
     </div>
 
@@ -82,358 +86,453 @@
       <div class="mod">
         <div class="top"><h4>Macaw's suite</h4><span class="tag req">Requested</span></div>
         <div class="by">by sketch_macaw</div>
-        <p>Cohesive decorative sets — <strong>Furniture, Bridges, Roofs, Doors, Windows, Fences &amp; Walls, Paths, Lights &amp; Lamps, Trapdoors</strong>. Add whichever subsets we want.</p>
-        <p class="why"><b>Why:</b> the backbone of build variety; "Bridges" pairs thematically with YUNG's Bridges. Supplementaries/Quark wood compat extends to it.</p>
-        <div class="foot"><span class="deps">no deps · many jars</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/macaws-furniture">CurseForge</a></div>
+        <p>Cohesive decorative sets — Furniture, Bridges, Roofs, Doors, Windows, Fences &amp; Walls, Paths, Lights &amp; Lamps, Trapdoors. Install whichever subsets you want.</p>
+        <p class="why"><b>For the owner:</b> no dependencies, no worldgen — fully drop-in. "Bridges" pairs with the YUNG's Bridges already in the pack.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/macaws-furniture">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Decorative Blocks</h4><span class="tag req">Requested</span></div>
-        <div class="by">by stohun / DragonsPlus</div>
-        <p>Beams, braziers, seats, chandeliers, palisades, chains — the "fill the gaps" deco set everyone reaches for.</p>
-        <p class="why"><b>Why:</b> tiny footprint, huge build value; vanilla-faithful.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/decorative-blocks">CurseForge</a></div>
+        <div class="by">by stohun</div>
+        <p>Beams, braziers, seats, chandeliers, palisades, chains — the "fill the gaps" set.</p>
+        <p class="why"><b>For the owner:</b> tiny, dependency-free, no worldgen.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/decorative-blocks">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Another Furniture</h4><span class="tag req">Requested</span></div>
-        <div class="by">by Starfish_Studios</div>
-        <p>Modern, clean furniture (chairs, tables, drawers, lamps, shutters) with seasonal styling.</p>
-        <p class="why"><b>Why:</b> the best-looking "actual furniture" set on 1.19.2 Forge; complements Macaw's.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/another-furniture">CurseForge</a></div>
+        <div class="by">by Starfish Studios</div>
+        <p>Clean, modern, consistently-sized furniture — chairs, tables, drawers, lamps, shutters.</p>
+        <p class="why"><b>For the owner:</b> the best-looking "real furniture" set on 1.19.2 Forge; drop-in.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/another-furniture">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Handcrafted</h4><span class="tag req">Requested</span></div>
-        <div class="by">by Team Abnormals</div>
-        <p>Rustic furniture &amp; tableware — benches, shelves, crockery, fancy beds. Great for taverns/interiors.</p>
-        <p class="why"><b>Why:</b> pairs with the structure-heavy world (taverns, inns); cohesive medieval vibe.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/handcrafted">CurseForge</a></div>
+        <div class="by">by Terrarium Earth</div>
+        <p>250+ rustic furniture &amp; tableware pieces — benches, shelves, crockery, fancy beds.</p>
+        <p class="why"><b>For the owner:</b> suits the pack's structure-heavy world (taverns, inns); drop-in.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/handcrafted">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>MrCrayfish's Furniture <span class="tag flag">pre-release</span></h4><span></span></div>
+        <div class="top"><h4>MrCrayfish's Furniture <span class="tag flag">beta only</span></h4><span></span></div>
         <div class="by">by MrCrayfish</div>
         <p>The classic functional-furniture mod (working fridges, mailboxes, TVs).</p>
-        <p class="why"><b>Heads-up:</b> 1.19.2 exists only as a <b>beta (7.0.0-preXX)</b> — there's no stable 1.19.2 build, and the successor "Refurbished" skips 1.19.2. The four above are the safe core.</p>
+        <p class="why"><b>For the owner:</b> 1.19.2 exists only as a <b>beta (7.0.0-preXX)</b> — no stable build. Optional; the four above are the safe core.</p>
         <div class="foot"><span class="deps">beta only</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/mrcrayfish-furniture-mod">CurseForge</a></div>
+      </div>
+    </div>
+
+    <h3 class="cat"><span class="ico">📚</span> Apotheosis — the "enchanted bookshelves" request</h3>
+    <div class="mods">
+      <div class="mod">
+        <div class="top"><h4>Apotheosis</h4><span class="tag req">Requested</span></div>
+        <div class="by">by Shadows_of_Fire</div>
+        <p>Overhauls enchanting: the table now reads <strong>special bookshelves</strong> placed around it (Blazing, Sea, Heart, Arcane, etc.) that feed <em>Eterna / Quanta / Arcana</em> for higher, better-controlled enchants — plus an Enchantment Library, gems, and an affix/rarity loot system.</p>
+        <p class="why"><b>For the owner:</b> this is the enchanting-bookshelves mod the players want. It also adds affix loot to chests &amp; mob drops (the loot appears going forward / in new chunks — <span class="tag flag">new chunks</span> for chest loot). Big content mod — worth a look at its loot config, but no world reset needed.</p>
+        <div class="foot"><span class="deps">Placebo (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/apotheosis">CurseForge</a></div>
       </div>
     </div>
 
     <h3 class="cat"><span class="ico">📦</span> Refined Storage</h3>
     <div class="mods">
       <div class="mod">
-        <div class="top"><h4>Refined Storage</h4><span class="tag req">Requested</span></div>
+        <div class="top"><h4>Refined Storage <span class="tag flag">overlaps AE2</span></h4><span></span></div>
         <div class="by">by Refined Mods</div>
-        <p>Mass digital storage network — grids, importers/exporters, autocrafting. The friendlier-to-learn cousin of AE2.</p>
-        <p class="why"><b>Heads-up:</b> we <b>already run AE2</b>, which covers the same niche. RS and AE2 <em>can</em> coexist, but most packs commit to one to keep progression focused. See the compatibility note below.</p>
-        <div class="foot"><span class="deps">addons: RS Addons, RS Requestify</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/refined-storage">CurseForge</a></div>
+        <p>A mass digital-storage network — the friendlier-to-learn cousin of AE2.</p>
+        <p class="why"><b>For the owner:</b> the pack already commits to <b>AE2</b>, which fills the same role. They coexist without crashing, but running both tends to split progression. Recommendation below: keep AE2 as the endgame and treat RS as a deliberate choice, not a default.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/refined-storage">CurseForge</a></div>
       </div>
     </div>
-
-    <h3 class="cat"><span class="ico">⚒️</span> Enchantable Tinkers' tools</h3>
-    <div class="note warn"><span class="label">Our approach: stay on 1.19.2, use the workaround</span><p>The mods that truly re-add enchanting to Tinkers' tools (<em>Tinkers With Enchants</em>, <em>Tinkers' Enchanting</em>) are <strong>1.20.1-only</strong>, and Pisek's stops at 1.18.2 — so there's no native 1.19.2 enchanting addon. Rather than bump the whole pack's version, we go with <strong>Apotheosis + Tinkers' Levelling Addon</strong> below for stronger, enchant-like Tinkers gear. (Apotheosis also handles the bookshelf request — see §05.)</p></div>
-    <div class="mods">
-      <div class="mod">
-        <div class="top"><h4>Apotheosis <span class="tag sug">workaround</span></h4><span></span></div>
-        <div class="by">by Shadows_of_Fire</div>
-        <p>Overhauls enchanting (higher levels, enchantment library, gem/affix system). On 1.19.2 it's the realistic way to pour "enchant-like" power into gear — and it plays with Tinkers' modifier system.</p>
-        <p class="why"><b>Why:</b> closest you'll get to "enchanted Tinkers tools" on 1.19.2 without a version bump — and it's the <b>same mod</b> that adds our requested enchanting bookshelves (§05). One install, two requests. Big mod — review its loot/affix gen.</p>
-        <div class="foot"><span class="deps">Placebo (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/apotheosis">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Tinkers' Levelling Addon <span class="tag sug">pair with it</span></h4><span></span></div>
-        <div class="by">by Sosiska</div>
-        <p>Tinkers tools <strong>gain levels and extra modifier slots</strong> as you use them — progression without enchanting.</p>
-        <p class="why"><b>Why:</b> stack it with Apotheosis for the cleanest "my Tinkers tools get stronger over time" feel on 1.19.2. <b>Verify the 1.19.2 file</b> (a 1.19.2-1.4.1 build is reported).</p>
-        <div class="foot"><span class="deps">needs Tinkers · verify ver</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/tinkers-levelling-addon">CurseForge</a></div>
-      </div>
-    </div>
-
-    <h3 class="cat"><span class="ico">📚</span> Enchanted bookshelves</h3>
-    <div class="mods">
-      <div class="mod">
-        <div class="top"><h4>Apotheosis ★ the one you meant</h4><span class="tag req">Requested</span></div>
-        <div class="by">by Shadows_of_Fire</div>
-        <p>Overhauls enchanting: the table now reads <strong>special bookshelves</strong> around it (Blazing, Sea, Heart, Arcane, etc.) that feed <em>Eterna / Quanta / Arcana</em> power for higher-level, better-controlled enchants — plus an <strong>Enchantment Library</strong> block to bank and withdraw enchantments.</p>
-        <p class="why"><b>Why:</b> this is the "enchanted bookshelves" mod — and it's the <b>same mod</b> that doubles as our Tinkers-enchanting workaround (§01 above). One install covers both. Confirmed 1.19.2 Forge.</p>
-        <div class="foot"><span class="deps">Placebo (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/apotheosis">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Enchantment Library <span class="tag sug">lighter alt</span></h4><span></span></div>
-        <div class="by">point-based storage</div>
-        <p>Insert enchanted books → converted to "points"; extract any banked enchantment at any level. Just the storage piece, without Apotheosis's full overhaul.</p>
-        <p class="why"><b>Why:</b> use this if you want <em>only</em> tidy book storage and not a whole enchanting rework.</p>
-        <div class="foot"><span class="deps">verify ver</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/enchantment-library">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Giacomo's Bookshelf <span class="tag sug">option</span></h4><span></span></div>
-        <div class="by">by Giacomo</div>
-        <p>Functional bookshelves that store books/maps/paper <strong>and act as enchanting-table power</strong>.</p>
-        <p class="why"><b>Why:</b> pick this one if you actually meant "bookshelves that boost the enchant table."</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/giacomos-bookshelf">CurseForge</a></div>
-      </div>
-    </div>
-    <div class="note tip"><span class="label">Confirmed: it's Apotheosis</span><p>The "enchanted bookshelves" you were picturing are <strong>Apotheosis's</strong> enchanting bookshelves. Bonus: Apotheosis is also the realistic answer to the <strong>enchantable-Tinkers</strong> request (§01) — so adding it once solves both. Giacomo's / Enchantment Library remain here only as lighter alternatives if the host wants the bookshelf feel <em>without</em> Apotheosis's full enchanting overhaul.</p></div>
   </section>
 
   <!-- BUILDING -->
   <section id="building">
-    <div class="sec-head"><span class="n">02</span><h2>Suggested · Building &amp; decoration</h2></div>
-    <p class="sec-sub">Highest build-value, lowest-risk additions. These layer on top of the furniture mods above.</p>
+    <div class="sec-head"><span class="n">02</span><h2>Building &amp; decoration</h2></div>
+    <p class="sec-sub">High build-value, all drop-in (no worldgen) unless flagged.</p>
     <div class="mods">
       <div class="mod">
         <div class="top"><h4>Supplementaries</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by MehVahdJukaar</div>
         <p>Vanilla+ functional decoration — signposts, jars, faucets, planters, sconces, ropes, cages, lights.</p>
-        <p class="why"><b>Why:</b> ships built-in compat with Quark, Twigs, <b>Farmer's Delight, Macaw's, Twilight Forest</b> — all in our pack.</p>
-        <div class="foot"><span class="deps">Moonlight Lib (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/supplementaries">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> ships built-in compat with the pack's Farmer's Delight, Macaw's and Twilight Forest. Needs Moonlight Lib (auto). Drop-in.</p>
+        <div class="foot"><span class="deps">Moonlight Lib</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/supplementaries">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>Quark</h4><span class="tag sug">Suggested</span></div>
+        <div class="top"><h4>Quark <span class="tag flag">configure</span></h4><span></span></div>
         <div class="by">by Vazkii</div>
-        <p>Modular vanilla+ — building blocks (vertical slabs, posts, hedges), QoL, world tweaks; everything toggleable.</p>
-        <p class="why"><b>Heads-up:</b> disable Quark's <b>ore/stone world-gen</b> so it doesn't step on YUNG structures or add duplicate stones.</p>
+        <p>Modular vanilla+ — building blocks (vertical slabs, posts, hedges), QoL, world tweaks; all toggleable.</p>
+        <p class="why"><b>For the owner:</b> please <b>disable its ore/stone world-gen</b> in config so it doesn't add new ores (which would otherwise only appear in new chunks) or clash with YUNG structures. With that off, it's a safe drop-in. Also covers inventory sorting/QoL.</p>
         <div class="foot"><span class="deps">AutoRegLib</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/quark">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Chipped</h4><span class="tag sug">Suggested</span></div>
-        <div class="by">by Team Terrarium</div>
-        <p>Thousands of decorative variants of vanilla blocks via special workbenches.</p>
-        <p class="why"><b>Why:</b> massive variety, near-zero gameplay impact. Needs <b>Athena</b> (CTM lib) + <b>Resourceful Lib</b> — and we already run Resourceful Lib.</p>
+        <div class="by">by Terrarium Earth</div>
+        <p>Thousands of decorative variants of vanilla blocks via workbenches.</p>
+        <p class="why"><b>For the owner:</b> huge variety, no worldgen. Needs <b>Athena</b> + <b>Resourceful Lib</b> (the pack already has Resourceful Lib).</p>
         <div class="foot"><span class="deps">Athena + Resourceful Lib</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/chipped">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>Twigs</h4><span class="tag sug">Suggested</span></div>
-        <div class="by">Forge port</div>
-        <p>Small natural blocks — cobblestone bricks, rocky dirt, pebbles, bamboo, lamps. Explicit Supplementaries compat.</p>
-        <p class="why"><b>Why:</b> subtle, lore-friendly texture for builds; low overlap.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/twigs">CurseForge</a></div>
+        <div class="top"><h4>Building Gadgets</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by Direwolf20 team</div>
+        <p>Gadgets to build, copy, and paste structures quickly.</p>
+        <p class="why"><b>For the owner:</b> big building QoL, no worldgen, drop-in. Pairs well with the deco mods.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/building-gadgets">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>Connected Glass</h4><span class="tag sug">Suggested</span></div>
-        <div class="by">by SuperMartijn642</div>
-        <p>Borderless connecting glass for big bases that read well at Distant Horizons range.</p>
-        <p class="why"><b>Heads-up:</b> Rubidium lacks Sodium's CTM — verify connected textures actually render in-world (may need a Rubidium CTM addon).</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/connected-glass">CurseForge</a></div>
+        <div class="top"><h4>Carry On</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by Tschipp / Purplicious</div>
+        <p>Pick up and carry single blocks (chests with contents) and mobs by hand.</p>
+        <p class="why"><b>For the owner:</b> base-moving QoL; drop-in. Configurable to prevent carrying powerful tile entities on a server.</p>
+        <div class="foot"><span class="deps">drop-in · config for server</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/carry-on">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Create <span class="tag flag">situational</span></h4><span></span></div>
         <div class="by">by simibubi</div>
-        <p>Kinetic contraption tech — gorgeous automation &amp; building aesthetic.</p>
-        <p class="why"><b>Heads-up:</b> it's a <b>third power system</b> beside AE2/IC2, and moving contraptions are the biggest <b>perf risk</b> alongside Distant Horizons. Add only as a deliberate pillar.</p>
-        <div class="foot"><span class="deps">+ Crafts &amp; Additions for FE</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/create">CurseForge</a></div>
+        <p>Kinetic contraption tech — striking automation &amp; building aesthetic.</p>
+        <p class="why"><b>For the owner:</b> a <b>third power system</b> beside AE2/IC2, and moving contraptions are the biggest <b>performance risk</b> next to Distant Horizons. Add only as a deliberate pillar, not a casual yes.</p>
+        <div class="foot"><span class="deps">heavy · perf risk</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/create">CurseForge</a></div>
       </div>
     </div>
   </section>
 
   <!-- STORAGE -->
   <section id="storage">
-    <div class="sec-head"><span class="n">03</span><h2>Suggested · Storage</h2></div>
-    <p class="sec-sub">Recommended clean set: <strong>Sophisticated Backpacks (portable) + Storage Drawers (bulk) + AE2 (endgame)</strong>. Don't stack every storage mod — they overlap in role.</p>
+    <div class="sec-head"><span class="n">03</span><h2>Storage</h2></div>
+    <p class="sec-sub">Recommended clean set: <strong>Sophisticated Backpacks (portable) + Storage Drawers (bulk) + the pack's AE2 (endgame)</strong>. All drop-in.</p>
     <div class="mods">
       <div class="mod">
         <div class="top"><h4>Sophisticated Backpacks</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by P3pp3rF1y</div>
         <p>Tiered, upgradeable backpacks — filters, magnet, auto-pickup, feeding, on-the-go crafting.</p>
-        <p class="why"><b>Why:</b> huge for an exploration pack; <b>Curios-compatible</b> back slot (we have Curios).</p>
-        <div class="foot"><span class="deps">Sophisticated Core (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> huge for an exploration server; Curios-compatible (the pack has Curios). Drop-in.</p>
+        <div class="foot"><span class="deps">Sophisticated Core</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Storage Drawers</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by Texelsaur</div>
         <p>Compact bulk drawers with upgrades.</p>
-        <p class="why"><b>Why:</b> AE2 <b>storage bus</b> reads drawers — a perfect pre-ME bulk tier that later feeds the network.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/storage-drawers">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Sophisticated Storage <span class="tag sug">option</span></h4><span></span></div>
-        <div class="by">by P3pp3rF1y</div>
-        <p>Upgradeable chests/barrels sharing the backpack upgrade system.</p>
-        <p class="why"><b>Heads-up:</b> overlaps Drawers/Iron Chests in role — pick one base-storage primary.</p>
-        <div class="foot"><span class="deps">Sophisticated Core</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/sophisticated-storage">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> AE2's storage bus reads drawers — a great pre-ME bulk tier that later feeds the network. Drop-in.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/storage-drawers">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Tom's Simple Storage <span class="tag flag">overlaps AE2</span></h4><span></span></div>
         <div class="by">by tom5454</div>
         <p>Lightweight networked storage terminal.</p>
-        <p class="why"><b>Heads-up:</b> the most direct <b>AE2 overlap</b> — a "lite ME terminal" that can make early AE2 feel pointless. Skip unless we want a gentle pre-AE2 ramp.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/toms-storage">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> the most direct AE2 overlap — a "lite ME terminal" that can make early AE2 feel pointless. Skip unless you want a gentle pre-AE2 ramp.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/toms-storage">CurseForge</a></div>
       </div>
     </div>
   </section>
 
   <!-- EXPLORATION -->
   <section id="exploration">
-    <div class="sec-head"><span class="n">04</span><h2>Suggested · Exploration &amp; travel</h2></div>
-    <p class="sec-sub">We're structure-rich; these make that content <em>findable</em> and the travel less tedious at big render distances.</p>
+    <div class="sec-head"><span class="n">04</span><h2>Exploration &amp; travel</h2></div>
+    <p class="sec-sub">Makes the pack's structure roster findable and cuts travel tedium. Structure/mob mods add content in <span class="tag flag">new chunks</span> only — no reset, but already-explored areas stay unchanged.</p>
     <div class="mods">
       <div class="mod">
         <div class="top"><h4>Waystones</h4><span class="tag sug">Top pick</span></div>
         <div class="by">by BlayTheNinth</div>
         <p>Discoverable/placeable teleport network; generates at villages.</p>
-        <p class="why"><b>Why:</b> near-essential for an exploration + large-render pack — cuts backtracking across YUNG/Twilight/Ad Astra. Balance via XP-cost config.</p>
-        <div class="foot"><span class="deps">Balm (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/waystones">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> near-essential on a big-render-distance exploration server — cuts backtracking. Server-friendly config (XP cost, global vs personal). New waystones generate in new chunks, but players can place their own anywhere. <span class="tag flag">new chunks</span> for auto-spawned ones.</p>
+        <div class="foot"><span class="deps">Balm</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/waystones">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Explorer's Compass</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by Chaosyr</div>
-        <p>Locate any structure from a searchable UI list.</p>
-        <p class="why"><b>Why:</b> turns our enormous structure roster into directed exploration instead of luck.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/explorers-compass">CurseForge</a></div>
+        <p>Locate any structure from a searchable list.</p>
+        <p class="why"><b>For the owner:</b> turns the pack's enormous structure roster into directed exploration. Pure item — drop-in, no worldgen.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/explorers-compass">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Nature's Compass</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by Chaosyr</div>
-        <p>Locate any biome from a UI list — sister to Explorer's Compass.</p>
-        <p class="why"><b>Why:</b> find biome-gated resources/structures fast.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/natures-compass">CurseForge</a></div>
+        <p>Locate any biome from a searchable list.</p>
+        <p class="why"><b>For the owner:</b> sister to Explorer's Compass; drop-in.</p>
+        <div class="foot"><span class="deps">no deps · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/natures-compass">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Alex's Mobs</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by sbom_xela</div>
-        <p>~90 themed mobs across biomes/dimensions, with useful drops &amp; gear.</p>
-        <p class="why"><b>Why:</b> our world is structure-rich but mob-light — adds living-world fauna and reasons to roam.</p>
-        <div class="foot"><span class="deps">Citadel (auto)</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/alexs-mobs">CurseForge</a></div>
+        <p>~90 themed mobs across biomes/dimensions with useful drops.</p>
+        <p class="why"><b>For the owner:</b> the world is structure-rich but mob-light. Most spawn naturally in existing biomes (works in already-explored areas); a few are structure-gated. Mild entity-count cost. <span class="tag flag">new chunks</span> for structure spawns.</p>
+        <div class="foot"><span class="deps">Citadel</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/alexs-mobs">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>When Dungeons Arise</h4><span class="tag sug">Suggested</span></div>
         <div class="by">Forge port</div>
         <p>Large hand-crafted roguelike dungeons &amp; set-pieces.</p>
-        <p class="why"><b>Heads-up:</b> big structures = world-gen spikes; tune <b>spacing config</b> so it doesn't collide with YUNG/Dungeons &amp; Taverns.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> top complement to YUNG. <span class="tag flag">new chunks</span> only, and please tune its <b>spacing config</b> so it doesn't collide with YUNG / Dungeons &amp; Taverns and spike world-gen.</p>
+        <div class="foot"><span class="deps">no deps · new chunks</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Dungeons and Taverns</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by Nova_Wostra</div>
         <p>Vanilla-faithful taverns, illager hideouts, towers, stronghold/portal overhauls.</p>
-        <p class="why"><b>Why:</b> blends with vanilla + YUNG; lighter than WDA. Tune spacing if both are added.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/dungeon-and-taverns">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> blends with vanilla + YUNG, lighter than WDA. <span class="tag flag">new chunks</span>; tune spacing if both are added.</p>
+        <div class="foot"><span class="deps">new chunks</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/dungeon-and-taverns">CurseForge</a></div>
       </div>
     </div>
   </section>
 
   <!-- SYNERGY -->
   <section id="synergy">
-    <div class="sec-head"><span class="n">05</span><h2>Suggested · Magic / Tech synergy</h2></div>
-    <p class="sec-sub">These deepen systems we already run (Blood Magic, AE2, Tinkers) rather than bolting on a new parallel one.</p>
+    <div class="sec-head"><span class="n">05</span><h2>AE2 / Tinkers / Magic synergy</h2></div>
+    <p class="sec-sub">Deepens systems the pack already runs — all pure addons, no new power systems, no worldgen.</p>
     <div class="mods">
-      <div class="mod">
-        <div class="top"><h4>Ars Nouveau</h4><span class="tag sug">Suggested</span></div>
-        <div class="by">by baileyholl</div>
-        <p>Spell-crafting magic with automation, rituals, magical machinery — and Patchouli docs (we have Patchouli).</p>
-        <p class="why"><b>Why:</b> a second magic pillar beside Blood Magic, different flavor, Curios integration, no conflict.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ars-nouveau">CurseForge</a></div>
-      </div>
       <div class="mod">
         <div class="top"><h4>AE2 Things</h4><span class="tag sug">Suggested</span></div>
         <div class="by">by Technici4n</div>
         <p>Advanced Inscriber, Crystal Growth Chamber, and DISK deep-storage cells for AE2.</p>
-        <p class="why"><b>Why:</b> automates the tediest AE2 steps; pure addon, no new power system.</p>
+        <p class="why"><b>For the owner:</b> automates the tediest AE2 steps; pure addon, drop-in.</p>
         <div class="foot"><span class="deps">needs AE2</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ae2-things-forge">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>AE2 Wireless Terminals</h4><span class="tag sug">Suggested</span></div>
         <div class="by">AE2WTLib</div>
-        <p>Wireless crafting/pattern/fluid terminals for AE2 — Curios terminal slot.</p>
-        <p class="why"><b>Why:</b> manage the ME network remotely while exploring. Big QoL.</p>
-        <div class="foot"><span class="deps">needs AE2</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ae2wtlib">CurseForge</a></div>
+        <p>Wireless crafting/pattern/fluid terminals + Infinity Booster for cross-dimension access.</p>
+        <p class="why"><b>For the owner:</b> big AE2 QoL for an exploration server. Curios terminal slot. Verify the 1.19.2 Forge file pair (ae2wtlib + Wireless Terminals).</p>
+        <div class="foot"><span class="deps">needs AE2 · verify ver</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ae2wtlib">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>Powah! <span class="tag flag">overlaps IC2</span></h4><span></span></div>
-        <div class="by">Rearchitected</div>
-        <p>FE generation/storage/transmission (reactors, solar, ender network).</p>
-        <p class="why"><b>Heads-up:</b> adds an <b>FE</b> path beside IC2's EU. Handy if AE2/Ad Astra machines want FE without IC2 conversion — but it's another energy ecosystem. Optional.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/powah-rearchitected">CurseForge</a></div>
+        <div class="top"><h4>ME Requester (Merequester)</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by AlmostReliable</div>
+        <p>Keeps items/fluids in the ME network auto-stocked via Requesters + a remote terminal.</p>
+        <p class="why"><b>For the owner:</b> clean AE2 automation, confirmed 1.19.2 Forge (1.1.4), drop-in.</p>
+        <div class="foot"><span class="deps">needs AE2</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/merequester">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>AE Additions (ExtraCells2 Fork)</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by MasterYodAT9G</div>
+        <p>Larger AE2 storage cells (1024k–65536k), bigger crafting CPUs, fluid cells.</p>
+        <p class="why"><b>For the owner:</b> raises AE2 storage ceilings; confirmed 1.19.2 Forge. (Use this fork — the old ExtraCells2 stops before 1.19.) Drop-in.</p>
+        <div class="foot"><span class="deps">needs AE2</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ae-additions-extra-cells-2-fork">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Ars Nouveau</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by baileyholl</div>
+        <p>Spell-crafting magic with automation, rituals, magical machinery; Patchouli docs.</p>
+        <p class="why"><b>For the owner:</b> a second magic pillar beside Blood Magic, no conflict. Mostly drop-in; a couple of its plants/structures are <span class="tag flag">new chunks</span>.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ars-nouveau">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Tinkers' Levelling Addon</h4><span class="tag sug">Suggested</span></div>
+        <div class="by">by Sosiska</div>
+        <p>Tinkers tools gain levels &amp; extra modifier slots as you use them.</p>
+        <p class="why"><b>For the owner:</b> a straightforward upgrade to the pack's Tinkers — no ores, no worldgen, drop-in. Verify the 1.19.2 file (a 1.19.2-1.4.1 build is reported).</p>
+        <div class="foot"><span class="deps">needs Tinkers · verify ver</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/tinkers-levelling-addon">CurseForge</a></div>
       </div>
     </div>
   </section>
 
-  <!-- QOL -->
-  <section id="qol">
-    <div class="sec-head"><span class="n">06</span><h2>Suggested · Quality of life</h2></div>
-    <p class="sec-sub">Cheap, near-universal wins — most of these are "why isn't this already in" mods.</p>
+  <!-- EXTENSIONS -->
+  <section id="extensions">
+    <div class="sec-head"><span class="n">06</span><h2>Extensions for mods you already run</h2></div>
+    <p class="sec-sub">Low-risk add-ons that build on Farmer's Delight, JEI, and Curios — all drop-in.</p>
+
+    <h3 class="cat"><span class="ico">🍲</span> Farmer's Delight add-ons</h3>
     <div class="mods">
       <div class="mod">
-        <div class="top"><h4>Clumps</h4><span class="tag sug">Top pick</span></div><div class="by">by Jaredlll08</div>
+        <div class="top"><h4>Nether's Delight</h4><span class="tag sug">Suggested</span></div><div class="by">FD addon</div>
+        <p>Nether-themed meals and ingredients (propelplant cane, hoglin dishes).</p>
+        <p class="why"><b>For the owner:</b> confirmed 1.19.2 Forge; the new cane is <span class="tag flag">new chunks</span> in the Nether, recipes work immediately.</p>
+        <div class="foot"><span class="deps">needs Farmer's Delight</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/nethers-delight">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>End's Delight</h4><span class="tag sug">Suggested</span></div><div class="by">FD addon</div>
+        <p>End-themed foods (chorus dishes, shulker soup).</p>
+        <p class="why"><b>For the owner:</b> confirmed 1.19.2 Forge; basically no worldgen — works on existing worlds immediately.</p>
+        <div class="foot"><span class="deps">needs Farmer's Delight</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ends-delight">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Cultural Delights</h4><span class="tag sug">Suggested</span></div><div class="by">by Baisylia</div>
+        <p>World-cuisine foods and a few wild crops.</p>
+        <p class="why"><b>For the owner:</b> confirmed 1.19.2 Forge; wild crops are <span class="tag flag">new chunks</span>, everything else drop-in. (Grab the Forge build, not Fabric.)</p>
+        <div class="foot"><span class="deps">needs Farmer's Delight</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/cultural-delights">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Miner's Delight <span class="tag sug">option</span></h4><span></span></div><div class="by">"+" fork</div>
+        <p>Cave-themed cooking (copper pot) + a wild cave crop. <em>No ores.</em></p>
+        <p class="why"><b>For the owner:</b> confirmed 1.19.2 Forge; the wild cave crop is <span class="tag flag">new chunks</span>.</p>
+        <div class="foot"><span class="deps">needs Farmer's Delight</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/miners-delight-plus">CurseForge</a></div>
+      </div>
+    </div>
+
+    <h3 class="cat"><span class="ico">🔎</span> JEI info add-ons (UI only — zero world impact)</h3>
+    <div class="mods">
+      <div class="mod">
+        <div class="top"><h4>Just Enough Resources (JER)</h4><span class="tag sug">Suggested</span></div><div class="by">by way2muchnoise</div>
+        <p>Shows mob drops, ore distribution, dungeon loot, villager trades in JEI.</p>
+        <p class="why"><b>For the owner:</b> pure overlay; drop-in. Grab the Forge file (not Fabric).</p>
+        <div class="foot"><span class="deps">needs JEI</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Just Enough Professions</h4><span class="tag sug">Suggested</span></div><div class="by">by Mrbysco</div>
+        <p>Shows which workstation each villager profession uses.</p>
+        <p class="why"><b>For the owner:</b> pure overlay; drop-in. Pick the Forge build of 2.0.2.</p>
+        <div class="foot"><span class="deps">needs JEI</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/just-enough-professions-jep">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Just Enough Effect Descriptions</h4><span class="tag sug">Suggested</span></div><div class="by">JEED</div>
+        <p>Adds an "Effects" category describing status effects &amp; their sources.</p>
+        <p class="why"><b>For the owner:</b> pure overlay; drop-in.</p>
+        <div class="foot"><span class="deps">needs JEI</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Artifacts</h4><span class="tag sug">Suggested</span></div><div class="by">by ochotonida · Curios</div>
+        <p>Wearable artifacts (boots, rings, belts) found in structure chests, with mimics.</p>
+        <p class="why"><b>For the owner:</b> uses the pack's Curios slots; loot appears in <span class="tag flag">new chunks</span> chests. Fun exploration reward, drop-in.</p>
+        <div class="foot"><span class="deps">needs Curios</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/artifacts">CurseForge</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section id="performance">
+    <div class="sec-head"><span class="n">07</span><h2>Performance &amp; server health</h2></div>
+    <p class="sec-sub">The most valuable bucket for a Distant Horizons server. All pure drop-ins, no world impact.</p>
+    <div class="mods">
+      <div class="mod">
+        <div class="top"><h4>spark</h4><span class="tag sug">Top pick</span></div><div class="by">by lucko</div>
+        <p>A lightweight profiler — <code>/spark</code> to find exactly what's eating tick time.</p>
+        <p class="why"><b>For the owner:</b> the single best tool for diagnosing server lag; you'll want this before/after any change.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/spark">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>FerriteCore</h4><span class="tag sug">Top pick</span></div><div class="by">by malte0811</div>
+        <p>Cuts memory usage substantially with no gameplay change.</p>
+        <p class="why"><b>For the owner:</b> free RAM on a big modlist; zero risk. Server + client.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ferritecore">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>ModernFix</h4><span class="tag sug">Top pick</span></div><div class="by">by embeddedt</div>
+        <p>Broad performance + faster load times + memory savings; highly configurable.</p>
+        <p class="why"><b>For the owner:</b> one of the highest-impact perf mods for 1.19.2 Forge. Plays nicely with Rubidium.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/modernfix">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Entity Culling</h4><span class="tag sug">Suggested</span></div><div class="by">by tr7zw</div>
+        <p>Skips rendering entities/block-entities hidden behind blocks.</p>
+        <p class="why"><b>For the owner:</b> FPS help around mob-dense structures &amp; bases; client-side, safe.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/entityculling">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>FastFurnace + FastWorkbench</h4><span class="tag sug">Suggested</span></div><div class="by">by Shadows_of_Fire</div>
+        <p>Cuts the lag from smelting and from JEI-heavy recipe lookups.</p>
+        <p class="why"><b>For the owner:</b> small, classic server staples (FastWorkbench needs Placebo, shared with Apotheosis). Drop-in.</p>
+        <div class="foot"><span class="deps">Placebo</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/fastworkbench">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Clumps</h4><span class="tag sug">Suggested</span></div><div class="by">by Jaredlll08</div>
         <p>Merges XP orbs to cut lag during big fights/grinders.</p>
-        <p class="why"><b>Why:</b> pure performance help for a DH/Rubidium pack.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/clumps">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> pure performance help; drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/clumps">CurseForge</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVER & QOL -->
+  <section id="server">
+    <div class="sec-head"><span class="n">08</span><h2>Server &amp; quality of life</h2></div>
+    <p class="sec-sub">Picks that specifically help a shared, multiplayer world. All drop-in.</p>
+    <div class="mods">
+      <div class="mod">
+        <div class="top"><h4>Lootr</h4><span class="tag sug">Top pick</span></div><div class="by">by Noobanidus</div>
+        <p>Makes structure loot chests <strong>per-player</strong> — everyone gets their own roll, no racing for loot.</p>
+        <p class="why"><b>For the owner:</b> ideal for a multiplayer exploration server. Applies to chests in <span class="tag flag">new chunks</span> (and configurable for existing ones). Drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/lootr">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>FTB Ultimine</h4><span class="tag sug">Suggested</span></div><div class="by">by FTB Team</div>
-        <p>Hold-key vein / area mining — works with Tinkers tools.</p>
-        <p class="why"><b>Why:</b> massive mining/building QoL in a tech pack.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ftb-ultimine-forge">CurseForge</a></div>
-      </div>
-      <div class="mod">
-        <div class="top"><h4>Controlling</h4><span class="tag sug">Suggested</span></div><div class="by">by Jaredlll08</div>
-        <p>Searchable, conflict-detecting keybind menu.</p>
-        <p class="why"><b>Why:</b> essential once we add keybind-heavy mods (Ultimine, backpacks, AE2 WT).</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/controlling">CurseForge</a></div>
+        <div class="top"><h4>FTB Chunks + FTB Teams <span class="tag flag">protection</span></h4><span></span></div><div class="by">by FTB Team</div>
+        <p>Claim/protect chunks and form teams — stops grief and accidental machine theft.</p>
+        <p class="why"><b>For the owner:</b> the standard claims/protection stack for a survival server. Includes a map you can disable if you prefer JourneyMap. Drop-in; needs Architectury + FTB Library.</p>
+        <div class="foot"><span class="deps">Architectury + FTB Library</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Corpse</h4><span class="tag sug">Suggested</span></div><div class="by">by HenkelMax</div>
         <p>Death drops a recoverable corpse holding your items.</p>
-        <p class="why"><b>Why:</b> safety net for deep dives / space death — protects Tinkers/Curios investment.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/corpse">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> safety net for deep dives / space death — protects players' Tinkers/Curios investment. Drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/corpse">CurseForge</a></div>
       </div>
       <div class="mod">
         <div class="top"><h4>Comforts</h4><span class="tag sug">Suggested</span></div><div class="by">by TheIllusiveC4</div>
         <p>Sleeping bags &amp; hammocks — sleep on expeditions without resetting home spawn.</p>
-        <p class="why"><b>Why:</b> perfect for exploration; same author as our Curios.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/comforts">CurseForge</a></div>
+        <p class="why"><b>For the owner:</b> great for multiplayer (sleep without forcing everyone's spawn). Same author as the pack's Curios. Drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/comforts">CurseForge</a></div>
       </div>
       <div class="mod">
-        <div class="top"><h4>Configured + Catalogue</h4><span class="tag sug">Suggested</span></div><div class="by">by MrCrayfish</div>
-        <p>In-game config editor + a better mod-list screen.</p>
-        <p class="why"><b>Why:</b> lets us tune Quark/structure-spacing/Waystones without editing files; tidy for a big modlist.</p>
-        <div class="foot"><span class="deps">no deps</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/configured">CurseForge</a></div>
+        <div class="top"><h4>Goblin Traders</h4><span class="tag sug">Suggested</span></div><div class="by">by MrCrayfish</div>
+        <p>Goblins spawn underground to trade odd goods (and a Nether variant).</p>
+        <p class="why"><b>For the owner:</b> spawns dynamically — works in the <em>existing</em> world, no new chunks needed. Light, fun. Drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/goblintraders">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Controlling + Configured + Catalogue</h4><span class="tag sug">Suggested</span></div><div class="by">by Jaredlll08 / MrCrayfish</div>
+        <p>Searchable keybinds, in-game config editor, and a better mod-list screen.</p>
+        <p class="why"><b>For the owner:</b> near-mandatory admin QoL once the modlist grows (tune Quark, structure spacing, Waystones in-game). Drop-in.</p>
+        <div class="foot"><span class="deps">drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/controlling">CurseForge</a></div>
+      </div>
+    </div>
+    <h3 class="cat"><span class="ico">🎧</span> Optional ambience (client-side, zero world impact)</h3>
+    <div class="mods">
+      <div class="mod">
+        <div class="top"><h4>Sound Physics Remastered</h4><span class="tag sug">Optional</span></div><div class="by">by henkelmax</div>
+        <p>Realistic reverb &amp; sound occlusion — caves and big builds sound spatial.</p>
+        <p class="why"><b>For the owner:</b> purely client/audio; great in the pack's big structures. Drop-in.</p>
+        <div class="foot"><span class="deps">client · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/sound-physics-remastered">CurseForge</a></div>
+      </div>
+      <div class="mod">
+        <div class="top"><h4>Falling Leaves</h4><span class="tag sug">Optional</span></div><div class="by">Forge port</div>
+        <p>Gentle leaf particles falling from trees.</p>
+        <p class="why"><b>For the owner:</b> tiny client visual; drop-in.</p>
+        <div class="foot"><span class="deps">client · drop-in</span><a class="cf" href="https://www.curseforge.com/minecraft/mc-mods/falling-leaves-forge">CurseForge</a></div>
       </div>
     </div>
   </section>
 
   <!-- COMPAT -->
   <section id="compat">
-    <div class="sec-head"><span class="n">⚠</span><h2>Compatibility &amp; performance notes</h2></div>
-    <p class="sec-sub">The stuff worth reading before flipping switches on a server.</p>
+    <div class="sec-head"><span class="n">⚠</span><h2>Compatibility, performance &amp; what was excluded</h2></div>
+    <p class="sec-sub">The decisions worth your attention before flipping switches.</p>
 
-    <div class="note flag"><span class="label">Refined Storage vs Applied Energistics 2</span><p>Both are endgame digital-storage networks. They run side by side without crashing, but they cover the <strong>same niche</strong> — running both tends to split progression and let players pick the easier one. My recommendation: <strong>keep AE2 as the storage endgame</strong> and skip RS, <em>unless</em> you specifically want RS's gentler learning curve as the primary (then consider dropping AE2 to keep identity tight).</p></div>
+    <div class="note flag"><span class="label">Excluded for needing fresh terrain</span><p><strong>Tinkers' Reforged</strong> was left off: it adds new <em>ores</em> (Yttrium/Barium/Thallium across the dimensions), which only generate in new chunks — so its materials would be effectively unreachable in your explored world without regenerating. It only makes sense on a fresh world, which breaks the no-reset rule. <strong>Applied Flux</strong> was also dropped — no confirmed 1.19.2 Forge build.</p></div>
 
-    <div class="note warn"><span class="label">Don't stack parallel power/storage systems</span><p>We already commit to <strong>AE2 + IC2 Classic</strong>. The mods that add <em>new</em> parallel systems — <strong>Create</strong> (rotation), <strong>Powah</strong> (FE), <strong>Tom's Simple Storage</strong> (mini-ME) — are fine technically but dilute focus. Treat each as a deliberate "yes we want this pillar," not a default.</p></div>
+    <div class="note flag"><span class="label">Refined Storage vs the pack's AE2</span><p>Both are endgame digital-storage networks covering the same niche. They coexist without crashing, but running both splits progression. Recommendation: keep <strong>AE2</strong> as the storage endgame and treat RS as a deliberate choice — not a default add.</p></div>
 
-    <div class="note warn"><span class="label">Structure spacing</span><p>YUNG suite + When Dungeons Arise + Dungeons and Taverns all inject jigsaw structures. If we add the latter two, <strong>tune their spacing/separation configs</strong> so structures don't overlap-generate (which causes ugly collisions and world-gen lag).</p></div>
+    <div class="note warn"><span class="label">Don't stack parallel systems</span><p>The pack commits to <strong>AE2 + IC2</strong>. Mods that add <em>new</em> parallel systems — <strong>Create</strong> (rotation power), <strong>Tom's Simple Storage</strong> (mini-ME) — are technically fine but dilute focus. Treat each as a deliberate "yes, we want this pillar."</p></div>
 
-    <div class="note"><span class="label">Distant Horizons performance</span><p>Heaviest risks are <strong>Create</strong> (contraptions/block entities) and <strong>When Dungeons Arise</strong> (large gen at LOD range). <strong>Clumps</strong> actively helps. Connected Glass/Textures need a Rubidium CTM path to actually render — verify in-world.</p></div>
+    <div class="note warn"><span class="label">Structure spacing (new-chunk mods)</span><p>If you add <strong>When Dungeons Arise</strong> and/or <strong>Dungeons and Taverns</strong> on top of the YUNG suite, tune their spacing/separation configs so structures don't overlap-generate in fresh chunks (avoids ugly collisions and world-gen lag). None of this touches existing terrain.</p></div>
 
-    <div class="note"><span class="label">Almost Unified scope</span><p>It unifies <strong>tagged ores/ingots/gems</strong> (handy with the Copper Backport), but <em>not</em> decoration or machine recipes. Manage block/recipe overlap (e.g. Quark stones, Chipped vs Rechiseled) via each mod's <strong>config</strong>, not unification.</p></div>
+    <div class="note"><span class="label">Distant Horizons performance</span><p>Heaviest risk is <strong>Create</strong> (contraptions/block entities). The §07 performance mods (<strong>spark, FerriteCore, ModernFix, Entity Culling, Clumps</strong>) actively offset the cost of everything else and are the lowest-risk additions on this page.</p></div>
 
-    <div class="note"><span class="label">Curios synergy (nice thread)</span><p>Sophisticated Backpacks, AE2 Wireless Terminals, Comforts and Ars Nouveau all integrate with the <strong>Curios</strong> we already run — a coherent set of "wear it / quick-access" slots.</p></div>
+    <div class="note"><span class="label">Almost Unified scope</span><p>The pack's Almost Unified unifies tagged ores/ingots/gems — not decoration or machine recipes. Manage block/recipe overlap (Quark stones, Chipped variants) via each mod's config, not unification. Remember to disable Quark's ore world-gen.</p></div>
 
-    <div class="note"><span class="label">Standard install caveat</span><p>Before installing, confirm each mod's <strong>exact 1.19.2 Forge file</strong> on CurseForge and pull required libraries (Moonlight, Balm, Citadel, AutoRegLib, Sophisticated Core) — CurseForge resolves most automatically.</p></div>
+    <div class="note"><span class="label">Before installing</span><p>Confirm each mod's exact <strong>1.19.2 Forge</strong> file on CurseForge and pull required libraries (Placebo, Moonlight, Balm, Citadel, Athena, Architectury, FTB Library, Sophisticated Core, AutoRegLib) — CurseForge resolves most automatically. A test world is wise before touching the live save, but none of these picks require a reset.</p></div>
   </section>
 
   <!-- SHORTLIST -->
   <section id="shortlist">
     <div class="sec-head"><span class="n">★</span><h2>If you want a tight, safe shortlist</h2></div>
-    <p class="sec-sub">On-theme (exploration + structures + AE2/Tinkers/magic), no new parallel power systems, DH/Rubidium performance intact.</p>
+    <p class="sec-sub">Drop-in, on-theme, no parallel power systems, performance-positive. A confident "yes" list for the live server.</p>
     <div class="tbl-wrap">
       <table>
-        <thead><tr><th>Category</th><th>Add</th></tr></thead>
+        <thead><tr><th>Bucket</th><th>Add</th></tr></thead>
         <tbody>
-          <tr><td>Requested core</td><td><b>RightClickHarvest · Macaw's + Decorative Blocks + Another Furniture + Handcrafted · Apotheosis</b> (covers enchanting bookshelves <em>and</em> the Tinkers-enchant workaround) <b>+ Tinkers' Levelling Addon</b></td></tr>
-          <tr><td>Building/deco</td><td>Supplementaries, Quark (ores off), Chipped</td></tr>
-          <tr><td>Storage</td><td>Sophisticated Backpacks, Storage Drawers</td></tr>
-          <tr><td>Exploration</td><td>Waystones, Explorer's Compass, Nature's Compass, Alex's Mobs</td></tr>
-          <tr><td>Synergy</td><td>Ars Nouveau, Tinkers' Levelling Addon, AE2 Things, AE2 Wireless Terminals</td></tr>
-          <tr><td>QoL</td><td>Clumps, FTB Ultimine, Controlling, Corpse, Comforts</td></tr>
+          <tr><td>Requested</td><td><b>RightClickHarvest · Macaw's + Decorative Blocks + Another Furniture + Handcrafted · Apotheosis</b></td></tr>
+          <tr><td>Performance</td><td><b>spark · FerriteCore · ModernFix · Entity Culling · Clumps</b> (lowest-risk wins)</td></tr>
+          <tr><td>Server QoL</td><td>Lootr · FTB Chunks + Teams · Corpse · Comforts · Controlling/Configured/Catalogue</td></tr>
+          <tr><td>Building/deco</td><td>Supplementaries · Quark (ores off) · Chipped · Building Gadgets</td></tr>
+          <tr><td>Storage</td><td>Sophisticated Backpacks · Storage Drawers</td></tr>
+          <tr><td>Exploration</td><td>Waystones · Explorer's Compass · Nature's Compass · Alex's Mobs</td></tr>
+          <tr><td>Synergy/extensions</td><td>AE2 Things · AE2 Wireless Terminals · Merequester · Ars Nouveau · Tinkers' Levelling · JER · the Delight add-ons</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="note"><span class="label">Deliberately left to a decision</span><p><strong>Refined Storage</strong> (overlaps AE2), <strong>Create</strong> &amp; <strong>Powah</strong> (new power systems), and <strong>Tom's Simple Storage</strong> (overlaps AE2) — all flagged above for you and the host to rule on.</p></div>
+    <div class="note"><span class="label">Left for your call</span><p><strong>Refined Storage</strong> (overlaps AE2), <strong>Create</strong> (new power system + perf), and <strong>Tom's Simple Storage</strong> (overlaps AE2) — all flagged above for you to rule on.</p></div>
   </section>
 
 </main>
 
 <footer>
   <div class="wrap">
-    <p>Proposal for the <strong>To the Moon</strong> server · Minecraft 1.19.2 Forge. Mods are third-party; all credit to their authors. Availability checked against CurseForge — confirm exact file versions before install.</p>
+    <p>Proposal for the <strong>To the Moon</strong> server · Minecraft 1.19.2 Forge. Every pick is a drop-in on the existing world — no reset. Mods are third-party; all credit to their authors. Confirm exact file versions on CurseForge before install.</p>
   </div>
 </footer>
 
