@@ -1,291 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Browser Widgets</title>
-  <style>
-    /* Core Styling */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(to bottom right, #f9f9f9, #e0e0e0);
-      color: #1c1c1e;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home · Web Page</title>
+<meta name="description" content="A small hub of pages — guides, proposals, and browser widget demos." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg-0:#0b0d12; --bg-1:#11141c; --bg-2:#171b25; --line:#242a36;
+    --ink:#e7ebf3; --ink-dim:#9aa3b5; --ink-faint:#5f6878;
+    --accent:#7aa2ff; --accent-2:#56d4dd; --amber:#f0b652; --blood:#c63a2a;
+    --f:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:var(--f); color:var(--ink); line-height:1.6;
+    background:
+      radial-gradient(900px 520px at 82% -8%, rgba(122,162,255,.12), transparent 60%),
+      radial-gradient(700px 480px at 4% 102%, rgba(86,212,221,.08), transparent 55%),
+      var(--bg-0);
+    background-attachment:fixed; min-height:100vh;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 22px}
+  header.hero{padding:clamp(56px,11vw,120px) 0 30px}
+  .eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--accent-2); margin:0 0 14px}
+  h1{font-size:clamp(2.3rem,6vw,3.6rem); line-height:1.04; margin:0; letter-spacing:-.02em; font-weight:800}
+  .lede{color:var(--ink-dim); max-width:60ch; font-size:1.12rem; margin:16px 0 0}
 
-    header {
-      padding: 2rem;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  section{padding:8px 0 60px}
+  .group-label{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); margin:30px 0 12px}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px}
 
-    h1 {
-      font-size: 2.5rem;
-      margin: 0.2rem 0;
-    }
+  a.card{
+    display:flex; flex-direction:column; gap:8px; text-decoration:none; color:inherit;
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-1));
+    border:1px solid var(--line); border-radius:14px; padding:20px 20px 18px;
+    position:relative; overflow:hidden; transition:border-color .18s, transform .18s;
+  }
+  a.card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent); opacity:.0; transition:opacity .18s}
+  a.card:hover{transform:translateY(-3px); border-color:#37425a}
+  a.card:hover::before{opacity:1}
+  a.card .tag{font-family:var(--f-mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint)}
+  a.card h2{margin:2px 0 0; font-size:1.24rem; font-weight:700; letter-spacing:-.01em}
+  a.card p{margin:0; color:var(--ink-dim); font-size:.95rem}
+  a.card .go{margin-top:auto; padding-top:10px; font-family:var(--f-mono); font-size:.78rem; color:var(--accent)}
+  a.card .go::after{content:" →"}
 
-    section {
-      padding: 2rem;
-      margin: 1rem auto;
-      max-width: 900px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    }
+  /* accent variants */
+  a.card.blood::before{background:var(--blood)} a.card.blood .go{color:#e9907f}
+  a.card.moon::before{background:var(--amber)} a.card.moon .go{color:var(--amber)}
+  a.card.demo::before{background:var(--accent-2)} a.card.demo .go{color:var(--accent-2)}
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+  .emoji{font-size:1.3rem; line-height:1}
 
-    nav ul li {
-      background: #f0f0f5;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background 0.2s ease;
-    }
-
-    nav ul li:hover {
-      background: #d0d0dc;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #007aff;
-      font-weight: 500;
-    }
-
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
-      margin-top: 2rem;
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem 2rem;
-      margin-top: 1rem;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      color: #333;
-    }
-
-    input, select, textarea, button {
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #f9f9f9;
-      transition: border-color 0.2s ease;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #007aff;
-      background: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #888;
-    }
-
-    .unsupported {
-      border-left: 5px solid #ff3b30;
-      background: #fff8f8;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-
-    .note {
-      color: #888;
-      font-size: 0.9rem;
-    }
-  </style>
+  footer{padding:28px 0 60px; color:var(--ink-faint); font-size:.84rem; border-top:1px solid var(--line)}
+  footer a{color:var(--ink-dim)}
+</style>
 </head>
 <body>
+<div class="wrap">
 
-  <header>
-    <h1>Browser Widgets</h1>
-    <p>Explore and test modern browser input features</p>
+  <header class="hero">
+    <p class="eyebrow">Index</p>
+    <h1>Web Page</h1>
+    <p class="lede">A little hub for the things built here — game guides, a modpack proposal, and a few browser-widget demos. Pick a door.</p>
   </header>
 
-  <section class="toc">
-    <h2>Table of Contents</h2>
-    <nav>
-      <ul>
-        <li><a href="#features">Features Available</a></li>
-        <li><a href="#specialized-inputs">Specialized Input Widgets (HTML5)</a></li>
-        <li><a href="#text-fields">Text Fields</a></li>
-        <li><a href="#selection-widgets">Selection Widgets</a></li>
-        <li><a href="#other-widgets">Other Standard Widgets</a></li>
-        <li><a href="#meta">Dynamic Title</a></li>
-        <li><a href="#file-inputs">File & Camera Inputs</a></li>
-        <li><a href="#media">Media Context Menus</a></li>
-        <li><a href="#context-menus">Context Menus</a></li>
-      </ul>
-    </nav>
+  <section>
+    <p class="group-label">Guides &amp; Proposals</p>
+    <div class="cards">
+      <a class="card blood" href="blood-magic-guide.html">
+        <span class="tag"><span class="emoji">🩸</span> Minecraft · Blood Magic 3.3.0</span>
+        <h2>The Sanguine Scientum</h2>
+        <p>A step-by-step Blood Magic guide (MC 1.19.2 Forge) with interactive, layer-by-layer schematics for the altar and a decorative "Sanguine Crypt" build.</p>
+        <span class="go">Open the grimoire</span>
+      </a>
+      <a class="card moon" href="modpack-proposal.html">
+        <span class="tag"><span class="emoji">🌙</span> Minecraft · Modpack</span>
+        <h2>To the Moon — Mod Proposal</h2>
+        <p>Proposed mods to add to our 1.19.2 Forge pack, tagged and annotated with compatibility &amp; performance notes for the server host.</p>
+        <span class="go">Read the proposal</span>
+      </a>
+    </div>
   </section>
 
-  <section id="features">
-    <h2>Features Available for Testing</h2>
-    <p>This page provides an overview and interactive testing area for modern HTML form controls. Each section demonstrates different input types and widgets supported by modern browsers. Use the table of contents above to navigate directly to each group of widgets.</p>
-  </section>
-
-  <section id="specialized-inputs">
-    <h2>Specialized Input Widgets (HTML5)</h2>
-    <form>
-      <div><label for="color">Color Picker</label><input type="color" id="color" /></div>
-      <div><label for="date">Date Picker</label><input type="date" id="date" /></div>
-      <div><label for="datetime">Datetime Local Picker</label><input type="datetime-local" id="datetime" /></div>
-      <div><label for="email">Email Field</label><input type="email" id="email" /></div>
-      <div><label for="month">Month Picker</label><input type="month" id="month" /></div>
-      <div><label for="number">Number Field</label><input type="number" id="number" min="0" max="100" /></div>
-      <div><label for="range">Range Slider</label><input type="range" id="range" min="0" max="100" /></div>
-      <div><label for="search">Search Field</label><input type="search" id="search" /></div>
-      <div><label for="tel">Telephone Field</label><input type="tel" id="tel" /></div>
-      <div><label for="time">Time Picker</label><input type="time" id="time" /></div>
-      <div><label for="url">URL Field</label><input type="url" id="url" /></div>
-      <div><label for="week">Week Picker</label><input type="week" id="week" /></div>
-    </form>
-  </section>
-
-  <section id="text-fields">
-    <h2>Text Fields</h2>
-    <form>
-      <div><label for="text">Text Field</label><input type="text" id="text" /></div>
-      <div><label for="password">Password Field</label><input type="password" id="password" /></div>
-      <div><label for="textarea">Textarea</label><textarea id="textarea" rows="4"></textarea></div>
-    </form>
-  </section>
-
-  <section id="selection-widgets">
-    <h2>Selection Widgets</h2>
-    <form>
-      <div>
-        <label for="select">Dropdown Select</label>
-        <select id="select">
-          <option>Option 1</option><option>Option 2</option><option>Option 3</option>
-        </select>
-      </div>
-      <div>
-        <label>Radio Buttons</label>
-        <label><input type="radio" name="radio-group" value="1" /> Option 1</label><br/>
-        <label><input type="radio" name="radio-group" value="2" /> Option 2</label>
-      </div>
-      <div>
-        <label>Checkboxes</label>
-        <label><input type="checkbox" /> Option A</label><br/>
-        <label><input type="checkbox" /> Option B</label>
-      </div>
-      <div>
-        <label for="datalist">Datalist</label>
-        <input list="options" id="datalist" />
-        <datalist id="options">
-          <option value="Apple"/><option value="Banana"/><option value="Cherry"/><option value="Date"/>
-        </datalist>
-      </div>
-    </form>
-  </section>
-
-  <section id="other-widgets">
-    <h2>Other Standard Widgets</h2>
-    <form>
-      <div><label for="file">File Upload</label><input type="file" id="file" /></div>
-      <div><label for="hidden">Hidden Field</label><input type="hidden" id="hidden" value="secret" /><p>(Not visible)</p></div>
-      <div><label for="image-button">Image Button</label><input type="image" src="https://via.placeholder.com/100x30?text=Click" alt="Submit Image" /></div>
-      <div><label>Submit Button</label><input type="submit" value="Submit" /></div>
-      <div><label>Reset Button</label><input type="reset" value="Reset" /></div>
-      <div><label>Generic Button</label><button type="button" onclick="alert('Button clicked!')">Click Me</button></div>
-    </form>
-  </section>
-
-  <!-- New sections start here -->
-  <section id="meta">
-    <h2>Dynamic Title Test</h2>
-    <p>This test checks if the <code>&lt;title&gt;</code> element propagates to the native OS window or tab label.</p>
-    <button id="update-title-btn" type="button">🔁 Update Title</button>
-    <p id="title-status" style="margin-top:0.5rem;color:#007aff;font-weight:500;"></p>
-  </section>
-
-  <section id="file-inputs">
-    <h2>File and Image Inputs</h2>
-    <form>
-      <div><label for="file">File Picker</label><input type="file" id="file" /></div>
-      <div><label for="file-multiple">Multiple File Picker</label><input type="file" id="file-multiple" multiple /></div>
-      <div><label for="camera">Capture (Camera Input)</label><input type="file" id="camera" accept="image/*" capture="environment" /></div>
-      <div><label for="image-button">Image Button</label><input type="image" src="https://via.placeholder.com/100x40?text=Submit" alt="Submit Button" /></div>
-    </form>
-  </section>
-
-  <section id="media">
-    <h2>Media Elements with Context Menu</h2>
-    <p>Right-click or long-press to check if native context menus appear for video/audio elements.</p>
-    <video controls width="320"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></video>
-    <audio controls><source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"></audio>
-  </section>
-
-  <section id="context-menus">
-    <h2>Context Menu Tests</h2>
-    <div class="unsupported">
-      <p><strong>Try long-pressing or right-clicking on these elements:</strong></p>
-      <ul>
-        <li><a href="https://example.com" target="_blank">A link element</a></li>
-        <li><img src="https://via.placeholder.com/150" alt="Test Image" /></li>
-        <li><span>Select this text to test text-selection context menu.</span></li>
-      </ul>
-      <p class="note">Expected: OS-level or custom JS-based context menus appear.</p>
+  <section>
+    <p class="group-label">Browser Demos</p>
+    <div class="cards">
+      <a class="card demo" href="widgets.html">
+        <span class="tag"><span class="emoji">🧩</span> Demo</span>
+        <h2>Browser Widgets</h2>
+        <p>Explore and test modern browser input features and widgets.</p>
+        <span class="go">Try the widgets</span>
+      </a>
+      <a class="card demo" href="index2.html">
+        <span class="tag"><span class="emoji">🗂️</span> Demo</span>
+        <h2>Persistence, Tables &amp; Permissions</h2>
+        <p>A demo of client-side persistence, data tables, and permission prompts.</p>
+        <span class="go">View the demo</span>
+      </a>
+      <a class="card demo" href="weekly_perks_table.html">
+        <span class="tag"><span class="emoji">📅</span> Reference</span>
+        <h2>Weekly Perks Table</h2>
+        <p>A styled reference table of weekly perks.</p>
+        <span class="go">See the table</span>
+      </a>
     </div>
   </section>
 
   <footer>
-    <p>End of Widget Showcase — includes extended tests for dropdowns, pickers, file inputs, and context menus.</p>
+    <p>Hosted on GitHub Pages. Built with <a href="https://claude.com/claude-code">Claude Code</a>. Game guides are fan-made and unaffiliated with their respective mods.</p>
   </footer>
 
-  <script>
-    // Smooth scrolling for TOC
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", e => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute("href"));
-        if (target) target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    // Title update logic
-    const btn = document.getElementById('update-title-btn');
-    const status = document.getElementById('title-status');
-    if (btn) {
-      const updateTitle = () => {
-        const newTitle = 'Title Updated: ' + new Date().toLocaleTimeString();
-        document.title = newTitle;
-        status.textContent = '✅ Title changed to: "' + newTitle + '"';
-        console.log('[Title Update]', newTitle);
-      };
-      btn.addEventListener('click', updateTitle);
-      btn.addEventListener('pointerup', updateTitle);
-    }
-
-    // Context menu logger
-    document.addEventListener('contextmenu', e => {
-      console.log('Context menu triggered on:', e.target.tagName);
-    });
-  </script>
+</div>
 </body>
 </html>
