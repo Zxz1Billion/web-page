@@ -15,14 +15,15 @@ for both the functional **Blood Altar** and a decorative **"Sanguine Crypt"** ri
 ## Structure
 
 ```
-index.html                     the guide (single page, anchored sections)
+blood-magic-guide.html         the guide (single page, anchored sections)
 assets/
   css/site.css                 grimoire/blueprint design system
   js/
     schematic-viewer.js        reusable top-down layer/tier schematic widget
     main.js                    mounts the widgets + nav/scroll-spy
   data/schematics.js           altar tiers + 5 decorative builds + ritual layout
-demos/                         pre-existing demo pages (preserved, unrelated)
+
+index.html, index2.html, weekly_perks_table.html   pre-existing pages (untouched)
 ```
 
 ### The schematic engine
@@ -42,11 +43,13 @@ then `mountSchematic(def, "#selector")` in `main.js`.
 
 This is a static site — no build step. In the repo's **Settings → Pages**, set the source to this
 branch with the root (`/`) folder. The included `.nojekyll` ensures the `assets/` tree is served
-as-is. ES modules require HTTPS (which Pages provides); opening `index.html` directly via
-`file://` will not load the modules — use a local server for testing:
+as-is. The pre-existing `index.html` remains the site root; the guide lives at
+`blood-magic-guide.html` (e.g. `https://<user>.github.io/web-page/blood-magic-guide.html`).
+ES modules require HTTPS (which Pages provides); opening the guide directly via `file://` will not
+load the modules — use a local server for testing:
 
 ```
-python3 -m http.server 8099   # then open http://localhost:8099
+python3 -m http.server 8099   # then open http://localhost:8099/blood-magic-guide.html
 ```
 
 ## Credits
