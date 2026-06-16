@@ -42,6 +42,8 @@
       <p class="group-label">In Practice</p>
       <a href="#crossmod"><span class="ix">06</span> Cross-mod</a>
       <a href="#tips"><span class="ix">07</span> Tips</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against Pipez for<br>MC 1.19.2 (Forge) by henkelmax.<br>Transfer rates &amp; slot counts are<br>approximate &amp; configurable —<br>trust the in-game GUI and JEI.
@@ -314,6 +316,27 @@
       <div class="note danger">
         <span class="label">Don't over-build</span>
         <p>A common trap is wrapping every machine in Infinity pipes and complex filters when a Basic Item Pipe with one Pull face would do. Start simple, upgrade the <em>specific</em> lines that actually bottleneck, and you'll keep both your sanity and your tick rate.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — tiering up your pipes</h2>
+      <p class="lead">There's a natural order to building a Pipez network, and following it keeps your base readable as it grows. Start with a single Basic Item Pipe and the wrench, prove the concept with one extract side into a chest, then layer on distribution, filters, and extra resource lines only as real demand appears. Tiers come last — you climb them when throughput, not ambition, forces the issue.</p>
+
+      <ol class="flow">
+        <li><strong>Craft a Basic Item Pipe and grab the wrench.</strong> Run a line from a machine output or chest to a destination chest. This is the smallest complete network — one source, one sink.</li>
+        <li><strong>Set one extract side, push to the chest.</strong> Wrench the source face, mark it <strong>Pull</strong>, and let the destination accept the default insert. One extract side per source is the discipline that keeps everything legible.</li>
+        <li><strong>Add per-side distribution + filters.</strong> Once several destinations exist, switch the source to <strong>Round Robin</strong> to balance them, and add whitelist/tag filters on the destination faces so each tap takes only what it should.</li>
+        <li><strong>Branch into Fluid, Energy and Gas pipes.</strong> Your machines need more than items — run parallel Fluid, Energy (FE) and Gas lines into the same banks, reusing the exact same one-extract-side, filter-per-face habits.</li>
+        <li><strong>Upgrade tiers as throughput demands grow.</strong> Climb Basic → Improved → Advanced → Ultimate → Infinity only on the lines that bottleneck — Mekanism 5× plants and Create contraptions are the usual triggers for the top rungs.</li>
+        <li><strong>Keep streams clean with filters &amp; redstone.</strong> Tag-match to save filter slots, blacklist the overflow, and gate extract or insert faces with redstone so streams stay separated and switchable.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Stay disciplined, escalate deliberately</span>
+        <p>Keep <strong>one extract side per source</strong> at every stage — multiple Pull faces on one inventory fight each other. And reach for <a href="xnet-guide.html">XNet</a> or AE2 only when you genuinely need conditional logic or searchable storage; for plain point-to-point hauling, Pipez stays simpler and lighter. See the <a href="storage-guide.html">Storage hub</a> for where these lines terminate, and <a href="roadmap-guide.html">The Ascent</a> for how logistics fit the wider climb.</p>
       </div>
     </section>
 

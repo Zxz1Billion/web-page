@@ -46,6 +46,8 @@
       <p class="group-label">This Pack</p>
       <a href="#addons"><span class="ix">09</span> Addons in the Pack</a>
       <a href="#tips"><span class="ix">10</span> Tips &amp; Gotchas</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
       Mechanics match the AE2 15.x<br>(1.19.2, the "rv-rewrite") line.<br>Exact AE costs, byte counts and<br>channel limits are the in-game<br>Guidebook &amp; JEI — those win.
@@ -405,6 +407,25 @@
 
       <div class="note danger"><span class="label">The classic failure mode</span><p>"My terminal went blank / my drives disappeared." Nine times out of ten this is <strong>a channel running out</strong> (a cable segment hit its limit) or <strong>the network running out of power</strong> (a generator stalled and the Energy Cells drained). Check Smart Cable channel load and your AE buffer <em>first</em> — it is almost never a bug.</p></div>
       <div class="note tip"><span class="label">When in doubt, ask the Guidebook</span><p>Every block in AE2 has a Guidebook entry with a diagram and recipe. The Controller and Crafting CPU pages in particular show valid shapes far better than any text can. The in-game book + JEI are the ground truth; this guide is the orientation.</p></div>
+    </section>
+
+    <!-- ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — from quartz to a full ME network</h2>
+      <p class="lead">AE2 is a <strong>system you grow</strong>, not a single build. This is the concrete order to follow in To the Moon 2.0: bootstrap the materials, get power flowing, stand up a Controller, then layer storage, access, autocrafting and the pack's addons on top. Each step unlocks the next — don't skip ahead to a Crafting CPU before you have renewable certus and reliable power.</p>
+
+      <ol class="flow">
+        <li><strong>Bootstrap the materials.</strong> Grow renewable <strong>Certus Quartz</strong> and <strong>Fluix</strong> in a water lane with <em>Crystal Growth Accelerators</em>, then go meteorite-hunting for the four <strong>Inscriber Presses</strong> (Silicon, Calculation, Engineering, Logic). Stamp printed parts in an <strong>Inscriber</strong> and hand-craft your first <strong>Calculation / Engineering / Logic Processors</strong> — the universal bottleneck (see §01).</li>
+        <li><strong>Get first power.</strong> Point any FE/RF generator at an <strong>Energy Acceptor</strong> to convert it into AE, and place an <strong>Energy Cell</strong> as a buffer. The grid is dead without stored AE, so make this robust before building outward (see §02).</li>
+        <li><strong>Stand up the Controller &amp; channels.</strong> Build the <strong>ME Controller</strong> multiblock and run <strong>Smart / Dense Cable</strong> out of its faces. This lifts you past the controllerless 8-channel cap and is the moment the network becomes a real grid. Read §03 first — channel planning <em>is</em> the skill.</li>
+        <li><strong>Add storage.</strong> Slot <strong>Storage Cells</strong> into an <strong>ME Drive</strong> and start dissolving your chests into the digital pool. Partition big cells with a <strong>Cell Workbench</strong> and set priorities so bulk resources route cleanly (see §04, and the <a href="storage-guide.html">storage hub</a> for the wider picture).</li>
+        <li><strong>Get a terminal.</strong> Place a <strong>Crafting Terminal</strong> for a searchable view of everything plus a built-in 3×3 grid. Learn the search prefixes (<code>@</code> mod, <code>#</code> tag) now — they scale with the network (see §05).</li>
+        <li><strong>Automate crafting.</strong> Encode patterns in a Pattern Terminal, drop them in <strong>Pattern Providers</strong> feeding <strong>Molecular Assemblers</strong> (and machines), and build a <strong>Crafting CPU</strong> from Crafting Storage + Co-Processing Units. Automate your processor line first so sub-crafting carries the rest of the mod (see §06–§07).</li>
+        <li><strong>Go wireless, then exotic.</strong> Add a <strong>Wireless Terminal</strong> (with Access Points, or this pack's <strong>AEInfinityBooster</strong> for infinite range), then lean on the pack's addons — <strong>ExtraCells / AE2 Things</strong> for bigger cells and an Advanced Inscriber, <strong>ME Requester</strong> for keep-in-stock levels (see §09). The deep end is <strong>Spatial IO</strong>: capture whole regions into a Spatial Storage Cell with a Pylon frame (see §08).</li>
+      </ol>
+
+      <div class="note tip"><span class="label">Pace it like a tech tree</span><p>Each rung depends on the one below it: no autocrafting without a Controller, no Controller worth running without power, no power chain worth automating without renewable certus. Build robustly at each step before climbing. For how this AE2 arc slots into the wider modpack run, see <a href="roadmap-guide.html">The Ascent</a>.</p></div>
     </section>
 
   </main>

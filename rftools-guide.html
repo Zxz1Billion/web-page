@@ -41,6 +41,8 @@
       <a href="#builder"><span class="ix">06</span> Builder &amp; Dimensions</a>
       <p class="group-label">Practice</p>
       <a href="#tips"><span class="ix">07</span> Tips &amp; Checklist</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against RFTools Base<br>for MC 1.19.2 (Forge) by McJty.<br>This pack ships <b>Base</b> — the shared<br>core. Which named modules are<br>installed is pack-specific: open<br>JEI in-game to confirm.
@@ -314,6 +316,27 @@
       <div class="note danger">
         <span class="label">Don't plan around features you can't see</span>
         <p>RFTools Base alone gives you frames, the Smart Wrench, and Machine Infusion — not quarries, dimensions, Powercells, or storage scanners. Those are the add-on modules. If a build plan depends on one of them, verify the module is present <em>before</em> you commit resources. When this guide and your install disagree, the in-game JEI/tooltips win.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — building out the RFTools suite</h2>
+      <p class="lead">RFTools grows the way it loads: <strong>Base first</strong>, then whichever modules your pack ships. Only <strong>RFTools Base</strong> is confirmed present here — everything tagged "if installed" depends on a separate add-on you should verify in JEI before you commit to it. Treat the steps below as a spine: do the Base ones for real, and slot the module steps in only where your pack actually has them.</p>
+
+      <ol class="flow">
+        <li><strong>Lay the Base foundation.</strong> Batch-craft a stack of <strong>Machine Frames</strong> and build the <strong>Smart Wrench</strong> — keep the wrench on your hotbar so you can configure, rotate, and relocate machines without losing their settings. Nearly every RFTools recipe leans on the frame, so make them once and stop thinking about it. (§01)</li>
+        <li><strong>Upgrade with Machine Infusion.</strong> Feed your workhorse machines <strong>Dimensional Shards</strong> through the Machine Infuser to cut their FE-per-operation cost and let them run faster. Shards are limited, so infuse only the always-on machines. (§01)</li>
+        <li><strong>Stand up a power network.</strong> <span class="vflag">If RFTools Power is installed</span> Build a bank of <strong>Powercells</strong> and link them with a network card into one shared, location-independent FE pool — power placed anywhere is available everywhere, no cable runs required. Without the module, any FE source from your pack works fine. (§03)</li>
+        <li><strong>Add searchable storage.</strong> <span class="vflag">If RFTools Storage is installed</span> Drop a <strong>Storage Scanner</strong> over a wall of <strong>Modular Storage</strong> for an AE-lite system: one searchable terminal indexing every in-range inventory, with no channels or crafting CPUs to manage. (§04)</li>
+        <li><strong>Automate with visual programs.</strong> <span class="vflag">If RFTools Control is installed</span> Wire a <strong>Processor</strong> to your machines and inventories and assemble program cards into "when this, do that" flows — conditional crafting, buffer-keeping, and machine sequencing without writing code. (§05)</li>
+        <li><strong>Reshape the world.</strong> <span class="vflag">If RFTools Builder / Dimensions is installed</span> Run the <strong>Builder</strong> as a quarry/move/copy machine via Shape Cards, or stand up a <strong>Dimension Builder</strong> for custom designed worlds. Both are FE-hungry — exactly what your infused machines and Powercell bank are for. (§06)</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Build the spine, slot the modules</span>
+        <p>Steps 1–2 are Base and always apply; steps 3–6 only matter for the add-ons your pack actually ships. Confirm each installed module in <strong>JEI</strong> before you plan around it. For where RFTools fits among your other systems, see the <a href="automation-guide.html">Automation hub</a>, and for the wider tech climb, <a href="roadmap-guide.html">The Ascent</a>.</p>
       </div>
     </section>
 

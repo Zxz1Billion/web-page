@@ -39,6 +39,8 @@
       <a href="#tools"><span class="ix">06</span> Tools &amp; Gear</a>
       <p class="group-label">The Reactor</p>
       <a href="#nuclear"><span class="ix">07</span> Nuclear &amp; Tips</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against IC2 Classic<br>for MC 1.19.2 (Forge), the<br>sfPlayer1 port. EU values are<br>approximate &amp; configurable —<br>trust the in-game guide &amp; JEI.
@@ -358,6 +360,28 @@
       <div class="note tip">
         <span class="label">When in doubt, trust the game</span>
         <p>Every EU number in this guide is a default that packs and ports can change. The in-game IC2 guide/manual, item tooltips, and JEI recipe data are the ground truth — if your install disagrees with a figure here, follow the install.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — climbing the voltage tiers</h2>
+      <p class="lead">Strip away the catalogue and IC2 Classic is a single ladder you climb one tier at a time: harvest rubber, make EU, double your ore, then ride the LV → MV → HV voltage tiers with discipline so nothing explodes. Here is the actual path through this guide, start to endgame, with every step respecting the one rule — <em>never feed a machine a packet bigger than its tier.</em></p>
+
+      <ol class="flow">
+        <li><strong>Rubber &amp; your first Generator.</strong> Tap a Rubber Tree with a Treetap for <strong>Sticky Resin</strong>, then craft a coal-fed <strong>Generator</strong>. That first EU lets you extract resin into <strong>Rubber</strong>, which insulates the tin cable you wire everything with. This is the bootstrap — no bridge, no batteries, just fuel into EU (see §03 and §06).</li>
+        <li><strong>Macerator + Electric Furnace + a BatBox (LV).</strong> The payoff for going electric: a <strong>Macerator</strong> grinds ore into 2 dust and an <strong>Electric Furnace</strong> smelts it into 2 ingots — clean doubling on every metal (§04). Buffer the Generator into a <strong>BatBox</strong> so a fixed LV packet feeds the line, smooths bursts, and charges your first tools and RE Batteries.</li>
+        <li><strong>Circuits &amp; the machine roster.</strong> Set up a steady supply of <strong>Electronic Circuits</strong> (refined iron + copper wire + redstone) — the real bottleneck behind every machine, battery, and tool tier (§05). With circuits flowing, fill out the Compressor, Extractor, Metal Former, and Induction Furnace. Now is the moment to start automating circuit and dust crafting.</li>
+        <li><strong>Step up to MV — transformers &amp; the MFE.</strong> Bigger machines and faster smelting want more throughput than LV gives. Add a Geothermal Generator or solar/wind array, store it in an <strong>MFE</strong> (MV), and place an <strong>LV Transformer</strong> to step voltage <em>down</em> before any LV machine. Respect the band carefully: an MV packet hitting an LV machine is a crater (§01, §02).</li>
+        <li><strong>HV tier — the MFSU &amp; higher ore yields.</strong> Move your main reservoir to an <strong>MFSU</strong> (HV), transmit on HV or Glass Fibre cable, and transform down at each point of use. With surplus HV power and water cells, run the <strong>Ore Washing Plant → Thermal Centrifuge</strong> chain to beat plain doubling and recover byproduct dusts (§04).</li>
+        <li><strong>Tools, gear &amp; powered armour.</strong> Cash the EU economy into electric gear: a <strong>Drill</strong> (then Diamond Drill), Chainsaw, and Electric Wrench that run on stored charge instead of durability, plus battery-fed armour. Charge each in a storage block <em>at or above its tier</em> — never on a raw high-voltage line (§06).</li>
+        <li><strong>Bridge EU to the rest of the pack.</strong> Once IC2 hums on its own, place a converter to share power with the modpack's FE/Joules network — see <a href="mekanism-ic2c-bridge.html">the EU/FE Bridge</a>. Wire it into your wider build with the <a href="automation-guide.html">Automation hub</a>, and slot the whole tech tree into your run with <a href="roadmap-guide.html">The Ascent</a>.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">The rule that governs every step</span>
+        <p>At no point on this ladder do you over-volt a machine. Each tier you climb, the packets get bigger — so <strong>transform down before lower-tier gear</strong>, buffer through a tier-appropriate storage block, and match cable to packet voltage. Over-volting a machine doesn't slow it down; it deletes it. Climb deliberately and the path is safe.</p>
       </div>
     </section>
 

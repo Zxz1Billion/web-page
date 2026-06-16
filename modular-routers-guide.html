@@ -42,6 +42,8 @@
       <a href="#upgrades"><span class="ix">05</span> Upgrades Deep-Dive</a>
       <a href="#energy"><span class="ix">06</span> Energy &amp; Eco</a>
       <a href="#tips"><span class="ix">07</span> Tips &amp; When Not To</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against Modular Routers<br>for MC 1.19.2 (Forge), by desht_08.<br>Numbers are defaults &amp; are<br>configurable — trust JEI/EMI<br>and the in-game tooltips in your pack.
@@ -371,6 +373,25 @@
       <div class="note warn">
         <span class="label">Trust the game, not this page</span>
         <p>Module names, slot counts, ranges, and energy costs are <strong>configurable</strong> and vary by pack and version. Treat the numbers here as defaults for MC 1.19.2 Forge — the in-game tooltips and JEI/EMI recipe data are the ground truth in your install.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — from one router to a quiet automation web</h2>
+      <p class="lead">There's a natural order to learning Modular Routers: start with a single block doing one chore, then layer in targeting, builds, upgrades, and world interaction until you're running a tidy web of point-tools that feeds a real network. This is the route that turns "a router I copied off a wiki" into automation you actually understand.</p>
+      <ol class="flow">
+        <li><strong>Craft your first Item Router + a Puller — replace one hopper.</strong> Slot a single Puller, face the router at a chest or machine output, and let it drain into the buffer. One block now does what a hopper did, but filtered and configurable. This is your "hello world."</li>
+        <li><strong>Add a Sender and a filter to actually move things somewhere.</strong> Drop a Sender 1 in beside the Puller, aim it at a destination chest, and set a whitelist or blacklist on each module. Now the router pulls the right items in and pushes them out — a complete loop in one block. See <a href="#filters">§03</a> for filter and targeting choices.</li>
+        <li><strong>Build a common automation: cobble gen breaker, vacuum collector, or machine restock.</strong> Combine modules in one router — a Breaker on a cobble generator, a Vacuum over a drop zone, or a Puller+Sender restocking a furnace. These are the workhorse builds from <a href="#builds">§04</a> and the moment routers start saving you real time.</li>
+        <li><strong>Add Stack and Speed upgrades, then eco and redstone modes.</strong> Fit a Stack Upgrade for batch size and a Speed Upgrade or two for responsiveness, then gate the router with eco/idle mode or redstone (powered / unpowered / pulse) so it isn't churning ticks when there's nothing to do. Tuning lives in <a href="#upgrades">§05</a> and <a href="#energy">§06</a>.</li>
+        <li><strong>Branch into block-placing and breaking builds.</strong> Once movement feels natural, reach for the world modules — an Extruder for auto-built bridges and walls, a Breaker for mining columns or quarry slices. Pulse redstone gives you one clean action per trigger, perfect for auto-builders.</li>
+        <li><strong>Balance throughput against FE cost, then plug into the trunk.</strong> When you genuinely need extreme speed, add a Blast Upgrade and feed it FE — but weigh the energy cost against eco gating on idle routers. Use routers for the edges and let a real transport mod carry the bulk between them.</li>
+      </ol>
+      <div class="note tip">
+        <span class="label">One block, then a network</span>
+        <p>Remember the headline: a single router replaces a pile of hoppers, so spend your early effort mastering one block doing one job well before you scale out. When you outgrow point-tools and need to move <em>bulk</em> across the base, hand the trunk to <a href="pipez-guide.html">Pipez</a> or XNet and keep routers on the edges. For the bigger picture of where logistics fits, see the <a href="storage-guide.html">Storage hub</a>, and for how this slots into a full playthrough, <a href="roadmap-guide.html">The Ascent</a>.</p>
       </div>
     </section>
 

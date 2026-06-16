@@ -42,6 +42,8 @@
       <a href="#security"><span class="ix">06</span> Multiplayer &amp; Security</a>
       <p class="group-label">In Practice</p>
       <a href="#patterns"><span class="ix">07</span> Patterns &amp; Tips</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against Flux Networks<br>for MC 1.19.2 (Forge) by<br>sonar_sonic. Numbers are<br>approximate &amp; configurable —<br>trust JEI and in-game tooltips.
@@ -350,6 +352,26 @@
       <div class="note tip">
         <span class="label">When in doubt, simplify</span>
         <p>Most "my power keeps running out" problems are too little buffer (add a Controller and a bigger Storage) or no limits (one machine eating everything). Two settings — <strong>transfer limit</strong> and <strong>priority</strong> — solve the vast majority of grid headaches. Build small, watch the live throughput in the Configurator, and scale up.</p>
+      </div>
+    </section>
+
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — going wireless</h2>
+      <p class="lead">Flux Networks isn't a tech tree so much as a <strong>delivery upgrade</strong> you bolt onto whatever power you already make. The path below takes you from a single hand-built tool to a secured, base-wide grid that charges your gear as you walk — one block at a time, each step earning its keep before you add the next.</p>
+
+      <ol class="flow">
+        <li><strong>Craft the Flux Configurator and open a network.</strong> The Configurator is your one tool for everything Flux. Build it, then create a fresh network and name it — this is the channel every block below will tune to. Keep it to a single grid for your whole base.</li>
+        <li><strong>Plug your power source (input).</strong> Place a <em>Flux Plug</em> on the output of a generator — a turbine, a reactor, or the output side of a <a href="mekanism-guide.html">Mekanism</a> Induction Matrix — and bind it to your network. Energy now flows <em>in</em> wirelessly, no cable required.</li>
+        <li><strong>Point your machines (output).</strong> Drop a <em>Flux Point</em> on each machine or cluster that needs power and tune it to the same network. Power teleports from the Plug to every Point — your factory is running off the grid before you've built anything central.</li>
+        <li><strong>Add a Flux Storage block as the buffer.</strong> A central Storage block soaks up surplus when generation outpaces demand and covers the spikes when a machine fires up. Size it to your biggest burst so the grid never browns out mid-craft.</li>
+        <li><strong>Drop in a Flux Controller.</strong> The Controller unlocks network-wide <strong>wireless charging</strong> — your tools and armour top up as you move through the base — and raises the grid's overall throughput and capacity. Place it central to where you spend your time.</li>
+        <li><strong>Tune limits, priorities, and security.</strong> Set per-connection <strong>transfer limits</strong> so no single Point starves the rest, assign <strong>priorities</strong> so free generators feed first and critical machines drink first, then set the network to Private and add trusted players deliberately for multiplayer.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Where this leads</span>
+        <p>A finished Flux grid becomes the backbone of your <a href="automation-guide.html">Automation hub</a>: every machine, drone, and processing line draws from one buffered, prioritised pool instead of a tangle of cables. Pair it with a serious power source from the <a href="mekanism-guide.html">Mekanism</a> guide, and it's a core rung on the climb described in <a href="roadmap-guide.html">The Ascent</a> — the moment your base stops being a pile of generators and starts being a power network.</p>
       </div>
     </section>
 

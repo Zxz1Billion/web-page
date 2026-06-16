@@ -44,6 +44,8 @@
       <p class="group-label">Integration</p>
       <a href="#interop"><span class="ix">07</span> Power Interoperability</a>
       <a href="#patterns"><span class="ix">08</span> Recommended Patterns</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
       Mechanics match the 1.19.2<br>Forge builds of each mod. Exact<br>rates, channel counts and energy<br>are config-tunable — the in-game<br>GUIs and JEI are ground truth.
@@ -425,6 +427,20 @@
       <div class="note tip"><span class="label">When in doubt, simplest wins</span><p>If XNet solves it, don't reach for Integrated Dynamics. If a Flux Point delivers power, don't run cable. Complexity is a cost you pay in debugging — spend it only where the problem genuinely needs a brain.</p></div>
     </section>
 
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — adopting automation in the right order</h2>
+      <p class="lead">The mistake is reaching for the most powerful tool first. Automation pays off when you adopt it in layers: start with cheap point-to-point transfer, graduate to a real router once the base grows, add wireless power, and only then spend complexity on conditional logic. Below is a sensible order that keeps each stage debuggable before the next one lands.</p>
+      <ol class="flow">
+        <li><strong>Hook up your first machines with simple pipes.</strong> Before any network exists, you just need to move items from a chest into a furnace and pull the output back. Reach for <a href="pipez-guide.html">Pipez</a> or <a href="modular-routers-guide.html">Modular Routers</a> — both are cheap, self-contained, and teach you filtering and round-robin without a controller. Don't overthink it; one pipe per job is fine at this scale.</li>
+        <li><strong>Adopt XNet as your everyday router once the base grows.</strong> When you have a dozen machines and pipe spaghetti starts to hurt, consolidate onto a single <a href="xnet-guide.html">XNet</a> controller. One cable network hauls items, fluids and energy with per-connector filters and channels, and its Logic channel handles "turn the pump off when the tank is full" so you can retire most of your early pipes.</li>
+        <li><strong>Layer Flux Networks for wireless base-wide power.</strong> With a growing base, running FE cable everywhere becomes the new spaghetti. Add <a href="flux-networks-guide.html">Flux Networks</a> so generators feed one wireless grid and every machine draws from it — across rooms or dimensions — with no transmission blocks. Your <a href="rftools-guide.html">RFTools</a> machines and XNet energy channels all speak Forge Energy, so they plug straight in.</li>
+        <li><strong>Reach for Integrated Dynamics only when you need conditional logic.</strong> If XNet's Logic channel can't express the rule — anything with "only when", computed predicates, or multi-condition booleans — that's the signal to build an <a href="integrated-dynamics-guide.html">Integrated Dynamics</a> network. Treat it as the brain you bolt on for the few problems that genuinely need one, not the default router.</li>
+        <li><strong>Run IC2 Classic as a parallel EU tech tree if you enjoy it.</strong> <a href="ic2c-guide.html">IC2 Classic</a> is a complete, self-contained progression on EU rather than FE — rewarding, but with its own hard voltage rules that will fry machines if you ignore them. Treat it as an optional second tech track running alongside your FE base, not a replacement for it.</li>
+        <li><strong>Unify power across systems at one bridge.</strong> Finally, tie the economies together: keep one Flux-fed FE backbone for everything Forge-Energy-native and bridge IC2's EU island at exactly one converter. Convert at a single point, mind the voltage tier, and the whole base reads as one coherent grid.</li>
+      </ol>
+      <div class="note tip"><span class="label">Earn each layer</span><p>Every stage should be stable before you add the next — a working pipe network before XNet, a working router before logic, a working FE backbone before bridging EU. For where automation sits in the broader pack journey, see <a href="roadmap-guide.html">The Ascent</a>.</p></div>
+    </section>
   </main>
 </div>
 

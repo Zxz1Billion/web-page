@@ -46,6 +46,8 @@
       <a href="#materials"><span class="ix">08</span> Materials &amp; Casing</a>
       <a href="#aesthetics"><span class="ix">09</span> Aesthetics &amp; Building</a>
       <a href="#ponder"><span class="ix">10</span> Learn It In-Game</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
       Mechanics track the Create<br>0.5.x (1.19.2) line. Exact SU,<br>RPM and recipe values are<br>config-tunable and version-<br>drifting — Ponder + JEI are<br>ground truth.
@@ -409,6 +411,27 @@
       <div class="note tip"><span class="label">When in doubt, Ponder it</span><p>If a block confuses you, don't read another paragraph — point at it in your inventory and press <kbd>W</kbd>. Create's Ponder scenes answer "which way does this face?" and "what feeds in here?" better than any text can.</p></div>
 
       <div class="note warn"><span class="label">Numbers drift; mechanics don't</span><p>Exact SU values, RPM thresholds and recipe yields are config-tunable and shift between Create versions and modpacks. Trust the <em>mechanics</em> described here — generators add capacity, machines impose stress, gearing trades speed for headroom — and trust your in-game goggles and JEI for the precise figures.</p></div>
+    </section>
+
+    <!-- ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — from hand-crank to steam empire</h2>
+      <p class="lead">Create has no XP bar and no tech tree screen — its tiers are written into the <strong>material ladder</strong> and the machines each tier unlocks. The whole arc is one long chain: turn a shaft, double your ore, smelt cheaply, forge brass, gate the smart blocks behind <strong>Precision Mechanisms</strong>, then pour in steam-scale Stress Units until you can move whole buildings and run <strong>Trains</strong>. Here is the practical order, with the numbers that actually decide what runs.</p>
+
+      <p>Each step builds the capacity and components the next one needs. Don't skip ahead: a Mechanical Arm is useless if you're still hand-crafting Andesite Alloy, and a maxed boiler is wasted if nothing downstream can spend the Stress. For the higher-level narrative of where this all leads, see <a href="roadmap-guide.html">The Ascent</a>.</p>
+
+      <ol class="flow">
+        <li><strong>Get one shaft turning.</strong> Craft a pile of <strong>Andesite Alloy</strong> and an <strong>Engineer's Goggles</strong>, then drop a <strong>Hand Crank</strong> or a <strong>Water Wheel</strong> on a flowing stream. The crank is for one-off jobs; the wheel is free, silent Stress capacity that runs forever. Watch the goggles meter before you attach anything — you want visible headroom, not a network at its limit.</li>
+        <li><strong>Stand up basic processing.</strong> With rotation flowing, build a <strong>Millstone</strong> (self-contained, slow), a <strong>Mechanical Press</strong> over a depot for sheets, and a <strong>Mechanical Mixer + Basin</strong> (heated by a Blaze Burner) to compact <strong>Andesite Alloy</strong> automatically. This frees you from hand-crafting the foundational metal and turns out <strong>Andesite</strong> then <strong>Brass Casing</strong> as your tier climbs. Gear lines <em>down</em> toward each machine's minimum RPM — slower shafts impose less Stress, leaving capacity for more machines.</li>
+        <li><strong>Double your ore.</strong> Geared so they counter-rotate <em>toward each other</em>, a pair of <strong>Crushing Wheels</strong> turns raw ore into crushed ore for bulk doubling. Run the crushed ore down a belt under an <strong>Encased Fan over flowing water</strong> (washing → bonus nuggets), then under a second <strong>Encased Fan over fire</strong> (smelting → ingots). One belt, three stages: the cheapest smelter-washer in the mod.</li>
+        <li><strong>Forge brass and break into the smart tier.</strong> Crush <strong>zinc + copper</strong> and mix them with heat into <strong>Brass</strong>; brass gates the clever blocks — <strong>Brass Funnels</strong> and <strong>Tunnels</strong> that filter, the <strong>Deployer</strong>, and the <strong>Mechanical Arm</strong>. Set up a <strong>Mechanical Crafter</strong> array to mass-produce <strong>Precision Mechanisms</strong> (cogs + brass + Electron Tube + gold), the mid-game wall behind bearings, Rotation Speed Controllers, gearshifts and most actuators. Automate this craft once and the rest of the game stops feeling like grinding.</li>
+        <li><strong>Scale Stress with steam.</strong> Water Wheels and Windmills eventually run out of headroom. The endgame answer is a <strong>Boiler</strong> — a stacked <strong>Fluid Tank</strong> of water heated from below by <strong>Blaze Burners</strong> — feeding <strong>Steam Engines</strong> on its sides. Output climbs in tiers with tank volume and the number of super-heated burners; a maxed boiler dwarfs every other generator combined and finally lets you run high-RPM lines without flirting with overstress.</li>
+        <li><strong>Make things move — contraptions.</strong> With Precision Mechanisms flowing and Stress to spare, assemble <strong>contraptions</strong> around their actuators: <strong>Mechanical Bearings</strong> (windmills, rotating builds), <strong>Mechanical Pistons</strong> on chassis (doors, drawbridges, tunnel borers), <strong>Rope Pulleys</strong> (elevators) and <strong>Gantry</strong> rigs (auto-miners that read position). Mounted drills, saws and deployers keep working while the structure moves.</li>
+        <li><strong>Lay down Trains.</strong> The banner feature and natural capstone: build <strong>Train Track</strong>, assemble carriages on <strong>Bogeys</strong> at a <strong>Station</strong>, hand them a <strong>Schedule</strong>, and divide busy track with <strong>Signals</strong>. Stations auto-import and export cargo while a train is docked, turning your processing base into nodes on a self-routing logistics network.</li>
+      </ol>
+
+      <div class="note tip"><span class="label">Let the game teach the steps</span><p>Every block above has a built-in <strong>Ponder</strong> scene — point at the item in your inventory and press <kbd>W</kbd> to watch it assemble itself and explain its rules. When a step here is unclear ("which way does the fan face?", "how do the Crushing Wheels mesh?"), Ponder shows it in motion better than any text. Trust the in-game goggles and JEI for the exact SU, RPM and recipe numbers — they drift between versions; the <em>order</em> above does not.</p></div>
     </section>
 
   </main>

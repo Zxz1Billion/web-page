@@ -42,6 +42,8 @@
       <p class="group-label">In Practice</p>
       <a href="#cost"><span class="ix">06</span> Recipes &amp; Cost</a>
       <a href="#patterns"><span class="ix">07</span> Patterns &amp; Tips</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against XNet for<br>MC 1.19.2 (Forge), by McJty.<br>Numbers are approximate &amp;<br>configurable — trust the in-game<br>GUI and JEI in your pack.
@@ -352,6 +354,27 @@
       <div class="note danger">
         <span class="label">Sanity check before scaling</span>
         <p>Before you wire a hundred machines, prove the pattern on two: confirm filters, counts, priority, and any logic gate behave exactly as intended, then replicate. A subtle filter mistake copied across a base is the worst kind of debugging. The in-game GUI and JEI are the ground truth — when this guide and your pack disagree, believe the game.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — from one controller to a base network</h2>
+      <p class="lead">You do not wire a whole base on day one. XNet grows from a single Controller doing one stupid-simple job into the routing spine of your entire base, one channel at a time. This is the order most players actually walk it — each step builds on the last, and nothing here asks you to tear out what you already built.</p>
+
+      <ol class="flow">
+        <li><strong>One Controller, one item route.</strong> Place a <strong>Controller</strong>, run a little <strong>Network Cable</strong>, and tap two blocks with <strong>Connectors</strong> — a chest and a machine on the same machine or two adjacent ones. Make a single <strong>Item</strong> channel: one input, one output. Watch it move. That is the whole mod in miniature.</li>
+        <li><strong>Grow the item channels with filters &amp; colour-coding.</strong> Add more Connectors and more Item channels as your machine count grows. Give every endpoint a deliberate <strong>filter</strong> (whitelist by tag where you can), set <strong>count limits</strong> so nothing clogs, and use <strong>coloured cable</strong> to keep separate concerns physically apart even where runs overlap.</li>
+        <li><strong>Add Fluid &amp; Energy channels to the same network.</strong> The cables and Connectors you already placed can carry more. Drop a <strong>Fluid</strong> channel to feed tanks and an <strong>Energy</strong> channel to power the whole row of machines from one buffer — no new wire, just new channels on the same Controller.</li>
+        <li><strong>Introduce Logic channels for conditional automation.</strong> Now make it think. A <strong>Logic</strong> channel senses stock, tank level, or energy and emits a colour or redstone that gates your item/fluid/energy flow — presses that run only when storage is low, machines that idle when the output chest is full.</li>
+        <li><strong>Reach remote sites with Antenna / wireless.</strong> When a mining outpost or a Nether power plant is too far to cable, bridge networks with a <strong>Wireless Router</strong> and extend its range with an <strong>Antenna</strong>. Share just the few resources that need to cross, per channel, without dragging cable across the world.</li>
+        <li><strong>Consolidate the base on one or two Controllers.</strong> With the patterns proven, settle on a clean layout: one Controller per major area (smeltery, farm, power), bridged only where they must talk. Group related endpoints into shared channels, hide the runs with facades, and you have a readable, low-lag spine for the whole base.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Where this sits in the bigger climb</span>
+        <p>XNet is the muscle of <a href="automation-guide.html">the Automation hub</a> — the cheap router that feeds, drains, balances, and gates everything else. Once your base spine is consolidated, fold it into the broader base progression in <a href="roadmap-guide.html">The Ascent</a>, where XNet routing meets storage, processing, and power as one system.</p>
       </div>
     </section>
 

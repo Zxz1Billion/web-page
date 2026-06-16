@@ -42,6 +42,8 @@
       <p class="group-label">Logistics &amp; Practice</p>
       <a href="#tunnels"><span class="ix">06</span> Integrated Tunnels</a>
       <a href="#builds"><span class="ix">07</span> Example Builds &amp; Tips</a>
+      <p class="group-label">Progression</p>
+      <a href="#progression"><span class="ix">★</span> Progression</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
       Written against Integrated<br>Dynamics for MC 1.19.2 (Forge).<br>Values are approximate &amp; pack-<br>configurable — the in-game GUIs<br>and JEI are the ground truth.
@@ -421,6 +423,28 @@
       <div class="note warn">
         <span class="label">Power it before you scale it</span>
         <p>A two-part demo runs on nothing, but Displays, heavy Operators, and Integrated Tunnels transfers all draw energy. Before you expand a working prototype across the base, put a charged <strong>Battery</strong> on the network and a real power source behind it.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ ★ PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">★ — The path</p>
+      <h2>Progression — from first variable to a logic brain</h2>
+      <p class="lead">Every other section explains a piece of Integrated Dynamics in isolation. This is the order to actually build them in. Follow it once end to end and you will have a network that reads the world, computes over it, and acts back on it — the foundation every later automation bolts onto. Resist the urge to wire ten parts at once; ID rewards the patient builder who verifies each link before adding the next.</p>
+
+      <ol class="flow">
+        <li><strong>Gather Menril &amp; craft the core.</strong> Find or grow a <strong>Menril Tree</strong>, run berries through the <strong>Squeezer</strong> for <strong>Menril Resin</strong>, and set <strong>Crystalized Menril Chunks</strong> in the <strong>Drying Basin</strong> for crystals. From those, craft a stack of <strong>Cables</strong>, a <strong>Logic Programmer</strong>, and a handful of blank <strong>Variable Cards</strong>. That kit is everything you need to start programming.</li>
+        <li><strong>Lay cable and a Reader → Display.</strong> Run a short cable web, keep a <strong>Logic Director</strong> in hand for inspecting and copy/pasting variable references, and clip an <strong>Inventory</strong> or <strong>Redstone Reader</strong> onto a face touching a chest or a lever. Add a <strong>Display</strong> part and point it at the read value. Seeing a live number prove the network works is the moment ID clicks.</li>
+        <li><strong>Open the Logic Programmer and combine variables.</strong> Capture the Reader's <strong>Aspect</strong> onto a card, then in the <strong>Logic Programmer</strong> feed it through an <strong>Operator</strong> — a comparison like <code>count &lt; 32</code> or an arithmetic fill ratio. The output card turns green when the types line up, and you now hold a <em>derived</em> variable that means something, not just raw state.</li>
+        <li><strong>Add a Writer that acts on the world.</strong> Feed the derived Boolean into a <strong>Redstone Writer</strong> so the network emits a signal — start a crafter, flip a door, gate a machine. This closes the read → compute → write loop for the first time: the world changed because of a rule you authored.</li>
+        <li><strong>Reuse with Variable Stores &amp; Proxies.</strong> Once two parts want the same value, stop re-deriving it. Park computed variables in a <strong>Variable Store</strong> and reference them through <strong>Proxies</strong> anywhere on the network. One source of truth means fewer red cards and a base you can still read months later.</li>
+        <li><strong>Bolt on Integrated Tunnels.</strong> With the companion mod, add <strong>Item / Fluid / Energy Importers and Exporters</strong> and gate each transfer with a <strong>variable-driven predicate</strong> — &quot;export only if the destination has fewer than 64&quot; or &quot;import only while the source tank is over 50%.&quot; Assign distinct <strong>channels</strong> so unrelated routes never fight, and keep a charged <strong>Battery</strong> on the network.</li>
+        <li><strong>Ship a worked conditional automation.</strong> Combine the lot into a real machine: a <strong>keep-N-in-stock</strong> loop (Inventory Reader → <code>count &lt; N</code> → Exporter or crafter trigger) or a <strong>redstone clock</strong> (<code>(time mod N) &lt; H</code> → Redstone Writer). Now you have a logic brain that maintains stock or paces a process on its own.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Two habits make all of this stick</span>
+        <p>Build <strong>incrementally</strong> — get one Reader, one Operator, one Writer working before adding the next stage, and verify every link with a <strong>Display</strong>. And <strong>label every variable</strong> for what it means (&quot;steel&lt;32&quot;), not what it is. From here, the <a href="automation-guide.html">Automation hub</a> shows how ID fits beside XNet, RS, and AE2, and <a href="roadmap-guide.html">The Ascent</a> places this network on the wider modpack climb.</p>
       </div>
     </section>
 
