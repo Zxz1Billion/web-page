@@ -16,9 +16,8 @@ The landing page (`index.html`) is the guide hub. Two flagships lead it:
 
 | File | Guide | Covers |
 | --- | --- | --- |
-| `mekanism-guide.html` | The Osmium Codex | Mekanism + Generators + Tools (reference) |
-| `mekanism-blueprint.html` | The Assembly Line | Mekanism progression blueprint (roadmap + structures) |
-| `blood-magic-guide.html` | The Sanguine Scientum | Blood Magic |
+| `mekanism-guide.html` | The Osmium Codex | Mekanism + Generators + Tools (reference **and** the 8-stage "Assembly Line" progression) |
+| `blood-magic-guide.html` | The Sanguine Scientum | Blood Magic (reference **and** the 8-Act "Long Bleed" progression) |
 | `create-guide.html` | Brass & Cogs | Create |
 | `ae2-guide.html` | The ME Network | Applied Energistics 2 (+ add-ons) |
 | `ad-astra-guide.html` | Ad Astra, Per Aspera | Ad Astra (space travel) |
@@ -44,20 +43,21 @@ config snippets live in `mekanism-ic2c-compat/`).
 ```
 index.html                     the guide hub (landing page)
 *-guide.html                   one self-contained page per guide / category
-mekanism-blueprint.html        the Mekanism progression guide ("The Assembly Line")
+                               (every page is reference + an in-page Progression section)
+roadmap-guide.html             pack-wide progression roadmap ("The Ascent")
+questline-guide.html           FTB-Quests-style questline companion
 mekanism-ic2c-bridge.html      Mekanism ⇄ IC2 Classic power compat guide
 mekanism-ic2c-compat/          the apply_patch.py patcher + config snippets
 assets/
   css/
     guide.css                  shared, theme-able guide framework (token-driven)
     site.css                   the Blood Magic guide's bespoke grimoire styling
-    mekanism.css               the Mekanism guides' industrial-datasheet styling (both pages)
+    mekanism.css               the Mekanism guide's industrial-datasheet styling
   js/
     schematic-viewer.js        reusable top-down layer/tier schematic widget (shared)
     guide-chrome.js            shared nav/scroll-spy + re-exports mountSchematic
-    main.js                    Blood Magic guide bootstrap
-    mekanism-main.js           Mekanism Codex (reference) bootstrap
-    mekanism-roadmap.js        Mekanism Assembly Line (progression) bootstrap
+    main.js                    Blood Magic guide bootstrap (schematics + checklist/progress)
+    mekanism-main.js           Mekanism guide bootstrap (multiblock schematics)
   data/
     schematics.js              Blood Magic altar + decorative builds + ritual layout
     mekanism-schematics.js     Mekanism tanks, evaporation, boiler, turbine, fission, fusion
@@ -71,11 +71,12 @@ wears its own colour identity while sharing the same chrome and the `SchematicVi
 two flagships predate the shared framework and keep their own bespoke stylesheets (`site.css` for
 Blood Magic, `mekanism.css` for Mekanism).
 
-The Mekanism coverage is a paired set sharing `mekanism.css`: **The Osmium Codex**
-(`mekanism-guide.html`) is the in-depth *reference*, and **The Assembly Line**
-(`mekanism-blueprint.html`) is the *route* — a structured, stage-by-stage progression
-blueprint with a roadmap, milestone goals, tick-off build checklists, and the multiblock
-structures raised inline at each stage.
+Every guide is **one complete page** that pairs reference with an in-page **Progression**
+section. The two flagships go deepest: Mekanism's page folds in the 8-stage *Assembly Line*
+(goals, build checklists and gates, linking to its multiblock schematics), and Blood Magic's
+page folds in the 8-Act *Long Bleed* (with browser-saved checklists and a progress meter). The
+pack-wide **The Ascent** (`roadmap-guide.html`) and **The Questline** (`questline-guide.html`)
+sequence the whole pack across mods.
 
 ### The schematic engine
 
