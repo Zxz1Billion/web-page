@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Osmium Codex — a Mekanism field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A fully in-depth Mekanism 10.x (Minecraft 1.19.2 Forge) guide: resources, energy, 5x ore processing, every machine, factories, chemicals, logistics, QIO, and interactive layer-by-layer schematics for the Dynamic Tank, Boiler, Turbine, and Fission & Fusion reactors." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/mekanism.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true"></span>
+      <span class="wordmark">Osmium<br>Codex<small>MEKANISM · 10.x</small></span>
+    </div>
+    <a href="index.html" style="display:inline-block;margin-top:14px;font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.12em;color:var(--bone-dim);text-decoration:none">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Foundry</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#resources"><span class="ix">01</span> Resources &amp; Ores</a>
+      <a href="#energy"><span class="ix">02</span> Energy &amp; Joules</a>
+      <a href="#processing"><span class="ix">03</span> Ore Processing</a>
+      <a href="#machines"><span class="ix">04</span> The Machines</a>
+      <a href="#factories"><span class="ix">05</span> Factories &amp; Upgrades</a>
+      <a href="#chemicals"><span class="ix">06</span> Chemicals &amp; Gases</a>
+      <p class="group-label">Infrastructure</p>
+      <a href="#transmitters"><span class="ix">07</span> Transmitters</a>
+      <a href="#storage"><span class="ix">08</span> Storage &amp; QIO</a>
+      <a href="#logistics"><span class="ix">09</span> Mining &amp; Teleports</a>
+      <p class="group-label">The Big Iron</p>
+      <a href="#tank"><span class="ix">10</span> Tanks &amp; Evaporation</a>
+      <a href="#steam"><span class="ix">11</span> Boiler &amp; Turbine</a>
+      <a href="#fission"><span class="ix">12</span> Fission Reactor</a>
+      <a href="#fusion"><span class="ix">13</span> Fusion, SPS &amp; Antimatter</a>
+      <p class="group-label">The Frontier</p>
+      <a href="#meka"><span class="ix">14</span> MekaSuit &amp; Meka-Tool</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--bone-faint);line-height:1.7">
+      Written against Mekanism<br>10.3.x for MC 1.19.2 (Forge).<br>Numbers are defaults &amp; are<br>configurable — trust JEI/EMI<br>and in-game tooltips in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · by Aidan Brady &amp; team</p>
+      <h1>The Osmium<br>Codex</h1>
+      <p class="lede">A working field manual for <strong>Mekanism</strong> — the tech mod that turns one block of ore into five ingots, then keeps going until you are electrolysing water, boiling sodium with a fission reactor, and firing a laser into a fusion core to print antimatter. This guide runs from your first <em>Enrichment Chamber</em> to a fully powered <em>MekaSuit</em>, with interactive, layer-by-layer schematics for every major multiblock.</p>
+      <div class="badges">
+        <span class="badge">Mekanism 10.x</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">+ Generators · Tools · Additions</span>
+        <span class="badge danger">⚛ It can melt down</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Mekanism is a self-contained tech progression: power generation, a tiered ore-processing chain, a deep chemical system, logistics, and an endgame of reactors and powered armour. It is modular — most installs bundle the four official pieces below — and almost every number is configurable, so treat the values here as the <strong>defaults</strong> and let the in-game tooltips and JEI/EMI win when your pack disagrees.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>Mekanism</h4><p>Machines, the ore-processing chain, chemicals, logistics, QIO, and the multiblocks.</p></div>
+        <div class="card"><span class="tag">power</span><h4>Mekanism Generators</h4><p>Heat, Solar, Wind, Bio &amp; Gas generators, plus the Fission and Fusion reactors and the Industrial Turbine.</p></div>
+        <div class="card"><span class="tag">gear</span><h4>Mekanism Tools</h4><p>Paxels and a full tool/armour set in every Mekanism metal (Bronze, Steel, Osmium, Refined Obsidian/Glowstone…).</p></div>
+        <div class="card"><span class="tag">qol</span><h4>Mekanism Additions</h4><p>MekaSuit add-ons, the Electric Bow, Balloons, Stairs/Slabs/Walls for the decorative blocks, and more.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The three numbers to learn first</span>
+        <p>Mekanism measures power in <strong>Joules (J)</strong>, stores fluids in <strong>millibuckets (mB)</strong>, and stores gases/chemicals also in <strong>mB</strong>. Energy interops with Forge Energy (FE) at a configurable rate (<strong>≈ 2.5 J per 1 FE</strong> by default); you can even flip the display to read FE in the config if you prefer.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Get power.</strong> A <strong>Heat Generator</strong> next to lava (or burning fuel) is your bootstrap. Run a <strong>Universal Cable</strong> to your first machines.</li>
+        <li><strong>Double your ore.</strong> An <strong>Enrichment Chamber</strong> turns ore into 2 dust → 2 ingots in an <strong>Energized Smelter</strong>. That's the 2× tier; everything after deepens it.</li>
+        <li><strong>Make chemicals.</strong> An <strong>Electrolytic Separator</strong> splits water into Hydrogen + Oxygen and unlocks 3× and 4× processing.</li>
+        <li><strong>Go full 5×.</strong> The Dissolution → Washer → Crystallizer → Injection → Purification → Crusher → Enrichment → Smelt chain turns <strong>1 ore into 5 ingots</strong>.</li>
+        <li><strong>Scale &amp; automate.</strong> <strong>Factories</strong>, <strong>Logistical Transporters</strong>, the <strong>Digital Miner</strong>, and eventually <strong>QIO</strong> handle the volume.</li>
+        <li><strong>Go nuclear.</strong> A <strong>Fission Reactor</strong> → <strong>Boiler</strong> → <strong>Turbine</strong> loop is the endgame power spine; <strong>Fusion</strong> and the <strong>SPS</strong> push into antimatter and the MekaSuit.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 RESOURCES -->
+    <section class="doc" id="resources">
+      <p class="sec-index">01 — The raw stock</p>
+      <h2>Resources &amp; Ores</h2>
+      <p>Mekanism adds its own ores and pulls vanilla ones into its processing chain. Its signature metal is <strong>Osmium</strong> — common, found high in the stone column, and the binder in most early recipes (it makes the all-important <em>Osmium Compressor</em> outputs and the casings/alloys you'll lean on).</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Mekanism ores &amp; raw materials (1.19.2 worldgen)</caption>
+          <thead><tr><th>Resource</th><th>Where</th><th>Primary use</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pip" style="background:#7fb0c0"></span>Osmium</td><td>Common, all elevations</td><td>Casings, alloys, the Osmium Compressor, control circuits</td></tr>
+            <tr><td><span class="pip" style="background:#cfd6e0"></span>Tin</td><td>Mid elevations</td><td>Bins, alloys, Bronze (with copper)</td></tr>
+            <tr><td><span class="pip" style="background:#c98a52"></span>Copper</td><td>Vanilla + Mekanism gen</td><td>Bronze, wiring, basic recipes</td></tr>
+            <tr><td><span class="pip" style="background:#5d6470"></span>Lead</td><td>Deep</td><td>Energy/insulation, radiation-relevant builds</td></tr>
+            <tr><td><span class="pip" style="background:#5fd14f"></span>Uranium</td><td>Deep</td><td>Yellowcake → fissile fuel for the Fission Reactor</td></tr>
+            <tr><td><span class="pip" style="background:#b9a24a"></span>Fluorite</td><td>Deepslate layers</td><td>Hydrogen Fluoride → uranium processing &amp; chemistry</td></tr>
+            <tr><td><span class="pip" style="background:#e6e0c8"></span>Salt</td><td>Shallow pools (surface basins)</td><td>Brine, Sodium, Chlorine, Hydrogen Chloride</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Already-explored chunks</span>
+        <p>On an existing world, Mekanism ores only generate in <strong>newly-loaded chunks</strong> — no world reset needed, but you'll want to wander into fresh terrain (or deeper) to find Osmium, Fluorite, and Uranium. Salt appears as shallow surface basins; bring an Electric Pump or just dig the salt blocks.</p>
+      </div>
+
+      <h3>Key crafted materials</h3>
+      <ul>
+        <li><strong>Steel</strong> — Iron infused with Carbon (Compressed Charcoal) in a <em>Metallurgic Infuser</em>. The structural backbone of most machine frames.</li>
+        <li><strong>Bronze</strong> — Copper + Tin via the Infuser or crafting; early tools/casings.</li>
+        <li><strong>Osmium / Steel / Bronze / Glowstone / Obsidian alloys</strong> — <em>Infused, Reinforced,</em> and <em>Atomic Alloy</em> gate the Basic → Advanced → Elite → Ultimate tier ladder.</li>
+        <li><strong>Refined Obsidian &amp; Refined Glowstone</strong> — made in the <em>Osmium Compressor</em> (ingot + liquid Osmium); the premium tier and the Atomic Alloy ingredient.</li>
+        <li><strong>HDPE / Polyethylene</strong> — plastic sheeting from the <em>Pressurized Reaction Chamber</em>; the MekaSuit's backbone material.</li>
+        <li><strong>Control Circuits</strong> — Basic → Elite circuits (Osmium + Redstone, infused up the tiers) gate almost every machine recipe.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 02 ENERGY -->
+    <section class="doc" id="energy">
+      <p class="sec-index">02 — The grid</p>
+      <h2>Energy &amp; Joules</h2>
+      <p>Everything Mekanism runs on <strong>Joules</strong>. Machines store a buffer and draw from cables; generators fill the grid. Mekanism speaks Forge Energy too, so it slots into any FE setup — the wall is just the conversion ratio (<strong>≈ 2.5 J : 1 FE</strong>, configurable).</p>
+
+      <h3>Generators (Mekanism: Generators)</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Power sources, cheapest → strongest</caption>
+          <thead><tr><th>Generator</th><th>Burns / uses</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Heat Generator</td><td>Solid fuel, or adjacent lava</td><td>The bootstrap. Surround it with lava for passive trickle power.</td></tr>
+            <tr><td>Solar Generator</td><td>Daylight</td><td>Cheap, weak, daytime-only. The <strong>Advanced</strong> version is a 3-tall multiblock with far more output.</td></tr>
+            <tr><td>Wind Generator</td><td>Altitude</td><td>Output scales with Y-level — best on mountaintops; runs day &amp; night.</td></tr>
+            <tr><td>Bio-Generator</td><td>Bio Fuel</td><td>Crush plant matter into Bio Fuel; steady mid-tier power.</td></tr>
+            <tr><td>Gas-Burning Generator</td><td>Hydrogen, Ethylene</td><td>The workhorse: burn Hydrogen from electrolysis, or <strong>Ethylene</strong> (Substrate + Bio Fuel + Hydrogen in a PRC) for huge output.</td></tr>
+            <tr><td>Industrial Turbine</td><td>Steam</td><td>Multiblock — see §11. Pairs with a Boiler or a Fission heat loop.</td></tr>
+            <tr><td>Fission Reactor</td><td>Fissile Fuel</td><td>Multiblock — see §12. Heat → Boiler → Turbine is the endgame spine.</td></tr>
+            <tr><td>Fusion Reactor</td><td>D-T Fuel</td><td>Multiblock — see §13. Self-sustaining once ignited; enormous output.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cables &amp; storage</h3>
+      <p><strong>Universal Cables</strong> carry Joules and buffer a little energy in-transit. Like every Mekanism transmitter they come in four tiers (Basic → Ultimate) with steeply rising throughput. Store power in <strong>Energy Cubes</strong> (portable, tiered) or, at scale, the <strong>Induction Matrix</strong> multiblock.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Energy storage ladder (capacity rises ≈ one order of magnitude per tier — read the tooltip for exact J)</caption>
+          <thead><tr><th>Store</th><th>Form</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier basic">Basic</span> → <span class="tier ultimate">Ultimate</span> Energy Cube</td><td>Single block</td><td>Portable battery; also a charger and an FE↔J adapter on its faces.</td></tr>
+            <tr><td>Induction Matrix</td><td>Multiblock</td><td>Casing shell + <strong>Induction Cells</strong> (capacity) + <strong>Induction Providers</strong> (transfer rate). Scales to absurd buffers for reactor output.</td></tr>
+            <tr><td>Energy Tablet / Cells</td><td>Item</td><td>Crafting component &amp; small portable charge for tools.</td></tr>
+            <tr><td>Chargepad</td><td>Block</td><td>Stand on it (or place a Robit) to recharge worn/held gear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Build the Induction Matrix split right</span>
+        <p>In an Induction Matrix, <strong>Cells decide how much you can hold</strong> and <strong>Providers decide how fast it goes in/out</strong>. A reactor pushing huge bursts needs Providers; a buffer that just has to survive the night needs Cells. Most builds want both, sized to the load.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 ORE PROCESSING -->
+    <section class="doc" id="processing">
+      <p class="sec-index">03 — The whole point</p>
+      <h2>Ore Processing — 1× to 5×</h2>
+      <p class="lead">This is why people install Mekanism. Each tier adds machines and chemicals to squeeze more ingots out of every ore block. You climb it in order; each tier reuses the machines below it.</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>The five processing tiers</caption>
+          <thead><tr><th>Tier</th><th>Yield</th><th>Machines added</th><th>Chemical needed</th></tr></thead>
+          <tbody>
+            <tr><td>1× Smelting</td><td class="num">1 ingot</td><td>Energized Smelter</td><td>—</td></tr>
+            <tr><td>2× Enriching</td><td class="num">2 ingots</td><td>+ Enrichment Chamber</td><td>—</td></tr>
+            <tr><td>3× Purifying</td><td class="num">3 ingots</td><td>+ Purification Chamber, Crusher</td><td>Oxygen</td></tr>
+            <tr><td>4× Injecting</td><td class="num">4 ingots</td><td>+ Chemical Injection Chamber</td><td>Hydrogen Chloride</td></tr>
+            <tr><td>5× Dissolving</td><td class="num">5 ingots</td><td>+ Dissolution, Washer, Crystallizer</td><td>Sulfuric Acid (+ water, HCl, O₂)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The full 5× chain</h3>
+      <p>At 5×, a single ore block walks through eight machines. The intermediates rename per metal (Iron Crystal, Iron Shard, Iron Clump…), but the path is always the same:</p>
+      <ul class="chain">
+        <li>Ore</li>
+        <li>Dissolution <b>+ H₂SO₄</b></li>
+        <li>Dirty Slurry</li>
+        <li>Washer <b>+ H₂O</b></li>
+        <li>Clean Slurry</li>
+        <li>Crystallizer</li>
+        <li>Crystal</li>
+        <li>Injection <b>+ HCl</b></li>
+        <li>Shard</li>
+        <li>Purification <b>+ O₂</b></li>
+        <li>Clump</li>
+        <li>Crusher</li>
+        <li>Dirty Dust</li>
+        <li>Enrichment</li>
+        <li>Dust</li>
+        <li>Smelter</li>
+        <li>Ingot ×5</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Sane build order</span>
+        <p>Don't jump to 5× on day one. Run <strong>2×</strong> (Enrichment + Smelter) until you have spare power and an <strong>Electrolytic Separator</strong>, then add <strong>3×</strong> (Oxygen). Stand up <strong>4×</strong> once you're making Hydrogen Chloride reliably, and only commit to <strong>5×</strong> when you have the sulfuric-acid pipeline and enough Joules to feed eight machines per ore. Each tier above 2× also needs its chemical supplied <em>continuously</em> — build the gas plant before the ore plant.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Throughput, not just ratio</span>
+        <p>5× is the best ratio but the slowest per-ore unless you parallelise. The fix is <strong>Factories</strong> (§05): one Ultimate factory does the work of nine machines in a single block, and Speed Upgrades push each step. For raw stone &amp; gravel, the <strong>Crusher</strong> and <strong>Enrichment Chamber</strong> also handle ordinary recipes (cobble→sand, flint, biofuel, enriched redstone/diamond/etc.).</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 MACHINES -->
+    <section class="doc" id="machines">
+      <p class="sec-index">04 — The roster</p>
+      <h2>The Machines</h2>
+      <p>Every machine takes a Joule buffer, an upgrade slot or two, and is configurable per-face (input/output, push/pull) with a <strong>Configurator</strong>. Here is the full working catalogue, grouped by what it's for.</p>
+
+      <h3>Processing &amp; ore chain</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Item &amp; ore machines</caption>
+          <thead><tr><th>Machine</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Energized Smelter</td><td>Smelting on Joules — faster, cheaper, upgradeable vanilla furnace.</td></tr>
+            <tr><td>Enrichment Chamber</td><td>2× ore→dust; also enriched redstone/diamond/carbon/obsidian, sand from cobble, biofuel.</td></tr>
+            <tr><td>Crusher</td><td>Ingots/items → dust; clumps → dirty dust; biomass → biofuel; many byproduct recipes.</td></tr>
+            <tr><td>Purification Chamber</td><td>3× — ore + Oxygen → clumps. Also cleans some inputs.</td></tr>
+            <tr><td>Chemical Injection Chamber</td><td>4× — ore/shard + Hydrogen Chloride → shards; Yellowcake → Uranium Hexafluoride.</td></tr>
+            <tr><td>Chemical Dissolution Chamber</td><td>5× — ore + Sulfuric Acid → dirty slurry; Nuclear Waste handling.</td></tr>
+            <tr><td>Chemical Washer</td><td>Dirty Slurry + Water → Clean Slurry (gas-cleaning step).</td></tr>
+            <tr><td>Chemical Crystallizer</td><td>Clean Slurry → Crystal (and other gas → solid recipes).</td></tr>
+            <tr><td>Combiner</td><td>Dust + Cobblestone → ore (reverse-engineer ores); gravel + flint, etc.</td></tr>
+            <tr><td>Precision Sawmill</td><td>Logs → extra planks; planks → sticks; salvage components from tools.</td></tr>
+            <tr><td>Osmium Compressor</td><td>Ingot + liquid Osmium → Refined Obsidian / Refined Glowstone / Bronze etc.</td></tr>
+            <tr><td>Metallurgic Infuser</td><td>Infuse items with Carbon/Redstone/Diamond/Tin/Bio/Fungi/Gold/Obsidian → Steel, alloys, enriched items.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Chemistry</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Gas &amp; fluid machines</caption>
+          <thead><tr><th>Machine</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Electrolytic Separator</td><td>Splits a chemical/fluid into two gases: Water → Hydrogen + Oxygen; Brine → Sodium + Chlorine; Heavy Water → Deuterium + Oxygen.</td></tr>
+            <tr><td>Chemical Infuser</td><td>Combines two gases: H + Cl → Hydrogen Chloride; Sulfur Dioxide + Oxygen → Sulfur Trioxide; Sulfur Trioxide + Water → Sulfuric Acid; Deuterium + Tritium → D-T Fuel.</td></tr>
+            <tr><td>Chemical Oxidizer</td><td>Solid → gas: Sulfur dust → Sulfur Dioxide; Salt → ; Lithium dust → Lithium.</td></tr>
+            <tr><td>Rotary Condensentrator</td><td>Gas ↔ fluid both ways (e.g. liquid/gaseous Chlorine, Oxygen, Hydrogen for storage &amp; piping).</td></tr>
+            <tr><td>Pressurized Reaction Chamber (PRC)</td><td>Item + fluid + gas → item + gas: Substrate, HDPE, Ethylene, and other key reactions.</td></tr>
+            <tr><td>Solar Neutron Activator</td><td>Gas + sunlight → gas: Lithium → Tritium; Nuclear Waste → Plutonium/Polonium chains.</td></tr>
+            <tr><td>Isotopic Centrifuge</td><td>Uranium Hexafluoride → Fissile Fuel; Nuclear Waste enrichment steps.</td></tr>
+            <tr><td>Antiprotonic Nucleosynthesizer</td><td>Antimatter + item → upgraded/endgame outputs (very power-hungry).</td></tr>
+            <tr><td>Electric Pump / Fluidic Plenisher</td><td>Pump fluids out (with a Filter Upgrade, skim Heavy Water); place fluids.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Utility &amp; heat</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Support machines</caption>
+          <thead><tr><th>Machine</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Resistive Heater</td><td>Turns Joules into heat — feeds a Boiler electrically.</td></tr>
+            <tr><td>Fuelwood Heater</td><td>Burns solid fuel into heat.</td></tr>
+            <tr><td>Formulaic Assemblicator</td><td>Auto-crafts from a stored Crafting Formula.</td></tr>
+            <tr><td>Painting Machine</td><td>Dye + block → coloured variant.</td></tr>
+            <tr><td>Oredictionificator</td><td>Converts between equivalent tagged items across mods.</td></tr>
+            <tr><td>Seismic Vibrator</td><td>Scans the strata below (read with a Seismic Reader).</td></tr>
+            <tr><td>Laser / Laser Amplifier / Tractor Beam</td><td>Mining beams &amp; the Fusion ignition laser; the Amplifier stores a charge to fire on threshold.</td></tr>
+            <tr><td>Personal Barrel / Chest</td><td>Portable storage you can open from the inventory.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 FACTORIES & UPGRADES -->
+    <section class="doc" id="factories">
+      <p class="sec-index">05 — Scaling up</p>
+      <h2>Factories &amp; Upgrades</h2>
+      <p>A <strong>Factory</strong> is a multi-slot version of a single machine — same recipe, many parallel inputs in one block. They come in three tiers and are built by combining the right Factory with a <strong>Tier Installer</strong> (or crafted directly).</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>Factory tiers &amp; types</caption>
+          <thead><tr><th>Tier</th><th>Parallel slots</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier basic">Basic</span> Factory</td><td class="num">3</td></tr>
+            <tr><td><span class="tier advanced">Advanced</span> Factory</td><td class="num">5</td></tr>
+            <tr><td><span class="tier elite">Elite</span> Factory</td><td class="num">7</td></tr>
+            <tr><td><span class="tier ultimate">Ultimate</span> Factory</td><td class="num">9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each factory is set to one <em>type</em>: <strong>Smelting, Enriching, Crushing, Compressing, Combining, Purifying, Injecting, Infusing,</strong> or <strong>Sawing</strong>. One Ultimate Purifying Factory + one Ultimate Injecting Factory + one Ultimate Smelting Factory will out-process a whole room of single machines.</p>
+
+      <h3>Upgrades</h3>
+      <p>Drop these into a machine's (or factory's) upgrade slot — they stack up to a cap per machine.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Machine upgrades</caption>
+          <thead><tr><th>Upgrade</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Speed Upgrade</td><td>Faster processing — at a steep energy cost. Pair with Energy Upgrades.</td></tr>
+            <tr><td>Energy Upgrade</td><td>Lower energy use &amp; a bigger internal buffer.</td></tr>
+            <tr><td>Gas (Chemical) Upgrade</td><td>Reduces the chemical consumed per operation in machines that use gases.</td></tr>
+            <tr><td>Muffling Upgrade</td><td>Silences the machine's running sound.</td></tr>
+            <tr><td>Filter Upgrade</td><td>Lets the Electric Pump skim Heavy Water; refines Digital Miner behaviour.</td></tr>
+            <tr><td>Anchor Upgrade</td><td>Keeps the machine's chunk loaded.</td></tr>
+            <tr><td>Stone Generator Upgrade</td><td>Backfills mined volume (Digital Miner) / supplies stone where relevant.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Speed + Energy together</span><p>Speed Upgrades roughly square energy draw as they cut time. The standard trick is to run <strong>max Speed with several Energy Upgrades</strong> and feed the machine from a strong grid — you get the throughput without the buffer constantly emptying.</p></div>
+    </section>
+
+    <!-- ============================================ 06 CHEMICALS -->
+    <section class="doc" id="chemicals">
+      <p class="sec-index">06 — The pipes that aren't water</p>
+      <h2>Chemicals &amp; Gases</h2>
+      <p>Mekanism's chemical system is what separates it from other tech mods. Gases, slurries, infusion types, and pigments all flow through <strong>Pressurized Tubes</strong> and are stored in <strong>Chemical Tanks</strong>. Here's how to make the ones that matter.</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>The chemical supply chain you'll actually build</caption>
+          <thead><tr><th>Chemical</th><th>Made by</th><th>Feeds</th></tr></thead>
+          <tbody>
+            <tr><td>Oxygen</td><td>Electrolytic Separator (Water)</td><td>3× processing, Sulfur Trioxide, breathing</td></tr>
+            <tr><td>Hydrogen</td><td>Electrolytic Separator (Water)</td><td>Gas-Burning Generator, Hydrogen Chloride, HDPE</td></tr>
+            <tr><td>Chlorine</td><td>Electrolytic Separator (Brine)</td><td>Hydrogen Chloride</td></tr>
+            <tr><td>Hydrogen Chloride</td><td>Chemical Infuser (H + Cl)</td><td>4× processing (Injection Chamber)</td></tr>
+            <tr><td>Sulfur Dioxide</td><td>Chemical Oxidizer (Sulfur dust)</td><td>Sulfur Trioxide</td></tr>
+            <tr><td>Sulfur Trioxide</td><td>Chemical Infuser (SO₂ + O₂)</td><td>Sulfuric Acid</td></tr>
+            <tr><td>Sulfuric Acid</td><td>Chemical Infuser (SO₃ + Water)</td><td>5× processing (Dissolution Chamber)</td></tr>
+            <tr><td>Brine → Lithium</td><td>Thermal Evaporation Plant (§10)</td><td>Tritium, batteries-of-chemistry</td></tr>
+            <tr><td>Hydrogen Fluoride</td><td>From Fluorite (Dissolution/Reaction)</td><td>Uranium Hexafluoride</td></tr>
+            <tr><td>Ethylene</td><td>PRC (Substrate + Bio Fuel + Hydrogen)</td><td>Gas-Burning Generator (top-tier fuel)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Sulfur &amp; salt are the bottlenecks</span>
+        <p>3× and 4× are easy once you electrolyse water. <strong>5× lives or dies on Sulfuric Acid</strong>, which needs Sulfur (often from ore-processing byproducts or a renewable source) and a two-step infusion chain. Stand up a dedicated <strong>Sulfuric Acid plant</strong> with buffer Chemical Tanks before you convert your ore line to 5×, or it will stall the instant the acid runs dry.</p>
+      </div>
+
+      <h3>Infusion types &amp; pigments</h3>
+      <p>The Metallurgic Infuser uses solid <strong>infusion types</strong> rather than gases: <em>Carbon</em> (charcoal/coal), <em>Redstone, Diamond, Tin, Fungi, Bio, Gold,</em> and <em>Refined Obsidian</em>. Mekanism also has a <strong>pigment</strong> system (Pigment Extractor/Mixer + Painting Machine) for colouring blocks and dye production — niche, but handy for mass dye.</p>
+    </section>
+
+    <!-- ============================================ 07 TRANSMITTERS -->
+    <section class="doc" id="transmitters">
+      <p class="sec-index">07 — Moving it around</p>
+      <h2>Transmitters</h2>
+      <p>Mekanism's five transmitter families each carry one thing, all tiered Basic → Ultimate, all configurable, and all able to form one shared network when connected. They're cheap, fast, and the reason a Mekanism base feels tidy.</p>
+
+      <div class="vellum-table">
+        <table>
+          <caption>The five transmitter networks</caption>
+          <thead><tr><th>Transmitter</th><th>Carries</th><th>Tiers do</th></tr></thead>
+          <tbody>
+            <tr><td>Universal Cable</td><td>Energy (Joules / FE)</td><td>Higher tier = more J/t throughput &amp; in-line buffer.</td></tr>
+            <tr><td>Mechanical Pipe</td><td>Fluids (mB)</td><td>Higher tier = more mB/t &amp; buffer.</td></tr>
+            <tr><td>Pressurized Tube</td><td>Gases / chemicals / slurries (mB)</td><td>Higher tier = more mB/t &amp; buffer.</td></tr>
+            <tr><td>Logistical Transporter</td><td>Items</td><td>Higher tier = faster item travel &amp; stack size in transit; supports filters &amp; round-robin.</td></tr>
+            <tr><td>Thermodynamic Conductor</td><td>Heat</td><td>Moves heat between heat-producing/consuming blocks (boiler loops).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Logistical Transporters</strong> are the smart one: pull items out of a chest, route them by <strong>colour/filter</strong> to the right machine, and round-robin across destinations. Two variants tune routing:</p>
+      <ul>
+        <li><strong>Restrictive Transporter</strong> — only used as a last resort path (build dead-end overflow routes).</li>
+        <li><strong>Diversion Transporter</strong> — toggled by redstone to open/close a path.</li>
+        <li><strong>Logistical Sorter</strong> — the brain on a chest face: define filters (by item, tag, material, mod) and colour-code outputs.</li>
+      </ul>
+      <div class="note tip"><span class="label">Colour is your friend</span><p>Use the Configurator to colour transporter strands and sorter filters. Matching colours only deliver to matching-colour destinations, so one trunk line can serve a dozen machines without cross-talk.</p></div>
+    </section>
+
+    <!-- ============================================ 08 STORAGE & QIO -->
+    <section class="doc" id="storage">
+      <p class="sec-index">08 — Keeping it</p>
+      <h2>Storage &amp; QIO</h2>
+      <p>For bulk single-item storage, use tiered <strong>Bins</strong> (huge single-type buffers) and <strong>Fluid/Chemical Tanks</strong>. For a full searchable network, Mekanism has its own digital storage: <strong>QIO — Quantum Item Orchestration</strong>.</p>
+
+      <h3>Tiered single-block storage</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>Bins &amp; tanks</caption>
+          <thead><tr><th>Block</th><th>Holds</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier basic">Basic</span>–<span class="tier ultimate">Ultimate</span> Bin</td><td>One item type, enormous counts; insert/extract from the front.</td></tr>
+            <tr><td><span class="tier basic">Basic</span>–<span class="tier ultimate">Ultimate</span> Fluid Tank</td><td>A single fluid; portable, works in-hand as a bucket-on-steroids.</td></tr>
+            <tr><td><span class="tier basic">Basic</span>–<span class="tier ultimate">Ultimate</span> Chemical Tank</td><td>A single gas/slurry/infuse type; the buffer for your chemical plant.</td></tr>
+            <tr><td>Dynamic Tank</td><td>Multiblock fluid/chemical storage at scale — see §10.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>QIO — Quantum Item Orchestration</h3>
+      <p>QIO is Mekanism's answer to a storage network (think AE2/RS, Mekanism-flavoured). It's frequency-based: everything tuned to the same frequency shares one item pool.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>QIO components</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>QIO Drive Array</td><td>Houses QIO Drives — the actual capacity. More/bigger drives = more item types &amp; counts.</td></tr>
+            <tr><td>QIO Drive (Base/Hyper-Dense/Time-Dilating/Supermassive)</td><td>The storage media, in rising tiers of item-type count and stack capacity.</td></tr>
+            <tr><td>QIO Dashboard</td><td>The searchable terminal — view, withdraw, insert, and craft from the network.</td></tr>
+            <tr><td>Portable QIO Dashboard</td><td>Access the network remotely from your inventory.</td></tr>
+            <tr><td>QIO Importer / Exporter</td><td>Auto-pull items into / push items out of the network (with filters).</td></tr>
+            <tr><td>QIO Redstone Adapter</td><td>Emit redstone when a tracked item's count crosses a threshold (auto-stock control).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">QIO vs. AE2</span><p>If your pack also has AE2 (it does — see the modpack proposal), QIO is the lighter, self-contained option that needs no channels or cabling — just a frequency. Many players run QIO for Mekanism intermediates and AE2 for the master network; the <em>Oredictionificator</em> and importers bridge them.</p></div>
+    </section>
+
+    <!-- ============================================ 09 MINING & TELEPORTS -->
+    <section class="doc" id="logistics">
+      <p class="sec-index">09 — Reaching out</p>
+      <h2>Mining &amp; Teleports</h2>
+
+      <h3>Digital Miner</h3>
+      <p>The <strong>Digital Miner</strong> is automated quarrying done right: set a radius and height range, add <strong>filters</strong> (mine only these ores/blocks, by item or tag), and it teleports matching blocks straight into its inventory — optionally replacing them with a chosen block (Stone Generator Upgrade) so you don't leave craters. Feed it power, pipe out the loot, and it runs a whole ore vein dry without a dropped quarry frame.</p>
+      <div class="note warn"><span class="label">Power &amp; chunk-loading</span><p>The Miner's reach and silk-touch options cost energy fast. Add an <strong>Anchor Upgrade</strong> (or a separate chunk-loader) if it's mining far from where you stand, or it'll pause when the chunk unloads.</p></div>
+
+      <h3>Teleporter</h3>
+      <p>The <strong>Teleporter</strong> is a frame-and-block multiblock-ish pad: build the frame, power it, and tune two or more Teleporters to the same <strong>frequency</strong> to step between them. It draws energy per jump scaled by distance and works across dimensions.</p>
+
+      <h3>Quantum Entangloporter</h3>
+      <p>The <strong>Quantum Entangloporter</strong> is wireless transfer of <em>everything</em> — items, fluids, gases, energy, even heat — between any two Entangloporters on the same frequency, across any distance or dimension. One per buffer type per frequency. It's the cleanest way to pull reactor output home or feed a remote miner.</p>
+    </section>
+
+    <!-- ============================================ 10 TANK & EVAP (viewers) -->
+    <section class="doc" id="tank">
+      <p class="sec-index">10 — First multiblocks</p>
+      <h2>Dynamic Tank &amp; Thermal Evaporation</h2>
+      <p>Mekanism's multiblocks are <strong>dynamic</strong>: you decide the size within limits, and the structure forms the moment the shell is sealed. The two gentlest are bulk storage and the evaporation tower.</p>
+
+      <h3>Dynamic Tank</h3>
+      <p>A hollow cube of <strong>Structural Casing</strong> (optionally windowed with <strong>Structural Glass</strong>) with one or more <strong>Dynamic Valves</strong> for I/O. The interior air volume is your capacity — it stores fluids <em>or</em> chemicals <em>or</em> slurries. Any cuboid from 3×3×3 up to 18×18×18. Step through the layers:</p>
+      <div id="mb-tank"></div>
+
+      <h3>Thermal Evaporation Plant</h3>
+      <p>A 4×4 tower, 3–18 blocks tall, that <strong>concentrates fluids using heat</strong> — most importantly Water → Brine → <strong>Lithium</strong>, the gateway to fusion fuel. Taller is faster, and stacking <strong>Solar Panels</strong> on the structure feeds it the heat it craves. Keep the top open to the sky.</p>
+      <div id="mb-evap"></div>
+    </section>
+
+    <!-- ============================================ 11 BOILER & TURBINE (viewers) -->
+    <section class="doc" id="steam">
+      <p class="sec-index">11 — Steam power</p>
+      <h2>Boiler &amp; Turbine</h2>
+      <p>The classic Mekanism power spine converts <strong>heat → steam → Joules</strong>. A <strong>Thermoelectric Boiler</strong> boils water into steam; an <strong>Industrial Turbine</strong> spins that steam into energy. Heat the boiler electrically (Resistive Heater), by burning fuel (Fuelwood Heater), or — at endgame — with the sodium loop off a Fission Reactor.</p>
+
+      <h3>Thermoelectric Boiler</h3>
+      <p>A casing shell split internally by a mandatory full layer of <strong>Pressure Dispersers</strong>: water and <strong>Superheating Elements</strong> below, the steam cavity above. More heating elements and more water volume = more steam per tick.</p>
+      <div id="mb-boiler"></div>
+
+      <h3>Industrial Turbine</h3>
+      <p>A taller casing tank with a central <strong>rotor shaft</strong> (Rotors + Blades), a <strong>Rotational Complex</strong> ringed by <strong>Electromagnetic Coils</strong>, a <strong>Pressure Disperser</strong> layer, a <strong>Saturating Condenser</strong> bank, and <strong>Turbine Vents</strong> on the upper walls. Steam in the bottom, Joules out the energy port. Balance <em>blades</em> (steam consumed), <em>coils</em> (energy produced), and <em>vents/condensers</em> (max flow) for full output.</p>
+      <div id="mb-turbine"></div>
+
+      <div class="note tip"><span class="label">Sizing the pair</span><p>A turbine's max steam flow must be ≥ your boiler's steam output, or you waste boil rate. Mekanism shows both numbers in the multiblock GUIs — match the turbine's <em>max flow</em> to the boiler's <em>boil capacity</em>, then add condensers so spent steam recycles to water instead of venting away.</p></div>
+    </section>
+
+    <!-- ============================================ 12 FISSION (viewer) -->
+    <section class="doc" id="fission">
+      <p class="sec-index">12 — Going critical</p>
+      <h2>Fission Reactor</h2>
+      <p class="lead">The Fission Reactor is the endgame heat source — and the one that can kill your base. It burns <strong>Fissile Fuel</strong>, produces enormous heat (drive a Boiler+Turbine with it) plus <strong>Nuclear Waste</strong>, and <em>will melt down</em> if you let it overheat or run dry of coolant.</p>
+
+      <h3>The fuel chain</h3>
+      <ul class="chain">
+        <li>Uranium</li>
+        <li>Yellowcake</li>
+        <li>Injection <b>+ HF</b></li>
+        <li>Uranium Hexafluoride</li>
+        <li>Isotopic Centrifuge</li>
+        <li>Fissile Fuel</li>
+      </ul>
+      <p>Feed Fissile Fuel and a coolant (water → steam directly, or sodium for a hotter loop) into the reactor's ports; pull heated coolant/steam to your boiler+turbine, and pull Nuclear Waste off for further processing.</p>
+
+      <h3>The structure</h3>
+      <p>A <strong>Structural Casing</strong> cube (3×3×4 up to 18³) with <strong>Reactor Glass</strong> windows, packed inside with <strong>Fission Fuel Assembly</strong> columns each capped by a <strong>Control Rod Assembly</strong>, served by <strong>Reactor Ports</strong>. Step through it:</p>
+      <div id="mb-fission"></div>
+
+      <div class="note danger">
+        <span class="label">Meltdown discipline — read this twice</span>
+        <p>Set the <strong>burn rate</strong> conservatively and watch the <strong>temperature</strong> and <strong>coolant</strong> bars. If heat climbs toward <strong>~1,200 K</strong> the reactor takes damage and starts <strong>leaking radiation</strong>; a full meltdown irradiates a large area. Wire a <strong>Reactor Logic Adapter</strong> to SCRAM on low coolant or high temp, keep a <strong>Geiger Counter</strong> and <strong>Dosimeter</strong> on you, and build it walled-off / underground. Radiation is cleared slowly over time or with a <strong>Radioactive Waste Barrel</strong> + Hazmat/MekaSuit shielding — prevention beats cleanup.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 13 FUSION / SPS (viewer) -->
+    <section class="doc" id="fusion">
+      <p class="sec-index">13 — The summit</p>
+      <h2>Fusion, SPS &amp; Antimatter</h2>
+      <p>The true endgame. The <strong>Fusion Reactor</strong> fuses Deuterium and Tritium for power that dwarfs fission; the <strong>SPS</strong> turns reactor leftovers into <strong>antimatter</strong> for the very best gear.</p>
+
+      <h3>Fusion fuel</h3>
+      <ul class="chain">
+        <li>Water</li>
+        <li>Heavy Water (pump + filter)</li>
+        <li>Electrolysis</li>
+        <li>Deuterium</li>
+      </ul>
+      <ul class="chain">
+        <li>Brine → Lithium (evap, §10)</li>
+        <li>Solar Neutron Activator</li>
+        <li>Tritium</li>
+      </ul>
+      <p>Combine <strong>Deuterium + Tritium</strong> in a Chemical Infuser into <strong>D-T Fuel</strong>, load a <strong>Hohlraum</strong> with it, drop the Hohlraum in the Reactor Controller, and fire a charged <strong>Laser</strong> (build up a Laser Amplifier) to ignite. Once lit and fed, it self-sustains and pours out heat/energy.</p>
+
+      <h3>The structure (representative)</h3>
+      <p>The Fusion Reactor is a fixed <strong>octahedron</strong> of <strong>Reactor Frame</strong> edges and <strong>Reactor Glass</strong> faces, with a Controller, Ports, and a <strong>Laser Focus Matrix</strong>. The cross-sections below are simplified — build against the in-game structure helper, which highlights any wrong block:</p>
+      <div id="mb-fusion"></div>
+
+      <h3>SPS — Supercritical Phase Shifter &amp; antimatter</h3>
+      <p>The <strong>SPS</strong> is a large multiblock that consumes <strong>Polonium</strong> (refined from Nuclear Waste via the Solar Neutron Activator) and <strong>colossal energy</strong> to produce <strong>Antimatter Pellets</strong>. Antimatter feeds the <strong>Antiprotonic Nucleosynthesizer</strong> for the top-tier crafts — including the components that turn a basic MekaSuit into a flying, self-charging exosuit.</p>
+      <div class="note warn"><span class="label">Energy budget</span><p>The SPS is one of the most power-hungry blocks in the modpack. Don't even approach it without a fusion reactor or a multi-turbine fission setup and a fat Induction Matrix buffering the spikes.</p></div>
+    </section>
+
+    <!-- ============================================ 14 MEKASUIT -->
+    <section class="doc" id="meka">
+      <p class="sec-index">14 — Wearing the tech</p>
+      <h2>MekaSuit &amp; Meka-Tool</h2>
+      <p class="lead">Everything points here. The <strong>Meka-Tool</strong> is one tool that becomes every tool; the <strong>MekaSuit</strong> is armour that flies, feeds you, breathes for you, and shrugs off radiation. Both are built from <strong>HDPE + Atomic Alloy + a Modification Station</strong>, then customised with <strong>modules</strong>.</p>
+
+      <h3>Building it</h3>
+      <ol class="flow">
+        <li><strong>Make the bases.</strong> Craft the Meka-Tool and the four MekaSuit pieces from HDPE, Atomic Alloy, and reinforced components. These are expensive — they assume a working ore &amp; chemical plant.</li>
+        <li><strong>Build a Modification Station.</strong> This is where modules are installed into the gear (and removed/recovered).</li>
+        <li><strong>Craft modules</strong> (often via the Antiprotonic Nucleosynthesizer for the best ones) and install them. Many modules can be installed multiple times to stack their effect.</li>
+        <li><strong>Keep it charged.</strong> The suit runs on Joules — a Solar Recharging module trickles power, but a Chargepad or Energy Cube tops it up fast.</li>
+      </ol>
+
+      <h3>Meka-Tool modules (selection)</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>One tool, many jobs</caption>
+          <thead><tr><th>Module</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Excavation Escalation</td><td>Dig-speed tiers — installs multiple times to go faster.</td></tr>
+            <tr><td>Vein Mining</td><td>Mine connected ores/blocks in one go.</td></tr>
+            <tr><td>Silk Touch / Fortune (Farming)</td><td>Swap mining behaviour; harvest crops.</td></tr>
+            <tr><td>Attack Amplification</td><td>Scales melee damage with energy spent.</td></tr>
+            <tr><td>Teleportation</td><td>Blink to the block you're looking at.</td></tr>
+            <tr><td>Shearing / Tilling / Pathing</td><td>Vanilla tool actions on demand.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>MekaSuit modules (selection)</h3>
+      <div class="vellum-table">
+        <table>
+          <caption>The exosuit</caption>
+          <thead><tr><th>Module</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Energy Module</td><td>Raises the suit's Joule capacity.</td></tr>
+            <tr><td>Solar Recharging</td><td>Passive charge in daylight.</td></tr>
+            <tr><td>Jetpack / Armored Jetpack</td><td>Flight on Hydrogen + energy; hover mode.</td></tr>
+            <tr><td>Gravitational Modulating</td><td>Creative-style flight (very energy-hungry, endgame).</td></tr>
+            <tr><td>Locomotive Boosting</td><td>Sprint speed boost.</td></tr>
+            <tr><td>Hydraulic Propulsion</td><td>Huge jump &amp; step assist; safe long-fall.</td></tr>
+            <tr><td>Inhalation Purification</td><td>Removes harmful effects; lets you breathe.</td></tr>
+            <tr><td>Radiation Shielding</td><td>Blocks radiation — essential near fission.</td></tr>
+            <tr><td>Nutritional Injection</td><td>Auto-feeds you from stored Nutritional Paste.</td></tr>
+            <tr><td>Vision Enhancement / Magnetic Attraction</td><td>Night vision; item magnet.</td></tr>
+            <tr><td>Elytra Unit</td><td>Glide.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Standalone gear (before the full suit)</h3>
+      <ul>
+        <li><strong>Atomic Disassembler</strong> — a powered all-in-one tool; the step before the Meka-Tool.</li>
+        <li><strong>Jetpack / Armored Jetpack</strong> &amp; <strong>Free Runners</strong> — flight and fall/step help on Hydrogen + energy.</li>
+        <li><strong>Scuba Mask + Gas Mask</strong> and the <strong>Hazmat Suit</strong> — breathing &amp; radiation protection until the MekaSuit takes over.</li>
+        <li><strong>Flamethrower</strong>, <strong>Electric Bow</strong> (Additions), <strong>Canteen</strong> (Nutritional Paste), <strong>Configurator</strong>, <strong>Network Reader</strong>, <strong>Dosimeter</strong> &amp; <strong>Geiger Counter</strong>, <strong>Robit</strong> (a mobile crafting/charging companion).</li>
+      </ul>
+
+      <div class="note tip"><span class="label">The honest endgame path</span><p>You don't need antimatter to enjoy the MekaSuit — a suit with Energy, Solar, Jetpack, Hydraulic, Inhalation, and Radiation Shielding modules is transformative and reachable off a single fission/turbine setup. Save the <strong>Gravitational Modulating</strong> module (and the SPS that effectively funds it) for when power is genuinely a non-issue.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The Osmium Codex</strong><br>
+      An unofficial field manual for Mekanism 10.x on Minecraft 1.19.2 (Forge).<br>
+      Mekanism is by Aidan Brady &amp; the Mekanism team. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Mekanism 10.3.x (1.19.2)<br>
+      · the in-game machine tooltips<br>
+      · JEI/EMI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--bone-faint)">Numbers are defaults and are configurable per pack. When your install disagrees, the in-game tooltips and JEI/EMI win.</p>
+</footer>
+
+<script type="module" src="assets/js/mekanism-main.js"></script>
+</body>
+</html>

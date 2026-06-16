@@ -21,16 +21,29 @@ complete **compendium** of every block and item, and a phased **progression road
 ## Structure
 
 ```
-blood-magic-guide.html         the guide (single page, anchored sections)
+blood-magic-guide.html         the Blood Magic guide (single page, anchored sections)
+mekanism-guide.html            the Mekanism guide ("The Osmium Codex")
 assets/
-  css/site.css                 grimoire/blueprint design system
+  css/
+    site.css                   grimoire/blueprint design system (Blood Magic)
+    mekanism.css               industrial-datasheet design system (Mekanism)
   js/
-    schematic-viewer.js        reusable top-down layer/tier schematic widget
-    main.js                    mounts the widgets + nav/scroll-spy
-  data/schematics.js           altar tiers + incense altar + will garden + 5 crypt builds + ritual layout
+    schematic-viewer.js        reusable top-down layer/tier schematic widget (shared)
+    main.js                    Blood Magic: mounts the widgets + nav/scroll-spy
+    mekanism-main.js           Mekanism: mounts the multiblock widgets + nav/scroll-spy
+  data/
+    schematics.js              altar tiers + incense altar + will garden + 5 crypt builds + ritual layout
+    mekanism-schematics.js     dynamic tank, evaporation, boiler, turbine, fission, fusion
 
-index.html, index2.html, weekly_perks_table.html   pre-existing pages (untouched)
+index.html, index2.html, weekly_perks_table.html   pre-existing pages
 ```
+
+The **Mekanism guide** ("The Osmium Codex") is a fully in-depth field manual for
+Mekanism 10.x on MC 1.19.2 (Forge): resources & ores, energy/Joules, the 1×–5× ore
+processing chain, the full machine roster, factories & upgrades, the chemical system,
+transmitters/QIO/logistics, the nuclear endgame, and the MekaSuit. It reuses the same
+`SchematicViewer` engine (re-themed via `mekanism.css`) for interactive, layer-by-layer
+multiblock schematics.
 
 ### The schematic engine
 
