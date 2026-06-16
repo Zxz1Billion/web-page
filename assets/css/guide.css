@@ -34,9 +34,9 @@
   --card-ink: #1b2030;
   --card-ink-soft: #515a70;
 
-  /* glow tints derived from accent (override if accent changes hue a lot) */
-  --accent-soft: rgba(122, 162, 255, 0.14);
-  --accent-glow: rgba(122, 162, 255, 0.5);
+  /* glow tints auto-derived from --accent (override only if you want to force them) */
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 50%, transparent);
 
   /* type — override per guide for flavour */
   --f-display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Traveler's Kit — a Traveler's Backpack field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A full guide to Traveler's Backpack for Minecraft 1.19.2 (Forge) by Tiviacz1337: equipping the back-slot pack, the two built-in fluid tanks, the configurable hose, the on-board crafting grid, tool slots, tiers and themed variants, material abilities, the sleeping bag, crafting and upgrades, and when to pick it over Sophisticated Backpacks." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#0a120d; --bg-1:#0d1711; --bg-2:#132018; --bg-3:#1a2c20; --line:#26402f; --ink:#e7f0e3; --ink-dim:#9bbaa2; --ink-faint:#64846c;
+  --accent:#6fb78f;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧳</span>
+      <span class="wordmark">The Traveler's<br>Kit<small>TRAVELER'S BACKPACK</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">On Your Back</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#wearing"><span class="ix">01</span> Wearing &amp; Using</a>
+      <a href="#hose"><span class="ix">02</span> The Hose</a>
+      <p class="group-label">The Range</p>
+      <a href="#tiers"><span class="ix">03</span> Tiers &amp; Themes</a>
+      <a href="#abilities"><span class="ix">04</span> Abilities</a>
+      <a href="#sleeping"><span class="ix">05</span> Sleeping Bag &amp; Travel</a>
+      <p class="group-label">The Workshop</p>
+      <a href="#crafting"><span class="ix">06</span> Crafting &amp; Upgrades</a>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Comparison</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Traveler's<br>Backpack for MC 1.19.2 (Forge).<br>Numbers are approximate &amp; pack-<br>configurable — trust JEI and the<br>in-game GUI in your install.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Tiviacz1337</p>
+      <h1>The Traveler's<br>Kit</h1>
+      <p class="lede">A guide to <strong>Traveler's Backpack</strong> — not a wall of upgrade chips, but a single rich pack you wear in a dedicated <em>back slot</em>. It carries a wide inventory, <strong>two built-in fluid tanks</strong>, an on-board <strong>3×3 crafting grid</strong>, tool slots, a roll-out <strong>sleeping bag</strong>, and a configurable <strong>hose</strong> for moving liquids. Themed variants add material-based abilities, and the Ender backpack ties straight into your ender chest. One pack, worn for the whole expedition.</p>
+      <div class="badges">
+        <span class="badge">Traveler's Backpack</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Back slot · two tanks · crafting</span>
+        <span class="badge">+ Curios-friendly</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Where Sophisticated Backpacks gives you a plain bag you customise with modular upgrade chips, Traveler's Backpack hands you <strong>one feature-packed pack</strong> out of the gate. You equip it in a real back slot — it renders on your character — and it comes loaded with conveniences that make it a self-contained expedition kit rather than just extra slots.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">slot</span><h4>Worn on your back</h4><p>Occupies a dedicated back slot (a built-in slot, or a Curios slot if Curios is installed) — it shows on your model and stays equipped while you adventure.</p></div>
+        <div class="card"><span class="tag">fluids</span><h4>Two fluid tanks</h4><p>Left and right tanks store water, lava, milk, or any modded fluid, filled from buckets or the world and tapped with the hose.</p></div>
+        <div class="card"><span class="tag">craft</span><h4>On-board crafting</h4><p>A full 3×3 crafting grid lives inside the GUI, so you can build on the go without a placed table.</p></div>
+        <div class="card"><span class="tag">camp</span><h4>Sleeping bag &amp; tools</h4><p>Roll out a sleeping bag to skip the night anywhere, plus dedicated tool slots for the gear you reach for most.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The one idea to hold onto</span>
+        <p>Traveler's Backpack is <strong>rich-but-singular</strong>: the value is in everything that's already inside one pack — storage, two tanks, a crafting grid, tool slots, and a sleeping bag — plus a <strong>material/theme</strong> that grants an ability. You don't assemble it from modules; you pick (or upgrade to) the pack whose tier and theme fit the trip.</p>
+      </div>
+
+      <h3>What a fresh pack gives you</h3>
+      <ol class="flow">
+        <li><strong>Inventory.</strong> A large grid of storage slots — the core of the pack and the reason you craft it first.</li>
+        <li><strong>Two tanks.</strong> Independent left/right fluid tanks for water, lava, milk, potions, or modded fluids.</li>
+        <li><strong>A crafting grid.</strong> A 3×3 grid right in the GUI for field crafting.</li>
+        <li><strong>Tool slots.</strong> Quick-access slots for tools so they don't clutter your main inventory.</li>
+        <li><strong>A sleeping bag.</strong> Deploy it to set your spawn and skip night without carrying a bed.</li>
+        <li><strong>An ability.</strong> Tied to the pack's material/theme — fire resistance, water breathing via the hose, regeneration, and so on.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Scope of this guide</span>
+        <p>This covers the everyday loop: wearing the pack, the tanks and hose, the tier/theme ladder, abilities, the sleeping bag, and crafting/upgrading. Exact stack counts, tank volumes, and which themes carry which ability vary by version and pack config — the in-game GUI and JEI are always ground truth.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 01 WEARING & USING -->
+    <section class="doc" id="wearing">
+      <p class="sec-index">01 — The fundamentals</p>
+      <h2>Wearing &amp; Using</h2>
+      <p>The pack lives in a back slot and is opened from there with a keybind — no need to dig it out of your hotbar. You can also <strong>place it as a block</strong> in the world to access its contents (and sleep) without wearing it, which makes it double as a quick chest at camp.</p>
+
+      <h3>Equipping &amp; opening</h3>
+      <ul>
+        <li><strong>Equip it</strong> by placing the pack in the back slot — the mod adds a dedicated slot (left of the player model in the inventory), or uses the <em>Back</em> Curios slot when Curios is installed.</li>
+        <li><strong>Open it on the move</strong> with the configurable <em>Open Backpack</em> keybind (default <code>B</code>) — the full GUI pops up wherever you are.</li>
+        <li><strong>Place it as a block</strong> to set it down; right-click the placed pack to open the same inventory, or sneak-break it to pick it back up with contents intact.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Two ways to carry, one pack</span>
+        <p>Worn, the pack is always with you and its abilities are active. Placed, it's a stationary access point — handy for a base chest, a temporary stash on a dig, or just so you can sit down and sleep next to it. The contents are the same either way.</p>
+      </div>
+
+      <h3>Inside the GUI</h3>
+      <div class="data-table">
+        <table>
+          <caption>What every Traveler's Backpack carries</caption>
+          <thead><tr><th>Section</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Main inventory</td><td>The bulk storage grid — size grows with the pack's tier.</td></tr>
+            <tr><td>3×3 crafting grid</td><td>Craft anything you have the materials for, right in the pack, with a result slot beside it.</td></tr>
+            <tr><td>Tool slots</td><td>Dedicated slots to park tools (pick, axe, shovel, etc.) for quick reach.</td></tr>
+            <tr><td>Left tank</td><td>One independent fluid tank with its own fill/drain controls.</td></tr>
+            <tr><td>Right tank</td><td>A second independent fluid tank — keep two different fluids at once.</td></tr>
+            <tr><td>Sleeping bag</td><td>Deploy/retract control to roll out a bag and sleep (see §05).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The two fluid tanks</h3>
+      <p>The pack's signature feature is its pair of tanks. Each holds a single fluid and is filled in several ways:</p>
+      <ul>
+        <li><strong>From buckets</strong> — drop a filled bucket into a tank's input slot to empty it in; an empty bucket pulls fluid back out.</li>
+        <li><strong>From the world</strong> — use the <strong>hose</strong> (§02) to suck water, lava, or other source blocks straight into a tank.</li>
+        <li><strong>By output</strong> — drain a tank into buckets or spill it back into the world with the hose.</li>
+      </ul>
+      <p>Two tanks means you can carry, say, <strong>water in one and lava in the other</strong> — handy for an instant cobblestone/obsidian generator, dousing yourself, or keeping milk on hand to clear effects.</p>
+
+      <div class="note warn">
+        <span class="label">Pick up before you break</span>
+        <p>When picking the pack up — whether worn or placed — make sure you collect the pack item itself, not just empty it. A placed pack sneak-broken drops as an item with its inventory <em>and</em> tank contents preserved, so you don't lose your lava. Don't let it despawn after a death; grab it quickly like any valuable container.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 THE HOSE -->
+    <section class="doc" id="hose">
+      <p class="sec-index">02 — The fluid tool</p>
+      <h2>The Hose</h2>
+      <p class="lead">The hose is the tool that makes the tanks worth carrying. It's a configurable nozzle wired to your pack's tanks: switch its mode and which tank it draws from, then point it at the world to <strong>suck up</strong> fluids, <strong>spill</strong> them out, or <strong>drink</strong> straight from a tank.</p>
+
+      <h3>What the hose does</h3>
+      <div class="data-table">
+        <table>
+          <caption>Hose modes (cycle with the hose's mode key/right-click)</caption>
+          <thead><tr><th>Mode</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Suck</td><td>Pull a fluid source block from the world into the selected tank — fill from a lake, lava pool, or a placed source.</td></tr>
+            <tr><td>Spill</td><td>Place the selected tank's fluid back into the world as a source block — instant water/lava on demand.</td></tr>
+            <tr><td>Drink</td><td>Consume from the tank directly — drink water to hydrate, milk to clear effects, or other drinkable fluids.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Choosing a tank</h3>
+      <p>Because the pack has two tanks, the hose lets you select <strong>which tank</strong> it's connected to before acting. So one tool serves both reservoirs: suck water into the left tank, switch the hose to the right tank, suck lava — then spill whichever you need wherever you stand.</p>
+
+      <div class="note tip">
+        <span class="label">Field tricks worth memorising</span>
+        <p><strong>Water:</strong> spill a source to make a quick farm pool, douse fire, or create a mob-soft-landing. <strong>Lava:</strong> spill + water for a cobble/obsidian generator, or as a weapon/lighting. <strong>Milk:</strong> keep a milk tank and use Drink mode to instantly strip away poison, wither, or nausea mid-fight. The hose turns the pack into a portable fluid utility belt.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Lava in a tank is still lava</span>
+        <p>A lava tank doesn't protect you from lava you spill — you can absolutely set yourself on fire. Pair a lava theme with a <strong>fire/lava-resistance ability</strong> (§04) before you start landscaping with the hose, and keep the water tank ready as a panic button.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 TIERS & THEMES -->
+    <section class="doc" id="tiers">
+      <p class="sec-index">03 — The range</p>
+      <h2>Tiers &amp; Themes</h2>
+      <p>Traveler's Backpacks come in two overlapping flavours: <strong>material tiers</strong> that scale storage and tank size, and <strong>themed/cosmetic variants</strong> that change the look and, for the special ones, grant an ability. Most installs let you craft a base pack and dye/upgrade it toward the higher tiers.</p>
+
+      <h3>Material tiers</h3>
+      <p>The standard ladder climbs roughly with vanilla material progression — more inventory and bigger tanks the higher you go:</p>
+      <div class="data-table">
+        <table>
+          <caption>Standard tier ladder (capacities rise per tier — read the GUI for exact numbers)</caption>
+          <thead><tr><th>Tier</th><th>Rough role</th></tr></thead>
+          <tbody>
+            <tr><td>Leather</td><td>The entry pack — basic storage and small tanks; your first craft.</td></tr>
+            <tr><td>Iron</td><td>A solid mid step up in inventory and tank volume.</td></tr>
+            <tr><td>Gold</td><td>More of everything; the comfortable everyday tier.</td></tr>
+            <tr><td>Diamond</td><td>Large storage and tanks for serious expeditions.</td></tr>
+            <tr><td>Netherite</td><td>Top material tier — biggest capacity and the most durable in hostile terrain.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Themed &amp; special variants</h3>
+      <p>Alongside the plain material packs, the mod ships a wide set of <strong>themed backpacks</strong> — many are purely cosmetic (mob and biome flavours), while a few carry distinct functionality:</p>
+      <div class="data-table">
+        <table>
+          <caption>Notable themed packs</caption>
+          <thead><tr><th>Theme</th><th>What's special</th></tr></thead>
+          <tbody>
+            <tr><td>Ender</td><td>Links to your <strong>Ender Chest</strong> network — its inventory <em>is</em> your ender chest, accessible anywhere you wear the pack.</td></tr>
+            <tr><td>Diamond / Netherite</td><td>The premium material packs, also presented as distinct themed variants with top-end capacity.</td></tr>
+            <tr><td>Blaze / Magma (fire theme)</td><td>Fire- and lava-flavoured packs that pair naturally with a fire-resistance ability.</td></tr>
+            <tr><td>Mob variants</td><td>Creeper, Skeleton, Wolf, Bee, and many more — cosmetic packs styled after mobs/biomes.</td></tr>
+            <tr><td>Standard dyeable</td><td>Plain packs you can dye to any colour to match your kit.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The Ender backpack is the standout</span>
+        <p>The <strong>Ender</strong> theme is the one most players go out of their way for: because it mirrors your ender chest, anything you drop in is reachable from every other ender chest you own. It's effectively a portable shared-storage portal — perfect for shuttling ores home from a mining trip without ever leaving the cave.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 ABILITIES -->
+    <section class="doc" id="abilities">
+      <p class="sec-index">04 — Material perks</p>
+      <h2>Abilities</h2>
+      <p class="lead">The special packs don't just look different — many grant a <strong>passive or toggled ability</strong> tied to their material or theme. These are what turn the backpack from "more slots" into genuine survival gear, and most can be switched on and off while the pack is on your back.</p>
+
+      <h3>The on-back toggle</h3>
+      <p>Abilities only apply while the pack is <strong>worn</strong>. The mod provides an <strong>ability toggle key</strong> so you can enable or disable a pack's effect on the fly — useful when an effect (like constant water-spilling or a buff that costs a tank fluid) isn't wanted at that moment, or to save the resource it consumes.</p>
+
+      <h3>Representative abilities</h3>
+      <div class="data-table">
+        <table>
+          <caption>Theme-based abilities (which pack carries which varies by version/config)</caption>
+          <thead><tr><th>Ability</th><th>Tied to</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Fire / lava resistance</td><td>Blaze / Magma / Netherite-style themes</td><td>Shrug off fire and lava — the natural partner to a lava tank and the hose.</td></tr>
+            <tr><td>Water breathing / diving</td><td>Water-themed packs + a water tank</td><td>Breathe underwater while the pack feeds you from its water tank.</td></tr>
+            <tr><td>Regeneration / healing</td><td>Health-flavoured themes</td><td>Slow passive healing while worn.</td></tr>
+            <tr><td>Movement / jump perks</td><td>Mob themes (e.g. frog/rabbit, horse)</td><td>Boosts like extra jump height or speed, styled to the mob.</td></tr>
+            <tr><td>Ender access</td><td>Ender theme</td><td>Not a buff, but the standout utility — your ender chest in a pack (see §03).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Some abilities drink your tank</span>
+        <p>Several effects consume fluid from the pack's tanks while active — water breathing pulls from a water tank, for example. If an ability seems to stop, check that the relevant tank isn't empty, and use the hose to top it up. The toggle key lets you turn the effect off to conserve fluid when you don't need it.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Trust the tooltip</span>
+        <p>The exact roster of abilities and which themed pack grants each one shifts between mod versions and is sometimes tweaked by modpacks. Hover the pack in JEI or read its in-game tooltip/GUI to confirm what your specific pack actually does before you rely on it in the field.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 SLEEPING BAG & TRAVEL -->
+    <section class="doc" id="sleeping">
+      <p class="sec-index">05 — Camp anywhere</p>
+      <h2>Sleeping Bag &amp; Travel</h2>
+      <p class="lead">Every Traveler's Backpack carries a built-in <strong>sleeping bag</strong> — deploy it to sleep without hauling a bed around. For long expeditions far from base, this is the feature that justifies the pack's name: you can always set the night to morning and reset your respawn point wherever you've wandered.</p>
+
+      <h3>Using the sleeping bag</h3>
+      <ul>
+        <li><strong>Deploy</strong> the bag from the pack (a button in the GUI, or by placing the pack and interacting) to roll it out on the ground in front of you.</li>
+        <li><strong>Sleep</strong> in it as you would a bed at night — <strong>skipping to morning</strong> and (depending on config) <strong>setting your spawn</strong> to that spot.</li>
+        <li><strong>Retract</strong> it afterwards; the bag packs back into the pack so you carry nothing extra.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Why it matters on long trips</span>
+        <p>On a multi-day mining run, a deep dungeon crawl, or a trip to another dimension/planet, you rarely have a bed handy and don't want to lose the night to mob spam. Roll out the bag, skip to morning, set your spawn, and keep moving. It's the single biggest quality-of-life win the pack offers for exploration.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Spawn-set behaviour is config-dependent</span>
+        <p>Whether the sleeping bag <em>sets your respawn point</em> (versus only skipping night) is a setting some packs toggle, and dimension rules (the Nether/End won't let you "sleep" normally) still apply. If your respawn didn't move, check the mod config or test in a safe spot before betting your inventory on it.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 CRAFTING & UPGRADES -->
+    <section class="doc" id="crafting">
+      <p class="sec-index">06 — Building &amp; growing</p>
+      <h2>Crafting &amp; Upgrades</h2>
+      <p>You craft the first pack at a normal crafting table from the era-appropriate material, then climb the tier ladder or branch into a theme. The crafting grid <em>inside</em> the pack means that once you have one, you can keep building on the move.</p>
+
+      <h3>Crafting your first pack</h3>
+      <ol class="flow">
+        <li><strong>Gather the base materials.</strong> A leather pack is the entry point — leather plus a few common items (string, the tank components, and a sleeping-bag/wool element) in a crafting table.</li>
+        <li><strong>Craft the pack</strong> at a table; the result is a wearable backpack with its inventory, both tanks, the crafting grid, tool slots, and sleeping bag already built in.</li>
+        <li><strong>Equip it</strong> in the back slot and open it with the keybind to confirm everything's there.</li>
+        <li><strong>Fill the tanks</strong> from buckets or with the hose, and you're ready to travel.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Always check the recipe in JEI</span>
+        <p>Exact recipes — base pack, each tier, every themed variant, and the hose — differ by version and are sometimes adjusted by modpacks. Look the item up in <strong>JEI/EMI</strong> in your own world rather than trusting a fixed recipe; the mod also provides recipes for crafting themed packs and dyeing plain ones.</p>
+      </div>
+
+      <h3>Upgrading between tiers</h3>
+      <ul>
+        <li><strong>Tier up</strong> by combining a lower pack with the next material (e.g. surrounding/combining it with iron, then gold, diamond, netherite) to grow inventory and tank size while keeping contents.</li>
+        <li><strong>Re-skin / theme</strong> by crafting the themed variant or dyeing a plain pack — themes change appearance and, for special packs, the ability.</li>
+        <li><strong>Customise</strong> with the mod's options (dye colours, and the tool/tank layout you keep things in) to suit how you travel.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">Upgrade with the pack empty (or carefully)</span>
+        <p>When combining a pack into a higher tier, make sure the upgrade preserves your inventory and tank fluids in your version — many do, but it's safest to verify on a spare pack or empty a precious one first. Never throw an upgrade craft together with your only loot inside until you trust the recipe.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS & COMPARISON -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Picking the right pack</p>
+      <h2>Tips &amp; Comparison</h2>
+      <p class="lead">Both backpack mods in this pack are excellent, and they solve different problems. Traveler's Backpack is the <strong>exploration kit</strong>; Sophisticated Backpacks is the <strong>modular automation kit</strong>. Knowing which to reach for saves you a lot of fiddling.</p>
+
+      <h3>Traveler's vs. Sophisticated</h3>
+      <div class="data-table">
+        <table>
+          <caption>Which back-slot mod for which job</caption>
+          <thead><tr><th>If you want…</th><th>Reach for</th></tr></thead>
+          <tbody>
+            <tr><td>Built-in tanks, a hose, field crafting, a sleeping bag, and abilities for travel</td><td><strong>Traveler's Backpack</strong></td></tr>
+            <tr><td>A blank bag you tune with upgrade chips (magnet, feeding, auto-smelt, crafting, pickup filters, stacking)</td><td><strong>Sophisticated Backpacks</strong></td></tr>
+            <tr><td>Fluids carried on your back (water/lava/milk) and quick liquid placement</td><td><strong>Traveler's Backpack</strong></td></tr>
+            <tr><td>In-place item automation — auto-pickup, filtering, void, and feeding while you mine</td><td><strong>Sophisticated Backpacks</strong></td></tr>
+            <tr><td>To sleep anywhere on a long dungeon/space trip without a bed</td><td><strong>Traveler's Backpack</strong></td></tr>
+            <tr><td>To slot more upgrades over time and grow capacity modularly</td><td><strong>Sophisticated Backpacks</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Practical advice</h3>
+      <ul>
+        <li><strong>Carry Traveler's for expeditions.</strong> Mining trips, dungeon dives, and space/dimension travel benefit most from its tanks, hose, sleeping bag, and abilities.</li>
+        <li><strong>Carry Sophisticated for base-loop work.</strong> When you want auto-pickup, filters, and feeding while farming or grinding, the modular upgrades win.</li>
+        <li><strong>The Ender pack is a power tool.</strong> Pair it with mining for instant ore-shipping home; it removes most return trips.</li>
+        <li><strong>Match theme to task.</strong> Fire-resistance theme for Nether/lava work, water theme for ocean diving, before you commit to the trip.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Cross-reference</span>
+        <p>For the full picture on storage and item-routing across the modpack — including Sophisticated Backpacks' upgrade chips, drawers, and pipe networks — see the <a href="storage-guide.html">Storage &amp; Logistics hub</a>. Traveler's Backpack and Sophisticated Backpacks are covered side by side there and are happy to coexist in one playthrough.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Ground truth wins</span>
+        <p>Tank volumes, inventory sizes, ability rosters, and recipes are approximate here and configurable per pack. When this guide and your install disagree, the <strong>in-game GUI and JEI/EMI</strong> are correct — treat the numbers above as orientation, not gospel.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dcefdc;text-transform:uppercase;letter-spacing:0.03em">The Traveler's Kit</strong><br>
+      An unofficial, fan-made guide to Traveler's Backpack on Minecraft 1.19.2 (Forge).<br>
+      Traveler's Backpack is by Tiviacz1337. This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Traveler's Backpack (1.19.2)<br>
+      · the in-game backpack GUI<br>
+      · JEI/EMI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate and configurable per pack. When your install disagrees, the in-game GUI and JEI/EMI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

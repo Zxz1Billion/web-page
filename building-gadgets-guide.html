@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Power Builder — a Building Gadgets field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Building Gadgets guide for Minecraft 1.19.2 (Forge / Direwolf20): the Building, Exchanging, Copy-Paste, and Destruction gadgets, their modes, Construction Paste and containers, energy/durability, and a clean large-build workflow." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#090c12; --bg-1:#0d1119; --bg-2:#131924; --bg-3:#1b2331;
+  --line:#273141; --ink:#e6ecf4; --ink-dim:#9aa8bd; --ink-faint:#647386;
+  --accent:#56b3d4;
+  --danger:#e0683a;
+  --f-display:"Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🪄</span>
+      <span class="wordmark">The Power<br>Builder<small>BUILDING GADGETS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Toolkit</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#building"><span class="ix">01</span> The Building Gadget</a>
+      <a href="#exchanging"><span class="ix">02</span> The Exchanging Gadget</a>
+      <a href="#copypaste"><span class="ix">03</span> The Copy-Paste Gadget</a>
+      <a href="#destruction"><span class="ix">04</span> The Destruction Gadget</a>
+      <p class="group-label">The Supply</p>
+      <a href="#paste"><span class="ix">05</span> Construction Paste</a>
+      <a href="#energy"><span class="ix">06</span> Energy &amp; Durability</a>
+      <p class="group-label">Putting It Together</p>
+      <a href="#workflow"><span class="ix">07</span> Workflow &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Building<br>Gadgets for MC 1.19.2 (Forge).<br>Exact modes, sizes &amp; costs are<br>config-dependent — trust the<br>in-game radial menu &amp; JEI.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Direwolf20</p>
+      <h1>The Power<br>Builder</h1>
+      <p class="lede">A field manual for <strong>Building Gadgets</strong> — the mod that lets you place, swap, copy, and clear large volumes of blocks in a single click. Rough out a tower, retexture a whole wall, save a room and stamp it elsewhere, or carve out a basement in one motion. This guide walks each of the four gadgets, the <em>Construction Paste</em> that feeds the big jobs, and a tidy workflow for using them together.</p>
+      <div class="badges">
+        <span class="badge">Building Gadgets</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Place · Swap · Copy · Clear</span>
+        <span class="badge">Draws from inventory or paste</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Building Gadgets is a set of handheld tools that build, edit, copy, and clear blocks in bulk — drawing the materials straight from your inventory or from <strong>Construction Paste</strong>. It is the big time-saver for large builds: instead of placing blocks one at a time, you aim, click, and a whole area appears, changes, or vanishes. Treat every mode, size limit, and energy figure here as the <strong>typical default</strong> and let the in-game radial menu and tooltips win when your pack disagrees.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">place</span><h4>Building Gadget</h4><p>Set a target block and stamp out an area — columns, walls, stairs, grids, and surfaces — in one click.</p></div>
+        <div class="card"><span class="tag">swap</span><h4>Exchanging Gadget</h4><p>Replace blocks already in the world with a chosen block — instant retexturing without breaking and re-placing.</p></div>
+        <div class="card"><span class="tag">copy</span><h4>Copy-Paste Gadget</h4><p>Capture a structure to a Template, then paste it anywhere; materialises blocks from Construction Paste.</p></div>
+        <div class="card"><span class="tag">clear</span><h4>Destruction Gadget</h4><p>Clear a configurable box of blocks at once; overflow lands back in your inventory.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Two things to learn first</span>
+        <p>Every gadget shows a <strong>ghost preview</strong> of what it will do before you commit, and most settings live in a <strong>radial / right-click menu</strong> (mode, range, fuzzy, anchor). Materials come from your real inventory for normal building; the Copy-Paste gadget instead needs <strong>Construction Paste</strong> (§05) to fill in blocks.</p>
+      </div>
+
+      <h3>How it fits the rest of the build hub</h3>
+      <p>Building Gadgets is the <em>placement</em> half of a decoration workflow — it moves blocks fast but does not invent new block styles. Pair it with a palette mod such as <strong>Chipped</strong> for variety, and with the wider <strong>Building &amp; Decoration</strong> hub for the trim, frames, and details you stamp once the rough shape exists. See the workflow section (§07) for how the gadgets hand off to each other.</p>
+
+      <h3>The shape of a job</h3>
+      <ol class="flow">
+        <li><strong>Pick the gadget</strong> for the task — build, swap, copy, or clear.</li>
+        <li><strong>Set the target block</strong> (or copy a structure) by sneak-clicking a block in the world.</li>
+        <li><strong>Choose a mode and size</strong> from the radial menu — column, wall, stairs, grid, surface, and the range/radius.</li>
+        <li><strong>Aim and click.</strong> The ghost preview shows the result; click to commit, consuming blocks or paste.</li>
+        <li><strong>Undo if needed.</strong> The building gadgets support an undo of your last placement while the area is still loaded.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 BUILDING GADGET -->
+    <section class="doc" id="building">
+      <p class="sec-index">01 — Place in bulk</p>
+      <h2>The Building Gadget</h2>
+      <p>The Building Gadget is the workhorse: set a <strong>target block</strong>, choose a <strong>mode</strong>, dial in the <strong>range / size</strong>, and place a whole area against the face you are pointing at — all in one click. It pulls the <em>real</em> blocks from your inventory (or Construction Paste, if configured), so a wall of 200 stone bricks costs 200 stone bricks.</p>
+
+      <h3>Setting the block &amp; previewing</h3>
+      <p>Sneak + right-click a block in the world to copy it as the gadget's current block to place; a ghost preview then follows your crosshair. The preview is exactly what will be placed, so you can line it up before committing. Right-click (no sneak) places.</p>
+
+      <h3>Modes</h3>
+      <div class="data-table">
+        <table>
+          <caption>Building Gadget modes (names &amp; behaviour vary by version)</caption>
+          <thead><tr><th>Mode</th><th>What it builds</th></tr></thead>
+          <tbody>
+            <tr><td>Build to Me</td><td>Extends a line of blocks from the face you target up to where you are standing/looking — fast for spans and bridges.</td></tr>
+            <tr><td>Vertical Column</td><td>A pillar straight up (or down) from the target face, height set by range.</td></tr>
+            <tr><td>Horizontal Column</td><td>A flat row extending out from the target face along your facing.</td></tr>
+            <tr><td>Wall</td><td>A flat rectangle on the targeted face — the bread-and-butter mode for walls and floors.</td></tr>
+            <tr><td>Stairs</td><td>A stepped diagonal run — instant staircases up or down.</td></tr>
+            <tr><td>Grid</td><td>A spaced lattice of blocks (e.g. pillars or supports) across the area.</td></tr>
+            <tr><td>Surface</td><td>Coats the connected surface you point at — re-skins a floor or follows terrain.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Range, size &amp; fuzzy</h3>
+      <ul>
+        <li><strong>Range / size</strong> — set in the radial menu; larger areas cost more blocks (and energy/durability) per click and may hit a config-limited maximum.</li>
+        <li><strong>Fuzzy mode</strong> — when on, placement ignores the exact block you targeted and fills based on the area rather than matching only identical neighbours.</li>
+        <li><strong>Connected / overlay options</strong> — control whether placement hugs only matching surfaces or spans across.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Stock the bag first</span>
+        <p>The gadget places <em>real</em> blocks, so keep a deep stack of your material on you (or in a connected inventory if your pack supports it). Run dry mid-click and only part of the area fills — top up and click again to finish.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Mind the maximums</span>
+        <p>Most packs cap how many blocks a single click can place (commonly in the low hundreds) and how far the range reaches. If a big wall only half-builds, you have hit the per-action limit — split it into a few clicks, or raise the limit in the config if allowed.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 EXCHANGING GADGET -->
+    <section class="doc" id="exchanging">
+      <p class="sec-index">02 — Swap in place</p>
+      <h2>The Exchanging Gadget</h2>
+      <p>The Exchanging Gadget <strong>swaps existing blocks</strong> in an area for a chosen block, without you breaking and re-placing anything. Point at a cobble wall, set the target to polished blackstone, click — the whole face retextures, and the old blocks return to your inventory. The mode set mirrors the Building Gadget, so the area you exchange is shaped the same way (wall, surface, column, and so on).</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Set the replacement block</strong> the same way as the Building Gadget — sneak + right-click the block you want to swap <em>to</em>.</li>
+        <li><strong>Choose a mode &amp; size</strong> (Wall and Surface are the usual picks for retexturing).</li>
+        <li><strong>Aim at the surface to change</strong> — the preview highlights which blocks will be swapped.</li>
+        <li><strong>Click.</strong> Matching blocks become the new block; the removed blocks drop into your inventory.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Fuzzy makes whole-wall swaps easy</span>
+        <p>With <strong>fuzzy mode</strong> on, the exchanger swaps every block in the targeted area regardless of type — perfect for re-skinning a mixed wall in one pass. With it off, only blocks matching the one you pointed at are exchanged, which is handy for surgical edits (e.g. only the cobble, leaving the windows).</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">It still costs the new blocks</span>
+        <p>Exchanging consumes the replacement material from your inventory just like building, and returns the old blocks to you. Make sure you carry enough of the new block to cover the whole area, or the swap stops partway.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 COPY-PASTE GADGET -->
+    <section class="doc" id="copypaste">
+      <p class="sec-index">03 — Capture &amp; stamp</p>
+      <h2>The Copy-Paste Gadget</h2>
+      <p class="lead">The Copy-Paste Gadget captures a structure into a <strong>Template</strong>, then pastes that design elsewhere — even in another location or world. It is how you build a perfect room once and stamp it ten times. Unlike the building gadget, pasting materialises blocks from <strong>Construction Paste</strong> (§05) rather than placing each block from your inventory.</p>
+
+      <h3>Copying a structure</h3>
+      <ol class="flow">
+        <li><strong>Switch to Copy mode</strong> in the radial menu.</li>
+        <li><strong>Mark two corners</strong> of the region you want to capture — the selection box highlights the volume.</li>
+        <li><strong>Confirm the copy.</strong> The layout (blocks and positions) is stored to the gadget's current Template.</li>
+        <li><strong>Save it</strong> if you want to keep it — name the design in the Template Manager so you can reuse it later.</li>
+      </ol>
+
+      <h3>Pasting a structure</h3>
+      <ol class="flow">
+        <li><strong>Switch to Paste mode</strong> and aim where the structure's anchor should land.</li>
+        <li><strong>Position the ghost preview</strong> — nudge/rotate the placement so it lines up with your build.</li>
+        <li><strong>Make sure you have paste &amp; power.</strong> Pasting draws Construction Paste to materialise the blocks (see §05).</li>
+        <li><strong>Click to paste.</strong> The full structure appears at once; use undo if the alignment was off.</li>
+      </ol>
+
+      <div class="data-table">
+        <table>
+          <caption>Storing and managing designs</caption>
+          <thead><tr><th>Item / screen</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Template</td><td>The captured design data the gadget pastes from — the gadget holds one "active" copy at a time.</td></tr>
+            <tr><td>Template Manager</td><td>A block/GUI for naming, saving, loading, and swapping stored designs between gadgets and Paste Containers.</td></tr>
+            <tr><td>Paste Container</td><td>Holds the Construction Paste the paste consumes; tiers store more (see §05).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Copy is layout, not loot</span>
+        <p>A Template records the <em>blocks and their arrangement</em>, not tile-entity contents — chests come back empty, machines lose their inventories/settings, and some modded blocks may not copy cleanly. Test-paste a saved room in a spare area before relying on it for a big stamp.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 DESTRUCTION GADGET -->
+    <section class="doc" id="destruction">
+      <p class="sec-index">04 — Clear in bulk</p>
+      <h2>The Destruction Gadget</h2>
+      <p>The Destruction Gadget clears a <strong>configurable box of blocks</strong> in one click — ideal for digging out a basement, levelling a hill, or clearing a botched build. You set how deep, wide, and tall the box reaches; the ghost outline shows exactly what will be removed before you commit.</p>
+
+      <h3>Using it</h3>
+      <ol class="flow">
+        <li><strong>Open the settings</strong> and set the box dimensions — depth into the face plus the width/height around your aim point.</li>
+        <li><strong>Aim at the face</strong> where the box should start — the outline previews the volume.</li>
+        <li><strong>Sneak + click</strong> (the usual safety gesture) to remove the whole box at once.</li>
+        <li><strong>Collect the drops.</strong> Mined blocks go to you; what won't fit overflows to the world or back into your inventory depending on config.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Overflow goes to your inventory</span>
+        <p>Cleared blocks are returned rather than vaporised — by default they flow into your inventory (overflow drops nearby when you are full). That makes the Destruction Gadget a fast, mostly non-destructive way to harvest a volume, not just delete it.</p>
+      </div>
+
+      <div class="note danger">
+        <span class="label">It removes a lot, fast</span>
+        <p>A large box can erase a big chunk of terrain — and your build — in a single click. Keep the dimensions modest until you trust the preview, watch the energy/durability cost (big boxes are expensive), and remember the gadget respects whatever block-protection / claim rules your server enforces.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 CONSTRUCTION PASTE -->
+    <section class="doc" id="paste">
+      <p class="sec-index">05 — The fuel for big builds</p>
+      <h2>Construction Paste &amp; Containers</h2>
+      <p class="lead">Construction Paste is the generic "filler" the gadgets use to materialise blocks when you are not placing from a literal inventory stack — above all when <strong>pasting a copied structure</strong>. It lets one bucket of paste stand in for hundreds of varied blocks, which is why copy-paste and very large builds lean on it.</p>
+
+      <h3>Making paste</h3>
+      <p>Construction Paste is produced from cheap bulk material (commonly via a <strong>Construction Chamber</strong> or a crafting/processing recipe in your pack) and measured as a volume of paste rather than as item stacks. You feed the raw input in, and the paste accumulates in a container ready for the gadget to draw on.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Where paste lives</caption>
+          <thead><tr><th>Item / block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Construction Paste</td><td>The consumable "block material" the Copy-Paste gadget spends to render a pasted structure.</td></tr>
+            <tr><td>Construction Chamber</td><td>The block that produces paste from raw input (recipe/throughput is pack-dependent).</td></tr>
+            <tr><td>Paste Container (tiered)</td><td>Stores paste for the gadget to draw on; higher tiers hold a larger volume so you refill less often.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Why builds rely on it</h3>
+      <ul>
+        <li><strong>Copy-Paste needs it.</strong> A pasted structure is materialised from paste, not from your inventory — no paste, no paste-job.</li>
+        <li><strong>It abstracts the bill of materials.</strong> One pool of paste covers a structure made of many different blocks, so you do not have to carry every block type the design uses.</li>
+        <li><strong>It scales.</strong> Big repeated stamps consume a lot of paste fast; tiered Paste Containers keep enough on hand to finish in one go.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Carry a topped-up container</span>
+        <p>Before a big paste, check the Paste Container's level — running dry mid-paste leaves a half-built structure. Keep a high-tier container charged from your Construction Chamber so a large stamp lands in a single click.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 ENERGY & DURABILITY -->
+    <section class="doc" id="energy">
+      <p class="sec-index">06 — Keeping them running</p>
+      <h2>Energy &amp; Durability</h2>
+      <p>Every gadget has a running cost. Depending on your pack's config, a gadget either consumes <strong>Forge Energy (FE)</strong> from an internal battery or wears down a <strong>durability bar</strong> as you use it. Bigger actions — large walls, deep destruction boxes, full structure pastes — cost proportionally more.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Cost model (config-dependent)</caption>
+          <thead><tr><th>Aspect</th><th>How it behaves</th></tr></thead>
+          <tbody>
+            <tr><td>Energy (FE) mode</td><td>The gadget holds an FE buffer; each block placed/removed drains some. Recharge on any FE charger, energy cube, or chargepad.</td></tr>
+            <tr><td>Durability mode</td><td>If configured without FE, the gadget loses durability per action and is repaired/recharged through pack-specific means.</td></tr>
+            <tr><td>Cost scaling</td><td>Roughly proportional to blocks affected — a 200-block wall costs far more than a 10-block edit; the Destruction box scales with its volume.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Charging</h3>
+      <p>In energy mode, drop the gadget in any block that outputs FE — an energy cube, a charger, or a chargepad-style block from your tech mods. Many players keep a charger by the build site so the gadget tops up between sweeps. If your pack runs durability mode instead, follow its repair path (anvil, recharge block, or config-set behaviour).</p>
+
+      <h3>Range upgrades</h3>
+      <p>Building Gadgets can be enhanced with <strong>range upgrades</strong> that raise the maximum size/reach of an action — letting one click cover a bigger wall or a longer column. Larger actions naturally draw more energy or durability per click, so a stronger power supply pairs well with a higher range cap.</p>
+
+      <div class="note warn">
+        <span class="label">Check which mode your pack uses</span>
+        <p>FE-vs-durability is a config switch, and packs differ. If your gadget shows an energy bar, keep a charger handy; if it shows durability, learn its repair route. Either way, an empty gadget simply stops placing mid-action — refuel and click again to finish.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 WORKFLOW & TIPS -->
+    <section class="doc" id="workflow">
+      <p class="sec-index">07 — Putting it together</p>
+      <h2>Workflow &amp; Tips</h2>
+      <p class="lead">The gadgets are strongest as a chain. Rough the shape, retexture it, save the good bits, and clean up the mistakes — each tool handing the build to the next. Here is a workflow that scales from a single tower to a whole town.</p>
+
+      <ol class="flow">
+        <li><strong>Rough the shape</strong> with the <strong>Building Gadget</strong>. Use Wall and Column modes to block out walls, floors, and pillars fast in a cheap placeholder block.</li>
+        <li><strong>Retexture with the Exchanging Gadget.</strong> Once the massing looks right, swap the placeholder for your real palette — whole faces at a time, with fuzzy mode for mixed walls.</li>
+        <li><strong>Save reusable rooms with Copy-Paste.</strong> Capture a finished room, window, or arch to a named Template, then stamp it wherever it repeats — keeping a charged Paste Container on you.</li>
+        <li><strong>Clear mistakes with the Destruction Gadget.</strong> Carve out interiors, fix overshoots, and reclaim the blocks back into your inventory.</li>
+      </ol>
+
+      <h3>Pairing with palette mods</h3>
+      <p>Building Gadgets moves blocks; it does not create new looks. Pair it with <strong>Chipped</strong> (and similar palette mods) for the variety — design a wall in a Chipped variant, then use the Exchanging Gadget to roll that texture across the whole structure in seconds. The gadgets are the muscle; the palette mod is the wardrobe.</p>
+
+      <div class="pills">
+        <li><b>Build</b> rough massing</li>
+        <li><b>Exchange</b> the palette</li>
+        <li><b>Copy</b> reusable rooms</li>
+        <li><b>Destroy</b> to fix &amp; reclaim</li>
+        <li><b>Paste</b> needs paste</li>
+      </div>
+
+      <h3>Handy habits</h3>
+      <ul>
+        <li><strong>Watch the preview.</strong> The ghost outline is ground truth for what a click will do — line it up before committing, especially with Destruction and Paste.</li>
+        <li><strong>Use undo.</strong> The last building action can usually be reversed while the area is loaded — cheaper than re-clearing by hand.</li>
+        <li><strong>Keep fuel topped up.</strong> Energy/durability and Construction Paste all run out mid-action and leave a job half-done; refill, then re-click.</li>
+        <li><strong>Respect server rules.</strong> On multiplayer, gadgets honour claims/protection and any size limits the admins set.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Exact modes &amp; limits vary by version</span>
+        <p>Mode names, the maximum blocks per click, range caps, the FE-vs-durability switch, and the paste recipe all change between Building Gadgets versions and packs. Use this guide for the shape of the workflow, and let the in-game radial menu, tooltips, and JEI settle the specifics for <span class="vflag">your install</span>.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The Power Builder</strong><br>
+      An unofficial, fan-made field manual for Building Gadgets on Minecraft 1.19.2 (Forge / Direwolf20).<br>
+      Building Gadgets is by its respective authors. This guide is not affiliated with or endorsed by them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Building Gadgets (1.19.2)<br>
+      · the in-game radial menu &amp; tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Modes, sizes, costs, and recipes are config- and version-dependent. When your install disagrees, the in-game gadget menus and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide.js";
+  initChrome();
+</script>
+</body>
+</html>

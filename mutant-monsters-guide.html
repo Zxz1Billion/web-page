@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Mutant Files — a Mutant Monsters field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A field guide to Mutant Monsters (Minecraft 1.19.2 Forge, by Fuzs): the supercharged mutant Zombie, Skeleton, Creeper, and Enderman — their attacks, drops, how they spawn, the gear you craft from their parts, and the tactics to survive them." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#0c1108; --bg-1:#0f150a; --bg-2:#161d10; --bg-3:#1f2916;
+  --line:#2b3a20; --ink:#e9f0db; --ink-dim:#a6bd88; --ink-faint:#6e8556;
+  --accent:#8cc04a;
+  --danger:#e0683a;
+  --f-display:"Oswald",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">☣</span>
+      <span class="wordmark">The Mutant<br>Files<small>MUTANT MONSTERS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <p class="group-label">The Bestiary</p>
+      <a href="#zombie"><span class="ix">01</span> Mutant Zombie</a>
+      <a href="#skeleton"><span class="ix">02</span> Mutant Skeleton</a>
+      <a href="#creeper"><span class="ix">03</span> Mutant Creeper</a>
+      <a href="#enderman"><span class="ix">04</span> Mutant Enderman</a>
+      <p class="group-label">Spoils &amp; Survival</p>
+      <a href="#creating"><span class="ix">05</span> Creating Mutants</a>
+      <a href="#gear"><span class="ix">06</span> Gear from Drops</a>
+      <a href="#tactics"><span class="ix">07</span> Tactics</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Mutant Monsters<br>for MC 1.19.2 (Forge), the Fuzs<br>port. Numbers are approximate<br>&amp; configurable — trust in-game<br>behaviour and the wiki.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Fuzs</p>
+      <h1>The Mutant<br>Files</h1>
+      <p class="lede">A survival dossier on <strong>Mutant Monsters</strong> — giant, brutal versions of the vanilla mobs you stopped fearing a hundred hours ago. Each mutant hits like a freight train, has signature special attacks, and drops parts you can forge into rare gear. This is endgame combat fodder: know the four monsters, what they do, what they leave behind, and how to walk away alive.</p>
+      <div class="badges">
+        <span class="badge accent">Mutant Monsters</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">ported by Fuzs</span>
+        <span class="badge danger">☣ It can flatten your base</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Mutant Monsters drops a handful of supercharged variants of vanilla mobs into your world: a <strong>Mutant Zombie</strong>, <strong>Mutant Skeleton</strong>, <strong>Mutant Creeper</strong>, and <strong>Mutant Enderman</strong>. They are large, they hit hard, and each has special attacks that punish the habits that keep you alive against normal mobs. Treat them as <strong>boss-tier combat encounters</strong>, not as ambient threats.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">brute</span><h4>Mutant Zombie</h4><p>A towering bruiser that leaps, roars, and hurls itself at you. Drops Hulk Hammer materials and mutant flesh.</p></div>
+        <div class="card"><span class="tag">ranged</span><h4>Mutant Skeleton</h4><p>Fast and evasive, fires multi-shot arrow volleys and bashes with its shield. Drops parts for skeletal gear.</p></div>
+        <div class="card"><span class="tag">explosive</span><h4>Mutant Creeper</h4><p>Enormous. Charges and detonates a massive blast, and can spawn smaller creeper minions. A base-killer.</p></div>
+        <div class="card"><span class="tag">teleporter</span><h4>Mutant Enderman</h4><p>The toughest. Teleports aggressively, throws blocks, and yanks you toward it. Drops the Endersoul Hand.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How they show up</span>
+        <p>Some mutants can <strong>spawn naturally but rarely</strong> in the dark or in suitable biomes; others you'll mostly encounter because they were <em>created</em> from a base mob (see §05). Either way they are uncommon by design — meeting one should feel like an event.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Cross-reference</span>
+        <p>These four sit at the brutal end of a longer combat curve. For the wider mob and combat picture in this pack — vanilla threats, other hostile-mob mods, and general survival loadouts — pair this dossier with the <strong>Mobs &amp; Survival guide</strong>. This page assumes you already have decent armour and a plan for healing.</p>
+      </div>
+
+      <h3>The shape of an encounter</h3>
+      <ol class="flow">
+        <li><strong>Identify fast.</strong> Each mutant telegraphs its big attack — the zombie's leap wind-up, the creeper's charge, the enderman's block-throw. Reading the tell is most of the fight.</li>
+        <li><strong>Pick your ground.</strong> Open field, room to retreat, nothing flammable or load-bearing nearby. Never fight a Mutant Creeper anywhere you care about.</li>
+        <li><strong>Trade carefully.</strong> Most have a punishing melee burst. Kite, bait the special, then punish the recovery window.</li>
+        <li><strong>Collect the spoils.</strong> Their drops feed the §06 gear — that's the whole reason to hunt them rather than flee.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 MUTANT ZOMBIE -->
+    <section class="doc" id="zombie">
+      <p class="sec-index">01 — The bruiser</p>
+      <h2>Mutant Zombie</h2>
+      <p>A huge, hunched horror with a colossal melee swing and a deep, staggering health pool. The Mutant Zombie is the most straightforward of the four — it has no ranged attack — but its mobility closes the distance you'd normally use to stay safe.</p>
+
+      <h3>Attacks &amp; behaviour</h3>
+      <ul>
+        <li><strong>Leap.</strong> It launches itself across a gap to land on or near you, slamming the ground. Watch the crouch-and-spring wind-up and side-step the landing.</li>
+        <li><strong>Roar.</strong> A bellow that can stagger and disorient — it interrupts your rhythm and can throw nearby loose mobs around.</li>
+        <li><strong>Hurl / slam.</strong> It throws its bulk into a heavy melee blow; if it connects, it knocks you back hard. Chip damage from this adds up brutally.</li>
+        <li><strong>Tanky.</strong> Expect a large health pool <span class="vflag">approx · configurable</span> — bring sustained DPS, not a single burst.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">Don't get cornered</span>
+        <p>The leap exists to erase the distance you'd kite with. Fight it where you have <strong>room behind you</strong> — a wall at your back lets it pin you and combo the slam + roar. Keep moving laterally.</p>
+      </div>
+
+      <h3>Drops &amp; reward</h3>
+      <p>The Mutant Zombie drops <strong>mutant flesh</strong> and the materials used to craft the <strong>Hulk Hammer</strong> — a heavy melee weapon (see §06). It can <strong>spawn naturally, though rarely</strong>, or be <strong>created</strong> from a base zombie (see §05).</p>
+
+      <div class="note tip">
+        <span class="label">Strategy</span>
+        <p>Kite in a wide arc and let it commit to a leap; the recovery after it lands is your window for two or three solid hits. Avoid standing still to "tank it down" — the slam's knockback resets your spacing every time it lands. A shield helps soak the melee, but the roar can interrupt blocking, so don't rely on it alone.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 MUTANT SKELETON -->
+    <section class="doc" id="skeleton">
+      <p class="sec-index">02 — The marksman</p>
+      <h2>Mutant Skeleton</h2>
+      <p>Lean, fast, and infuriating to pin down. Where the Mutant Zombie wants to close, the Mutant Skeleton wants distance — it peppers you with arrows and bashes you away when you finally reach it.</p>
+
+      <h3>Attacks &amp; behaviour</h3>
+      <ul>
+        <li><strong>Multi-shot volley.</strong> It looses several arrows at once <span class="vflag">approx</span> rather than single shots — a spread that's hard to fully dodge in the open and chews through unblocked health.</li>
+        <li><strong>Shield bash.</strong> Up close it slams you with a shielding strike that knocks you back, buying it room to resume firing.</li>
+        <li><strong>Fast &amp; evasive.</strong> It repositions quickly to keep range, so a slow approach just feeds it free volleys.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">Cover beats armour here</span>
+        <p>Against the volley, line-of-sight breaks are worth more than raw armour points. Use terrain, pillars, or a shield raised toward it as you advance. The shield bash exists specifically to undo your approach — expect to get knocked back once and plan a second push.</p>
+      </div>
+
+      <h3>Drops &amp; reward</h3>
+      <p>The Mutant Skeleton drops <strong>skeleton parts</strong> used for gear — most notably the <strong>skeleton arms</strong> that serve as the material for a powerful <strong>mutant bow</strong>, plus pieces tied to mutant-skeleton armour (see §06).</p>
+
+      <div class="note tip">
+        <span class="label">Strategy</span>
+        <p>Close the gap behind a shield, eat the bash, then stay glued to it — at point-blank its ranged advantage evaporates and you can out-trade it. If you'd rather fight at range, a strong bow or crossbow with good cover lets you win the archery duel outright.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 MUTANT CREEPER -->
+    <section class="doc" id="creeper">
+      <p class="sec-index">03 — The bomb</p>
+      <h2>Mutant Creeper</h2>
+      <p class="lead">The single most dangerous mutant to your base, and the reason this mod has a reputation. It's enormous, it charges you, and it detonates a blast far larger than a vanilla creeper's — enough to gut a structure and erase your gear in one go.</p>
+
+      <h3>Attacks &amp; behaviour</h3>
+      <ul>
+        <li><strong>Charge &amp; detonate.</strong> It rushes toward you and triggers a <strong>massive explosion</strong> <span class="vflag">approx</span> — far beyond a normal creeper's radius. Getting caught is usually fatal even in good armour.</li>
+        <li><strong>Spawns minions.</strong> It can spawn <strong>smaller creeper minions</strong> that swarm and pressure you while the big one resets, splitting your attention.</li>
+        <li><strong>Persistent.</strong> It keeps coming; outrunning it isn't reliable once it's locked on.</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">Never fight this near your base — read twice</span>
+        <p>A Mutant Creeper detonation can level walls, machines, and storage in a single blast. If one appears near anything you've built, your priority is to <strong>lead it away into open ground</strong> before engaging. Do not "just deal with it" beside your chests. This is the one mutant that punishes a base, not just a body.</p>
+      </div>
+
+      <h3>Drops &amp; reward</h3>
+      <p>As a creeper-derived mutant it yields explosive-themed loot; the practical takeaway is that the <strong>risk vastly outweighs casual farming</strong>. Hunt it deliberately, in the open, with an escape route.</p>
+
+      <div class="note tip">
+        <span class="label">Strategy</span>
+        <p>Fight it in the <strong>open</strong>, with distance you can use. Bait the charge, retreat through the detonation's edge, and clean up minions between its windups. Ranged damage is ideal — every hit you land without being inside the blast radius is free. If you must take it melee, hit and immediately disengage; never linger in its lunge range.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 MUTANT ENDERMAN -->
+    <section class="doc" id="enderman">
+      <p class="sec-index">04 — The nightmare</p>
+      <h2>Mutant Enderman</h2>
+      <p>The toughest of the four and the most maddening to fight. It blinks around the arena, hurls blocks at you, and physically drags you toward it — denying you the spacing, cover, and footing you'd rely on against anything else.</p>
+
+      <h3>Attacks &amp; behaviour</h3>
+      <ul>
+        <li><strong>Aggressive teleport.</strong> It repositions constantly, appearing behind or beside you to break your aim and your retreat.</li>
+        <li><strong>Block throw.</strong> It rips up blocks and flings them as projectiles — ranged pressure that also reshapes the terrain you're standing on.</li>
+        <li><strong>Pull / yank.</strong> It can drag you toward it, undoing your kiting distance and setting up its melee.</li>
+        <li><strong>Highest durability.</strong> Expect the largest effective health-and-evasion combination of the set <span class="vflag">approx</span>.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">It controls the spacing, not you</span>
+        <p>Because it teleports <em>and</em> pulls, the usual "stay at range" plan fails — it decides the distance. Fight it in a confined, enclosed space if you can, to limit where it can blink and to give yourself walls that block its thrown blocks.</p>
+      </div>
+
+      <h3>Drops &amp; reward</h3>
+      <p>The headline drop is the <strong>Endersoul Hand</strong> — a teleport/utility item (see §06) that turns the enderman's own trick into a tool for you. This is the most prized of the mutant drops and the main reason to take the fight.</p>
+
+      <div class="note tip">
+        <span class="label">Strategy</span>
+        <p>Keep your camera moving and react to each blink rather than chasing it. Punish it whenever it stalls to throw a block. A reliable <strong>healing source</strong> matters most here because the fight is long and chaotic — see §07.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 CREATING MUTANTS -->
+    <section class="doc" id="creating">
+      <p class="sec-index">05 — Making your own monsters</p>
+      <h2>Creating Mutants</h2>
+      <p>You don't have to wait for a rare natural spawn. Several mutants can be <strong>created from their base mob</strong> — most commonly by applying a mutating reagent, often referred to as <strong>Chemical X</strong>, to the vanilla version. This lets you farm a specific mutant on demand (and feed the §06 gear chain).</p>
+
+      <div class="note warn">
+        <span class="label">Recipe specifics are approximate</span>
+        <p>The exact item, amount, and which mobs accept it vary by version and are <strong>config-dependent</strong>. Treat the "use Chemical X on the base mob" recipe as the <em>shape</em> of the mechanic, not gospel numbers — verify in-game and on the wiki for your pack. <span class="vflag">approx · config</span></p>
+      </div>
+
+      <div class="data-table">
+        <table>
+          <caption>Spawning routes (qualitative)</caption>
+          <thead><tr><th>Route</th><th>How it works</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Natural spawn</td><td>Rare hostile spawn in the dark / suitable biomes</td><td>Low chance by design — uncommon encounters. <span class="vflag">approx</span></td></tr>
+            <tr><td>Creation (Chemical X)</td><td>Apply the mutating reagent to the matching base mob</td><td>On-demand way to make a specific mutant; recipe is config-dependent.</td></tr>
+            <tr><td>Player-built</td><td>Set up a controlled arena and convert mobs there</td><td>Safest way to farm drops without random ambushes.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Farm in a box</span>
+        <p>If you intend to grind mutants for parts, build a <strong>dedicated, reinforced arena well away from your main base</strong> — especially before creating a Mutant Creeper. Convert the base mob there, fight, collect, repeat. Never create one near anything you'd miss.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 GEAR FROM DROPS -->
+    <section class="doc" id="gear">
+      <p class="sec-index">06 — The payoff</p>
+      <h2>Gear from Drops</h2>
+      <p>The point of hunting mutants is the gear their parts unlock. Each monster contributes to a distinctive item or set; everything here is crafted from drops, so the loadout below is effectively a checklist of which mutants you still need to beat.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Mutant drops → gear</caption>
+          <thead><tr><th>From</th><th>Item</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Mutant Zombie</td><td>Hulk Hammer</td><td>A heavy melee weapon built from mutant-zombie materials — big hits with a smashing/knockback feel.</td></tr>
+            <tr><td>Mutant Skeleton</td><td>Mutant Bow</td><td>A powerful bow crafted from the skeleton's <strong>arms</strong> — stronger draw/output than a vanilla bow. <span class="vflag">approx</span></td></tr>
+            <tr><td>Mutant Skeleton</td><td>Skeleton armour pieces</td><td>Armour built from mutant-skeleton parts; a themed protective set.</td></tr>
+            <tr><td>Mutant Enderman</td><td>Endersoul Hand</td><td>A teleport / utility item — lets you blink the way the enderman did, plus utility use.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>What to prioritise</h3>
+      <ul>
+        <li><strong>Endersoul Hand</strong> — the highest-value drop; mobility and utility make the rest of the pack's content easier to reach.</li>
+        <li><strong>Hulk Hammer</strong> — your reward for surviving the bruiser; a strong melee option for the rest of the bestiary.</li>
+        <li><strong>Mutant Bow</strong> — pairs naturally with the kiting tactics in §07 and helps you win the next fight at range.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Crafting notes are version-sensitive</span>
+        <p>Exact recipes, stats, and durabilities depend on your pack and Mutant Monsters version. Confirm the bench recipes in <strong>JEI/EMI</strong> and the stats via in-game tooltips before you commit rare parts. <span class="vflag">approx · config</span></p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TACTICS -->
+    <section class="doc" id="tactics">
+      <p class="sec-index">07 — Staying alive</p>
+      <h2>Tactics</h2>
+      <p class="lead">The mutants reward the same handful of disciplines: fight in the open, control distance, keep a way to heal, and bring the best armour the modpack offers. Get those four right and every encounter becomes survivable.</p>
+
+      <h3>The core principles</h3>
+      <ul class="pills">
+        <li><b>Open ground</b> over corridors</li>
+        <li><b>Kite</b>, don't trade</li>
+        <li><b>Ranged</b> first when you can</li>
+        <li><b>Heal</b> on a reliable source</li>
+        <li><b>Never</b> creeper near base</li>
+      </ul>
+
+      <h3>Open-field fights &amp; ranged kiting</h3>
+      <p>Every mutant has a punishing burst that wants you stationary and cornered. Deny it: fight where you have <strong>room to retreat</strong>, keep moving laterally, and bait the big special before committing to your own hits. A bow or crossbow — ideally the <strong>Mutant Bow</strong> from §06 — lets you damage the creeper and skeleton without entering their kill range. The enderman is the exception, since it teleports and pulls; box it in instead.</p>
+
+      <h3>Totems &amp; healing (Corail Tombstone)</h3>
+      <p>These fights are long and swingy, so a <strong>second-chance mechanic matters</strong>. If your pack includes <strong>Corail Tombstone</strong>, lean on its grave recovery and any reviving/totem-style safeguards so a single bad block-throw or mistimed leap doesn't cost you your gear. Keep golden apples, regen, and a totem-equivalent on the hotbar regardless.</p>
+
+      <h3>High-tier armour from the pack</h3>
+      <p>Vanilla diamond is a starting point, not the goal. Lean on the modpack's upgrade paths for the durability and resistances these fights demand:</p>
+      <div class="data-table">
+        <table>
+          <caption>Where to source endgame armour (cross-ref the relevant guides)</caption>
+          <thead><tr><th>Source</th><th>Why it helps</th></tr></thead>
+          <tbody>
+            <tr><td>Tinkers' Construct</td><td>Customisable armour/tools with modifiers — tune for durability and protection.</td></tr>
+            <tr><td>Mekanism (MekaSuit)</td><td>Powered armour with damage absorption and utility modules for sustained fights.</td></tr>
+            <tr><td>Apotheosis</td><td>Enchantment and gem upgrades that push protection and survivability higher.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note danger">
+        <span class="label">The one unbreakable rule</span>
+        <p><strong>Never fight a Mutant Creeper near your base.</strong> Lead it into open ground first. A single detonation undoes hours of building — no amount of armour saves your walls and chests once it goes off beside them.</p>
+      </div>
+
+      <div class="note tip">
+        <span class="label">A clean encounter loop</span>
+        <p>Spot the mutant → relocate to open ground away from your build → open at range → bait and dodge the special → punish the recovery → heal between windows → collect drops. Do that consistently and the bestiary becomes a gear pipeline rather than a death sentence.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7d5;text-transform:uppercase;letter-spacing:0.03em">The Mutant Files</strong><br>
+      An unofficial, fan-made field manual for Mutant Monsters on Minecraft 1.19.2 (Forge).<br>
+      Mutant Monsters is by its original authors and the Fuzs port team. This guide is not affiliated with or endorsed by them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Mutant Monsters (1.19.2, Fuzs)<br>
+      · in-game mob behaviour<br>
+      · the project wiki
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers here are qualitative and approximate, and many are configurable per pack. When this guide disagrees with your install, the in-game behaviour and the wiki are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

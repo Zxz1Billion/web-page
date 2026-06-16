@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Tribal Hunt — a Mowzie's Mobs field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A fan-made field guide to Mowzie's Mobs for Minecraft 1.19.2 (Forge): the Ferrous Wroughtnaut, Frostmaw, Barako the Sun Chief, the smaller creatures, their weapons and items, fight tactics, and where to find each lair. Behaviours described qualitatively; exact numbers are approximate — trust the in-game wiki." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#120d08; --bg-1:#17110a; --bg-2:#211810; --bg-3:#2c2014;
+  --line:#3a2c1b; --ink:#f0e7d4; --ink-dim:#bca988; --ink-faint:#826c52;
+  --accent:#e0a83a;
+  --danger:#e0683a;
+  --f-display:"Oswald",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">☀</span>
+      <span class="wordmark">The Tribal<br>Hunt<small>MOWZIE'S MOBS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Hunt</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#wroughtnaut"><span class="ix">01</span> Ferrous Wroughtnaut</a>
+      <a href="#frostmaw"><span class="ix">02</span> Frostmaw</a>
+      <a href="#barako"><span class="ix">03</span> Barako, the Sun Chief</a>
+      <p class="group-label">The Wilds</p>
+      <a href="#creatures"><span class="ix">04</span> Smaller Creatures</a>
+      <a href="#weapons"><span class="ix">05</span> Weapons &amp; Items</a>
+      <p class="group-label">The Field</p>
+      <a href="#tactics"><span class="ix">06</span> Fight Tactics</a>
+      <a href="#lairs"><span class="ix">07</span> Finding the Lairs</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written for Mowzie's Mobs on<br>MC 1.19.2 (Forge). Behaviours are<br>described qualitatively; any numbers<br>are approximate and configurable —<br>trust the in-game wiki &amp; your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · bobmowzie</p>
+      <h1>The Tribal<br>Hunt</h1>
+      <p class="lede">A hunter's field guide to <strong>Mowzie's Mobs</strong> — a small but unforgettable set of hand-animated mini-bosses and creatures, each sleeping in its own corner of the world behind a fight worth the gear it costs you. This is not a sprawling tech tree; it is a handful of duels with <em>character</em>, and a clutch of powerful rewards waiting on the far side of each one.</p>
+      <div class="badges">
+        <span class="badge accent">Mowzie's Mobs</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">by bobmowzie &amp; team</span>
+        <span class="badge danger">⚔ Bosses bite back</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Mowzie's Mobs is a creature mod, not a progression mod. It adds a tight roster of mini-bosses — each with bespoke animations, a unique arena, telegraphed attack patterns, and a signature reward — plus a scatter of smaller ambient and hostile creatures that make the overworld feel less empty. There is no tech ladder to climb; the "progression" is simply <strong>gearing up, finding a lair, and surviving the duel</strong>.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">guardian</span><h4>Ferrous Wroughtnaut</h4><p>A slow, armoured axe sentinel guarding an underground barrow. Drops the Axe of a Thousand Metals.</p></div>
+        <div class="card"><span class="tag">beast</span><h4>Frostmaw</h4><p>A giant ice mantis-cat asleep in snowy mountains and caves. Drops the Ice Crystal and frozen materials.</p></div>
+        <div class="card"><span class="tag">chief</span><h4>Barako, the Sun Chief</h4><p>A tribal sun-priest who calls down sunstrikes from his savanna camp. Drops the Sol Visage mask.</p></div>
+        <div class="card"><span class="tag">wilds</span><h4>Smaller Creatures</h4><p>Foliaath, Grottol, Nagas, Lanterns and more — ambient flavour with their own quirks and drops.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How to use this guide</span>
+        <p>Each boss section covers <strong>where it lives, how the fight reads, and what it drops</strong>. Gear up <em>before</em> each fight — these are step-changes in difficulty, not trash mobs. For general combat preparation, gear tiers, and finding structures while exploring, this guide cross-references the pack's <strong>Mobs &amp; Survival</strong>, <strong>Exploration</strong>, and <strong>QoL</strong> guides — the lairs themselves are usually stumbled upon while exploring.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">On the numbers</span>
+        <p>Mowzie's Mobs balances its bosses around <em>feel</em> rather than fixed stats, and most values are <strong>configurable</strong> in the mod's config. Where this guide hints at health, damage, or temperatures it marks them <span class="vflag">approx</span> — treat them as relative, not gospel, and let the in-game wiki and your own tooltips win.</p>
+      </div>
+
+      <h3>The shape of the hunt</h3>
+      <ol class="flow">
+        <li><strong>Kit out first.</strong> Diamond-tier or better armour and a reliable weapon before your first boss. Bring food and a way to heal mid-fight.</li>
+        <li><strong>Learn the wilds.</strong> Meet the Foliaath, Grottol, and Nagas while exploring — they teach you the mod's animation language cheaply.</li>
+        <li><strong>Take the Wroughtnaut.</strong> The most "puzzle-like" boss and a great first trophy; its reward weapon eases everything after.</li>
+        <li><strong>Wake the Frostmaw.</strong> A mobility test in the cold; its drops feed a small line of frost gear.</li>
+        <li><strong>Challenge Barako.</strong> The most chaotic fight — ranged sunstrikes and summons in the open. Save it for last.</li>
+        <li><strong>Spend the loot.</strong> Sol Visage, the Axe, frost items and daggers reshape how you fight everything else in the pack.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 FERROUS WROUGHTNAUT -->
+    <section class="doc" id="wroughtnaut">
+      <p class="sec-index">01 — The iron sentinel</p>
+      <h2>Ferrous Wroughtnaut</h2>
+      <p class="lead">The Ferrous Wroughtnaut is a hulking, heavily-armoured guardian wielding an enormous double-bladed axe. It stands motionless in a buried barrow or stone chamber until you draw near — then it wakes, and the duel begins. It is the most <em>readable</em> of the bosses: a fight about patience and timing rather than raw stats.</p>
+
+      <h3>Where it sleeps</h3>
+      <p>Look for its <strong>underground chamber</strong> — a small barrow-like room found while exploring or digging, often beneath the surface in ordinary biomes. The Wroughtnaut sits dormant inside; approaching or striking it triggers the encounter. It does not wander, so you fight on its ground, in a confined space.</p>
+
+      <h3>How the fight reads</h3>
+      <p>The Wroughtnaut is <strong>slow but devastating</strong>. Its whole identity is the telegraph: it winds up large, clearly-animated <strong>sweeping and overhead axe attacks</strong>, and a single connecting blow can erase an unprepared player. Crucially, it is <strong>invulnerable during its swings and recovery</strong> — armour holds it impervious between attacks, so spamming hits does nothing.</p>
+      <ul>
+        <li><strong>Sweeping swings</strong> — wide horizontal arcs; step back or to the side as the wind-up plays.</li>
+        <li><strong>Overhead slam</strong> — a heavy downward strike that can knock you back; sidestep, don't tank it.</li>
+        <li><strong>Sustained guard</strong> — it can plant and block, deflecting frontal damage entirely. Get behind it.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Dodge, then punish</span>
+        <p>The whole fight is a rhythm: <strong>wait out the swing, slip behind or beside it, land your hits in the recovery window, then disengage before the next wind-up.</strong> It moves slowly enough that a patient player can circle it indefinitely. Fighting it head-on or trading blows is how people die here.</p>
+      </div>
+
+      <h3>The reward</h3>
+      <p>Defeating it drops the <strong>Axe of a Thousand Metals</strong> — a powerful two-handed greataxe with a heavy, satisfying swing and strong damage, fitting for a weapon pried from a metal giant. It carries over the boss's deliberate, weighty feel into your own hands. See <a href="#weapons">§05</a> for how it plays.</p>
+    </section>
+
+    <!-- ============================================ 02 FROSTMAW -->
+    <section class="doc" id="frostmaw">
+      <p class="sec-index">02 — The sleeping cold</p>
+      <h2>Frostmaw</h2>
+      <p class="lead">The Frostmaw is a giant ice-clad mantis-cat — part beast, part predator — that slumbers high in snowy mountains and frozen caves, often curled protectively around a glowing <strong>Ice Crystal</strong>. Wake it and you face a fast, leaping bruiser that fights with claws, cold, and raw momentum.</p>
+
+      <h3>Where it sleeps</h3>
+      <p>Search the cold biomes: <strong>snowy peaks, frozen mountainsides, and icy caves</strong>. The Frostmaw lies dormant, frequently clutching its Ice Crystal. It stays asleep until provoked — which gives you a moment to prepare, position, and decide the fight is on <em>your</em> terms before you wake it.</p>
+
+      <div class="note warn">
+        <span class="label">Wake it carefully</span>
+        <p>Don't blunder into the Frostmaw mid-traversal across slippery ice with no escape route. Clear the arena, note your footing, and make sure you aren't fighting fall damage and frost slowdown at the same time. A botched wake-up on a narrow ledge is its own death sentence.</p>
+      </div>
+
+      <h3>How the fight reads</h3>
+      <p>Where the Wroughtnaut is patient, the Frostmaw is <strong>aggressive and mobile</strong>. Expect:</p>
+      <ul>
+        <li><strong>Leaping attacks</strong> — it closes distance in a pounce, punishing players who try to simply kite away.</li>
+        <li><strong>Frost attacks</strong> — chilling, slowing effects and icy strikes that hamper your movement and reaction time.</li>
+        <li><strong>Heavy melee</strong> — claw swipes that hit hard at close range.</li>
+      </ul>
+      <p>The slow and the leaps work together: it freezes you, then lands on you. Keeping mobility — and not letting the cold stack up — is the core of surviving it.</p>
+
+      <h3>The reward</h3>
+      <p>Felling the Frostmaw drops its <strong>Ice Crystal</strong> along with frozen materials used to craft the mod's <strong>Frostmaw weapons and items</strong> — a small line of cold-themed gear. See <a href="#weapons">§05</a>.</p>
+    </section>
+
+    <!-- ============================================ 03 BARAKO -->
+    <section class="doc" id="barako">
+      <p class="sec-index">03 — The sun's voice</p>
+      <h2>Barako, the Sun Chief</h2>
+      <p class="lead">Barako — the tribal sun-priest tied to the Umvuthi / Sun Bird lore — presides over a savanna camp, channelling the sun itself as a weapon. His is the most chaotic of the three boss fights: a ranged, summon-heavy battle fought out in the open under a sky that is actively trying to kill you.</p>
+
+      <h3>Where he sits</h3>
+      <p>Find Barako in <strong>savanna villages or tribal camps</strong>, seated as a chieftain among his people. The encounter plays out across the open camp rather than a sealed room — which means terrain, line of sight, and the surrounding mobs all matter far more than in the underground or mountain duels.</p>
+
+      <h3>How the fight reads</h3>
+      <p>Barako fights at range and through proxies. His signature is the <strong>sunstrike</strong> — he calls down beams of solar light onto your position, forcing you to keep moving so you're never standing where the next one lands. Alongside that, he <strong>summons</strong> support to swarm and pressure you while you try to close the gap.</p>
+      <ul>
+        <li><strong>Sunstrikes</strong> — telegraphed solar beams that punish a stationary player; relentless movement is the answer.</li>
+        <li><strong>Summons</strong> — adds that divide your attention and block your approach to Barako himself.</li>
+        <li><strong>Positional control</strong> — he keeps distance and uses the open arena, so you must dictate when and where you engage.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Never stop moving</span>
+        <p>Treat the sunstrikes like a bullet-hell pattern: strafe constantly, only pausing to strike when you've created an opening. Clear or out-position the summons rather than letting them pin you in a beam. Shade, cover, and broken sight-lines all help — open ground in the middle of the camp is the worst place to stand.</p>
+      </div>
+
+      <h3>The reward</h3>
+      <p>Beating Barako drops the <strong>Sol Visage</strong> — a striking sun-mask — along with <strong>Sunblock / solar-themed gear</strong> and access to the <strong>Solar Beam</strong> ability, letting you turn his own sunlight on your enemies. See <a href="#weapons">§05</a> for how the mask and beam play.</p>
+    </section>
+
+    <!-- ============================================ 04 SMALLER CREATURES -->
+    <section class="doc" id="creatures">
+      <p class="sec-index">04 — The wilds</p>
+      <h2>Smaller Creatures</h2>
+      <p>Between the bosses, Mowzie's Mobs salts the world with smaller creatures — some hostile ambushers, some skittish curiosities. They cost less to fight than the bosses but teach the same lesson: read the animation, then act.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Ambient &amp; minor creatures</caption>
+          <thead><tr><th>Creature</th><th>Where &amp; behaviour</th><th>Notes / drops</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Foliaath</strong></td><td>Jungles — a carnivorous plant that lies hidden, then lunges at passing prey from ambush.</td><td>A dangerous early surprise in dense foliage; kill it from range if you can.</td></tr>
+            <tr><td><strong>Grottol</strong></td><td>A rare cave creature, made partly of stone, that flees the moment it spots you.</td><td>Chase it down — when killed it drops <strong>diamonds</strong>, making it a prized find underground.</td></tr>
+            <tr><td><strong>Naga</strong></td><td>Flying serpents that swoop over open and coastal terrain.</td><td>Aerial harassers; their fangs feed the <strong>Naga Fang Dagger</strong> (<a href="#weapons">§05</a>).</td></tr>
+            <tr><td><strong>Lantern &amp; ambient mobs</strong></td><td>Small, atmospheric creatures that add life and light to the world.</td><td>Mostly flavour; behaviours vary by creature and pack config.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The Grottol is worth the chase</span>
+        <p>A fleeing cave mob that drops diamonds is effectively free loot if you can corner it — block off its escape, or hit it before it bolts. Treat any Grottol sighting as a small bonus objective on a mining trip.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Foliaath ambush</span>
+        <p>In thick jungle, a Foliaath can erupt from cover before you register it. Move deliberately through dense plant cover, and don't melee blindly into foliage — the lunge hits hard for an early-game creature.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 WEAPONS & ITEMS -->
+    <section class="doc" id="weapons">
+      <p class="sec-index">05 — The spoils</p>
+      <h2>Weapons &amp; Items</h2>
+      <p>The whole point of the hunt is what you carry home. Mowzie's Mobs rewards are characterful — each tied to the boss or creature it came from, each with a distinct feel rather than a flat stat bump.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Signature gear &amp; their sources</caption>
+          <thead><tr><th>Item</th><th>Source</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Axe of a Thousand Metals</strong></td><td>Ferrous Wroughtnaut</td><td>A heavy two-handed greataxe — strong damage and a weighty swing carried over from its wielder.</td></tr>
+            <tr><td><strong>Sol Visage</strong></td><td>Barako, the Sun Chief</td><td>A sun-mask that channels solar power; pairs with Barako's <strong>Solar Beam</strong> ability.</td></tr>
+            <tr><td><strong>Sunblock / Sun gear</strong></td><td>Barako</td><td>Solar-themed equipment built around the Sun Chief's drops.</td></tr>
+            <tr><td><strong>Frostmaw items</strong></td><td>Frostmaw (via Ice Crystal)</td><td>Cold-themed weapons and items crafted from the Ice Crystal and frozen materials.</td></tr>
+            <tr><td><strong>Naga Fang Dagger</strong></td><td>Naga</td><td>A light, quick dagger crafted from harvested Naga fangs.</td></tr>
+            <tr><td><strong>Earthrend Gauntlet</strong> <span class="vflag">if present</span></td><td>Earth-themed boss / config</td><td>A gauntlet with special earth-shaking abilities, where included in your pack.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Using them well</h3>
+      <ul>
+        <li><strong>Axe of a Thousand Metals</strong> — a slow, hard-hitting greataxe. It rewards the same patient, telegraph-aware playstyle you used to win it; commit swings deliberately rather than flailing.</li>
+        <li><strong>Sol Visage &amp; the Solar Beam</strong> — the mask grants access to a charged <strong>Solar Beam</strong> attack, turning Barako's own weapon into a ranged option for you. Its strength generally ties to sunlight, so it shines (literally) by day.</li>
+        <li><strong>Frostmaw items</strong> — built around the Ice Crystal; lean into chilling and slowing effects to control crowds and bosses the way the Frostmaw controlled you.</li>
+        <li><strong>Naga Fang Dagger</strong> — fast and light; a strong sidearm for hit-and-run play where the greataxe is too committal.</li>
+        <li><strong>Earthrend Gauntlet</strong> <span class="vflag">if present</span> — where your pack includes it, expect close-range area abilities; check the in-game tooltip for its exact activation.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Carry two profiles</span>
+        <p>Pair a heavy commit weapon (the Axe) with a light, fast one (the Naga Fang Dagger), and keep a ranged option (the Solar Beam) for the open Barako-style fights. Switching profiles mid-encounter to match the boss's rhythm is more valuable than min-maxing any single weapon.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 FIGHT TACTICS -->
+    <section class="doc" id="tactics">
+      <p class="sec-index">06 — In the field</p>
+      <h2>Fight Tactics</h2>
+      <p class="lead">Mowzie's bosses share a design language: everything dangerous is <strong>telegraphed</strong>. They are puzzles of reading and reacting, not damage races. Master the universal rules below and every fight gets dramatically easier.</p>
+
+      <h3>Read the telegraph</h3>
+      <p>Each boss winds up clearly before it strikes — the Wroughtnaut's swing, the Frostmaw's leap, Barako's sunstrike. <strong>Watch the animation, not the health bar.</strong> Learn the wind-up of each attack and you can dodge on reflex, then punish in the recovery window. Panic-attacking through a telegraph is the most common way players die here.</p>
+
+      <h3>Arena positioning</h3>
+      <ul>
+        <li><strong>Wroughtnaut</strong> — confined chamber; circle behind it and abuse its slow turn and its invulnerability windows. Don't fight its guard frontally.</li>
+        <li><strong>Frostmaw</strong> — icy, often elevated terrain; secure your footing first so the leaps and slows don't combine with fall damage.</li>
+        <li><strong>Barako</strong> — open camp; keep moving, break line of sight on sunstrikes, and don't let summons box you into a beam.</li>
+      </ul>
+
+      <h3>Ranged vs melee</h3>
+      <p>Match your approach to the boss. The <strong>Wroughtnaut</strong> is a melee duel of timing. The <strong>Frostmaw</strong> rewards mobility and can be softened at range before you commit. <strong>Barako</strong> almost demands a ranged or hit-and-run answer to his summons and beams. Bringing a bow or the Solar Beam as a backup pays off in the open fights.</p>
+
+      <div class="note tip">
+        <span class="label">Bring a safety net</span>
+        <p>Carry healing and, if your pack has it, a death-recovery mod like <strong>Corail Tombstone</strong> (cross-ref the QoL guide) so a wipe deep in a lair doesn't cost your kit. Totems, golden apples, and regen-effect food turn a near-death into a comeback in these long, single-target fights.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Recommended gear tier</span>
+        <p>Show up in at least <strong>diamond-tier armour</strong> (enchanted if you can) with a dependable weapon before any boss. In a heavier modpack, the bosses scale alongside everything else: lean on the pack's own gear systems — <strong>Tinkers' Construct</strong>, <strong>Iron's Spells</strong>, <strong>Apotheosis</strong> affixes (cross-ref those guides) — to bring your survivability up before you go knocking on a lair door.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 FINDING THE LAIRS -->
+    <section class="doc" id="lairs">
+      <p class="sec-index">07 — The map</p>
+      <h2>Finding the Lairs</h2>
+      <p>The bosses don't come to you — you find their lairs while exploring. Each spawns in a specific kind of place, and how often is governed by configurable spawn rates. Knowing where to look turns aimless wandering into a targeted hunt.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Where each boss &amp; creature spawns</caption>
+          <thead><tr><th>Mob</th><th>Biome / structure</th><th>How it appears</th></tr></thead>
+          <tbody>
+            <tr><td>Ferrous Wroughtnaut</td><td>Underground barrow / stone chamber</td><td>Dormant in a buried room; found while exploring or digging.</td></tr>
+            <tr><td>Frostmaw</td><td>Snowy mountains &amp; frozen caves</td><td>Asleep, often holding an Ice Crystal; wake to fight.</td></tr>
+            <tr><td>Barako, the Sun Chief</td><td>Savanna villages &amp; tribal camps</td><td>Seated as a chieftain in an open camp.</td></tr>
+            <tr><td>Foliaath</td><td>Jungles</td><td>Hidden ambusher among the foliage.</td></tr>
+            <tr><td>Grottol</td><td>Caves (rare)</td><td>Skittish; flees on sight.</td></tr>
+            <tr><td>Naga</td><td>Open / coastal skies</td><td>Flying packs.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Spawns generate in fresh terrain</span>
+        <p>As with most worldgen-driven mobs and structures, lairs are placed as <strong>new chunks generate</strong> — on an existing world you'll need to explore outward into unvisited terrain to find them. No world reset is required, just fresh ground.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Spawn rates are configurable</span>
+        <p>How common the bosses and creatures are is set by the mod's <strong>config</strong> (and may be tuned by your modpack). If you're finding nothing — or too much — that's a config dial, not a bug. Check your pack's settings before assuming a boss is missing.</p>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Use a map mod</span>
+        <p>A minimap / world-map mod (cross-ref the QoL guide) makes lair-hunting far less tedious — mark a Frostmaw peak or a savanna camp once you've spotted it, retreat to gear up, and navigate straight back for the fight. Waypoints also give you a clean escape line if a fight goes sideways.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#f0e7d4;text-transform:uppercase;letter-spacing:0.03em">The Tribal Hunt</strong><br>
+      A fan-made, unofficial field guide to Mowzie's Mobs on Minecraft 1.19.2 (Forge).<br>
+      Mowzie's Mobs is created by bobmowzie &amp; the mod's team. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game behaviour you observe<br>
+      · the official Mowzie's Mobs wiki<br>
+      · your modpack's own config values
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Boss mechanics are described qualitatively; any health, damage, or temperature figures are approximate and configurable. When this guide and your install disagree, the in-game game and the wiki win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

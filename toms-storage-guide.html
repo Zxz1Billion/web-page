@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Simple Terminal — a Tom's Simple Storage field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical guide to Tom's Simple Storage Mod for Minecraft 1.19.2 (Forge): a cable-free, AE-lite storage network built from Inventory Connectors and a searchable Storage Terminal. Covers core blocks, building a network, terminal search syntax, wireless access, limits, and when to graduate to AE2." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg-0:#080f0d; --bg-1:#0c1411; --bg-2:#121d19; --bg-3:#1a2823;
+    --line:#26382f; --ink:#e3efe9; --ink-dim:#92b3a6; --ink-faint:#5f8073;
+    --accent:#43d6a8;
+    --danger:#e0683a;
+    --f-display:"Chakra Petch",system-ui,sans-serif;
+    --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🖥</span>
+      <span class="wordmark">The Simple<br>Terminal<small>TOM'S SIMPLE STORAGE</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Basics</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#blocks"><span class="ix">01</span> Core Blocks</a>
+      <a href="#network"><span class="ix">02</span> Building a Network</a>
+      <p class="group-label">Access</p>
+      <a href="#terminal"><span class="ix">03</span> The Terminal</a>
+      <a href="#wireless"><span class="ix">04</span> Wireless</a>
+      <p class="group-label">Living With It</p>
+      <a href="#limits"><span class="ix">05</span> Filtering &amp; Limits</a>
+      <a href="#comparison"><span class="ix">06</span> Comparison</a>
+      <a href="#tips"><span class="ix">07</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Tom's Simple<br>Storage for MC 1.19.2 (Forge).<br>Capacities &amp; ranges are<br>approximate &amp; configurable —<br>trust JEI and in-game tooltips.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · tom54541</p>
+      <h1>The Simple<br>Terminal</h1>
+      <p class="lede">A working field guide to <strong>Tom's Simple Storage Mod</strong> — the lightweight, AE-lite storage network. No channels, no power, no cable spaghetti: link your chests and barrels with an <em>Inventory Connector</em>, slap a <em>Storage Terminal</em> on it, and access everything from one searchable, sortable window. It's the friendliest stepping-stone there is before you commit to AE2.</p>
+      <div class="badges">
+        <span class="badge accent">Tom's Simple Storage</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">No power · No channels</span>
+        <span class="badge">Crafting &amp; Wireless variants</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Tom's Simple Storage Mod gives you a digital storage network with almost no overhead. You connect a cluster of vanilla (and modded) inventories — chests, barrels, drawers — to a single <strong>Inventory Connector</strong>, then place a <strong>Storage Terminal</strong> on or beside it. The terminal aggregates every linked inventory into one searchable, sortable grid. That's the whole idea: one window over many chests, no per-device wiring and no electricity.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">cable-free</span><h4>No power, no channels</h4><p>Unlike AE2, nothing here draws energy or needs a controller. Build it and it just works.</p></div>
+        <div class="card"><span class="tag">searchable</span><h4>One window, many chests</h4><p>Search by name, mod, or tag; sort and auto-sort; pull and deposit stacks with shift-click.</p></div>
+        <div class="card"><span class="tag">cheap</span><h4>Early-game friendly</h4><p>Recipes are inexpensive — a terminal and a connector are reachable not long after first chests.</p></div>
+        <div class="card"><span class="tag">stepping-stone</span><h4>The on-ramp to AE2</h4><p>Learn network thinking here, then graduate to Applied Energistics 2 when you need autocrafting.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where this sits in the pack</span>
+        <p>Think of Tom's as the bridge between "a wall of labelled chests" and a full <strong>AE2</strong> system. If your pack has both, many players start here, then move the master inventory into AE2 once they want autocrafting and tidy item routing. See the <strong>AE2 guide</strong> and the modpack's <strong>Storage hub</strong> for the next step.</p>
+      </div>
+
+      <h3>The shape of a build</h3>
+      <ol class="flow">
+        <li><strong>Place an Inventory Connector.</strong> This is the hidden heart of the network — every linked inventory feeds into it.</li>
+        <li><strong>Surround it with storage.</strong> Put chests, barrels, and drawers touching the connector (or reach further with cables and trim).</li>
+        <li><strong>Add a Storage Terminal.</strong> Place it on or adjacent to the connector; it now shows everything the connector can see.</li>
+        <li><strong>Search and sort.</strong> Type a name, mod, or tag; pick a sort mode; shift-click to move stacks.</li>
+        <li><strong>Go wireless (optional).</strong> Craft a Wireless Terminal to reach the same network from a distance.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 CORE BLOCKS -->
+    <section class="doc" id="blocks">
+      <p class="sec-index">01 — The parts list</p>
+      <h2>Core Blocks</h2>
+      <p>The mod is deliberately small. A handful of blocks build any network, from a one-chest starter to a wall of drawers behind a single terminal.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Tom's Simple Storage block set</caption>
+          <thead><tr><th>Block / item</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Terminal</td><td>The window into the network. Shows every item across all linked inventories with search, sort, and stack/transfer controls. Place it on or next to an Inventory Connector.</td></tr>
+            <tr><td>Crafting Terminal</td><td>A Storage Terminal with a built-in 3×3 crafting grid that pulls ingredients straight from the network — craft without shuffling items into your inventory first.</td></tr>
+            <tr><td>Inventory Connector</td><td>The hub. Aggregates every adjacent (and cable/trim-linked) inventory into one pool that terminals read from. One per network.</td></tr>
+            <tr><td>Inventory Cable</td><td>Extends the connector's reach to inventories that aren't directly touching it. Run cable like a network backbone.</td></tr>
+            <tr><td>Cable Connector</td><td>The endpoint that attaches a cable run to an inventory (or to the connector), letting distant chests join the pool.</td></tr>
+            <tr><td>Trim</td><td>A frame/border piece that <strong>extends the connector's reach</strong> over more adjacent inventories — wrap it around a block of chests so all of them count as connected.</td></tr>
+            <tr><td>Inventory Proxy</td><td>Presents the whole network as a single inventory to other mods/blocks (pipes, hoppers, automation), so external systems can insert into or pull from the network.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The connector is invisible to the player, not to you</span>
+        <p>Everything hinges on the <strong>Inventory Connector</strong>. The terminal is just a face on it. If an item isn't showing up in your terminal, the question is almost always "is that chest actually connected to the connector?" — directly, by cable, or via trim.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 BUILDING A NETWORK -->
+    <section class="doc" id="network">
+      <p class="sec-index">02 — Wiring it up (without wires)</p>
+      <h2>Building a Network</h2>
+      <p>A network is one <strong>Inventory Connector</strong> plus whatever storage you attach to it. There's no controller, no power feed, and no channel budget — connectivity is purely physical adjacency, optionally extended by cables and trim.</p>
+
+      <h3>The three ways to connect storage</h3>
+      <ol class="flow">
+        <li><strong>Directly adjacent.</strong> Any inventory touching a face of the Inventory Connector is automatically part of the pool. The simplest network is a connector with chests on every side.</li>
+        <li><strong>Via Trim.</strong> Place <strong>Trim</strong> blocks to extend the connector's effective surface, so a larger block of chests/barrels all register as connected without each one touching the connector itself.</li>
+        <li><strong>Via Cable.</strong> Run <strong>Inventory Cable</strong> from the connector and cap the far end with a <strong>Cable Connector</strong> against a distant inventory. This is how you reach storage in another room.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Minimal viable build</span>
+        <p>Place an <strong>Inventory Connector</strong>. Put a chest against it. Place a <strong>Storage Terminal</strong> on another face. Open the terminal — the chest's contents appear. Add more chests around the connector and they all merge into one searchable grid. That's a complete, working storage network.</p>
+      </div>
+
+      <h3>How aggregation works</h3>
+      <p>The connector doesn't <em>move</em> items — it presents the contents of every linked inventory as one combined view. When you withdraw from the terminal, the mod pulls from whichever chest actually holds that item; when you deposit, it slots the item into a chest that already has matching stacks or has free space. To you it looks like a single bottomless inventory; physically, your items are still sitting in ordinary chests and barrels you can open by hand.</p>
+
+      <div class="note warn">
+        <span class="label">Connected ≠ infinite</span>
+        <p>The connector tracks a finite number of inventories and slots (see <a href="#limits">§05</a>). Big walls of chests are fine, but if items stop appearing after you add a lot of storage, you've likely hit the connector's capacity rather than a placement bug.</p>
+      </div>
+
+      <h3>Letting automation in: the Inventory Proxy</h3>
+      <p>If you want hoppers, pipes, or other mods to interact with the whole network, place an <strong>Inventory Proxy</strong>. It exposes the entire connected pool as a single inventory face, so an importer can dump items into the network or an exporter can draw from it — handy for feeding a mob farm's output into storage automatically.</p>
+    </section>
+
+    <!-- ============================================ 03 THE TERMINAL -->
+    <section class="doc" id="terminal">
+      <p class="sec-index">03 — The window</p>
+      <h2>The Terminal</h2>
+      <p class="lead">The Storage Terminal is where you actually live. It's a scrollable grid of every item on the network with a search bar up top, sort controls, and shift-click transfers. Once you've used it, going back to opening chests by hand feels archaic.</p>
+
+      <h3>Search bar &amp; syntax</h3>
+      <p>The search field filters the grid live as you type. Beyond plain text it understands a few prefixes:</p>
+      <div class="data-table">
+        <table>
+          <caption>Search syntax (approximate — your pack's build is ground truth)</caption>
+          <thead><tr><th>Type</th><th>Example</th><th>Matches</th></tr></thead>
+          <tbody>
+            <tr><td>Plain text</td><td><code>copper</code></td><td>Items whose display name contains the text.</td></tr>
+            <tr><td>By mod</td><td><code>@mekanism</code></td><td>Items from a specific mod (match on mod name/id).</td></tr>
+            <tr><td>By tooltip</td><td><code>#fireproof</code></td><td>Text found in an item's tooltip.</td></tr>
+            <tr><td>By tag</td><td><code>$ingots</code></td><td>Items belonging to a tag / ore-dictionary group.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Prefixes vary by version</span>
+        <p>The exact prefix characters (<code>@</code> for mod, <code>#</code> for tooltip, <code>$</code> for tag) are the common convention, but they can differ between mod versions and packs. If a prefix doesn't filter as expected, check the in-game search tooltip or hover help — that's the ground truth for your install.</p>
+      </div>
+
+      <h3>Sorting &amp; auto-sort</h3>
+      <p>A sort button cycles through modes — typically <strong>by name (A→Z / Z→A)</strong>, <strong>by quantity (most / fewest)</strong>, and <strong>by recency / slot order</strong>. With <strong>auto-sort</strong> enabled the grid re-sorts itself as counts change so the most-stocked items stay where you expect them; disable it if you prefer items to hold a stable position while you work.</p>
+
+      <h3>Stack &amp; transfer controls</h3>
+      <ul>
+        <li><strong>Left-click</strong> a grid item to pick up a stack into your cursor; <strong>right-click</strong> to grab a half-stack.</li>
+        <li><strong>Shift-click</strong> a grid item to pull a full stack straight into your inventory.</li>
+        <li><strong>Shift-click</strong> an item in your own inventory to deposit it into the network.</li>
+        <li>Drag or use the quantity controls to pull custom amounts where supported.</li>
+      </ul>
+
+      <h3>The Crafting Terminal</h3>
+      <p>The <strong>Crafting Terminal</strong> is the same window with a 3×3 crafting grid bolted on. The grid pulls ingredients directly from the network, so you can craft repeatedly without ferrying items into your own inventory — lay out a recipe, take the result, and it auto-refills the grid from storage. It is the single most quality-of-life upgrade in the mod; most players build this variant instead of the plain terminal.</p>
+      <div class="note">
+        <span class="label">JEI integration</span>
+        <p>With JEI installed, clicking a recipe's <em>+</em> (recipe-fill) button on a Crafting Terminal will populate the crafting grid from items in the network where they're available — turning the terminal into a near-one-click crafting station for known recipes.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 WIRELESS -->
+    <section class="doc" id="wireless">
+      <p class="sec-index">04 — Access from anywhere</p>
+      <h2>Wireless</h2>
+      <p>Once your base sprawls, walking back to the terminal gets old. The mod's wireless tier lets you open the network from your inventory, within range of it.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Wireless access items</caption>
+          <thead><tr><th>Item</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Wireless Terminal</td><td>A handheld terminal. Bind it to a network, then open the full searchable grid from anywhere in range.</td></tr>
+            <tr><td>Wireless Crafting Terminal</td><td>The handheld version with the built-in crafting grid — craft from your network on the move.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Linking &amp; range</h3>
+      <p>You bind a wireless terminal to a network — generally by using it on a Storage Terminal or the connector — which records the network's location. After that, opening the item connects you remotely as long as you're within the configured <strong>access range</strong>. Range is approximate and pack-configurable; some setups also tie effective reach to an upgrade/level so you can extend how far the link works. When in doubt, the item's tooltip shows what it's bound to.</p>
+
+      <div class="note tip">
+        <span class="label">One terminal to rule the base</span>
+        <p>A single Wireless Crafting Terminal in your hotbar effectively gives you your entire storage and a crafting bench everywhere you go. It's the convenience payoff that makes Tom's feel close to AE2's wireless access without any of the channel or power management.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Range is finite (and configurable)</span>
+        <p>Wireless access isn't infinite by default — step outside the range and the terminal won't open the network. Exact distances vary by version and pack config, so treat any number here as approximate and verify in-game.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 FILTERING & LIMITS -->
+    <section class="doc" id="limits">
+      <p class="sec-index">05 — What it can and can't see</p>
+      <h2>Filtering &amp; Limits</h2>
+      <p>The simplicity that makes Tom's pleasant also means it has hard edges. Knowing the connector's limits saves you a confusing afternoon of "where did my items go."</p>
+
+      <h3>What the connector can see</h3>
+      <p>The connector aggregates standard item inventories it's linked to — vanilla chests/barrels, and most modded storage that exposes an ordinary item-handler (including <strong>drawers</strong>). It reads and writes those slots directly. What it generally <em>won't</em> meaningfully surface are fluid/energy stores, machine inventories with restrictive input/output rules, or storage that exposes itself in a non-standard way — those may show partially or not at all.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Approximate connector capacity (verify against your pack's config)</caption>
+          <thead><tr><th>Limit</th><th>Roughly</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Linked inventories</td><td class="num">~a few dozen</td><td>The connector tracks a finite number of attached inventories; past it, extra chests stop registering.</td></tr>
+            <tr><td>Total slots</td><td class="num">~thousands</td><td>There's an overall slot ceiling across the whole pool; large drawer walls eat into it.</td></tr>
+            <tr><td>Cable run length</td><td class="num">limited</td><td>Cables can only extend so far before the run stops carrying the connection.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note danger">
+        <span class="label">These numbers are illustrative</span>
+        <p>The figures above are <strong>approximate</strong> and <strong>configurable per pack</strong>. Do not plan a megabase around them — open the connector's GUI in-game (it shows used/total inventories and slots) and check your pack's config. The in-game readout and JEI are the only ground truth.</p>
+      </div>
+
+      <h3>Keeping it performant</h3>
+      <ul>
+        <li><strong>Prefer fewer, bigger inventories.</strong> A handful of barrels or drawer banks is lighter than dozens of single chests holding the same items.</li>
+        <li><strong>Use drawers for bulk.</strong> A drawer holds one item type in huge quantity using a single connection — far more efficient than spreading stacks across many chests.</li>
+        <li><strong>Don't over-cable.</strong> Long, branching cable runs and very large pools add scanning overhead. Keep storage compact around the connector where you can.</li>
+        <li><strong>One connector, one network.</strong> Splitting a base across several small connectors is usually cleaner than one sprawling pool straining its limits.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 06 COMPARISON -->
+    <section class="doc" id="comparison">
+      <p class="sec-index">06 — Pick your storage</p>
+      <h2>Comparison</h2>
+      <p>Tom's, AE2, and plain drawers solve overlapping problems with very different complexity budgets. Here's how to choose.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Tom's Simple Storage vs. AE2 vs. Storage Drawers</caption>
+          <thead><tr><th>Aspect</th><th>Tom's Simple Storage</th><th>Applied Energistics 2</th><th>Storage Drawers</th></tr></thead>
+          <tbody>
+            <tr><td>Power required</td><td>None</td><td>Yes (channels &amp; energy)</td><td>None</td></tr>
+            <tr><td>Channels / controller</td><td>None</td><td>Yes — the core complexity</td><td>None</td></tr>
+            <tr><td>Searchable terminal</td><td>Yes</td><td>Yes (and richer)</td><td>No (per-drawer)</td></tr>
+            <tr><td>Autocrafting</td><td>No</td><td>Yes — the headline feature</td><td>No</td></tr>
+            <tr><td>Bulk single-item storage</td><td>Via attached drawers</td><td>Yes (cells / drawers)</td><td>Yes — its whole point</td></tr>
+            <tr><td>Setup effort</td><td>Low</td><td>High</td><td>Very low</td></tr>
+            <tr><td>Wireless access</td><td>Yes (range-limited)</td><td>Yes (more featured)</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>When to graduate to AE2</h3>
+      <p>Stay on Tom's while your needs are "find my items fast and craft from one window." Move to <strong>AE2</strong> when you want <strong>autocrafting</strong> (request an item and have the system build it from sub-recipes), fine-grained <strong>item routing</strong> and storage prioritisation, or a network too large for a single connector's limits. Many players keep both: Tom's terminals on local sorting chests, AE2 as the master autocrafting brain.</p>
+
+      <div class="note tip">
+        <span class="label">Drawers are a complement, not a rival</span>
+        <p>Storage Drawers and Tom's pair beautifully: drawers give cheap, compact bulk storage for one item each, and the Inventory Connector reads them straight into the terminal. You get drawer efficiency with terminal convenience — no power, no channels.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips</h2>
+      <p>Small habits that make a Tom's network feel effortless.</p>
+
+      <ul class="pills">
+        <li><b>Bulk:</b> drawers behind the connector</li>
+        <li><b>Access:</b> one Crafting Terminal per base</li>
+        <li><b>Convenience:</b> wireless in the hotbar</li>
+        <li><b>Performance:</b> fewer, bigger inventories</li>
+        <li><b>Reach:</b> trim &amp; cable for distant chests</li>
+      </ul>
+
+      <h3>Build smart</h3>
+      <ul>
+        <li><strong>Put barrels and drawers behind the connector for cheap bulk.</strong> Each one is a single high-capacity slot the terminal reads instantly — the most efficient way to store thousands of one item without spending channels or power.</li>
+        <li><strong>Run one main terminal per base.</strong> A single Crafting Terminal (or its wireless twin) is usually all you need; resist scattering many terminals across one network — it just adds clutter, not capability.</li>
+        <li><strong>Lean on wireless for convenience.</strong> A Wireless Crafting Terminal turns your whole storage into a hotbar item. Bind it once and craft from anywhere in range.</li>
+        <li><strong>Use trim to neatly enclose a chest wall.</strong> It lets a tidy block of storage all register without each chest touching the connector face.</li>
+        <li><strong>Bridge to other mods with the Inventory Proxy</strong> when you want hoppers or pipes auto-depositing farm output into the network.</li>
+        <li><strong>Check the connector GUI before expanding.</strong> It shows used vs. total inventories and slots — your early warning before you hit a limit.</li>
+      </ul>
+
+      <div class="note">
+        <span class="label">The honest summary</span>
+        <p>Tom's Simple Storage does one thing extremely well: it makes a pile of chests behave like a single searchable inventory, with zero infrastructure. Build it early, enjoy the convenience, and when you start wishing items would craft themselves, that's your cue to read the AE2 guide.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dcf0e8;text-transform:uppercase;letter-spacing:0.03em">The Simple Terminal</strong><br>
+      An unofficial, fan-made guide to Tom's Simple Storage Mod for Minecraft 1.19.2 (Forge).<br>
+      Tom's Simple Storage Mod is by tom54541. This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Tom's Simple Storage (1.19.2)<br>
+      · the in-game connector/terminal GUIs<br>
+      · JEI recipe &amp; search data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Capacities, ranges, and search syntax are approximate and configurable per pack. When your install disagrees, the in-game tooltips, the connector GUI, and JEI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

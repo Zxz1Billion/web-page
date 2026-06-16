@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Bottomless Pack — a Sophisticated Backpacks field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A full in-depth Sophisticated Backpacks (Minecraft 1.19.2 Forge, by P3pp3rF1y) guide: tiers, dyeing, every upgrade, filters and stacking, in-bag automation, wearing it on your back, and build ideas — backed by Sophisticated Core." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#120d08; --bg-1:#17110a; --bg-2:#21180f; --bg-3:#2c2014; --line:#3a2c1b; --ink:#f0e7d6; --ink-dim:#bca987; --ink-faint:#826c52;
+  --accent:#c08a3a;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🎒</span>
+      <span class="wordmark">The Bottomless<br>Pack<small>SOPHISTICATED BACKPACKS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Pack</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#tiers"><span class="ix">01</span> Tiers</a>
+      <a href="#dyeing"><span class="ix">02</span> Dyeing &amp; Customization</a>
+      <p class="group-label">The Engine</p>
+      <a href="#upgrades"><span class="ix">03</span> Upgrades</a>
+      <a href="#filters"><span class="ix">04</span> Filters &amp; Stacking</a>
+      <a href="#automation"><span class="ix">05</span> Automation in a Bag</a>
+      <p class="group-label">In the Field</p>
+      <a href="#wearing"><span class="ix">06</span> Putting It On Your Back</a>
+      <a href="#builds"><span class="ix">07</span> Tips &amp; Build Ideas</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Sophisticated<br>Backpacks for MC 1.19.2 (Forge),<br>backed by Sophisticated Core.<br>Slot counts are approximate —<br>trust the in-game GUI &amp; JEI.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · P3pp3rF1y</p>
+      <h1>The Bottomless<br>Pack</h1>
+      <p class="lede">A working field manual for <strong>Sophisticated Backpacks</strong> — the mod that takes the humble backpack and turns it into a portable automation hub you wear. Climb the tiers for more storage, then fill the <em>upgrade slots</em> with magnets, filters, smelters, and crafting grids until the bag is sorting, voiding, cooking, and feeding you while you walk. This guide runs from your first leather pack to a fully kitted mining rig on your back.</p>
+      <div class="badges">
+        <span class="badge">Sophisticated Backpacks</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">+ Sophisticated Core</span>
+        <span class="badge accent">🎒 It automates while you walk</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Sophisticated Backpacks starts as a place to dump loot and quietly becomes the most useful single item you carry. The headline is storage — but the real power is the row of <strong>upgrade slots</strong> down the side of the GUI. Drop in the right cards and the bag picks up drops, magnets distant items, smelts ore, compacts dust, voids junk, and even crafts — all without you opening a single machine.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">the bag</span><h4>Sophisticated Backpacks</h4><p>The wearable storage item: inventory slots, upgrade slots, a fluid tank and an FE battery, all in something you carry on your back.</p></div>
+        <div class="card"><span class="tag">library</span><h4>Sophisticated Core</h4><p>The shared backend mod. It holds the upgrade framework, filter logic, and rendering both Backpacks and Storage (barrels/chests) build on. Always installed alongside.</p></div>
+        <div class="card"><span class="tag">slots</span><h4>Inventory + Upgrades</h4><p>Two budgets that both grow with tier: how much you can <em>hold</em>, and how many <em>upgrade cards</em> you can run at once.</p></div>
+        <div class="card"><span class="tag">family</span><h4>Sister mods</h4><p>The same author ships Sophisticated Storage (block storage) using the same Core. Skills and upgrade concepts transfer directly.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The two budgets to learn first</span>
+        <p>Every backpack has two limits that rise together with its tier: <strong>inventory slots</strong> (how much it stores) and <strong>upgrade slots</strong> (how many upgrade cards it can run). A higher tier is worth crafting almost entirely for the extra upgrade slots — that's where the automation lives.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Craft a leather backpack.</strong> Eight leather around a chest-like core gets you a basic bag with a handful of slots and a couple of upgrade slots.</li>
+        <li><strong>Add your first upgrade.</strong> A <strong>Pickup Upgrade</strong> is the classic first card — items you collect drop straight into the bag.</li>
+        <li><strong>Climb a tier.</strong> Surround your bag with the next metal (Copper, then Iron…) in a crafting grid; <strong>your contents and upgrades come with it.</strong></li>
+        <li><strong>Specialize the slots.</strong> Magnet, Filter, Smelting, Compacting, Void — pick the cards that match what you're doing.</li>
+        <li><strong>Wear it.</strong> With a back-slot integration (Curios) the bag rides on your back and opens with a keybind, no inventory slot used.</li>
+        <li><strong>Go bottomless.</strong> Add <strong>Stack Upgrades</strong> so each slot holds many vanilla stacks — now the pack swallows a mining trip whole.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 TIERS -->
+    <section class="doc" id="tiers">
+      <p class="sec-index">01 — The ladder</p>
+      <h2>Tiers</h2>
+      <p>Backpacks come in six tiers. Each step up adds <strong>inventory slots</strong> and <strong>upgrade slots</strong>, and is crafted by placing the lower-tier bag in the center of a crafting grid surrounded by the next material. Crucially, <strong>upgrading keeps everything inside</strong> — contents, upgrades, fluid, energy and name all carry forward, so there's no penalty for climbing late.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Backpack tiers — slot counts are approximate, read the in-game GUI</caption>
+          <thead><tr><th>Tier</th><th>Made from</th><th>Inventory slots</th><th>Upgrade slots</th><th>Notable</th></tr></thead>
+          <tbody>
+            <tr><td>Leather Backpack</td><td>Leather (+ core)</td><td class="num">~27</td><td class="num">~1–2</td><td>The starter; cheap and craftable day one.</td></tr>
+            <tr><td>Copper Backpack</td><td>Leather bag + Copper</td><td class="num">~45</td><td class="num">~2</td><td>First real upgrade tier.</td></tr>
+            <tr><td>Iron Backpack</td><td>Copper bag + Iron</td><td class="num">~54</td><td class="num">~3</td><td>The reliable mid-game workhorse.</td></tr>
+            <tr><td>Gold Backpack</td><td>Iron bag + Gold</td><td class="num">~81</td><td class="num">~4</td><td>Comfortable for full automation loadouts.</td></tr>
+            <tr><td>Diamond Backpack</td><td>Gold bag + Diamond</td><td class="num">~108</td><td class="num">~5</td><td>Large storage, many upgrades.</td></tr>
+            <tr><td>Netherite Backpack</td><td>Diamond bag + Netherite</td><td class="num">~120</td><td class="num">~7</td><td><strong>Fireproof</strong> — survives lava &amp; fire. The endgame pack.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Upgrading keeps contents</span>
+        <p>To climb a tier, put your current backpack in the <strong>center</strong> of a 3×3 crafting grid and surround it with eight of the next material. The result is a higher-tier bag with <strong>all of your items and upgrade cards intact</strong>. You never have to empty a backpack to improve it — climb whenever you can afford the metal.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Netherite is the only fireproof one</span>
+        <p>Only the <strong>Netherite</strong> backpack is fireproof — it won't burn in lava or fire, so you can wear it on Nether and lava-cave runs without losing everything. Every lower tier behaves like a normal item drop and <em>can</em> be destroyed by fire, so be careful carrying a Diamond pack across lava.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 DYEING & CUSTOMIZATION -->
+    <section class="doc" id="dyeing">
+      <p class="sec-index">02 — Make it yours</p>
+      <h2>Dyeing &amp; Customization</h2>
+      <p>Beyond raw storage, a backpack is yours to personalize. You can recolor it, name it, and — once you start running fluid or energy upgrades — top up the tank and battery it carries inside.</p>
+
+      <h3>Color &amp; name</h3>
+      <ul>
+        <li><strong>Dye the body and trim.</strong> Combine the backpack with dyes in a crafting grid to recolor it. The mod separates the <em>main cloth</em> from the <em>trim/accents</em>, so you can two-tone a pack — handy for telling your mining bag from your build bag at a glance.</li>
+        <li><strong>Clientside coloring.</strong> The recolor is purely cosmetic and clientside-friendly — it doesn't change behavior, just how the pack looks on your back and in the GUI.</li>
+        <li><strong>Name it.</strong> Rename the backpack in an anvil (or via the GUI rename field) so a quick glance tells you which loadout you're holding. Named bags keep their name through tier upgrades.</li>
+      </ul>
+
+      <h3>The built-in tank &amp; battery</h3>
+      <p>A backpack carries more than items. Certain upgrades give it functional storage of its own:</p>
+      <ul>
+        <li><strong>Fluid tank</strong> — the <strong>Tank Upgrade</strong> turns the pack into a portable fluid container, holding lava, water, or any mod fluid for transport and for feeding fluid-using upgrades.</li>
+        <li><strong>FE battery</strong> — the <strong>Battery Upgrade</strong> gives the bag an internal Forge Energy buffer, both to charge tools you carry and to power energy-hungry upgrades inside the pack.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Color-code your loadouts</span>
+        <p>If you run several backpacks (a mining bag, a combat bag, a build bag), dye each a distinct color and name it. The dyed cloth shows on your back in the Curios slot, so you can swap to the right pack without opening any GUI.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 UPGRADES -->
+    <section class="doc" id="upgrades">
+      <p class="sec-index">03 — The heart of it</p>
+      <h2>Upgrades</h2>
+      <p class="lead">This is the whole point. Upgrades are crafted cards you slot into the column down the side of the backpack GUI. Each one bolts a new behavior onto the bag, and a higher-tier pack runs more of them at once. Below is the working catalogue — the <em>Advanced</em> versions of pickup/magnet/compacting add a filter so you control exactly what they touch.</p>
+
+      <h3>Collection &amp; movement</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">collect</span><h4>Pickup Upgrade</h4><p>Items you collect (mob drops, mined blocks) flow straight into the backpack instead of your hotbar.</p></div>
+        <div class="card"><span class="tag">collect</span><h4>Magnet Upgrade</h4><p>Pulls nearby dropped items and XP toward you and into the bag from a radius — no need to walk over each drop.</p></div>
+        <div class="card"><span class="tag">collect+filter</span><h4>Advanced Pickup / Magnet</h4><p>The same as above but with a <strong>filter</strong>, so you only hoover up the items you actually want.</p></div>
+        <div class="card"><span class="tag">restock</span><h4>Restock Upgrade</h4><p>Keeps your hotbar/inventory topped up from the bag — runs out of torches, the bag refills the stack.</p></div>
+        <div class="card"><span class="tag">deposit</span><h4>Deposit Upgrade</h4><p>When you open a chest (or on demand), pushes matching items out of the bag into that container — fast unloading.</p></div>
+      </div>
+
+      <h3>Filtering &amp; cleanup</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">filter</span><h4>Filter Upgrade</h4><p>A pure filter that controls what the backpack will <em>accept</em> at all — whitelist or blacklist what's allowed in.</p></div>
+        <div class="card"><span class="tag">void</span><h4>Void Upgrade</h4><p>Deletes filtered items on pickup — cobblestone, dirt, rotten flesh — so junk never fills a slot. The trash compactor of the bag.</p></div>
+        <div class="card"><span class="tag">tools</span><h4>Tool Swapper</h4><p>Automatically equips the right tool for the block/mob you're hitting, pulling it from the backpack.</p></div>
+      </div>
+
+      <h3>In-bag processing</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">process</span><h4>Compacting / Advanced</h4><p>Auto-crafts 9 (or 4) of an item into its block form — ingots→blocks, nuggets→ingots. The Advanced version takes a filter.</p></div>
+        <div class="card"><span class="tag">process</span><h4>Smelting / Auto-Smelting</h4><p>Smelts items inside the bag using fuel; the Auto version cooks anything smeltable as it comes in. Ore in, ingots out.</p></div>
+        <div class="card"><span class="tag">process</span><h4>Stack Upgrade</h4><p>Multiplies how much each slot holds — many vanilla stacks per slot. The single biggest capacity multiplier (see §04).</p></div>
+        <div class="card"><span class="tag">process</span><h4>Crafting Upgrade</h4><p>Adds a 3×3 crafting grid inside the backpack GUI — craft on the go, pulling ingredients straight from the bag.</p></div>
+        <div class="card"><span class="tag">process</span><h4>Feeding Upgrade</h4><p>Auto-eats food from the bag when your hunger drops — set a filter so it never wastes your golden carrots.</p></div>
+      </div>
+
+      <h3>Workstations &amp; power on your back</h3>
+      <div class="data-table">
+        <table>
+          <caption>The utility upgrades that turn the bag into a toolkit</caption>
+          <thead><tr><th>Upgrade</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Anvil Upgrade</td><td>An anvil right inside the GUI — repair, rename and combine gear without finding a block.</td></tr>
+            <tr><td>Stonecutter Upgrade</td><td>A stonecutter in the bag — cut stairs, slabs and bricks on the move.</td></tr>
+            <tr><td>Jukebox Upgrade</td><td>Play music discs straight from the backpack while you carry it.</td></tr>
+            <tr><td>Battery Upgrade</td><td>Gives the pack an internal FE buffer; charges your tools/armor and powers energy upgrades.</td></tr>
+            <tr><td>Tank Upgrade</td><td>A built-in fluid tank — haul lava/water and feed fluid-using upgrades.</td></tr>
+            <tr><td>Pump Upgrade</td><td>Moves fluids in/out of the Tank Upgrade automatically — fill from sources, dump to machines.</td></tr>
+            <tr><td>XP Pump Upgrade</td><td>Collects experience into the bag and lets you withdraw it later — bank your XP for enchanting.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Slots are scarce — choose deliberately</span>
+        <p>Even a Netherite pack runs only around seven upgrades at once. Processing and workstation cards each take a slot, so a "do everything" backpack isn't realistic. Build <strong>purpose-specific</strong> packs (mining, combat, building) rather than one overloaded bag — and remember a few upgrades (like Stack) effectively want their own slots.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 FILTERS & STACKING -->
+    <section class="doc" id="filters">
+      <p class="sec-index">04 — Control &amp; capacity</p>
+      <h2>Filters &amp; Stacking</h2>
+      <p>Two systems make the upgrades precise and the bag enormous: the <strong>filter</strong> built into many cards, and the <strong>Stack Upgrade</strong> that blows up capacity.</p>
+
+      <h3>How filter cards work</h3>
+      <p>Filtered upgrades (Advanced Pickup/Magnet, Filter, Void, Deposit, Feeding, Advanced Compacting…) open a filter panel where you drop sample items and choose how they're matched. The matching modes stack on top of a whitelist/blacklist toggle:</p>
+      <div class="data-table">
+        <table>
+          <caption>Filter matching modes</caption>
+          <thead><tr><th>Mode</th><th>Behavior</th></tr></thead>
+          <tbody>
+            <tr><td>Whitelist</td><td>Only the listed items match — everything else is ignored.</td></tr>
+            <tr><td>Blacklist</td><td>Everything <em>except</em> the listed items matches — great for "void all junk but keep ores."</td></tr>
+            <tr><td>Tag match</td><td>Match by item tag (e.g. <code>forge:ores</code>) so one entry covers a whole category across mods.</td></tr>
+            <tr><td>Mod match</td><td>Match every item from a given mod — "accept anything from this mod."</td></tr>
+            <tr><td>Durability</td><td>Distinguish by damage/durability — useful for tools and gear handling.</td></tr>
+            <tr><td>Fuzzy / NBT</td><td>Ignore data-component / NBT differences so variants of an item all match the same rule.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Tag &amp; mod filters scale with your modpack</span>
+        <p>Instead of listing every ore by hand, use a <strong>tag</strong> like <code>forge:ores</code> or <strong>mod match</strong>. As you add mods, the filter automatically covers their items too — one well-chosen tag entry replaces dozens of manual ones.</p>
+      </div>
+
+      <h3>The Stack Upgrade</h3>
+      <p>The <strong>Stack Upgrade</strong> raises the stack size each slot can hold — a single slot stores many vanilla stacks. Stack the upgrade itself (and use higher multipliers) and a modest 5×9 grid of slots can hold the loot of an entire mining session. This is what makes the pack feel "bottomless": you're not adding many slots, you're making each slot hold far more.</p>
+      <div class="note warn">
+        <span class="label">Stacking interacts with everything</span>
+        <p>Stack Upgrades multiply capacity for <em>all</em> contents, which is why a mining bag with a couple of Stack Upgrades plus a Void filter can run for an hour without filling. But each Stack Upgrade takes an upgrade slot — on lower tiers you'll trade automation slots for capacity, so plan the balance.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 AUTOMATION IN A BAG -->
+    <section class="doc" id="automation">
+      <p class="sec-index">05 — The bag does the work</p>
+      <h2>Automation in a Bag</h2>
+      <p class="lead">Slot the right upgrades together and the backpack stops being passive storage and starts running processes while you simply walk around. These are the combinations that earn the mod its reputation.</p>
+
+      <h3>The walking item filter</h3>
+      <p><strong>Magnet + Pickup + Void</strong> is the classic combo. The magnet drags every nearby drop toward you, pickup funnels it into the bag, and a blacklisted Void upgrade deletes the junk on the way in — so you sweep a mob farm or mining tunnel and only the items you actually want survive. Add an Advanced Magnet's filter and you have a self-walking sorter.</p>
+
+      <h3>Auto-eat while you fight</h3>
+      <p>The <strong>Feeding Upgrade</strong> watches your hunger and auto-eats food from the bag when it drops. Filter it to your preferred food (steak, not those spare golden carrots) and you never stop to eat mid-fight or mid-build. Pair with Restock so your hotbar food never empties either.</p>
+
+      <h3>Ore runs without a base</h3>
+      <p>Two processing chains turn a mining trip into finished product:</p>
+      <ul>
+        <li><strong>Auto-Smelting</strong> cooks ores into ingots as you pick them up — you come home with ingots, not raw ore (feed it fuel or a Battery Upgrade if the install supports it).</li>
+        <li><strong>Compacting</strong> then folds nine ingots into a block, so the bag stores them at a ninth of the footprint. With a Stack Upgrade on top, the capacity is staggering.</li>
+      </ul>
+
+      <h3>Interacting with chests</h3>
+      <p><strong>Restock</strong> and <strong>Deposit</strong> are the bag's hands. Restock keeps your inventory topped from the bag (torches, blocks, ammo). Deposit pushes matching items out into any chest you open — so unloading at base is one click, and a filtered Deposit only dumps the categories you've sorted to that chest.</p>
+
+      <div class="note tip">
+        <span class="label">Order your upgrades intentionally</span>
+        <p>Some upgrades act in slot order — for example, you generally want a <strong>Void</strong> upgrade to process junk <em>before</em> a Stack/Compacting upgrade wastes space on it. If a combo isn't behaving, try reordering the cards in the upgrade column; the GUI applies them top-to-bottom.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 WEARING -->
+    <section class="doc" id="wearing">
+      <p class="sec-index">06 — On your back</p>
+      <h2>Putting It On Your Back</h2>
+      <p>A backpack you have to hold in your hand or hotbar is half the value. The mod integrates with a dedicated <strong>back slot</strong> so the pack is worn — freeing your inventory and letting you open it with a keybind from anywhere.</p>
+
+      <h3>The back-slot integration</h3>
+      <ul>
+        <li><strong>Curios / back slot.</strong> With Curios API installed (very common on 1.19.2 Forge packs), the backpack equips into the <strong>back</strong> Curios slot. It renders on your character and no longer occupies an inventory slot.</li>
+        <li><strong>Open with a keybind.</strong> A configurable keybind opens the worn backpack instantly — no need to take it off or dig through your inventory. This is the single biggest quality-of-life win.</li>
+        <li><strong>Works without Curios too.</strong> Without the back slot, the bag still functions from your inventory or hand; the keybind opens whichever bag it finds. Curios just makes it seamless.</li>
+      </ul>
+
+      <h3>Synergies once it's worn</h3>
+      <p>A worn pack runs its upgrades continuously in the background. Magnet, Pickup, Feeding, Restock and Tool Swapper all operate while the bag sits on your back — so the automation in §05 only truly shines once the pack is equipped rather than carried. The <strong>Everlasting</strong>-style keep-on-death behaviors that some packs configure (or that companion mods provide) pair well here: lose your inventory, keep your loaded backpack.</p>
+
+      <div class="note tip">
+        <span class="label">Set the open keybind early</span>
+        <p>Bind the "open backpack" key the moment you craft your first pack. Once it's muscle memory you'll treat the backpack as a second inventory you carry everywhere — and the worn pack's passive upgrades (magnet, feeding) just work without you thinking about them.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS & BUILD IDEAS -->
+    <section class="doc" id="builds">
+      <p class="sec-index">07 — Loadouts</p>
+      <h2>Tips &amp; Build Ideas</h2>
+      <p>Because upgrade slots are limited, the best play is several purpose-built packs rather than one overloaded bag. Here are three proven loadouts and how the mod compares to its main rival.</p>
+
+      <h3>The mining backpack</h3>
+      <ul class="pills">
+        <li><b>Magnet</b> sweep drops</li>
+        <li><b>Void</b> junk (cobble/dirt)</li>
+        <li><b>Auto-Smelt</b> ore→ingot</li>
+        <li><b>Compacting</b> ingot→block</li>
+        <li><b>Stack</b> ×N capacity</li>
+      </ul>
+      <p>Drop down a shaft and strip-mine for an hour: the magnet grabs every drop, Void deletes the cobble, Auto-Smelting cooks the ore, Compacting folds ingots into blocks, and Stack Upgrades make the whole haul fit. You return with smelted, compacted, sorted loot and a bag that's barely full.</p>
+
+      <h3>The combat backpack</h3>
+      <ul class="pills">
+        <li><b>Feeding</b> auto-eat</li>
+        <li><b>Restock</b> top up hotbar</li>
+        <li><b>Magnet</b> grab mob drops</li>
+        <li><b>Pickup</b> straight to bag</li>
+        <li><b>Tool Swapper</b> right weapon</li>
+      </ul>
+      <p>Built for mob farms and dungeon dives: Feeding keeps your hunger up so you never stop fighting, Restock refills arrows/potions, the magnet+pickup pair hoovers drops, and Tool Swapper makes sure you're swinging the right weapon. You can fight indefinitely without opening a menu.</p>
+
+      <h3>How it compares to Traveler's Backpack</h3>
+      <p>The other big backpack mod, <strong>Traveler's Backpack</strong>, leans into <em>built-in tanks and tools</em> — large fluid tanks, a crafting grid, and optional sleeping-bag/abilities baked into specific themed backpacks. Sophisticated Backpacks instead leans into a <strong>modular upgrade system</strong>: a smaller base bag whose behavior you compose from cards, with deep filter logic and in-bag processing (smelting, compacting, voiding). Roughly: Traveler's is a fixed Swiss-army-bag, Sophisticated is a programmable one. For a side-by-side of both within a broader storage strategy, see the Storage hub cross-reference.</p>
+
+      <div class="note tip">
+        <span class="label">When in doubt, trust the GUI</span>
+        <p>Slot counts, upgrade caps, and exact filter modes vary slightly by version and pack config. The in-game backpack GUI and JEI are ground truth — the numbers here are approximate and meant to orient you, not to override what your install shows.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#f0e7d6;text-transform:uppercase;letter-spacing:0.03em">The Bottomless Pack</strong><br>
+      An unofficial, fan-made field guide for Sophisticated Backpacks on Minecraft 1.19.2 (Forge).<br>
+      Sophisticated Backpacks &amp; Sophisticated Core are by P3pp3rF1y. This guide is not affiliated with or endorsed by the mod authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Sophisticated Backpacks (1.19.2)<br>
+      · the in-game backpack GUI<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Slot counts and upgrade caps are approximate and vary by version and pack config. When your install disagrees, the in-game GUI and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from './assets/js/guide-chrome.js';
+  initChrome();
+</script>
+</body>
+</html>

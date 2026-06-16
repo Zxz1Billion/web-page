@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Curiosity Cabinet — a Supplementaries field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A friendly, in-depth guide to Supplementaries for Minecraft 1.19.2 (Forge) by MehVahdJukaar: the charming grab-bag of functional and decorative blocks — sconces and lanterns, jars and faucets, the safe, sign posts and notice boards, cranks and cannons, planters, the Red Merchant, and how to configure it all." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#120e08; --bg-1:#17120a; --bg-2:#211910; --bg-3:#2c2114; --line:#3a2d1b; --ink:#f0e8d6; --ink-dim:#bcaa87; --ink-faint:#826e52;
+  --accent:#e0a040;
+  --danger:#e0683a;
+  --f-display:"Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🏮</span>
+      <span class="wordmark">The Curiosity<br>Cabinet<small>SUPPLEMENTARIES</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Cabinet</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#lighting"><span class="ix">01</span> Lighting &amp; Atmosphere</a>
+      <a href="#storage"><span class="ix">02</span> Storage &amp; Display</a>
+      <a href="#signage"><span class="ix">03</span> Signage &amp; Info</a>
+      <p class="group-label">Moving Parts</p>
+      <a href="#mechanisms"><span class="ix">04</span> Mechanisms &amp; Redstone</a>
+      <a href="#nature"><span class="ix">05</span> Nature &amp; Garden</a>
+      <a href="#trades"><span class="ix">06</span> Daily Goods &amp; Trades</a>
+      <p class="group-label">Workshop</p>
+      <a href="#config"><span class="ix">07</span> Configuration</a>
+      <a href="#builds"><span class="ix">08</span> Build Ideas</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Supplementaries<br>for MC 1.19.2 (Forge), built on<br>Moonlight Lib. Blocks &amp; numbers<br>are configurable — trust the<br>in-game config &amp; JEI in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · MehVahdJukaar</p>
+      <h1>The Curiosity<br>Cabinet</h1>
+      <p class="lede">A working guide to <strong>Supplementaries</strong> — the big, charming grab-bag of blocks that are <em>both</em> decorative and functional. It stores honey in jars, drains your barrels through faucets, points the way home with sign posts, rotates blocks on a turntable, fires fireworks from a cannon, and lights a crypt with a hundred little sconces. This guide groups the standouts so you can find the one block that finishes your build.</p>
+      <div class="badges">
+        <span class="badge">Supplementaries</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">built on Moonlight Lib</span>
+        <span class="badge accent">✦ Decorative + Functional</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Supplementaries isn't one machine or one system — it's <strong>dozens of small, charming blocks</strong> that each solve a little problem or finish a little scene. The trick is that almost none of them are purely cosmetic: the jar that looks lovely on a shelf also stores honey, the sign post that dresses a fence also points to your base, the brazier that lights a hall also cooks food. This guide groups the standouts so you can reach the right one fast.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">light</span><h4>Lighting &amp; Atmosphere</h4><p>Sconces, candle holders, wall lanterns, hanging lanterns, the brazier and bellows — ambience that actually emits light.</p></div>
+        <div class="card"><span class="tag">store</span><h4>Storage &amp; Display</h4><p>Item shelves, jars, faucets, the locked safe, the sack, pedestals, statues, the globe.</p></div>
+        <div class="card"><span class="tag">info</span><h4>Signage &amp; Info</h4><p>Sign posts, hanging signs, notice boards, blackboards, checkerboards, flags &amp; banner patterns.</p></div>
+        <div class="card"><span class="tag">redstone</span><h4>Mechanisms</h4><p>Crank, turntable, pulley, spring launcher, the cannon, relayer, speaker block, clock block.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">It pairs beautifully with other decor mods</span>
+        <p>Supplementaries is one of the headline blocks-and-decoration mods in many "kitchen-sink" packs. If your install also has <strong>Decorative Blocks</strong>, <strong>Chipped</strong>, <strong>Macaw's</strong> sets or similar, treat Supplementaries as the <em>functional</em> layer over their <em>texture</em> layer. See the dedicated <a href="#builds">Build Ideas</a> section, and cross-reference your pack's Building &amp; Decoration hub for the rest of the palette.</p>
+      </div>
+
+      <h3>How to think about it</h3>
+      <ol class="flow">
+        <li><strong>It's a Moonlight Lib mod.</strong> Supplementaries is built on <strong>Moonlight Lib</strong> (also by MehVahdJukaar), which it needs as a dependency. Moonlight handles the shared plumbing — block registration, the dynamic models, soft-incompatibility shims — so things like sign posts and hanging signs can reuse any wood type in your pack.</li>
+        <li><strong>Almost everything is craftable early.</strong> Most blocks use mundane materials — planks, iron, glass, terracotta, string — so you can start decorating from day one rather than at endgame.</li>
+        <li><strong>Almost everything is configurable.</strong> Any block you dislike can be toggled off; many have tweakable behaviour. The in-game config (and JEI) is the ground truth for what your pack actually enabled.</li>
+        <li><strong>Look for the dual purpose.</strong> When you meet a new block, ask "what does this <em>do</em> as well as look like?" — that's the Supplementaries design signature.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">A note on accuracy</span>
+        <p>Supplementaries is large and frequently updated, and nearly every block can be reconfigured. The mechanics here are the established, well-known ones; exact stack sizes, fluid amounts and trade prices are approximate. When in doubt, your in-game JEI and config screen win.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 01 LIGHTING & ATMOSPHERE -->
+    <section class="doc" id="lighting">
+      <p class="sec-index">01 — Light &amp; mood</p>
+      <h2>Lighting &amp; Atmosphere</h2>
+      <p>Vanilla gives you torches, lanterns and not a lot else. Supplementaries fills the gap with a whole family of light sources sized for taverns, crypts, manors and cottages — most of which can be wall-mounted, hung, or dyed.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Light sources &amp; ambient fixtures</caption>
+          <thead><tr><th>Block</th><th>What it is</th><th>Why you'd use it</th></tr></thead>
+          <tbody>
+            <tr><td>Sconce</td><td>A small wall flame (also Soul, End &amp; coloured variants)</td><td>The torch's elegant cousin — flush wall lighting for halls and stairwells.</td></tr>
+            <tr><td>Sconce Lever</td><td>A sconce that doubles as a redstone lever</td><td>Hidden switches behind a bookshelf or fireplace.</td></tr>
+            <tr><td>Candle Holder</td><td>A standing/wall candlestick, dyeable</td><td>Soft tabletop light; rows along a banquet table.</td></tr>
+            <tr><td>Wall Lantern</td><td>Mount <em>any</em> lantern flush against a wall/post</td><td>Fixes vanilla's biggest lantern annoyance — no more floating lanterns.</td></tr>
+            <tr><td>Hanging variants</td><td>Lanterns &amp; pots hung beneath blocks/chains</td><td>Suspended light over walkways, wells and porches.</td></tr>
+            <tr><td>Brazier</td><td>A standing fire bowl; can cook food &amp; emit signal smoke</td><td>Courtyard centrepiece and a campfire-style cooker.</td></tr>
+            <tr><td>Bellows</td><td>Redstone-driven air pump that feeds fire</td><td>Pumps a brazier/fire hotter, or spreads/extends flame for redstone-lit scenes.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Wall Lantern is the quiet MVP</span>
+        <p>The <strong>Wall Lantern</strong> works with lanterns from <em>any</em> mod in your pack (thanks to Moonlight Lib tagging). Sneak-place a lantern against a wall or fence post and it snaps flush — instantly making every tavern, mineshaft and street look hand-built instead of vanilla.</p>
+      </div>
+
+      <h3>Setting a mood</h3>
+      <ul>
+        <li><strong>Crypt / dungeon:</strong> Soul Sconces (blue flame) in alternating wall slots, a low Brazier at the altar, and a single hanging lantern at the entrance.</li>
+        <li><strong>Tavern / inn:</strong> Candle Holders down the tables, Wall Lanterns by each door, and a warm Brazier near the hearth.</li>
+        <li><strong>Manor hall:</strong> Sconce Levers hidden among ordinary Sconces so the room "knows" which one opens the secret passage.</li>
+      </ul>
+      <div class="note">
+        <span class="label">Dye &amp; wax</span>
+        <p>Many candle/holder pieces accept dye for colour. If you've waxed something and want to redecorate, the <strong>Soap</strong> item (see §05) strips wax and resets banners — useful when a build evolves.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 STORAGE & DISPLAY -->
+    <section class="doc" id="storage">
+      <p class="sec-index">02 — Keep it &amp; show it</p>
+      <h2>Storage &amp; Display</h2>
+      <p class="lead">This is where Supplementaries earns its "functional decoration" reputation hardest. These blocks store real items and fluids while looking like part of a lived-in workshop, kitchen or vault.</p>
+
+      <h3>Jars &amp; Faucets — the brewery duo</h3>
+      <p>The <strong>Jar</strong> is the flagship. It <em>stores and displays</em> its contents: drop in items (cookies, slimeballs, spider eyes) and they appear inside; or fill it with a fluid — water, honey, milk, potions, and more. A <strong>Faucet</strong> placed on the side of a barrel, keg or tank will <strong>drain fluid downward into a jar</strong> (or any container) below it, optionally toggled by redstone.</p>
+      <div class="data-table">
+        <table>
+          <caption>Jars, faucets &amp; the storage roster</caption>
+          <thead><tr><th>Block</th><th>Stores / shows</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Jar</td><td>Items <em>or</em> a fluid (water, honey, milk, potions…)</td><td>Displays its contents; stackable look; fillable from a Faucet above.</td></tr>
+            <tr><td>Faucet</td><td>Moves fluid downward, one container to the next</td><td>Place on a barrel/keg face; redstone-toggleable; the heart of any drip line.</td></tr>
+            <tr><td>Item Shelf</td><td>Up to a couple of display items on a slim ledge</td><td>Wall-mounted display for trophies, tools or potions.</td></tr>
+            <tr><td>Safe</td><td>Locked personal storage</td><td>Bind it to a <strong>Key</strong>; only the owner (or key-holders) can open it.</td></tr>
+            <tr><td>Sack</td><td>Portable bag / small storage block</td><td>Tuck-away storage that fits a rustic aesthetic.</td></tr>
+            <tr><td>Pedestal</td><td>Raises a single item/block on a plinth, slowly spinning</td><td>Museum-style display; pairs with a Statue or trophy.</td></tr>
+            <tr><td>Statue</td><td>A poseable decorative figure</td><td>Guardians at a gate; centrepiece in a hall.</td></tr>
+            <tr><td>Globe</td><td>A spinning world globe (sepia &amp; coloured variants)</td><td>Cartographer's-desk decor; a rare loot/trade find in some setups.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">A working honey/potion line</span>
+        <p>Set a barrel or keg of fluid above a row of jars, drop a <strong>Faucet</strong> on each barrel face, and let it drip into the jars below. Wire the faucets to a lever or comparator and you have a brewery that <em>looks</em> like a brewery — fluid visibly leaving the barrel and pooling into displayed jars.</p>
+      </div>
+
+      <h3>The Safe — locked personal storage</h3>
+      <p>The <strong>Safe</strong> is genuine secure storage for multiplayer. Place it, and it binds to you as owner. Craft a <strong>Key</strong> and bind the key to the safe: anyone holding a matching key can open it; everyone else is locked out, and the safe resists being broken/stolen. It's the cleanest answer to "how do I keep my diamonds safe on a shared server" without a separate protection mod.</p>
+      <div class="note warn">
+        <span class="label">Keep a spare key</span>
+        <p>Treat safe keys like real keys: bind a backup and store it somewhere else (a second safe, a friend's ender chest). Losing the only key to a bound safe is exactly as inconvenient as it sounds, and server admin help may be the only recovery.</p>
+      </div>
+
+      <h3>Showing things off</h3>
+      <p>For pure display, the <strong>Pedestal</strong> (rotating plinth), <strong>Item Shelf</strong> (wall ledge) and <strong>Statue</strong> cover trophy rooms, shop windows and shrine builds. The <strong>Globe</strong> is the cartographer's centrepiece — and in some configurations it's a special craft or trade rather than a plain recipe, so check JEI for how your pack hands it out.</p>
+    </section>
+
+    <!-- ============================================ 03 SIGNAGE & INFO -->
+    <section class="doc" id="signage">
+      <p class="sec-index">03 — Words on the wall</p>
+      <h2>Signage &amp; Info</h2>
+      <p>Bases get big and confusing. Supplementaries adds a whole signage suite so a player (or a guest) can actually navigate, read notices, and leave messages — far past vanilla's single sign.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Signage &amp; information blocks</caption>
+          <thead><tr><th>Block</th><th>Shows</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Sign Post</td><td>One or two directional arrow-signs on a fence</td><td>Crossroads markers; "Spawn →", "Mine ←". Stacks multiple on one post.</td></tr>
+            <tr><td>Hanging Sign</td><td>A sign suspended beneath a block/chain</td><td>Shop fronts and tavern signs (predates/complements vanilla's own).</td></tr>
+            <tr><td>Notice Board</td><td>A framed board that displays a written book or item</td><td>Post quests, rules, or a recipe page that players can read in-world.</td></tr>
+            <tr><td>Blackboard</td><td>A chalk drawing surface (glowing variant too)</td><td>Doodle maps, mark progress, draw signage by hand.</td></tr>
+            <tr><td>Checkerboard</td><td>A flat patterned board</td><td>Game tables, floor accents, draughts/chess scenery.</td></tr>
+            <tr><td>Flag</td><td>A tall hanging banner that uses banner patterns</td><td>Heraldry on castle walls; faction colours on a server.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sign Posts — the navigation workhorse</h3>
+      <p>A <strong>Sign Post</strong> attaches arrow-shaped signs to a <strong>fence</strong>. Each face can be rotated freely, you can stack two per post (upper and lower), and you can point them at any angle — so a single crossroads post can read "Town →", "Nether ↖", "Home ↓" at once. They're the backbone of a base directory and a server road network.</p>
+      <div class="note tip">
+        <span class="label">Right-click to aim</span>
+        <p>After placing a sign post, interact with the upper or lower sign to rotate <em>that one</em> independently. Sneak-interacting and using a stick/empty hand cycles the angle, so you can aim each arrow at its real-world destination rather than just N/E/S/W.</p>
+      </div>
+
+      <h3>Notice Boards &amp; Blackboards</h3>
+      <p>A <strong>Notice Board</strong> holds a single item or a <em>written book</em> and shows it framed on the wall — perfect for posting server rules, a quest log, or a "today's menu" page that anyone can right-click to read. A <strong>Blackboard</strong> is a freehand chalk surface: draw rough maps, tally counts, or sketch directions; the glowing variant reads in the dark.</p>
+
+      <h3>Flags &amp; banner patterns</h3>
+      <p>The <strong>Flag</strong> hangs taller than a vanilla banner and accepts the full <strong>banner pattern</strong> system, so your heraldry, mojang-charge or faction crest drapes properly down a castle wall. Combine with <strong>Ash &amp; Soap</strong> (§05) to clean and re-pattern banners when your sigil changes.</p>
+    </section>
+
+    <!-- ============================================ 04 MECHANISMS & REDSTONE -->
+    <section class="doc" id="mechanisms">
+      <p class="sec-index">04 — Moving parts</p>
+      <h2>Mechanisms &amp; Redstone</h2>
+      <p class="lead">Supplementaries has a genuine kinetic streak: blocks that rotate other blocks, launch entities, lift things on ropes, fire projectiles, and tick out signals. These are the toys that make a contraption feel alive.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Mechanical &amp; redstone blocks</caption>
+          <thead><tr><th>Block</th><th>Does</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Crank</td><td>Hand-cranked rotational input</td><td>Right-click to turn a Turntable/Pulley without redstone.</td></tr>
+            <tr><td>Turntable</td><td>Rotates the block placed on top of it</td><td>Re-orient any directional block; spin displays; redstone-driven.</td></tr>
+            <tr><td>Pulley</td><td>Raises/lowers blocks on a rope</td><td>Hidden doors, drawbridges, dumbwaiters via redstone or crank.</td></tr>
+            <tr><td>Spring Launcher</td><td>Flings entities/items upward</td><td>Player launch pads, item-elevator starts, trap mechanisms.</td></tr>
+            <tr><td>Bellows</td><td>Pumps air to feed/spread fire</td><td>Also a lighting tool (§01); redstone-pulsed for animated flame.</td></tr>
+            <tr><td>Cannon</td><td>Fires fireworks &amp; projectiles</td><td>Aim &amp; charge it; salutes, fireworks shows, or actual ballistics.</td></tr>
+            <tr><td>Relayer</td><td>Redstone repeater/relay variant</td><td>Routes/extends signals in tighter footprints.</td></tr>
+            <tr><td>Clock Block</td><td>Emits a redstone pulse on a timed cycle</td><td>Self-contained clock; tied to in-game time.</td></tr>
+            <tr><td>Speaker Block</td><td>Broadcasts a typed message in chat/area</td><td>Announcements, PA systems, redstone-triggered messages.</td></tr>
+            <tr><td>Trapdoors / Doormat</td><td>Decorative trapdoors; a welcome doormat</td><td>Doormat can show a custom message when stepped on.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Crank + Turntable — rotation without redstone</h3>
+      <p>The <strong>Turntable</strong> rotates whatever directional block sits on top of it by one step each time it gets a pulse. Drive it with redstone, or pop a <strong>Crank</strong> beside it and right-click to advance it by hand. It's the easiest way to re-aim a piston, point a dispenser, or slowly spin a display piece without rebuilding.</p>
+
+      <h3>The Cannon</h3>
+      <p>The <strong>Cannon</strong> is exactly as fun as it sounds: load it, set the <strong>pitch/aim</strong> and <strong>charge</strong>, and it launches fireworks or projectiles. Use it for celebratory firework salutes over a city, a redstone-triggered fireworks finale, or — with the right ammo — genuine area defense.</p>
+      <div class="note warn">
+        <span class="label">Mind the blast &amp; the config</span>
+        <p>Cannon ammunition and the Spring Launcher can damage entities and, depending on config, terrain. On servers, the cannon's destructive options are exactly the sort of thing pack authors gate behind config flags — confirm what's allowed before you build a battery of them near spawn.</p>
+      </div>
+
+      <h3>Quality-of-life redstone</h3>
+      <p>The <strong>Clock Block</strong> gives you a compact, self-contained timed pulse (handy for day/night automation), the <strong>Relayer</strong> tidies up signal routing, and the <strong>Speaker Block</strong> turns a redstone edge into a chat announcement — perfect for "intruder!" alarms or a tavern that greets guests.</p>
+    </section>
+
+    <!-- ============================================ 05 NATURE & GARDEN -->
+    <section class="doc" id="nature">
+      <p class="sec-index">05 — Green &amp; growing</p>
+      <h2>Nature &amp; Garden</h2>
+      <p>A second cluster of blocks turns Supplementaries into a gardener's and homesteader's kit: planters that actually grow things, hanging greenery, edible decor, and a couple of genuinely useful cleaning items.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Garden, food &amp; cleaning</caption>
+          <thead><tr><th>Item / block</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Planter / Flower Box</td><td>A raised bed you can plant crops, flowers or saplings in — decorative and farmable.</td></tr>
+            <tr><td>Hanging Pot</td><td>A suspended flowerpot for a single plant beneath a block.</td></tr>
+            <tr><td>Bamboo Spikes</td><td>A damaging trap block (can be tipped/poisoned); deters mobs and players.</td></tr>
+            <tr><td>Pancakes</td><td>Stackable edible decor food — build a tall, syrupy pile and eat from it.</td></tr>
+            <tr><td>Ash</td><td>Byproduct/ingredient; used in crafting and as a cleaning agent.</td></tr>
+            <tr><td>Soap</td><td>Cleans waxed blocks, strips banner patterns, and removes dye/colour.</td></tr>
+            <tr><td>Crimson &amp; Warped variants</td><td>Nether-wood versions of relevant blocks for fungal-themed builds.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Planters &amp; hanging greenery</h3>
+      <p>The <strong>Planter</strong> (and flower-box style variants) is a raised bed: place it, plant a crop, flower or sapling, and it grows like farmland but reads as furniture — perfect for windowsills, balconies and tidy indoor herb gardens. <strong>Hanging Pots</strong> suspend a single plant beneath a block for trailing vines over a doorway or porch.</p>
+
+      <h3>Soap &amp; Ash — the cleaning kit</h3>
+      <p><strong>Soap</strong> is more useful than it looks: it <strong>removes wax</strong> from waxed copper/blocks, <strong>strips patterns from banners</strong> so you can re-pattern them, and clears applied colour — the "undo" button for decoration. <strong>Ash</strong> turns up as a byproduct and feeds into crafting (including soap chains, depending on recipes).</p>
+      <div class="note tip">
+        <span class="label">Bamboo Spikes for cheap defense</span>
+        <p><strong>Bamboo Spikes</strong> damage entities that walk over them, and can be tipped with a potion for poison/weakness. Line a moat or a mob-farm drop with them for a low-tech, no-redstone deterrent — just remember they hurt <em>you</em> too.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 DAILY GOODS & TRADES -->
+    <section class="doc" id="trades">
+      <p class="sec-index">06 — The wandering merchant</p>
+      <h2>Daily Goods &amp; Trades</h2>
+      <p>Supplementaries adds a trader and a slice of seasonal content that ties its odds-and-ends together. The headline is the <strong>Red Merchant</strong> and the <strong>Daily Goods</strong> trade list.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Red Merchant &amp; seasonal content</caption>
+          <thead><tr><th>Feature</th><th>What it is</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Red Merchant</td><td>A special wandering trader variant</td><td>Sells Daily Goods — rotating, sometimes hard-to-craft Supplementaries items.</td></tr>
+            <tr><td>Daily Goods</td><td>A rotating trade list of decorative/rare items</td><td>How you get items the mod intends to be "found" rather than freely crafted.</td></tr>
+            <tr><td>Seasonal / holiday content</td><td>Themed items tied to real-world dates</td><td>Optional &amp; config-gated; appears around the relevant season if enabled.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The <strong>Red Merchant</strong> is the way the mod distributes some of its rarer or "discovered" items — globes, special variants, and seasonal goods — instead of putting everything in a crafting recipe. Trading with it is worth doing if you want the full set without grinding mats.</p>
+
+      <div class="note">
+        <span class="label">Seasonal content is opt-in flavour</span>
+        <p>Some holiday/seasonal items only appear around their real-world date and are easy to disable in the config if you'd rather keep the world date-agnostic. If you can't find a "seasonal" item someone mentioned, the calendar — or the config toggle — is usually the reason.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Check JEI for "how do I get this?"</span>
+        <p>If a Supplementaries item has no obvious recipe in JEI, it's likely a <strong>trade-only</strong> or <strong>loot-only</strong> item by design. Look for it on the Red Merchant's Daily Goods list before assuming it's disabled.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 CONFIGURATION -->
+    <section class="doc" id="config">
+      <p class="sec-index">07 — Tuning the cabinet</p>
+      <h2>Configuration</h2>
+      <p class="lead">Supplementaries is <strong>heavily configurable</strong> — which is part of why it ships in so many packs. Nearly every block can be toggled on or off, and many have behaviour knobs. If a block does (or doesn't) appear in your world, the config is the place to look.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What you can typically tune</caption>
+          <thead><tr><th>Knob</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Per-block enable/disable</td><td>Turn off any block you don't want registered or craftable.</td></tr>
+            <tr><td>Worldgen toggles</td><td>Control which features (e.g. salt-like or structure additions) generate.</td></tr>
+            <tr><td>Trades &amp; merchant</td><td>Enable/disable the Red Merchant and adjust Daily Goods behaviour.</td></tr>
+            <tr><td>Seasonal content</td><td>Toggle holiday items so they (don't) appear by date.</td></tr>
+            <tr><td>Mechanic tweaks</td><td>Cannon damage, spike behaviour, jar capacities and similar per-block options.</td></tr>
+            <tr><td>Client/visual options</td><td>Some purely cosmetic toggles (particles, tooltips, rendering).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Where to look</h3>
+      <ul>
+        <li><strong>In-game config screen</strong> — if your pack ships a config UI (Mod Menu / Forge config), Supplementaries exposes its toggles there with descriptions.</li>
+        <li><strong>Config files</strong> — under your instance's <span class="vflag">config/</span> folder, the Supplementaries (and Moonlight) configs are editable text; split into common/server/client where relevant.</li>
+        <li><strong>JEI / EMI</strong> — the fastest "is it enabled and how do I make it?" check. If a block has a recipe in JEI, it's enabled and craftable; if not, it may be trade/loot-only or toggled off.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">On a server, server-side wins</span>
+        <p>Block enables and gameplay knobs are decided by the <strong>server's</strong> config, not your client's. If a tooltip promises a block your admin disabled, it simply won't be there. Coordinate config changes with whoever runs the world before assuming something's broken.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Trust in-game over any guide</span>
+        <p>Because every value here is configurable and the mod updates often, treat this guide as orientation. Your in-game config screen, tooltips and JEI are the ground truth for what's enabled and how it behaves in <em>your</em> pack.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 08 BUILD IDEAS -->
+    <section class="doc" id="builds">
+      <p class="sec-index">08 — Putting it together</p>
+      <h2>Build Ideas</h2>
+      <p>The whole point of Supplementaries is the finished scene. Here are a few set-pieces that lean on its dual-purpose blocks — and pair naturally with <strong>Decorative Blocks</strong> and <strong>Chipped</strong> for the surrounding palette.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">brewery</span><h4>The Working Brewery</h4><p>Barrels &amp; kegs up top, a row of <strong>Faucets</strong> dripping into displayed <strong>Jars</strong> of honey and potions below. Wire the faucets to a comparator for an "open tap" lever. Light it with Candle Holders.</p></div>
+        <div class="card"><span class="tag">crypt</span><h4>Crypt &amp; Tavern</h4><p>Soul <strong>Sconces</strong> on the walls, a low <strong>Brazier</strong> at the altar, a hanging <strong>Lantern</strong> at the door, and a <strong>Statue</strong> guardian. Hide a <strong>Sconce Lever</strong> for the secret passage.</p></div>
+        <div class="card"><span class="tag">directory</span><h4>Base Directory</h4><p><strong>Sign Posts</strong> at every junction pointing to real destinations, a framed <strong>Notice Board</strong> at the entrance with the rules/quest book, and a <strong>Blackboard</strong> map of the area.</p></div>
+        <div class="card"><span class="tag">festival</span><h4>City Festival</h4><p><strong>Flags</strong> with your crest down the main street, <strong>Wall Lanterns</strong> on every post, <strong>Planters</strong> of flowers on the windowsills, and a <strong>Cannon</strong> battery for the fireworks finale.</p></div>
+      </div>
+
+      <h3>A pairing cheat-sheet</h3>
+      <div class="data-table">
+        <table>
+          <caption>Supplementaries + your decor stack</caption>
+          <thead><tr><th>Want…</th><th>Supplementaries brings</th><th>Pair it with</th></tr></thead>
+          <tbody>
+            <tr><td>Lighting that mounts anywhere</td><td>Wall Lanterns, Sconces, Hanging variants</td><td>Decorative Blocks' beams &amp; supports</td></tr>
+            <tr><td>A believable workshop</td><td>Jars, Faucets, Item Shelves, Pedestals</td><td>Chipped's varied wood/stone surfaces</td></tr>
+            <tr><td>Navigation &amp; lore</td><td>Sign Posts, Notice Boards, Flags</td><td>Vanilla banners + Chipped accent blocks</td></tr>
+            <tr><td>Working mechanisms</td><td>Crank, Turntable, Pulley, Cannon</td><td>Vanilla redstone + Decorative Blocks trims</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Start with one block, not the catalogue</span>
+        <p>The mod is huge; don't try to use everything. Pick the <em>one</em> Supplementaries block that solves the problem in front of you — the floating lantern, the un-navigable base, the boring storage room — and let the rest of the cabinet reveal itself as you build.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--ink);text-transform:uppercase;letter-spacing:0.03em">The Curiosity Cabinet</strong><br>
+      An unofficial, fan-made guide to Supplementaries on Minecraft 1.19.2 (Forge).<br>
+      Supplementaries and Moonlight Lib are by MehVahdJukaar &amp; contributors. This guide is not affiliated with or endorsed by the mod's authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Supplementaries (1.19.2, Forge)<br>
+      · the in-game config &amp; tooltips<br>
+      · JEI/EMI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Blocks, numbers and trades are configurable per pack and change between versions. When your install disagrees, the in-game config, tooltips and JEI/EMI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide.js";
+  initChrome();
+</script>
+</body>
+</html>

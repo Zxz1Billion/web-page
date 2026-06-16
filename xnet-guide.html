@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Channel Web — an XNet field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A full in-depth XNet guide for Minecraft 1.19.2 (Forge): the Controller, cables vs connectors, channels for items, fluids, energy and logic, filters and priorities, the logic system, recipes and cost, and the patterns that make XNet the go-to base router." />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#0a0c11; --bg-1:#0e1118; --bg-2:#141822; --bg-3:#1c2230;
+  --line:#28303f; --ink:#e4e9f2; --ink-dim:#98a3b8; --ink-faint:#626d82;
+  --accent:#2ce0b0;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🕸</span>
+      <span class="wordmark">The Channel<br>Web<small>XNET</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Wiring</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#network"><span class="ix">01</span> Building a Network</a>
+      <a href="#channels"><span class="ix">02</span> Connectors &amp; Channels</a>
+      <p class="group-label">The Channels</p>
+      <a href="#items"><span class="ix">03</span> Item Channels</a>
+      <a href="#fluidenergy"><span class="ix">04</span> Fluid &amp; Energy</a>
+      <a href="#logic"><span class="ix">05</span> Logic Channels</a>
+      <p class="group-label">In Practice</p>
+      <a href="#cost"><span class="ix">06</span> Recipes &amp; Cost</a>
+      <a href="#patterns"><span class="ix">07</span> Patterns &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against XNet for<br>MC 1.19.2 (Forge), by McJty.<br>Numbers are approximate &amp;<br>configurable — trust the in-game<br>GUI and JEI in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · McJty</p>
+      <h1>The Channel<br>Web</h1>
+      <p class="lede">A working field manual for <strong>XNet</strong> — McJty's fast, cheap, low-lag logistics mod that carries <em>items, fluids, energy, and logic</em> over one slim network of cables. One Controller, a fistful of Connectors, and a handful of channels replace a spaghetti of pipes, ducts, and wires. This guide runs from your first two-Connector item route to a logic-gated, color-coded base spine.</p>
+      <div class="badges">
+        <span class="badge">XNet</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Items · Fluids · Energy · Logic</span>
+        <span class="badge">Cheap &amp; low-lag</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">XNet is a single logistics network that moves <strong>items, fluids, Forge Energy, and logic signals at once</strong>. Instead of a pipe for items, a duct for fluids, and a wire for power, you run one set of cheap cables, tap blocks with <strong>Connectors</strong>, and configure everything from a single <strong>Controller</strong> GUI. It is famously fast and light on the server tick, which is why it became many players' default router.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>One network, four jobs</h4><p>A single cable run can carry item, fluid, energy, and logic channels simultaneously — no separate transport per resource.</p></div>
+        <div class="card"><span class="tag">cheap</span><h4>Low cost, low lag</h4><p>Connectors and the Controller are inexpensive, and XNet's central-controller design keeps tick cost down versus per-pipe simulation.</p></div>
+        <div class="card"><span class="tag">control</span><h4>One GUI to rule it</h4><p>Inputs, outputs, filters, counts, priorities, redstone, and speed are all set from the Controller's channel screens.</p></div>
+        <div class="card"><span class="tag">smart</span><h4>Built-in logic</h4><p>Logic channels read inventories, tanks, energy, and redstone, then drive colors and redstone outputs for conditional automation.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where it fits</span>
+        <p>XNet is the connective tissue of the <strong>Automation &amp; Power hub</strong>: it is the cheapest way to feed and drain a wall of machines, balance energy across them, and gate them on conditions. Pair it with a processing mod (Mekanism, Create, Thermal) for the machines, and let XNet do the routing.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Place a Controller.</strong> Run a short line of <strong>Network Cable</strong> from it.</li>
+        <li><strong>Tap two blocks.</strong> Put a <strong>Connector</strong> on the face of a chest and on the face of a machine.</li>
+        <li><strong>Make a channel.</strong> Open the Controller, create an <strong>Item</strong> channel, and assign one Connector as input (extract) and the other as output (insert).</li>
+        <li><strong>Filter &amp; tune.</strong> Add filters, count limits, priority, and redstone control so it moves only what you want.</li>
+        <li><strong>Add fluids, energy &amp; logic.</strong> The same Connectors and cables now carry the rest — just add more channels.</li>
+        <li><strong>Gate it.</strong> Use a <strong>Logic</strong> channel to switch machines on/off based on stock, tank level, or energy.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 BUILDING A NETWORK -->
+    <section class="doc" id="network">
+      <p class="sec-index">01 — The wiring</p>
+      <h2>Building a Network</h2>
+      <p>An XNet network has three physical parts: a <strong>Controller</strong> (the brain), <strong>Network Cable</strong> (the wire), and <strong>Connectors</strong> (the taps that touch your blocks). Everything else is configuration.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The physical network parts</caption>
+          <thead><tr><th>Part</th><th>Does</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Controller</td><td>The single brain of one network; holds every channel and its settings.</td><td>One per network; provides a fixed number of channel slots.</td></tr>
+            <tr><td>Network Cable</td><td>Carries the network between Controller and Connectors.</td><td>Cheap; comes in colored variants you can mix without crossing networks.</td></tr>
+            <tr><td>Connector</td><td>Taps one block face into the network for input/output.</td><td>The workhorse — every machine/chest you touch needs one.</td></tr>
+            <tr><td>Advanced Connector</td><td>A Connector with longer reach / remote operation.</td><td>For taps farther from the cable than a normal Connector allows.</td></tr>
+            <tr><td>Antenna + Wireless Router</td><td>Links separate networks wirelessly, including across dimensions.</td><td>The Router bridges networks; the Antenna extends/boosts its range.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cables vs. Connectors</h3>
+      <p>This is the key distinction. <strong>Cable</strong> is inert wire — it just carries the network from A to B and connects to other cable and Connectors. A <strong>Connector</strong> is where the network actually <em>touches a block</em>: place it on the face of a chest, tank, or machine and that block becomes available to your channels. A block with no Connector on it is invisible to XNet.</p>
+
+      <div class="note tip">
+        <span class="label">Color-coded cable</span>
+        <p>Network Cable comes in colors. Cables of <strong>different colors do not connect to each other</strong>, which lets you run several independent networks side by side (even touching) without them merging. Use a wrench/screwdriver to recolor, and keep a color convention per controller.</p>
+      </div>
+
+      <h3>Reaching farther</h3>
+      <p>A normal Connector must sit adjacent to the cable. When a machine is out past easy reach, the <strong>Advanced Connector</strong> extends the distance the network can operate over, so you do not have to thread cable into every cramped corner. For genuinely remote or cross-dimensional links — a far mining outpost, a Nether power plant — use the <strong>Wireless Router</strong> to bridge two networks, and add an <strong>Antenna</strong> to push the wireless range. Wireless links are configured per channel and are the clean way to share a few resources without dragging cable across the world.</p>
+
+      <div class="note warn">
+        <span class="label">Channels, not infinity</span>
+        <p>A Controller exposes a limited number of <strong>channel slots</strong>, and each network is one Controller. If you outgrow it, the answer is usually <em>another</em> Controller for a different area (and a Wireless Router if the two must talk) rather than one mega-network — that also keeps each GUI readable.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 CONNECTORS & CHANNELS -->
+    <section class="doc" id="channels">
+      <p class="sec-index">02 — The model</p>
+      <h2>Connectors &amp; Channels</h2>
+      <p class="lead">XNet's whole mental model is: <strong>Connectors are taps, channels are the rules</strong>. Each Connector you add becomes available to the Controller; each channel decides which Connectors are inputs and which are outputs, and exactly how resources flow between them.</p>
+
+      <h3>The four channel types</h3>
+      <div class="data-table">
+        <table>
+          <caption>What each channel type moves</caption>
+          <thead><tr><th>Channel</th><th>Moves</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>Item</td><td>Items between inventories</td><td>Feed machines, pull outputs, sort into storage.</td></tr>
+            <tr><td>Fluid</td><td>Fluids between tanks/machines (mB)</td><td>Move lava, water, mod fluids; balance tanks.</td></tr>
+            <tr><td>Energy</td><td>Forge Energy (FE)</td><td>Distribute and balance power across machines.</td></tr>
+            <tr><td>Logic</td><td>Sensor results → colors / redstone</td><td>Conditional control: gate machines on stock/level.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Using the Controller GUI</h3>
+      <p>Open the Controller and you get a row of <strong>channel slots</strong>. The flow is always the same:</p>
+      <ol class="flow">
+        <li><strong>Create a channel.</strong> Pick a free slot and choose its type (Item, Fluid, Energy, Logic). Name it so future-you can read the screen.</li>
+        <li><strong>Add Connectors as endpoints.</strong> Each Connector on the network shows up; assign the ones this channel uses and mark each side as an <strong>input</strong> (extract from that block) or <strong>output</strong> (insert into that block).</li>
+        <li><strong>Configure each endpoint.</strong> Per-side settings — filters, counts, priority, redstone, speed — live on each Connector's tab within the channel.</li>
+        <li><strong>Repeat per resource.</strong> The same Connector can appear in an Item channel, a Fluid channel, and an Energy channel at once; channels are independent.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Inputs pull, outputs push</span>
+        <p>In XNet wording, an <strong>input</strong> takes resources <em>out of</em> the block it sits on and into the network; an <strong>output</strong> takes resources <em>from</em> the network and puts them <em>into</em> the block. Read it as "input to the network" / "output to the world" and the GUI stops being confusing.</p>
+      </div>
+
+      <ul class="pills">
+        <li><b>One</b> Controller per network</li>
+        <li><b>Many</b> Connectors per network</li>
+        <li><b>4</b> channel types</li>
+        <li>One Connector → <b>many</b> channels</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 03 ITEM CHANNELS -->
+    <section class="doc" id="items">
+      <p class="sec-index">03 — Moving items</p>
+      <h2>Item Channels</h2>
+      <p>The Item channel is the one you will use most: pull crafting outputs out of machines, push ingredients in, and feed storage. Each Connector endpoint carries a full set of insert/extract settings, so a single channel can be as dumb as "chest → furnace" or as smart as a sorted, rate-limited, redstone-gated bus.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Per-connector item settings</caption>
+          <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Filter</td><td>Restrict to specific items or tags; set <strong>whitelist</strong> (only these) or <strong>blacklist</strong> (everything but these).</td></tr>
+            <tr><td>Count / amount</td><td>Keep a target stock: e.g. "insert until 64 here" or "extract but leave 16 behind". Stops overfilling and starvation.</td></tr>
+            <tr><td>Priority</td><td>When several outputs compete, higher priority is served first; great for "fill the machine before overflow storage".</td></tr>
+            <tr><td>Round-robin</td><td>Spread items evenly across multiple equal-priority outputs instead of stacking the first one.</td></tr>
+            <tr><td>Redstone control</td><td>Run only when the Connector's redstone state matches (off / on / pulse), so external logic can gate it.</td></tr>
+            <tr><td>Speed / rate</td><td>How often the endpoint operates and how much it moves per operation. Faster = more throughput, configurable per side.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Keeping machines fed and drained</h3>
+      <p>The bread-and-butter pattern is a pair of endpoints on each machine: an <strong>output</strong> that inserts ingredients (with a count limit so it never jams the input slot) and an <strong>input</strong> that extracts finished product into storage. Add a <strong>filter</strong> so only the right item goes into the right slot, and a <strong>priority</strong> so active machines win over a dump chest.</p>
+
+      <div class="note tip">
+        <span class="label">Count limits beat clogging</span>
+        <p>Set extract to "leave N" so you never strip a machine's last input, and set insert to "keep at most N" so you never overstuff. This is how XNet keeps a furnace array fed without ever flooding it — the count target does what a pipe with a "stocking" upgrade does, but natively and per side.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Tags are your filter friend</span>
+        <p>Filtering by <strong>tag</strong> (e.g. all logs, all ores) instead of one item id makes a route survive new items appearing in your inventory and works across mods. Whitelist a tag for tidy buses; blacklist a tag to keep junk out of precious storage.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 FLUID & ENERGY -->
+    <section class="doc" id="fluidenergy">
+      <p class="sec-index">04 — Fluids &amp; power</p>
+      <h2>Fluid &amp; Energy Channels</h2>
+      <p>The same cables and Connectors that move your items move fluids and Forge Energy. Add a Fluid channel to shuttle lava, water, or mod fluids between tanks and machines; add an Energy channel to spread FE across a base. Both use the familiar input/output endpoint model with their own rate and priority controls.</p>
+
+      <h3>Fluid channels</h3>
+      <p>Each endpoint is an input (drain a tank/machine into the network) or output (fill one from it), measured in <strong>millibuckets per operation</strong>. Use <strong>filters</strong> to keep fluids separate, <strong>priority</strong> to fill the important tank first, and <strong>count limits</strong> to hold a buffer level — for example, keep a machine's internal tank topped to 8,000 mB without overflowing it.</p>
+
+      <h3>Energy channels</h3>
+      <p>An Energy channel distributes <strong>FE</strong> from a battery/generator endpoint (input) to machine endpoints (outputs). It is the cleanest way to power a wall of machines from one buffer without running separate wires. Rates are configurable per side, and priority decides who gets fed first when supply is tight.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Fluid &amp; energy endpoint controls</caption>
+          <thead><tr><th>Control</th><th>Fluid</th><th>Energy</th></tr></thead>
+          <tbody>
+            <tr><td>Direction</td><td>Input (drain) / Output (fill)</td><td>Input (source) / Output (sink)</td></tr>
+            <tr><td>Rate</td><td class="num">mB / op</td><td class="num">FE / op</td></tr>
+            <tr><td>Priority</td><td>Fill order across outputs</td><td>Feed order across machines</td></tr>
+            <tr><td>Count / level</td><td>Target buffer (mB)</td><td>Keep-charged threshold (FE)</td></tr>
+            <tr><td>Redstone</td><td>Gate on signal</td><td>Gate on signal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Balancing with priority + round-robin</span>
+        <p>To spread power or fluid <em>evenly</em>, give the outputs equal priority and enable round-robin so each tick a different machine is served. To <em>prioritize</em> instead — keep the reactor's coolant tank full before topping anything else — give that endpoint the highest priority and let the rest take what is left.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Rate is per operation, not infinite</span>
+        <p>Each endpoint moves a capped amount per operation at a set speed. For high-throughput power or fluid spines, raise the per-side rate/speed and add more endpoints rather than expecting one Connector to carry an entire base's load.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 LOGIC CHANNELS -->
+    <section class="doc" id="logic">
+      <p class="sec-index">05 — Conditional control</p>
+      <h2>Logic Channels</h2>
+      <p class="lead">Logic is what lifts XNet from "smart pipes" to "automation framework". A Logic channel reads <strong>sensors</strong> on its endpoints — inventory contents, fluid level, energy level, redstone — evaluates conditions, and emits results as <strong>channel colors</strong> or <strong>redstone outputs</strong> that the rest of your network (and the world) can react to.</p>
+
+      <h3>What it can sense and emit</h3>
+      <div class="data-table">
+        <table>
+          <caption>The logic system</caption>
+          <thead><tr><th>Reads (sensors)</th><th>Emits (outputs)</th></tr></thead>
+          <tbody>
+            <tr><td>Item count in an inventory (≥, ≤, =, slot filters)</td><td>A redstone signal out of a Connector</td></tr>
+            <tr><td>Fluid amount in a tank (threshold)</td><td>An internal <strong>color</strong> on the network</td></tr>
+            <tr><td>Energy stored in a buffer (threshold)</td><td>Combine several sensors before emitting</td></tr>
+            <tr><td>Incoming redstone state on a Connector</td><td>Drive other channels' redstone-control settings</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How the pieces connect</h3>
+      <ol class="flow">
+        <li><strong>Sense.</strong> A Logic endpoint watches a block: "is there less than 16 ingots in this chest?", "is this tank below 25%?", "is this buffer under 1M FE?".</li>
+        <li><strong>Evaluate.</strong> The channel turns sensor states into a result — XNet uses <strong>colored channels</strong> as named on/off lines you can reference elsewhere.</li>
+        <li><strong>Emit.</strong> The result sets a color or pushes a redstone signal out of a Connector into the world.</li>
+        <li><strong>React.</strong> Other channels read that color (or that redstone) via their <strong>redstone control</strong> setting, switching item/fluid/energy flow on or off.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">The classic: auto-craft on demand</span>
+        <p>Sense "fewer than 64 plates in storage" → emit a color → an Item channel that feeds the press only runs while that color is active. The press turns itself off when stock is full and back on when it drains. No external redstone wiring, all inside XNet.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Keep logic readable</span>
+        <p>Name your colors/lines by intent ("plates-low", "tank-ok") and keep one logic channel per concern. A wall of unnamed sensors is the one place an XNet network can get as confusing as the pipe spaghetti it replaced.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 RECIPES & COST -->
+    <section class="doc" id="cost">
+      <p class="sec-index">06 — The price tag</p>
+      <h2>Recipes &amp; Cost</h2>
+      <p>XNet's pitch is that it is <strong>cheap</strong>. The components lean on common materials, so you can wire a whole base for the price of a few stacks of AE2 cable or a chest of pipes. Treat the exact recipes below as the shape of the cost — check JEI in your pack for the precise crafting grids.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The cheap components (approximate ingredients)</caption>
+          <thead><tr><th>Component</th><th>Rough cost</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Controller</td><td>Redstone, iron, a little glass/circuitry</td><td>One per network; the brain.</td></tr>
+            <tr><td>Network Cable</td><td>Mostly redstone + common metal, makes a big batch</td><td>Bulk wire; near-free per block.</td></tr>
+            <tr><td>Connector</td><td>A bit of metal + redstone each</td><td>One per tapped block.</td></tr>
+            <tr><td>Advanced Connector</td><td>Connector + an upgrade material</td><td>Longer reach.</td></tr>
+            <tr><td>Facade</td><td>Cable + a building block</td><td>Hides cable inside a block texture — cosmetic, very cheap.</td></tr>
+            <tr><td>Wireless Router / Antenna</td><td>More circuitry / metal</td><td>Cross-network &amp; cross-dimension links.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The facade trick</span>
+        <p>The XNet <strong>Facade</strong> wraps cable to look like any block you give it, so you can hide an entire network inside your walls and floors and keep the build clean — at almost no material cost.</p>
+      </div>
+
+      <h3>When XNet beats pipes (and AE2)</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">vs pipes</span><h4>Cheaper &amp; lighter</h4><p>One cheap network does items, fluids, energy, and logic. No per-pipe entity simulation means less tick cost than a base full of item pipes.</p></div>
+        <div class="card"><span class="tag">vs pipes</span><h4>Central config</h4><p>Filters, counts, priorities, and round-robin live in one GUI instead of being scattered across servos and upgrades on every pipe.</p></div>
+        <div class="card"><span class="tag">vs AE2</span><h4>No channels-to-manage</h4><p>XNet routes between real blocks without ME channels, controllers-of-controllers, or crystal growth. Faster to set up for plain logistics.</p></div>
+        <div class="card"><span class="tag">caveat</span><h4>Not a storage network</h4><p>XNet routes; it does not give you a searchable item terminal or autocrafting graph. For mass storage, pair it with AE2/RS — XNet feeds them.</p></div>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Pick the right tool</span>
+        <p>Use XNet for <strong>routing, feeding, draining, balancing, and gating</strong>. Use a storage mod for a unified inventory and autocrafting. They complement each other — many bases run XNet as the muscle and AE2/RS as the brain of storage.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 PATTERNS & TIPS -->
+    <section class="doc" id="patterns">
+      <p class="sec-index">07 — Doing it well</p>
+      <h2>Patterns &amp; Tips</h2>
+      <p>XNet rewards a little discipline. A handful of habits keep a network fast, readable, and easy to extend as the base grows.</p>
+
+      <h3>The habits that pay off</h3>
+      <ul>
+        <li><strong>One Controller per base area.</strong> A controller for the smeltery, one for the farm, one for power. Smaller GUIs, fewer channel-slot fights, and a failure stays local. Bridge them with a Wireless Router only where they truly need to share.</li>
+        <li><strong>Color-code Connectors and cable.</strong> Different cable colors are different networks — use that to physically separate concerns even when runs overlap. Within a network, a naming convention on channels does the same job.</li>
+        <li><strong>Filter discipline.</strong> Whitelist by <strong>tag</strong> where you can; blacklist junk out of storage. Every endpoint should have a deliberate filter, not "everything".</li>
+        <li><strong>Count limits everywhere.</strong> "Keep at most N" / "leave N behind" prevents both clogging and starvation and is the single biggest reliability win.</li>
+        <li><strong>Gate machines with logic.</strong> Run presses, smelters, and reactors only when stock is low or buffers allow — saves power and stops overproduction.</li>
+        <li><strong>Hide it with facades.</strong> Clean builds keep their networks behind walls; facades make that nearly free.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Combining with Mekanism / Create arrays</span>
+        <p>XNet shines as the loader/unloader for big machine arrays. Point Item outputs into each <strong>Mekanism factory</strong> or <strong>Create</strong> machine, pull products back with prioritized inputs, run an Energy channel to power the row, and use a Logic channel to switch the whole array off when the output chest is full. One cheap network drives a wall of machines no pipe layout could match for tidiness.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Watch the channel budget</span>
+        <p>Each Controller has limited channel slots. Group related endpoints into one channel (many machines can share one Item channel with per-side filters) before spending a slot, and split to a second Controller when an area genuinely outgrows the first.</p>
+      </div>
+
+      <div class="note danger">
+        <span class="label">Sanity check before scaling</span>
+        <p>Before you wire a hundred machines, prove the pattern on two: confirm filters, counts, priority, and any logic gate behave exactly as intended, then replicate. A subtle filter mistake copied across a base is the worst kind of debugging. The in-game GUI and JEI are the ground truth — when this guide and your pack disagree, believe the game.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The Channel Web</strong><br>
+      An unofficial, fan-made field manual for XNet on Minecraft 1.19.2 (Forge).<br>
+      XNet is by McJty. This guide is fan-made and not affiliated with the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · XNet for MC 1.19.2 (Forge)<br>
+      · the in-game Controller GUI<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate and configurable per pack. When your install disagrees, the in-game GUI and JEI win.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

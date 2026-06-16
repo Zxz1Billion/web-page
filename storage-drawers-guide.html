@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Classic Drawers — a Storage Drawers field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Storage Drawers guide for Minecraft 1.19.2 (Forge): the original bulk single-item drawer system — drawer types, storage and utility upgrades, the Drawer Controller network, Compacting Drawers, Framed Drawers, keys, and tips. Numbers are approximate; trust in-game tooltips and JEI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#120d08; --bg-1:#17110a; --bg-2:#21180f; --bg-3:#2c2014; --line:#3a2c1b;
+  --ink:#f0e7d6; --ink-dim:#bca987; --ink-faint:#826c52;
+  --accent:#d9a441;
+  --danger:#e0683a;
+  --f-display:"Oswald",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗃</span>
+      <span class="wordmark">The Classic<br>Drawers<small>STORAGE DRAWERS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Drawers</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#types"><span class="ix">01</span> Drawer Types</a>
+      <a href="#storage-upgrades"><span class="ix">02</span> Storage Upgrades</a>
+      <a href="#utility-upgrades"><span class="ix">03</span> Utility Upgrades</a>
+      <p class="group-label">Networks</p>
+      <a href="#controller"><span class="ix">04</span> The Drawer Controller</a>
+      <a href="#compacting"><span class="ix">05</span> Compacting Drawer</a>
+      <p class="group-label">Polish</p>
+      <a href="#framed"><span class="ix">06</span> Framed Drawers</a>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Patterns</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Storage Drawers<br>for MC 1.19.2 (Forge), by<br>Texelsaur (originally Jaquadro).<br>Capacities are approximate &amp;<br>configurable — trust the in-game<br>tooltips and JEI in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Texelsaur</p>
+      <h1>The Classic<br>Drawers</h1>
+      <p class="lede">A field manual for <strong>Storage Drawers</strong> — the original bulk single-item storage mod. Place a drawer on a wall, dump a stack in, and watch a live count tick up on its face. Ring it with <em>upgrades</em>, wire a <em>controller</em> through the whole wall, and a hundred drawers become one searchable, hopper-fed warehouse. This guide runs from your first oak drawer to a controller-driven, compacting, framed storage hall.</p>
+      <div class="badges">
+        <span class="badge">Storage Drawers</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">+ Drawer Controller</span>
+        <span class="badge">Bulk single-item storage</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Storage Drawers is the <strong>classic single-item bulk storage</strong> mod. Each drawer slot holds one item type but an enormous number of them, and prints the running count right on the block. You place a drawer, dump items in, see a live total, then grow the idea outward with upgrades and a controller until an entire wall behaves like one inventory.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>The drawer</h4><p>A wooden block with 1, 2, or 4 item slots. Right-click to deposit a stack; click the face to pull one (or a stack) back out.</p></div>
+        <div class="card"><span class="tag">count</span><h4>The live count</h4><p>Each slot shows its item icon and a number that updates in real time — your storage is readable at a glance, no GUI needed.</p></div>
+        <div class="card"><span class="tag">grow</span><h4>Upgrades</h4><p>Slot a Storage Upgrade to raise capacity; slot a utility upgrade to void overflow, emit redstone, auto-fill, and more.</p></div>
+        <div class="card"><span class="tag">network</span><h4>Controller</h4><p>One Drawer Controller ties every adjacent drawer in range into a single network you can pipe into and pull from.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How it differs from a chest</span>
+        <p>A chest holds many <em>different</em> stacks; a drawer holds one item type but <strong>far more of it</strong>, and shows the count without opening anything. Drawers shine for the materials you mass-produce — cobble, dirt, ingots, logs — where you want a thousand of one thing and instant visibility.</p>
+      </div>
+
+      <h3>The shape of a build</h3>
+      <ol class="flow">
+        <li><strong>Place one drawer.</strong> Right-click to drop a stack in. The face now shows the item and a count. Click it to take items back.</li>
+        <li><strong>Quantify it.</strong> Hit it with a <strong>Drawer Key</strong> to toggle the number display on or off, base recipe needs no power.</li>
+        <li><strong>Raise capacity.</strong> Open the drawer's upgrade slots and add <strong>Storage Upgrades</strong> to multiply how much each slot holds.</li>
+        <li><strong>Add utility.</strong> A <strong>Void Upgrade</strong> discards overflow; a <strong>Redstone Upgrade</strong> reports fullness; a <strong>Filler</strong> tops things off.</li>
+        <li><strong>Wire it together.</strong> Build a wall of drawers and drop a <strong>Drawer Controller</strong> beside it — now a single hopper or pipe feeds the whole wall.</li>
+        <li><strong>Specialize.</strong> Use <strong>Compacting Drawers</strong> for metals/ores and <strong>Framed Drawers</strong> to disguise the wall as part of your build.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Where this sits in your pack</span>
+        <p>Storage Drawers is the bulk layer of a storage setup — see the <strong>Storage</strong> hub for how it slots next to chests, barrels, and full item networks. Its modern spiritual successor, <strong>Functional Storage</strong>, covers the same idea with a fresh codebase and digital-controller flavour; if your pack ships that instead, the muscle memory transfers directly. We compare them in <a href="#tips">§07</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 01 DRAWER TYPES -->
+    <section class="doc" id="types">
+      <p class="sec-index">01 — The blocks</p>
+      <h2>Drawer Types</h2>
+      <p>Every drawer is a wood block whose <strong>face is divided into slots</strong>. More slots means more item types in one block but less capacity each, since the block's total volume is split between them. They craft from planks of any supported wood, so they blend into whatever palette your base uses.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Basic drawer layouts</caption>
+          <thead><tr><th>Drawer</th><th>Slots</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>Basic Drawer (1-slot)</td><td>1</td><td>Your highest-volume single item — cobble, dirt, sand. Max capacity per slot.</td></tr>
+            <tr><td>Basic Drawer (2-slot)</td><td>2</td><td>A balanced default — two related items (e.g. logs + planks) in one block.</td></tr>
+            <tr><td>Basic Drawer (4-slot)</td><td>4</td><td>Sorting lots of small-volume items (dyes, seeds, nuggets) compactly.</td></tr>
+            <tr><td>Half Drawer (1×2)</td><td>1 or 2</td><td>Shorter blocks for wainscoting-height walls; same idea, smaller footprint.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Capacity is split, not added</span>
+        <p>A 1-slot drawer and a 4-slot drawer of the same wood share the same <em>total</em> capacity budget; the 4-slot just divides it four ways. Use 1-slot drawers for the things you have thousands of, and multi-slot drawers for variety. JEI/in-game tooltips show the exact per-slot number for your pack.</p>
+      </div>
+
+      <h3>Wood variants</h3>
+      <p>Drawers come in the full set of supported <strong>wood types</strong> — oak, spruce, birch, jungle, acacia, dark oak, and usually any modded woods registered through the ore dictionary/tags. They're purely cosmetic at the basic tier: pick the colour that matches the wall. (For total freedom over appearance, jump to <strong>Framed Drawers</strong> in <a href="#framed">§06</a>.)</p>
+
+      <h3>Reading and quantifying</h3>
+      <p>By default each slot shows an item icon and a live count. The <strong>Drawer Key</strong> (sometimes called the Quantify Key in newer builds) right-clicks a drawer to <strong>toggle the number display</strong> on or off — handy when you want a clean wall of icons without numbers, or vice versa. It's a cheap held item, not an installed upgrade.</p>
+
+      <h3>Trim — filling the wall</h3>
+      <p><strong>Trim</strong> is a non-storage wooden block in matching variants. Use it to <strong>fill gaps, frame a grid of drawers, or border a wall</strong> so the whole thing reads as one tidy panel. Trim is also where the <strong>Drawer Controller</strong> propagates its network through (see <a href="#controller">§04</a>), so a wall framed in trim still routes correctly.</p>
+    </section>
+
+    <!-- ============================================ 02 STORAGE UPGRADES -->
+    <section class="doc" id="storage-upgrades">
+      <p class="sec-index">02 — Bigger numbers</p>
+      <h2>Storage Upgrades</h2>
+      <p class="lead">Storage Upgrades are the headline feature: drop them in a drawer's upgrade slots to <strong>multiply per-slot capacity</strong>. They come in a tier ladder, and within a single drawer the multipliers <strong>stack</strong>, so a fully upgraded drawer holds a colossal amount of one item.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Storage Upgrade tier ladder (multipliers are approximate defaults)</caption>
+          <thead><tr><th>Upgrade</th><th>Rough multiplier</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Upgrade I</td><td>×2</td><td>The entry tier — cheap, doubles base capacity.</td></tr>
+            <tr><td>Storage Upgrade II</td><td>×4</td><td>Standard early-game bump.</td></tr>
+            <tr><td>Storage Upgrade III</td><td>×8</td><td>Mid-game; iron-tier components.</td></tr>
+            <tr><td>Storage Upgrade IV</td><td>×16</td><td>Gold-tier; serious bulk.</td></tr>
+            <tr><td>Storage Upgrade V</td><td>×32</td><td>Higher diminishing-effort tier.</td></tr>
+            <tr><td>Storage Upgrade VI</td><td>×64</td><td>Top of the numbered ladder.</td></tr>
+            <tr><td>Emerald Upgrade</td><td>≈ ×128</td><td>A premium step above the numbered tiers.</td></tr>
+            <tr><td>Diamond Upgrade</td><td>≈ ×256</td><td>Late-game; near-bottomless slots.</td></tr>
+            <tr><td>Obsidian Upgrade</td><td>≈ ×512</td><td>The ceiling tier in most configs.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Exact numbers vary by pack</span>
+        <p>The multipliers above are the typical defaults but are <strong>fully configurable</strong>, and some packs rename or rebalance the Emerald/Diamond/Obsidian tiers. Always read the upgrade's tooltip and the drawer's capacity readout in your install — the in-game numbers and JEI are ground truth.</p>
+      </div>
+
+      <h3>How stacking works</h3>
+      <p>Each drawer has <strong>several upgrade slots</strong> (commonly five). Installed Storage Upgrades <strong>combine their multipliers</strong> rather than just taking the highest, so a drawer with multiple high-tier upgrades reaches numbers in the tens or hundreds of thousands of items per slot. Filling every slot with the best upgrade you can afford is the standard "this drawer will never fill" move for your most abundant resources.</p>
+
+      <ul class="pills">
+        <li><b>1</b> drawer, many upgrade slots</li>
+        <li>Multipliers <b>stack</b></li>
+        <li>Per-slot, not per-block</li>
+        <li>Reversible — pop the upgrade back out</li>
+      </ul>
+
+      <h3>Creative Storage Upgrade</h3>
+      <p>The <strong>Creative Storage Upgrade</strong> is a creative-only / endgame item that makes a slot effectively <strong>infinite</strong> (and in some variants, an infinite <em>source</em> that never empties). Use it for test setups, infinite-resource builds, or as a "tap" that perpetually supplies an item to automation. It is intentionally hard or impossible to obtain in survival without admin help.</p>
+    </section>
+
+    <!-- ============================================ 03 UTILITY UPGRADES -->
+    <section class="doc" id="utility-upgrades">
+      <p class="sec-index">03 — Behaviour, not size</p>
+      <h2>Utility Upgrades &amp; Keys</h2>
+      <p>Beyond raw capacity, a set of <strong>utility upgrades</strong> change how a drawer <em>behaves</em>, and a set of <strong>keys</strong> are held items you click drawers with to retune them. Mix them with Storage Upgrades in the same upgrade slots.</p>
+
+      <h3>Installed utility upgrades</h3>
+      <div class="data-table">
+        <table>
+          <caption>Upgrades that change behaviour</caption>
+          <thead><tr><th>Upgrade</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Void Upgrade</td><td>Discards any items inserted <strong>beyond the slot's capacity</strong> — the drawer never backs up a pipe. Perfect for junk you over-produce.</td></tr>
+            <tr><td>Conversion Upgrade</td><td>Limits or controls <strong>equivalent-item conversions</strong> (e.g. ore-dictionary swaps), so the drawer doesn't silently accept "the same" item from another mod when you don't want it to.</td></tr>
+            <tr><td>Redstone Upgrade</td><td>Makes the drawer <strong>emit a redstone signal based on fullness</strong> — strength scales with how full it is. Pair with the max/min variants to trigger automation.</td></tr>
+            <tr><td>Filler Upgrade</td><td>Works with automation to keep a drawer <strong>topped up</strong> / supplied; useful for buffering a continuous feed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Void + Redstone is the autofarm combo</span>
+        <p>A drawer with a <strong>Void Upgrade</strong> on a farm's output never clogs the system, and a <strong>Redstone Upgrade</strong> lets you switch the farm off (or light a lamp) once the drawer is full so you stop wasting cycles. Together they turn a drawer into a self-managing overflow sink.</p>
+      </div>
+
+      <h3>Keys — held tools you click with</h3>
+      <div class="data-table">
+        <table>
+          <caption>The key items</caption>
+          <thead><tr><th>Key</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Drawer Key / Quantify Key</td><td>Toggles the <strong>count display</strong> on the drawer face on or off.</td></tr>
+            <tr><td>Concealment Key</td><td>Hides the <strong>trim and front detailing</strong>, leaving a cleaner, flatter drawer face for seamless builds.</td></tr>
+            <tr><td>Personal Key / Lock Key</td><td><strong>Locks</strong> a drawer to its current item(s) so an empty slot keeps its assignment, and/or makes the drawer <strong>personal</strong> (owner-restricted) so others can't pull from it on a server.</td></tr>
+            <tr><td>Shroud Key</td><td>Hides the <strong>item icon and count</strong> entirely, leaving a blank drawer face — for hidden caches or pure aesthetics.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="label">Why lock a drawer</span>
+        <p>An unlocked empty drawer forgets its item and will accept the next thing piped in. <strong>Locking</strong> pins the assignment so a drawer reserved for, say, redstone dust stays "redstone dust only" even at zero count — essential when a controller is auto-sorting a feed across a wall and you don't want stray items landing in the wrong slot.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 CONTROLLER -->
+    <section class="doc" id="controller">
+      <p class="sec-index">04 — One wall, one inventory</p>
+      <h2>The Drawer Controller</h2>
+      <p class="lead">The <strong>Drawer Controller</strong> is what turns a pile of drawers into a system. Placed adjacent to a network of connected drawers, it <strong>links every drawer within range into one logical inventory</strong>, so a single hopper, pipe, or item conduit feeding the controller routes each item to the correct drawer automatically.</p>
+
+      <h3>How the network forms</h3>
+      <p>The controller reaches out through <strong>connected drawers and trim</strong> up to a range limit (commonly a 12-block radius / chain depth in default config). Any drawer touching that chain joins the network. Insert an item into the controller and it <strong>finds the drawer that already holds that item</strong> (or an empty, unlocked slot) and deposits it there; pull from the controller and it draws from wherever that item lives.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Controller components</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Drawer Controller</td><td>The brain. One per network; sits flush in the wall and exposes a single insert/extract face for hoppers and pipes.</td></tr>
+            <tr><td>Controller Slave</td><td>An <strong>extender</strong> — place it elsewhere on the network to give the controller another I/O point and effectively <strong>reach further</strong> drawers without a second controller.</td></tr>
+            <tr><td>Trim</td><td>Carries the network connection across gaps so framed/bordered walls still link end to end.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The hopper-fed wall</span>
+        <p>Point a hopper (or any auto-insert) into the <strong>Drawer Controller</strong> and dump mixed loot in. The controller fans each item to its matching drawer across the whole wall — cobble to the cobble drawer, iron to the iron drawer — no per-drawer piping. Lock your drawers (<a href="#utility-upgrades">§03</a>) first so empties don't grab the wrong item.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Mind the range</span>
+        <p>Drawers beyond the controller's reach silently drop off the network. If a far drawer isn't receiving items, it's usually <strong>out of range</strong> or the chain is broken by a non-connecting block — add a <strong>Controller Slave</strong> nearer the gap, or keep the wall within the configured radius.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 COMPACTING -->
+    <section class="doc" id="compacting">
+      <p class="sec-index">05 — Tiered metals in one block</p>
+      <h2>Compacting Drawer</h2>
+      <p class="lead">The <strong>Compacting Drawer</strong> is a specialist: it stores a <strong>3-tier compaction group</strong> — nugget ↔ ingot ↔ block — in a single drawer and <strong>converts between the tiers automatically</strong>. Feed it nuggets and they roll up into ingots and blocks; pull whichever tier you need and it breaks back down on demand.</p>
+
+      <h3>How it works</h3>
+      <p>Drop in any tier of a 9:1-style group (the classic nugget→ingot→block ladder) and the drawer tracks <strong>one underlying total</strong> while presenting all three tiers on its face. Inserting nine nuggets is the same as inserting one ingot; extracting a block pulls nine ingots' worth. This makes it ideal for the <strong>output of an ore/metal pipeline</strong> — everything lands in one slot, perfectly compacted, no overflow of half-stacks across tiers.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What a Compacting Drawer is great at</caption>
+          <thead><tr><th>Use</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Furnace / smelter output</td><td>Ingots auto-compact into blocks as they pile up, saving capacity and keeping the count tidy.</td></tr>
+            <tr><td>Mob/ore farm metals</td><td>Iron, gold, copper drop in at any tier and unify into one balance.</td></tr>
+            <tr><td>On-demand crafting supply</td><td>Pull nuggets, ingots, or blocks of the same metal from one place without manual recipe round-trips.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Pair it with the controller</span>
+        <p>A Compacting Drawer on a controller network means your whole base can request "one iron block" or "a few nuggets" from a single sorted source, and the drawer does the compaction math for you. It's the cleanest way to present a metal stockpile.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">One group per drawer</span>
+        <p>A Compacting Drawer handles <strong>one</strong> nugget/ingot/block family at a time and only items that actually form a valid 3-tier craft cycle. Items without a clean reversible compaction recipe won't tier correctly — use a regular drawer for those.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 FRAMED -->
+    <section class="doc" id="framed">
+      <p class="sec-index">06 — Make it disappear</p>
+      <h2>Framed Drawers</h2>
+      <p class="lead">A wall of oak drawers is functional but loud. <strong>Framed Drawers</strong> let you <strong>retexture a drawer with any block</strong> in the game, so your storage hall can wear stone bricks, deepslate, quartz, or whatever your build calls for — the drawers vanish into the architecture while keeping every feature.</p>
+
+      <h3>The Framing Table</h3>
+      <p>Craft the uncoloured <strong>Framed Drawer</strong> blocks, then take them to a <strong>Framing Table</strong>. There you assign up to a few materials — typically a <strong>side/body block, a trim block, and a front/panel block</strong> — and the table stamps that appearance onto the drawer. The result behaves exactly like a normal drawer (slots, capacity, upgrades, controller-compatible) but looks like the blocks you chose.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Framing slots (typical)</caption>
+          <thead><tr><th>Slot</th><th>Controls</th></tr></thead>
+          <tbody>
+            <tr><td>Body / side material</td><td>The main face and sides of the drawer block.</td></tr>
+            <tr><td>Trim material</td><td>The border/frame detailing around the slots.</td></tr>
+            <tr><td>Front / accent material</td><td>The inner panel or accent, for two-tone looks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Framed Trim too</span>
+        <p>The Framing Table also frames <strong>Trim and the Compacting/half variants</strong>, so an entire seamless wall — drawers, borders, fillers — can share one material and read as a single decorated surface with hidden storage behind every panel.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Patterns &amp; comparison</p>
+      <h2>Tips &amp; Patterns</h2>
+      <p>A few standard setups that make Storage Drawers sing, plus how it stacks up against its modern cousin.</p>
+
+      <ol class="flow">
+        <li><strong>Controller + Compacting on furnace output.</strong> Run smelter results into a controller network whose metals live in <strong>Compacting Drawers</strong> — ingots auto-roll into blocks and a single insert face keeps it tidy.</li>
+        <li><strong>Void the junk.</strong> Put <strong>Void Upgrades</strong> on cobble, dirt, gravel, and netherrack drawers so over-producing farms never clog — overflow just evaporates once the (huge, upgraded) slot is full.</li>
+        <li><strong>Lock your assignments.</strong> <strong>Key-lock</strong> every drawer on a sorting wall so empties hold their item and the controller never drops something into the wrong slot.</li>
+        <li><strong>Redstone the full ones.</strong> A <strong>Redstone Upgrade</strong> on a key drawer can pause a farm or light a "stockpile full" lamp when it tops out.</li>
+        <li><strong>Frame the whole wall.</strong> Once the logistics work, run everything through the <strong>Framing Table</strong> so the warehouse looks like part of the build, not a grid of crates.</li>
+      </ol>
+
+      <h3>Storage Drawers vs. Functional Storage</h3>
+      <p><strong>Functional Storage</strong> is the modern take on the same concept — bulk single-item drawers, capacity upgrades, a controller, compacting drawers, framed/painted drawers. If your pack ships Functional Storage instead of (or alongside) Storage Drawers, your instincts carry over directly.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The two bulk-drawer mods at a glance</caption>
+          <thead><tr><th>Aspect</th><th>Storage Drawers</th><th>Functional Storage</th></tr></thead>
+          <tbody>
+            <tr><td>Lineage</td><td>The original (Jaquadro → Texelsaur)</td><td>Newer, fresh codebase, same idea</td></tr>
+            <tr><td>Capacity model</td><td>Tiered Storage Upgrades, multipliers stack</td><td>Tiered upgrades, similar feel</td></tr>
+            <tr><td>Network</td><td>Drawer Controller + Controller Slave</td><td>Storage Controller + linking tools</td></tr>
+            <tr><td>Compaction</td><td>Compacting Drawer (nugget/ingot/block)</td><td>Compacting Drawer equivalent</td></tr>
+            <tr><td>Looks</td><td>Wood variants + Framed Drawers</td><td>Painted/framed drawers</td></tr>
+            <tr><td>Pick it when</td><td>You want the classic, battle-tested mod</td><td>Your pack already bundles it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="label">Both, not either</span>
+        <p>Many packs include only one. They solve the same problem, so don't agonize — use whichever your pack ships, and apply every pattern in this guide. For where bulk drawers fit alongside chests, barrels, and full item networks, see the <strong>Storage</strong> hub.</p>
+      </div>
+
+      <div class="note tip">
+        <span class="label">When in doubt, trust the game</span>
+        <p>Capacities, multipliers, and the controller's range are all <strong>configurable</strong> and shift between packs and versions. Treat every number here as an approximate default and let the <strong>in-game tooltips and JEI</strong> settle any disagreement.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--ink);text-transform:uppercase;letter-spacing:0.03em">The Classic Drawers</strong><br>
+      An unofficial, fan-made field manual for Storage Drawers on Minecraft 1.19.2 (Forge).<br>
+      Storage Drawers is maintained by Texelsaur (originally by Jaquadro). This guide is not affiliated with or endorsed by the mod authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Storage Drawers (1.19.2)<br>
+      · the in-game drawer tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Capacities and multipliers are approximate defaults and are configurable per pack. When your install disagrees, the in-game tooltips and JEI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Grave Ledger — a Corail Tombstone field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A full in-depth Corail Tombstone (Minecraft 1.19.2 Forge) guide: the Grave that saves your items and XP on death, the Knowledge of Death progression, Tombstone enchantments like Soulbound, soul magic, receptacles and familiars, altars and rites, multiplayer grave protection, and survival tips for the pack's bosses." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#08110f; --bg-1:#0b1615; --bg-2:#101f1e; --bg-3:#172b29;
+  --line:#234039; --ink:#dff0ec; --ink-dim:#90bab3; --ink-faint:#5d867f;
+  --accent:#5fd0d8;
+  --danger:#e0683a;
+  --f-display:"Cinzel",Georgia,serif;
+  --f-body:"EB Garamond",Georgia,serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">⚰</span>
+      <span class="wordmark">The Grave<br>Ledger<small>CORAIL TOMBSTONE</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Reckoning</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#grave"><span class="ix">01</span> The Grave</a>
+      <a href="#knowledge"><span class="ix">02</span> Knowledge of Death</a>
+      <p class="group-label">Soul Craft</p>
+      <a href="#enchants"><span class="ix">03</span> Tombstone Enchantments</a>
+      <a href="#soulmagic"><span class="ix">04</span> Soul Magic &amp; Receptacles</a>
+      <a href="#altars"><span class="ix">05</span> Altars &amp; Rites</a>
+      <p class="group-label">The Long Run</p>
+      <a href="#multiplayer"><span class="ix">06</span> Multiplayer &amp; Safety</a>
+      <a href="#tips"><span class="ix">07</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Corail<br>Tombstone for MC 1.19.2 (Forge).<br>Effects &amp; numbers are<br>approximate &amp; configurable —<br>trust the in-game book &amp; wiki.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Corail_31</p>
+      <h1>The Grave<br>Ledger</h1>
+      <p class="lede">A working field manual for <strong>Corail Tombstone</strong> — the death-management mod that turns dying from a catastrophe into a recoverable inconvenience. When you fall, a decorative <em>Grave</em> rises holding every item and every level of XP you were carrying. On top of that safety net sits a whole <strong>soul-magic progression</strong>: Knowledge of Death, special enchantments, familiars, altars, and rites. This guide runs from your first death to a fully kitted soul-shrine.</p>
+      <div class="badges">
+        <span class="badge">Corail Tombstone</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">⚰ Death insurance</span>
+        <span class="badge danger">Effects approximate</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Corail Tombstone exists to make death stop meaning <em>total loss</em>. The moment you die, a Grave spawns at the spot you fell, swallows your whole inventory and your experience, and waits for you to come back and collect it. That single mechanic changes how you play an unfamiliar modpack — and around it the mod wraps a deep, optional layer of soul magic you can grow into.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>The Grave</h4><p>On death your items + XP are stored in a Grave at the death spot. Recover them by right-clicking it.</p></div>
+        <div class="card"><span class="tag">progression</span><h4>Knowledge of Death</h4><p>A soul/XP-like resource you gain over time and by surviving; the currency of every perk and rite.</p></div>
+        <div class="card"><span class="tag">magic</span><h4>Enchantments &amp; Magic</h4><p>Soulbound, Magic Siphon, Shadow Step and more, plus poppets, scrolls, and the Ankh of Pray.</p></div>
+        <div class="card"><span class="tag">ally</span><h4>Familiars</h4><p>Capture a pet into a Familiar Receptacle so it follows you, aids in fights, and can revive you.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Why it matters in this pack</span>
+        <p>This pack is full of things that can flatten you — see the <a href="mobs-guide.html">Mobs &amp; Survival guide</a> for the <strong>Cataclysm</strong>, <strong>Twilight Forest</strong>, and <strong>Mutant</strong> bosses. Tombstone is your <strong>essential insurance</strong> against them: even a wipe to a boss leaves your loadout sitting safely in a Grave instead of scattered on the floor or despawned in lava. Learn the Grave first, then grow the soul magic that makes the next attempt survivable.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Trust the Grave.</strong> Die once on purpose somewhere safe and watch the Grave form. Recover it. Now you know your gear is backed up.</li>
+        <li><strong>Bank Knowledge.</strong> You accrue <strong>Knowledge of Death</strong> just by surviving and adventuring; it's the fuel for everything below.</li>
+        <li><strong>Get Soulbound early.</strong> Put the <strong>Soulbound</strong> enchant on your best gear so it stays on you <em>through</em> death — no grave-run needed for those items.</li>
+        <li><strong>Build a kit.</strong> A <strong>Scroll of teleport-to-grave</strong>, a <strong>Voodoo Poppet</strong>, and a <strong>Familiar</strong> turn dying into a non-event.</li>
+        <li><strong>Raise a shrine.</strong> An <strong>Altar of the Pure Souls</strong> and the rites let you spend Knowledge on lasting buffs before expeditions.</li>
+      </ol>
+      <p>Numbers and exact effects below are <strong>approximate</strong> — Tombstone is highly configurable and its enchant values can shift between versions. When in doubt, the in-game <em>Book of Knowledge</em> and the official wiki are ground truth.</p>
+    </section>
+
+    <!-- ============================================ 01 THE GRAVE -->
+    <section class="doc" id="grave">
+      <p class="sec-index">01 — The safety net</p>
+      <h2>The Grave</h2>
+      <p>When you die, Tombstone intercepts the drop. Instead of scattering items on the ground (where they burn, despawn, or get stolen), it places a <strong>decorative Grave block</strong> at your death position and stuffs your <strong>entire inventory and all your experience</strong> inside it. The Grave is yours; it sits there patiently until you return.</p>
+
+      <h3>What goes in, and where it lands</h3>
+      <ul>
+        <li><strong>Everything you carried</strong> — main inventory, hotbar, armour, off-hand, and your <strong>XP</strong> — is stored in the Grave.</li>
+        <li><strong>Relocation if obstructed.</strong> If you die in lava, in the void, mid-air, inside a wall, or anywhere a grave can't be placed, the mod <strong>relocates the Grave</strong> to the nearest safe spot (and, in some configs, can pull you and your loot out of harm's way).</li>
+        <li><strong>The grave is marked.</strong> A subtle beam or particle effect and a death message help you find it; the death point is also logged so you can navigate back.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Finding your way back</span>
+        <p>Tombstone gives you <strong>location aids</strong> so the grave-run isn't a guessing game: the death message records coordinates, a Grave can show a guiding beam, and items like the <strong>Scroll of Knowledge / Grave Scroll</strong> or a death-compass style item point you home. The cleanest option is a <strong>Scroll of teleport-to-grave</strong> (see §04) that simply warps you to the spot.</p>
+      </div>
+
+      <h3>Recovering it</h3>
+      <p><strong>Right-click the Grave</strong> to recover its contents — your items and XP flow straight back into you (and ideally back into the right slots). Depending on pack configuration, opening a grave may require a <strong>Grave Key</strong>, which ties access to ownership and prevents others from looting your stuff.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Grave behaviour &amp; the settings that govern it</caption>
+          <thead><tr><th>Behaviour</th><th>What it does</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Item &amp; XP storage</td><td>Holds your full loadout and experience on death</td><td>The core feature; on by default</td></tr>
+            <tr><td>Grave protection</td><td>Only the owner can open / break the grave</td><td>Anti-grief; configurable, can require a Grave Key</td></tr>
+            <tr><td>Grave decay</td><td>Optional timer after which a grave may expire</td><td>Often disabled in pack configs — check yours before you dawdle</td></tr>
+            <tr><td>Relocation</td><td>Moves the grave to a safe block if the death spot is unsafe</td><td>Saves you from lava / void deaths</td></tr>
+            <tr><td>Location aids</td><td>Death message, beam, scrolls / compass-style pointers</td><td>How you navigate back to the grave</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Don't assume it's forever</span>
+        <p>Whether graves <strong>decay</strong> over time is a config option, and some packs enable it. If your pack has decay on, a grave left too long can vanish along with its contents. When you die deep in a dangerous biome, treat recovery as urgent — or carry a teleport-to-grave scroll so distance is never the problem.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 KNOWLEDGE OF DEATH -->
+    <section class="doc" id="knowledge">
+      <p class="sec-index">02 — The currency of souls</p>
+      <h2>Knowledge of Death</h2>
+      <p class="lead"><strong>Knowledge of Death</strong> is Tombstone's second XP track — a soul-flavoured progression resource separate from vanilla levels. You earn it slowly just by <em>surviving and adventuring</em>, and you spend it on perks, on applying the mod's special enchantments, and on powering its soul magic.</p>
+
+      <h3>How you earn it</h3>
+      <ul>
+        <li><strong>Over time &amp; by surviving</strong> — staying alive and playing the game accrues Knowledge in the background.</li>
+        <li><strong>Through actions the mod rewards</strong> — exploring, certain kills, praying at altars, and reaching milestones can grant Knowledge.</li>
+        <li>Your total is tracked on a Knowledge bar/screen (often surfaced via the in-game book and a dedicated key/UI).</li>
+      </ul>
+
+      <h3>How you spend it</h3>
+      <p>Knowledge is the gate on everything advanced in the mod. You burn it to:</p>
+      <ul>
+        <li><strong>Unlock and rank up perks</strong> — passive bonuses to survival, magic, and recovery.</li>
+        <li><strong>Apply Tombstone enchantments</strong> via the Enchanter / soul magic (§03).</li>
+        <li><strong>Power rites and prayers</strong> at the altar (§05) for temporary buffs.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Knowledge is patient money</span>
+        <p>Because it accrues passively, the longer you play the more options open up — you don't have to grind it directly. Spend early Knowledge on the perks and the <strong>Soulbound</strong> enchant that protect your gear, and let the rest bank for rites you'll want before a boss fight.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 TOMBSTONE ENCHANTMENTS -->
+    <section class="doc" id="enchants">
+      <p class="sec-index">03 — Soul-bound steel</p>
+      <h2>Tombstone Enchantments</h2>
+      <p>Tombstone adds its own family of <strong>special enchantments</strong> themed around death, souls, and recovery. They aren't rolled on a vanilla enchanting table — they're applied through the mod's <strong>Enchanter's altar</strong> / enchantment books, paid for with Knowledge. The exact magnitudes below are <strong>approximate</strong> and configurable.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Signature Tombstone enchantments (effects approximate)</caption>
+          <thead><tr><th>Enchantment</th><th>Effect</th><th>Goes on</th></tr></thead>
+          <tbody>
+            <tr><td>Soulbound</td><td>The item stays with you <strong>through death</strong> instead of going to the grave — keep your best gear no matter what</td><td>Tools, weapons, armour</td></tr>
+            <tr><td>Magic Siphon</td><td>Drains magical / experience essence from kills back to you — feeds your Knowledge / XP economy</td><td>Weapons</td></tr>
+            <tr><td>Shadow Step</td><td>Short blink / teleport-style mobility to reposition or escape</td><td>Armour / gear</td></tr>
+            <tr><td>Plague Bringer</td><td>Inflicts damaging / debilitating effects on the things you hit</td><td>Weapons</td></tr>
+            <tr><td>Other soul enchants</td><td>Recovery, soul-harvest, and survival utilities in the same family</td><td>Varies</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Lead with Soulbound</span>
+        <p>Of the whole set, <strong>Soulbound is the one to prioritise</strong>. Put it on your favourite weapon and your armour as soon as you can afford the Knowledge: those pieces now survive death automatically, so even a failed grave-run can't cost you your core kit. Everything else is gravy.</p>
+      </div>
+
+      <p>Applying these usually means crafting the enchantment via the soul-magic workflow (an Enchanter's altar or enchanted books) and spending Knowledge. Treat the values as guidance — check the in-game book for the exact tiers and costs in your version.</p>
+    </section>
+
+    <!-- ============================================ 04 SOUL MAGIC & RECEPTACLES -->
+    <section class="doc" id="soulmagic">
+      <p class="sec-index">04 — Receptacles &amp; relics</p>
+      <h2>Soul Magic &amp; Receptacles</h2>
+      <p>Beyond the grave itself, Tombstone is a small magic mod. It adds soul-charged blocks, decorative graves, capture vessels, and a kit of carryable magic items — most of them powered by Knowledge or soul essence.</p>
+
+      <h3>Soul blocks &amp; receptacles</h3>
+      <div class="data-table">
+        <table>
+          <caption>Blocks &amp; vessels</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Grave Plate</td><td>A soul-magic plate used in altar / shrine builds and to channel soul effects.</td></tr>
+            <tr><td>Cenotaph</td><td>A memorial / soul block for the shrine — part of the decorative &amp; ritual furniture.</td></tr>
+            <tr><td>Decorative graves</td><td>Cosmetic grave variants (urns, tombs, headstones) for building soul shrines and graveyards.</td></tr>
+            <tr><td>Familiar Receptacle</td><td>Captures a tamed pet / creature into a <strong>Familiar</strong> that follows you and aids you in combat.</td></tr>
+            <tr><td>Impregnated Diamond</td><td>A soul-infused crafting material that gates the higher-tier magic items.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The Familiar is more than a pet</span>
+        <p>A <strong>Familiar Receptacle</strong> binds a companion to you that fights alongside you and — crucially — can help <strong>revive you or soften death</strong> in a pinch. Capture a sturdy mob early; it's one of the best returns on soul magic for the bosses in this pack.</p>
+      </div>
+
+      <h3>Carryable magic items</h3>
+      <div class="data-table">
+        <table>
+          <caption>Relics worth keeping in your hotbar</caption>
+          <thead><tr><th>Item</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Voodoo Poppet</td><td>A protective charm — soaks up or redirects a lethal hit / harmful effect so you don't die.</td></tr>
+            <tr><td>Scroll of teleport-to-grave</td><td>Warps you straight to your last grave — the cleanest possible recovery, no walking.</td></tr>
+            <tr><td>Ankh of Pray</td><td>A prayer relic that lets you invoke the altar's blessings / praying effects on the move.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Carry the scroll, always</span>
+        <p>The single highest-value habit in Tombstone is keeping a <strong>Scroll of teleport-to-grave</strong> on you (and a spare in storage). It turns "I died three biomes away in a cave" into a one-click return — and if you've also got Soulbound on your gear, the scroll itself often survives the death that sent you packing.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 ALTARS & RITES -->
+    <section class="doc" id="altars">
+      <p class="sec-index">05 — The shrine</p>
+      <h2>Altars &amp; Rites</h2>
+      <p>The heart of Tombstone's active magic is the <strong>Altar of the Pure Souls</strong>. Build it, pray at it, and spend Knowledge to perform <strong>rites</strong> — rituals that grant temporary buffs, utility effects, or world interactions. Exact rite names and effects are <strong>approximate</strong> and version-dependent.</p>
+
+      <h3>Praying for buffs</h3>
+      <p>At the altar you can <strong>pray</strong> to receive blessings — temporary boons that help before a dangerous outing. Prayers and rites draw on your Knowledge and the altar's soul charge, and the <strong>Ankh of Pray</strong> (§04) lets you carry that praying capability into the field.</p>
+
+      <h3>Rites (representative)</h3>
+      <div class="data-table">
+        <table>
+          <caption>The kinds of rites you'll perform (effects approximate)</caption>
+          <thead><tr><th>Rite type</th><th>What it broadly does</th></tr></thead>
+          <tbody>
+            <tr><td>Protection / blessing rites</td><td>Temporary survival buffs and damage mitigation before an expedition.</td></tr>
+            <tr><td>Recovery rites</td><td>Restore, retrieve, or safeguard items / souls and ease the cost of dying.</td></tr>
+            <tr><td>Utility rites</td><td>World and movement helpers — light, transport, environmental effects.</td></tr>
+            <tr><td>Soul / familiar rites</td><td>Bind, empower, or interact with familiars and soul magic.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Building a soul shrine</h3>
+      <p>A proper shrine combines the altar with the soul furniture — <strong>Grave Plates</strong>, a <strong>Cenotaph</strong>, and <strong>decorative graves</strong> — into a dedicated room you return to before each big run. Keep it near your base, charged and stocked, so praying and rite-casting is a quick pre-expedition ritual rather than a detour.</p>
+
+      <div class="note tip">
+        <span class="label">Pray before you push</span>
+        <p>Make a habit of swinging by the altar before diving into a boss arena. A protection blessing plus a topped-up Knowledge bar costs you a minute and can be the difference between a clean kill and a grave-run.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 MULTIPLAYER & SAFETY -->
+    <section class="doc" id="multiplayer">
+      <p class="sec-index">06 — On a server</p>
+      <h2>Multiplayer &amp; Safety</h2>
+      <p>Tombstone is built with servers in mind. Its grave protection makes shared worlds far less punishing — your death drops aren't free loot for whoever wanders by.</p>
+
+      <h3>Grave access &amp; anti-grief</h3>
+      <ul>
+        <li><strong>Owner-only access.</strong> By default a Grave can only be opened or broken by its owner, so other players can't loot your death pile.</li>
+        <li><strong>Grave Keys</strong> tie access to a token you hold, reinforcing ownership and giving admins a clean permission model.</li>
+        <li><strong>Anti-grief friendly.</strong> Because items go into a protected block instead of scattering, grave-camping and drop-stealing largely stop being a thing.</li>
+      </ul>
+
+      <div class="data-table">
+        <table>
+          <caption>Multiplayer-relevant controls</caption>
+          <thead><tr><th>Setting</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Grave protection</td><td>Restricts open/break to the owner (and optionally trusted players / admins).</td></tr>
+            <tr><td>Grave Key requirement</td><td>Requires a key item to access, hardening ownership.</td></tr>
+            <tr><td>Keep-inventory interplay</td><td>If the server runs keepInventory, Tombstone's grave can be redundant — configure which one wins.</td></tr>
+            <tr><td>Decay timers</td><td>Whether graves expire; set carefully on servers so absent players don't lose gear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Watch the keep-inventory overlap</span>
+        <p>If your world has vanilla <strong>keepInventory</strong> turned on, you won't drop anything to a grave at all — the two systems overlap. On most Tombstone packs keepInventory is <em>off</em> precisely so the grave system can do its job (recovery with a small cost), which is the intended experience. Check your pack's config before assuming one or the other.</p>
+      </div>
+
+      <h3>Making expeditions safe</h3>
+      <p>For group runs into dangerous dimensions, the combination of <strong>owner-locked graves</strong>, <strong>Soulbound gear</strong>, and a shared base shrine means a party wipe is recoverable: each player's loadout waits in their own protected grave, and Soulbound pieces never even leave their hands. Coordinate teleport-to-grave scrolls so everyone can regroup fast.</p>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Habits that pay off</p>
+      <h2>Tips</h2>
+      <p class="lead">Tombstone rewards a few simple routines. Build these into how you play and dying stops being scary.</p>
+
+      <div class="pills">
+        <ul class="pills">
+          <li><b>Soulbound</b> your best gear early</li>
+          <li>Always carry a <b>teleport-to-grave scroll</b></li>
+          <li>Keep a <b>Voodoo Poppet</b> equipped</li>
+          <li>Bind a <b>Familiar</b> for fights</li>
+          <li><b>Pray</b> before boss runs</li>
+        </ul>
+      </div>
+
+      <h3>The checklist</h3>
+      <ol class="flow">
+        <li><strong>Get Soulbound on your kit.</strong> Weapon and armour first — those pieces now survive death automatically, so a lost grave can't strip you.</li>
+        <li><strong>Keep a Scroll of teleport-to-grave on you.</strong> Recovery becomes one click from anywhere; carry a spare in storage.</li>
+        <li><strong>Use a Familiar.</strong> Capture a tough companion in a Familiar Receptacle — it fights with you and can soften or reverse a death.</li>
+        <li><strong>Bank Knowledge and pray.</strong> Visit the altar before expeditions for a protection blessing and to spend Knowledge on the perks that matter.</li>
+        <li><strong>Treat graves as a net, not a plan.</strong> They're insurance against the pack's bosses — not an excuse to skip armour and consumables.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Tombstone vs. the pack's bosses</span>
+        <p>This is your safety net against the heavy hitters in the <a href="mobs-guide.html">Mobs &amp; Survival guide</a> — the <strong>Cataclysm</strong> bosses (Ignis, the Netherite Monstrosity, the Ender Guardian), the <strong>Twilight Forest</strong> progression bosses, and the <strong>Mutant</strong> mobs. Go in with Soulbound gear, a teleport scroll, a Familiar at your side, and a fresh altar blessing, and a wipe becomes a quick regroup instead of a run-ending disaster.</p>
+      </div>
+
+      <div class="note danger">
+        <span class="label">The one failure mode</span>
+        <p>The only way Tombstone really lets you down is <strong>grave decay</strong> plus a long absence: if your pack enables decay and you forget where you died, you can lose everything that wasn't Soulbound. Mitigate it with Soulbound on essentials and a teleport-to-grave scroll so distance and time are never the problem.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dff0ec;text-transform:uppercase;letter-spacing:0.03em">The Grave Ledger</strong><br>
+      An unofficial, fan-made field manual for Corail Tombstone on Minecraft 1.19.2 (Forge).<br>
+      Corail Tombstone is by Corail_31. This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Corail Tombstone (1.19.2)<br>
+      · the in-game Book of Knowledge<br>
+      · the official Tombstone wiki
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Effects and numbers are approximate and configurable per pack. When this guide and your install disagree, the in-game book and the official wiki are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

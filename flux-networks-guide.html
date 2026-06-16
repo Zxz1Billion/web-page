@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Wireless Grid — a Flux Networks field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Flux Networks (Minecraft 1.19.2 Forge) guide: wireless FE power transmission with the Flux Controller, Flux Plug, Flux Point, and Flux Storage. Covers building a network, transfer limits & priority, wireless charging, chunk-loading, storage tiers, and multiplayer security." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#120a09; --bg-1:#170c0a; --bg-2:#21110e; --bg-3:#2c1813;
+  --line:#3a221b; --ink:#f0e3da; --ink-dim:#c0a294; --ink-faint:#876857;
+  --accent:#ff5a4c;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📡</span>
+      <span class="wordmark">The Wireless<br>Grid<small>FLUX NETWORKS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Grid</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#blocks"><span class="ix">01</span> Core Blocks</a>
+      <a href="#network"><span class="ix">02</span> Creating a Network</a>
+      <a href="#limits"><span class="ix">03</span> Plugs, Points &amp; Limits</a>
+      <p class="group-label">Living With It</p>
+      <a href="#charging"><span class="ix">04</span> Wireless Charging</a>
+      <a href="#storage"><span class="ix">05</span> Storage Tiers</a>
+      <a href="#security"><span class="ix">06</span> Multiplayer &amp; Security</a>
+      <p class="group-label">In Practice</p>
+      <a href="#patterns"><span class="ix">07</span> Patterns &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Flux Networks<br>for MC 1.19.2 (Forge) by<br>sonar_sonic. Numbers are<br>approximate &amp; configurable —<br>trust JEI and in-game tooltips.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · sonar_sonic</p>
+      <h1>The Wireless<br>Grid</h1>
+      <p class="lede">A working field guide for <strong>Flux Networks</strong> — the mod that lets you delete the spaghetti of power cables and move <strong>Forge Energy</strong> wirelessly between where you make it and where you spend it, even across dimensions. Build one named, colour-coded network per base: <em>Plugs</em> drink power from your generators, <em>Points</em> pour it into your machines, a <em>Controller</em> ties it together, and <em>Storage</em> banks the surplus.</p>
+      <div class="badges">
+        <span class="badge accent">Wireless FE</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">Cross-dimensional</span>
+        <span class="badge">Per-player networks</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Flux Networks solves one problem and solves it cleanly: <strong>getting power from A to B without wires</strong>. Instead of running cable from a reactor to every machine, you place a <em>Flux Plug</em> on the energy source and a <em>Flux Point</em> on the consumer, tune both to the same network, and the energy teleports across — anywhere in the world, in any dimension, no cable between them.</p>
+
+      <p>A <strong>Flux Network</strong> is an invisible, named, colour-coded power grid that exists per player. Every connected device is either an <strong>input</strong> (it adds energy to the network) or an <strong>output</strong> (it draws energy from the network). The network balances supply against demand each tick. There are no channels, no cable routing, and no line-of-sight requirement — only the network you tuned the block to.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">input</span><h4>Flux Plug</h4><p>Sits on a generator or battery and <strong>pulls FE into</strong> the network as surplus to share.</p></div>
+        <div class="card"><span class="tag">output</span><h4>Flux Point</h4><p>Sits on a machine or charger and <strong>pushes FE out</strong> of the network into it.</p></div>
+        <div class="card"><span class="tag">core</span><h4>Flux Controller</h4><p>One per network. Raises network capacity and unlocks <strong>wireless charging</strong>.</p></div>
+        <div class="card"><span class="tag">buffer</span><h4>Flux Storage</h4><p>A wireless battery block (three tiers) that acts as the network's central bank.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The one idea to keep</span>
+        <p>A Flux Network has no physical extent. A Plug in the Nether and a Point in the Overworld on the same network are connected as if they were touching. Energy enters through Plugs, leaves through Points, and the network is just bookkeeping in between — so think in terms of <strong>inputs vs outputs</strong>, not pipes.</p>
+      </div>
+
+      <p>Because it speaks plain <strong>Forge Energy (FE/RF)</strong>, Flux Networks slots in beside whatever else your pack runs. Pair it with the pack's power hub — Mekanism, IC2, Create, or Thermal — and let those mods make the energy while Flux Networks handles the delivery. See the <strong>Automation &amp; Power</strong> hub for how it fits the wider grid.</p>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Make the tools.</strong> Craft a <strong>Flux Configurator</strong> (your in-hand network remote) and the <strong>Flux Block</strong> base used in most recipes.</li>
+        <li><strong>Create a network.</strong> Open the Configurator, make a new network, give it a <strong>name</strong> and <strong>colour</strong>, and set its <strong>security</strong>.</li>
+        <li><strong>Place a Plug.</strong> Put a Flux Plug against your generator/battery and connect it to the network — power now flows <em>in</em>.</li>
+        <li><strong>Place a Point.</strong> Put a Flux Point against a machine and connect it — power now flows <em>out</em>.</li>
+        <li><strong>Add a Controller.</strong> One Controller raises capacity and turns on wireless inventory charging within range.</li>
+        <li><strong>Bank the surplus.</strong> Drop in a <strong>Flux Storage</strong> block as the network's battery so spikes and lulls even out.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 CORE BLOCKS -->
+    <section class="doc" id="blocks">
+      <p class="sec-index">01 — The hardware</p>
+      <h2>Core Blocks</h2>
+      <p>Flux Networks is a small, focused mod — a handful of blocks and one tool do everything. Learn what each one is <em>for</em> (input, output, control, or storage) and the rest is configuration.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Flux Networks block roster</caption>
+          <thead><tr><th>Block</th><th>Direction</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Flux Plug</td><td>Input</td><td>Pulls FE out of a touching generator, battery, or energy block and feeds it <strong>into</strong> the network as surplus.</td></tr>
+            <tr><td>Flux Point</td><td>Output</td><td>Draws FE <strong>from</strong> the network and pushes it into a touching machine, charger, or storage block.</td></tr>
+            <tr><td>Flux Controller</td><td>Core</td><td>One per network. Raises network <strong>capacity</strong>, enables <strong>wireless inventory charging</strong>, and is the network's heart.</td></tr>
+            <tr><td>Flux Storage (Basic)</td><td>Buffer</td><td>A wireless battery block — buffers network energy and can act as both an input and an output point.</td></tr>
+            <tr><td>Flux Storage (Herculean)</td><td>Buffer</td><td>The mid tier — much larger internal capacity for a central bank.</td></tr>
+            <tr><td>Flux Storage (Gargantuan)</td><td>Buffer</td><td>The top tier — enormous capacity for soaking reactor-scale output.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Flux Plug — your inputs</h3>
+      <p>A <strong>Flux Plug</strong> is placed against an energy <em>source</em>: a generator, an energy cube, an Induction Matrix port, a Create-style adapter, anything that outputs FE. It continuously pulls that energy into the network, making it available to every Point. One Plug per source face; you can plug many sources into the same network and they all pool together.</p>
+
+      <h3>The Flux Point — your outputs</h3>
+      <p>A <strong>Flux Point</strong> is placed against an energy <em>consumer</em>: a machine, a charger, a furnace upgrade, a storage block. It pulls energy down out of the network and pushes it into whatever it touches, up to that connection's transfer limit. Most of your placements will be Points — one per machine cluster you want fed.</p>
+
+      <h3>The Flux Controller — the heart</h3>
+      <p>The <strong>Flux Controller</strong> is optional but transformative. A network runs fine with just Plugs and Points, but a Controller does two big things: it <strong>raises the network's total energy capacity</strong> (a network without one holds comparatively little buffer), and it switches on <strong>wireless charging</strong> so items in your inventory top up while you're within range. You may have <strong>only one Controller per network</strong>.</p>
+
+      <h3>The Flux Storage blocks — wireless batteries</h3>
+      <p>The three <strong>Flux Storage</strong> tiers — <strong>Basic → Herculean → Gargantuan</strong> — are battery blocks that live on the network. Unlike a normal energy cell, a Flux Storage block doesn't need a cable: connect it to the network and its stored charge <em>is</em> network charge. Use one as the central bank that smooths the gap between when you generate and when you spend.</p>
+
+      <div class="note">
+        <span class="label">The Flux Configurator</span>
+        <p>The <strong>Flux Configurator</strong> is the handheld tool that ties it all together. Right-click it (or open its GUI) to <strong>create, name, colour, and join networks</strong>, browse all connected devices, read live throughput, and edit per-connection settings. Sneak-right-click a Flux block to bind or read it. It is effectively a wireless network remote — keep it on your hotbar while you build.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 CREATING A NETWORK -->
+    <section class="doc" id="network">
+      <p class="sec-index">02 — First setup</p>
+      <h2>Creating a Network</h2>
+      <p>A network is created once and then everything tunes to it. The whole flow happens in the <strong>Flux Configurator</strong> (or the GUI of any Flux block), so make one before you place anything.</p>
+
+      <h3>Make and name it</h3>
+      <ol class="flow">
+        <li><strong>Open the Configurator.</strong> The network list shows every network you own or can access.</li>
+        <li><strong>Create a network.</strong> Give it a clear <strong>name</strong> (e.g. "Main Base") so you don't confuse it later.</li>
+        <li><strong>Pick a colour.</strong> The colour is purely cosmetic but it labels the network everywhere — pick a distinct one per network.</li>
+        <li><strong>Set security.</strong> Choose <strong>Public</strong>, <strong>Private</strong>, or <strong>Encrypted</strong> (see below) before others can stumble onto it.</li>
+        <li><strong>Connect devices.</strong> With a Flux block placed, open it and select the network from the list to bind it.</li>
+      </ol>
+
+      <h3>Security modes</h3>
+      <div class="data-table">
+        <table>
+          <caption>Who can connect to and use the network</caption>
+          <thead><tr><th>Mode</th><th>Who can join</th><th>Use it for</th></tr></thead>
+          <tbody>
+            <tr><td>Public</td><td>Anyone — any player can connect their Flux blocks.</td><td>Shared community grids; co-op bases where everyone contributes.</td></tr>
+            <tr><td>Private</td><td>Only the owner and players on the access list.</td><td>The default for a personal base — keeps strangers out.</td></tr>
+            <tr><td>Encrypted</td><td>Owner / authorised players, with an extra layer guarding the network from access without authorisation.</td><td>Servers where you want the strongest protection against snooping or cross-feeding.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>On <strong>Private</strong> and <strong>Encrypted</strong> networks you manage an <strong>access list</strong>: add specific players and grant them a permission level (use, edit, or full). That lets a teammate connect their own machines to your grid without being able to delete it.</p>
+
+      <div class="note tip">
+        <span class="label">Connecting a device</span>
+        <p>Every Flux block — Plug, Point, Controller, Storage — has the same network selector in its GUI. Place the block, open it, choose the network, and it joins instantly. To move a device to a different network, just reopen it and pick another. The Configurator can also <strong>bind blocks in bulk</strong> as you place them.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 PLUGS, POINTS & LIMITS -->
+    <section class="doc" id="limits">
+      <p class="sec-index">03 — Flow control</p>
+      <h2>Plugs, Points &amp; Limits</h2>
+      <p class="lead">Once power is flowing, the interesting controls are <strong>transfer limit</strong> and <strong>priority</strong> — they're how you stop one greedy machine from starving everything else, and how you decide what gets fed first when supply is tight.</p>
+
+      <h3>Per-connection transfer limit</h3>
+      <p>Every Plug and Point has its own <strong>transfer limit</strong> in FE/t — the maximum it will move per tick. Set a Point's limit to cap how fast a machine drains the grid; set a Plug's limit to throttle how aggressively it drains a source (handy when the source dislikes sudden full-rate pulls). Leave it high for trunk connections, low for anything you want to keep gentle.</p>
+
+      <h3>Priority</h3>
+      <p>Each connection also has a <strong>priority</strong>. When the network can't satisfy everything at once:</p>
+      <ul>
+        <li><strong>Higher-priority Plugs</strong> are drawn from first — so your cheap/free generators feed in before you start burning fuel.</li>
+        <li><strong>Higher-priority Points</strong> are fed first — so critical machines (a reactor's own coolant pumps, a chunk-loader) get power before luxuries.</li>
+      </ul>
+      <p>This turns the network into a simple load-balancer: set priorities once and the grid sorts itself out as conditions change.</p>
+
+      <h3>How balancing works</h3>
+      <p>Plugs <strong>pool</strong> their available energy into the network each tick; Points then <strong>distribute</strong> that pool to consumers, in priority order, each capped by its own transfer limit. If demand exceeds supply, low-priority Points get less (or nothing) that tick. If supply exceeds demand, the surplus flows into any <strong>Flux Storage</strong> on the network. It's all per-tick, so the network responds immediately as machines turn on and off.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What each knob controls</caption>
+          <thead><tr><th>Setting</th><th>On a Plug</th><th>On a Point</th></tr></thead>
+          <tbody>
+            <tr><td>Transfer limit (FE/t)</td><td>Max drawn from the source per tick.</td><td>Max pushed to the machine per tick.</td></tr>
+            <tr><td>Priority</td><td>Higher = drawn from sooner (feeds in first).</td><td>Higher = fed sooner (served first under shortage).</td></tr>
+            <tr><td>Custom name</td><td>Label it so the device list is readable.</td><td>Label it so the device list is readable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Network total capacity</h3>
+      <p>The network's overall <strong>energy capacity</strong> (how much it can hold as buffer) and its <strong>total throughput</strong> grow with what you connect. A bare Plug-and-Point network holds little; adding a <strong>Flux Controller</strong> sharply raises the capacity, and adding <strong>Flux Storage</strong> blocks raises it further. If a network feels like it "runs dry" between bursts, it usually wants more buffer — a Controller, a Storage block, or both.</p>
+
+      <div class="note warn">
+        <span class="label">Limit, don't overcommit</span>
+        <p>If you connect ten machines and one of them can swallow the network whole, the others stall. Set sensible <strong>per-Point transfer limits</strong> so no single consumer can drain the grid, and use <strong>priority</strong> to protect the machines that must never stop. Tuning these two numbers is most of running a Flux Network well.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 WIRELESS CHARGING -->
+    <section class="doc" id="charging">
+      <p class="sec-index">04 — Quality of life</p>
+      <h2>Wireless Charging</h2>
+      <p>The headline convenience, unlocked by the <strong>Flux Controller</strong>. Once a Controller is on the network, the network can <strong>wirelessly charge FE-accepting items in players' inventories</strong> while they're within the Controller's range — armour, tools, jetpacks, a MekaSuit, drills, anything that takes FE tops up automatically as you move around.</p>
+
+      <p>This removes the chargepad shuffle entirely: walk into your base and your gear refills from the same grid that runs your machines. The Controller decides which players to charge based on the network's <strong>security/access</strong> settings, so on a private network only authorised players benefit.</p>
+
+      <h3>Chunk-loading behaviour</h3>
+      <p>Flux Networks keeps the chunks containing its <strong>connected blocks loaded</strong>, so a network spanning generators in one place and machines in another keeps both ends ticking even when no player is nearby. That makes Flux blocks a convenient chunk-loader as a side effect — but it's also a responsibility: every Plug, Point, and Storage you place is a chunk you're keeping awake.</p>
+
+      <div class="note warn">
+        <span class="label">Loaded chunks cost performance</span>
+        <p>Chunk-loading is great for remote reactors and far-flung mining outposts, but on a busy server it adds up. Keep your Flux block count reasonable, consolidate where you can, and remember that tearing out a network also <strong>releases</strong> the chunks it was holding. Some packs gate or configure this behaviour — check your server's rules.</p>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Range is finite</span>
+        <p>Wireless charging works <strong>within range of the Controller</strong>, not infinitely. Place the Controller central to where you and your gear spend time — the main base, the crafting room — so you're topped up where it matters. The cross-dimensional magic is for <em>power transfer between blocks</em>; charging <em>you</em> is range-limited.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 STORAGE TIERS -->
+    <section class="doc" id="storage">
+      <p class="sec-index">05 — Banking power</p>
+      <h2>Storage Tiers</h2>
+      <p>A <strong>Flux Storage</strong> block is a wireless battery: connect it to the network and its charge becomes network charge. It both <strong>soaks surplus</strong> when generation outpaces demand and <strong>releases it back</strong> when demand spikes — the buffer that keeps the lights on between bursts.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The three storage tiers (capacity rises steeply per tier — read the tooltip for exact FE)</caption>
+          <thead><tr><th>Tier</th><th>Relative capacity</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Flux Storage — Basic</td><td class="num">×1</td><td>A starter buffer; smooths small networks and early generators.</td></tr>
+            <tr><td>Flux Storage — Herculean</td><td class="num">×big</td><td>The workhorse central bank for an established base.</td></tr>
+            <tr><td>Flux Storage — Gargantuan</td><td class="num">×huge</td><td>Reactor-scale soak; holds enough to ride out long lulls.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Using one as the central bank</h3>
+      <p>The clean pattern is a single <strong>Flux Storage</strong> block as the network's battery. Your Plugs fill it (via the network) when generators are ahead; your Points drain it when machines surge ahead. Because it's wireless, you can tuck it anywhere — it doesn't need to sit next to anything. One good Storage block usually beats scattering many small ones.</p>
+
+      <h3>Integrating with your power source</h3>
+      <p>Flux Storage is a <em>buffer</em>, not a <em>generator</em> — it only holds what your sources put in. The right setup is a real power plant feeding the network through Plugs:</p>
+      <ul>
+        <li><strong>Mekanism Induction Matrix</strong> — put a Flux Plug on a Matrix port and the Matrix's huge buffer becomes the network's source; the Flux Storage then handles the last-mile smoothing.</li>
+        <li><strong>Reactors &amp; generators</strong> — plug a Fission/Fusion turbine output, a bank of Gas-Burning Generators, or any FE generator straight in.</li>
+        <li><strong>Other-mod power</strong> — IC2, Create, Thermal, or Powah generators all output FE-compatible energy that a Plug will happily drink.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Storage + Controller = a tidy grid</span>
+        <p>A network with one <strong>Controller</strong> (for capacity + charging) and one <strong>Gargantuan Storage</strong> (for buffer) behind a real generator is about as clean as base power gets: generate anywhere, store wirelessly, spend anywhere, and walk around charged.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 MULTIPLAYER & SECURITY -->
+    <section class="doc" id="security">
+      <p class="sec-index">06 — Sharing safely</p>
+      <h2>Multiplayer &amp; Security</h2>
+      <p>Networks are <strong>per-player</strong>: each network has an owner, and the security mode plus access list decide who else can touch it. On a server this is what stops your power grid from quietly feeding — or being drained by — someone else's base.</p>
+
+      <h3>Sharing access</h3>
+      <p>On a <strong>Private</strong> or <strong>Encrypted</strong> network the owner maintains an <strong>access list</strong>. Add a player and choose how much they can do — connect their own devices and use power, edit settings, or have full control. This lets a team run one shared grid where everyone plugs in their generators and machines, without anyone being able to nuke the network.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Picking a security mode for multiplayer</caption>
+          <thead><tr><th>Situation</th><th>Mode</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Solo base</td><td>Private</td><td>Only you connect; nothing to leak, nothing to grief.</td></tr>
+            <tr><td>Trusted team</td><td>Private + access list</td><td>Teammates plug in their own devices; you keep ownership.</td></tr>
+            <tr><td>Public community grid</td><td>Public</td><td>Anyone may contribute and draw — a shared utility.</td></tr>
+            <tr><td>Hostile / large server</td><td>Encrypted</td><td>The strongest guard against unauthorised access.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Avoiding accidental cross-feeding</h3>
+      <p>The classic mistake is two networks bleeding into each other — usually because a block got bound to the wrong network, or a Public network is collecting power you meant to keep. Avoid it by:</p>
+      <ul>
+        <li><strong>One colour per network.</strong> The Configurator shows each block's network colour, so a wrong binding is visible at a glance.</li>
+        <li><strong>Keeping personal grids Private.</strong> Public networks will accept anyone's Plugs and feed anyone's Points — only use Public on purpose.</li>
+        <li><strong>Naming clearly.</strong> "Main Base" and "Mob Farm" beat two networks both called "Network".</li>
+        <li><strong>Auditing the device list.</strong> The Configurator lists every connected block; if a stranger's Point appears on your grid, you'll see it.</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">Public means public</span>
+        <p>A <strong>Public</strong> network is an open utility: any player can attach a Point and start draining it, or a Plug and start filling it. That's a feature for community grids and a trap for a personal base. If in doubt, leave new networks <strong>Private</strong> and add trusted players to the access list deliberately.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 PATTERNS & TIPS -->
+    <section class="doc" id="patterns">
+      <p class="sec-index">07 — Putting it together</p>
+      <h2>Patterns &amp; Tips</h2>
+      <p>None of the parts are complicated; the wins come from arranging them well. Here's the layout most bases settle into and the habits that keep it healthy.</p>
+
+      <h3>The standard base layout</h3>
+      <ul class="pills">
+        <li><b>1</b> network per base</li>
+        <li><b>Plugs</b> at your generators</li>
+        <li><b>Points</b> at your machines</li>
+        <li><b>1</b> Controller</li>
+        <li><b>1</b> Storage buffer</li>
+      </ul>
+      <ol class="flow">
+        <li><strong>One network per base.</strong> Resist the urge to make many small networks; one well-named grid is far easier to reason about.</li>
+        <li><strong>Plug your generators.</strong> A Flux Plug on each power source (or on your central battery / Induction Matrix) feeds everything in.</li>
+        <li><strong>Point your machines.</strong> A Flux Point per machine cluster pulls power back out — set a transfer limit so none of them can hog the grid.</li>
+        <li><strong>Add a Storage block as the buffer.</strong> One Herculean or Gargantuan Storage soaks surplus and covers spikes; size it to your biggest burst.</li>
+        <li><strong>Drop in a Controller.</strong> Raises capacity and charges your gear as you walk around — place it central to your base.</li>
+        <li><strong>Set limits and priorities.</strong> Cap Points to avoid spikes, prioritise critical machines and cheap generators, and you're done.</li>
+      </ol>
+
+      <h3>Habits that pay off</h3>
+      <ul>
+        <li><strong>Throttle to avoid spikes.</strong> Per-connection transfer limits keep a single machine from yanking the whole buffer flat the instant it turns on.</li>
+        <li><strong>Prioritise free power.</strong> Give solar/wind/passive Plugs higher priority than fuel-burning ones so you spend resources only when you must.</li>
+        <li><strong>Mind your chunk count.</strong> Every Flux block keeps its chunk loaded — useful, but consolidate rather than sprinkling Points everywhere.</li>
+        <li><strong>Label everything.</strong> Custom names on Plugs and Points make the Configurator's device list readable months later.</li>
+        <li><strong>Keep it Private.</strong> Default new networks to Private on servers and add players deliberately.</li>
+      </ul>
+
+      <h3>Pair it with the pack's power</h3>
+      <p>Flux Networks doesn't generate energy — it <em>moves</em> it. Let your tech mod do the generating and let Flux do the delivery:</p>
+      <ul>
+        <li><strong>Mekanism</strong> — Plug an Induction Matrix or a turbine output; let Flux carry it to machines and charge your MekaSuit.</li>
+        <li><strong>IC2 / Create / Thermal / Powah</strong> — any FE-compatible generator feeds a Plug directly; convert at the source if a mod uses its own energy unit.</li>
+        <li><strong>Remote setups</strong> — a reactor in a safe dimension, machines at home: one network bridges them with the Plug keeping the reactor chunk loaded.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">When in doubt, simplify</span>
+        <p>Most "my power keeps running out" problems are too little buffer (add a Controller and a bigger Storage) or no limits (one machine eating everything). Two settings — <strong>transfer limit</strong> and <strong>priority</strong> — solve the vast majority of grid headaches. Build small, watch the live throughput in the Configurator, and scale up.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#ffd9cf;text-transform:uppercase;letter-spacing:0.03em">The Wireless Grid</strong><br>
+      An unofficial, fan-made field guide to Flux Networks on Minecraft 1.19.2 (Forge).<br>
+      Flux Networks is by sonar_sonic &amp; contributors. This guide is not affiliated with the mod team.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Flux Networks for MC 1.19.2 (Forge)<br>
+      · the in-game block tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate and configurable per pack. When your install disagrees, the in-game tooltips and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

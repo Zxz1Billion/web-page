@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clean Pipes — a Pipez field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Pipez (henkelmax) guide for Minecraft 1.19.2 Forge: tiered Item, Fluid, Energy and Gas pipes, per-side configuration, distribution modes, filters, upgrades, the wrench workflow, and cross-mod logistics. Numbers are approximate — trust in-game tooltips and JEI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#070b14; --bg-1:#0b101d; --bg-2:#121829; --bg-3:#1a2238;
+  --line:#26314e; --ink:#e2e9f7; --ink-dim:#94a3c4; --ink-faint:#5f6e90;
+  --accent:#4fb4ff;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🪈</span>
+      <span class="wordmark">Clean<br>Pipes<small>PIPEZ</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Network</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#types"><span class="ix">01</span> Pipe Types</a>
+      <a href="#tiers"><span class="ix">02</span> Tiers</a>
+      <p class="group-label">Configuration</p>
+      <a href="#sides"><span class="ix">03</span> Per-Side Config</a>
+      <a href="#filters"><span class="ix">04</span> Filters &amp; Upgrades</a>
+      <a href="#wrench"><span class="ix">05</span> Wrench &amp; Routing</a>
+      <p class="group-label">In Practice</p>
+      <a href="#crossmod"><span class="ix">06</span> Cross-mod</a>
+      <a href="#tips"><span class="ix">07</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Pipez for<br>MC 1.19.2 (Forge) by henkelmax.<br>Transfer rates &amp; slot counts are<br>approximate &amp; configurable —<br>trust the in-game GUI and JEI.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · henkelmax</p>
+      <h1>Clean<br>Pipes</h1>
+      <p class="lede">A working field manual for <strong>Pipez</strong> — the no-fuss logistics mod that moves <em>Items, Fluids, Energy</em> and <em>Gas</em> through tidy, tiered pipes with clean per-side configuration. No channels, no cabling rituals, no spaghetti: just point a pipe at a chest or machine, set one face to pull, and let it run. This guide runs from your first Basic Item Pipe to high-throughput Ultimate lines feeding a whole room of machines.</p>
+      <div class="badges">
+        <span class="badge">Pipez</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Items · Fluids · Energy · Gas</span>
+        <span class="badge">Low-lag logistics</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Pipez is the modern, low-lag alternative to complicated logistics networks. It moves <strong>Items</strong>, <strong>Fluids</strong>, <strong>Energy (Forge Energy / FE)</strong> and <strong>Gas</strong> (Mekanism chemicals) through simple pipes you can configure face-by-face. There is no network to register, no channel budget, and no controller block — you place a pipe, open a connection with the wrench, and tell that single face what to do.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">items</span><h4>Item Pipe</h4><p>Pull from chests &amp; machine outputs, push into inventories, with filters and distribution modes.</p></div>
+        <div class="card"><span class="tag">fluids</span><h4>Fluid Pipe</h4><p>Move water, lava, oil and any mod fluid in millibuckets between tanks and machines.</p></div>
+        <div class="card"><span class="tag">energy</span><h4>Energy Pipe</h4><p>Carry Forge Energy (FE) between any generators, machines and batteries.</p></div>
+        <div class="card"><span class="tag">gas</span><h4>Gas / Universal Pipe</h4><p>Carry Mekanism gas/chemicals; the Universal pipe can do all four resource types in one block.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The whole idea in one line</span>
+        <p>One pipe family per resource, five tiers per family, and a small <strong>configure GUI</strong> on every connection. Master that GUI — Disconnect / Pull / Push, a distribution mode, a priority, redstone control, and filters — and you have learned the entire mod.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Where this fits in your base</span>
+        <p>Pipez is the glue between hubs. See the <strong>Storage</strong> hub for chests, drawers and digital systems; the <strong>Logistics</strong> hub for routing and sorting concepts; and the <strong>Automation</strong> hub for machine setups. Pipez is what physically carries items, fluids, power and gas between all of them without you needing a full storage network.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Craft a Basic pipe</strong> of the type you need (Item, Fluid, Energy, or Gas) and run a line from a source to a destination.</li>
+        <li><strong>Wrench the source face</strong> to open its configure GUI and set it to <strong>Pull (extract)</strong>.</li>
+        <li><strong>Pick a distribution mode</strong> (Round Robin to balance, Nearest for a single target) so items land where you want.</li>
+        <li><strong>Add a filter</strong> if you only want certain items/fluids to move, and a redstone rule if you want a switch.</li>
+        <li><strong>Upgrade the tier</strong> (Improved → Advanced → Ultimate → Infinity) when one pipe needs to carry more per tick or hold more filter slots.</li>
+        <li><strong>Reach for XNet/AE2 only</strong> when you genuinely need logic or searchable storage — for plain "move this there," Pipez wins on simplicity.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 PIPE TYPES -->
+    <section class="doc" id="types">
+      <p class="sec-index">01 — One pipe per resource</p>
+      <h2>Pipe Types</h2>
+      <p>Pipez gives you a dedicated pipe family for each resource, plus a Universal pipe that handles everything. A pipe only carries its own resource — an Item Pipe will not move fluids — so you run parallel lines (or use Universal) when a machine needs more than one input.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Pipez families</caption>
+          <thead><tr><th>Pipe</th><th>Carries</th><th>Connects to</th></tr></thead>
+          <tbody>
+            <tr><td>Item Pipe</td><td>Items (stacks)</td><td>Chests, barrels, drawers, machine item slots, hoppers — anything with an inventory.</td></tr>
+            <tr><td>Fluid Pipe</td><td>Fluids (mB)</td><td>Tanks, fluid machines, cauldrons, and any block exposing a fluid handler.</td></tr>
+            <tr><td>Energy Pipe</td><td>Forge Energy (FE)</td><td>Generators, machines, energy cubes/batteries — any FE storage or sink.</td></tr>
+            <tr><td>Gas Pipe</td><td>Mekanism gas / chemicals (mB)</td><td>Mekanism chemical tanks, machine gas ports, and other chemical handlers.</td></tr>
+            <tr><td>Universal Pipe</td><td>Items, Fluids, Energy &amp; Gas together</td><td>Everything above — one pipe block that moves all four resource types at once.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Connections form automatically when a pipe touches a compatible block, and each connection face can be set independently (see §03). A pipe with nothing useful on a face simply leaves it inert — no power draw, no lag.</p>
+
+      <div class="note tip">
+        <span class="label">When to use Universal</span>
+        <p>The <strong>Universal Pipe</strong> is handy where space is tight or a machine needs several resources from the same direction (e.g. items in, power in, gas in). For long trunk runs it can be simpler to keep dedicated pipes so each line's filters and modes stay obvious at a glance.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 TIERS -->
+    <section class="doc" id="tiers">
+      <p class="sec-index">02 — Throughput ladder</p>
+      <h2>Tiers</h2>
+      <p>Every pipe family comes in five tiers. Climbing the ladder raises the <strong>transfer rate</strong> per operation and the number of <strong>filter slots</strong> available on a connection. Craft a higher tier directly, or upgrade by replacing the pipe and re-wrenching the face.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Tier ladder — rates are approximate, confirm in the GUI / JEI</caption>
+          <thead><tr><th>Tier</th><th>Relative throughput</th><th>Filter slots</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td class="num">lowest</td><td class="num">few</td></tr>
+            <tr><td>Improved</td><td class="num">↑</td><td class="num">more</td></tr>
+            <tr><td>Advanced</td><td class="num">↑↑</td><td class="num">more</td></tr>
+            <tr><td>Ultimate</td><td class="num">↑↑↑</td><td class="num">many</td></tr>
+            <tr><td>Infinity</td><td class="num">effectively unlimited</td><td class="num">most</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Each tier moves roughly an order more than the one below it — concretely, an Item Pipe carries more items per operation, a Fluid/Gas Pipe more mB per tick, and an Energy Pipe more FE per tick. The exact numbers are configurable per pack, so treat the table as <strong>relative</strong> and read the connection GUI for the real figure.</p>
+
+      <div class="note warn">
+        <span class="label">Numbers are approximate</span>
+        <p>Transfer rates and filter-slot counts here are <em>approximate</em> and pack-configurable. The <strong>Infinity</strong> tier is the top rung — built for "I never want to think about throughput again" setups like Mekanism 5× plants or Create contraptions. When precision matters, the in-game tooltip and JEI are ground truth.</p>
+      </div>
+
+      <p class="pills"></p>
+      <ul class="pills">
+        <li>Higher tier = <b>more per tick</b></li>
+        <li>Higher tier = <b>more filter slots</b></li>
+        <li>Same GUI on <b>every tier</b></li>
+        <li>Upgrade by <b>re-placing</b> the pipe</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 03 PER-SIDE CONFIG -->
+    <section class="doc" id="sides">
+      <p class="sec-index">03 — The connection GUI</p>
+      <h2>Per-Side Configuration</h2>
+      <p class="lead">The heart of Pipez is the small <strong>configure GUI</strong> you open by wrenching a connection. Everything a pipe does is decided per-face: whether the face is disconnected, pulling, or pushing; how it spreads the load; which destination wins ties; and whether redstone gates it.</p>
+
+      <h3>Face state</h3>
+      <div class="data-table">
+        <table>
+          <caption>Three states for every connection</caption>
+          <thead><tr><th>State</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Disconnected</td><td>The pipe ignores this side entirely — no transfer, no connection rendered.</td></tr>
+            <tr><td>Pull (extract)</td><td>The pipe <strong>extracts</strong> from the block on this face and carries it into the network. This is your source face.</td></tr>
+            <tr><td>Push</td><td>The pipe <strong>inserts</strong> into the block on this face. Most destination faces can stay on default insert; set Push explicitly when you want to force output here.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Distribution mode</h3>
+      <p>When a pulled resource could go to several destinations, the distribution mode decides where it lands:</p>
+      <div class="data-table">
+        <table>
+          <caption>How the pipe spreads its load</caption>
+          <thead><tr><th>Mode</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Round Robin</td><td>Cycles through valid destinations evenly — the balancer. Best for feeding many identical machines.</td></tr>
+            <tr><td>Nearest</td><td>Fills the closest valid destination first. Predictable; good for a primary target with overflow behind it.</td></tr>
+            <tr><td>Furthest</td><td>Fills the most distant destination first — the inverse of Nearest.</td></tr>
+            <tr><td>Random</td><td>Picks a valid destination at random; rough load-spreading without strict ordering.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Priority &amp; redstone</h3>
+      <p>Each connection also carries a <strong>priority</strong> value: when modes tie, higher-priority destinations are served first, so you can force a main machine to fill before an overflow chest. And every face has a <strong>redstone control</strong> setting — ignore redstone, run only when powered, or run only when unpowered — letting you gate any extract or insert with a lever, comparator, or logic signal.</p>
+
+      <div class="note tip">
+        <span class="label">Set the source, not the whole pipe</span>
+        <p>You don't configure "the pipe" — you configure each <em>connection</em>. The usual pattern is: leave the long middle of the run untouched, set the <strong>one face touching your source to Pull</strong>, and let destinations accept the default insert. Less to think about, fewer mistakes.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 FILTERS & UPGRADES -->
+    <section class="doc" id="filters">
+      <p class="sec-index">04 — Choosing what moves</p>
+      <h2>Filters &amp; Upgrades</h2>
+      <p>Filters let a connection move only the resources you choose. The number of filter slots scales with the pipe tier (§02), so an Ultimate or Infinity pipe can run a long, specific list where a Basic pipe handles just a couple of entries.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Filtering controls</caption>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Whitelist</td><td>Only the listed items/fluids/gases are allowed to move on this connection.</td></tr>
+            <tr><td>Blacklist</td><td>Everything <em>except</em> the listed entries is allowed.</td></tr>
+            <tr><td>Match by item</td><td>Filter on the exact item/fluid/gas.</td></tr>
+            <tr><td>Match by tag</td><td>Filter by a tag (e.g. all ingots, all logs) so families move together.</td></tr>
+            <tr><td>Match by NBT</td><td>Distinguish items by their NBT data (enchanted vs. plain, charge level, etc.).</td></tr>
+            <tr><td>Fuzzy</td><td>Loosen matching so close variants count as the same entry — handy for damaged/enchanted items.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Filters need redstone (the upgrade)</span>
+        <p>In Pipez, the precise filter list is provided by a <strong>filter that costs redstone</strong> to make — the per-connection filter is the "upgrade" you slot to gain item/tag/NBT control beyond the simple defaults. Build a small stock of redstone before you plan a heavily-filtered network, and remember filters apply <strong>per connection</strong>, so each face can sort differently.</p>
+      </div>
+
+      <h3>Per-channel filtering</h3>
+      <p>Because filtering lives on the connection rather than on a global network, a single trunk line can sort many ways at once: one destination face whitelists ingots, another whitelists dusts, a third takes the blacklisted remainder. There is no shared channel to clash — each face is its own little router.</p>
+
+      <div class="note tip">
+        <span class="label">Tag &amp; fuzzy save slots</span>
+        <p>Prefer <strong>tag matching</strong> over listing items one by one — "all ingots" is one entry instead of a dozen. Turn on <strong>fuzzy</strong> when NBT differences (durability, enchantments) would otherwise split one logical item into many filter entries.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 WRENCH & ROUTING -->
+    <section class="doc" id="wrench">
+      <p class="sec-index">05 — Building lines</p>
+      <h2>Wrench &amp; Routing</h2>
+      <p>The wrench is how you talk to Pipez. Use it to open a connection's configure GUI, to set which side extracts, and to toggle or rotate connections. A clean base is mostly the discipline of setting <strong>one extract side per source</strong> and letting a single line feed everything downstream.</p>
+
+      <h3>The wrench workflow</h3>
+      <ol class="flow">
+        <li><strong>Run the line.</strong> Place pipes from your source to your destination(s). Connections to inventories form automatically.</li>
+        <li><strong>Open the source face.</strong> Wrench the connection touching your chest or machine output to bring up the configure GUI.</li>
+        <li><strong>Set it to Pull.</strong> Mark that single face as the extract side. This is the only "active" decision most lines need.</li>
+        <li><strong>Tune distribution.</strong> Choose Round Robin to balance across machines, or Nearest to favour a primary target.</li>
+        <li><strong>Filter &amp; gate if needed.</strong> Add a filter on the destination faces and a redstone rule where you want a switch.</li>
+      </ol>
+
+      <h3>Chaining machines on one line</h3>
+      <p>A single Pipez line can feed many machines in series. Run the pipe past each machine, let each tap accept the default insert (with its own filter if the machines want different inputs), and use Round Robin from the source so the line spreads work evenly. Because each connection filters independently, the <em>same</em> trunk can deliver ore to one machine and fuel to another without crossing streams.</p>
+
+      <div class="note tip">
+        <span class="label">One extract side per source</span>
+        <p>The golden rule: each source block should have exactly <strong>one Pull face</strong>. Multiple extract faces on the same inventory fight each other and make behaviour hard to read. Extract once, then let routing and filters do the rest down the line.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 CROSS-MOD -->
+    <section class="doc" id="crossmod">
+      <p class="sec-index">06 — Universal glue</p>
+      <h2>Cross-mod</h2>
+      <p>Pipez speaks the common interfaces — Forge Energy, fluid handlers, item handlers, and Mekanism's chemical system — so it moves resources between machines from <em>any</em> mods that expose them. That makes it ideal connective tissue in a mixed modpack.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What Pipez bridges</caption>
+          <thead><tr><th>Resource</th><th>Pipe</th><th>Typical cross-mod use</th></tr></thead>
+          <tbody>
+            <tr><td>Mekanism gas / chemicals</td><td>Gas Pipe</td><td>Carry oxygen, hydrogen, sulfuric acid, etc. between Mekanism machines without Pressurized Tubes.</td></tr>
+            <tr><td>Forge Energy (FE)</td><td>Energy Pipe</td><td>Power any FE machine from any FE generator — Mekanism, Thermal, Powah, Create-adjacent and more.</td></tr>
+            <tr><td>Fluids</td><td>Fluid Pipe</td><td>Move water, lava, oils and mod fluids between tanks and machines across mod boundaries.</td></tr>
+            <tr><td>Items</td><td>Item Pipe</td><td>Shuttle items between any inventories — vanilla chests, drawers, machine slots, storage blocks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Because it relies on standard interfaces rather than mod-specific networks, Pipez often "just works" where a native pipe from one mod refuses to connect to a machine from another. Use it as the <strong>universal glue</strong> between mod machines: Mekanism gas here, Thermal FE there, Create fluids in between.</p>
+
+      <div class="note warn">
+        <span class="label">Gas needs Mekanism</span>
+        <p>The Gas pipe carries Mekanism's chemical system specifically, so Gas/chemical transfer assumes Mekanism (or a mod that uses its chemical API) is installed. FE, fluids and items rely on the broadly-implemented Forge capabilities and work with almost anything.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips</h2>
+      <p>A handful of habits that keep Pipez networks fast, readable, and lag-free.</p>
+
+      <ul>
+        <li><strong>Set ONE extract side per source.</strong> Multiple Pull faces on the same inventory compete and confuse routing. Extract once, route downstream.</li>
+        <li><strong>Use Round Robin to balance.</strong> When feeding several identical machines, Round Robin spreads the load evenly so nothing starves while another backs up.</li>
+        <li><strong>Bump to Ultimate / Infinity for high throughput.</strong> Mekanism 5× plants and Create contraptions move a lot per tick — a Basic pipe will bottleneck them. Higher tiers carry far more and give you more filter slots too.</li>
+        <li><strong>Filter by tag, not by item.</strong> One "all ingots" tag entry beats a dozen individual items and survives new additions to your pack.</li>
+        <li><strong>Gate with redstone</strong> where you want a manual or automatic switch — keep-stock control, night-only pumping, comparator thresholds.</li>
+        <li><strong>Prefer XNet / AE2 only when you need logic or storage.</strong> If the job is "move this there," Pipez is simpler and lighter. Reach for a full storage/logic network when you need searchable inventories, autocrafting, or conditional routing Pipez can't express.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">The honest scope</span>
+        <p>Pipez is deliberately small. It will not auto-craft, search a network, or run complex conditional logic — and that's the point. For point-to-point transfer of items, fluids, power and gas across any mods, it is about the lowest-friction, lowest-lag option you can install. Use it for the plumbing; bring in the heavyweight networks only where they earn their keep.</p>
+      </div>
+
+      <div class="note danger">
+        <span class="label">Don't over-build</span>
+        <p>A common trap is wrapping every machine in Infinity pipes and complex filters when a Basic Item Pipe with one Pull face would do. Start simple, upgrade the <em>specific</em> lines that actually bottleneck, and you'll keep both your sanity and your tick rate.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">Clean Pipes</strong><br>
+      An unofficial, fan-made field manual for Pipez on Minecraft 1.19.2 (Forge).<br>
+      Pipez is by henkelmax. This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Pipez for MC 1.19.2 (Forge)<br>
+      · the in-game connection GUI<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Transfer rates, tier counts and filter slots are approximate and configurable per pack. When your install disagrees, the in-game GUI/tooltips and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

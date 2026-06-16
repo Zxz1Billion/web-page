@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Drawer Network — a Functional Storage field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Functional Storage (Minecraft 1.19.2 Forge, by Buuz135) guide: single-item bulk drawers, the compacting drawer, capacity framing tiers, storage upgrades, the drawer network and controller, the storage terminal, and tools — with the in-game/JEI numbers as ground truth." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+:root{
+  --bg-0:#0a0c11; --bg-1:#0e1118; --bg-2:#141822; --bg-3:#1c2230;
+  --line:#28303f; --ink:#e4e9f2; --ink-dim:#98a3b8; --ink-faint:#626d82;
+  --accent:#5b8cff;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗄</span>
+      <span class="wordmark">The Drawer<br>Network<small>FUNCTIONAL STORAGE</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Basics</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#drawers"><span class="ix">01</span> Drawers</a>
+      <a href="#compacting"><span class="ix">02</span> Compacting Drawer</a>
+      <a href="#upgrades"><span class="ix">03</span> Upgrades</a>
+      <p class="group-label">The Network</p>
+      <a href="#network"><span class="ix">04</span> The Network</a>
+      <a href="#digital"><span class="ix">05</span> Digital Access</a>
+      <a href="#tools"><span class="ix">06</span> Tools</a>
+      <p class="group-label">Practice</p>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Comparison</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Functional<br>Storage for MC 1.19.2 (Forge),<br>by Buuz135. Capacities are<br>configurable — trust JEI and<br>in-game tooltips in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Buuz135</p>
+      <h1>The Drawer<br>Network</h1>
+      <p class="lede"><strong>Functional Storage</strong> is a modern, Titanium-based take on item drawers: clean single-item bulk storage where every slot holds one item type with a live count on the face, framed in wood through netherite for capacity tiers, linked into one network by a controller, and reachable through a searchable storage terminal for AE-lite access. If you mass-produce ingots, dusts, drops, or building blocks, this is the tidiest way to keep them.</p>
+      <div class="badges">
+        <span class="badge">Functional Storage</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">built on Titanium</span>
+        <span class="badge accent">🗄 one item, one slot</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Functional Storage solves one problem extremely well: storing huge quantities of a <strong>single item type per slot</strong>, with the count shown right on the block face so a glance tells you how much you have. Build a wall of drawers, frame them up for capacity, link them with a controller, and read or pull from the whole thing through a digital terminal — no channels, no power required for the storage itself.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>Drawers</h4><p>1, 2, and 4-slot blocks. Each slot is one item type with a live count. Frame material sets the capacity tier.</p></div>
+        <div class="card"><span class="tag">automation</span><h4>Compacting Drawer</h4><p>Auto-converts nugget ⇄ ingot ⇄ block of one material across its slots — the must-have for ore output.</p></div>
+        <div class="card"><span class="tag">network</span><h4>Storage Controller</h4><p>Links many drawers into one network so insertion and extraction find the right slot automatically.</p></div>
+        <div class="card"><span class="tag">access</span><h4>Storage Terminal</h4><p>A searchable, AE-lite window over every linked drawer — withdraw, deposit, and (with the crafting variant) craft.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where this fits in the pack</span>
+        <p>Functional Storage lives in the <a href="#tips">Storage &amp; Logistics</a> hub alongside the venerable <strong>Storage Drawers</strong> — they cover the same idea, and you generally pick one. Functional Storage is the more modern, network-and-terminal-forward option; <strong>Storage Drawers</strong> is the long-standing alternative with its own controller and trim ecosystem. See §07 for a head-to-head.</p>
+      </div>
+
+      <h3>The shape of a build</h3>
+      <ol class="flow">
+        <li><strong>Place a drawer.</strong> Start with a cheap <strong>wood-framed 1×1</strong>. Put an item in by right-clicking with a stack; it locks the slot to that type.</li>
+        <li><strong>Read the count.</strong> The face shows the item and its total. Right-click adds one stack; punch (left-click) pulls a stack back out.</li>
+        <li><strong>Raise capacity.</strong> Reframe to <strong>iron / gold / diamond / netherite</strong> and drop in <strong>Storage Upgrades</strong> for bigger and bigger per-slot caps.</li>
+        <li><strong>Build the network.</strong> Place a <strong>Storage Controller</strong> and grow drawers within its reach; everything becomes one inventory.</li>
+        <li><strong>Add a terminal.</strong> A <strong>Storage Terminal</strong> on the network gives you searchable, AE-style access to all of it.</li>
+        <li><strong>Automate.</strong> Puller/Pusher upgrades, hoppers, or pipes feed the drawers; a <strong>Compacting Drawer</strong> on each furnace/smeltery output keeps ingots/blocks tidy.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 DRAWERS -->
+    <section class="doc" id="drawers">
+      <p class="sec-index">01 — The blocks</p>
+      <h2>Drawers</h2>
+      <p>A drawer is a block divided into <strong>slots</strong>, each holding one item type and showing its count. Functional Storage ships three slot layouts and a set of <strong>framing materials</strong> that multiply the base capacity. You choose layout by how many distinct items the spot needs and material by how much of each you want to hold.</p>
+
+      <h3>Slot layouts</h3>
+      <div class="data-table">
+        <table>
+          <caption>Drawer variants</caption>
+          <thead><tr><th>Drawer</th><th>Slots</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>1×1 Drawer</td><td class="num">1</td><td>A single high-volume item — full per-slot capacity in one block.</td></tr>
+            <tr><td>1×2 Drawer</td><td class="num">2</td><td>Two related items side by side (e.g. an ingot and its dust).</td></tr>
+            <tr><td>2×2 Drawer</td><td class="num">4</td><td>Item-variety density — four types in one block, each with its own count.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Capacity splits across slots</span>
+        <p>A drawer's total volume is shared, so a 1×1 holds the most per item and a 2×2 holds less per slot but four types. Pick the layout for the job: a 1×1 for cobblestone you mine endlessly, a 2×2 for a tidy row of dyes.</p>
+      </div>
+
+      <h3>Framing materials = capacity tiers</h3>
+      <p>The <strong>frame material</strong> sets the base capacity multiplier. The numbers below are the familiar defaults (measured in stacks per slot for a 1×1) and are <span class="vflag">config-adjustable</span> — your pack may differ, so trust the tooltip.</p>
+      <div class="data-table">
+        <table>
+          <caption>Framing tiers — approximate per-slot capacity (1×1, before upgrades)</caption>
+          <thead><tr><th>Frame</th><th>Tier</th><th>Approx. capacity</th></tr></thead>
+          <tbody>
+            <tr><td>Wood</td><td>Base</td><td class="num">≈ 1×</td></tr>
+            <tr><td>Iron</td><td>II</td><td class="num">≈ 8×</td></tr>
+            <tr><td>Gold</td><td>III</td><td class="num">≈ 16×</td></tr>
+            <tr><td>Diamond</td><td>IV</td><td class="num">≈ 32×</td></tr>
+            <tr><td>Netherite</td><td>V</td><td class="num">≈ 64×</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Frames are applied at crafting time, and on most versions you can <strong>reframe a drawer in place</strong> by combining it with the next material — capacity grows without unpacking the contents.</p>
+
+      <h3>Using a drawer</h3>
+      <ul>
+        <li><strong>Insert:</strong> right-click an empty slot with a stack to assign that item type, then right-click to add more. Right-click with a full hand dumps your matching stacks in.</li>
+        <li><strong>Extract:</strong> left-click (punch) pulls a stack; right-click with an empty hand on most versions pulls one. Sneak-interactions vary per setting.</li>
+        <li><strong>The count display:</strong> the face renders the item icon and a live number. A wall of drawers becomes a readable at-a-glance inventory.</li>
+        <li><strong>Locking a slot:</strong> use the configuration tool or a key (see §06) to <strong>lock</strong> a slot to its item so it stays assigned even when emptied — essential for automation that should never re-assign an empty slot to the wrong thing.</li>
+      </ul>
+      <div class="note tip"><span class="label">Empty but reserved</span><p>Locking is what keeps a Puller/Pusher pipeline sane: a locked empty slot still "remembers" cobblestone, so an importer keeps routing cobble there instead of grabbing whatever lands in it first.</p></div>
+    </section>
+
+    <!-- ============================================ 02 COMPACTING DRAWER -->
+    <section class="doc" id="compacting">
+      <p class="sec-index">02 — Auto-convert</p>
+      <h2>Compacting Drawer</h2>
+      <p class="lead">The <strong>Compacting Drawer</strong> is the standout block. Give it one material and it automatically keeps <strong>nugget ⇄ ingot ⇄ block</strong> (or seed/crop, or any 9:1 / 4:1 compaction recipe) in sync across its slots, converting on the fly. Insert ingots and it can store the equivalent as blocks; pull nuggets and it breaks a block down. You never manually craft 9-into-1 again.</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Seed it.</strong> Put the base item (say, an iron ingot) into the compacting drawer to set its material family.</li>
+        <li><strong>It maps the tiers.</strong> The drawer exposes the related forms it knows — <em>nugget</em>, <em>ingot</em>, <em>block</em> — each as its own readable slot.</li>
+        <li><strong>Insert at any tier.</strong> Drop in blocks, ingots, or nuggets; the drawer normalises everything into one shared pool and shows each tier's count.</li>
+        <li><strong>Extract at any tier.</strong> Pull a block and it consumes 9 ingots' worth; pull nuggets and it cracks an ingot. The math is handled for you.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">The must-have for ore output</span>
+        <p>Park a Compacting Drawer on every <strong>furnace, smeltery, or smelting-factory output</strong>. Ingots flow in, and you can always withdraw whichever form you need — blocks for storage and building, ingots for crafting, nuggets for fiddly recipes — without a single crafting-grid step.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">One family per drawer</span>
+        <p>A compacting drawer holds <strong>one material's tiers</strong>, not arbitrary items. Use one per metal. Recipes that compact (3×3 and 2×2) are read from the game's data, so anything with a valid block/ingot/nugget relationship works — including modded metals and many crops.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 UPGRADES -->
+    <section class="doc" id="upgrades">
+      <p class="sec-index">03 — Boosters</p>
+      <h2>Upgrades</h2>
+      <p>Drawers have <strong>upgrade slots</strong> (open the drawer's GUI to access them). Upgrades raise capacity or add behaviour. Capacity upgrades stack within the drawer's limit; behaviour upgrades each do one job.</p>
+
+      <h3>Storage (capacity) upgrades</h3>
+      <p>These multiply the per-slot capacity on top of the frame tier. They come in their own ladder and <strong>stack</strong> — slot several in and the multipliers compound up to the drawer's cap.</p>
+      <div class="data-table">
+        <table>
+          <caption>Storage upgrade tiers — approximate per-upgrade multiplier</caption>
+          <thead><tr><th>Upgrade</th><th>Approx. multiplier</th></tr></thead>
+          <tbody>
+            <tr><td>Copper Upgrade</td><td class="num">≈ 2×</td></tr>
+            <tr><td>Gold Upgrade</td><td class="num">≈ 4×</td></tr>
+            <tr><td>Diamond Upgrade</td><td class="num">≈ 8×</td></tr>
+            <tr><td>Netherite Upgrade</td><td class="num">≈ 16×</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour upgrades</h3>
+      <div class="data-table">
+        <table>
+          <caption>Function upgrades</caption>
+          <thead><tr><th>Upgrade</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Puller Upgrade</td><td>Pulls matching items <em>out</em> of an adjacent inventory into the drawer/network.</td></tr>
+            <tr><td>Pusher Upgrade</td><td>Pushes items <em>out</em> of the drawer into an adjacent inventory (e.g. feed a machine).</td></tr>
+            <tr><td>Collector Upgrade</td><td>Vacuums up matching item entities dropped near the drawer.</td></tr>
+            <tr><td>Void Upgrade</td><td>Silently <strong>voids overflow</strong> once the slot is full — perfect for endless cobble/dirt.</td></tr>
+            <tr><td>Redstone Upgrade</td><td>Emits a redstone signal based on fill level (high/low/comparator-style control).</td></tr>
+            <tr><td>Creative Upgrade</td><td>Makes a slot an infinite source/sink of its item (creative/testing).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="label">How upgrades stack</span>
+        <p>Capacity upgrades <strong>multiply together</strong> and combine with the frame tier, so a netherite-framed drawer packed with diamond/netherite storage upgrades holds an enormous amount per slot. Behaviour upgrades each occupy a slot and apply independently — you can mix, say, a Puller and a Void upgrade in the same drawer to "import and cap" a resource.</p>
+      </div>
+      <div class="note warn"><span class="label">Mind the slot count</span><p>Each drawer has a finite number of upgrade slots. If you want both maximum capacity <em>and</em> several behaviours, you may run out of room — that's a nudge toward putting bulk capacity on dedicated drawers and behaviour on others, all unified by the network.</p></div>
+    </section>
+
+    <!-- ============================================ 04 THE NETWORK -->
+    <section class="doc" id="network">
+      <p class="sec-index">04 — Linking it all</p>
+      <h2>The Network</h2>
+      <p class="lead">A single drawer is fine; a <strong>network</strong> is the point. The <strong>Storage Controller</strong> binds every drawer in its reach into one virtual inventory, so a pipe, hopper, or terminal talks to the controller and the network finds the right slot to deposit into or extract from.</p>
+
+      <h3>Storage Controller</h3>
+      <p>Place a Storage Controller and it claims drawers within a cubic <strong>reach</strong> around it (commonly a range on the order of ~12 blocks each direction, <span class="vflag">config-adjustable</span>). Connected drawers turn into one inventory: insert an item anywhere on the network and it lands in the slot already holding that type.</p>
+
+      <h3>Controller Extension</h3>
+      <p>When a single controller can't see every drawer, add <strong>Controller Extensions</strong>. Placed adjacent to the controller (or to another extension), they relay the network's reach further out, letting one logical network span a much larger drawer wall or several walls.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Network blocks</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Controller</td><td>The brain. Unifies all drawers in reach into one inventory and exposes them to pipes/terminals.</td></tr>
+            <tr><td>Controller Extension</td><td>Extends the controller's reach to cover more drawers; chain them to grow the network.</td></tr>
+            <tr><td>Drawers (any frame/layout)</td><td>The actual storage; auto-join when within reach of the controller or an extension.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Auto-feeding the network</h3>
+      <p>Because the controller presents the whole wall as one inventory, automation is simple: point a <strong>hopper, item pipe, or a Pusher/Puller upgrade</strong> at the controller (or any drawer) and items route to the matching slot. Lock your slots (§01) first so empty drawers don't get hijacked by the wrong item.</p>
+      <div class="note tip"><span class="label">No power needed</span><p>Unlike a full AE2/RS network, Functional Storage drawers and the controller don't consume energy to store items. The network is purely logical — which makes it cheap to scale and immune to brownouts.</p></div>
+    </section>
+
+    <!-- ============================================ 05 DIGITAL ACCESS -->
+    <section class="doc" id="digital">
+      <p class="sec-index">05 — AE-lite access</p>
+      <h2>Digital Access</h2>
+      <p>A drawer wall is readable, but scrolling a hundred drawers to find one item is slow. The <strong>Storage Terminal</strong> gives you an AE-style window over the entire network: a searchable grid of everything stored, with one-click withdraw and deposit.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Terminal blocks</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Terminal</td><td>Search, scroll, withdraw, and deposit across every drawer on the connected network.</td></tr>
+            <tr><td>Crafting Terminal</td><td>The Storage Terminal plus a built-in crafting grid — pull ingredients and craft without leaving the screen.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Using the terminal</h3>
+      <ul>
+        <li><strong>Search:</strong> type to filter by name; supports the usual modifiers (mod name, tags) familiar from AE/RS terminals.</li>
+        <li><strong>Withdraw:</strong> click an item to pull a stack; shift/ctrl-click variants grab more or send straight to your inventory.</li>
+        <li><strong>Deposit:</strong> shift-click items from your inventory and the network files each into its matching drawer slot.</li>
+        <li><strong>Craft (Crafting Terminal):</strong> set a recipe in the grid and pull components directly from the drawers, then craft and the result can go back to the network.</li>
+      </ul>
+      <div class="note tip"><span class="label">Portable / remote access</span><p>If your version or pack includes it, a <strong>portable/armor terminal</strong> lets you browse the same network from your inventory anywhere. Where it isn't present, a wall-mounted terminal at your crafting station is the standard setup — pair it with the Crafting Terminal for a true AE-lite bench.</p></div>
+      <div class="note"><span class="label">It reflects the drawers</span><p>The terminal isn't separate storage — it's a view of the drawers. Everything you see is sitting in a physical drawer somewhere on the network, which keeps things transparent and lets you mix terminal use with direct drawer interaction.</p></div>
+    </section>
+
+    <!-- ============================================ 06 TOOLS -->
+    <section class="doc" id="tools">
+      <p class="sec-index">06 — In the hand</p>
+      <h2>Tools</h2>
+      <p>A few held items make drawers far nicer to live with — configuring slots, locking item assignments, and quick-stacking your inventory into the network in one click.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Functional Storage tools</caption>
+          <thead><tr><th>Tool</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Configuration / Linking Tool</td><td>Right-click drawers to configure slots, link/inspect network membership, and toggle behaviour.</td></tr>
+            <tr><td>Drawer Key</td><td>Locks (and unlocks) a slot to its current item so it stays assigned even when empty — the automation safeguard.</td></tr>
+            <tr><td>Quick-stack (to network)</td><td>Empties matching items from your inventory straight into the drawers/network in one action.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Workflow</h3>
+      <ul>
+        <li><strong>Lock before you automate.</strong> Run the <em>Drawer Key</em> across a freshly assigned wall so a Puller can never re-home an empty slot to the wrong item.</li>
+        <li><strong>Use the tool to inspect.</strong> The configuration/linking tool tells you what a drawer is joined to and lets you tune per-slot settings without opening menus repeatedly.</li>
+        <li><strong>Quick-stack on return.</strong> After a mining trip, one quick-stack action dumps everything the network already knows into its slots, leaving only the new stuff in your bag.</li>
+      </ul>
+      <div class="note tip"><span class="label">Lock first, regret never</span><p>The single most common drawer-automation bug is an empty unlocked slot grabbing the wrong item. Locking with the Drawer Key fixes it permanently — make it a habit.</p></div>
+    </section>
+
+    <!-- ============================================ 07 TIPS & COMPARISON -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Living with it</p>
+      <h2>Tips &amp; Comparison</h2>
+      <p class="lead">Functional Storage rewards a little discipline. A handful of habits keep a drawer base fast, readable, and stall-free — and it helps to know exactly where it sits relative to the classic <strong>Storage Drawers</strong> mod.</p>
+
+      <ul class="pills">
+        <li><b>One item</b> per slot</li>
+        <li><b>Lock</b> before automating</li>
+        <li><b>Compacting</b> on smelt output</li>
+        <li><b>Terminal</b> for search</li>
+        <li><b>Void</b> for endless junk</li>
+        <li><b>No power</b> to store</li>
+      </ul>
+
+      <h3>Habits that pay off</h3>
+      <ul>
+        <li><strong>One item per slot, on purpose.</strong> The whole value is readability — resist cramming. A 2×2 with four well-chosen types beats a messy chest every time.</li>
+        <li><strong>Compacting drawers on outputs.</strong> Put a Compacting Drawer on every furnace/smeltery/smelting-factory output so metals self-organise into nugget/ingot/block and you can always pull the form you need.</li>
+        <li><strong>Pair the terminal for searchable access.</strong> Once you pass a couple dozen drawers, a Storage (or Crafting) Terminal turns the wall into an AE-lite inventory you actually want to use.</li>
+        <li><strong>Void the floods.</strong> Cobble, dirt, gravel, and netherrack belong in a void-upgraded drawer so they cap out and stop clogging your pipes.</li>
+        <li><strong>Reframe, don't rebuild.</strong> Upgrade capacity in place by reframing and stacking storage upgrades rather than tearing the wall down.</li>
+      </ul>
+
+      <h3>Functional Storage vs. Storage Drawers</h3>
+      <div class="data-table">
+        <table>
+          <caption>The two drawer mods at a glance</caption>
+          <thead><tr><th>Aspect</th><th>Functional Storage</th><th>Storage Drawers</th></tr></thead>
+          <tbody>
+            <tr><td>Base</td><td>Titanium library, modern codebase (Buuz135)</td><td>Long-standing, mature (jaquadro lineage)</td></tr>
+            <tr><td>Slot layouts</td><td>1×1, 1×2, 2×2</td><td>1, 2, 4 slots (full + half blocks)</td></tr>
+            <tr><td>Capacity tiers</td><td>Wood→Netherite framing + storage upgrades</td><td>Upgrade-template ladder + trim/keys</td></tr>
+            <tr><td>Compaction</td><td>Compacting Drawer (nugget⇄ingot⇄block)</td><td>Compacting Drawer add-on</td></tr>
+            <tr><td>Network</td><td>Storage Controller + Extensions</td><td>Drawer Controller + Slave</td></tr>
+            <tr><td>Digital access</td><td>Storage / Crafting Terminal (AE-lite)</td><td>Via add-ons / external terminals</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Which to pick</span>
+        <p>They overlap heavily — most players run <strong>one or the other</strong>. Choose <strong>Functional Storage</strong> for the modern feel and the built-in terminal; choose <strong>Storage Drawers</strong> if your pack leans on its established trim/template ecosystem or add-ons. Either way, the core ideas in this guide — one item per slot, framing for capacity, a controller for the network — carry across. Back to the <a href="#start">Storage &amp; Logistics hub</a> for the bigger picture.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The Drawer Network</strong><br>
+      An unofficial, fan-made field guide for Functional Storage on Minecraft 1.19.2 (Forge).<br>
+      Functional Storage is by Buuz135 (built on the Titanium library). This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Functional Storage (1.19.2)<br>
+      · the in-game drawer tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Capacities and reach are defaults and are configurable per pack. When your install disagrees, the in-game tooltips and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

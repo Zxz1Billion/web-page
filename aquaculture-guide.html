@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Angler's Almanac — an Aquaculture 2 field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A full Aquaculture 2 (Minecraft 1.19.2 Forge) guide: material fishing rods, hooks and bait, the biome- and water-specific fish, filleting and food, fishing treasure and the Neptunium gear set, plus practical tips for catching more and better." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#070d14; --bg-1:#0a121d; --bg-2:#101b29; --bg-3:#172538;
+  --line:#23344e; --ink:#e0ecf7; --ink-dim:#92acc4; --ink-faint:#5f7790;
+  --accent:#4fb4ff;
+  --danger:#e0683a;
+  --f-display:"Oswald",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🎣</span>
+      <span class="wordmark">The Angler's<br>Almanac<small>AQUACULTURE 2</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Tackle Box</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#rods"><span class="ix">01</span> Rods</a>
+      <a href="#hooks"><span class="ix">02</span> Hooks &amp; Bait</a>
+      <p class="group-label">The Catch</p>
+      <a href="#fish"><span class="ix">03</span> The Fish</a>
+      <a href="#food"><span class="ix">04</span> Filleting &amp; Food</a>
+      <p class="group-label">The Reward</p>
+      <a href="#treasure"><span class="ix">05</span> Treasure &amp; Loot</a>
+      <a href="#neptunium"><span class="ix">06</span> Neptunium Gear</a>
+      <a href="#tips"><span class="ix">07</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Aquaculture 2<br>for MC 1.19.2 (Forge).<br>Species, weights &amp; loot are<br>approximate and config/pack<br>dependent — trust JEI and the<br>in-game Fish Bestiary.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Shadow</p>
+      <h1>The Angler's<br>Almanac</h1>
+      <p class="lede">A working field guide to <strong>Aquaculture 2</strong> — the mod that turns "right-click water, wait, get a fish or a stick" into an actual activity. Dozens of species keyed to biome and water type, a ladder of <em>material rods</em> with slots for a hook and bait, a richer treasure pool, and gear you can craft from what you pull out of the deep. Cast from your first <em>Iron Fishing Rod</em> all the way to a full set of <em>Neptunium</em> armour.</p>
+      <div class="badges">
+        <span class="badge">Aquaculture 2</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">🐟 Dozens of fish</span>
+        <span class="badge">+ Aquaculture Delight bridge</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Vanilla fishing gives you cod, salmon, the occasional enchanted book, and a lot of waiting. Aquaculture 2 keeps the gentle rhythm but makes every cast worth something: <strong>dozens of fish</strong> sorted by biome and water type, <strong>better rods</strong> with slots for a <strong>Hook</strong> and <strong>Bait</strong>, an upgraded <strong>treasure and loot</strong> pool, and real <strong>food</strong> once you learn to fillet. It's a fishing overhaul that quietly becomes a progression system.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">catch</span><h4>More fish, by place</h4><p>Tuna, Catfish, Arapaima, Gar, Perch, Piranha and many more — each bites in specific biomes and water types, not just "any water."</p></div>
+        <div class="card"><span class="tag">gear</span><h4>Rods with slots</h4><p>Material rods (iron, gold, diamond…) carry more durability and accept a <strong>Hook</strong> + <strong>Bait</strong> to shape what you reel in.</p></div>
+        <div class="card"><span class="tag">food</span><h4>Worthwhile loot &amp; food</h4><p>Fillet the catch for cookable food, and fish up tackle, neptunium treasure, and the odd message in a bottle.</p></div>
+        <div class="card"><span class="tag">cross-ref</span><h4>Plays with others</h4><p>Pairs with the <strong>Mobs &amp; Survival</strong> guide for biome context, and <strong>Farmer's Delight</strong> via the Aquaculture Delight add-on for cooking.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The loop, in one breath</span>
+        <p>Build a better <strong>rod</strong> → fit a <strong>hook</strong> and <strong>bait</strong> → fish the <strong>right water in the right biome</strong> → <strong>fillet</strong> your catch for food and feed it into your kitchen → cash in <strong>treasure</strong> for <strong>Neptunium gear</strong>. Everything below is just detail on those five beats.</p>
+      </div>
+
+      <h3>Where this guide sits</h3>
+      <ul>
+        <li>For <strong>which biome is which</strong> and what lives around the water you're fishing, see the companion <strong>Mobs &amp; Survival</strong> guide.</li>
+        <li>For turning your catch into proper meals, see the <strong>Farmer's Delight</strong> guide — the <strong>Aquaculture Delight</strong> add-on bridges your fish straight into that mod's cutting board and cooking pot.</li>
+        <li>Numbers here (weights, drop rates, durability) are <strong>approximate</strong> and frequently config/pack-tuned. The in-game <strong>Fish Bestiary</strong> and JEI are the ground truth.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 01 RODS -->
+    <section class="doc" id="rods">
+      <p class="sec-index">01 — The rod ladder</p>
+      <h2>Rods</h2>
+      <p>Aquaculture's signature item is the <strong>Iron Fishing Rod</strong> and its higher-material siblings. Where the vanilla rod is a single tool, these are platforms: each tier carries <strong>more durability</strong> and exposes two slots — one for a <strong>Hook</strong> and one for <strong>Bait</strong> — that change how and what you catch.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The material rods, roughly weakest → strongest</caption>
+          <thead><tr><th>Rod</th><th>Feel</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Wooden / vanilla</td><td>Baseline</td><td>The starting point. Crafts into the Iron rod once you have iron.</td></tr>
+            <tr><td>Iron Fishing Rod</td><td>The real starter</td><td>First rod with Hook + Bait slots; the workhorse early-game.</td></tr>
+            <tr><td>Gold Fishing Rod</td><td>Sidegrade</td><td>Lower durability but a different feel; often easy to craft from spare gold.</td></tr>
+            <tr><td>Diamond Fishing Rod</td><td>Durable</td><td>High durability for long sessions; a solid mid-game rod.</td></tr>
+            <tr><td>Neptunium Fishing Rod</td><td>Endgame</td><td>Crafted from fished-up Neptunium treasure (see §06); the best rod and water-themed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="framenote" style="font-style:normal;color:var(--ink-dim)">Packs may add or rebalance further material tiers (e.g. other metal rods); check JEI for exactly which rods your install ships and their stats.</p>
+
+      <h3>Crafting &amp; upgrading</h3>
+      <ol class="flow">
+        <li><strong>Craft the Iron Fishing Rod.</strong> It follows the familiar rod shape but in its material — iron ingots and string — and immediately gives you the Hook + Bait slots.</li>
+        <li><strong>Open the rod's GUI / slots.</strong> Slot a <strong>Hook</strong> and some <strong>Bait</strong> before you cast; the rod remembers them between casts until the bait runs out.</li>
+        <li><strong>Move up materials</strong> as you get them — diamond for durability, then the <strong>Neptunium</strong> rod once treasure starts rolling in.</li>
+        <li><strong>Enchant it.</strong> The usual fishing enchants — <strong>Lure</strong> (faster bites) and <strong>Luck of the Sea</strong> (better outcomes) — still apply and stack with hooks/bait, plus Unbreaking/Mending for longevity.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Durability, not just catch rate</span>
+        <p>The point of climbing the rod ladder early isn't a dramatically rarer catch — it's <strong>durability and slots</strong>. A diamond rod with Unbreaking/Mending plus a good hook means you fish for an hour without re-crafting, which matters more than any single number.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 HOOKS & BAIT -->
+    <section class="doc" id="hooks">
+      <p class="sec-index">02 — Tuning the cast</p>
+      <h2>Hooks &amp; Bait</h2>
+      <p>The two rod slots are where Aquaculture gets tactical. <strong>Hooks</strong> change <em>how</em> you catch — what comes up and how the bobber behaves. <strong>Bait &amp; Lures</strong> change <em>how often and how well</em> — raising catch rate and luck. Used together they let you aim a session at fish, or at treasure, or at sheer speed.</p>
+
+      <h3>Hooks</h3>
+      <div class="data-table">
+        <table>
+          <caption>Representative hooks (effects are approximate — read the tooltip)</caption>
+          <thead><tr><th>Hook</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Light Hook</td><td>Biases toward smaller / lighter catches; quicker, lower-stakes bites.</td></tr>
+            <tr><td>Heavy Hook</td><td>Biases toward larger, heavier fish — the trophy end of the weight range.</td></tr>
+            <tr><td>Double Hook</td><td>Chance to reel in <strong>two</strong> items at once; doubles output on a good day.</td></tr>
+            <tr><td>Redstone Hook</td><td>Emits a redstone pulse on a catch — handy for automated/AFK fishing rigs.</td></tr>
+            <tr><td>Note (others)</td><td>Aquaculture ships further hook types; their tooltips spell out the exact bias or bonus.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Bait &amp; Lures</h3>
+      <p>Bait is consumed over casts and pushes your odds toward fish (and away from junk). The two easiest sources are right under your feet:</p>
+      <ul>
+        <li><strong>Worms</strong> — till <strong>dirt/grass with a hoe</strong> and worms occasionally pop out. Free, renewable, the classic starter bait.</li>
+        <li><strong>Minnows</strong> — tiny fish you catch (or find) that themselves serve as bait for bigger species.</li>
+        <li><strong>Other lures</strong> — the mod includes additional bait/lure items; each lists its catch-rate / luck bonus on the tooltip.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">How to attach them</span>
+        <p>Open the rod and place a <strong>Hook</strong> in the hook slot and <strong>Bait</strong> in the bait slot — or, in many versions, just <strong>combine the hook with the rod in a crafting grid</strong> and right-click bait onto the rod. Once fitted, the hook stays until removed and the bait depletes as you fish; refill it when the catch rate dips.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Match the tool to the target</span>
+        <p>A <strong>Heavy Hook + good bait</strong> is how you chase record-weight trophies; a <strong>Double Hook</strong> with cheap worms is how you farm volume for filleting; a <strong>Redstone Hook</strong> is for your auto-fisher. There's no single "best" loadout — pick for the session's goal.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 THE FISH -->
+    <section class="doc" id="fish">
+      <p class="sec-index">03 — The bestiary</p>
+      <h2>The Fish</h2>
+      <p class="lead">This is the heart of the mod. Instead of cod-or-salmon, Aquaculture 2 stocks <strong>dozens of species</strong> that bite only in the <strong>right biome and the right water</strong> — fresh vs salt, warm vs cold, ocean vs swamp vs river. Catching a new one for the first time logs it in the <strong>Fish Bestiary</strong>, and each fish rolls a randomised <strong>weight/size</strong> so there are personal records to chase.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>A sampler of species and where each bites (biome/water keyed — see in-game for the full list)</caption>
+          <thead><tr><th>Fish</th><th>Where it bites</th></tr></thead>
+          <tbody>
+            <tr><td>Tuna</td><td>Warm / temperate <strong>oceans</strong> (saltwater)</td></tr>
+            <tr><td>Salmon variants (Atlantic, Pink, Blue, etc.)</td><td>Cold rivers &amp; oceans; specific variants per cold biome</td></tr>
+            <tr><td>Catfish</td><td>Swamps &amp; warm fresh water</td></tr>
+            <tr><td>Piranha</td><td>Jungle / warm fresh water</td></tr>
+            <tr><td>Arapaima</td><td>Jungle rivers &amp; warm fresh water (a big one)</td></tr>
+            <tr><td>Gar</td><td>Swamps &amp; sluggish fresh water</td></tr>
+            <tr><td>Perch</td><td>Temperate fresh water (lakes, rivers)</td></tr>
+            <tr><td>Bass / Pollock / Cod kin</td><td>Various oceans and temperate waters</td></tr>
+            <tr><td>Tropical species</td><td>Warm oceans &amp; reefs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Biome + water type are the lock</span>
+        <p>Many fish are gated on <strong>both</strong> the biome's temperature/category <em>and</em> whether the water is salt or fresh. Fishing the same pond all day caps your variety fast — if you want the full bestiary you have to <strong>travel and fish different waters</strong>. Cross-reference the Mobs &amp; Survival guide for which biome is which.</p>
+      </div>
+
+      <h3>Weight, size &amp; records</h3>
+      <p>Every fish you land comes with a rolled <strong>weight</strong> (and an implied size), shown on its tooltip. The mod tracks your bests, so two anglers can both have "a Tuna" and still compete over whose was heavier. <strong>Hooks</strong> nudge this distribution — a <strong>Heavy Hook</strong> shifts you toward the top of a species' weight band, which is exactly how trophy hunters chase records.</p>
+
+      <div class="note tip">
+        <span class="label">The Fish Bestiary</span>
+        <p>The in-game bestiary is both a checklist and a hint book: it shows which species exist and, broadly, where they live. Treat "fill the bestiary" as the soft goal that pulls you across the map — each new biome's water is a new page or two.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 FILLETING & FOOD -->
+    <section class="doc" id="food">
+      <p class="sec-index">04 — From catch to plate</p>
+      <h2>Filleting &amp; Food</h2>
+      <p>A raw fish isn't always great food on its own — the value comes from <strong>filleting</strong>. The <strong>Fillet Knife</strong> turns most fish into <strong>Fish Fillets</strong>, which <strong>cook</strong> (furnace, smoker, or campfire) into solid, stackable food. One good fishing trip becomes a pantry.</p>
+
+      <h3>The Fillet Knife</h3>
+      <ol class="flow">
+        <li><strong>Craft a Fillet Knife.</strong> Like a sword/knife in its material; better materials mean more durability per blade.</li>
+        <li><strong>Fillet your catch.</strong> Use the knife on fish to yield <strong>Fish Fillets</strong> (bigger fish give more) — far more food value than eating the fish whole.</li>
+        <li><strong>Cook the fillets</strong> in any heat source for cooked fillets: reliable, restorative food that stacks well for travel.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Why fillet at all?</span>
+        <p>Filleting <strong>concentrates</strong> your catch into compact, cookable food and frees you from carrying dozens of distinct fish items. It's the difference between "a backpack of random fish" and "a stack of cooked fillets" — and it's the on-ramp to the kitchen below.</p>
+      </div>
+
+      <h3>Aquaculture Delight (cross-ref)</h3>
+      <p>If your pack runs <strong>Farmer's Delight</strong>, the <strong>Aquaculture Delight</strong> add-on plugs your catch directly into that mod's kitchen: fish and fillets become ingredients on the <strong>cutting board</strong> and in the <strong>cooking pot</strong>, unlocking proper dishes (think fish stews, sushi-style plates, and more) instead of just "cooked fillet."</p>
+      <ul>
+        <li>Use the <strong>cutting board</strong> as a knife-free way to process some fish into usable parts.</li>
+        <li>Feed fillets and fish into <strong>cooking pot</strong> recipes for higher-tier, longer-lasting meals.</li>
+        <li>See the dedicated <strong>Farmer's Delight</strong> guide for the kitchen mechanics; this is just the bridge that gets your fish into it.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 05 TREASURE & LOOT -->
+    <section class="doc" id="treasure">
+      <p class="sec-index">05 — Not just fish</p>
+      <h2>Treasure &amp; Loot</h2>
+      <p>Aquaculture rebuilds the <strong>loot pool</strong> around fishing. Alongside the fish you'll reel in <strong>treasure</strong>, <strong>tackle</strong>, the occasional <strong>message in a bottle</strong>, and — yes — <strong>junk</strong>. The headline is the <strong>Neptunium</strong> material line: fishing becomes a genuine source of gear, not just dinner.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What comes up besides fish</caption>
+          <thead><tr><th>Category</th><th>Examples &amp; use</th></tr></thead>
+          <tbody>
+            <tr><td>Treasure — Neptunium</td><td><strong>Neptunium ore / Neptune's Bounty</strong> material used to craft the Neptunium tool &amp; armour set (§06).</td></tr>
+            <tr><td>Tackle</td><td>Hooks, bait, and rod components — fishing partly funds its own gear.</td></tr>
+            <tr><td>Message in a Bottle</td><td>Flavour / note item; a small reward and collectible.</td></tr>
+            <tr><td>Useful drops</td><td>Enchanted books, leather, name tags, and the usual vanilla-treasure flavour, reweighted.</td></tr>
+            <tr><td>Junk</td><td>Sticks, bones, bowls, lily pads — the chaff. Good bait/luck pushes the roll away from this.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Luck shapes the pool</span>
+        <p>The split between fish, treasure, and junk is a weighted roll. <strong>Luck of the Sea</strong>, <strong>bait/lures</strong>, and the right <strong>hook</strong> all bias it toward treasure and away from junk — so a treasure-hunting loadout is real and worth assembling when you're farming Neptunium.</p>
+      </div>
+
+      <p>Because the treasure pool feeds the Neptunium line, <strong>fishing is a viable way to gear up</strong> in its own right — especially handy early, or in packs where you'd rather sit by the water than spelunk for materials.</p>
+    </section>
+
+    <!-- ============================================ 06 NEPTUNIUM GEAR -->
+    <section class="doc" id="neptunium">
+      <p class="sec-index">06 — Armed by the sea</p>
+      <h2>Neptunium Gear</h2>
+      <p class="lead">The payoff of all that fishing. <strong>Neptunium</strong> — gathered from fishing treasure (Neptune's Bounty / Neptunium material) — crafts into a full <strong>tool and armour set</strong> with <strong>water-themed perks</strong>. It's the reason an afternoon on the dock can actually arm you.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Neptunium set (perks are approximate — confirm in-game)</caption>
+          <thead><tr><th>Piece</th><th>Theme / perk</th></tr></thead>
+          <tbody>
+            <tr><td>Neptunium Pickaxe / Axe / Shovel / Hoe</td><td>High-tier tools on par with (or above) diamond, with water affinity.</td></tr>
+            <tr><td>Neptunium Sword</td><td>Strong melee — bonus behaviour around water / aquatic mobs.</td></tr>
+            <tr><td>Neptunium Fishing Rod</td><td>The best rod in the set; closes the loop — fishing makes the rod that makes the fishing better.</td></tr>
+            <tr><td>Neptunium Armour (full set)</td><td>Water-themed defensive perks — aquatic mobility / underwater utility when worn as a set.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Why fishing can arm you</span>
+        <p>Because the material comes from the <strong>treasure pool</strong>, you assemble Neptunium by <em>doing the thing the mod is about</em>. Set bonuses lean into <strong>water</strong> — swimming, breathing, and fighting near the sea — which makes Neptunium especially strong for the very biomes you fish in. Run a treasure-luck loadout (§05) to farm the material faster.</p>
+      </div>
+
+      <p class="framenote" style="font-style:normal;color:var(--ink-dim)">Exact stats, durability, and which perks attach to which piece vary by version and pack balance. Hover the items and check JEI for the recipes and the set bonus your install actually grants.</p>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — The angler's habits</p>
+      <h2>Tips</h2>
+      <p>Pulling it together: a handful of habits turn Aquaculture from "a few extra fish" into a reliable food and gear pipeline.</p>
+
+      <ul class="pills">
+        <li><b>Match</b> hook + bait to target</li>
+        <li><b>Travel</b> for variety</li>
+        <li><b>Fillet</b> for food</li>
+        <li><b>Cook</b> in your FD kitchen</li>
+        <li><b>Luck</b> for treasure</li>
+      </ul>
+
+      <ol class="flow">
+        <li><strong>Match hook + bait to the fish.</strong> Heavy Hook + strong bait for trophies, Double Hook + worms for volume, Redstone Hook for an auto-fisher. Set the loadout for the session's goal.</li>
+        <li><strong>Fish different biomes and waters.</strong> The bestiary is gated on biome <em>and</em> salt-vs-fresh — one pond caps your variety fast. Carry a rod when you travel and cast in every new water.</li>
+        <li><strong>Fillet everything you don't need raw.</strong> The Fillet Knife concentrates your catch into compact, cookable food; cooked fillets are some of the easiest stable food in the game.</li>
+        <li><strong>Feed the catch into your kitchen.</strong> With Aquaculture Delight, route fish and fillets into Farmer's Delight's cutting board and cooking pot for real meals — see that guide.</li>
+        <li><strong>Run luck when you want gear.</strong> Luck of the Sea + bait + the right hook bias the roll toward treasure; that's how you farm Neptunium and craft the set in §06.</li>
+        <li><strong>Keep the rod alive.</strong> Unbreaking + Mending on a diamond or Neptunium rod means you fish indefinitely without re-crafting.</li>
+      </ol>
+
+      <div class="note danger">
+        <span class="label">A note on accuracy</span>
+        <p>Species lists, weights, drop weights, and Neptunium perks are <strong>configurable</strong> and differ between versions and packs. Treat every number here as a <strong>starting expectation</strong>, not a contract — your in-game <strong>Fish Bestiary</strong>, item tooltips, and JEI are the ground truth.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The Angler's Almanac</strong><br>
+      An unofficial, fan-made field guide to Aquaculture 2 on Minecraft 1.19.2 (Forge).<br>
+      Aquaculture 2 is by Shadow (Girafi) &amp; contributors. This guide is not affiliated with or endorsed by the mod's authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Aquaculture 2 (1.19.2 · Forge)<br>
+      · the in-game Fish Bestiary &amp; tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Species, weights, loot weights and gear perks are approximate and configurable per pack. When your install disagrees, the in-game Fish Bestiary, tooltips, and JEI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide.js";
+  initChrome();
+</script>
+</body>
+</html>

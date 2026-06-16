@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The One-Block Router — a Modular Routers field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical Modular Routers (Minecraft 1.19.2 Forge, by desht_08) guide: the Item Router block, its module slots and buffer, every core module, filters and targeting, common automation builds, upgrades, energy and eco modes, and tips for replacing piles of hoppers with one smart block." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#120d09; --bg-1:#17100b; --bg-2:#211710; --bg-3:#2c1f15; --line:#3a2a1b;
+  --ink:#f0e6da; --ink-dim:#bba88f; --ink-faint:#806a52;
+  --accent:#d97a4a;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧰</span>
+      <span class="wordmark">The One-Block<br>Router<small>MODULAR ROUTERS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Block</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#router"><span class="ix">01</span> The Router</a>
+      <a href="#modules"><span class="ix">02</span> Modules Overview</a>
+      <p class="group-label">Driving It</p>
+      <a href="#filters"><span class="ix">03</span> Filters &amp; Targeting</a>
+      <a href="#builds"><span class="ix">04</span> Common Builds</a>
+      <p class="group-label">Tuning</p>
+      <a href="#upgrades"><span class="ix">05</span> Upgrades Deep-Dive</a>
+      <a href="#energy"><span class="ix">06</span> Energy &amp; Eco</a>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; When Not To</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Modular Routers<br>for MC 1.19.2 (Forge), by desht_08.<br>Numbers are defaults &amp; are<br>configurable — trust JEI/EMI<br>and the in-game tooltips in your pack.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · desht_08</p>
+      <h1>The One-Block<br>Router</h1>
+      <p class="lede">Modular Routers does the work of a tangle of hoppers, pipes, and droppers inside a <strong>single block</strong>. You drop <em>Modules</em> into the router's grid, point it at an inventory or a spot in the world, and it pulls, pushes, drops, vacuums, breaks, places, and clicks — all on one tidy tick loop. This guide runs from your first Item Router to a power-fed auto-cobble farm and a self-building bridge.</p>
+      <div class="badges">
+        <span class="badge accent">Modular Routers</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">by desht_08</span>
+        <span class="badge danger">⚙ One block, many jobs</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Modular Routers replaces piles of vanilla logistics with one programmable block. The <strong>Item Router</strong> holds a small inventory (its <em>buffer</em>) and a grid of <strong>Modules</strong>; each tick it runs its modules in order, and each module performs one action — pull from a chest, push to a furnace, drop items, break a block, suck up the floor. Configure the modules, feed it items (and optionally power), and a single block automates what used to need a wall of hoppers.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">block</span><h4>Item Router</h4><p>The brain. Holds a buffer inventory plus a grid of module slots and an upgrade slot. One block, placed against whatever you want it to act on.</p></div>
+        <div class="card"><span class="tag">behaviour</span><h4>Modules</h4><p>Each module is one verb — Puller, Sender, Dropper, Breaker, Placer, Vacuum, and more. Slot several into one router to chain actions.</p></div>
+        <div class="card"><span class="tag">control</span><h4>Upgrades</h4><p>Speed, Stack, Filter, Camouflage, Blast, Security, and friends tune the router's throughput, targeting, and looks.</p></div>
+        <div class="card"><span class="tag">tuning</span><h4>Tick &amp; Eco</h4><p>The router ticks on a configurable interval and supports redstone control and an eco/idle mode so it isn't churning when there's nothing to do.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where this fits in your base</span>
+        <p>Think of Modular Routers as the precise, compact end of <strong>Storage &amp; Logistics</strong>. For single, well-defined jobs — restock this machine, vacuum this drop zone, mine this column — one router beats a pipe network. For moving <em>bulk</em> across a whole base, you'll still reach for a dedicated transport mod (see §07). The two coexist happily.</p>
+      </div>
+
+      <h3>The shape of a router</h3>
+      <ol class="flow">
+        <li><strong>Place the Item Router.</strong> It has a front face (the working/target side) — placement direction matters for some modules.</li>
+        <li><strong>Open it and add Modules.</strong> Drag modules into the grid; each will act every tick in slot order.</li>
+        <li><strong>Configure each module.</strong> Set its filter, target, and direction inside the module's own screen.</li>
+        <li><strong>Feed it.</strong> Pipe or hopper items into the buffer; add power if you use energy-hungry upgrades.</li>
+        <li><strong>Tune the tick.</strong> Add a Speed Upgrade for throughput, or use redstone / eco mode to keep it idle until needed.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 THE ROUTER -->
+    <section class="doc" id="router">
+      <p class="sec-index">01 — The block itself</p>
+      <h2>The Router</h2>
+      <p>The <strong>Item Router</strong> is the only block you ever place. Everything else lives inside it. It exposes three things: a <strong>buffer</strong> (a small internal inventory items pass through), a grid of <strong>module slots</strong>, and an <strong>upgrade slot</strong>. Open the GUI and you'll see the buffer on one side and the module/upgrade grid on the other.</p>
+
+      <h3>Buffer &amp; module slots</h3>
+      <p>Items the router handles flow through the <strong>buffer</strong> — a Puller deposits pulled items here, a Sender pushes items out of here. Modules execute <strong>top-to-bottom, left-to-right</strong> each tick, so order can matter (pull before you send, break before you vacuum). The number of usable module slots is fixed by the block, and each module carries its own filter and target settings independently.</p>
+
+      <h3>Tick rate &amp; eco mode</h3>
+      <p>The router runs on a <strong>tick interval</strong> — by default a modest number of ticks between actions, so it's gentle on the server. Two controls keep it efficient:</p>
+      <ul>
+        <li><strong>Redstone control</strong> — set the router to run <em>always</em>, only when <em>powered</em>, only when <em>unpowered</em>, or on a <strong>pulse</strong> (single action per rising edge). Pulse mode is perfect for "do exactly one thing when I flick the lever."</li>
+        <li><strong>Eco / idle mode</strong> — when the router has had nothing to do for a while it backs off to a slower idle tick, then snaps back to full speed when work appears. This cuts needless tick churn on routers that only occasionally have items.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Slot order is a tool, not a gotcha</span>
+        <p>Because modules fire in grid order, you can sequence behaviour in one router: a <strong>Breaker</strong> in slot 1, a <strong>Vacuum</strong> in slot 2, and a <strong>Sender</strong> in slot 3 will mine a block, hoover the drops, and ship them onward in the same tick window. Rearrange modules to change the pipeline.</p>
+      </div>
+
+      <h3>Upgrades at a glance</h3>
+      <p>Upgrades go in the router's upgrade slot (most stack up to a cap). They change how the whole router behaves, not what a single module does. The big ones:</p>
+      <div class="data-table">
+        <table>
+          <caption>Router upgrades — what each one changes</caption>
+          <thead><tr><th>Upgrade</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Speed Upgrade</td><td>Faster tick rate — more actions per second. Stacks; costs energy if combined with Blast.</td></tr>
+            <tr><td>Stack Upgrade</td><td>Move a whole stack per action instead of one item. The single biggest throughput boost.</td></tr>
+            <tr><td>Filter Upgrade</td><td>Lets a module filter against the contents of a real inventory/tag set as a reference — "match whatever is in that chest."</td></tr>
+            <tr><td>Camouflage Upgrade</td><td>Disguise the router as any full block so it blends into a wall or floor.</td></tr>
+            <tr><td>Blast Upgrade</td><td>Pushes the router past the normal speed cap by spending energy (FE) per operation.</td></tr>
+            <tr><td>Security Upgrade</td><td>Locks the router to its owner so others can't open or tamper with it.</td></tr>
+            <tr><td>Fluid Upgrade</td><td>Enables the fluid modules to move liquids in/out of the router's tank.</td></tr>
+            <tr><td>Sync Upgrade</td><td>Synchronises the router's actions to a redstone signal / clock for precise timing.</td></tr>
+            <tr><td>Muffler Upgrade</td><td>Silences sounds from modules (e.g. the Breaker's mining noise).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Upgrades are covered in depth in <a href="#upgrades">§05</a>; their energy implications in <a href="#energy">§06</a>.</p>
+    </section>
+
+    <!-- ============================================ 02 MODULES OVERVIEW -->
+    <section class="doc" id="modules">
+      <p class="sec-index">02 — The verbs</p>
+      <h2>Modules Overview</h2>
+      <p>Modules are the heart of the mod — each is a small item you craft and slot into a router. A module is <strong>one action</strong>, configured with its own filter and target. Combine several in one router to build a pipeline. Here's the core roster.</p>
+
+      <h3>Movement modules</h3>
+      <div class="data-table">
+        <table>
+          <caption>Pulling, sending, and dropping items</caption>
+          <thead><tr><th>Module</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Puller</td><td>Pulls items <em>into</em> the router's buffer from the inventory it faces (chest, machine output, etc.).</td></tr>
+            <tr><td>Sender 1</td><td>Pushes items out to the adjacent inventory on the router's facing side — short range, the cheapest sender.</td></tr>
+            <tr><td>Sender 2</td><td>Pushes to a target within a <strong>limited range</strong> along the facing direction (no direct contact needed).</td></tr>
+            <tr><td>Sender 3</td><td>Pushes to a target set by <strong>coordinates</strong>, across a longer range (and, in many configs, across larger distances).</td></tr>
+            <tr><td>Distributor</td><td>Spreads items across multiple destinations (round-robin / split / fill modes) instead of one target.</td></tr>
+            <tr><td>Dropper</td><td>Ejects items into the world as dropped entities on the facing side (like a vanilla dropper).</td></tr>
+            <tr><td>Flinger</td><td>Launches items as projectiles, throwing them across a gap or into a collection point.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>World-interaction modules</h3>
+      <div class="data-table">
+        <table>
+          <caption>Acting on blocks and the environment</caption>
+          <thead><tr><th>Module</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Breaker</td><td>Breaks the block in front of the router (respecting tool/silk-touch settings) and drops the result into the buffer.</td></tr>
+            <tr><td>Placer</td><td>Places a block from the buffer into the world space in front of the router.</td></tr>
+            <tr><td>Extruder</td><td>Places blocks in a line to <strong>build outward</strong> (a bridge/wall), and can retract them — great for auto-builders.</td></tr>
+            <tr><td>Vacuum</td><td>Sucks up nearby <strong>dropped item entities</strong> into the buffer over an area in front of the router.</td></tr>
+            <tr><td>Activator</td><td>Performs a simulated <strong>right- or left-click</strong> — use items, till soil, shear, harvest, attack — on the facing block/space.</td></tr>
+            <tr><td>Player</td><td>Moves items to/from the owner's <strong>player or ender inventory</strong> (remote access to your own pockets).</td></tr>
+            <tr><td>Detector</td><td>Emits a <strong>redstone signal</strong> based on the router's buffer contents (count thresholds) — logic and auto-stock control.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Fluid modules</h3>
+      <p>With the <strong>Fluid Upgrade</strong> installed, the router gains a small tank and the fluid modules become useful:</p>
+      <ul>
+        <li><strong>Fluid 1 / Fluid 2</strong> — pull liquids into the router's tank, or push them out to an adjacent or ranged fluid handler, mirroring the item Puller/Sender split.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Mix and match in one block</span>
+        <p>A single router can hold a Puller <em>and</em> a Sender <em>and</em> a Detector at once. That's the whole point: one router can pull from a machine's output, filter the result, ship the good stuff onward, and emit redstone when a buffer fills — without a single pipe leaving the block.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 FILTERS & TARGETING -->
+    <section class="doc" id="filters">
+      <p class="sec-index">03 — Aiming the router</p>
+      <h2>Filters &amp; Targeting</h2>
+      <p>Two settings turn a generic module into a precise tool: the <strong>filter</strong> (which items it acts on) and the <strong>target</strong> (where it acts). Both are configured per-module, so two modules in the same router can filter and aim completely differently.</p>
+
+      <h3>Filters</h3>
+      <p>Every movement and world module carries a filter list you can run as a <strong>whitelist</strong> (only these) or <strong>blacklist</strong> (everything but these). You can populate it several ways:</p>
+      <div class="data-table">
+        <table>
+          <caption>Ways to define what a module matches</caption>
+          <thead><tr><th>Filter type</th><th>Matches</th></tr></thead>
+          <tbody>
+            <tr><td>By item</td><td>Specific item stacks dropped into the filter slots.</td></tr>
+            <tr><td>By tag</td><td>An item tag (e.g. <code>forge:ores</code>, <code>forge:ingots</code>) so a whole category matches at once.</td></tr>
+            <tr><td>By mod</td><td>Everything from a given mod id — handy for "all the Create stuff."</td></tr>
+            <tr><td>Regex / name</td><td>A regular-expression match against item names for flexible patterns.</td></tr>
+            <tr><td>Inspection</td><td>Match by NBT/durability/inspection criteria for damaged tools, enchanted items, etc.</td></tr>
+            <tr><td>Mod filter via reference</td><td>With the Filter Upgrade, mirror the contents of a reference inventory as the live filter.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Whitelist vs blacklist</span>
+        <p>Flip the toggle per module. A Puller with a <strong>blacklist</strong> of your fuel item will pull everything <em>except</em> the fuel out of a furnace (leaving it lit); a Sender with a <strong>whitelist</strong> of one ingot keeps a sorting line clean. Tag and mod filters keep the list short as your item count grows.</p>
+      </div>
+
+      <h3>Targeting</h3>
+      <p>How a module chooses <em>where</em> to act depends on the module:</p>
+      <ul>
+        <li><strong>Look-at / facing</strong> — most world modules (Breaker, Placer, Activator) act on the block directly in front of the router's face.</li>
+        <li><strong>Area</strong> — the Vacuum covers a small region in front of the router; you set how it sweeps.</li>
+        <li><strong>Adjacent inventory</strong> — Pullers and Sender&nbsp;1 act on whatever inventory touches the relevant face.</li>
+        <li><strong>Ranged / coordinate</strong> — higher Senders aim further afield, which leads to the key distinction below.</li>
+      </ul>
+
+      <h3>How the Sender ranges differ</h3>
+      <div class="data-table">
+        <table>
+          <caption>Sender 1 / 2 / 3 — range and how you target</caption>
+          <thead><tr><th>Sender</th><th>Range</th><th>How you aim it</th></tr></thead>
+          <tbody>
+            <tr><td>Sender 1</td><td>Touching only</td><td>Pushes into the inventory directly on the facing side — zero configuration.</td></tr>
+            <tr><td>Sender 2</td><td>Short, line-of-sight</td><td>Fires along the facing direction up to a limited block range; finds the first valid inventory.</td></tr>
+            <tr><td>Sender 3</td><td>Long / coordinate</td><td>You set explicit target coordinates (often via a Sync/marker tool); reaches across long distances.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>As a rule: use <strong>Sender 1</strong> when the chest is right there, <strong>Sender 2</strong> to reach across a small gap without a pipe, and <strong>Sender 3</strong> when the destination is somewhere specific and far away.</p>
+    </section>
+
+    <!-- ============================================ 04 COMMON BUILDS -->
+    <section class="doc" id="builds">
+      <p class="sec-index">04 — Putting it to work</p>
+      <h2>Common Builds</h2>
+      <p class="lead">A handful of recipes cover most of what people install Modular Routers for. Each is one or two routers; the magic is in the module mix.</p>
+
+      <h3>Auto-cobblestone generator</h3>
+      <p>Build a standard water+lava cobble generator so a fresh block forms in front of the router's face. Then:</p>
+      <ol class="flow">
+        <li><strong>Place the Item Router</strong> facing the generation spot.</li>
+        <li><strong>Add a Breaker module</strong> — it mines the cobble as it forms and drops it into the buffer.</li>
+        <li><strong>Add a Sender 1 module</strong> facing a chest — it ships the cobble out of the buffer.</li>
+        <li><strong>Add a Speed Upgrade (and a Stack Upgrade)</strong> so it keeps pace with regeneration and moves full stacks.</li>
+        <li><strong>Optional Muffler Upgrade</strong> to silence the constant mining sound.</li>
+      </ol>
+      <p>One router, one chest, infinite cobble — no quarry, no pipes.</p>
+
+      <h3>Vacuum item collector</h3>
+      <p>For a drop zone (mob farm output, a crop trampler, an item-spitting machine), a <strong>Vacuum</strong> module sweeps dropped entities into the buffer, and a <strong>Sender</strong> ships them to storage. Add a <strong>Filter</strong> so it only grabs the loot you care about and leaves XP orbs / junk alone. This single router replaces a whole floor of hoppers.</p>
+
+      <h3>Auto-builder bridge (Extruder)</h3>
+      <p>Load the buffer with building blocks, point the router across the gap, and an <strong>Extruder</strong> module lays a line of blocks outward to form a bridge or wall — and can retract them on a redstone signal. Pair it with redstone control (pulse mode) so each lever flick extends one length.</p>
+
+      <h3>Mob-farm collector</h3>
+      <p>Under a mob farm, combine a <strong>Vacuum</strong> (grabs drops) with a <strong>Distributor</strong> (splits the haul across several storage chests) so no single chest overflows. A <strong>Detector</strong> module can emit redstone when a particular drop (e.g. gunpowder) crosses a threshold to trigger downstream automation.</p>
+
+      <h3>Restocking a machine</h3>
+      <p>To keep a furnace, smelter, or modded machine fed: a <strong>Puller</strong> drains the machine's <em>output</em> slot into the buffer, a <strong>Sender</strong> pushes <em>fuel/input</em> back in (with a whitelist for the correct slot/item), and a <strong>Detector</strong> can pause everything via redstone when the output chest is full. The whole restock loop lives in one block hugging the machine.</p>
+
+      <div class="note tip">
+        <span class="label">Filter the Puller, not just the Sender</span>
+        <p>When restocking, blacklist the machine's <em>fuel</em> on the Puller so you only pull finished product and never accidentally rob the furnace of its coal. Small filter choices like this are what make a one-block automation feel reliable.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 UPGRADES DEEP-DIVE -->
+    <section class="doc" id="upgrades">
+      <p class="sec-index">05 — Tuning the block</p>
+      <h2>Upgrades Deep-Dive</h2>
+      <p>Upgrades change the router as a whole. A few of them define how it scales, so they're worth understanding rather than just stacking blindly.</p>
+
+      <h3>Stack &amp; Speed — the throughput economy</h3>
+      <p>These two solve different halves of "go faster":</p>
+      <ul>
+        <li><strong>Stack Upgrade</strong> raises how <em>much</em> moves per action — from one item toward a full stack. This is usually the first upgrade you want, because moving 64 at once beats ticking 64 times.</li>
+        <li><strong>Speed Upgrade</strong> raises how <em>often</em> the router acts by shortening the tick interval. Stack a few for snappy, responsive routers.</li>
+      </ul>
+      <p>For bulk transfer, <strong>Stack first, then Speed</strong>: a stack-per-tick router at a moderate speed outruns a single-item router spinning frantically, and it's far lighter on the game.</p>
+
+      <h3>Blast — past the speed cap, for a price</h3>
+      <p>Speed Upgrades alone hit a cap. The <strong>Blast Upgrade</strong> breaks through it by spending <strong>energy (FE)</strong> per operation — the router must be connected to a power source. Use it when you genuinely need extreme throughput (a high-rate cobble or mob farm) and have spare FE; skip it on idle utility routers where the energy cost isn't worth it.</p>
+
+      <h3>Camouflage — hide the router</h3>
+      <p>The <strong>Camouflage Upgrade</strong> lets you disguise the router as any full block, so it vanishes into a stone wall or a wooden floor. Purely cosmetic, but it's the difference between a clean build and a box of grey cubes poking out of your base.</p>
+
+      <h3>Sync — line up with redstone</h3>
+      <p>The <strong>Sync Upgrade</strong> ties the router's actions to a redstone signal or external clock so it fires <em>exactly</em> when you want, in step with other machinery. Combine with pulse redstone control for one-action-per-pulse precision (auto-builders, timed dispensers).</p>
+
+      <h3>Security — keep others out</h3>
+      <p>On multiplayer servers, the <strong>Security Upgrade</strong> binds the router to its owner: other players can't open the GUI, pull its modules, or break it without permission. Worth adding to any router holding valuable modules or guarding access to your storage.</p>
+
+      <div class="note warn">
+        <span class="label">Upgrades stack — to a cap</span>
+        <p>Most upgrades stack (more Speed = faster, more Stack = bigger batches) but each has a per-router maximum, and they share one upgrade area, so you're budgeting slots. Check the in-game tooltips for the exact caps in your pack — they're configurable and JEI/the tooltip is the ground truth.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 ENERGY & ECO -->
+    <section class="doc" id="energy">
+      <p class="sec-index">06 — Power &amp; thrift</p>
+      <h2>Energy &amp; Eco</h2>
+      <p>Most routers run for <strong>free</strong> — a plain Puller/Sender setup needs no power at all. Energy only enters the picture when you push for speed beyond the normal limits.</p>
+
+      <h3>When the router wants FE</h3>
+      <ul>
+        <li><strong>Blast Upgrade</strong> spends FE per operation to exceed the speed cap — connect a cable and feed it.</li>
+        <li><strong>Heavy Speed stacks</strong> can draw energy in configurations that meter fast ticking, so a strongly-overclocked router benefits from a power feed even where it isn't strictly required.</li>
+      </ul>
+      <p>A router with energy upgrades buffers a little FE internally and draws from any adjacent FE source. If it runs dry, it simply falls back toward its un-boosted rate rather than stopping dead.</p>
+
+      <h3>The eco / redstone modes — saving power and ticks</h3>
+      <p>Even on free routers, you usually don't want them hammering the tick loop when there's nothing to do. Use:</p>
+      <div class="data-table">
+        <table>
+          <caption>Throttling a router</caption>
+          <thead><tr><th>Mode</th><th>Use it when…</th></tr></thead>
+          <tbody>
+            <tr><td>Eco / idle mode</td><td>The router only occasionally has work — it idles slow and wakes up to full speed on demand.</td></tr>
+            <tr><td>Redstone: powered</td><td>You want it to run only while a signal is held (gated by a lever, comparator, or sensor).</td></tr>
+            <tr><td>Redstone: unpowered</td><td>Default-on logistics you can <em>pause</em> with a signal.</td></tr>
+            <tr><td>Redstone: pulse</td><td>One action per rising edge — precise, on-demand single operations.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Balance throughput against cost</span>
+        <p>The honest tuning order is: <strong>Stack Upgrade</strong> for batch size, a couple of <strong>Speed Upgrades</strong> for responsiveness, and only then <strong>Blast + FE</strong> if you still need more. Pair any of it with <strong>eco/redstone gating</strong> so the router isn't burning ticks (or energy) when its job is done. You get the throughput where it matters and a quiet base where it doesn't.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips &amp; When Not To</h2>
+      <p>Modular Routers shines at compact, specific automation. A few habits make it sing — and a couple of honest limits tell you when to reach for something else.</p>
+
+      <h3>Get the most from one block</h3>
+      <ul>
+        <li><strong>One router replaces many hoppers.</strong> A Puller + Sender pair does what a row of hoppers does, but filtered, faster, and in a single block you can camouflage away.</li>
+        <li><strong>Combine modules in one router.</strong> Don't reach for a second block until you've used the slots you have — break, vacuum, filter, and send can all live together and fire in slot order.</li>
+        <li><strong>Filter early.</strong> Filtering on the Puller keeps junk out of the buffer entirely, which is cleaner and cheaper than filtering on the way out.</li>
+        <li><strong>Use Detector + redstone for logic.</strong> Let a router emit a signal on a threshold to start/stop other machinery instead of bolting on a separate comparator setup.</li>
+        <li><strong>Pulse mode for precision.</strong> When you want exactly one action per trigger (an Extruder bridge, a one-shot dispenser), pulse redstone control beats a free-running router.</li>
+      </ul>
+
+      <h3>When to prefer a dedicated transport mod</h3>
+      <p>Routers are point-tools, not a base-wide network. Reach for something else when:</p>
+      <ul>
+        <li><strong>You're moving bulk across the whole base.</strong> For a sprawling network of many sources and sinks, a pipe mod like <strong>Pipez</strong> (simple tiered pipes) or <strong>XNet</strong> (one controller driving many connections) is built for that scale.</li>
+        <li><strong>You need a true logistics graph.</strong> XNet's channels and a storage system handle complex routing and crafting far better than chaining Senders.</li>
+        <li><strong>You want fewer block entities.</strong> A handful of routers is fine; hundreds of them each ticking is heavier than one XNet controller managing the same connections.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">The sweet spot</span>
+        <p>Use Modular Routers for the <em>edges</em> — pull from this machine, vacuum this farm, mine this column, restock that furnace — and a dedicated transport mod for the <em>trunk</em>. One router at each automation point feeding a shared network is the tidiest of both worlds.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Trust the game, not this page</span>
+        <p>Module names, slot counts, ranges, and energy costs are <strong>configurable</strong> and vary by pack and version. Treat the numbers here as defaults for MC 1.19.2 Forge — the in-game tooltips and JEI/EMI recipe data are the ground truth in your install.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#f6e9dc;text-transform:uppercase;letter-spacing:0.03em">The One-Block Router</strong><br>
+      An unofficial, fan-made field guide to Modular Routers for Minecraft 1.19.2 (Forge).<br>
+      Modular Routers is by desht_08. This guide is not affiliated with or endorsed by the mod author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Modular Routers (1.19.2 Forge)<br>
+      · the in-game module &amp; upgrade tooltips<br>
+      · JEI/EMI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate defaults and are configurable per pack. When your install disagrees, the in-game tooltips and JEI/EMI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

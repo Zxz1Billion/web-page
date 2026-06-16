@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bigger Boxes — an Iron Chests &amp; Iron Ender Chests guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A field guide to Iron Chests and Iron Ender Chests for Minecraft 1.19.2 (Forge): every chest tier and its rough slot count, upgrading chests in place without losing contents, Crystal vs Obsidian, frequency-based ender storage, and how to pair chests with sorting and drawers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#0a0e11; --bg-1:#0e131a; --bg-2:#141b24; --bg-3:#1c2531;
+  --line:#283440; --ink:#e4edf2; --ink-dim:#98aab8; --ink-faint:#627384;
+  --accent:#56c4d6;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧰</span>
+      <span class="wordmark">Bigger<br>Boxes<small>IRON CHESTS &amp; ENDER CHESTS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Basics</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#tiers"><span class="ix">01</span> The Chest Tiers</a>
+      <a href="#upgrading"><span class="ix">02</span> Upgrading In Place</a>
+      <p class="group-label">The Big Ones</p>
+      <a href="#crystal"><span class="ix">03</span> Crystal &amp; Obsidian</a>
+      <a href="#ender"><span class="ix">04</span> Iron Ender Chests</a>
+      <p class="group-label">Living With Them</p>
+      <a href="#variants"><span class="ix">05</span> Trapped &amp; Variants</a>
+      <a href="#tips"><span class="ix">06</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Iron Chests<br>&amp; Iron Ender Chests for MC<br>1.19.2 (Forge). Slot counts are<br>approximate — open the chest<br>and trust the GUI / JEI.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · ProgWML6 / Iron431</p>
+      <h1>Bigger<br>Boxes</h1>
+      <p class="lede">Two small mods with one honest promise: <strong>more space</strong>. <strong>Iron Chests</strong> upgrades the humble vanilla chest into a ladder of bigger, sturdier, sometimes see-through containers; <strong>Iron Ender Chests</strong> bolts a colour-coded frequency dial onto the ender chest so you can run as many separate teleporting stashes as you like. No power, no multiblocks, no chemistry — just the simplest "give me more slots" upgrade in the pack.</p>
+      <div class="badges">
+        <span class="badge">Iron Chests</span>
+        <span class="badge">Iron Ender Chests</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">No power required</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Iron Chests does exactly one thing and does it well: it takes the vanilla chest and gives you upgraded versions with far more slots, climbing from Iron all the way to Crystal and Obsidian. Iron Ender Chests does the same favour for the ender chest, adding a selectable <strong>frequency</strong> so different chests can share — or deliberately not share — their contents. Together they are the no-fuss answer to "I have stuff everywhere and nowhere to put it."</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">storage</span><h4>Iron Chests</h4><p>A tier ladder of upgraded chests — Iron, Gold, Diamond, Copper, Crystal, Obsidian (plus Dirt &amp; Wood novelty tiers) — each with more slots than the last.</p></div>
+        <div class="card"><span class="tag">ender</span><h4>Iron Ender Chests</h4><p>Ender chests with a colour-coded frequency dial, so each frequency is its own shared, cross-base teleporting inventory.</p></div>
+        <div class="card"><span class="tag">no power</span><h4>Zero infrastructure</h4><p>No cables, no energy, no chemistry. Craft, place, open. The cheapest quality-of-life win in any tech pack.</p></div>
+        <div class="card"><span class="tag">see-through</span><h4>Glass tiers</h4><p>Diamond and Crystal chests are transparent — you can read their contents at a glance without opening them.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where this fits</span>
+        <p>These chests are early-game storage that scales surprisingly far. They belong in the broader <strong>Storage &amp; Logistics</strong> hub alongside drawers and AE2/QIO — start here, then graduate to those systems when you need search, auto-sorting, or a unified network. See §06 for the cross-references.</p>
+      </div>
+
+      <h3>The whole idea in three steps</h3>
+      <ol class="flow">
+        <li><strong>Build a vanilla chest.</strong> Everything in Iron Chests starts from an ordinary chest, surrounded or framed by the tier's metal/material.</li>
+        <li><strong>Pick a tier.</strong> Iron for "a bit more," Diamond/Crystal for "everything," Obsidian for "and keep it through an explosion."</li>
+        <li><strong>Upgrade in place when you outgrow it.</strong> A <strong>Chest Upgrade</strong> item bumps a placed chest to the next tier <em>without dumping its contents</em> (§02).</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 THE CHEST TIERS -->
+    <section class="doc" id="tiers">
+      <p class="sec-index">01 — The ladder</p>
+      <h2>The Chest Tiers</h2>
+      <p>The progression is the classic Iron Chests ladder: <strong>Iron → Gold → Diamond → Copper → Crystal → Obsidian</strong>, with <strong>Dirt</strong> and <strong>Wood</strong> tucked in as cheap/novelty starters. Each step up the ladder hands you more slots. A vanilla single chest is 27 slots and a double is 54, so even the first Iron tier is already a meaningful jump.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Chest tiers &amp; rough slot counts (approximate — confirm in-game)</caption>
+          <thead><tr><th>Tier</th><th>Slots (approx.)</th><th>See-through?</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Vanilla chest <span class="muted">(reference)</span></td><td class="num">27</td><td>no</td><td>The starting point everything builds from.</td></tr>
+            <tr><td>Dirt Chest</td><td class="num">~9</td><td>no</td><td>Novelty / joke tier — fewer slots than vanilla. Dirt cheap, literally.</td></tr>
+            <tr><td>Wood (Vanilla-trim)</td><td class="num">~27</td><td>no</td><td>Crafting stepping-stone toward the metal tiers.</td></tr>
+            <tr><td>Iron Chest</td><td class="num">~54</td><td>no</td><td>The first real upgrade — roughly a double chest in one block.</td></tr>
+            <tr><td>Gold Chest</td><td class="num">~81</td><td>no</td><td>A solid mid-tier; three rows beyond Iron.</td></tr>
+            <tr><td>Diamond Chest</td><td class="num">~108</td><td>yes</td><td>Big, and transparent — read the contents through the glass.</td></tr>
+            <tr><td>Copper Chest</td><td class="num">~45</td><td>no</td><td>An "in-between" tier — sits below Iron in capacity; cheap filler storage.</td></tr>
+            <tr><td>Crystal Chest</td><td class="num">~108</td><td>yes</td><td>The fully see-through showcase tier; same enormous capacity bracket as Diamond.</td></tr>
+            <tr><td>Obsidian Chest</td><td class="num">~108</td><td>no</td><td>Top-bracket capacity and blast-resistant — your vault.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Numbers are approximate</span>
+        <p>Slot counts drift between Iron Chests versions and packs sometimes re-tune them. The values above are the <em>rough</em> brackets you'll see — treat them as "much bigger than vanilla, climbing each tier." The chest GUI itself is the ground truth; hover the recipe in JEI to confirm the exact tier you're crafting.</p>
+      </div>
+
+      <h3>About Copper's placement</h3>
+      <p>Copper is the odd one out: rather than slotting near the top, it's a low/early tier (below Iron) added to fit Minecraft's copper economy. Think of it as a cheap way to get <em>somewhat</em> more than a vanilla chest before you've smelted much iron — not as a stepping-stone to Crystal.</p>
+
+      <h3>The two glass tiers</h3>
+      <p><strong>Diamond</strong> and <strong>Crystal</strong> chests are rendered transparent, so you can see the items stacked inside without opening the lid. That makes them ideal for display walls and "at-a-glance" storage rooms where you want to scan a whole wall and spot what you're low on. Crystal is the purest version of this — effectively a glass box with maximum capacity.</p>
+    </section>
+
+    <!-- ============================================ 02 UPGRADING IN PLACE -->
+    <section class="doc" id="upgrading">
+      <p class="sec-index">02 — No re-sorting</p>
+      <h2>Upgrading In Place</h2>
+      <p class="lead">The feature that makes Iron Chests painless: you never have to empty a chest to grow it. Craft a <strong>Chest Upgrade</strong> item, right-click it on a placed chest, and the chest jumps to the next tier <em>with all its contents intact</em>. No hauling, no temporary holding chest, no lost stacks.</p>
+
+      <h3>The upgrade items</h3>
+      <p>Each upgrade is a specific "from → to" item — you apply the one that matches your current chest and your target tier. The common ones:</p>
+      <div class="data-table">
+        <table>
+          <caption>Chest Upgrade items (apply to a placed chest)</caption>
+          <thead><tr><th>Upgrade</th><th>Takes you</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Iron → Gold Upgrade</td><td>Iron Chest → Gold Chest</td><td>Add rows once an Iron chest fills.</td></tr>
+            <tr><td>Gold → Diamond Upgrade</td><td>Gold Chest → Diamond Chest</td><td>Jump to the big, see-through bracket.</td></tr>
+            <tr><td>Diamond → Crystal Upgrade</td><td>Diamond Chest → Crystal Chest</td><td>Trade the frame for a fully transparent box.</td></tr>
+            <tr><td>Diamond → Obsidian Upgrade</td><td>Diamond Chest → Obsidian Chest</td><td>Trade visibility for blast resistance — turn a vault into a safe.</td></tr>
+            <tr><td>(Copper / Wood) → Iron Upgrade</td><td>Lower tier → Iron Chest</td><td>Bring a cheap starter chest up to the first real tier.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How to apply one</span>
+        <p>Hold the matching Chest Upgrade and <strong>right-click the placed chest</strong>. The block swaps tier in place; your items stay exactly where they were. The upgrade is consumed. Because the path branches at Diamond (→ Crystal <em>or</em> → Obsidian), decide there whether you want <em>visibility</em> or <em>protection</em> — you can't have both in one chest.</p>
+      </div>
+
+      <h3>Why upgrade instead of re-craft</h3>
+      <ul>
+        <li><strong>No downtime.</strong> A full chest stays full through the upgrade — handy for storage you can't easily empty.</li>
+        <li><strong>Cheaper than you'd guess.</strong> An upgrade item only supplies the <em>difference</em> in materials, not a whole new chest.</li>
+        <li><strong>Incremental.</strong> Grow a chest one tier at a time, exactly when it fills, instead of over-building from the start.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 03 CRYSTAL & OBSIDIAN -->
+    <section class="doc" id="crystal">
+      <p class="sec-index">03 — The top of the ladder</p>
+      <h2>Crystal &amp; Obsidian</h2>
+      <p>The two endgame tiers share the same huge capacity bracket but pull in opposite directions. One is built to be <strong>seen</strong>; the other is built to <strong>survive</strong>. Picking between them is really a question of what the chest is for.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">visibility</span><h4>Crystal Chest</h4><p>Fully transparent and enormous. Every stack inside is visible from outside — the perfect display/showcase chest, and the easiest way to read a bulk store at a glance.</p></div>
+        <div class="card"><span class="tag">protection</span><h4>Obsidian Chest</h4><p>Same top-bracket capacity, but <strong>blast-resistant</strong>. Creeper, TNT, or a misbehaving reactor won't pop it and scatter your loot. The vault tier.</p></div>
+      </div>
+
+      <h3>Choosing: safety vs visibility</h3>
+      <div class="data-table">
+        <table>
+          <caption>When to reach for which</caption>
+          <thead><tr><th>You want…</th><th>Pick</th><th>Because</th></tr></thead>
+          <tbody>
+            <tr><td>To scan contents without opening</td><td>Crystal</td><td>See-through walls make a tidy, legible storage room.</td></tr>
+            <tr><td>A display / museum wall</td><td>Crystal</td><td>The whole point of a glass box is showing what's inside.</td></tr>
+            <tr><td>Storage near explosives or a reactor</td><td>Obsidian</td><td>Blast resistance means a blowout doesn't cost you the chest.</td></tr>
+            <tr><td>A "do not lose this" vault</td><td>Obsidian</td><td>Rare loot, backups, and irreplaceables ride out accidents.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">You branch at Diamond</span>
+        <p>Both Crystal and Obsidian are reached by upgrading a <strong>Diamond</strong> chest (§02). Since the upgrade is one-way and one-or-the-other, think ahead: a wall of Crystal for the show floor, a pocket of Obsidian behind a blast door for the things you truly can't replace. Obsidian's protection only matters where things actually blow up — don't pay for it on a chest in a quiet attic.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 IRON ENDER CHESTS -->
+    <section class="doc" id="ender">
+      <p class="sec-index">04 — Teleporting storage</p>
+      <h2>Iron Ender Chests</h2>
+      <p class="lead">A vanilla ender chest gives every player one personal, shared-by-location-but-not-by-channel inventory. <strong>Iron Ender Chests</strong> blows that open with a <strong>frequency</strong>: a colour-coded three-dial code on the front of the chest. Any two ender chests set to the same frequency open the <em>same</em> inventory, anywhere in the world — and chests on <em>different</em> frequencies stay completely separate.</p>
+
+      <h3>How frequencies work</h3>
+      <p>The face of the chest carries a small dial of coloured pips you set with a click. That colour combination <em>is</em> the channel. Place a chest with the same colour code in your mine, your base, and the Nether, and they're all windows onto one shared box. Change one pip and you're suddenly looking at a different, empty stash.</p>
+      <ul class="pills">
+        <li><b>Same</b> frequency → same shared inventory</li>
+        <li><b>Different</b> frequency → fully separate storage</li>
+        <li><b>Cross-dimension</b> by default</li>
+        <li><b>No power</b> needed</li>
+      </ul>
+
+      <h3>Personal vs shared channels</h3>
+      <div class="data-table">
+        <table>
+          <caption>Ways to slice up your frequencies</caption>
+          <thead><tr><th>Setup</th><th>Effect</th><th>Good for</th></tr></thead>
+          <tbody>
+            <tr><td>One frequency, many chests</td><td>Every chest is the same box</td><td>A unified drop-off you reach from anywhere.</td></tr>
+            <tr><td>Several frequencies</td><td>Each colour code is its own separate box</td><td>Sorting by category — ores on one, food on another.</td></tr>
+            <tr><td>Personal (owner-locked) channel</td><td>Only you can access that frequency</td><td>Keeping a private stash on a shared/SMP server.</td></tr>
+            <tr><td>Shared (public) channel</td><td>Anyone with the code can access it</td><td>A team supply box every base feeds into.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Cross-base teleport storage</span>
+        <p>This is the killer use. Put one ender chest at every outpost on a single frequency, and material dropped in at the mine is instantly available at the main base — no carrying, no carts, no logistics network. Add a second frequency for "outbound" supplies (food, torches, tools) and you've got a two-way pipeline between every base you own.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Mind who knows the code</span>
+        <p>A public frequency is exactly as secure as the colour combination — if someone else sets a chest to the same code, they share your box. On servers, use a <strong>personal/owner-locked</strong> channel for anything you don't want pooled, and keep "interesting" colour codes off the obvious defaults.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 TRAPPED & VARIANTS -->
+    <section class="doc" id="variants">
+      <p class="sec-index">05 — Living with them</p>
+      <h2>Trapped &amp; Variants</h2>
+      <p>Beyond the plain tiers, Iron Chests carries a few variants and plays nicely with automation. The chests are still <em>chests</em> at heart — hoppers, comparators, and sorting mods treat them like inventories, just much bigger ones.</p>
+
+      <h3>Trapped variants &amp; hoppers</h3>
+      <ul>
+        <li><strong>Trapped variants</strong> emit a redstone signal when opened, mirroring the vanilla trapped chest — useful for alarms, auto-lighting a storage room, or triggering a door when someone reaches for the vault.</li>
+        <li><strong>Hopper interaction</strong> works as you'd expect: a hopper feeds into or pulls out of any tier. Because the chests are single-block (not double), they line up cleanly under a row of hoppers for input automation.</li>
+        <li><strong>Comparators</strong> read fullness, scaled across the larger slot count — handy for "stop the machine when this Diamond chest is full" logic.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">They're a buffer, not a sorter</span>
+        <p>A big chest is a great <em>destination</em> but it won't organise itself. Pair the chests with a sorting layer and you get the best of both: enormous quiet capacity behind a smart front end.</p>
+      </div>
+
+      <h3>Pairing with sorting</h3>
+      <div class="data-table">
+        <table>
+          <caption>Common automation partners</caption>
+          <thead><tr><th>Partner</th><th>Role</th><th>Pattern</th></tr></thead>
+          <tbody>
+            <tr><td>Modular Routers</td><td>Filtered item routing</td><td>One router pulls from a drop-box and fans items into the right tiered chest by filter.</td></tr>
+            <tr><td>Storage Drawers</td><td>Bulk single-item storage</td><td>Drawers for the high-volume staples; Crystal/Diamond chests for the long tail of odd items.</td></tr>
+            <tr><td>Hopper lines</td><td>Simple input/overflow</td><td>Feed a chest from a furnace bank or farm; chain hoppers for overflow into the next chest.</td></tr>
+            <tr><td>Trapped chest + redstone</td><td>Sensing</td><td>Light the room or sound an alert when the vault is opened.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">06 — Field notes</p>
+      <h2>Tips</h2>
+      <p>A handful of habits that get the most out of two very simple mods — and a clear-eyed note on when to move past them.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">display</span><h4>Crystal for bulk display</h4><p>Build storage rooms out of Crystal (or Diamond) chests so you can read the whole wall at a glance and instantly see what's running low — no GUI hunting.</p></div>
+        <div class="card"><span class="tag">safety</span><h4>Obsidian near hazards</h4><p>Anywhere things explode — TNT mining stores, creeper-exposed builds, near reactors or a Mekanism fission setup — put your irreplaceables in blast-resistant Obsidian.</p></div>
+        <div class="card"><span class="tag">portable</span><h4>Ender chests for expeditions</h4><p>One ender chest at base and one in your pack (or at the dig site) on a shared frequency = a portable, shared stash. Mine fills up? Dump it home without walking back.</p></div>
+        <div class="card"><span class="tag">scale</span><h4>Know when to graduate</h4><p>When you need search, auto-crafting, or a single unified inventory, it's time for drawers + a network. Chests stay great as buffers and display even then.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">When to graduate to drawers / AE2</span>
+        <p>Iron Chests scales beautifully up to "a tidy room of big boxes," but it has no <em>search</em> and no <em>auto-sort</em>. The moment you're spending real time hunting for items, move bulk staples into <strong>Storage Drawers</strong> and your long-tail into an <strong>AE2</strong> (or QIO) network with a search terminal. Cross-reference the <strong>Storage &amp; Logistics</strong> hub for that next step — and keep your Crystal chests as the human-readable display layer in front of it.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Quick reminders</span>
+        <p>Upgrade chests <em>in place</em> rather than re-crafting (§02). Branch carefully at Diamond — Crystal <em>or</em> Obsidian, not both (§03). Keep ender-chest frequencies written down somewhere, and use a personal channel on servers (§04). And whenever a number here disagrees with your game, the chest GUI and JEI are right.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">Bigger Boxes</strong><br>
+      A fan-made, unofficial guide to Iron Chests &amp; Iron Ender Chests for Minecraft 1.19.2 (Forge).<br>
+      Iron Chests is by ProgWML6 / Iron431 &amp; contributors. This guide is not affiliated with the mod authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Iron Chests (1.19.2)<br>
+      · Iron Ender Chests (1.19.2)<br>
+      · the in-game chest GUIs &amp; JEI
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Slot counts are approximate and vary by version &amp; pack. When this guide disagrees with your install, the in-game GUI and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

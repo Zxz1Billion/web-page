@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Palette Engine — a Chipped field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A practical guide to Chipped for Minecraft 1.19.2 (Forge): the decorative-variant mod that turns one vanilla block into hundreds of alternate textures and shapes through themed workbenches. Covers every bench, the chipping workflow, palette strategy, coverage, and pairing with Building Gadgets." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#0c0911; --bg-1:#100c18; --bg-2:#181222; --bg-3:#211930;
+  --line:#2e2540; --ink:#ece6f4; --ink-dim:#aea0c4; --ink-faint:#736690;
+  --accent:#b06be0;
+  --danger:#e0683a;
+  --f-display:"Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🎨</span>
+      <span class="wordmark">The Palette<br>Engine<small>CHIPPED</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Workshop</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#benches"><span class="ix">01</span> The Workbenches</a>
+      <a href="#howitworks"><span class="ix">02</span> How It Works</a>
+      <p class="group-label">Designing With It</p>
+      <a href="#palette"><span class="ix">03</span> Palette Strategy</a>
+      <a href="#coverage"><span class="ix">04</span> Coverage</a>
+      <p class="group-label">In Practice</p>
+      <a href="#gadgets"><span class="ix">05</span> With Building Gadgets</a>
+      <a href="#tips"><span class="ix">06</span> Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Chipped for<br>MC 1.19.2 (Forge). Variant<br>counts and bench names are<br>approximate — let in-game JEI<br>and the bench grids be the truth.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · terrariumearth</p>
+      <h1>The Palette<br>Engine</h1>
+      <p class="lede"><strong>Chipped</strong> is the quiet superpower of a build-focused modpack: it doesn't add new materials, it multiplies the ones you already have. Feed a single vanilla block into a themed workbench and a grid of <em>hundreds</em> of alternate textures and shapes opens up — bevelled stone, mossy bricks, herringbone planks, frosted glass, tufted wool. This guide covers every bench, the one-click chipping workflow, and how to wield that palette without your build turning into a swatch book.</p>
+      <div class="badges">
+        <span class="badge">Chipped</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Purely decorative</span>
+        <span class="badge">+ Building &amp; Decoration hub</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Chipped is purely cosmetic, but it is transformative. There is no new ore, no tech tree, no power requirement — you pick a base vanilla block, browse a huge palette of alternate textures and shapes, and walk away with a variant that has the exact same hardness and behaviour. The "progression" is entirely in your eye for detail.</p>
+
+      <p>If most decorative mods hand you a fixed set of new blocks, Chipped does the opposite: it takes blocks you already mine — stone, sandstone, planks, wool, glass, terracotta — and explodes each one into a wall of variations. A single block of <strong>Stone</strong> might offer well over a hundred faces: tiled, cracked, runed, cobbled, panelled, polished into a dozen geometric cuts. You're not unlocking materials; you're unlocking <em>finishes</em>.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">no materials</span><h4>Bring your own blocks</h4><p>Every variant is made from a vanilla base you already have. No grinding, no new ingredients — just the block and a bench.</p></div>
+        <div class="card"><span class="tag">1:1</span><h4>Free conversions</h4><p>Chipping is a one-for-one swap. You never lose a block, and you can chip a variant straight back to plain.</p></div>
+        <div class="card"><span class="tag">cosmetic</span><h4>Same physics</h4><p>A chipped block keeps the base's hardness, blast resistance, tool, and behaviour. It only looks different.</p></div>
+        <div class="card"><span class="tag">scale</span><h4>Hundreds of looks</h4><p>Across all bases, Chipped adds many hundreds of variants — enough that two builds need never share a texture.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where it sits in the pack</span>
+        <p>Chipped is a cornerstone of the <a href="building-guide.html">Building &amp; Decoration hub</a> — it's the texture layer underneath everything else. Pair it with shape-and-prop mods (Supplementaries, Decorative Blocks, Macaw's sets) for trim and furniture, and with <a href="building-guide.html">Building Gadgets</a> to place the result fast.</p>
+      </div>
+
+      <h3>The whole loop in one breath</h3>
+      <ol class="flow">
+        <li><strong>Craft a bench.</strong> Each themed workbench unlocks one family of variants (stone, wood, glass, wool…).</li>
+        <li><strong>Insert the base block.</strong> Drop in plain Stone, Oak Planks, White Wool — whatever the bench accepts.</li>
+        <li><strong>Browse the grid.</strong> The bench shows every variant for that block at once. Hover, compare, decide.</li>
+        <li><strong>Take the variant.</strong> Pull out as many as you fed in — it's a 1:1 trade, fully reversible.</li>
+        <li><strong>Build, then re-chip if you change your mind.</strong> Nothing is permanent.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 THE WORKBENCHES -->
+    <section class="doc" id="benches">
+      <p class="sec-index">01 — The tools of the trade</p>
+      <h2>The Workbenches</h2>
+      <p>Chipped splits its palette across a set of themed workbenches, each one keyed to a category of block. You don't need all of them at once — craft the bench for the material you're working with. The names below are approximate (they vary slightly by version), but the split is consistent: one bench per broad material family.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">plants</span><h4>🌿 Botanist Workbench</h4><p>Leaves, flowers, saplings, grass and other foliage variants.</p></div>
+        <div class="card"><span class="tag">glass</span><h4>🪟 Glassblower</h4><p>Glass blocks and panes — frosted, tinted, leaded, patterned.</p></div>
+        <div class="card"><span class="tag">wood</span><h4>🪵 Carpenter's Table</h4><p>Logs, planks and wood variants — herringbone, panelled, weathered.</p></div>
+        <div class="card"><span class="tag">textile</span><h4>🧶 Loom Table</h4><p>Wool and carpet finishes in every dye colour.</p></div>
+        <div class="card"><span class="tag">stone</span><h4>🪨 Mason Table</h4><p>Stone, bricks, cobble and sandstone — the deepest catalogue.</p></div>
+        <div class="card"><span class="tag">color</span><h4>⚗️ Alchemy Bench</h4><p>Terracotta, concrete and other coloured-block variants.</p></div>
+        <div class="card"><span class="tag">metal/misc</span><h4>🔧 Tinkering Table</h4><p>Metal blocks and miscellaneous bases that don't fit elsewhere.</p></div>
+        <div class="card"><span class="tag">brick</span><h4>🧱 Brick Worktable</h4><p>Dedicated brick and nether-brick masonry variants.</p></div>
+      </div>
+
+      <div class="data-table">
+        <table>
+          <caption>Workbenches &amp; the categories they unlock (names approximate)</caption>
+          <thead><tr><th>Workbench</th><th>Unlocks</th><th>Typical bases</th></tr></thead>
+          <tbody>
+            <tr><td>Botanist Workbench</td><td>Plants, leaves, flowers</td><td>Leaves, grass, flowers, saplings</td></tr>
+            <tr><td>Glassblower</td><td>Glass &amp; panes</td><td>Glass, stained glass, glass panes</td></tr>
+            <tr><td>Carpenter's Table</td><td>Wood &amp; planks</td><td>Logs, planks, stripped wood</td></tr>
+            <tr><td>Loom Table</td><td>Wool &amp; carpet</td><td>The 16 wools and carpets</td></tr>
+            <tr><td>Mason Table</td><td>Stone &amp; bricks</td><td>Stone, andesite, sandstone, bricks, cobble</td></tr>
+            <tr><td>Alchemy Bench</td><td>Terracotta, concrete, colours</td><td>Terracotta, glazed terracotta, concrete</td></tr>
+            <tr><td>Tinkering Table</td><td>Metal &amp; misc</td><td>Iron/gold/copper blocks, odd bases</td></tr>
+            <tr><td>Brick Worktable</td><td>Bricks &amp; nether brick</td><td>Bricks, nether brick, red nether brick</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="label">Bench names drift between versions</span>
+        <p>Different Chipped releases rename or merge a few benches, and some packs add or remove categories. Treat the table as a map of <em>what's available</em>, not an exact crafting list — open JEI and search "chipped" to see precisely which benches your install ships and what each accepts.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 HOW IT WORKS -->
+    <section class="doc" id="howitworks">
+      <p class="sec-index">02 — The mechanic</p>
+      <h2>How It Works</h2>
+      <p>The chipping interaction is deliberately frictionless. There's no fuel, no timer, no recipe to memorise — the bench is a live catalogue of everything a block can become.</p>
+
+      <ol class="flow">
+        <li><strong>Place the matching workbench</strong> for the material you want to restyle (Mason for stone, Carpenter for wood, and so on).</li>
+        <li><strong>Insert the base block.</strong> Open the bench and drop the plain vanilla block into the input — the grid populates instantly with every variant available for it.</li>
+        <li><strong>Browse the variant grid.</strong> Scroll the wall of alternates; hover to see names. Many bases have dozens to a hundred-plus options.</li>
+        <li><strong>Take the variant.</strong> Click the look you want and pull out the result. You get back the same count you put in.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">1:1 and reversible</span>
+        <p>Conversions are <strong>one-for-one</strong>: one base block in, one variant block out, with no waste and no cost. Better still, it's <strong>reversible</strong> — feed a chipped variant back in and you can chip it to a different variant or all the way back to the plain base. Nothing you do is destructive, so experiment freely.</p>
+      </div>
+
+      <p>Because every variant inherits its base, you can also chip in bulk: insert a full stack and convert all 64 at once, then hover the next look and convert again. The bench remembers the input you fed it, so iterating through finishes for a wall is a matter of a few clicks rather than a fresh craft each time.</p>
+
+      <div class="note warn">
+        <span class="label">It's a finish, not a new block</span>
+        <p>A chipped variant is functionally identical to its base in every way the game cares about — mining level, hardness, blast resistance, redstone behaviour, the lot. That's the point: you can swap finishes mid-build without rebalancing anything. It also means a variant won't suddenly become a different <em>kind</em> of block; "Stone" stays stone.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 PALETTE STRATEGY -->
+    <section class="doc" id="palette">
+      <p class="sec-index">03 — Designing with it</p>
+      <h2>Palette Strategy</h2>
+      <p class="lead">Hundreds of variants is a gift and a trap. The skill in Chipped isn't finding a nice texture — it's choosing a small, cohesive set and using them with discipline. Great Chipped builds usually lean on a <strong>family</strong> of related finishes plus a couple of accents, not a confetti of everything.</p>
+
+      <h3>Pick a family, not a favourite</h3>
+      <p>Before you place a single block, browse one base's grid end-to-end and notice the <em>groups</em>: the polished cuts, the cracked/weathered set, the tiled/panelled set, the runed/ornate set. A coherent build draws its main mass from one such group, so the wall reads as one material seen from different angles rather than a patchwork.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">mass</span><h4>One base, one family</h4><p>Pick a single base block and 2–4 variants from the same visual family for the bulk of a structure. Repetition reads as intent.</p></div>
+        <div class="card"><span class="tag">rhythm</span><h4>Mix shapes, not chaos</h4><p>Vary the <em>shape</em> of a finish — smooth, panelled, bevelled — to add surface rhythm while keeping the colour and material constant.</p></div>
+        <div class="card"><span class="tag">accent</span><h4>Reserve loud variants</h4><p>Save the ornate, runed, or high-contrast variants for trim, frames and focal points. A little goes a long way.</p></div>
+        <div class="card"><span class="tag">layer</span><h4>Let other mods do shape</h4><p>Chipped restyles full cubes. Reach for Supplementaries / Decorative Blocks for slabs, beams, posts and props in matching tones.</p></div>
+      </div>
+
+      <h3>Mixing shapes within a family</h3>
+      <p>A common move is to take one Chipped family and rotate between two or three of its members across a surface — a smooth field, a panelled border, a bevelled course at eye level. Because they share colour and material, the eye reads texture and depth without registering "different blocks." This is how you get walls that look hand-detailed instead of flat.</p>
+
+      <h3>Playing well with vanilla and other mods</h3>
+      <ul>
+        <li><strong>Vanilla as the anchor.</strong> Keep some plain vanilla blocks in the mix — they ground the busier Chipped finishes and stop a build from feeling over-decorated.</li>
+        <li><strong>Supplementaries &amp; Decorative Blocks</strong> add the <em>shapes</em> Chipped doesn't: timber frames, brick pillars, hedges, lanterns, sconces. Chip the base to taste, then trim with these.</li>
+        <li><strong>Match tones across mods.</strong> When you pick a Chipped terracotta or wood finish, choose other mods' props in the nearest matching hue so the whole scene shares a palette.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">The three-tone rule of thumb</span>
+        <p>For most builds, lock in <strong>one dominant material</strong> (the mass), <strong>one supporting material</strong> (floors/roofs), and <strong>one accent</strong> (trim/detail). Chip each into a small family. Three coherent tones beats thirty clashing ones every time.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 COVERAGE -->
+    <section class="doc" id="coverage">
+      <p class="sec-index">04 — The breadth</p>
+      <h2>Coverage</h2>
+      <p>The reason Chipped feels bottomless is the sheer spread of bases it touches. It isn't a stone pack or a wood pack — it reaches across almost every decorative-relevant block in the game, with each one carrying its own deep grid of variants.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Where the variants live (counts approximate — read the bench grid)</caption>
+          <thead><tr><th>Material family</th><th>Examples of bases covered</th><th>Bench</th></tr></thead>
+          <tbody>
+            <tr><td>Stone &amp; rock</td><td>Stone, granite, diorite, andesite, deepslate, sandstone</td><td>Mason</td></tr>
+            <tr><td>Bricks</td><td>Bricks, nether brick, red nether brick</td><td>Brick / Mason</td></tr>
+            <tr><td>Wood</td><td>Planks &amp; logs of every wood type</td><td>Carpenter</td></tr>
+            <tr><td>Glass</td><td>Clear &amp; stained glass, panes</td><td>Glassblower</td></tr>
+            <tr><td>Wool &amp; carpet</td><td>All 16 dye colours</td><td>Loom</td></tr>
+            <tr><td>Terracotta &amp; concrete</td><td>Plain &amp; coloured terracotta, glazed, concrete</td><td>Alchemy</td></tr>
+            <tr><td>Metal</td><td>Iron, gold, copper and similar blocks</td><td>Tinkering</td></tr>
+            <tr><td>Nether &amp; misc</td><td>Nether materials, plus assorted decorative bases</td><td>various</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Multiply those bases by the dozens-to-hundred-plus variants each one carries and the total runs into many <strong>hundreds of distinct looks</strong>. For practical purposes the catalogue is large enough that you'll never exhaust a single material's options on one build, let alone the whole mod.</p>
+
+      <h3>How it powers themed builds</h3>
+      <p>That breadth is exactly what a varied modpack wants, because different themed builds pull from different corners of the palette:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">sci-fi</span><h4>Space station</h4><p>Lean on metal, concrete and glass variants — panelled iron, riveted plates, frosted and tinted glass for clean, technical surfaces.</p></div>
+        <div class="card"><span class="tag">gothic</span><h4>Crypt</h4><p>Cracked, mossy and runed stone and brick variants, with deepslate and dark terracotta for weight and dread.</p></div>
+        <div class="card"><span class="tag">cozy</span><h4>Tavern</h4><p>Weathered planks, herringbone wood, warm brick and tufted wool — a snug, lived-in mix built entirely from chipped bases.</p></div>
+      </div>
+
+      <div class="note">
+        <span class="label">One mod, many aesthetics</span>
+        <p>Because Chipped spans foliage to metal, a single pack can hand wildly different builds a tailored palette without bolting on a separate texture mod for each theme. Same workflow, same benches — the only thing that changes is which corner of the grid you raid.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 WITH BUILDING GADGETS -->
+    <section class="doc" id="gadgets">
+      <p class="sec-index">05 — Placing it fast</p>
+      <h2>Workflow with Building Gadgets</h2>
+      <p>Chipped solves <em>what</em> a wall looks like; it doesn't speed up <em>placing</em> the wall. That's where the Gadgets come in. The natural pipeline is: design your palette at the bench, stock it, then build at speed with the <a href="building-guide.html">Building Gadgets</a> — see the dedicated Building Gadgets section of the Building &amp; Decoration hub for the full toolset.</p>
+
+      <ol class="flow">
+        <li><strong>Chip the palette first.</strong> At the relevant bench, convert a generous supply of each variant you've chosen — a few stacks per finish so you don't run dry mid-build.</li>
+        <li><strong>Load the Building Gadget.</strong> Set the variant block as its build material and lay down large surfaces, walls and floors in one swing instead of block by block.</li>
+        <li><strong>Refine with the Exchanging Gadget.</strong> Changed your mind on a finish after the fact? The Exchanging Gadget swaps an already-placed block for another in bulk — perfect for trading one chipped variant for a different one across a whole face.</li>
+        <li><strong>Re-chip leftovers.</strong> Anything you over-produced goes straight back to base (or another variant) at the bench. No waste.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Chip before you place, not after</span>
+        <p>The Building/Exchanging Gadgets copy and place <em>specific</em> blocks. Decide the variant at the bench first, then build — it's far smoother than placing plain blocks and trying to restyle them in the world. If you do want to restyle in place, the <strong>Exchanging Gadget</strong> is the bulk tool for it.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">06 — Field notes</p>
+      <h2>Tips</h2>
+      <p>A handful of habits make Chipped painless across a long build session.</p>
+
+      <ul>
+        <li><strong>Keep a "palette chest."</strong> Dedicate one chest (or a labelled row) to the chosen variants for the current build. With the family decided up front, you grab finishes by hand instead of re-chipping every time.</li>
+        <li><strong>Label your benches.</strong> If you keep several benches standing, sign or name them by category so you're not opening the Glassblower when you wanted the Mason.</li>
+        <li><strong>Remember it's all cosmetic.</strong> Every variant has the <em>same hardness, tool, and behaviour</em> as its base — so you can swap finishes freely without affecting how the block mines, explodes, or interacts.</li>
+        <li><strong>Browse before you build.</strong> Open the grid and scroll the whole thing once. The best finish is often three rows down, not the first one that looks nice.</li>
+        <li><strong>Lean on JEI.</strong> Search "chipped" to find which bench makes a variant, or to confirm a base is supported, before you go crafting a bench you don't need.</li>
+        <li><strong>Re-chip, don't re-mine.</strong> Made too many of one finish? Chip the surplus back to base or sideways into the variant you actually want — never break and recraft.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">The one thing to internalise</span>
+        <p>Chipped costs you nothing but attention. There's no resource sink and no risk — the only way to "waste" it is to over-decorate. Choose a tight palette, stock it in a palette chest, place it with the Gadgets, and re-chip anything you don't love. <span class="vflag">cosmetic only</span></p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#ece6f4;text-transform:uppercase;letter-spacing:0.03em">The Palette Engine</strong><br>
+      An unofficial, fan-made field guide to Chipped on Minecraft 1.19.2 (Forge).<br>
+      Chipped is by terrariumearth &amp; contributors. This guide is not affiliated with or endorsed by the mod's authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Chipped for MC 1.19.2 (Forge)<br>
+      · the in-game workbench grids<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Variant counts and bench names are approximate and vary by version. When in doubt, the in-game benches and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

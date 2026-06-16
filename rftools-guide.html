@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The RFTools Manual — McJty's RFTools Base &amp; the RFTools ecosystem (MC 1.19.2 Forge)</title>
+<meta name="description" content="A field manual for RFTools Base — the shared foundation of McJty's RFTools ecosystem on Minecraft 1.19.2 (Forge): the Machine Frame, Machine Infusion, the Smart Wrench, the modular-machine framework, and an honest, hedged tour of the separate add-on modules (Power, Storage, Control, Builder, Dimensions, Utility)." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#070b14; --bg-1:#0b101d; --bg-2:#121829; --bg-3:#1a2238; --line:#26314e; --ink:#e2e9f7; --ink-dim:#94a3c4; --ink-faint:#5f6e90;
+  --accent:#4a9bff;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🛰</span>
+      <span class="wordmark">The RFTools<br>Manual<small>RFTOOLS BASE</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Foundation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#core"><span class="ix">01</span> Core Components</a>
+      <a href="#philosophy"><span class="ix">02</span> The RFTools Philosophy</a>
+      <p class="group-label">The Modules (Add-ons)</p>
+      <a href="#power"><span class="ix">03</span> Power &amp; Powercells</a>
+      <a href="#storage"><span class="ix">04</span> Storage &amp; Scanner</a>
+      <a href="#control"><span class="ix">05</span> Control &amp; Programming</a>
+      <a href="#builder"><span class="ix">06</span> Builder &amp; Dimensions</a>
+      <p class="group-label">Practice</p>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against RFTools Base<br>for MC 1.19.2 (Forge) by McJty.<br>This pack ships <b>Base</b> — the shared<br>core. Which named modules are<br>installed is pack-specific: open<br>JEI in-game to confirm.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · McJty</p>
+      <h1>The RFTools<br>Manual</h1>
+      <p class="lede">A field manual for <strong>RFTools Base</strong> — the common library and foundation under McJty's sprawling <strong>RFTools</strong> ecosystem. Base is the shared core every RFTools module is built on: the <em>Machine Frame</em>, the <em>Smart Wrench</em>, <em>Machine Infusion</em> with Dimensional Shards, and the modular-machine framework. The famous modules — <em>Power, Storage, Control, Builder, Dimensions, Utility</em> — are <strong>separate add-ons</strong> that may or may not be in your pack, so this guide stays honest about what's actually guaranteed.</p>
+      <div class="badges">
+        <span class="badge">RFTools Base</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Powered by FE ("RF")</span>
+        <span class="badge danger">⚠ Modules are optional</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">RFTools is a <strong>modular tech suite</strong>: a family of mods, each adding a focused toolset (power, storage, automation, world-shaping), all bolted onto one shared base. That base is <strong>RFTools Base</strong> — a small, almost invisible mod that, on its own, doesn't give you a quarry or a dimension builder. Instead it provides the <em>common library</em> the other modules depend on: the <strong>Machine Frame</strong> used in most RFTools machine recipes, the <strong>Smart Wrench</strong> for configuring them, <strong>Machine Infusion</strong> with <strong>Dimensional Shards</strong> for upgrading machines, and the shared GUI / energy / redstone framework.</p>
+
+      <div class="note">
+        <span class="label">Be honest about what's installed</span>
+        <p>This page is the guide for <strong>RFTools Base</strong> specifically. Everything below it under "The Modules" — Power, Storage, Control, Builder, Dimensions — is a <em>separate add-on</em>. RFTools Base being present does <strong>not</strong> mean those are. Treat their sections as "if your pack has this module" and confirm in JEI before you plan a build around them. See §07 for how to check.</p>
+      </div>
+
+      <p>Everything in the ecosystem runs on <strong>Forge Energy (FE)</strong> — historically called <strong>RF</strong> (Redstone Flux), which is where the "RF" in RFTools comes from. If your pack has a broader automation &amp; power write-up, this manual is the RFTools spoke of that hub: pair Base's machines with whatever power generation and cabling your pack provides.</p>
+
+      <h3>The shape of the ecosystem</h3>
+      <ol class="flow">
+        <li><strong>RFTools Base loads first.</strong> It registers the Machine Frame, Smart Wrench, Dimensional Shard infusion, and the modular-machine plumbing. The modules below all <em>require</em> it.</li>
+        <li><strong>Each module adds a domain.</strong> Power adds Powercells; Storage adds the Modular Storage / Storage Scanner; Control adds visual programming; Builder/Dimensions add quarrying and custom worlds.</li>
+        <li><strong>You mix and match.</strong> A pack might ship all of them, a few, or just Base as a dependency for some other mod. Read the mod list.</li>
+        <li><strong>Common patterns carry over.</strong> Once you learn one RFTools GUI — energy bar, redstone mode buttons, Smart Wrench behaviour — you know them all.</li>
+      </ol>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core · present</span><h4>RFTools Base</h4><p>The shared library. Machine Frame, Smart Wrench, Machine Infusion (Dimensional Shards), and the modular-machine framework. This guide's main subject.</p></div>
+        <div class="card"><span class="tag">add-on</span><h4>RFTools Power</h4><p>Powercells — a location-linked, multi-block FE storage network. RFTools' signature power storage. §03.</p></div>
+        <div class="card"><span class="tag">add-on</span><h4>RFTools Storage</h4><p>Modular Storage + Storage Scanner: a searchable storage system, lighter than AE2. §04.</p></div>
+        <div class="card"><span class="tag">add-on</span><h4>RFTools Control</h4><p>Visual programming with the Processor and program cards for automation. §05.</p></div>
+        <div class="card"><span class="tag">add-on</span><h4>RFTools Builder</h4><p>The Builder (quarry / move / copy) and Shape Cards. §06.</p></div>
+        <div class="card"><span class="tag">add-on</span><h4>RFTools Dimensions</h4><p>The Dimension Builder for custom, designed dimensions. §06.</p></div>
+      </div>
+    </section>
+
+    <!-- ============================================ 01 CORE COMPONENTS -->
+    <section class="doc" id="core">
+      <p class="sec-index">01 — What Base actually gives you</p>
+      <h2>Core Components</h2>
+      <p>RFTools Base is small on purpose — it's the part every other module reuses. Here is what it contributes and why each piece matters across the whole ecosystem.</p>
+
+      <h3>The Machine Frame &amp; Machine Base</h3>
+      <p>The <strong>Machine Frame</strong> is the iconic RFTools crafting component: a hollow cube of frame edges that sits at the centre of most RFTools machine recipes (across the modules), the way a casing or a "machine chassis" does in other tech mods. The <strong>Machine Base</strong> is the lower foundation block many machines are built on top of. Together they're the shared "you are looking at an RFTools machine" identity — recognisable frame, consistent footprint.</p>
+
+      <div class="note tip">
+        <span class="label">Frames are everywhere</span>
+        <p>If a module is installed, expect its machines to want a Machine Frame in the recipe. Batch-craft a stack early — almost nothing in RFTools gets built without one, and the recipe is cheap relative to how often you'll need it.</p>
+      </div>
+
+      <h3>The Smart Wrench</h3>
+      <p>The <strong>Smart Wrench</strong> is RFTools' multi-tool for its own blocks. It is the single most useful Base item and you should keep one on your hotbar at all times. Depending on its mode (cycle it with a key/right-click as your pack maps it), it can:</p>
+      <ul>
+        <li><strong>Configure</strong> — open a block's settings or set side I/O without opening the full GUI.</li>
+        <li><strong>Rotate</strong> — turn machines to face the way you want.</li>
+        <li><strong>Move / pick up</strong> — relocate certain RFTools blocks (and link blocks like Powercells) without losing their settings or stored contents.</li>
+      </ul>
+
+      <div class="data-table">
+        <table>
+          <caption>Smart Wrench modes (behaviour is mode-dependent; numbers approximate)</caption>
+          <thead><tr><th>Mode</th><th>What it does</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>Select / Configure</td><td>Opens config / sets a side, or links paired blocks</td><td>Wiring up I/O, pairing networked blocks</td></tr>
+            <tr><td>Rotate</td><td>Cycles the block's facing</td><td>Aiming machine fronts &amp; outputs</td></tr>
+            <tr><td>Move / Pickup</td><td>Removes the block keeping its data intact</td><td>Relocating a configured machine cleanly</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Machine Infusion &amp; Dimensional Shards</h3>
+      <p>RFTools machines can be <strong>infused</strong> for better performance. You feed a machine <strong>Dimensional Shards</strong> (sometimes seen as Dimensional Cells/Crystals depending on the module set) repeatedly through the <em>Machine Infuser</em> until it reaches full infusion. An infused machine is noticeably more <strong>energy-efficient</strong> and can run faster — the exact bonus is per-machine and approximate, but the rule of thumb is: a fully infused machine costs less FE per operation than an un-infused one.</p>
+
+      <div class="note tip">
+        <span class="label">Infuse the machines you lean on</span>
+        <p>Dimensional Shards are a limited resource, so spend them where they pay off: the machines that run constantly (your storage scanner, a hard-working Builder, a busy processor). A machine you toggle once a day isn't worth a shard. See §07.</p>
+      </div>
+
+      <h3>Dimensional Shards / Cells — where they come from</h3>
+      <p>Dimensional Shards are the ecosystem's premium upgrade currency. In packs with the relevant modules they're mined or crafted (often associated with the Dimensions module's worldgen or with end-tier ore), and they double as the fuel/charge medium for some module machinery. If your pack only has Base plus a subset of modules, the source of shards is pack-specific — <strong>check JEI for the "Dimensional Shard" usage tree</strong> to see how your install expects you to get them.</p>
+    </section>
+
+    <!-- ============================================ 02 PHILOSOPHY -->
+    <section class="doc" id="philosophy">
+      <p class="sec-index">02 — Why it feels the way it does</p>
+      <h2>The RFTools Philosophy</h2>
+      <p>RFTools has a recognisable design language. Learn it once and every module feels familiar — that consistency is exactly what Base enables.</p>
+
+      <h3>Clean, information-dense GUIs</h3>
+      <p>RFTools GUIs are famously functional: a clear <strong>energy bar</strong>, explicit buttons, and labelled fields rather than hidden menus. You can usually tell at a glance whether a machine has power, what mode it's in, and what it's doing. The trade-off is a slightly utilitarian look — but you rarely have to guess.</p>
+
+      <h3>Redstone modes on (almost) everything</h3>
+      <p>Most RFTools machines expose a <strong>redstone control mode</strong>, typically cycling through something like: <em>Ignored</em> (always run), <em>Off when powered</em>, and <em>On when powered</em>. This makes RFTools machines trivial to gate with vanilla redstone or with the Control module — no extra adapter block required.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Common redstone modes (labels vary slightly by machine)</caption>
+          <thead><tr><th>Mode</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Ignored</td><td>Runs regardless of redstone — the default for most machines</td></tr>
+            <tr><td>Off (when powered)</td><td>Stops while receiving a redstone signal</td></tr>
+            <tr><td>On (when powered)</td><td>Only runs while receiving a redstone signal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Energy-aware machines</h3>
+      <p>RFTools machines are built around FE from the ground up: each has an internal buffer, draws what it needs per operation, and many <strong>scale their cost</strong> with how hard you push them. This is exactly why Machine Infusion (§01) matters — efficiency is a first-class concern, not an afterthought.</p>
+
+      <h3>The "module" structure</h3>
+      <p>The big idea: instead of one monolithic mod, RFTools is <strong>composable</strong>. A pack author can include only the modules they want, and because they all share Base, they interoperate cleanly. The <strong>Utility</strong> module, for instance, is a grab-bag of quality-of-life blocks (teleporters, screens/info panels, environmental controllers, redstone helpers) that round out whatever else is installed.</p>
+
+      <div class="note">
+        <span class="label">Base is the enabler, not the payload</span>
+        <p>If you installed RFTools expecting quarries or dimensions and only see frames, wrenches, and infusion: you have <strong>Base without those modules</strong>. That's working as intended — Base is the shared foundation. Add the specific module mod to get its features.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 03 POWER -->
+    <section class="doc" id="power">
+      <p class="sec-index">03 — Add-on · RFTools Power</p>
+      <h2>Power &amp; Powercells</h2>
+      <p class="lead"><span class="vflag">If RFTools Power is installed</span> Powercells are RFTools' signature power storage and the reason many players love the ecosystem — but they ship in the separate <strong>RFTools Power</strong> module. If you don't see Powercells in JEI, your pack didn't include it; skip to §04.</p>
+
+      <h3>Powercells — storage linked by location, not cables</h3>
+      <p>A <strong>Powercell</strong> network is a set of Powercell blocks that share <strong>one combined FE buffer</strong>. The clever part: cells don't have to be adjacent or wired. You build a multi-block bank of cells, and any cell linked to the same network draws from and contributes to the same pool — you can even <strong>carry a card to link a remote cell</strong> to the network, so power placed here is available there without running a cable across the world.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Powercell block roles (capacities are tiered &amp; pack-configurable — read tooltips)</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Powercell (Simple / Normal / Advanced)</td><td>Adds capacity and I/O to the shared network; higher tiers store &amp; transfer more</td></tr>
+            <tr><td>Network card</td><td>Links a Powercell to an existing network regardless of distance</td></tr>
+            <tr><td>Card-bound remote cell</td><td>A cell elsewhere that taps the same pool — wireless-feeling power sharing</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The pitch in one line</span>
+        <p>Powercells = a big shared FE battery you can extend by <em>placing more cells anywhere</em> and linking them, instead of running and balancing cable. Use the Smart Wrench to relocate cells without dumping their charge.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">If you don't have it</span>
+        <p>Without the Power module you'll need your pack's other batteries/capacitors for bulk FE storage. The rest of RFTools Base works fine on any FE source — Powercells are a luxury, not a requirement.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 STORAGE -->
+    <section class="doc" id="storage">
+      <p class="sec-index">04 — Add-on · RFTools Storage</p>
+      <h2>Storage &amp; Scanner</h2>
+      <p class="lead"><span class="vflag">If RFTools Storage is installed</span> A searchable storage system that's lighter-weight than AE2 or Refined Storage — but it lives in the separate <strong>RFTools Storage</strong> module. Confirm in JEI before planning around it.</p>
+
+      <h3>Modular Storage &amp; the Storage Scanner</h3>
+      <p>The concept is a <strong>searchable, indexed storage</strong> network without channels or autocrafting overhead:</p>
+      <ul>
+        <li><strong>Modular Storage</strong> blocks hold items in tiered <em>storage modules</em> (the capacity media — bigger modules, more slots), each browsable through one tidy, searchable GUI.</li>
+        <li><strong>The Storage Scanner</strong> sits at the heart of it: point it at nearby inventories (its own modular storage, vanilla chests, other blocks in range) and it gives you <strong>one unified, searchable view</strong> across all of them, letting you withdraw, deposit, and find items from a single screen.</li>
+      </ul>
+
+      <div class="data-table">
+        <table>
+          <caption>RFTools Storage pieces (ranges &amp; capacities are pack-configurable)</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Scanner</td><td>Central searchable index across in-range inventories; the "terminal"</td></tr>
+            <tr><td>Modular Storage block</td><td>Holds a Storage Module; the indexed item bank</td></tr>
+            <tr><td>Storage Module (tiered)</td><td>The capacity media — higher tiers store more item types</td></tr>
+            <tr><td>Storage Terminal / Remote</td><td>Access the scanner's view from elsewhere</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Why pick it over AE2</span>
+        <p>No channels, no fluix cabling, no crafting CPUs to manage — the Storage Scanner just indexes what's near it. It's the right call when you want "find my stuff fast" without committing to a full digital-storage mod. For mass autocrafting, a heavier mod still wins.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 CONTROL -->
+    <section class="doc" id="control">
+      <p class="sec-index">05 — Add-on · RFTools Control</p>
+      <h2>Control &amp; Programming</h2>
+      <p class="lead"><span class="vflag">If RFTools Control is installed</span> Visual, in-world automation programming — in the separate <strong>RFTools Control</strong> module. Skip if JEI doesn't list the Processor.</p>
+
+      <h3>Visual programming with the Processor</h3>
+      <p>RFTools Control lets you build automation logic by <strong>laying out program cards</strong> rather than writing text. The centrepiece is the <strong>Processor</strong>, which runs programs that you assemble visually from event/action tiles — "when this happens, do that." It can read and control RFTools machines and inventories, react to redstone, move items, and orchestrate multi-step routines.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Control module pieces</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Processor</td><td>Runs your visual program; the "CPU" of the setup</td></tr>
+            <tr><td>Program / Graphics cards</td><td>Hold the program and drive its GUI capacity</td></tr>
+            <tr><td>Connector nodes</td><td>Wire the Processor to the machines &amp; inventories it acts on</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where it shines</span>
+        <p>Control is the glue for "smart base" behaviour: conditional crafting, keeping a buffer stocked, sequencing machines, reacting to power or item thresholds. It's a gentler on-ramp to logic than a full computer mod, since the program is a visual flow rather than code.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 BUILDER & DIMENSIONS -->
+    <section class="doc" id="builder">
+      <p class="sec-index">06 — Add-ons · Builder &amp; Dimensions</p>
+      <h2>Builder &amp; Dimensions</h2>
+      <p class="lead"><span class="vflag">Two separate modules</span> The world-shaping side of RFTools lives in <strong>two distinct add-ons</strong> — RFTools Builder and RFTools Dimensions. Either, both, or neither may be in your pack. Confirm in JEI.</p>
+
+      <h3>The Builder (RFTools Builder)</h3>
+      <p>The <strong>Builder</strong> is a versatile area-operation block driven by <strong>Shape Cards</strong> that define a 3D region. Depending on the card it can:</p>
+      <ul>
+        <li><strong>Quarry</strong> — clear/collect a region (with variants that void worthless blocks or keep only ores).</li>
+        <li><strong>Move</strong> — physically shift a structure from one place to another.</li>
+        <li><strong>Copy</strong> — duplicate a captured shape elsewhere (resources permitting).</li>
+        <li><strong>Build</strong> — place a stored shape into the world.</li>
+      </ul>
+      <p>It's FE-hungry and scales cost with the work done, which is exactly the kind of machine that benefits from Machine Infusion (§01) and a solid Powercell bank (§03).</p>
+
+      <h3>The Dimension Builder (RFTools Dimensions)</h3>
+      <p>RFTools Dimensions lets you <strong>create custom dimensions</strong> — you compose a dimension from features/dimlets (terrain type, biomes, materials, special effects), pay an energy/resource cost to construct and maintain it, and travel there. It's a sandbox for designed worlds: a quarry dimension, a flat building space, a resource-rich pocket, etc.</p>
+
+      <div class="note warn">
+        <span class="label">Clearly add-on, often absent &amp; version-sensitive</span>
+        <p>Both modules are separate downloads, and the Dimensions module in particular has historically lagged or changed substantially between MC versions. Do <strong>not</strong> assume either is present just because RFTools Base is — check JEI, and trust your in-game recipe browser for exactly how your pack's version works.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips &amp; Checklist</h2>
+      <p>The short, honest version of everything above.</p>
+
+      <ol class="flow">
+        <li><strong>Keep a Smart Wrench on you.</strong> Configure, rotate, and move RFTools machines with it — moving a configured block keeps its settings and contents, which saves enormous rework.</li>
+        <li><strong>Batch-craft Machine Frames.</strong> Nearly every RFTools machine across the modules wants one. Make a stack and stop thinking about it.</li>
+        <li><strong>Infuse the machines you use heavily.</strong> Dimensional Shards are limited — spend them on always-on workhorses (busy Builder, Storage Scanner, a hard-running Processor), not on rarely-used blocks.</li>
+        <li><strong>Use redstone modes instead of extra blocks.</strong> Most machines gate themselves on a redstone signal natively — no adapter needed.</li>
+        <li><strong>Check JEI first — every time.</strong> The single most important habit. It is the ground truth for which RFTools modules are installed and how their recipes work in <em>your</em> pack.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">How to confirm which modules you have</span>
+        <p>Open <strong>JEI</strong> and search for a signature block per module: <em>Powercell</em> (Power), <em>Storage Scanner</em> (Storage), <em>Processor</em> (Control), <em>Builder</em> / <em>Shape Card</em> (Builder), <em>Dimension Builder</em> / <em>Dimlet</em> (Dimensions). No result means that module isn't installed — and any section above marked "if installed" simply doesn't apply to you.</p>
+      </div>
+
+      <div class="note danger">
+        <span class="label">Don't plan around features you can't see</span>
+        <p>RFTools Base alone gives you frames, the Smart Wrench, and Machine Infusion — not quarries, dimensions, Powercells, or storage scanners. Those are the add-on modules. If a build plan depends on one of them, verify the module is present <em>before</em> you commit resources. When this guide and your install disagree, the in-game JEI/tooltips win.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dce7f5;text-transform:uppercase;letter-spacing:0.03em">The RFTools Manual</strong><br>
+      A fan-made, unofficial field manual for RFTools Base on Minecraft 1.19.2 (Forge).<br>
+      RFTools and its modules are by McJty. This guide is not affiliated with or endorsed by the author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · RFTools Base (1.19.2 / Forge)<br>
+      · the in-game block tooltips<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate and pack-configurable; module availability is pack-specific. When your install disagrees, the in-game tooltips and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voltage &amp; Vacuum — an IC2 Classic field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A focused, in-depth IC2 Classic (IndustrialCraft 2, ported to Minecraft 1.19.2 Forge by sfPlayer1) field guide: EU and the early bootstrap, the LV/MV/HV/EV voltage tiers and the over-volt rule, cables and wiring, generators and storage, ore doubling, machines and materials, electric tools and gear, and a careful note on nuclear power." />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>:root{
+  --bg-0:#100d08; --bg-1:#15110a; --bg-2:#1f1810; --bg-3:#2a2115; --line:#3a2e1b; --ink:#efe7d3; --ink-dim:#bcab83; --ink-faint:#82704f;
+  --accent:#f0c020;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">⚡</span>
+      <span class="wordmark">Voltage<br>&amp; Vacuum<small>IC2 CLASSIC</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Grid</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#voltage"><span class="ix">01</span> Voltage Tiers</a>
+      <a href="#cables"><span class="ix">02</span> Cables &amp; Wiring</a>
+      <a href="#generators"><span class="ix">03</span> Generators &amp; Power</a>
+      <p class="group-label">The Workshop</p>
+      <a href="#ores"><span class="ix">04</span> Ore Processing</a>
+      <a href="#machines"><span class="ix">05</span> Machines &amp; Materials</a>
+      <a href="#tools"><span class="ix">06</span> Tools &amp; Gear</a>
+      <p class="group-label">The Reactor</p>
+      <a href="#nuclear"><span class="ix">07</span> Nuclear &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against IC2 Classic<br>for MC 1.19.2 (Forge), the<br>sfPlayer1 port. EU values are<br>approximate &amp; configurable —<br>trust the in-game guide &amp; JEI.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · sfPlayer1</p>
+      <h1>Voltage<br>&amp; Vacuum</h1>
+      <p class="lede">A working field manual for <strong>IC2 Classic</strong> — the classic IndustrialCraft 2 tech tree, ported forward. It runs on its own currency, <strong>EU (Energy Units)</strong>, climbs its own voltage ladder, and rewards you with ore doubling, electric tools, and — if you're careful — a nuclear reactor. The one rule it never forgives: <em>feed a machine more voltage than its tier and it explodes.</em></p>
+      <div class="badges">
+        <span class="badge">IC2 Classic</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">⚡ Runs on EU</span>
+        <span class="badge danger">☢ It can explode</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">IC2 Classic is a complete, self-contained tech progression. It does not speak Forge Energy or Mekanism Joules out of the box — its world runs on <strong>EU (Energy Units)</strong>, moved in discrete <strong>packets</strong> down its own cables and stored in its own batteries. Everything in this guide assumes that closed economy. To wire IC2 into the rest of a modpack's power, you need a converter (see the cross-references below).</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">currency</span><h4>EU — Energy Units</h4><p>The unit of IC2 power. Generators make it, cables carry it in packets, machines and tools consume it, batteries store it.</p></div>
+        <div class="card"><span class="tag">flow</span><h4>Packets &amp; voltage</h4><p>EU travels as packets of a given size. The packet's size <em>is</em> its voltage — and voltage, not total energy, is what blows machines up.</p></div>
+        <div class="card"><span class="tag">closed</span><h4>Its own tech tree</h4><p>IC2 is deliberately separate from FE/Joules. Bridge it with a converter; otherwise treat the EU grid as a walled garden.</p></div>
+        <div class="card"><span class="tag">gateway</span><h4>Rubber &amp; circuits</h4><p>Two early materials gate everything: <strong>rubber</strong> (for insulated cable) and the <strong>Electronic Circuit</strong> (for nearly every machine).</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The early bootstrap</span>
+        <p>Your first three machines, in order: a <strong>Generator</strong> (burns coal/charcoal into EU), a <strong>Macerator</strong> (grinds ore into 2 dust — the ore-doubling payoff), and an <strong>Electric Furnace</strong> (smelts on EU, faster and cheaper than a vanilla furnace once powered). Wire all three off the same Generator with tin cable, and you have a functioning IC2 base.</p>
+      </div>
+
+      <h3>How IC2 fits in a bigger pack</h3>
+      <p>Because EU is its own currency, IC2 sits beside FE/Joules tech rather than mixing freely with it. If your pack runs Mekanism, Thermal, or any FE-based mod alongside IC2, you'll want a converter block at the seam.</p>
+      <ul>
+        <li>For the EU↔FE conversion itself, see the <a href="mekanism-ic2c-bridge.html">Mekanism ⇄ IC2 EU/FE Bridge</a> page — it covers the patch/converter that lets the two grids feed each other.</li>
+        <li>For how power generation and distribution fit together across the whole pack, see the <a href="index.html">Automation &amp; Power guide</a> in the hub.</li>
+      </ul>
+      <p>Until you place a converter, assume nothing from your FE network reaches an IC2 machine and vice-versa. The bootstrap above gets you running entirely inside IC2 with no bridge at all.</p>
+    </section>
+
+    <!-- ============================================ 01 VOLTAGE TIERS -->
+    <section class="doc" id="voltage">
+      <p class="sec-index">01 — The ladder</p>
+      <h2>Voltage Tiers</h2>
+      <p class="lead">IC2's defining mechanic is <strong>voltage tiers</strong>. Every machine, cable, battery, and generator is rated for a tier — LV, MV, HV, or EV — and the cardinal rule is brutal: <strong>send a machine a packet larger than its tier can accept and the machine explodes.</strong> This is not a slow degradation; it is a crater. Learn the tiers before you wire anything.</p>
+
+      <div class="note danger">
+        <span class="label">The cardinal rule — read it twice</span>
+        <p>An LV machine fed an MV packet (or higher) <strong>explodes on the spot</strong>. It is the packet <em>voltage</em> that matters, not how much total EU you've stored. Step voltage down with a <strong>Transformer</strong> before it reaches a lower-tier machine, and never run a high-voltage line straight into low-tier gear. When in doubt, buffer through a tier-appropriate battery block.</p>
+      </div>
+
+      <div class="data-table">
+        <table>
+          <caption>The four voltage tiers (EU/packet bands are approximate &amp; configurable — confirm in-game)</caption>
+          <thead><tr><th>Tier</th><th>Rough EU/packet</th><th>Matching cable</th><th>Storage block</th></tr></thead>
+          <tbody>
+            <tr><td><strong>LV</strong> — Low Voltage</td><td class="num">≈ up to 32</td><td>Tin (cheap, low loss)</td><td>BatBox</td></tr>
+            <tr><td><strong>MV</strong> — Medium Voltage</td><td class="num">≈ up to 128</td><td>Copper / Gold</td><td>MFE</td></tr>
+            <tr><td><strong>HV</strong> — High Voltage</td><td class="num">≈ up to 512</td><td>HV (insulated)</td><td>MFSU</td></tr>
+            <tr><td><strong>EV</strong> — Extreme Voltage</td><td class="num">≈ 512+</td><td>Glass Fibre</td><td>MFSU bank / arrays</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Transformers step voltage up and down</h3>
+      <p>A <strong>Transformer</strong> converts between adjacent tiers. There is one per boundary — LV, MV, and HV Transformers — and each works both ways depending on which side you feed:</p>
+      <ul>
+        <li><strong>Step down</strong> (the common case): feed the high-voltage side and a redstone signal, and it emits smaller, lower-tier packets safe for your machines.</li>
+        <li><strong>Step up</strong>: feed the low-voltage side and it batches energy into larger, higher-tier packets for long-distance transmission with less loss.</li>
+      </ul>
+      <p>The pattern of a healthy base: generate and transmit at high voltage (fewer packets, less loss over distance), then transform <em>down</em> at the point of use to whatever your machines accept.</p>
+
+      <div class="note warn">
+        <span class="label">Cabling has limits too</span>
+        <p>Each cable type has its own <strong>maximum voltage</strong> and its own <strong>EU loss per block</strong>. Pushing a packet bigger than a cable's rating either melts the cable or destroys connected gear, and longer runs of lossy cable bleed EU the whole way. Match cable tier to packet voltage <em>and</em> keep runs short — both matter. The next section breaks the cables down.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 CABLES & WIRING -->
+    <section class="doc" id="cables">
+      <p class="sec-index">02 — The wiring</p>
+      <h2>Cables &amp; Wiring</h2>
+      <p>Cables are where most new IC2 players blow themselves up. Each type has a voltage ceiling and a per-block loss; some can be <strong>insulated</strong> to raise their safe voltage and to stop them shocking you (or mobs) on contact. Pick the cheapest cable that safely carries your packets, and insulate anything you'll walk near.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Cable types, roughly cheapest → highest tier (values approximate &amp; configurable)</caption>
+          <thead><tr><th>Cable</th><th>Carries up to</th><th>Loss / character</th></tr></thead>
+          <tbody>
+            <tr><td>Tin Cable</td><td>LV</td><td>Low loss; the standard early-game LV wire.</td></tr>
+            <tr><td>Copper Cable</td><td>MV</td><td>Moderate loss; insulate to use safely around the base.</td></tr>
+            <tr><td>Gold Cable</td><td>MV (higher throughput)</td><td>Lower loss than copper at MV, but more expensive.</td></tr>
+            <tr><td>HV Cable</td><td>HV</td><td>For high-voltage trunk lines; insulate it — uninsulated HV hurts.</td></tr>
+            <tr><td>Glass Fibre Cable</td><td>EV</td><td>The premium wire: very high voltage ceiling and the <strong>lowest loss per block</strong>. Expensive (glass + silver/redstone), but the right choice for long runs.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Insulation</h3>
+      <p>Most cables can take one or more layers of <strong>rubber insulation</strong>. Insulation does two jobs: it stops the cable from delivering an electric shock to entities that touch it, and on some cables it raises the voltage the wire can safely carry. Uninsulated cable is cheaper but dangerous to brush against — insulate anything in a walkway or near mobs.</p>
+
+      <div class="note danger">
+        <span class="label">Why mismatched cable + voltage fries machines</span>
+        <p>If a packet's voltage exceeds what a cable is rated for, the energy doesn't politely stop — it damages the cable and can pass a destructive surge into whatever machine sits at the end. The two failure modes to remember: <strong>cable under-rated for the packet</strong> (cable melts / machine explodes) and <strong>machine under-tier for the packet</strong> (machine explodes regardless of cable). Both come back to the same discipline: know your packet voltage at every point on the line.</p>
+      </div>
+
+      <h3>Safe wiring patterns</h3>
+      <ol class="flow">
+        <li><strong>Generate and store at tier.</strong> Wire your generator into a tier-appropriate battery block (BatBox for LV, MFE for MV, MFSU for HV) — the battery sets the output packet size, so you always know what's leaving it.</li>
+        <li><strong>Transmit on the right cable.</strong> Run the battery's output on a cable rated for that tier or higher. For long distances, step <em>up</em> and use Glass Fibre to minimise loss.</li>
+        <li><strong>Transform down at the point of use.</strong> Just before a bank of lower-tier machines, drop voltage with a Transformer so the packets are safe for that gear.</li>
+        <li><strong>Insulate walkways.</strong> Any cable you (or mobs) can touch gets rubber insulation.</li>
+        <li><strong>Keep runs short.</strong> Every block of cable loses a little EU. Place generation near load when you can, and prefer low-loss cable for the rest.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 03 GENERATORS & POWER -->
+    <section class="doc" id="generators">
+      <p class="sec-index">03 — Making EU</p>
+      <h2>Generators &amp; Power</h2>
+      <p>Every IC2 grid starts with a <strong>Generator</strong> and grows into a mix of passive and active sources feeding tiered <strong>storage blocks</strong>. Storage matters as much as generation: the battery block you choose sets your output voltage tier, smooths bursty sources, and is where you charge tools and armour.</p>
+
+      <h3>Generators</h3>
+      <div class="data-table">
+        <table>
+          <caption>Power sources, bootstrap → ambient</caption>
+          <thead><tr><th>Generator</th><th>Runs on</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Generator</td><td>Solid fuel (coal, charcoal, etc.)</td><td>The bootstrap. Burns fuel into LV EU; buffers a little internally. Your first power block.</td></tr>
+            <tr><td>Geothermal Generator</td><td>Lava (bucket or piped)</td><td>Steady, strong LV output from lava — excellent once you can pipe a lava source in.</td></tr>
+            <tr><td>Water Mill</td><td>Adjacent water / hand-fed</td><td>Weak ambient power; best in arrays, or hand-cranked with water cells early.</td></tr>
+            <tr><td>Wind Mill</td><td>Open sky / altitude</td><td>Output scales with height and clear surroundings; variable but free. Mind the structural requirements.</td></tr>
+            <tr><td>Solar Panel</td><td>Daylight</td><td>Cheap, weak, daytime-only. Scales by stacking many panels.</td></tr>
+            <tr><td>Nuclear Reactor</td><td>Uranium cells</td><td>The endgame heat/EU source — powerful and dangerous. See §07.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Lava is the early workhorse</span>
+        <p>Once you can deliver lava (buckets, a pump, or a tank), the <strong>Geothermal Generator</strong> gives you reliable LV power far beyond what a coal Generator sustains. A couple of geothermals feeding a BatBox will run an early ore-processing line comfortably.</p>
+      </div>
+
+      <h3>Storage blocks &amp; batteries</h3>
+      <p>The storage block you use defines the tier of power leaving it. The progression mirrors the voltage ladder exactly:</p>
+      <div class="data-table">
+        <table>
+          <caption>EU storage, low → high tier (capacities approximate &amp; configurable)</caption>
+          <thead><tr><th>Block / item</th><th>Tier</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>RE Battery</td><td>LV (item)</td><td>Portable charge for early electric tools; crafts into many recipes. Recharge it in any storage block.</td></tr>
+            <tr><td>BatBox</td><td>LV</td><td>The first storage block. Buffers LV, outputs LV packets — safe for all LV machines. Charges tools on its top slot.</td></tr>
+            <tr><td>MFE</td><td>MV</td><td>Much larger buffer, outputs MV. Use a Transformer to feed LV machines from it.</td></tr>
+            <tr><td>MFSU</td><td>HV</td><td>Huge buffer, outputs HV. The base's main reservoir; step down before any lower-tier load.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Charging tools &amp; armour</span>
+        <p>Electric tools, batteries, and powered armour charge in a storage block's <strong>charging slot</strong> — but only up to the block's tier. A BatBox charges LV-tier items; an MFSU charges everything up to HV. Putting a low-tier item in a higher slot is fine; the reverse (over-volting a tool) is what you avoid. Many tools also accept a portable RE Battery / energy crystal swap for field recharges.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 04 ORE PROCESSING -->
+    <section class="doc" id="ores">
+      <p class="sec-index">04 — Doubling &amp; beyond</p>
+      <h2>Ore Processing</h2>
+      <p class="lead">The reason to electrify: IC2 turns one ore block into far more metal than a furnace can. The baseline is <strong>doubling</strong> (Macerator: ore → 2 dust → 2 ingots), and a longer chain pushes the yield higher still by washing and centrifuging the dust.</p>
+
+      <h3>The doubling baseline</h3>
+      <p>Run ore through the <strong>Macerator</strong> and it becomes <strong>2 dust</strong>; smelt that dust in an <strong>Electric Furnace</strong> for <strong>2 ingots</strong> per ore. That single step doubles every metal you mine and is the first big payoff of going electric.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The ore-multiplication chain (yields qualitative — the longer chain beats plain doubling)</caption>
+          <thead><tr><th>Step</th><th>Machine</th><th>Produces</th></tr></thead>
+          <tbody>
+            <tr><td>1 — Grind</td><td>Macerator</td><td>Ore → 2 dust (the doubling step).</td></tr>
+            <tr><td>2 — Wash</td><td>Ore Washing Plant</td><td>Crushed ore → purified dust + tiny ore byproducts, using water cells.</td></tr>
+            <tr><td>3 — Centrifuge</td><td>Thermal Centrifuge</td><td>Separates dust into pure metal dust + extra byproduct dusts (the higher-yield path).</td></tr>
+            <tr><td>4 — Smelt</td><td>Electric Furnace / Induction Furnace</td><td>Dust → ingots, with the extra byproducts adding to total yield.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The washing + centrifuge chain extracts more metal than a plain Macerator alone and recovers <strong>byproduct dusts</strong> (small piles of secondary metals) that a furnace would have wasted. It costs more power and water but is the route to maximum yield.</p>
+
+      <h3>Compressing &amp; extracting</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">macerator</span><h4>Macerator</h4><p>Ore → 2 dust. The doubling machine and the heart of every IC2 processing setup.</p></div>
+        <div class="card"><span class="tag">compressor</span><h4>Compressor</h4><p>Squeezes materials into denser forms — plates, Carbon/Coal forms, Energy Crystals, dense items used across recipes.</p></div>
+        <div class="card"><span class="tag">extractor</span><h4>Extractor</h4><p>Pulls usable material out of inputs — most importantly <strong>Rubber from Sticky Resin</strong>, the gateway to insulated cable.</p></div>
+        <div class="card"><span class="tag">washing</span><h4>Ore Washing Plant</h4><p>Cleans crushed ore with water for higher purity and byproducts; pairs with the Thermal Centrifuge.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Don't over-build the chain on day one</span>
+        <p>Start with just <strong>Macerator + Electric Furnace</strong> for clean doubling. Add the <strong>Ore Washing Plant</strong> and <strong>Thermal Centrifuge</strong> only once you have surplus power and water cells to feed them — the extra yield is real but the throughput is slower per ore until you parallelise.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 MACHINES & MATERIALS -->
+    <section class="doc" id="machines">
+      <p class="sec-index">05 — The roster</p>
+      <h2>Machines &amp; Materials</h2>
+      <p>Beyond ore processing, IC2 has a catalogue of electric machines and a backbone of crafted materials — refined iron, plates, and circuits — that nearly every recipe leans on. Build the material chain first; the machines fall into place once you can make circuits.</p>
+
+      <h3>The machine catalogue</h3>
+      <div class="data-table">
+        <table>
+          <caption>Core IC2 machines</caption>
+          <thead><tr><th>Machine</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Electric Furnace</td><td>Smelts on EU — faster and more efficient than a fuel furnace once powered.</td></tr>
+            <tr><td>Induction Furnace</td><td>A heat-up smelter: warms up over time, then smelts much faster than the basic Electric Furnace at scale. Best kept running continuously.</td></tr>
+            <tr><td>Metal Former</td><td>Shapes metal into <strong>plates, casings, and wires</strong> by rolling/extruding — a cleaner source of plates than crafting.</td></tr>
+            <tr><td>Recycler</td><td>Turns almost any junk item into <strong>Scrap</strong>, used to accelerate matter generation and some recipes.</td></tr>
+            <tr><td>Canning Machine</td><td>Fills cans/cells (food, fuel, fluids) and tops up some fuel items.</td></tr>
+            <tr><td>Mass Fabricator</td><td>Consumes enormous EU (sped up by Scrap) to produce <strong>Matter / UU-Matter</strong>, the basis for fabricating rare materials.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The material backbone</h3>
+      <p>These crafted materials gate most of the tech tree — make them early and keep a stock:</p>
+      <ul>
+        <li><strong>Refined Iron / Steel</strong> — iron processed (smelted/blasted) into the structural metal behind most machine blocks and tools.</li>
+        <li><strong>Plates</strong> — Iron, Bronze, Gold, and others, formed in the <em>Metal Former</em> or by crafting; used as casings and tool/armour stock.</li>
+        <li><strong>Electronic Circuit</strong> — Refined iron + copper wire + redstone. The single most-used component in IC2; almost no machine exists without one.</li>
+        <li><strong>Advanced Circuit</strong> — the upgraded circuit (with Glowstone/Redstone and lapis-grade ingredients) that gates MV/HV machines and advanced gear.</li>
+        <li><strong>Rubber</strong> — extracted from Sticky Resin (see §06); the insulation material and a component in many recipes.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Circuits are the real bottleneck</span>
+        <p>Long before you run low on metal, you'll run low on <strong>Electronic Circuits</strong>. Set up a steady copper-wire and refined-iron supply early, and consider automating circuit crafting — every machine, battery, and tool tier you want to build is gated behind them.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 TOOLS & GEAR -->
+    <section class="doc" id="tools">
+      <p class="sec-index">06 — Wearing the EU</p>
+      <h2>Tools &amp; Gear</h2>
+      <p class="lead">IC2's electric tools trade durability for <strong>stored EU</strong>: they don't wear out, they run flat, and you recharge them in a storage block. The standout early item isn't a tool at all — it's <strong>rubber</strong>, the gateway material every insulated cable and many machines need.</p>
+
+      <div class="note tip">
+        <span class="label">Rubber is the early gateway</span>
+        <p>Tap a <strong>Rubber Tree</strong> with a <strong>Treetap</strong> to harvest <strong>Sticky Resin</strong>, then run the resin through an <strong>Extractor</strong> for <strong>Rubber</strong>. Rubber insulates cables and feeds countless recipes — a small rubber-tree farm early on removes a constant bottleneck. (You can also smelt resin to rubber in a pinch, at lower yield.)</p>
+      </div>
+
+      <h3>Electric tools</h3>
+      <div class="data-table">
+        <table>
+          <caption>Powered tools — all recharge from a BatBox / MFE / MFSU or a battery</caption>
+          <thead><tr><th>Tool</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Drill</td><td>Fast mining of stone-type blocks on EU; no durability loss, just charge.</td></tr>
+            <tr><td>Diamond Drill</td><td>The upgraded Drill — faster and broader, at a higher EU cost per block.</td></tr>
+            <tr><td>Chainsaw</td><td>Rapid wood harvesting (and shearing); runs on EU.</td></tr>
+            <tr><td>Electric Wrench</td><td>The powered Wrench — see below — for relocating machines cleanly.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Utility &amp; cosmetic gear</h3>
+      <ul>
+        <li><strong>Wrench</strong> — rotates and <em>picks up</em> machines so you can move them without re-crafting (sometimes with a chance to drop the machine intact). Essential for rearranging a base.</li>
+        <li><strong>Treetap</strong> — harvests Sticky Resin from rubber trees (the rubber gateway above).</li>
+        <li><strong>Painter</strong> — recolours cables and certain blocks; handy for keeping a tidy, labelled grid.</li>
+      </ul>
+
+      <h3>Powered armour</h3>
+      <p>If the port includes it, IC2's electric armour tiers run from a basic battery-fed suit up to high-end <strong>nano-/quantum-style armour</strong> that absorbs damage by spending EU. Like the tools, it recharges in a storage block of the right tier — and the top tiers need a serious power supply to keep topped up.</p>
+
+      <div class="note warn">
+        <span class="label">Charge to tier, not above it</span>
+        <p>Recharge a tool or armour piece in a storage block <strong>at or above its tier</strong>. Low-tier gear is happy in a high-tier charger, but never wire an electric item into a raw high-voltage line expecting it to survive — charge through the storage block's dedicated slot, which delivers a safe rate.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 NUCLEAR & TIPS -->
+    <section class="doc" id="nuclear">
+      <p class="sec-index">07 — Going critical</p>
+      <h2>Nuclear &amp; Tips</h2>
+      <p class="lead">If your IC2 Classic build includes the <strong>Nuclear Reactor</strong>, it is by far the most powerful EU source — and the most dangerous block in the mod. Treat this section as a careful warning, not a build sheet: reactor design is its own deep topic, and a bad layout doesn't just stop working, it detonates.</p>
+
+      <div class="note danger">
+        <span class="label">The reactor can melt down — advanced &amp; dangerous</span>
+        <p>An IC2 Nuclear Reactor runs on <strong>Uranium cells</strong> and generates <strong>heat</strong> alongside EU. Heat must be carried away by coolant cells, heat vents/exchangers, and plating; if the design can't shed heat fast enough, the reactor <strong>overheats and explodes</strong> — a large blast plus lingering hazards. Always plan the cooling <em>before</em> the fuel, simulate the layout (in-game or with a planner), build it walled-off or underground, and never hot-swap components in a running reactor. This is genuinely endgame, genuinely lethal gear.</p>
+      </div>
+
+      <h3>If you do build one</h3>
+      <ul>
+        <li><strong>Cool first, fuel second.</strong> The number of heat vents, exchangers, and coolant cells around each fuel cell decides whether you get power or a crater.</li>
+        <li><strong>Contain it.</strong> Reinforced stone / obsidian housing and distance from your base limit the damage of a worst case.</li>
+        <li><strong>Pull the output through storage.</strong> Reactor EU goes into an MFSU (HV) and is stepped down from there — never straight into low-tier machines.</li>
+      </ul>
+
+      <h3>Practical tips to carry everywhere</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">rule #1</span><h4>Never over-volt</h4><p>Match packet voltage to machine tier at every point. Transform down before low-tier gear. One mismatch is one explosion.</p></div>
+        <div class="card"><span class="tag">rule #2</span><h4>Buffer with a BatBox</h4><p>Put a tier-appropriate storage block between your source and your machines — it fixes the output voltage and smooths bursts.</p></div>
+        <div class="card"><span class="tag">rule #3</span><h4>Insulate &amp; keep runs short</h4><p>Insulate anything you can touch; prefer low-loss Glass Fibre for distance. EU bleeds away on long, cheap cable.</p></div>
+        <div class="card"><span class="tag">rule #4</span><h4>Bridge the pack</h4><p>To share power with FE/Joules mods, place a converter — see the <a href="mekanism-ic2c-bridge.html">EU/FE bridge</a> page; otherwise keep the EU grid sealed.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">When in doubt, trust the game</span>
+        <p>Every EU number in this guide is a default that packs and ports can change. The in-game IC2 guide/manual, item tooltips, and JEI recipe data are the ground truth — if your install disagrees with a figure here, follow the install.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#f5e7c2;text-transform:uppercase;letter-spacing:0.03em">Voltage &amp; Vacuum</strong><br>
+      An unofficial, fan-made field manual for IC2 Classic on Minecraft 1.19.2 (Forge).<br>
+      IndustrialCraft 2 is by the IC2 team; IC2 Classic and its 1.19.2 port are community work (sfPlayer1). This guide is not affiliated with or endorsed by them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · IC2 Classic (1.19.2 Forge)<br>
+      · the in-game IC2 guide/manual<br>
+      · JEI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">EU values and voltages are approximate, default, and configurable per pack/port. When your install disagrees, the in-game guide, tooltips, and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

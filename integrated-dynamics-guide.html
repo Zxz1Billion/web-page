@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Logic Lattice — an Integrated Dynamics field manual (MC 1.19.2 Forge)</title>
+<meta name="description" content="A fully in-depth Integrated Dynamics (Minecraft 1.19.2 Forge) guide: Menril & materials, the cable network, Variables and the Logic Programmer, Operators and Aspects, Readers/Writers/Displays, Proxies & Variable Stores, Integrated Tunnels logistics, and worked example builds for programmable automation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#08120f; --bg-1:#0b1714; --bg-2:#10201c; --bg-3:#172c27;
+  --line:#234038; --ink:#e0f0ec; --ink-dim:#93bab0; --ink-faint:#5f867c;
+  --accent:#4fd0e0;
+  --danger:#e0683a;
+  --f-display:"Chakra Petch",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧠</span>
+      <span class="wordmark">The Logic<br>Lattice<small>INTEGRATED DYNAMICS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Lattice</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#menril"><span class="ix">01</span> Menril &amp; Materials</a>
+      <a href="#network"><span class="ix">02</span> The Network</a>
+      <p class="group-label">Programming</p>
+      <a href="#variables"><span class="ix">03</span> Variables &amp; Programmer</a>
+      <a href="#readers"><span class="ix">04</span> Readers &amp; Writers</a>
+      <a href="#aspects"><span class="ix">05</span> Aspects &amp; Proxies</a>
+      <p class="group-label">Logistics &amp; Practice</p>
+      <a href="#tunnels"><span class="ix">06</span> Integrated Tunnels</a>
+      <a href="#builds"><span class="ix">07</span> Example Builds &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Integrated<br>Dynamics for MC 1.19.2 (Forge).<br>Values are approximate &amp; pack-<br>configurable — the in-game GUIs<br>and JEI are the ground truth.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · kroeser</p>
+      <h1>The Logic<br>Lattice</h1>
+      <p class="lede">A working field manual for <strong>Integrated Dynamics</strong> — a logic and automation network built not on configured GUIs but on <em>Variables</em>, <em>Operators</em> and <em>Aspects</em>. You read the world into variables, compute over them with a visual programming language, and write the results back out as redstone, displays, and item movement. The learning curve is steeper than XNet's, but nothing else in 1.19.2 is this programmable.</p>
+      <div class="badges">
+        <span class="badge">Integrated Dynamics</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">+ Integrated Tunnels</span>
+        <span class="badge accent">⟁ Variables &amp; Operators</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Integrated Dynamics (ID) is a single, powerful logic-and-automation network. Instead of clicking through a per-machine config, you describe what you want as data: <strong>Readers</strong> turn the world into <strong>Variables</strong>, the <strong>Logic Programmer</strong> combines those variables with <strong>Operators</strong> into derived values, and <strong>Writers</strong> turn the result back into actions. It has a steeper learning curve than XNet — but it is far more programmable, and a single network can drive logic, displays, and (with the companion mod) full item/fluid/energy logistics.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>Integrated Dynamics</h4><p>Cables, parts, Variables, Operators, Aspects, the Logic Programmer, Readers/Writers/Displays, Proxies &amp; Variable Stores.</p></div>
+        <div class="card"><span class="tag">logistics</span><h4>Integrated Tunnels</h4><p>The companion mod: import/export of items, fluids and energy over the same network, with variable-driven predicate filters.</p></div>
+        <div class="card"><span class="tag">helper</span><h4>JEI / EMI</h4><p>Every recipe — Menril resin, crystals, the Logic Programmer, cables and parts — is documented in your recipe viewer. Use it constantly.</p></div>
+        <div class="card"><span class="tag">vs.</span><h4>XNet / RS / AE2</h4><p>ID overlaps with these but trades convenience for raw expressiveness. See the <em>Automation &amp; Power</em> hub for how they compare and combine.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The mental model to learn first</span>
+        <p>Think of the network as a tiny dataflow program. A <strong>value</strong> has a <strong>type</strong> (Boolean, Integer, Item, Fluid, List, …). A <strong>Variable Card</strong> stores a value. An <strong>Operator</strong> takes one or more values and returns a new one. <strong>Aspects</strong> are the network's read/write &quot;ports&quot; to the world. Everything else is wiring.</p>
+      </div>
+
+      <h3>The shape of the climb</h3>
+      <ol class="flow">
+        <li><strong>Grow Menril.</strong> Find or grow a <strong>Menril Tree</strong>, then make <strong>Menril Resin</strong> and <strong>Crystalized Menril Crystals</strong> in the <strong>Squeezer</strong> and <strong>Drying Basin</strong>. These are the backbone of every recipe.</li>
+        <li><strong>Lay cable.</strong> Place a few <strong>Cables</strong>, attach a <strong>Logic Director</strong> if needed, and add an energy <strong>Battery</strong> for the parts that draw power.</li>
+        <li><strong>Read something.</strong> Snap a <strong>Reader</strong> part onto a cable face touching a chest or redstone, and read an <strong>Aspect</strong> into a <strong>Variable Card</strong>.</li>
+        <li><strong>Compute.</strong> In the <strong>Logic Programmer</strong>, combine variables with <strong>Operators</strong> to derive what you actually care about (e.g. &quot;is this chest more than half full?&quot;).</li>
+        <li><strong>Write it back.</strong> Feed the derived variable into a <strong>Writer</strong> (emit redstone, set a Display, trigger an action).</li>
+        <li><strong>Scale with Proxies.</strong> Store reusable variables in a <strong>Variable Store</strong> / <strong>Proxy</strong>, then reach them anywhere on the network.</li>
+        <li><strong>Move resources.</strong> Add <strong>Integrated Tunnels</strong> for predicate-driven import/export of items, fluids, and energy.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 MENRIL & MATERIALS -->
+    <section class="doc" id="menril">
+      <p class="sec-index">01 — The raw stock</p>
+      <h2>Menril &amp; Materials</h2>
+      <p>Integrated Dynamics has its own resource: the <strong>Menril Tree</strong>, a tall blue-tinted tree that generates in cold biomes. Everything in the mod traces back to it. You harvest two products from Menril — a sticky <strong>resin</strong> and a glassy <strong>crystal</strong> — and turn them into the cables, cards, and the Logic Programmer.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Menril sources &amp; the two processing machines</caption>
+          <thead><tr><th>Material</th><th>Where / how</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td><span class="vflag">tree</span> Menril Log / Wood</td><td>Menril Trees in cold/snowy biomes; replant Menril Saplings</td><td>Structural blocks, fuel, planks for early recipes</td></tr>
+            <tr><td><span class="vflag">drop</span> Menril Berries</td><td>Harvested from Menril leaves (also a minor food)</td><td>Squeeze into Menril Resin</td></tr>
+            <tr><td><span class="vflag">block</span> Crystalized Menril Chunk</td><td>Bud-like blocks grown on/near Menril; mined directly</td><td>Source of Crystalized Menril Crystals via the Squeezer</td></tr>
+            <tr><td><span class="vflag">machine</span> Squeezer</td><td>Crafted block; you stand on it / power it and drop items in</td><td>Berries → Menril Resin; Chunks → loose Crystals; ore/material squeezing</td></tr>
+            <tr><td><span class="vflag">machine</span> Drying Basin</td><td>Crafted block holding fluid + an item over time</td><td>Resin → solidified Menril; Menril Resin + water/time → crystals &amp; intermediates</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Squeezer vs. Drying Basin</span>
+        <p>The <strong>Squeezer</strong> is the &quot;crush it now&quot; machine — press items to extract resin, crystals, or fluids. The <strong>Drying Basin</strong> is the &quot;leave it to set&quot; machine — it holds an item in a fluid and transforms it over time (great for turning liquid/solid Menril into solid crystals). Most early ID recipes need one or both.</p>
+      </div>
+
+      <h3>The core crafting components</h3>
+      <ul>
+        <li><strong>Crystalized Menril Block</strong> — the decorative/structural form and a key crafting ingredient; the crystals are the &quot;logic glass&quot; of the mod.</li>
+        <li><strong>Logic Programmer</strong> — the workbench where you author variables. It pairs a slot for an input <strong>Variable Card</strong> (or two) with an <strong>Operator</strong> picker and writes the result back onto a card.</li>
+        <li><strong>Variable Cards</strong> — blank cards that store a single value; you stamp them in the Logic Programmer or by reading an Aspect, then slot them into Readers/Writers/Stores.</li>
+        <li><strong>Cables</strong> — the network medium; craft a stack early, they are cheap once Menril flows.</li>
+        <li><strong>Squeezer &amp; Drying Basin</strong> — keep both near your tree farm; you will run a lot of material through them.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">Numbers are approximate</span>
+        <p>Yields, drying times, and the exact resin/crystal counts vary by pack version and config. Treat anything quantitative in this guide as a guideline and let <strong>JEI/EMI</strong> and the in-game machine GUIs be the ground truth.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 02 THE NETWORK -->
+    <section class="doc" id="network">
+      <p class="sec-index">02 — The wiring</p>
+      <h2>The Network</h2>
+      <p>An Integrated Dynamics network is just a connected web of <strong>Cables</strong>. Parts attach to the <em>faces</em> of those cables and either read from, write to, or display data about the block the face touches. Some parts also draw <strong>energy</strong>, so a network usually needs a <strong>Battery</strong> to keep them running.</p>
+
+      <h3>Cables, connections &amp; the Logic Director</h3>
+      <p>Cables auto-connect to neighbours. Use a <strong>Wrench</strong> to disconnect a side, route around things, or pop a part off. The <strong>Logic Director</strong> is the handheld that lets you copy and paste variable references and inspect what a face is exposing — it is your debugger when a value &quot;isn't arriving&quot; where you expect.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Network ingredients</caption>
+          <thead><tr><th>Block / item</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Cable</td><td>The network medium. Connect them into one continuous web; parts live on their faces.</td></tr>
+            <tr><td>Battery (energy)</td><td>Supplies the power some parts consume per tick. Charge it from an ID generator or any FE source feeding it.</td></tr>
+            <tr><td>Logic Director</td><td>Handheld tool to copy/paste variable references between cards and parts; inspect network exposure.</td></tr>
+            <tr><td>Wrench</td><td>Place/remove parts, toggle a cable side's connection, rotate displays.</td></tr>
+            <tr><td>Coal Generator / other energy</td><td>Optional power source; only needed once you run energy-hungry parts at scale.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Do you need a Battery?</span>
+        <p>Plain logic (a Reader feeding a Writer through one Operator) often costs little or nothing. But <strong>Displays</strong>, complex <strong>Operators</strong>, and especially <strong>Integrated Tunnels</strong> import/export draw energy per tick. Once parts start &quot;blinking off,&quot; add a charged <strong>Battery</strong> to the network and feed it power.</p>
+      </div>
+
+      <h3>Part attachments — how parts touch the world</h3>
+      <p>A <strong>part</strong> is a small device that clips onto a cable face. There are four families, and they are the whole point of the mod:</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">read</span><h4>Readers</h4><p>Expose the adjacent block's state as variables — inventory contents, redstone level, fluid amount, machine progress, block identity, and more.</p></div>
+        <div class="card"><span class="tag">write</span><h4>Writers</h4><p>Consume a variable to <em>act</em> on the adjacent block — emit a redstone signal, set NBT, trigger a capability.</p></div>
+        <div class="card"><span class="tag">show</span><h4>Displays</h4><p>Render a variable's current value as floating text/icon on the cable face, in-world. Pure read-out, no action.</p></div>
+        <div class="card"><span class="tag">sense</span><h4>Detectors</h4><p>Specialised readers that watch for a condition (e.g. an item entering an inventory) and surface it as a boolean for downstream logic.</p></div>
+      </div>
+
+      <p>The same cable face can host one part. A Reader exposes <strong>Aspects</strong> (§05) that you capture into Variable Cards; a Writer accepts a card and applies it; a Display just mirrors a value. This read → compute → write loop is the entire programming surface of Integrated Dynamics.</p>
+    </section>
+
+    <!-- ============================================ 03 VARIABLES & THE LOGIC PROGRAMMER -->
+    <section class="doc" id="variables">
+      <p class="sec-index">03 — The language</p>
+      <h2>Variables &amp; the Logic Programmer</h2>
+      <p class="lead">This is the heart of the mod. A <strong>Variable Card</strong> holds one typed value. The <strong>Logic Programmer</strong> is where you build new variables by feeding existing ones through <strong>Operators</strong>. It is a small, strongly-typed, visual programming language — and once it clicks, you can compute almost anything about your base.</p>
+
+      <h3>Values have types</h3>
+      <div class="data-table">
+        <table>
+          <caption>Common value types (the data ID flows around)</caption>
+          <thead><tr><th>Type</th><th>Example value</th><th>Where it comes from</th></tr></thead>
+          <tbody>
+            <tr><td>Boolean</td><td><code>true</code> / <code>false</code></td><td>Redstone state, comparisons, &quot;is full&quot; checks</td></tr>
+            <tr><td>Integer</td><td><code>42</code></td><td>Item counts, redstone strength, fluid mB, tick timers</td></tr>
+            <tr><td>Double</td><td><code>0.75</code></td><td>Fill ratios, energy fractions, computed averages</td></tr>
+            <tr><td>String</td><td><code>"diamond"</code></td><td>Names, labels, formatted display text</td></tr>
+            <tr><td>Item Stack</td><td>64× Iron Ingot</td><td>Reading an inventory slot or a held item</td></tr>
+            <tr><td>Fluid Stack</td><td>1000 mB Lava</td><td>Reading a tank's contents</td></tr>
+            <tr><td>Block / Entity</td><td>a furnace, a cow</td><td>Reading the adjacent block or nearby entities</td></tr>
+            <tr><td>List</td><td><code>[a, b, c]</code></td><td>A whole inventory, a set of entities, mapped results</td></tr>
+            <tr><td>Operator</td><td>(a function value)</td><td>Operators are first-class — you can pass them to map/filter</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Types must match</span>
+        <p>The Logic Programmer is strict: an Operator that wants two Integers will refuse a String, and the card stays red until the types line up. This is a feature — it catches mistakes before they reach the world. When a build &quot;does nothing,&quot; check that every card is green and the types match end to end.</p>
+      </div>
+
+      <h3>Operators — the verbs</h3>
+      <p>Operators take one or more values and return a new one. The Logic Programmer groups them; the families you will use constantly:</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Operator families</caption>
+          <thead><tr><th>Family</th><th>Examples</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>Arithmetic</td><td>+, −, ×, ÷, mod, min, max</td><td>Compute totals, fill ratios, thresholds</td></tr>
+            <tr><td>Logic / Comparison</td><td>AND, OR, NOT, =, &gt;, &lt;, ≥</td><td>Combine conditions into a single boolean</td></tr>
+            <tr><td>List</td><td>length, get, append, map, filter, reduce</td><td>Process a whole inventory or entity set at once</td></tr>
+            <tr><td>Item / NBT</td><td>item name, count, NBT tag get, durability, is-stackable</td><td>Inspect stacks, match by NBT, sort by computed key</td></tr>
+            <tr><td>Fluid / Block / Entity</td><td>fluid amount, block hardness, entity health, is-a</td><td>Read deeper world state for predicates</td></tr>
+            <tr><td>Conditional</td><td>if-then-else</td><td>Branch a value based on a boolean</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Operators are values too</span>
+        <p>One of ID's most powerful ideas: an <strong>Operator is itself a value</strong>. You can store a function on a card and feed it to <code>map</code> or <code>filter</code> over a list — for example, &quot;filter this inventory to stacks whose count &gt; 16&quot; is one list operator plus one comparison operator partially applied. This is how you build computed predicates for sorting.</p>
+      </div>
+
+      <h3>Authoring a variable, step by step</h3>
+      <ol class="flow">
+        <li><strong>Read or place inputs.</strong> Capture world state onto a Variable Card via a Reader's Aspect, or place a constant value with the Logic Programmer's input cards.</li>
+        <li><strong>Pick an Operator.</strong> Open the Logic Programmer, choose the Operator that matches your inputs' types.</li>
+        <li><strong>Wire the inputs.</strong> Drop your source cards into the Operator's input slots. The output preview turns green when types match.</li>
+        <li><strong>Write the result.</strong> A blank card in the output slot becomes a new derived Variable Card holding the computed value.</li>
+        <li><strong>Reuse it.</strong> Slot that card into a Writer, a Display, or a Proxy — or feed it as input to the next Operator.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 04 READERS & WRITERS -->
+    <section class="doc" id="readers">
+      <p class="sec-index">04 — The I/O</p>
+      <h2>Readers &amp; Writers</h2>
+      <p>Variables only matter if they connect to the world. <strong>Readers</strong> are your inputs, <strong>Writers</strong> are your outputs, and <strong>Displays</strong> are the human-readable middle. All three are parts that clip onto a cable face pointing at the block you care about.</p>
+
+      <h3>Readers — world → variable</h3>
+      <p>A Reader exposes a set of <strong>Aspects</strong> for whatever it is pointed at. Point one at a chest and you get inventory Aspects; point one at a redstone source and you get redstone Aspects; point one at a machine and you get its progress/state where supported.</p>
+      <div class="data-table">
+        <table>
+          <caption>Reader types &amp; what they surface</caption>
+          <thead><tr><th>Reader</th><th>Reads</th><th>Sample Aspects</th></tr></thead>
+          <tbody>
+            <tr><td>Inventory Reader</td><td>Adjacent inventory</td><td>Slot count, item in slot N, total count, fullness ratio, is-empty</td></tr>
+            <tr><td>Redstone Reader</td><td>Redstone state of the side</td><td>Signal level (Integer), powered? (Boolean), comparator value</td></tr>
+            <tr><td>Fluid Reader</td><td>Adjacent tank</td><td>Fluid amount (mB), capacity, fluid type, fill ratio</td></tr>
+            <tr><td>Machine / Energy Reader</td><td>Capability-exposing block</td><td>Stored energy, max energy, progress, is-working</td></tr>
+            <tr><td>Block / World Reader</td><td>The adjacent block &amp; surroundings</td><td>Block identity, light level, biome, time of day, weather</td></tr>
+            <tr><td>Entity Reader</td><td>Nearby entities</td><td>Entity list, counts, health, type predicates</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Writers — variable → world</h3>
+      <p>A Writer takes a Variable Card and applies its value to the adjacent block through a matching Aspect. The classic is the <strong>Redstone Writer</strong>: feed it a Boolean or Integer and it emits that as a redstone signal. Others set display text, toggle machine inputs, or write NBT where supported.</p>
+      <div class="data-table">
+        <table>
+          <caption>Writer types &amp; what they do</caption>
+          <thead><tr><th>Writer</th><th>Consumes</th><th>Effect on the world</th></tr></thead>
+          <tbody>
+            <tr><td>Redstone Writer</td><td>Boolean / Integer</td><td>Emits a redstone signal of that strength out the face</td></tr>
+            <tr><td>Display Writer</td><td>Any value</td><td>Sets the text/icon shown by a Display part</td></tr>
+            <tr><td>Fluid / Energy Writer</td><td>Integer</td><td>Where supported, sets transfer/target amounts on the block</td></tr>
+            <tr><td>NBT / Capability Writer</td><td>Matching type</td><td>Writes a value into a block's exposed capability/NBT field</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Displays show, Writers act</span>
+        <p>A <strong>Display</strong> renders a variable in-world (e.g. &quot;Power: 73%&quot; floating on the cable) but changes nothing. A <strong>Writer</strong> changes the world. Wire a Display alongside any non-trivial Writer so you can <em>see</em> the value the Writer is acting on — it makes debugging enormously faster.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">One face, one part</span>
+        <p>Each cable face holds a single part. If you need to both read a chest and emit redstone next to it, use two faces (or two cables). Plan your cable runs so the faces you need are actually adjacent to the right blocks.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 05 ASPECTS & PROXIES -->
+    <section class="doc" id="aspects">
+      <p class="sec-index">05 — Capabilities &amp; reuse</p>
+      <h2>Aspects &amp; Proxies</h2>
+      <p>Two concepts make ID scale: <strong>Aspects</strong> (the typed read/write capabilities a part exposes) and <strong>Proxies / Variable Stores</strong> (places to park a variable so the whole network can reuse it).</p>
+
+      <h3>Aspects — the network's ports</h3>
+      <p>An <strong>Aspect</strong> is a single named capability on a part: &quot;the redstone level on this side,&quot; &quot;the item in slot 3,&quot; &quot;is this tank full.&quot; Read Aspects produce values; write Aspects consume them. When you capture a Reader's Aspect onto a Variable Card, you are subscribing that card to a live world value — it updates as the world changes.</p>
+      <div class="data-table">
+        <table>
+          <caption>How an Aspect flows</caption>
+          <thead><tr><th>Stage</th><th>What happens</th></tr></thead>
+          <tbody>
+            <tr><td>Expose</td><td>A Reader/Writer part offers a list of Aspects appropriate to its target.</td></tr>
+            <tr><td>Capture</td><td>You bind a read Aspect to a Variable Card — the card now mirrors that live value.</td></tr>
+            <tr><td>Compute</td><td>Operators in the Logic Programmer transform the captured value into a derived one.</td></tr>
+            <tr><td>Apply</td><td>A write Aspect on a Writer consumes the final card and acts on the world.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Proxies &amp; Variable Stores — reuse across the network</h3>
+      <p>Re-deriving the same value in twenty places is wasteful and error-prone. A <strong>Variable Store</strong> holds named variables; a <strong>Proxy</strong> lets any part on the network reference a stored variable by its card, no matter where it physically lives. Compute &quot;is the main bus over 50% full?&quot; once, store it, and read it from every Writer that needs it.</p>
+      <div class="data-table">
+        <table>
+          <caption>Reuse blocks</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Proxy</td><td>A reference handle: point many parts at one shared variable. Edit the source once, every consumer updates.</td></tr>
+            <tr><td>Mechanical Variable Store</td><td>Bulk storage for many Variable Cards the network can pull from; the &quot;variable library&quot; of a base.</td></tr>
+            <tr><td>Menril Variable Store</td><td>Crystalized-Menril variant store; same idea, fits the ID aesthetic and recipe tree.</td></tr>
+            <tr><td>Materialized variables</td><td>&quot;Freeze&quot; a computed value into a constant card when you don't need it live — cheaper and stable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Proxies are the antidote to spaghetti</span>
+        <p>The single biggest quality-of-life upgrade in an ID base is moving shared logic into a <strong>Variable Store</strong> and referencing it through <strong>Proxies</strong>. You get one source of truth, far fewer cards to maintain, and a network that's actually readable six months later.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 06 INTEGRATED TUNNELS -->
+    <section class="doc" id="tunnels">
+      <p class="sec-index">06 — Moving resources</p>
+      <h2>Integrated Tunnels</h2>
+      <p class="lead">Integrated Dynamics computes and signals beautifully, but base ID doesn't move items for you. <strong>Integrated Tunnels</strong> is the companion mod that adds <strong>import</strong> and <strong>export</strong> of items, fluids, and energy over the very same cable network — and crucially, it lets you gate every transfer with a <strong>variable-driven predicate</strong>.</p>
+
+      <h3>Interfaces &amp; channels</h3>
+      <p>Tunnels adds <strong>Interface</strong> parts (importers/exporters) for each resource kind. An importer pulls from the adjacent block into the network's transfer; an exporter pushes into the adjacent block. <strong>Channels</strong> keep multiple transfers from interfering — assign matching channel numbers to the endpoints that should talk to each other.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Integrated Tunnels parts</caption>
+          <thead><tr><th>Part</th><th>Moves</th><th>Direction</th></tr></thead>
+          <tbody>
+            <tr><td>Item Importer / Exporter</td><td>Item stacks</td><td>Pull into / push out of the network</td></tr>
+            <tr><td>Fluid Importer / Exporter</td><td>Fluid (mB)</td><td>Pull into / push out of the network</td></tr>
+            <tr><td>Energy Importer / Exporter</td><td>Forge Energy</td><td>Pull into / push out of the network</td></tr>
+            <tr><td>Interface (per kind)</td><td>The endpoint on a block face</td><td>Both, depending on configuration</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Predicate filters — &quot;move X only when Y&quot;</h3>
+      <p>This is the killer feature. An exporter doesn't just move &quot;iron&quot;; you hand it an <strong>Operator</strong> that returns a Boolean per candidate stack. &quot;Export this item <em>only if</em> the destination has fewer than 64 of it&quot;; &quot;import fluid <em>only while</em> the source tank is over 50%&quot;; &quot;push energy <em>only when</em> the buffer is below threshold.&quot; The predicate is just another variable you authored in the Logic Programmer.</p>
+
+      <div class="pills">
+        <li><b>predicate:</b> count &lt; 64</li>
+        <li><b>predicate:</b> NBT damage = 0</li>
+        <li><b>predicate:</b> fluid ≥ 50%</li>
+        <li><b>predicate:</b> name contains &quot;ingot&quot;</li>
+        <li><b>predicate:</b> energy &lt; threshold</li>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Why this beats a plain filter</span>
+        <p>A normal pipe filter matches a fixed item list. A Tunnels predicate is <em>computed</em> — it can depend on the destination's current contents, an item's NBT, the time of day, or any other variable on the network. That turns &quot;sort items&quot; into &quot;sort items by a rule I wrote,&quot; which is the whole reason to use ID for logistics.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Mind the energy and channels</span>
+        <p>Tunnels transfers consume network energy per operation — keep a charged <strong>Battery</strong> feeding the network. And when two unrelated transfers seem to fight, it's almost always a <strong>channel</strong> collision: give each logical route its own channel number.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 07 EXAMPLE BUILDS & TIPS -->
+    <section class="doc" id="builds">
+      <p class="sec-index">07 — In practice</p>
+      <h2>Example Builds &amp; Tips</h2>
+      <p>Three small, concrete builds that show the read → compute → write loop end to end, then a set of habits that keep a growing network sane.</p>
+
+      <h3>1 — Conditional auto-crafting stock-keeper</h3>
+      <p>Goal: keep at least 32 steel plates in a buffer chest, crafting more only when stock drops.</p>
+      <ol class="flow">
+        <li><strong>Read.</strong> Inventory Reader on the buffer chest → Aspect &quot;count of steel plates&quot; → Variable Card (Integer).</li>
+        <li><strong>Compute.</strong> Logic Programmer: comparison Operator <code>count &lt; 32</code> → derived Boolean card.</li>
+        <li><strong>Write.</strong> Redstone Writer fed the Boolean → emits redstone to start your crafter/factory when stock is low.</li>
+        <li><strong>Watch.</strong> Add a Display showing the current count so you can confirm the threshold at a glance.</li>
+      </ol>
+
+      <h3>2 — Redstone clock from variables</h3>
+      <p>Goal: a clean on/off pulse without a vanilla repeater loop.</p>
+      <ol class="flow">
+        <li><strong>Read.</strong> A World/Block Reader exposes a tick or time-of-day value → Integer card.</li>
+        <li><strong>Compute.</strong> <code>(time mod N) &lt; H</code> → Boolean that is true for H ticks out of every N.</li>
+        <li><strong>Write.</strong> Redstone Writer emits the Boolean — adjust N and H to set period and duty cycle precisely.</li>
+      </ol>
+
+      <h3>3 — Item sorting by a computed predicate</h3>
+      <p>Goal (with Integrated Tunnels): route only &quot;valuable&quot; items to a vault, everything else to a dump.</p>
+      <ol class="flow">
+        <li><strong>Author the predicate.</strong> An Operator value: &quot;is this stack's name in my valuables list&quot; or &quot;is its NBT-derived score &gt; X&quot;.</li>
+        <li><strong>Export to vault.</strong> Item Exporter toward the vault, filtered by that predicate.</li>
+        <li><strong>Export the rest.</strong> A second Exporter toward the dump using the negated predicate (<code>NOT</code>).</li>
+        <li><strong>Channel them.</strong> Give the two routes distinct channels so they never compete for the same stack.</li>
+      </ol>
+
+      <h3>Tips for taming the complexity</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">habit</span><h4>Build incrementally</h4><p>Get one Reader → one Operator → one Writer working before adding the next stage. Verify each link with a Display before chaining further.</p></div>
+        <div class="card"><span class="tag">habit</span><h4>Label your variables</h4><p>Name every card for what it means (&quot;steel&lt;32&quot;), not what it is. Future-you needs the intent, not the type.</p></div>
+        <div class="card"><span class="tag">habit</span><h4>Use Proxies for shared logic</h4><p>Compute a value once, store it, reference it via Proxies everywhere. One source of truth beats twenty copies.</p></div>
+        <div class="card"><span class="tag">habit</span><h4>Display while debugging</h4><p>Sprinkle Display parts on intermediate values. Seeing the number is faster than guessing why a Writer is silent.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">When in doubt, check the types</span>
+        <p>Almost every &quot;it does nothing&quot; bug in Integrated Dynamics is a red card: a type mismatch, an empty input slot, or a Proxy pointing at the wrong variable. Walk the chain from Reader to Writer and confirm every card is green and labelled.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Power it before you scale it</span>
+        <p>A two-part demo runs on nothing, but Displays, heavy Operators, and Integrated Tunnels transfers all draw energy. Before you expand a working prototype across the base, put a charged <strong>Battery</strong> on the network and a real power source behind it.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#dcf2ee;text-transform:uppercase;letter-spacing:0.03em">The Logic Lattice</strong><br>
+      An unofficial, fan-made field manual for Integrated Dynamics (and Integrated Tunnels) on Minecraft 1.19.2 (Forge).<br>
+      Integrated Dynamics is by kroeser &amp; contributors. This guide is not affiliated with or endorsed by the mod authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Integrated Dynamics (1.19.2)<br>
+      · Integrated Tunnels (1.19.2)<br>
+      · the in-game GUIs &amp; JEI/EMI
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Numbers are approximate and configurable per pack. When your install disagrees, the in-game GUIs and JEI/EMI recipe data are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

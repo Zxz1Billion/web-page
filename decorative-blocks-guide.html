@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beams &amp; Braziers — a Decorative Blocks field guide (MC 1.19.2 Forge)</title>
+<meta name="description" content="A hands-on guide to the Decorative Blocks mod for Minecraft 1.19.2 (Forge) by stohun: timber framing with beams, palisades and bars, sittable seats and bar counters, braziers and chandeliers, thatch roofing and canopies, rope ladders, plus medieval build ideas and cross-mod pairings." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>:root{
+  --bg-0:#0c0f09; --bg-1:#10140b; --bg-2:#181d10; --bg-3:#212817; --line:#2e3a21; --ink:#edf0df; --ink-dim:#aebd8e; --ink-faint:#74855a;
+  --accent:#9cae6a;
+  --danger:#e0683a;
+  --f-display:"Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,sans-serif;
+}</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🪵</span>
+      <span class="wordmark">Beams<br>&amp; Braziers<small>DECORATIVE BLOCKS</small></span>
+    </div>
+    <a class="home-link" href="index.html">← Home</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Workshop</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#structure"><span class="ix">01</span> Structure &amp; Framing</a>
+      <a href="#seating"><span class="ix">02</span> Seating &amp; Furniture</a>
+      <a href="#light"><span class="ix">03</span> Light &amp; Hearth</a>
+      <p class="group-label">Shell &amp; Access</p>
+      <a href="#roofing"><span class="ix">04</span> Roofing &amp; Cover</a>
+      <a href="#ladders"><span class="ix">05</span> Ladders &amp; Access</a>
+      <p class="group-label">Putting It Together</p>
+      <a href="#ideas"><span class="ix">06</span> Build Ideas</a>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Gotchas</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--ink-faint);line-height:1.7">
+      Written against Decorative<br>Blocks for MC 1.19.2 (Forge).<br>Block names &amp; recipes follow<br>JEI/EMI and in-game tooltips —<br>trust those when they differ.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · stohun</p>
+      <h1>Beams<br>&amp; Braziers</h1>
+      <p class="lede">A short, sharp field guide to <strong>Decorative Blocks</strong> — a tight, lovingly-made set of structural and cozy pieces that fill the gaps vanilla leaves in medieval, rustic, and cottage builds. Timber beams and support posts for convincing framing, palisades and iron bars for fences and cages, seats you can actually <em>sit</em> on, braziers and chandeliers for warm light, thatch and canopies for roofs, and rope ladders to climb. No tech tree, no grind — just better blocks.</p>
+      <div class="badges">
+        <span class="badge">Decorative Blocks</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge accent">Builder-focused</span>
+        <span class="badge">by stohun</span>
+      </div>
+    </header>
+
+    <!-- ============================================ 00 START HERE -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Decorative Blocks doesn't change how you play — it changes what you can build. It's a curated, high-quality set of structural and decorative pieces designed to slot straight into vanilla's palette, with an unmistakable medieval / cozy-cottage flavour. There's no machinery and almost nothing to "unlock": you craft these from wood, stone, iron, and string at a normal crafting table, then place them like any block.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">structure</span><h4>Framing</h4><p>Beams, Support Beams, Palisades, Lattice, and Iron Bar panels for timber frames and cages.</p></div>
+        <div class="card"><span class="tag">comfort</span><h4>Furniture</h4><p>Sittable Seats, Stools, Bar Stools, and Bar counter blocks for believable interiors.</p></div>
+        <div class="card"><span class="tag">light</span><h4>Hearth</h4><p>The Brazier, Chandelier, and Candle Holders — warm, point-source lighting.</p></div>
+        <div class="card"><span class="tag">shell</span><h4>Cover</h4><p>Canopy/Awning, Thatch, and rod/pole pieces for roofs and overhangs, plus Rope Ladders.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How to read this guide</span>
+        <p>Block names, exact recipes, and light levels vary a little across mod versions, so treat the specifics here as the <strong>shape of things</strong> and let <strong>JEI/EMI</strong> and the in-game tooltips be the ground truth in your pack. Everything in Decorative Blocks is craftable from common materials and works in survival from day one.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Part of the building hub</span>
+        <p>Decorative Blocks is one of several "more building blocks" mods you'll likely run together. See the <strong>Building &amp; Decoration hub</strong> for how it pairs with <em>Supplementaries</em> (functional clutter and signage), <em>Chipped</em> (huge texture-variant palettes), and <em>Macaw's</em> furniture/roofs/bridges. Each covers a different gap; together they cover almost everything.</p>
+      </div>
+
+      <h3>The shape of a build</h3>
+      <ol class="flow">
+        <li><strong>Frame it.</strong> Lay <strong>Beams</strong> and <strong>Support Beams</strong> over a plaster/wattle wall to read as exposed timber framing (§01).</li>
+        <li><strong>Furnish it.</strong> Drop in <strong>Seats</strong>, <strong>Stools</strong>, and a <strong>Bar</strong> counter so the space is actually liveable (§02).</li>
+        <li><strong>Light it.</strong> A <strong>Brazier</strong> or <strong>Chandelier</strong> gives warm, medieval light instead of a floating torch (§03).</li>
+        <li><strong>Cover it.</strong> Roof with <strong>Thatch</strong> and shade openings with a <strong>Canopy</strong> (§04).</li>
+        <li><strong>Connect it.</strong> Run a <strong>Rope Ladder</strong> up to the loft and you're done (§05).</li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 01 STRUCTURE -->
+    <section class="doc" id="structure">
+      <p class="sec-index">01 — The bones</p>
+      <h2>Structure &amp; Framing</h2>
+      <p>The structural pieces are the heart of the mod. They turn a flat plaster box into a convincing half-timbered building, and they cage, fence, and divide space in ways vanilla fences and walls never quite manage.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Structural &amp; framing blocks</caption>
+          <thead><tr><th>Block</th><th>What it is</th><th>Best used for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Beam</strong></td><td>A thin wooden timber that orients to the three axes (like a vanilla log/pillar).</td><td>Exposed framing on walls, ceiling joists, decorative trusses.</td></tr>
+            <tr><td><strong>Support Beam</strong></td><td>A standing post with a connecting head that links to beams &amp; adjacent supports.</td><td>Vertical columns, mine-shaft props, pergola legs, market stalls.</td></tr>
+            <tr><td><strong>Palisade</strong></td><td>A tall, spiked wooden stake fence — taller and pointier than a vanilla fence.</td><td>Stockades, war camps, dungeon pens, defensive walls.</td></tr>
+            <tr><td><strong>Lattice</strong> / Trellis</td><td>A flat criss-cross wooden panel.</td><td>Garden trellis, window grilles, climbing-plant support, screens.</td></tr>
+            <tr><td><strong>Bar Panel</strong> (Iron Bars)</td><td>Decorative metal bar panels beyond vanilla iron bars.</td><td>Cell doors, cages, gates, grates, industrial windows.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Building convincing timber frames</h3>
+      <p>Half-timbering is the signature look. The trick is to treat <strong>Beams</strong> as the dark wood "skeleton" laid over a light "infill" wall (white concrete/terracotta, or a wattle-and-daub style block, §04). Run beams along the top and bottom of each storey, drop a few verticals, and add a diagonal brace or two — your eye fills in the rest.</p>
+      <ul>
+        <li><strong>Mind the axis.</strong> Beams snap to the face you place them against, so place onto the wall to get a vertical, onto the floor/ceiling to get a horizontal. Sneak-place if you need precision.</li>
+        <li><strong>Support Beams for load.</strong> Use them wherever a frame should look like it's actually holding weight — porch posts, loft supports, bridge piers. Their heads connect to neighbouring beams for clean joints.</li>
+        <li><strong>Stack them tall.</strong> A column of Support Beams reads as a single continuous post, perfect for tall halls and barns.</li>
+      </ul>
+
+      <h3>Frames &amp; cages</h3>
+      <p>For pens, prisons, and animal cages, <strong>Palisades</strong> give you a spiky timber stockade with real height, while <strong>Bar Panels</strong> give you the metal-grate look for cell doors and dungeon windows. Mix the two — a palisade outer ring with barred inner cells — for a layered, lived-in fortress.</p>
+      <div class="note tip"><span class="label">Lattice does double duty</span><p>Lattice panels are great as garden trellis and window grilles, but they also make convincing rustic <em>railings</em> and <em>balustrades</em> on balconies and stair landings where a full fence would feel chunky.</p></div>
+    </section>
+
+    <!-- ============================================ 02 SEATING & FURNITURE -->
+    <section class="doc" id="seating">
+      <p class="sec-index">02 — Sit down a while</p>
+      <h2>Seating &amp; Furniture</h2>
+      <p>One of the mod's most-loved features: seats you can <strong>actually sit on</strong>. Right-click a Seat and your character plops down onto it — perfect for taverns, dining halls, council chambers, and screenshots.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Furniture you can use</caption>
+          <thead><tr><th>Block</th><th>Sittable?</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Seat</strong> / Chair</td><td>Yes — right-click</td><td>The headline piece. Dining chairs, thrones, benches.</td></tr>
+            <tr><td><strong>Stool</strong></td><td>Yes — right-click</td><td>Backless seating; cottages, workshops, fireside.</td></tr>
+            <tr><td><strong>Bar Stool</strong></td><td>Yes — right-click</td><td>Tall seat to pair with the Bar counter.</td></tr>
+            <tr><td><strong>Bar</strong> / Counter</td><td>—</td><td>A counter block at sitting height — the tavern bar or kitchen island.</td></tr>
+            <tr><td><strong>Table</strong> piece</td><td>—</td><td>Surface to gather furniture around (often paired with the Bar/counter pieces).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sitting, in practice</h3>
+      <ul>
+        <li><strong>Right-click to sit.</strong> Approach a Seat or Stool and right-click the top — you'll mount it like a minecart. Sneak or jump to stand back up.</li>
+        <li><strong>Leave headroom.</strong> Sitting needs clear space; don't tuck a seat directly under a slab or low ceiling or you may not be able to mount it (see §07).</li>
+        <li><strong>Dye it.</strong> Many seat variants exist per wood type (and some take colour/cushions), so you can match the chair to the table and the room.</li>
+      </ul>
+
+      <h3>Cozy interiors</h3>
+      <p>The furniture set is what turns a Decorative Blocks <em>house</em> into a Decorative Blocks <em>home</em>. A <strong>Bar</strong> counter lined with <strong>Bar Stools</strong> is an instant tavern; a ring of <strong>Seats</strong> around a table is a dining hall; a single <strong>Stool</strong> by the hearth makes a workshop feel inhabited. Combine with Supplementaries' jars, mugs, and shelves (§06) for clutter that sells the scene.</p>
+      <div class="note tip"><span class="label">Benches from seats</span><p>Place several Seats in a row with matching orientation to read as a long bench — handy for great halls, churches, and mead benches where individual chairs would look fussy.</p></div>
+    </section>
+
+    <!-- ============================================ 03 LIGHT & HEARTH -->
+    <section class="doc" id="light">
+      <p class="sec-index">03 — Keeping warm</p>
+      <h2>Light &amp; Hearth</h2>
+      <p>Floating torches break immersion. Decorative Blocks gives you proper medieval light sources — a fire bowl, a hanging chandelier, and candle holders — that look the part while still lighting the room and keeping mobs out.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Light sources &amp; the hearth</caption>
+          <thead><tr><th>Block</th><th>Light</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Brazier</strong></td><td>Bright (full block-level light when lit)</td><td>An iron fire-bowl on legs. Lights with flint &amp; steel; can ignite/cook things above it — and can set you on fire.</td></tr>
+            <tr><td><strong>Soul Brazier</strong></td><td>Dimmer blue flame</td><td>Soul-fire variant for eerie blue lighting; same cautions.</td></tr>
+            <tr><td><strong>Chandelier</strong></td><td>Warm, mid-level</td><td>Hangs under a ceiling/beam; centrepiece for halls and dining rooms.</td></tr>
+            <tr><td><strong>Candle Holder</strong></td><td>Soft, low-level</td><td>Wall- or surface-mounted accent light for tables, sconces, and shelves.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Warm lighting that fits the build</h3>
+      <p>The <strong>Brazier</strong> is the workhorse: place it in a courtyard, on a wall ledge, or atop a Support Beam post and light it with flint &amp; steel for a strong, flickering fire that doubles as a campfire-style light. The <strong>Chandelier</strong> wants a ceiling or a beam to hang from and instantly anchors a room. <strong>Candle Holders</strong> are the finishing touch — line a dining table or punctuate a corridor.</p>
+      <div class="note warn">
+        <span class="label">The brazier is also a hazard</span>
+        <p>A lit Brazier is real fire — walk into it and you'll take burn damage, and flammable blocks placed too close can catch. That's a feature for traps and atmosphere, but mind where you put it indoors. Some braziers can also <em>cook</em> or burn items dropped onto them, campfire-style — handy, but keep your hotbar items clear of an open flame.</p>
+      </div>
+      <div class="note tip"><span class="label">Light without the fire risk</span><p>If you want medieval ambience without the burn hazard near wooden furniture, lean on <strong>Chandeliers</strong> and <strong>Candle Holders</strong> for interior light and save open <strong>Braziers</strong> for stone courtyards, gateposts, and outdoor scenes.</p></div>
+    </section>
+
+    <!-- ============================================ 04 ROOFING & COVER -->
+    <section class="doc" id="roofing">
+      <p class="sec-index">04 — Over your head</p>
+      <h2>Roofing &amp; Cover</h2>
+      <p>Vanilla has stairs and slabs but no real <em>roofing texture</em> and no cloth awnings. Decorative Blocks fills both gaps: thatch for rustic roofs, canopies for market stalls and shopfronts, and wattle-and-daub-style infill for the walls underneath your timber frame.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Roofing &amp; cover pieces</caption>
+          <thead><tr><th>Block</th><th>What it is</th><th>Best used for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Thatch</strong></td><td>Straw/reed roofing block (often with stair &amp; slab variants).</td><td>Cottage &amp; farmhouse roofs, hayloft tops, rustic huts.</td></tr>
+            <tr><td><strong>Canopy / Awning</strong></td><td>A cloth overhang you mount above a window or door.</td><td>Market stalls, shopfronts, porches, balcony shade.</td></tr>
+            <tr><td><strong>Rod / Pole</strong></td><td>Thin support rods/poles for hanging &amp; framing.</td><td>Awning supports, banners, tent poles, hanging chains.</td></tr>
+            <tr><td><strong>Wattle &amp; Daub</strong> style infill</td><td>Plaster/woven-wall blocks for between the timbers.</td><td>The light wall surface behind exposed Beams.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Thatch roofs</h3>
+      <p>Thatch reads beautifully on steep cottage roofs. Build the roof shape with thatch <strong>stairs and slabs</strong> to get clean eaves and ridges, then cap the top edge with full blocks. The straw texture pairs naturally with timber-framed walls and gives that warm, lived-in farmhouse silhouette.</p>
+
+      <h3>Canopies &amp; overhangs</h3>
+      <p>The <strong>Canopy/Awning</strong> is what makes a medieval market come alive — mount a row of them over shop windows in striped colours and you've got a bazaar. They also work as porch covers, balcony shades, and tent flaps. Pair with <strong>Rod/Pole</strong> pieces for the supports so the cloth looks like it's actually hung.</p>
+      <div class="note tip"><span class="label">Build the wall first</span><p>For half-timbering, lay your <strong>wattle-and-daub infill</strong> wall first, then apply the <strong>Beams</strong> (§01) on top as the visible frame, and finish with a <strong>Thatch</strong> roof above. That order keeps the timber sitting proud of the plaster the way real framing does.</p></div>
+    </section>
+
+    <!-- ============================================ 05 LADDERS & ACCESS -->
+    <section class="doc" id="ladders">
+      <p class="sec-index">05 — Up and down</p>
+      <h2>Ladders &amp; Access</h2>
+      <p>Vertical movement is the unglamorous part of building, and vanilla's single ladder gets old fast. Decorative Blocks adds rope ladders and additional ladder variants that look right in rustic and nautical builds.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Climbing &amp; access</caption>
+          <thead><tr><th>Block</th><th>What it is</th><th>Best used for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Rope Ladder</strong></td><td>A hanging rope-and-rung ladder, made from string + sticks.</td><td>Haylofts, ship rigging, treehouses, well shafts, towers.</td></tr>
+            <tr><td><strong>Ladder variants</strong></td><td>Additional wood-type / styled ladders beyond vanilla.</td><td>Matching the ladder to the wood palette of a build.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Rope ladders, in practice</h3>
+      <ul>
+        <li><strong>They hang down.</strong> A Rope Ladder reads as suspended from above, so it's ideal where a stiff wooden ladder would look wrong — barn lofts, ship rigging, cliff descents.</li>
+        <li><strong>Climb like vanilla.</strong> Treat them like ordinary ladders for movement: stand against them and hold forward to climb, sneak to hold position.</li>
+        <li><strong>Match the wood.</strong> The extra ladder variants let you keep a single wood palette across a build instead of breaking it with vanilla oak ladders.</li>
+      </ul>
+      <div class="note tip"><span class="label">Loft access without the scaffold look</span><p>For a cottage with a sleeping loft, a Rope Ladder up to the loft hatch keeps the floor clear and looks far cozier than a boxed-in staircase. Pair it with a Lattice (§01) railing around the loft edge.</p></div>
+    </section>
+
+    <!-- ============================================ 06 BUILD IDEAS -->
+    <section class="doc" id="ideas">
+      <p class="sec-index">06 — Putting it together</p>
+      <h2>Build Ideas</h2>
+      <p class="lead">The mod really sings when you combine pieces. Here are three quick recipes for scenes that use Decorative Blocks across all five categories — and where pairing with other building mods earns its keep.</p>
+
+      <h3>A medieval tavern</h3>
+      <ol class="flow">
+        <li><strong>Frame the hall.</strong> Plaster walls with exposed <strong>Beams</strong>; <strong>Support Beams</strong> as porch posts and roof trusses.</li>
+        <li><strong>Build the bar.</strong> A run of <strong>Bar</strong> counter blocks with <strong>Bar Stools</strong> down the front; <strong>Seats</strong> around tables in the room.</li>
+        <li><strong>Light it.</strong> A <strong>Chandelier</strong> over the main table, <strong>Candle Holders</strong> on the bar, and a <strong>Brazier</strong> out in the courtyard.</li>
+        <li><strong>Dress it.</strong> Add Supplementaries mugs, jars, and a hanging sign; Chipped wood variants for worn floorboards.</li>
+      </ol>
+
+      <h3>A cottage roof</h3>
+      <ol class="flow">
+        <li><strong>Roof in thatch.</strong> Build a steep roof with <strong>Thatch</strong> stairs and slabs, capped with full thatch at the ridge.</li>
+        <li><strong>Shade the door.</strong> A small <strong>Canopy</strong> over the entrance on <strong>Rod/Pole</strong> supports.</li>
+        <li><strong>Climb the loft.</strong> A <strong>Rope Ladder</strong> up to a loft railed with <strong>Lattice</strong>.</li>
+      </ol>
+
+      <h3>A dungeon cage</h3>
+      <ol class="flow">
+        <li><strong>Wall the pit.</strong> A ring of <strong>Palisades</strong> for the spiked outer stockade.</li>
+        <li><strong>Bar the cells.</strong> <strong>Bar Panels</strong> for cell doors and grated windows.</li>
+        <li><strong>Light it grimly.</strong> A <strong>Soul Brazier</strong> for cold blue light, or a regular <strong>Brazier</strong> as a hazard guests would rather avoid.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Pairing with other mods</span>
+        <p><strong>Supplementaries</strong> adds the functional clutter Decorative Blocks deliberately leaves out — signs, jars, shelves, lanterns, faucets — so the two slot together cleanly. <strong>Chipped</strong> multiplies your texture palette, giving worn, mossy, and carved variants of the same wood and stone so your beams, floors, and walls don't all read identical. Run all three and you have a near-complete medieval building kit. See the Building &amp; Decoration hub for the full pairing list.</p>
+      </div>
+
+      <ul class="pills">
+        <li><b>Tavern:</b> Beams + Bar + Stools + Chandelier</li>
+        <li><b>Cottage:</b> Thatch + Canopy + Rope Ladder</li>
+        <li><b>Dungeon:</b> Palisades + Bars + Soul Brazier</li>
+        <li><b>Pairs with:</b> Supplementaries · Chipped</li>
+      </ul>
+    </section>
+
+    <!-- ============================================ 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips &amp; Gotchas</h2>
+      <p>Small habits that make the mod easier to live with. Nothing here is a deep mechanic — just the practical edges you'll bump into.</p>
+
+      <ul>
+        <li><strong>Beams snap to orientation.</strong> Like logs, a Beam takes its axis from the face you place it against. Place onto a wall for a vertical, onto floor/ceiling for a horizontal; sneak-place for control near other blocks. <span class="vflag">orientation</span></li>
+        <li><strong>Seats need clear space above.</strong> Sitting is a mounted animation, so a Seat tucked under a slab or low ceiling may refuse to seat you. Leave headroom over chairs and stools.</li>
+        <li><strong>Braziers are light <em>and</em> hazard.</strong> A lit Brazier brightens the room but also burns players and nearby flammables. Use it for atmosphere and traps; keep it away from wooden furniture indoors. <span class="vflag">fire</span></li>
+        <li><strong>Light with flint &amp; steel.</strong> Braziers generally need lighting (and can be extinguished). If a Brazier isn't glowing, it probably isn't lit yet.</li>
+        <li><strong>Match wood types.</strong> Most pieces come per wood species — pick one palette per build so beams, seats, and ladders agree.</li>
+        <li><strong>Keep a decor chest.</strong> These blocks are cheap but numerous. A dedicated chest (or shulker) of beams, seats, thatch, and braziers near your build saves endless trips to the crafting table.</li>
+        <li><strong>JEI/EMI is your recipe book.</strong> Recipes are plain crafting-table affairs; if you're unsure what makes a given piece, look it up in JEI/EMI rather than guessing.</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">Don't burn your own build down</span>
+        <p>The single most common mistake is placing a lit <strong>Brazier</strong> next to thatch, beams, or wooden furniture. Open flame plus a thatch roof is exactly as flammable as it sounds. For interiors, prefer <strong>Chandeliers</strong> and <strong>Candle Holders</strong>; reserve open braziers for stone surroundings.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#e7f0d6;text-transform:uppercase;letter-spacing:0.03em">Beams &amp; Braziers</strong><br>
+      An unofficial, fan-made field guide to the Decorative Blocks mod for Minecraft 1.19.2 (Forge).<br>
+      Decorative Blocks is created by stohun. This guide is not affiliated with or endorsed by the mod's author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Written against:<br>
+      · Decorative Blocks (1.19.2 · Forge)<br>
+      · in-game block tooltips<br>
+      · JEI/EMI recipe data
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Block names, recipes, and light values are approximate and can vary by version &amp; pack. When your install disagrees, the in-game tooltips and JEI/EMI win.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from './assets/js/guide-chrome.js';
+  initChrome();
+</script>
+</body>
+</html>
