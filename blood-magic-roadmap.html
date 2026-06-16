@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Long Bleed — a Blood Magic 3.3.0 start-to-finish roadmap (MC 1.19.2)</title>
+<meta name="description" content="A structured, beginning-to-end walkthrough for Blood Magic 3.3.0 (Minecraft 1.19.2 Forge): eight Acts from your first heart of LP to a Tier-5 altar, a Demon Will farm, Living Armor, full automation, and the finished Sanguine Crypt. Tickable checklists, milestone gates, and a saved progress bar." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <!-- ===================================================== SIDEBAR NAV -->
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true"></span>
+      <span class="wordmark">The Long<br>Bleed<small>BLOOD MAGIC · ROADMAP</small></span>
+    </div>
+    <a href="index.html" style="display:inline-block;margin-top:14px;font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.12em;color:var(--bone-dim);text-decoration:none">← Home</a>
+    <a href="blood-magic-guide.html" style="display:inline-block;margin-top:8px;font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.12em;color:var(--bone-dim);text-decoration:none">📖 The Sanguine Scientum (reference)</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Journey</p>
+      <a href="#act0"><span class="ix">0</span> Provisions</a>
+      <a href="#act1"><span class="ix">I</span> First Blood</a>
+      <a href="#act2"><span class="ix">II</span> The Apprentice's Bench</a>
+      <a href="#act3"><span class="ix">III</span> The Magician's Reach</a>
+      <a href="#act4"><span class="ix">IV</span> Hands Free</a>
+      <a href="#act5"><span class="ix">V</span> The Second Currency</a>
+      <a href="#act6"><span class="ix">VI</span> Flesh &amp; Steel</a>
+      <a href="#act7"><span class="ix">VII</span> Industry</a>
+      <a href="#act8"><span class="ix">VIII</span> The Sanctum</a>
+      <p class="group-label">If You're Lost</p>
+      <a href="#shortpath"><span class="ix">★</span> The Five-Step Path</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--bone-faint);line-height:1.7">
+      Your ticks are saved in this<br>browser. Costs &amp; tiers read from<br>the 3.3.x source; the in-game<br>book wins if your pack differs.
+    </p>
+  </aside>
+
+  <!-- ===================================================== CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · WayofTime · a start-to-finish plan</p>
+      <h1>The Long<br>Bleed</h1>
+      <p class="lede">The <em>Sanguine Scientum</em> tells you what every block does. <strong>This</strong> tells you what to do <em>next</em>. Eight Acts carry you from a bare altar and a knife all the way to a humming Tier-5 engine, a self-feeding Demon Will farm, trained Living Armor, full item-and-fluid automation, and the finished Crypt — in the order that never leaves you stuck.</p>
+      <div class="badges">
+        <span class="badge">Blood Magic 3.3.0</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">8 Acts · tick as you go</span>
+        <span class="badge danger">⚠ It still hurts</span>
+      </div>
+    </header>
+
+    <!-- progress meter -->
+    <div class="progress-wrap">
+      <div class="bar"><div class="fill" data-progress-fill></div></div>
+      <div class="val"><span data-progress-label>0 of 0 steps</span><span data-progress-pct>0%</span></div>
+    </div>
+
+    <section class="doc" id="how" style="padding-top:30px">
+      <p class="sec-index">How to read this</p>
+      <h2>How the roadmap works</h2>
+      <p>Each Act is a self-contained chunk of progress with the same five parts: a one-line <strong>goal</strong>, what you <strong>need first</strong>, a <strong>tickable to-do list</strong> (your boxes are saved in this browser), a red <strong>milestone gate</strong> that tells you exactly when you're done and may move on, and a <strong>watch-out</strong> for the trap that kills most people at that stage. The chips at the foot of each Act jump to the matching deep-dive in the reference grimoire.</p>
+      <p>Do the Acts in order. Every one unlocks the tool that makes the next one painless — skip ahead and you'll spend an hour bleeding for something you could have automated.</p>
+    </section>
+
+    <!-- ============================================ ACT 0 -->
+    <section class="act" id="act0">
+      <span class="act-tier"><span class="pill tier">No altar yet</span></span>
+      <p class="act-tag">Act 0 — Before the first cut</p>
+      <h2>Provisions</h2>
+      <p class="act-goal">Set up a room where bleeding yourself won't get you killed.</p>
+      <p>Self-sacrifice drains real health. The single most common Blood Magic death is tapping the altar one heart too low. Two minutes of prep here saves you a lost inventory later.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a0-1"><span class="box"></span><span class="txt">Wall off a <strong>small, fully-lit room</strong> — no mob spawns, no lava, one door.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a0-2"><span class="box"></span><span class="txt">Stock a stack of <strong>filling food</strong> (steak/bread) and ideally a <strong>Regeneration source</strong> (golden apples, a beacon, or a potion).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a0-3"><span class="box"></span><span class="txt">Gather the bootstrap mats: <strong>1 Diamond</strong>, a stack of <strong>Stone</strong>, plus <strong>Iron</strong>, <strong>Gold</strong> and a <strong>Glass Bottle / Glowstone</strong> for the early crafts.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a0-4"><span class="box"></span><span class="txt">Decide where the altar lives <strong>now</strong> — it grows outward and downward into a 19×19 pit by endgame. Leave room, or plan to dig.</span></label></li>
+      </ul>
+      <div class="gate"><span class="label">Milestone — move on when</span><p>You have a safe, lit room, food/regen on hand, and a diamond + stone in your pocket. <strong>Never sacrifice below ~7 hearts.</strong></p></div>
+      <div class="note tip"><span class="label">Why so careful</span><p>Early on you have no LP buffer and no living armour. A creeper or a mis-click at 2 hearts ends the run. Discipline now; shortcuts later.</p></div>
+    </section>
+
+    <!-- ============================================ ACT I -->
+    <section class="act" id="act1">
+      <span class="act-tier"><span class="pill tier">Tier 1 → 2</span></span>
+      <p class="act-tag">Act I — The opening</p>
+      <h2>First Blood</h2>
+      <p class="act-goal">Stand up a working altar, bind your first Blood Orb, and ring it to Tier 2.</p>
+      <p><strong>Need first:</strong> the Act 0 provisions.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-1"><span class="box"></span><span class="txt">Craft a <strong>Blood Altar</strong> (a bare altar is Tier 1, 10,000 LP cap) and a <strong>Sacrificial Dagger</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-2"><span class="box"></span><span class="txt">Craft a <strong>Divination Sigil</strong> first — it's free to use and the only way to read your LP and altar state.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-3"><span class="box"></span><span class="txt">Right-click near the altar with the dagger (≈ +200 LP / heart). Eat, regen, repeat.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-4"><span class="box"></span><span class="txt">Drop a <strong>Diamond</strong> in the altar; bleed until it absorbs <strong>2,000 LP</strong> → <strong>Weak Blood Orb</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-5"><span class="box"></span><span class="txt"><strong>Bind the orb</strong> (hold right-click, empty hand). It now holds your 5,000-LP Soul Network.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a1-6"><span class="box"></span><span class="txt">Make <strong>Blank Slates</strong> from Stone (1,000 LP each), then <strong>8 Blood Runes</strong>, and ring the altar one level below → <strong>Tier 2</strong>.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill lp">Orb craft · <b>2,000 LP</b></span>
+        <span class="pill lp">Slate · <b>1,000 LP</b> ea</span>
+        <span class="pill">Runes · <b>×8</b> for T2</span>
+      </div>
+      <div class="gate"><span class="label">Milestone — Tier 2 reached</span><p>The Divination Sigil reads your altar as <strong>Tier 2</strong> and you carry a <strong>bound Weak Blood Orb</strong>. You can now craft Apprentice-tier items.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Don't bleed your whole health bar chasing a craft. The altar keeps LP it has already absorbed — you can top it up across many small, safe sacrifices.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#first-blood">First Blood</a><a href="blood-magic-guide.html#altar">The Blood Altar</a><a href="blood-magic-guide.html#orbs">Orbs</a></div>
+    </section>
+
+    <!-- ============================================ ACT II -->
+    <section class="act" id="act2">
+      <span class="act-tier"><span class="pill tier">Tier 2 → 3</span></span>
+      <p class="act-tag">Act II — Stop hurting yourself</p>
+      <h2>The Apprentice's Bench</h2>
+      <p class="act-goal">Get an LP-fuelled workbench and your first quality-of-life sigils so you bleed less and craft more.</p>
+      <p><strong>Need first:</strong> Tier 2 altar + bound Weak Blood Orb.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-1"><span class="box"></span><span class="txt">Bleed an <strong>Apprentice Blood Orb</strong> (Redstone Block, 5,000 LP) — network jumps to 25,000.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-2"><span class="box"></span><span class="txt">Build an <strong>Alchemy Table</strong>; slot the orb and make <strong>Arcane Ash</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-3"><span class="box"></span><span class="txt">Draw arrays with the ash to bind your first <strong>sigils</strong>: <strong>Water</strong>, <strong>Fast Miner</strong>, and (a touch later) <strong>Magnetism</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-4"><span class="box"></span><span class="txt">Make <strong>Reinforced Slates</strong> (2,000 LP) for those Reinforced-tier sigils.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-5"><span class="box"></span><span class="txt">Upgrade your altar runes: add <strong>Speed</strong> and <strong>Self-Sacrifice</strong> runes (faster, richer bleeding).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a2-6"><span class="box"></span><span class="txt">Expand the ring toward the <strong>7×7 Tier-3</strong> footprint: 28 runes + four 2-tall pillars capped with <strong>Glowstone</strong>.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill lp">Apprentice orb · <b>5,000 LP</b></span>
+        <span class="pill tier">T3 · <b>28 runes + 4 pillars</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — Tier 3 reached</span><p>Altar reads <strong>Tier 3</strong> (66,000-ish cap once runed), you have an Alchemy Table, and at least the <strong>Water + Fast Miner</strong> sigils. Life is already easier.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Sigils are bound on a ground <strong>array</strong>, not in the altar — the altar only forges the slate. If a sigil recipe "won't craft," you're probably looking in the wrong place.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#slates">Slates &amp; Sigils</a><a href="blood-magic-guide.html#runes">Runes</a><a href="blood-magic-guide.html#alchemy">Alchemy</a></div>
+    </section>
+
+    <!-- ============================================ ACT III -->
+    <section class="act" id="act3">
+      <span class="act-tier"><span class="pill tier">Tier 3</span></span>
+      <p class="act-tag">Act III — Reach &amp; comfort</p>
+      <h2>The Magician's Reach</h2>
+      <p class="act-goal">Climb to the Magician's orb, read your altar's live progress, and start the Tranquility build that makes bleeding fast.</p>
+      <p><strong>Need first:</strong> Tier 3 altar + Alchemy Table.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-1"><span class="box"></span><span class="txt">Bleed a <strong>Magician's Blood Orb</strong> (Gold Block, 25,000 LP) — network ceiling 150,000.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-2"><span class="box"></span><span class="txt">Craft the <strong>Sigil of the Seer</strong> — now you can watch altar crafting progress and your Tranquility bonus live.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-3"><span class="box"></span><span class="txt">Build an <strong>Incense Altar</strong> beside the Blood Altar and lay <strong>path roads</strong> outward (wood → stone as you can afford it).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-4"><span class="box"></span><span class="txt">Use the shining dagger: one charged self-sacrifice now dumps a huge slug of LP at once.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-5"><span class="box"></span><span class="txt">Add <strong>Capacity</strong> + <strong>Augmented Capacity</strong> runes so a single expensive craft fits in the tank.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a3-6"><span class="box"></span><span class="txt">Optional: make a <strong>Dagger of Sacrifice</strong> and a tiny mob pen for a manual LP top-up before rituals.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill lp">Magician orb · <b>25,000 LP</b></span>
+        <span class="pill will">Incense · <b>up to +300% self-sac</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — comfortable bleeding</span><p>You hold a <strong>Magician's orb</strong>, the <strong>Seer Sigil</strong>, and an Incense Altar pushing your self-sacrifice well past +100%. Big crafts no longer mean dozens of taps.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>The charged "shining dagger" sacrifice takes ~90% of your health <em>in one go</em>. Only use it at full health with regen ready — it is the second-most-common Blood Magic death.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#alchemy">Incense Altar</a><a href="blood-magic-guide.html#orbs">Orbs</a><a href="blood-magic-guide.html#runes">Capacity runes</a></div>
+    </section>
+
+    <!-- ============================================ ACT IV -->
+    <section class="act" id="act4">
+      <span class="act-tier"><span class="pill tier">Tier 3 → 4</span></span>
+      <p class="act-tag">Act IV — Make LP without you</p>
+      <h2>Hands Free</h2>
+      <p class="act-goal">Stop bleeding by hand. Build the ritual system and put a Well of Suffering to work.</p>
+      <p><strong>Need first:</strong> Magician's orb, a Tier-3 altar, and a mob source (a dark room or vanilla spawner).</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-1"><span class="box"></span><span class="txt">Craft a <strong>Ritual Diviner</strong>, <strong>Ritual Stones</strong> + a <strong>Master Ritual Stone</strong>, and a <strong>Weak Activation Crystal</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-2"><span class="box"></span><span class="txt">Pick <strong>Well of Suffering</strong> on the diviner; right-click the MRS to ghost-build it, then activate with the crystal (network must hold the 40,000 LP).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-3"><span class="box"></span><span class="txt">Put the Well <strong>above</strong> the altar with a mob grinder feeding it — it damages mobs and pours their LP straight into the altar.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-4"><span class="box"></span><span class="txt">Add a <strong>Ritual of Containment</strong> (pull mobs in) and/or a <strong>Crusher</strong> to harvest drops if you want loot too.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-5"><span class="box"></span><span class="txt">Bleed a <strong>Weak Blood Shard</strong> → <strong>Master Blood Orb</strong> (40,000 LP); network ceiling 1,000,000.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a4-6"><span class="box"></span><span class="txt">Push the altar out to the <strong>11×11 Tier 4</strong>: 56 runes + four 4-tall pillars capped with <strong>Large Bloodstone Bricks</strong>.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill lp">Well · <b>40,000 LP</b> activate</span>
+        <span class="pill lp">Master orb · <b>40,000 LP</b></span>
+        <span class="pill tier">T4 · <b>56 runes</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — passive LP</span><p>A <strong>Well of Suffering</strong> is filling your altar while you do other things, and you carry a <strong>Master Blood Orb</strong> on a Tier-4 altar. From here, LP is a faucet, not a chore.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Activation LP is pulled <em>all at once</em> — your network must already hold the full 40,000 before the Well will light. Build capacity first, then activate.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#rituals">Rituals</a><a href="blood-magic-guide.html#altar">Altar tiers</a><a href="blood-magic-guide.html#orbs">Orbs</a></div>
+    </section>
+
+    <!-- ============================================ ACT V -->
+    <section class="act" id="act5">
+      <span class="act-tier"><span class="pill tier">Tier 4 · Will</span></span>
+      <p class="act-tag">Act V — The other economy</p>
+      <h2>The Second Currency</h2>
+      <p class="act-goal">Open Demon Will: gather it, store it, and build a garden that grows it while you sleep.</p>
+      <p><strong>Need first:</strong> a Tier-4 altar and a working mob farm (your Well's grinder doubles as Will income).</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-1"><span class="box"></span><span class="txt">Craft a <strong>Hellfire Forge</strong> and a <strong>Petty Tartaric Gem</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-2"><span class="box"></span><span class="txt">Throw <strong>Soul Snares</strong> at mobs and kill them in the sparkle window to drop your first Will; fill the gem.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-3"><span class="box"></span><span class="txt">Forge a <strong>Sentient Sword</strong> — now every kill drops Will reliably and tops up your gem.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-4"><span class="box"></span><span class="txt">Climb the gem ladder: <strong>Lesser → Common → Greater</strong> Tartaric Gem (64 → 4,096 Will).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-5"><span class="box"></span><span class="txt">Build a <strong>Will garden</strong>: a <strong>Demon Crucible</strong> feeding the chunk aura, ringed by <strong>Demon Crystallizers</strong> growing harvestable crystal clusters.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a5-6"><span class="box"></span><span class="txt">Run <strong>Gathering of the Forsaken Souls</strong> with a chest of catalysts to <strong>aspect</strong> the crystals (Corrosive / Destructive / Vengeful / Steadfast) and speed growth.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill will">Greater gem · <b>4,096 Will</b></span>
+        <span class="pill will">Garden · <b>passive crystals</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — self-feeding Will</span><p>A <strong>Crucible + Crystallizer</strong> garden is growing crystals on its own, and a <strong>Sentient Sword</strong> + <strong>Greater gem</strong> keep you stocked in the field. Both currencies now flow without you grinding.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Chicken-and-egg: crystallizers need a full aura they can't fill themselves. Prime the <strong>Crucible</strong> with a few charged gems first, then let the loop run.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#demon-will">Demon Will &amp; Forge</a><a href="blood-magic-guide.html#rituals">Gathering ritual</a></div>
+    </section>
+
+    <!-- ============================================ ACT VI -->
+    <section class="act" id="act6">
+      <span class="act-tier"><span class="pill tier">Tier 4 · gear</span></span>
+      <p class="act-tag">Act VI — Stop dying</p>
+      <h2>Flesh &amp; Steel</h2>
+      <p class="act-goal">Wear armour that levels itself, then arm up with LP- and Will-powered tools.</p>
+      <p><strong>Need first:</strong> a Tier-4 altar, Arcane Ash + Binding Reagent (Alchemy Table), and a Will gem if you want sentient gear.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-1"><span class="box"></span><span class="txt">Transmute <strong>iron armour + Binding Reagent + Arcane Ashes</strong> into the four <strong>Living Armor</strong> pieces.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-2"><span class="box"></span><span class="txt">Wear it and <strong>train a theme</strong> — mine for Dwarven Might, fight for Tough/Fierce, etc. (100-point budget).</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-3"><span class="box"></span><span class="txt">Drink the <strong>Draft of Angelus</strong> to raise the cap to <strong>200</strong>.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-4"><span class="box"></span><span class="txt">Forge an attack tool: a <strong>Sentient Sword/Scythe</strong> (feeds your Will) and/or a <strong>Bound Pickaxe</strong> for instant mining.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-5"><span class="box"></span><span class="txt">Make a <strong>Lava Crystal</strong> — an infinite furnace fuel that burns on your network LP.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a6-6"><span class="box"></span><span class="txt">Keep the <strong>Sound of the Cleansing Soul</strong> ritual handy to re-spec your armour into tomes when your playstyle shifts.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill">Armor budget · <b>100 → 200</b></span>
+        <span class="pill lp">Lava Crystal · <b>LP fuel</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — kitted out</span><p>You're wearing trained <strong>Living Armor</strong> (cap raised by the Draft), carrying a powered weapon and pickaxe, and smelting on a <strong>Lava Crystal</strong>. You can take a hit and dig a base fast.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Living Armor points are <em>shared</em> across all abilities. Don't smear them thin — pick a build, and re-spec rather than over-spending.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#living-armor">Living Armor</a><a href="blood-magic-guide.html#tools">Bound &amp; Sentient Tools</a></div>
+    </section>
+
+    <!-- ============================================ ACT VII -->
+    <section class="act" id="act7">
+      <span class="act-tier"><span class="pill tier">Tier 4 → 5</span></span>
+      <p class="act-tag">Act VII — Scale it up</p>
+      <h2>Industry</h2>
+      <p class="act-goal">Hit the survival ceiling, then plumb everything together so the whole operation runs itself.</p>
+      <p><strong>Need first:</strong> a Master orb, a running Well + Will garden, and four Beacons' worth of resources.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-1"><span class="box"></span><span class="txt">Expand to the <strong>19×19 Tier 5</strong>: 108 runes + four active <strong>Beacons</strong> at the corners — the real survival ceiling.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-2"><span class="box"></span><span class="txt">Bleed an <strong>Archmage Blood Orb</strong> (80,000 LP); network ceiling 10,000,000.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-3"><span class="box"></span><span class="txt">Upgrade the diviner with <strong>Dusk Inscription Tools</strong> and an <strong>Awakened Activation Crystal</strong> to unlock advanced rituals.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-4"><span class="box"></span><span class="txt">Run the big ones: <strong>Ritual of Living Evolution</strong> (armour cap → 300), plus <strong>Reverence of the Condor</strong> (flight) or <strong>Mark of the Falling Tower</strong> as you like.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-5"><span class="box"></span><span class="txt">Wire a <strong>Routing Node</strong> network (Master + Input/Output + Node Router) to move Well drops into sorting/smelting automatically.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a7-6"><span class="box"></span><span class="txt">Pipe <strong>Life Essence</strong> into a <strong>Blood Tank</strong> to buffer Well overflow, and feed a remote crafting altar from it.</span></label></li>
+      </ul>
+      <div class="statline">
+        <span class="pill tier">T5 · <b>108 runes + 4 Beacons</b></span>
+        <span class="pill lp">Archmage orb · <b>80,000 LP</b></span>
+        <span class="pill">Armor cap · <b>→ 300</b></span>
+      </div>
+      <div class="gate"><span class="label">Milestone — the engine runs itself</span><p>A <strong>Tier-5</strong> altar, an <strong>Archmage orb</strong>, a routed item network, buffered LP, and the late rituals online. There's nothing left you <em>need</em> — only what you want.</p></div>
+      <div class="note warn"><span class="label">Watch out</span><p>Tier 6 needs Crystal Clusters that aren't survival-craftable without config/creative. Treat <strong>Tier 5 as the finish line</strong> and don't chase T6 unless your pack enables it.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#automation">Automation &amp; Routing</a><a href="blood-magic-guide.html#rituals">Dusk rituals</a><a href="blood-magic-guide.html#altar">Tier 5</a></div>
+    </section>
+
+    <!-- ============================================ ACT VIII -->
+    <section class="act" id="act8">
+      <span class="act-tier"><span class="pill tier">Cosmetic</span></span>
+      <p class="act-tag">Act VIII — Make it yours</p>
+      <h2>The Sanctum</h2>
+      <p class="act-goal">Sink the whole working machine into a build worth showing off.</p>
+      <p>The mechanics are done; now dress them. <em>The Sanguine Crypt</em> drops the altar into a circular ritual pit beneath a skylight, ringed by a balcony where your rituals live.</p>
+      <ul class="checklist" data-list>
+        <li><label class="ck"><input type="checkbox" data-ck="a8-1"><span class="box"></span><span class="txt">Lay the <strong>Blood-Channel Floor</strong> — red veins fanning from the altar across deepslate.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a8-2"><span class="box"></span><span class="txt">Ring the pit with <strong>Ribbed Vault Bays</strong> and <strong>Pillar &amp; Sconce</strong> modules aligned to the altar's corners.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a8-3"><span class="box"></span><span class="txt">Punch the <strong>Skylight Shaft</strong> straight up the middle for a shaft of daylight.</span></label></li>
+        <li><label class="ck"><input type="checkbox" data-ck="a8-4"><span class="box"></span><span class="txt">Crown it with the <strong>Balcony Ring</strong> and keep the Well/ritual pad off to the side so mobs don't rain on you.</span></label></li>
+      </ul>
+      <div class="gate"><span class="label">Milestone — complete</span><p>A fully-automated Blood Magic operation, humming inside a crypt you'd take a screenshot of. That's the whole journey, beginning to end.</p></div>
+      <div class="seealso"><span class="sa-label">Reference</span><a href="blood-magic-guide.html#crypt">Build It Beautiful — interactive schematics</a></div>
+    </section>
+
+    <!-- ============================================ SHORT PATH -->
+    <section class="doc" id="shortpath">
+      <p class="sec-index">★ — If you only remember five things</p>
+      <h2>The Five-Step Path</h2>
+      <p>Lost in the detail? The entire mod, boiled down to the five moves that matter. Do these in order and everything else slots in around them.</p>
+      <ol class="flow">
+        <li><strong>Bleed a Weak Orb, ring to Tier 2.</strong> Altar + dagger + Divination Sigil + diamond. Now you're playing.</li>
+        <li><strong>Build the Alchemy Table + an Incense Altar.</strong> Cheaper sigils and far faster self-sacrifice.</li>
+        <li><strong>Light a Well of Suffering over a mob farm.</strong> This is the moment LP stops being work.</li>
+        <li><strong>Open Demon Will: Sentient Sword + a Crucible/Crystallizer garden.</strong> The second economy, self-feeding.</li>
+        <li><strong>Reach Tier 5, make Living Armor, automate with Routing Nodes.</strong> You're done — go build the Crypt.</li>
+      </ol>
+      <div class="note tip"><span class="label">Reset your ticks</span><p>Starting a fresh world? <button type="button" data-reset style="font-family:var(--f-mono);font-size:0.78rem;background:var(--bg-3);color:#f0c9a8;border:1px solid var(--blood);border-radius:6px;padding:4px 12px;cursor:pointer">Clear all checkboxes</button></p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:#e9d9b6">The Long Bleed</strong><br>
+      A start-to-finish roadmap companion to <a href="blood-magic-guide.html">The Sanguine Scientum</a>, for Blood Magic 3.3.0 on Minecraft 1.19.2 (Forge).<br>
+      Blood Magic is by <a href="https://github.com/WayofTime/BloodMagic">WayofTime</a>. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion to:<br>
+      · the Sanguine Scientum reference<br>
+      · its interactive schematics<br>
+      · your own saved progress
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--bone-faint)">When your pack disagrees with this page, the in-game guidebook wins. Numbers are configurable.</p>
+</footer>
+
+<script>
+/* ---- mobile nav toggle ---- */
+const sidebar = document.querySelector("[data-sidebar]");
+const menuBtn = document.querySelector("[data-menu]");
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => sidebar.classList.toggle("open"));
+  sidebar.addEventListener("click", (e) => { if (e.target.closest("a")) sidebar.classList.remove("open"); });
+}
+
+/* ---- scroll-spy ---- */
+const links = [...document.querySelectorAll("[data-nav] a")];
+const byId = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+const sections = [...document.querySelectorAll("section.act, section.doc, header.hero")];
+const spy = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    if (e.isIntersecting) {
+      links.forEach((l) => l.classList.remove("active"));
+      const active = byId.get(e.target.id);
+      if (active) active.classList.add("active");
+    }
+  }
+}, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+sections.forEach((s) => spy.observe(s));
+
+/* ---- checklist persistence + progress meter ---- */
+const STORE = "bm-roadmap-v1";
+const boxes = [...document.querySelectorAll(".checklist input[data-ck]")];
+const fill = document.querySelector("[data-progress-fill]");
+const pLabel = document.querySelector("[data-progress-label]");
+const pPct = document.querySelector("[data-progress-pct]");
+
+function loadState() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) {}
+  for (const b of boxes) b.checked = !!saved[b.dataset.ck];
+}
+function saveState() {
+  const out = {};
+  for (const b of boxes) if (b.checked) out[b.dataset.ck] = 1;
+  try { localStorage.setItem(STORE, JSON.stringify(out)); } catch (e) {}
+}
+function updateProgress() {
+  const total = boxes.length;
+  const done = boxes.filter((b) => b.checked).length;
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  if (fill) fill.style.width = pct + "%";
+  if (pLabel) pLabel.textContent = done + " of " + total + " steps";
+  if (pPct) pPct.textContent = pct + "%";
+}
+boxes.forEach((b) => b.addEventListener("change", () => { saveState(); updateProgress(); }));
+const resetBtn = document.querySelector("[data-reset]");
+if (resetBtn) resetBtn.addEventListener("click", () => {
+  boxes.forEach((b) => (b.checked = false));
+  saveState(); updateProgress();
+});
+loadState();
+updateProgress();
+</script>
+</body>
+</html>

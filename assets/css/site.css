@@ -325,6 +325,56 @@ section.doc code { font-family: var(--f-mono); font-size: 0.86em; background: rg
 .obtain .src-key span { display: inline-flex; align-items: center; gap: 7px; }
 .obtain .src-key i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; font-style: normal; }
 
+/* ----------------------------------------------------------------- roadmap walkthrough page */
+/* act header */
+.act { padding: 46px 0; border-bottom: 1px solid rgba(201,180,141,0.09); scroll-margin-top: 18px; }
+.act > .act-tag { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.26em; color: var(--blood-bright); text-transform: uppercase; }
+.act > .act-tier { float: right; }
+.act h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.5rem); margin: 6px 0 4px; color: #f4ecd7; }
+.act .act-goal { font-size: 1.12rem; color: #cfc1a4; font-style: italic; margin: 0 0 6px; }
+
+/* checklist with tickable boxes */
+.checklist { list-style: none; padding: 0; margin: 16px 0; }
+.checklist li { border-bottom: 1px dotted rgba(201,180,141,0.16); }
+.checklist .ck { position: relative; display: block; padding: 9px 0 9px 38px; color: #d6caae; font-size: 0.96rem; cursor: pointer; }
+.checklist input { position: absolute; left: 4px; top: 10px; width: 20px; height: 20px; margin: 0; opacity: 0; cursor: pointer; z-index: 2; }
+.checklist .box { position: absolute; left: 4px; top: 10px; width: 20px; height: 20px; border-radius: 5px; border: 1px solid rgba(201,180,141,0.4); background: rgba(0,0,0,0.3); transition: background 140ms, border-color 140ms; }
+.checklist input:checked + .box { background: var(--blood); border-color: var(--blood-bright); box-shadow: 0 0 10px rgba(198,58,42,0.5); }
+.checklist input:checked + .box::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 0.8rem; font-family: var(--f-mono); }
+.checklist input:checked ~ .txt { color: var(--bone-faint); text-decoration: line-through; text-decoration-color: rgba(198,58,42,0.6); }
+.checklist strong { color: #f2e6cb; }
+
+/* milestone gate banner */
+.gate {
+  margin: 22px 0; padding: 16px 18px; border-radius: 10px;
+  background: linear-gradient(90deg, rgba(158,27,27,0.22), rgba(158,27,27,0.06));
+  border: 1px solid rgba(198,58,42,0.45); border-left: 4px solid var(--blood-bright);
+}
+.gate .label { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blood-bright); display: block; margin-bottom: 4px; }
+.gate p { margin: 0; color: #f0e0c8; }
+.gate strong { color: #fff; }
+
+/* "see also" cross-link chips into the grimoire */
+.seealso { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; align-items: center; }
+.seealso .sa-label { font-family: var(--f-mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bone-faint); margin-right: 2px; }
+.seealso a {
+  font-family: var(--f-mono); font-size: 0.72rem; text-decoration: none;
+  padding: 4px 10px; border-radius: 999px; color: #e9b9ac;
+  background: rgba(0,0,0,0.3); border: 1px solid rgba(198,58,42,0.4);
+  transition: background 150ms, color 150ms;
+}
+.seealso a:hover { background: rgba(158,27,27,0.3); color: #fff; }
+
+/* two-column need / watch-out split */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+@media (max-width: 680px) { .split { grid-template-columns: 1fr; } }
+
+/* progress meter for the master checklist */
+.progress-wrap { position: sticky; top: 0; z-index: 5; background: linear-gradient(180deg, rgba(22,11,10,0.96), rgba(22,11,10,0.7)); backdrop-filter: blur(3px); padding: 12px 0 10px; margin-bottom: 8px; border-bottom: 1px solid rgba(201,180,141,0.14); }
+.progress-wrap .bar { height: 12px; border-radius: 999px; background: rgba(0,0,0,0.45); overflow: hidden; border: 1px solid rgba(201,180,141,0.2); }
+.progress-wrap .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--blood-deep), var(--blood-bright)); box-shadow: 0 0 12px rgba(198,58,42,0.6); transition: width 280ms; border-radius: 999px; }
+.progress-wrap .val { font-family: var(--f-mono); font-size: 0.72rem; color: #f0c9a8; margin-top: 6px; display: flex; justify-content: space-between; }
+
 /* ============================================================ SCHEMATIC VIEWER */
 .schematic {
   margin: 30px 0;
