@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Descent — a Dungeon Crawl guide (MC 1.19.2)</title>
+<meta name="description" content="A Dungeon Crawl (Minecraft 1.19.2 Forge) guide: finding the multi-level underground dungeon, its layout and hazards, and how to clear it for loot." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0a120d; --bg-1:#0d1711; --bg-2:#132018; --bg-3:#1a2c20; --line:#26402f;
+    --ink:#e7f0e3; --ink-dim:#9bbaa2; --ink-faint:#64846c;
+    --accent:#5bbf8f; --danger:#e0683a;
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🪜</span>
+      <span class="wordmark">The<br>Descent<small>DUNGEON CRAWL</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Dungeon Crawl</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#find"><span class="ix">01</span> Finding the Entrance</a>
+      <a href="#layout"><span class="ix">02</span> Structure &amp; Layout</a>
+      <a href="#hazards"><span class="ix">03</span> Hazards</a>
+      <a href="#loot"><span class="ix">04</span> Loot</a>
+      <a href="#clear"><span class="ix">05</span> Clearing Strategy</a>
+      <a href="#tips"><span class="ix">06</span> Tips</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · xiroc_</p>
+      <h1>The Descent</h1>
+      <p class="lede">Somewhere beneath your feet, a staircase spirals down through floor after floor of brick, spawners and treasure. <strong>Dungeon Crawl</strong> drops a single sprawling, multi-level dungeon under the world — a proper "fight your way to the bottom" delve.</p>
+      <div class="badges">
+        <span class="badge accent">Multi-floor dungeon</span>
+        <span class="badge">Procedural</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Dungeon Crawl generates a large, procedural dungeon underground in most biomes: stacked floors linked by staircases, themed by the biome above, and getting nastier the deeper you go.</p>
+      <p>It's one of the headline dive sites in the <a href="exploration-guide.html">Cartographer's Journal</a> — a reliable, repeatable source of loot and XP between tech milestones.</p>
+    </section>
+
+    <section class="doc" id="find">
+      <p class="sec-index">01 — Getting in</p>
+      <h2>Finding the Entrance</h2>
+      <p>The dungeon generates <strong>underground</strong>, with a staircase running up toward the surface. To find one:</p>
+      <ul>
+        <li>Explore caves and tunnels — you'll often break into the dungeon's brickwork or a staircase shaft.</li>
+        <li>Watch for the distinctive themed bricks (the palette matches the biome above).</li>
+        <li>If you've found the top staircase, follow it <em>down</em> — that's the intended route through every floor.</li>
+      </ul>
+      <div class="note tip"><span class="label">Use a map</span><p>A map mod helps you mark the entrance so you can return to a half-cleared dungeon. See the <a href="quality-of-life-guide.html">Operator's Handbook</a> for JourneyMap/Map Atlases.</p></div>
+    </section>
+
+    <section class="doc" id="layout">
+      <p class="sec-index">02 — The shape</p>
+      <h2>Structure &amp; Layout</h2>
+      <p>The dungeon is built from <strong>multiple stacked floors</strong> connected by staircases. Each floor is a maze of themed rooms and corridors, with:</p>
+      <div class="cards">
+        <div class="card"><h4>Themed rooms</h4><p>Set-piece chambers — libraries, prisons, shrines — each with their own loot and dangers.</p></div>
+        <div class="card"><h4>Spawner rooms</h4><p>Mob spawners drive the difficulty; clustered rooms can overwhelm if you're careless.</p></div>
+        <div class="card"><h4>Secret rooms</h4><p>Hidden caches behind suspicious walls reward a careful eye (and a pick).</p></div>
+      </div>
+      <p>The <strong>deeper the floor, the harder it gets</strong> — treat each descent as a step up in difficulty and loot quality.</p>
+    </section>
+
+    <section class="doc" id="hazards">
+      <p class="sec-index">03 — The dangers</p>
+      <h2>Hazards</h2>
+      <ul>
+        <li><strong>Spawners</strong> pump out mobs continuously — disable or destroy them as you clear (a great use for <a href="apotheosis-guide.html">Apotheosis</a> spawner editing if you want to repurpose them).</li>
+        <li><strong>Tight corridors</strong> funnel mobs onto you — fight in doorways and back into cleared rooms.</li>
+        <li><strong>Scaling difficulty</strong> means the lower floors can spike past your gear; retreat and re-gear if needed.</li>
+        <li>Possible <strong>traps</strong> and ambush rooms — move deliberately, light as you go.</li>
+      </ul>
+    </section>
+
+    <section class="doc" id="loot">
+      <p class="sec-index">04 — The reward</p>
+      <h2>Loot</h2>
+      <p>Each floor holds chests, and the rule of thumb is simple: <strong>deeper = better</strong>. Expect resources, enchanted books, and mid-tier gear, with the richest caches near the bottom and in spawner/secret rooms. Combined with the steady mob kills, it's a strong <strong>XP and enchanting-material</strong> farm. Exact loot tables are config-driven <span class="vflag">verify in-game</span>.</p>
+    </section>
+
+    <section class="doc" id="clear">
+      <p class="sec-index">05 — The method</p>
+      <h2>Clearing Strategy</h2>
+      <ol class="flow">
+        <li><strong>Gear up first.</strong> Bring mid-tier armour/weapons (<a href="tinkers-guide.html">Tinkers</a> / <a href="apotheosis-guide.html">Apotheosis</a>), food (<a href="farmers-delight-guide.html">Farmer's Delight</a>), and a grave net (<a href="tombstone-guide.html">Tombstone</a>).</li>
+        <li><strong>Descend methodically.</strong> Clear and light each floor before taking the stairs down; mark the entrance.</li>
+        <li><strong>Kill the spawners</strong> as you go so a room stays cleared behind you.</li>
+        <li><strong>Loot on the way down</strong>, retreat to resupply, and push deeper when your gear can handle it.</li>
+      </ol>
+    </section>
+
+    <section class="doc" id="tips">
+      <p class="sec-index">06 — Field notes</p>
+      <h2>Tips</h2>
+      <ul>
+        <li>Carry plenty of torches/blocks — lighting is your best crowd control.</li>
+        <li>A <a href="comforts-guide.html">Comforts</a> sleeping bag lets you skip the night without leaving the dungeon or moving spawn.</li>
+        <li>Use it as a renewable loot/XP run while you tech up elsewhere in the pack.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Descent</strong><br>
+      An unofficial Dungeon Crawl guide for Minecraft 1.19.2 (Forge).<br>
+      Dungeon Crawl is by xiroc_. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Part of the<br>To the Moon 2.0 field guides
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Layout and loot are procedural and configurable — the in-game dungeon &amp; JEI are ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

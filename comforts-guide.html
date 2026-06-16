@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rest on the Road — a Comforts guide (MC 1.19.2)</title>
+<meta name="description" content="A Comforts (Minecraft 1.19.2 Forge) guide: sleeping bags and hammocks that let you rest in the field without changing your spawn — built for long expeditions." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0e0c12; --bg-1:#12101a; --bg-2:#1a1626; --bg-3:#231e33; --line:#312a44;
+    --ink:#ece7f4; --ink-dim:#afa3c6; --ink-faint:#746991;
+    --accent:#b59bd8; --danger:#e0683a;
+    --f-display:"Inter",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🛌</span>
+      <span class="wordmark">Rest on<br>the Road<small>COMFORTS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Comforts</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#bags"><span class="ix">01</span> Sleeping Bags</a>
+      <a href="#hammocks"><span class="ix">02</span> Hammocks</a>
+      <a href="#why"><span class="ix">03</span> Why It Matters</a>
+      <a href="#craft"><span class="ix">04</span> Crafting &amp; Colors</a>
+      <a href="#mp"><span class="ix">05</span> Multiplayer Notes</a>
+      <a href="#tips"><span class="ix">06</span> Tips</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · TheIllusiveC4</p>
+      <h1>Rest on the Road</h1>
+      <p class="lede">A small mod that punches far above its weight: <strong>Comforts</strong> adds <strong>sleeping bags</strong> and <strong>hammocks</strong> so you can skip the night <em>anywhere</em> — without ever moving your home spawn. The quiet hero of every long expedition.</p>
+      <div class="badges">
+        <span class="badge accent">Sleeping bags</span>
+        <span class="badge">Hammocks</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">In vanilla, sleeping means hauling a bed and resetting your spawn to wherever you woke up. Comforts breaks that link: rest in the field, skip to morning, and keep your real respawn point safely back at base.</p>
+      <p>That one change makes caving, dungeon-diving, and off-world trips dramatically safer. It pairs naturally with the pack's expedition content — see the <a href="mobs-guide.html">Wilds Bestiary</a> and <a href="exploration-guide.html">Cartographer's Journal</a>.</p>
+    </section>
+
+    <section class="doc" id="bags">
+      <p class="sec-index">01 — The essential</p>
+      <h2>Sleeping Bags</h2>
+      <p>A <strong>Sleeping Bag</strong> is a flat, placeable bedroll. Right-click it to sleep and skip the night (or wait out a thunderstorm) <strong>without setting your spawn point</strong> — your bed or respawn anchor at home stays exactly where it is.</p>
+      <ul>
+        <li>Place it anywhere flat, sleep, then pick it back up — they're meant to be packed and reused (exact pick-up/consume behavior is config-dependent; <span class="vflag">approx</span> by default they return to you).</li>
+        <li>Because they don't change spawn, you can sleep in a cave at bedrock and still respawn in your base if you die.</li>
+        <li>They reset the night and the <strong>phantom insomnia</strong> timer just like a bed.</li>
+      </ul>
+      <div class="note tip"><span class="label">Pack one always</span><p>A single wool sleeping bag in your backpack turns any expedition into a series of safe day-trips. It's the cheapest quality-of-life upgrade in the pack.</p></div>
+    </section>
+
+    <section class="doc" id="hammocks">
+      <p class="sec-index">02 — The camp option</p>
+      <h2>Hammocks</h2>
+      <p>A <strong>Hammock</strong> strings between two solid anchor points (posts, walls, or trees). Climb in to sleep through to day — a lighter, more permanent "forward camp" fixture than a bedroll.</p>
+      <ul>
+        <li>Hang it by placing the hammock between two supports the right distance apart (it needs the gap to string up).</li>
+        <li>Like sleeping bags, it skips the night without claiming your spawn.</li>
+        <li>Great for a semi-permanent mining outpost or a base on the Moon where you don't want a full bedroom.</li>
+      </ul>
+    </section>
+
+    <section class="doc" id="why">
+      <p class="sec-index">03 — The point</p>
+      <h2>Why It Matters</h2>
+      <p>The whole value is the <strong>decoupling of "skip night" from "set spawn."</strong> In a heavily-modded pack full of dangerous detours, that means:</p>
+      <div class="cards">
+        <div class="card"><h4>Safe respawns</h4><p>Die in a <a href="cataclysm-guide.html">Cataclysm</a> arena or a <a href="twilight-forest-guide.html">Twilight</a> boss fight and you wake up at <em>base</em>, not next to the thing that killed you.</p></div>
+        <div class="card"><h4>No phantoms</h4><p>Resetting the insomnia timer on the road keeps phantoms off your back during long builds and expeditions.</p></div>
+        <div class="card"><h4>Off-world rest</h4><p>Skip the long, hostile nights on a half-built <a href="ad-astra-guide.html">Ad Astra</a> outpost without committing a spawn there.</p></div>
+      </div>
+    </section>
+
+    <section class="doc" id="craft">
+      <p class="sec-index">04 — Making them</p>
+      <h2>Crafting &amp; Colors</h2>
+      <p>Sleeping bags are crafted from <strong>wool</strong> and come in every dye color, just like beds — so you can keep a tidy color-coded set or just grab the cheapest wool you have. Hammocks use a similar wool-plus-string recipe (check <a href="quality-of-life-guide.html">JEI</a> for the exact grid in your pack).</p>
+      <p>Both are inexpensive and renewable from a small sheep pen, so there's no reason not to carry one.</p>
+    </section>
+
+    <section class="doc" id="mp">
+      <p class="sec-index">05 — On servers</p>
+      <h2>Multiplayer Notes</h2>
+      <p>On a server, sleeping interacts with the usual "percentage of players must sleep to skip night" rule. Sleeping bags participate in that vote like a bed would. Specifics — whether one player can skip the night, decay timers, and pick-up behavior — are <strong>config-driven</strong> <span class="vflag">verify in-pack</span>, so check with your host if the behavior surprises you.</p>
+    </section>
+
+    <section class="doc" id="tips">
+      <p class="sec-index">06 — Field notes</p>
+      <h2>Tips</h2>
+      <ul>
+        <li>Carry a sleeping bag on <em>every</em> trip; hang a hammock at any base you'll revisit.</li>
+        <li>Remember the headline rule: <strong>they do not change your respawn</strong> — that's the entire feature, not a bug.</li>
+        <li>Combine with a <a href="tombstone-guide.html">Tombstone</a> grave and good food (<a href="farmers-delight-guide.html">Farmer's Delight</a>) for a complete expedition survival kit.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">Rest on the Road</strong><br>
+      An unofficial Comforts guide for Minecraft 1.19.2 (Forge).<br>
+      Comforts is by TheIllusiveC4. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Part of the<br>To the Moon 2.0 field guides
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Pick-up, decay and multiplayer behavior are configurable — the in-game items &amp; JEI are ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Overhauled World — a YUNG's structures guide (MC 1.19.2)</title>
+<meta name="description" content="A guide to the YUNG's structure mods in To the Moon 2.0 (Minecraft 1.19.2 Forge): the overhauled dungeons, mineshafts, strongholds, temples, fortresses and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#100d08; --bg-1:#15110a; --bg-2:#1f1810; --bg-3:#2a2115; --line:#3a2e1b;
+    --ink:#efe7d3; --ink-dim:#bcab83; --ink-faint:#82704f;
+    --accent:#d9b84a; --danger:#e0683a;
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗺</span>
+      <span class="wordmark">The Overhauled<br>World<small>YUNG'S STRUCTURES</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">YUNG's Structures</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#roster"><span class="ix">01</span> The Roster</a>
+      <a href="#overworld"><span class="ix">02</span> Overworld Overhauls</a>
+      <a href="#temples"><span class="ix">03</span> Desert &amp; Jungle Temples</a>
+      <a href="#water"><span class="ix">04</span> Witch Huts &amp; Monuments</a>
+      <a href="#netherend"><span class="ix">05</span> The Nether &amp; End</a>
+      <a href="#extras"><span class="ix">06</span> Bridges &amp; Extras</a>
+      <a href="#tips"><span class="ix">07</span> Tips</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · YUNGNICKYOUNG</p>
+      <h1>The Overhauled World</h1>
+      <p class="lede">Vanilla's structures are famously a bit dull. The <strong>YUNG's</strong> family quietly replaces almost all of them with hand-crafted, larger, loot-rich and far more dangerous versions — and adds a few brand-new ones. If a stronghold or temple feels grand in this pack, YUNG's is why.</p>
+      <div class="badges">
+        <span class="badge accent">Structure overhauls</span>
+        <span class="badge">YUNG's API</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">These mods don't add a new system to learn — they make the world you already explore much better. Each one replaces (or adds) a structure with a bigger, hand-built, trap-laden, loot-rich version, all sharing <strong>YUNG's API</strong> as their backbone.</p>
+      <p>They're the foundation of the <a href="exploration-guide.html">Cartographer's Journal</a>. The headline change: vanilla structures are now worth seeking out.</p>
+    </section>
+
+    <section class="doc" id="roster">
+      <p class="sec-index">01 — The family</p>
+      <h2>The Roster</h2>
+      <p>Every YUNG's mod in this pack and what it changes:</p>
+      <div class="data-table">
+        <table>
+          <caption>The YUNG's structure mods (all on YUNG's API)</caption>
+          <thead><tr><th>Mod</th><th>Overhauls / adds</th><th>Headline</th></tr></thead>
+          <tbody>
+            <tr><td>Better Dungeons</td><td>The small "spawner" dungeons</td><td>Multi-room loot complexes</td></tr>
+            <tr><td>Better Mineshafts</td><td>Mineshafts</td><td>Sprawling, themed, deeper</td></tr>
+            <tr><td>Better Strongholds</td><td>Strongholds</td><td>Grand, dangerous, rewarding</td></tr>
+            <tr><td>Better Desert Temples</td><td>Desert temples</td><td>Bigger puzzles &amp; traps</td></tr>
+            <tr><td>Better Jungle Temples</td><td>Jungle temples</td><td>Real trap-puzzle dungeons</td></tr>
+            <tr><td>Better Witch Huts</td><td>Witch huts</td><td>Expanded swamp lairs</td></tr>
+            <tr><td>Better Ocean Monuments</td><td>Ocean monuments</td><td>Reworked underwater raids</td></tr>
+            <tr><td>Better Nether Fortresses</td><td>Nether fortresses</td><td>Sprawling, blaze-rich</td></tr>
+            <tr><td>Better End Island</td><td>The central End island</td><td>Grander post-dragon arena</td></tr>
+            <tr><td>Bridges</td><td>New: ravine/river bridges</td><td>Natural-looking spans</td></tr>
+            <tr><td>YUNG's Extras</td><td>New: small structures</td><td>Flavorful odds &amp; ends</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc" id="overworld">
+      <p class="sec-index">02 — Underfoot</p>
+      <h2>Overworld Overhauls</h2>
+      <p><strong>Better Mineshafts</strong> turns the old plank tangles into sprawling, biome-themed networks worth mining out. <strong>Better Strongholds</strong> rebuilds the stronghold into a grand, multi-wing dungeon (the End portal is now a real destination). <strong>Better Dungeons</strong> upgrades the tiny spawner rooms into proper multi-room complexes with better loot and more bite. Expect new traps and denser mobs across all three.</p>
+    </section>
+
+    <section class="doc" id="temples">
+      <p class="sec-index">03 — Trap puzzles</p>
+      <h2>Desert &amp; Jungle Temples</h2>
+      <p><strong>Better Desert Temples</strong> and <strong>Better Jungle Temples</strong> are the showpieces: large, multi-room temples with genuine puzzles, traps and hidden vaults instead of a single TNT pit. Move carefully — pressure plates, dispensers and dart traps are waiting — and the payoff is some of the best early/mid loot around.</p>
+      <div class="note warn"><span class="label">Watch your step</span><p>These temples are built to catch the greedy. Disarm traps, light as you go, and don't sprint into a treasure room you haven't checked.</p></div>
+    </section>
+
+    <section class="doc" id="water">
+      <p class="sec-index">04 — Swamp &amp; sea</p>
+      <h2>Witch Huts &amp; Ocean Monuments</h2>
+      <p><strong>Better Witch Huts</strong> expands the lonely swamp shack into a fuller lair, while <strong>Better Ocean Monuments</strong> reworks the underwater raid with new layouts and rewards. For the monument, bring underwater mobility and breathing (a <a href="mekanism-guide.html">Mekanism</a> scuba/jetpack setup or potions) before taking on the Guardians.</p>
+    </section>
+
+    <section class="doc" id="netherend">
+      <p class="sec-index">05 — Other dimensions</p>
+      <h2>The Nether &amp; End</h2>
+      <p><strong>Better Nether Fortresses</strong> turns the fortress into a sprawling, vertical complex packed with blazes and wither skeletons — a richer (and more dangerous) source of blaze rods and wither skulls. <strong>Better End Island</strong> rebuilds the central End spike island into a grander arena, making the post-dragon End feel like a proper finale.</p>
+    </section>
+
+    <section class="doc" id="extras">
+      <p class="sec-index">06 — The new ones</p>
+      <h2>Bridges &amp; Extras</h2>
+      <p><strong>YUNG's Bridges</strong> spans ravines and rivers with natural-looking bridges (handy for travel and a nice worldgen touch), and <strong>YUNG's Extras</strong> sprinkles small, flavorful structures across the world. Neither demands attention — they just make the map feel more lived-in.</p>
+    </section>
+
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips</h2>
+      <ul>
+        <li>These structures are <strong>more dangerous than vanilla</strong> — bring real gear (<a href="tinkers-guide.html">Tinkers</a> / <a href="apotheosis-guide.html">Apotheosis</a>), light aggressively, and watch for traps.</li>
+        <li>They're excellent <strong>XP, loot and enchanted-book</strong> sources — great between tech milestones.</li>
+        <li>Use a map mod and <strong>mark cleared sites</strong> so you don't re-raid them (see the <a href="quality-of-life-guide.html">Operator's Handbook</a>).</li>
+        <li>Keep a <a href="comforts-guide.html">sleeping bag</a> and a <a href="tombstone-guide.html">grave</a> handy for the long delves.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Overhauled World</strong><br>
+      An unofficial guide to the YUNG's structure mods for Minecraft 1.19.2 (Forge).<br>
+      The YUNG's mods are by YUNGNICKYOUNG. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Part of the<br>To the Moon 2.0 field guides
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Layouts and loot are configurable — the in-game structures &amp; JEI are ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

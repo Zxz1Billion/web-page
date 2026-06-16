@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Goblin Market — a Goblin Traders guide (MC 1.19.2)</title>
+<meta name="description" content="A Goblin Traders (Minecraft 1.19.2 Forge) guide: the underground goblin merchants and rarer Vein Goblins, where they spawn, and how to trade with them." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0a120c; --bg-1:#0d1710; --bg-2:#132017; --bg-3:#1a2c1f; --line:#26402e;
+    --ink:#e6f0e4; --ink-dim:#9bba9f; --ink-faint:#64846a;
+    --accent:#4fc06a; --danger:#e0683a;
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">👺</span>
+      <span class="wordmark">The Goblin<br>Market<small>GOBLIN TRADERS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Goblin Traders</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#trader"><span class="ix">01</span> The Goblin Trader</a>
+      <a href="#vein"><span class="ix">02</span> The Vein Goblin</a>
+      <a href="#trades"><span class="ix">03</span> The Trades</a>
+      <a href="#spawn"><span class="ix">04</span> Spawning &amp; Behavior</a>
+      <a href="#why"><span class="ix">05</span> Why Bother</a>
+      <a href="#tips"><span class="ix">06</span> Tips</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · MrCrayfish</p>
+      <h1>The Goblin Market</h1>
+      <p class="lede">Deep in the dark, a hunched little merchant is waiting to deal. <strong>Goblin Traders</strong> adds friendly underground goblins who buy your junk and sell oddly useful goods — a handy, mobile shop for the mid-game spelunker.</p>
+      <div class="badges">
+        <span class="badge accent">Underground traders</span>
+        <span class="badge">Emerald economy</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Two friendly goblin merchants spawn in the dark underground and offer trades you won't find at a villager. Run into one while caving and you've got a shop with no walking required.</p>
+      <p>This sits alongside the structures and dungeons in the <a href="exploration-guide.html">Cartographer's Journal</a> — goblins are something you bump into while doing everything else.</p>
+    </section>
+
+    <section class="doc" id="trader">
+      <p class="sec-index">01 — The common one</p>
+      <h2>The Goblin Trader</h2>
+      <p>The standard <strong>Goblin Trader</strong> appears in dark underground spaces. He's <strong>non-hostile</strong> — approach and right-click to open his trade screen. He tends to hang around for a while, then wander or despawn, so deal when you find him.</p>
+      <ul>
+        <li>Found in caves and dark cavities below the surface, often where light levels are low.</li>
+        <li>Offers a rotating set of trades — some for emeralds, some item-for-item.</li>
+        <li>Don't attack him: hitting a goblin makes it flee (and can turn the encounter sour).</li>
+      </ul>
+    </section>
+
+    <section class="doc" id="vein">
+      <p class="sec-index">02 — The rare one</p>
+      <h2>The Vein Goblin</h2>
+      <p>The <strong>Vein Goblin</strong> is the rarer, deeper-dwelling cousin, typically found further down in ore-rich depths. He carries a different, often more valuable trade list — worth seeking out once you're mining deep.</p>
+      <p>Treat spotting a Vein Goblin as a small jackpot: check his stock before he wanders off.</p>
+    </section>
+
+    <section class="doc" id="trades">
+      <p class="sec-index">03 — The goods</p>
+      <h2>The Trades</h2>
+      <p>Goblin stock is randomized and <strong>configurable</strong>, so exact offers vary <span class="vflag">verify in-game</span>. Broadly, expect categories like these:</p>
+      <div class="data-table">
+        <table>
+          <caption>Representative trade categories (exact offers vary)</caption>
+          <thead><tr><th>You give</th><th>You get</th><th>Feel</th></tr></thead>
+          <tbody>
+            <tr><td>Emeralds</td><td>Handy tools, resources, oddments</td><td class="num">shop</td></tr>
+            <tr><td>Common junk / surplus</td><td>Emeralds or other items</td><td class="num">offload</td></tr>
+            <tr><td>Specific items</td><td>Item-for-item swaps</td><td class="num">barter</td></tr>
+            <tr><td>Rarer inputs (Vein Goblin)</td><td>More valuable goods</td><td class="num">premium</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Because the lists rotate, it's worth opening the trade screen on every goblin you pass — you never know what's in stock.</p>
+    </section>
+
+    <section class="doc" id="spawn">
+      <p class="sec-index">04 — Finding them</p>
+      <h2>Spawning &amp; Behavior</h2>
+      <ul>
+        <li><strong>Where:</strong> dark underground areas; the Vein Goblin spawns deeper. Lighting up your base reduces goblins there — go find them in the unlit caves.</li>
+        <li><strong>When:</strong> they appear over time as you explore; spawn rates are config-tunable.</li>
+        <li><strong>Despawn:</strong> they don't stay forever — trade promptly. Some packs include a spawn/summon item <span class="vflag">approx</span> if you want one on demand.</li>
+        <li><strong>Disposition:</strong> friendly unless attacked. Leave them be and they'll keep trading.</li>
+      </ul>
+    </section>
+
+    <section class="doc" id="why">
+      <p class="sec-index">05 — The value</p>
+      <h2>Why Bother</h2>
+      <p>Goblin Traders give you a <strong>villager-free shop</strong> right where you already are. While you're caving for ore (for <a href="mekanism-guide.html">Mekanism</a> or <a href="tinkers-guide.html">Tinkers</a>), you can offload junk for emeralds and pick up convenience items without building a trading hall. It's a small, pleasant economy loop that rewards exploring.</p>
+    </section>
+
+    <section class="doc" id="tips">
+      <p class="sec-index">06 — Field notes</p>
+      <h2>Tips</h2>
+      <ul>
+        <li>Keep a few <strong>emeralds and tradeable surplus</strong> on you while mining so you're ready to deal.</li>
+        <li>Always check <strong>both</strong> goblin types — the Vein Goblin's stock is the better one.</li>
+        <li><strong>Never hit them</strong> — they flee and you lose the trade.</li>
+        <li>Trades vary by version and config; confirm specifics in <a href="quality-of-life-guide.html">JEI</a> / in-game.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Goblin Market</strong><br>
+      An unofficial Goblin Traders guide for Minecraft 1.19.2 (Forge).<br>
+      Goblin Traders is by MrCrayfish. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Part of the<br>To the Moon 2.0 field guides
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Trade lists and spawn rates are configurable — the in-game trade screen &amp; JEI are ground truth.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>
