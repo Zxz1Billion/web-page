@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Control Bus — automation &amp; power networks (MC 1.19.2)</title>
+<meta name="description" content="A control engineer's handbook for the automation and power-network mods of To the Moon 2.0 (Minecraft 1.19.2 Forge): XNet routing, Integrated Dynamics logic networks, Integrated Tunnels transfer, Flux Networks wireless FE, RFTools Base, IC2 Classic and cross-mod power interoperability." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#120a09; --bg-1:#170c0a; --bg-2:#21110e; --bg-3:#2c1813; --line:#3a221b;
+    --ink:#f0e3da; --ink-dim:#c0a294; --ink-faint:#876857;
+    --accent:#ff5a4c; --accent-2:#f0b652; --accent-3:#5bc0e0; --danger:#ff4a3a;
+    --accent-soft:rgba(255,90,76,0.13); --accent-glow:rgba(255,90,76,0.5);
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🔌</span>
+      <span class="wordmark">The Control<br>Bus<small>AUTOMATION &amp; POWER</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <p class="group-label">Networks</p>
+      <a href="#xnet"><span class="ix">01</span> XNet — the router</a>
+      <a href="#intdyn"><span class="ix">02</span> Integrated Dynamics</a>
+      <a href="#tunnels"><span class="ix">03</span> Integrated Tunnels</a>
+      <a href="#flux"><span class="ix">04</span> Flux Networks</a>
+      <p class="group-label">Tech bases</p>
+      <a href="#rftools"><span class="ix">05</span> RFTools Base</a>
+      <a href="#ic2"><span class="ix">06</span> IC2 Classic</a>
+      <p class="group-label">Integration</p>
+      <a href="#interop"><span class="ix">07</span> Power Interoperability</a>
+      <a href="#patterns"><span class="ix">08</span> Recommended Patterns</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the 1.19.2<br>Forge builds of each mod. Exact<br>rates, channel counts and energy<br>are config-tunable — the in-game<br>GUIs and JEI are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · logic, cables &amp; power</p>
+      <h1>The Control<br>Bus</h1>
+      <p class="lede">A control engineer's handbook for the automation and power-network mods in <strong>To the Moon 2.0</strong>. Four networking philosophies share one base: <strong>XNet</strong> routes everything cheaply, <strong>Integrated Dynamics</strong> computes and conditions, <strong>Integrated Tunnels</strong> moves matter over that same logic fabric, and <strong>Flux Networks</strong> deletes your power cables entirely. Underneath sit two foundations — <strong>RFTools Base</strong> and the self-contained <strong>IC2 Classic</strong> tech tree — and a chapter on making FE, Joules and EU talk to each other.</p>
+      <div class="badges">
+        <span class="badge accent">XNet · Int. Dynamics · Flux</span>
+        <span class="badge">RFTools · IC2 Classic</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">⚡ EU overvoltage destroys machines</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here — the landscape</h2>
+      <p class="lead">This pack ships several automation toolkits that solve overlapping problems in very different ways. Pick the right tool per job and your base stays clean; mix them blindly and you fight your own wiring. Here is the mental model.</p>
+
+      <p>Four broad approaches live side by side. They are not rivals so much as different layers you reach for at different moments:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">routing</span><h4>XNet</h4><p>A cable network whose only job is to <strong>move items, fluids, energy and logic</strong> between blocks with simple per-connector rules. Cheap, fast, the everyday workhorse.</p></div>
+        <div class="card"><span class="tag">logic</span><h4>Integrated Dynamics</h4><p>A <strong>programmable</strong> network: read world state into typed variables, compute with operators, and drive displays, detectors and writers. Automation that <em>thinks</em>.</p></div>
+        <div class="card"><span class="tag">transfer</span><h4>Integrated Tunnels</h4><p>Adds item/fluid/energy <strong>import &amp; export</strong> to an Integrated Dynamics network, gated by the same variables and predicates. Conditional logistics.</p></div>
+        <div class="card"><span class="tag">power</span><h4>Flux Networks</h4><p>Pure <strong>wireless FE</strong>. Plugs feed, Points draw, Storage banks — across any distance, no cable runs. Replaces a power grid with three block types.</p></div>
+      </div>
+
+      <h3>Which tool for which problem?</h3>
+      <p>Reach for the simplest thing that solves the job in front of you:</p>
+      <div class="data-table">
+        <table>
+          <caption>A decision table for automation problems</caption>
+          <thead><tr><th>You want to…</th><th>Best tool</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Move items/fluids/energy between a handful of machines</td><td>XNet</td><td>One controller, cheap connectors, per-side insert/extract/filter GUIs. No programming.</td></tr>
+            <tr><td>Run a machine only <em>when a condition holds</em></td><td>Integrated Dynamics</td><td>Read state → boolean variable → drive a redstone Writer or an Integrated Tunnels gate.</td></tr>
+            <tr><td>Show counts, fill levels or status on a wall</td><td>Integrated Dynamics (Display)</td><td>Variables render live to a Display Panel; numeric &amp; text formatting built in.</td></tr>
+            <tr><td>Import/export with fine item/fluid <em>predicates</em></td><td>Integrated Tunnels</td><td>Filter by NBT, tag, count thresholds and arbitrary operator expressions.</td></tr>
+            <tr><td>Deliver power base-wide with zero cables</td><td>Flux Networks</td><td>Wireless FE with per-network access, limits and priorities. Distance-agnostic.</td></tr>
+            <tr><td>Double ores &amp; climb a self-contained tech ladder</td><td>IC2 Classic</td><td>EU economy, Macerator ore-doubling, voltage tiers — a whole progression in one mod.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The other guides own their own logistics</span>
+        <p><strong>Mekanism</strong> (Logistical Transporters / QIO), <strong>Applied Energistics 2</strong> (ME network) and <strong>Create</strong> (belts, funnels, trains) each have a dedicated guide and their own internal logistics. This page covers the <em>general-purpose</em> networks that glue everything else together — and the standalone IC2 Classic tech tree.</p>
+      </div>
+
+      <div class="note"><span class="label">A silent dependency</span><p><strong>Titanium</strong> (by Buuz135) is a library/framework mod several mods in the pack lean on. You never craft anything from it — but if a dependent mod misbehaves, confirm Titanium is present and version-matched. See §08.</p></div>
+    </section>
+
+    <!-- 01 XNET -->
+    <section class="doc" id="xnet">
+      <p class="sec-index">01 — The everyday router</p>
+      <h2>XNet — one controller, infinite plumbing</h2>
+      <p class="lead">XNet (by McJty) is the workhorse of this pack: a single cable network that hauls items, fluids, energy and logic with nothing more than a <strong>Controller</strong> and some cable. It is deliberately cheap and extremely fast — most small-to-medium bases never need anything else.</p>
+
+      <h3>The pieces</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">brain</span><h4>Controller</h4><p>The single block that runs the network. Holds the channel definitions and is where all the routing GUIs live. One controller per network.</p></div>
+        <div class="card"><span class="tag">cable</span><h4>Network Cable</h4><p>The backbone. Carries the abstract "channels" — it does not itself transport contents, it links connectors to the controller.</p></div>
+        <div class="card"><span class="tag">port</span><h4>Connector</h4><p>Where the network touches an inventory/tank/machine. Each side of a connector hosts insert/extract rules. Advanced connectors raise throughput.</p></div>
+        <div class="card"><span class="tag">wireless</span><h4>Antenna</h4><p>Bridges two network segments wirelessly via a Wireless Router + Antenna, so distant rooms join one controller without running cable.</p></div>
+      </div>
+
+      <h3>Channels — the core idea</h3>
+      <p>A network exposes a fixed number of <strong>channels</strong>. Each channel has a <em>type</em> and is configured once, then connectors are subscribed to it. The four channel types each open a tailored GUI:</p>
+      <div class="data-table">
+        <table>
+          <caption>XNet channel types</caption>
+          <thead><tr><th>Channel</th><th>Moves</th><th>Per-connector controls</th></tr></thead>
+          <tbody>
+            <tr><td>Item</td><td>Items between inventories</td><td>Insert / extract mode, filter (whitelist/blacklist + tag/meta/NBT), count limits, speed, priority, round-robin.</td></tr>
+            <tr><td>Fluid</td><td>Tanks &amp; fluid handlers</td><td>Insert/extract rate, per-fluid filter, min/max levels.</td></tr>
+            <tr><td>Energy</td><td>FE/RF between buffers</td><td>Per-tick transfer cap, min/max levels to gate charging.</td></tr>
+            <tr><td>Logic</td><td>Boolean signals + sensors</td><td>Sensors that read inventory/fluid/energy/redstone state into colored logic signals that drive outputs elsewhere.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How a transfer is wired</h3>
+      <ol class="flow">
+        <li>Place a <strong>Controller</strong>; run <strong>Network Cable</strong> from it past every machine you want to touch.</li>
+        <li>Replace the cable face touching a machine with a <strong>Connector</strong> (or place one and connect it).</li>
+        <li>Open the Controller, create a channel (say, <em>Item</em>), and name it.</li>
+        <li>For each connector on that channel, set a side to <strong>extract</strong> (source) or <strong>insert</strong> (destination), add filters and a speed.</li>
+        <li>The controller round-robins or prioritizes deliveries from extractors to inserters every tick.</li>
+      </ol>
+
+      <div class="note tip"><span class="label">The Logic channel is underrated</span><p>XNet's <strong>Logic channel</strong> can read "inventory contains ≥ N of X" or "tank below 20%" and emit a colored signal that another connector consumes as a redstone-style condition. For simple "turn the pump off when the tank is full" automation you often don't need Integrated Dynamics at all.</p></div>
+
+      <div class="note warn"><span class="label">Channels are the budget, not cable</span><p>Cable is effectively free; the scarce resource is the <strong>channel count</strong> per controller and the connector <strong>tier</strong> (basic vs advanced) which caps per-tick throughput. If a line can't keep up, upgrade the connector or split onto a second controller — don't just add cable.</p></div>
+    </section>
+
+    <!-- 02 INTEGRATED DYNAMICS -->
+    <section class="doc" id="intdyn">
+      <p class="sec-index">02 — The logic network</p>
+      <h2>Integrated Dynamics — automation that computes</h2>
+      <p class="lead">Integrated Dynamics (by kroeser) is a different animal from XNet: instead of routing contents, it builds a <strong>typed logic network</strong>. You read facts about the world into <em>variables</em>, transform them with <em>operators</em>, and feed the results into displays, detectors and writers. It is, in effect, a visual programming language wired into your base.</p>
+
+      <h3>Bootstrapping — Menril &amp; the crafting parts</h3>
+      <p>Before any logic, you need the mod's signature material. Integrated Dynamics introduces <strong>Menril trees</strong> (a tall blue-leaved tree) whose products you process into the core crafting reagents:</p>
+      <ul>
+        <li><strong>Menril Wood / Logs</strong> — base building blocks for the network parts.</li>
+        <li><strong>Menril Berries</strong> &amp; the <strong>Squeezer</strong> — squeeze inputs to extract <strong>Menril Resin</strong> and other liquids.</li>
+        <li><strong>Drying Basin</strong> — dries Menril Resin (and other recipes) over time into <strong>Crystalized Menril</strong> blocks/chunks, the substance most logic components are crafted from.</li>
+        <li><strong>Crystalized Menril Chunks</strong> — the "silicon" of the mod: variable cards, the Logic Programmer, parts and the network's connective Cables all trace back to it.</li>
+      </ul>
+      <div class="note"><span class="label">Squeezer + Drying Basin</span><p>Both are manual-or-automatable single-block machines. The Squeezer can be hand-cranked early; the Drying Basin simply needs time. Build one of each near your Menril grove and you have the full component supply chain.</p></div>
+
+      <h3>The network fabric</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">backbone</span><h4>Cables</h4><p>Logic Cables form the network. Parts attach to the faces of blocks adjacent to a cable; everything on one connected cable run shares state.</p></div>
+        <div class="card"><span class="tag">tool</span><h4>Logic Programmer</h4><p>The bench where you author <strong>Variables</strong>: pick a value, an operator, or compose existing variables into a new one. Outputs a Variable Card.</p></div>
+        <div class="card"><span class="tag">storage</span><h4>Variable Store</h4><p>Holds the Variable Cards your Readers/Writers reference. The network's "memory".</p></div>
+        <div class="card"><span class="tag">power</span><h4>Energy Battery</h4><p>Logic parts draw a trickle of energy; an Energy Battery (or a Coal/Mechanical source) keeps the network powered.</p></div>
+      </div>
+
+      <h3>Aspects, Operators &amp; Variables</h3>
+      <p>The whole system is built on a strict type system. Three concepts do the work:</p>
+      <div class="data-table">
+        <table>
+          <caption>The Integrated Dynamics type system</caption>
+          <thead><tr><th>Concept</th><th>What it is</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Aspect</td><td>A specific readable/writable property a part exposes</td><td>"Inventory: item count in slot 0", "Fluid: amount", "Block: is powered"</td></tr>
+            <tr><td>Variable</td><td>A typed value held on a card — boolean, integer, string, list, item, fluid, etc.</td><td>A card holding the integer <code>64</code>, or a list of ItemStacks</td></tr>
+            <tr><td>Operator</td><td>A function combining variables into a new value</td><td><code>&gt;=</code>, <code>+</code>, <code>length(list)</code>, <code>and</code>, <code>if/then/else</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>You build logic by composing: a <strong>Reader</strong> exposes an Aspect as a variable, you feed it through Operators in the Logic Programmer to produce a derived variable, then a <strong>Writer</strong> or <strong>Display</strong> consumes the result.</p>
+
+      <h3>The parts that read, write &amp; show</h3>
+      <div class="data-table">
+        <table>
+          <caption>Core part types</caption>
+          <thead><tr><th>Part</th><th>Role</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>Reader</td><td>Exposes Aspects of an adjacent block as variables</td><td>Read a machine's energy %, an inventory's contents, redstone level, world time.</td></tr>
+            <tr><td>Writer</td><td>Writes a variable's value <em>into</em> the world/block</td><td>Emit a redstone signal, set a display, trigger another machine.</td></tr>
+            <tr><td>Display (Panel)</td><td>Renders a variable visually on a panel</td><td>Live item counts, fluid bars, on/off status, formatted text.</td></tr>
+            <tr><td>Detector</td><td>Measures network/cable state (e.g. variable presence)</td><td>Conditional branching based on whether a signal exists.</td></tr>
+            <tr><td>Logic Director</td><td>Copies/relays variables across cable boundaries</td><td>Move a computed variable from one sub-network to another cleanly.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Worked example — a conditional pump</h3>
+      <ol class="flow">
+        <li><strong>Reader</strong> on a tank exposes the <em>fluid amount</em> Aspect as an integer variable.</li>
+        <li>In the <strong>Logic Programmer</strong>, compose <code>fluidAmount &lt; threshold</code> with a <code>&lt;</code> operator and a constant → a <em>boolean</em> variable card.</li>
+        <li>Store the card; a <strong>Writer</strong> reads it and emits a redstone signal when true.</li>
+        <li>That signal switches the pump on only while the tank is below the threshold — hysteresis and all.</li>
+      </ol>
+      <div class="note tip"><span class="label">Build boolean and numeric networks freely</span><p>Because operators chain, you can express almost any condition: "run the smelter only at night AND while the furnace buffer is below 80% AND there's coal in the chest". Integrated Dynamics is the answer whenever the question contains the word <em>"only when"</em>.</p></div>
+    </section>
+
+    <!-- 03 INTEGRATED TUNNELS -->
+    <section class="doc" id="tunnels">
+      <p class="sec-index">03 — Logic-gated transfer</p>
+      <h2>Integrated Tunnels — moving matter over logic</h2>
+      <p class="lead">Integrated Tunnels (also by kroeser) is the add-on that gives an Integrated Dynamics network <strong>real logistics</strong>. It adds Importers and Exporters for items, fluids and energy that run over the same cables — but unlike XNet, every transfer can be gated by the network's variables and arbitrary predicates.</p>
+
+      <h3>Importers &amp; Exporters</h3>
+      <p>These are network <strong>parts</strong>, mounted like Readers/Writers on cable-adjacent faces. Each comes in item, fluid and energy flavours:</p>
+      <div class="data-table">
+        <table>
+          <caption>Tunnels transfer parts</caption>
+          <thead><tr><th>Part</th><th>Direction</th><th>Carries</th></tr></thead>
+          <tbody>
+            <tr><td>Item Importer / Exporter</td><td>Into / out of the network</td><td>ItemStacks between inventories</td></tr>
+            <tr><td>Fluid Importer / Exporter</td><td>Into / out of</td><td>Fluids between tanks/handlers</td></tr>
+            <tr><td>Energy Importer / Exporter</td><td>Into / out of</td><td>FE/RF between buffers</td></tr>
+            <tr><td>Interface (channel)</td><td>Network-internal routing</td><td>Tag transfers with a channel id to keep flows separate</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Fine-grained filters &amp; predicates</h3>
+      <p>This is where Tunnels earns its keep. An Importer/Exporter's filter slot accepts not just an item template but a <strong>variable</strong> — including a <em>predicate</em> built in the Logic Programmer. That means a transfer rule can be a full boolean expression:</p>
+      <ul>
+        <li><strong>Match by</strong> exact stack, item tag, mod, NBT, or "any item where <code>damage &lt; 10%</code>".</li>
+        <li><strong>Rate &amp; quantity</strong> bound to a variable — e.g. export only enough to top a chest to exactly 64.</li>
+        <li><strong>Conditional enable</strong> — wire the whole exporter to a boolean variable so it only runs when your Integrated Dynamics logic says so.</li>
+        <li><strong>Channels</strong> keep independent flows from colliding on the same cable run.</li>
+      </ul>
+
+      <div class="note tip"><span class="label">Tunnels vs XNet — pick by complexity</span><p>For "drain this chest into that machine", XNet is faster to set up. The moment your filter needs <em>"items matching a computed predicate"</em> or <em>"export only while condition X holds"</em>, Integrated Tunnels is the tool — it inherits the entire Aspect/Operator type system from Integrated Dynamics.</p></div>
+
+      <div class="note warn"><span class="label">It needs the same network &amp; power</span><p>Tunnels parts live on Integrated Dynamics cables and draw the same trickle of energy. Keep an Energy Battery on the network or transfers will throttle/stall. Predicate evaluation also adds a little overhead — keep expressions tidy on big bases.</p></div>
+    </section>
+
+    <!-- 04 FLUX NETWORKS -->
+    <section class="doc" id="flux">
+      <p class="sec-index">04 — Wireless power</p>
+      <h2>Flux Networks — ditch the power cables</h2>
+      <p class="lead">Flux Networks (by sonar_sonic) does one thing supremely well: it transmits <strong>Forge Energy wirelessly</strong>, anywhere, instantly. You never run a power cable again. Generators feed the network at one point; machines draw from it across the base, or across dimensions, with no transmission blocks in between.</p>
+
+      <h3>The four block types</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">brain</span><h4>Flux Controller</h4><p>Optional but powerful: one per network. Unlocks network-wide control, wireless charging of items, and configuration. A network can run without it but gains features with it.</p></div>
+        <div class="card"><span class="tag">input</span><h4>Flux Plug</h4><p>Attach to a generator or energy buffer to <strong>pull power into</strong> the network. This is your input node.</p></div>
+        <div class="card"><span class="tag">output</span><h4>Flux Point</h4><p>Attach to a machine to <strong>push power out of</strong> the network into it. This is your output node.</p></div>
+        <div class="card"><span class="tag">bank</span><h4>Flux Storage</h4><p>A wireless energy bank (Basic → Herculean tiers) that stores the network's surplus. Acts as both buffer and battery.</p></div>
+      </div>
+
+      <h3>Networks are owned, named &amp; access-controlled</h3>
+      <p>Each Flux block is bound to a <strong>network</strong> you create — identified by a name and color, and <strong>owned by a player</strong>. This makes power both convenient and secure:</p>
+      <div class="data-table">
+        <table>
+          <caption>Per-network settings</caption>
+          <thead><tr><th>Setting</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Owner &amp; access level</td><td>Public / restricted networks; grant other players user/admin access for shared bases.</td></tr>
+            <tr><td>Name &amp; color</td><td>Human-readable identity; run multiple isolated networks (e.g. "Main", "Reactor").</td></tr>
+            <tr><td>Transfer limit (per connection)</td><td>Cap how much FE a given Plug/Point moves per tick — protect fragile machines or ration output.</td></tr>
+            <tr><td>Priority</td><td>Order in which Points draw and Plugs feed — fill critical machines first, dump surplus to storage last.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>A minimal base-wide grid</h3>
+      <ol class="flow">
+        <li>Create a network in the Flux item/Controller GUI; name and color it.</li>
+        <li>Slap a <strong>Flux Plug</strong> on each generator or your main energy buffer — power now flows <em>in</em>.</li>
+        <li>Slap a <strong>Flux Point</strong> on each machine that needs power — it draws <em>out</em>, no cables.</li>
+        <li>Add <strong>Flux Storage</strong> to bank surplus; set <strong>priorities</strong> so machines fill before storage.</li>
+        <li>Optionally place a <strong>Controller</strong> to wirelessly charge tools and unlock full network stats.</li>
+      </ol>
+
+      <div class="note tip"><span class="label">The end of cable spaghetti</span><p>Flux is pure FE/RF. Pair it with anything that speaks Forge Energy — Mekanism (via Joule conversion), RFTools machines, Create's stress-to-FE adapters, IC2 via an EU↔FE converter (see §07). Generate anywhere, consume everywhere.</p></div>
+      <div class="note warn"><span class="label">Mind the per-connection limit</span><p>A Point's default transfer limit may bottleneck a hungry machine; raise it in the network GUI. Conversely, set a Plug's limit to avoid draining a small generator faster than it can produce.</p></div>
+    </section>
+
+    <!-- 05 RFTOOLS BASE -->
+    <section class="doc" id="rftools">
+      <p class="sec-index">05 — The shared foundation</p>
+      <h2>RFTools Base — McJty's machine framework</h2>
+      <p class="lead">RFTools is not one mod but an ecosystem (McJty), split into modules — Power, Storage, Builder, Utility, Control and more. <strong>RFTools Base</strong> is the shared library and machine framework they all sit on. On its own it ships little to "play with", but it defines the patterns every RFTools module reuses.</p>
+
+      <h3>What Base provides</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">framework</span><h4>Machine framework</h4><p>The common code for RFTools machines: energy handling, GUIs, redstone modes, and the modular-block conventions every module inherits.</p></div>
+        <div class="card"><span class="tag">crafting</span><h4>Machine Frame</h4><p>The shared crafting component at the heart of most RFTools machines — the recognizable "frame" block recipes build around.</p></div>
+        <div class="card"><span class="tag">tool</span><h4>Smart Wrench</h4><p>The configuration multi-tool: rotate machines, set sides, and tune RFTools blocks. The standard "screwdriver" of the ecosystem.</p></div>
+        <div class="card"><span class="tag">shared</span><h4>Common items</h4><p>Base materials, dimensional shards/parts and registry plumbing that downstream modules (Power Cells, Storage Scanner, Builder, etc.) depend on.</p></div>
+      </div>
+
+      <h3>The RFTools approach</h3>
+      <p>Across modules, RFTools favours <strong>modular, configurable machines</strong> with clean GUIs and heavy redstone integration:</p>
+      <ul>
+        <li><strong>FE-native</strong> — everything runs on Forge Energy; it slots straight into a Flux network or any FE grid.</li>
+        <li><strong>Redstone-aware</strong> — machines expose redstone modes (ignore/on/pulse), making them easy targets for Integrated Dynamics Writers or XNet logic.</li>
+        <li><strong>Modular blocks</strong> — modules like Power Cells form multiblock-ish banks; Storage Scanners index many inventories at once; the Builder quarries and moves blocks.</li>
+        <li><strong>Smart Wrench everywhere</strong> — one tool configures the lot.</li>
+      </ul>
+      <div class="note"><span class="label">Why it's listed as "Base"</span><p>If the pack includes RFTools Power Cells, the Crafter, the Builder or the Storage Scanner, they each <em>require</em> RFTools Base. Treat Base as the runtime/library; the gameplay lives in the modules built on top of it. Consult JEI for exactly which RFTools modules are installed.</p></div>
+    </section>
+
+    <!-- 06 IC2 CLASSIC -->
+    <section class="doc" id="ic2">
+      <p class="sec-index">06 — A self-contained tech tree</p>
+      <h2>IC2 Classic — the EU economy</h2>
+      <p class="lead">IC2 Classic (maintained by sfPlayer1) is the classic IndustrialCraft experience: a complete, self-contained tech tree built on <strong>EU (Energy Units)</strong> and a hard <strong>voltage system</strong>. It does <em>not</em> use Forge Energy internally — EU has its own rules, and one of them will absolutely break your machines if you ignore it.</p>
+
+      <div class="note danger"><span class="label">Overvoltage destroys machines</span><p>Every IC2 machine has a voltage tier. Feed it power above its tier and it <strong>explodes</strong>. A basic machine fed High Voltage is gone. Match your cabling and transformers to the machine, or use a <strong>Transformer</strong> to step down before the wire reaches it. This is the single most important IC2 rule.</p></div>
+
+      <h3>Voltage tiers</h3>
+      <div class="data-table">
+        <table>
+          <caption>EU voltage tiers (packet-based; values are the classic tier ceilings)</caption>
+          <thead><tr><th>Tier</th><th>Name</th><th>Approx. EU/packet ceiling</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>LV</td><td>Low Voltage</td><td class="num">≈ 32</td><td>Early machines: Macerator, Electric Furnace, basic generators.</td></tr>
+            <tr><td>MV</td><td>Medium Voltage</td><td class="num">≈ 128</td><td>Mid-tier machines &amp; better cabling; step down to LV for old machines.</td></tr>
+            <tr><td>HV</td><td>High Voltage</td><td class="num">≈ 512</td><td>Heavy machines &amp; long-distance transmission.</td></tr>
+            <tr><td>EV</td><td>Extreme Voltage</td><td class="num">≈ 2048</td><td>Top tier; demands the best cables and careful transformers.</td></tr>
+          </tbody>
+        </table>
+        <p class="muted" style="padding:0 16px 12px;font-family:var(--f-mono);font-size:0.74rem;color:var(--ink-faint)">Numbers are approximate classic tier ceilings — verify exact values in-game; configs and IC2 Classic specifics may differ.</p>
+      </div>
+
+      <h3>Cabling &amp; transformers</h3>
+      <ul>
+        <li><strong>Cables are rated.</strong> Each cable type tolerates up to a certain voltage; push more through and the cable (and what's downstream) suffers. Higher tiers also lose less energy per block of distance.</li>
+        <li><strong>Transformers step voltage up/down.</strong> An LV Transformer turns one MV packet into several LV packets (and vice-versa). Place a step-down transformer before any machine that can't take the incoming tier.</li>
+        <li><strong>Insulation</strong> reduces shock/loss on some cables — relevant for routing near the player.</li>
+      </ul>
+
+      <h3>The early-game ladder</h3>
+      <ol class="flow">
+        <li><strong>Generator</strong> — burn fuel to produce EU and charge batteries. Your first power.</li>
+        <li><strong>RE Battery</strong> — portable EU storage; charges in a generator/charger and powers tools and the early grid.</li>
+        <li><strong>Macerator</strong> — grinds ore into 2 dust: classic <strong>ore doubling</strong>, the reason to build IC2 early.</li>
+        <li><strong>Electric Furnace</strong> — smelts faster and cheaper than fuel; feed it the macerated dust.</li>
+        <li>Climb to MV/HV machines, better generators (geothermal, etc.) and transformers as your EU budget grows.</li>
+      </ol>
+
+      <div class="note warn"><span class="label">EU is not FE</span><p>IC2 Classic's EU is a separate currency with packet-based transmission and voltage — it will not directly accept FE from a Flux network or RFTools. To bridge the two economies you need a converter; see §07. Treat IC2 as its own walled garden until you deliberately bridge it.</p></div>
+    </section>
+
+    <!-- 07 INTEROP -->
+    <section class="doc" id="interop">
+      <p class="sec-index">07 — Making them talk</p>
+      <h2>Power Interoperability — FE, Joules &amp; EU</h2>
+      <p class="lead">The pack hosts three energy economies. Two are nearly the same; one is a stranger. Knowing which is which saves you a lot of confused wiring.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The three energy currencies</caption>
+          <thead><tr><th>Currency</th><th>Used by</th><th>Interop</th></tr></thead>
+          <tbody>
+            <tr><td>FE / RF (Forge Energy)</td><td>RFTools, Flux Networks, XNet, most Forge tech, Create adapters</td><td>The lingua franca. FE and RF are interchangeable here.</td></tr>
+            <tr><td>Joules (J)</td><td>Mekanism</td><td>Auto-converts to/from FE at a configured ratio — Mekanism cables and machines accept FE transparently.</td></tr>
+            <tr><td>EU (Energy Units)</td><td>IC2 Classic</td><td><strong>Separate.</strong> Packet-based with voltage; needs an explicit converter block to bridge to FE.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The practical rules</h3>
+      <ul>
+        <li><strong>FE ⇄ Joules is free.</strong> Mekanism speaks FE on its borders. A Flux Point on a Mekanism machine, or FE from RFTools into an Energized Smelter, "just works" — Mekanism converts internally at the config ratio. Treat Joules as FE with a different label.</li>
+        <li><strong>FE ⇄ EU needs a bridge.</strong> IC2 Classic's EU will not flow into or out of an FE grid on its own. Use a dedicated <strong>energy converter</strong> (an Energy Bridge / converter block, if present in the pack) to translate between an EU tier and an FE buffer. Check JEI for the available converter.</li>
+        <li><strong>Mind the conversion ratios.</strong> Cross-economy conversions are <em>config-defined</em> and not always 1:1 — a converter may apply a ratio or a small loss. Don't assume parity; read the converter's GUI.</li>
+        <li><strong>Voltage still applies on the EU side.</strong> When converting FE→EU, the converter outputs at a specific EU tier. Step it down with a transformer before feeding low-tier IC2 machines, or you'll overvolt them (see §06).</li>
+      </ul>
+
+      <div class="note tip"><span class="label">Keep economies in lanes</span><p>The cleanest bases keep one FE backbone (Flux Networks) for everything Forge-Energy-native, and treat IC2 Classic as an island that you bridge at exactly <em>one</em> converter. Converting EU all over the base invites overvoltage accidents and ratio confusion.</p></div>
+    </section>
+
+    <!-- 08 PATTERNS -->
+    <section class="doc" id="patterns">
+      <p class="sec-index">08 — Field doctrine</p>
+      <h2>Recommended Patterns</h2>
+      <p class="lead">Putting it together: a few battle-tested layouts that keep bases readable as they scale. Match the network to the base size and the problem's complexity, not to fashion.</p>
+
+      <h3>Match the tool to the scale</h3>
+      <div class="data-table">
+        <table>
+          <caption>Doctrine by base size &amp; need</caption>
+          <thead><tr><th>Situation</th><th>Recommended stack</th></tr></thead>
+          <tbody>
+            <tr><td>Small / early base, simple "move A → B"</td><td><strong>XNet</strong> for all item/fluid/energy routing. One controller covers a starter base. Use the Logic channel for basic on/off automation.</td></tr>
+            <tr><td>Conditional / "only when" automation</td><td><strong>Integrated Dynamics</strong> for the logic; <strong>Integrated Tunnels</strong> for any transfer that must obey a predicate. Drive XNet or machine redstone from its Writers.</td></tr>
+            <tr><td>Base-wide power</td><td><strong>Flux Networks</strong>. One FE network, generators on Plugs, machines on Points, surplus to Storage. Forget cables.</td></tr>
+            <tr><td>Big, mixed base</td><td>Flux for power + XNet for bulk routing + Integrated Dynamics for the brain. Each does what it's best at; none does everything.</td></tr>
+            <tr><td>Self-contained tech progression</td><td><strong>IC2 Classic</strong> as its own EU island; bridge to the FE grid at a single converter when needed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Three canonical builds</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">starter</span><h4>The XNet starter</h4><p>One Controller, cable past every machine, connectors with extract/insert rules. Auto-feed furnaces, drain a quarry chest, charge a battery bank — all without a single logic gate.</p></div>
+        <div class="card"><span class="tag">brain</span><h4>The Int. Dynamics brain</h4><p>A Menril-fed logic core reading tank levels, machine energy and time, computing booleans, and switching pumps/smelters via Writers. Add Integrated Tunnels for predicate-gated exports.</p></div>
+        <div class="card"><span class="tag">grid</span><h4>The Flux backbone</h4><p>One named/colored FE network spanning the whole base (and dimensions). Plugs on every generator, Points on every machine, Storage banking surplus, priorities protecting critical loads.</p></div>
+      </div>
+
+      <h3>Layering them</h3>
+      <ol class="flow">
+        <li><strong>Power layer</strong>: build the Flux network first so every machine has FE wherever it sits.</li>
+        <li><strong>Routing layer</strong>: lay XNet for the bulk item/fluid movement that doesn't need conditions.</li>
+        <li><strong>Logic layer</strong>: add Integrated Dynamics where automation must <em>decide</em>, and Integrated Tunnels where a transfer must obey that decision.</li>
+        <li><strong>Bridge</strong>: keep IC2 Classic as a discrete EU island and bridge it to FE at one converter only.</li>
+      </ol>
+
+      <div class="note"><span class="label">Titanium — the silent dependency</span><p><strong>Titanium</strong> (Buuz135) is a library mod that several pack mods depend on. You will never see it in a recipe, but it must be present and version-matched for its dependents to load. If a dependent mod crashes or vanishes from JEI, verifying Titanium is your first check.</p></div>
+
+      <div class="note tip"><span class="label">When in doubt, simplest wins</span><p>If XNet solves it, don't reach for Integrated Dynamics. If a Flux Point delivers power, don't run cable. Complexity is a cost you pay in debugging — spend it only where the problem genuinely needs a brain.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Control Bus</strong><br>
+      An unofficial, fan-made handbook for the automation &amp; power mods of To the Moon 2.0 on Minecraft 1.19.2 (Forge).<br>
+      XNet &amp; RFTools by McJty · Integrated Dynamics/Tunnels by kroeser · Flux Networks by sonar_sonic · IC2 Classic by sfPlayer1 · Titanium by Buuz135.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · XNet · Integrated Dynamics · Integrated Tunnels<br>
+      · Flux Networks · RFTools Base · IC2 Classic<br>
+      · FE / Joule / EU interoperability
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Mechanics describe established behaviour of each mod's 1.19.2 Forge build. Channel counts, transfer rates, energy values and conversion ratios are config-tunable and approximate — the in-game GUIs and JEI are ground truth. This guide is fan-made and unofficial.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

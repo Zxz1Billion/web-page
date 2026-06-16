@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Affix Grimoire — an Apotheosis field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Apotheosis (Minecraft 1.19.2 Forge, by Shadows_of_Fire) RPG-loot guide: affixed gear &amp; rarity tiers, apothic bosses, gems &amp; socketing, the reworked enchanting table with Eterna/Quanta/Arcana, the Enchantment Library, spawner manipulation, and end-game progression." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0d0b07; --bg-1:#12100a; --bg-2:#1c1810; --bg-3:#272013; --line:#3a2f1b;
+    --ink:#f0e8d4; --ink-dim:#bcab83; --ink-faint:#827052;
+    --accent:#e0b440; --accent-2:#b06be0; --accent-3:#56c4d6; --danger:#e0683a;
+    --accent-soft:rgba(224,180,64,0.14); --accent-glow:rgba(224,180,64,0.5);
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">💎</span>
+      <span class="wordmark">The Affix<br>Grimoire<small>APOTHEOSIS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Foundations</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#adventure"><span class="ix">01</span> The Adventure Module</a>
+      <a href="#bosses"><span class="ix">02</span> Bosses &amp; Invaders</a>
+      <a href="#gems"><span class="ix">03</span> Gems &amp; Socketing</a>
+      <p class="group-label">The Enchant Rework</p>
+      <a href="#enchants"><span class="ix">04</span> The Enchantment Module</a>
+      <a href="#table"><span class="ix">05</span> The Table Reworked</a>
+      <a href="#library"><span class="ix">06</span> Library &amp; Infusion</a>
+      <p class="group-label">Systems &amp; Synergy</p>
+      <a href="#spawner"><span class="ix">07</span> Spawners &amp; Garden</a>
+      <a href="#other"><span class="ix">08</span> Potions, Villages &amp; More</a>
+      <a href="#progression"><span class="ix">09</span> Progression &amp; Synergy</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the Apotheosis<br>(1.19.2) line by Shadows_of_Fire.<br>Drop chances, stat rolls and affix<br>pools are config-tunable and<br>random — the in-game JEI tooltips,<br>tomes and wiki are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Shadows_of_Fire</p>
+      <h1>The Affix<br>Grimoire</h1>
+      <p class="lede">A working field manual for <strong>Apotheosis</strong> — the modular RPG overhaul that turns plain Minecraft loot into a Diablo-style hunt for power. Roll <em>affixed</em> weapons and armour across six rarity tiers, slay randomized <strong>apothic bosses</strong>, cut and fuse <strong>gems</strong> into socketed gear, and break open vanilla enchanting with the <strong>Eterna / Quanta / Arcana</strong> table. Every module here is config-gated; this pack ships them as one grimoire.</p>
+      <div class="badges">
+        <span class="badge accent">Apotheosis</span>
+        <span class="badge">+ Placebo (required)</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">⚔ Bosses hit hard</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Apotheosis is not one mod but a <strong>bundle of modules</strong> stitched onto Minecraft's loot, mobs and enchanting. It rewards killing things and opening chests — every drop is a lottery ticket for an item rolled with random <strong>affixes</strong>, <strong>gems</strong> and stats. There is no tech tree, only the hunt for better numbers.</p>
+
+      <p>Apotheosis is authored by <strong>Shadows_of_Fire</strong> and depends on the library mod <strong>Placebo</strong> (also by Shadows). Everything it does is broken into self-contained modules, each toggle-able and deeply configurable. Learn what each one touches and the whole grimoire reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">loot</span><h4>Adventure</h4><p>The flagship: affixed gear, six rarity tiers, gems &amp; socketing, the salvaging loop and the randomized apothic bosses that drop it all.</p></div>
+        <div class="card"><span class="tag">arcana</span><h4>Enchantment</h4><p>A full enchanting rework — new enchantments, raised max levels, and the Eterna/Quanta/Arcana table powered by library blocks.</p></div>
+        <div class="card"><span class="tag">utility</span><h4>Spawner · Potion · Village</h4><p>Editable mob spawners, supercharged potions &amp; the Potion Charm, and new villager trades. The quality-of-life half of the mod.</p></div>
+      </div>
+
+      <h3>The three currencies of power</h3>
+      <ul>
+        <li><strong>Rarity</strong> — every affixed item, gem and boss reward sits on a tier ladder (Common → Ancient). Higher rarity means more/stronger affixes and bigger rolls.</li>
+        <li><strong>Luck</strong> — the vanilla stat, now load-bearing. Luck biases loot toward higher rarity and better affix rolls. Build it up before you farm.</li>
+        <li><strong>Rarity / Gem materials</strong> — the crafting "ink" (gem dust, sigils, rarity materials) used to reroll affixes, cut gems, and socket gear.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">First hour</span>
+        <p>Kill mobs and crack chests until an <strong>affixed</strong> item drops (it has a coloured name and bonus tooltip lines). Build a <strong>Salvaging Table</strong> early so junk affix gear becomes <strong>materials</strong>, and start drinking <strong>Luck</strong> potions before any serious farming run. Everything compounds from there.</p>
+      </div>
+    </section>
+
+    <!-- 01 ADVENTURE -->
+    <section class="doc" id="adventure">
+      <p class="sec-index">01 — Affix loot</p>
+      <h2>The Adventure Module</h2>
+      <p>The Adventure module is what most people mean by "Apotheosis." It sprinkles <strong>affixes</strong> — bonus modifiers — onto weapons, armour, tools and bows as they drop from mobs and chests. Each item rolls a <strong>rarity</strong>, and the rarity decides how many affixes it carries and how generous the rolls are.</p>
+
+      <h3>Rarity tiers</h3>
+      <p>Rarity is colour-coded on the item's name. The ladder below is the default Apotheosis order; the higher you climb, the more affixes and the larger the stat ranges (exact counts and colours are configurable):</p>
+      <div class="data-table">
+        <table>
+          <caption>The affix-loot rarity ladder (default)</caption>
+          <thead><tr><th>Tier</th><th>Typical colour</th><th>Roughly…</th><th>Drop weight</th></tr></thead>
+          <tbody>
+            <tr><td>Common</td><td>Grey / white</td><td>One small affix; the baseline drop.</td><td class="num">very high</td></tr>
+            <tr><td>Uncommon</td><td>Green</td><td>A couple of modest affixes.</td><td class="num">high</td></tr>
+            <tr><td>Rare</td><td>Blue</td><td>Several affixes; a meaningful upgrade.</td><td class="num">moderate</td></tr>
+            <tr><td>Epic</td><td>Purple</td><td>A strong spread of affixes.</td><td class="num">low</td></tr>
+            <tr><td>Mythic</td><td>Gold / orange</td><td>Near-max affixes, big rolls.</td><td class="num">rare</td></tr>
+            <tr><td>Ancient</td><td>Red / crimson</td><td>The top tier — the rolls you chase.</td><td class="num">very rare</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">Numbers are approximate</span><p>Apotheosis rolls affixes, rarity and stat ranges <em>randomly</em>, and every value is config-tunable. Treat tier names and the <em>direction</em> of each effect as reliable; read the live item tooltip and JEI for the actual numbers in your pack.</p></div>
+
+      <h3>What affixes do</h3>
+      <p>Affixes come in two flavours and attach to a "loot category" (weapon, armour, tool, bow/ranged, shield):</p>
+      <ul>
+        <li><strong>Stat affixes</strong> raise numbers — extra damage, armour, attack speed, draw speed, movement, mining speed, crit, life-on-hit, and so on.</li>
+        <li><strong>Effect (named) affixes</strong> add behaviour — chaining/explosive arrows, leeching, thorns-like retaliation, on-hit potions, miner's fortune, and similar. These are the ones that flip how the item feels to use.</li>
+      </ul>
+
+      <h3>Rerolling &amp; salvaging</h3>
+      <p>Two stations close the loop on affix gear:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">reroll</span><h4>Rarity Materials</h4><p>Spend rarity materials (and gem dust) to <strong>reroll</strong> an item's affixes or nudge its rarity, hunting for a better combination on a base you like.</p></div>
+        <div class="card"><span class="tag">recycle</span><h4>Salvaging Table</h4><p>Feed unwanted affix gear in and break it down into <strong>materials &amp; gem dust</strong>. Every bad drop becomes fuel for improving a good one.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Luck is the dial</span><p>Drops scale with the <strong>Luck</strong> stat of whoever lands the kill or opens the chest. Higher Luck shifts the rarity roll upward and tightens affix rolls toward the good end. Luck potions, beacons and gear that grant Luck pay for themselves on a farm.</p></div>
+    </section>
+
+    <!-- 02 BOSSES -->
+    <section class="doc" id="bosses">
+      <p class="sec-index">02 — The hunt</p>
+      <h2>Bosses &amp; Invaders</h2>
+      <p>Scattered through the world, Apotheosis spawns <strong>apothic bosses</strong> — randomized mini-bosses built from ordinary mob types but kitted out with a <strong>name</strong>, a <strong>boss bar</strong>, buffed stats, and a full set of high-rarity <strong>affixed gear</strong> they actually use against you. They are the richest source of top-tier loot in the mod.</p>
+
+      <div class="note warn"><span class="label">Read them before you swing</span><p>A boss's danger and its reward both come from the <strong>affixes on its gear</strong>. The more (and rarer) the modifiers it visibly carries, the deadlier the fight — and the better the drop. A boss bristling with effect-affixes can chain attacks, reflect damage or apply nasty potions, so scout the boss bar's tooltip and gear before committing.</p></div>
+
+      <h3>How a boss is built</h3>
+      <ul>
+        <li><strong>Random base mob</strong> — a zombie, skeleton, etc., promoted to boss status with a generated epithet ("X the Brutal").</li>
+        <li><strong>Affix gear</strong> — weapon, armour and sometimes a bow/shield, each rolled at high rarity; the boss inherits those affixes' powers.</li>
+        <li><strong>Stat buffs</strong> — extra health, damage, knockback resistance and speed, shown on the boss bar.</li>
+        <li><strong>Guaranteed loot</strong> — on death it drops its gear plus rarity materials and gems, weighted high by its tier.</li>
+      </ul>
+
+      <h3>Fighting tips</h3>
+      <div class="data-table">
+        <table>
+          <caption>Approaching an apothic boss</caption>
+          <thead><tr><th>Threat</th><th>Tell</th><th>Counter</th></tr></thead>
+          <tbody>
+            <tr><td>Burst damage</td><td>Damage / attack-speed affixes</td><td>Shield, high armour, hit-and-retreat.</td></tr>
+            <tr><td>Reflected damage</td><td>Thorns-style affix</td><td>Use ranged attacks or wait out the proc.</td></tr>
+            <tr><td>On-hit potions</td><td>Effect affixes (poison, wither, slow)</td><td>Carry milk / cleansing; keep distance.</td></tr>
+            <tr><td>Self-heal / leech</td><td>Life-steal affix</td><td>Out-DPS it; deny easy hits on you.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Bring Luck here too</span><p>Because boss drops are rolled like any other loot, fighting bosses with high <strong>Luck</strong> active raises the rarity of what they drop. A Luck potion before a boss fight is one of the highest-value buffs in the mod.</p></div>
+    </section>
+
+    <!-- 03 GEMS -->
+    <section class="doc" id="gems">
+      <p class="sec-index">03 — Socketry</p>
+      <h2>Gems &amp; Socketing</h2>
+      <p>Alongside affixed gear, Apotheosis drops <strong>gems</strong> — modular power chips you slot into <strong>socketed</strong> equipment. A gem has its own <strong>rarity</strong> and a <strong>type</strong> (the effect it grants), and the same gem behaves differently depending on which item category it goes into.</p>
+
+      <h3>Anatomy of a gem</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">rarity</span><h4>Quality tier</h4><p>Gems roll on the same rarity ladder as gear. A higher-rarity gem gives a stronger bonus when socketed (and is worth more to fuse up).</p></div>
+        <div class="card"><span class="tag">type</span><h4>Effect type</h4><p>Each gem is a flavour — damage, life steal, armour, mining speed, attack speed, movement, and more — with values that depend on the slot it fills.</p></div>
+        <div class="card"><span class="tag">state</span><h4>Unnamed vs Named</h4><p>Raw "unnamed" gems must be processed before use; a finished, <strong>named</strong> gem is the socket-ready version with its rolled stats locked in.</p></div>
+      </div>
+
+      <h3>From rough stone to socket</h3>
+      <ol class="flow">
+        <li><strong>Find a gem</strong> as loot from mobs, chests or bosses — often as a raw, unnamed gem.</li>
+        <li><strong>Gemcutting</strong> turns the rough gem into a finished, named gem with a rolled value, using <strong>gem dust</strong> (salvaged from gear and gems).</li>
+        <li><strong>Find or roll socketed gear</strong> — items carry a number of empty <strong>sockets</strong> based on their rarity.</li>
+        <li><strong>Socket the gem</strong> into an open slot using a sigil / gem-dust flow at the smithing/salvaging station; the gem's bonus now rides on the item.</li>
+        <li><strong>Gem Fusion</strong> combines duplicate gems to upgrade their rarity — the path to a single, very strong gem.</li>
+      </ol>
+      <div class="note tip"><span class="label">Match gem to slot</span><p>A "damage" gem in a sword and the same gem in a chestplate read differently — Apotheosis applies the gem's <em>per-category</em> bonus. Plan your gems around what each piece is <em>for</em>: offence gems in weapons, defence and utility gems in armour.</p></div>
+      <div class="note warn"><span class="label">Sockets are precious</span><p>Socket count is set by an item's rarity and is hard to add later. Don't burn a good gem into a low-rarity base you'll replace — save your best fusions for Mythic/Ancient gear you intend to keep.</p></div>
+    </section>
+
+    <!-- 04 ENCHANTMENT MODULE -->
+    <section class="doc" id="enchants">
+      <p class="sec-index">04 — The arcana</p>
+      <h2>The Enchantment Module</h2>
+      <p>Apotheosis tears the lid off vanilla enchanting. It <strong>raises max levels</strong> on many vanilla enchantments, adds a roster of <strong>new enchantments</strong>, and replaces the table's "0–30 levels" mystery with three readable stats you control: <strong>Eterna</strong>, <strong>Quanta</strong> and <strong>Arcana</strong> (see §05).</p>
+
+      <h3>A taste of the new enchantments</h3>
+      <p>The exact pool is config-defined, but these are signature Apotheosis enchantments you'll meet:</p>
+      <div class="data-table">
+        <table>
+          <caption>Selected Apotheosis enchantments</caption>
+          <thead><tr><th>Enchantment</th><th>Fits</th><th>What it does (qualitatively)</th></tr></thead>
+          <tbody>
+            <tr><td>Scavenger</td><td>Weapon</td><td>Chance to drop extra loot from slain mobs.</td></tr>
+            <tr><td>Berserk</td><td>Weapon</td><td>Trades being hurt for offensive buffs — risky aggression.</td></tr>
+            <tr><td>Knowledge</td><td>Weapon</td><td>Slain mobs grant bonus experience.</td></tr>
+            <tr><td>Endless Quiver</td><td>Bow</td><td>Chance to not consume the fired arrow.</td></tr>
+            <tr><td>Crescendo of Bolts</td><td>Crossbow</td><td>Builds up to release additional bolts.</td></tr>
+            <tr><td>Capacity</td><td>Crossbow</td><td>Holds / fires extra charged projectiles.</td></tr>
+            <tr><td>Stable Footing</td><td>Boots</td><td>Negates slipping / knockback-style movement loss.</td></tr>
+            <tr><td>Climbing</td><td>Boots</td><td>Scale walls without a ladder.</td></tr>
+            <tr><td>Boon of the Earth</td><td>Tool</td><td>Mining can regrow / restore the world around you.</td></tr>
+            <tr><td>Worker Exploitation</td><td>Tool</td><td>Bonus drops from harvesting / working blocks.</td></tr>
+            <tr><td>Growth</td><td>Armour</td><td>Raises the wearer's maximum health.</td></tr>
+            <tr><td>Reflective</td><td>Armour</td><td>Returns a portion of damage to attackers.</td></tr>
+            <tr><td>Chromatic / Tempting</td><td>Varies</td><td>Utility &amp; mob-interaction effects (lure, dye, etc.).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">Levels go up</span><p>Many vanilla enchantments now exceed their old caps (e.g. Sharpness or Protection beyond level&nbsp;V), and new ones have their own ceilings. The cost — and the table stats needed to reach those levels — climbs accordingly. <span class="vflag">config-tunable</span></p></div>
+    </section>
+
+    <!-- 05 TABLE -->
+    <section class="doc" id="table">
+      <p class="sec-index">05 — Three stats</p>
+      <h2>The Enchanting Table, Reworked</h2>
+      <p>Vanilla bookshelves only ever pushed your table toward level 30. Apotheosis replaces that with <strong>three independent stats</strong> the surrounding blocks feed. Tune them and you control not just <em>how high</em> your enchants roll, but how <em>consistent</em> and how <em>rare</em> they are.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">power</span><h4>Eterna</h4><p>Raw enchanting power — the effective level. More Eterna = higher-level enchantments are possible. This is the headline stat.</p></div>
+        <div class="card"><span class="tag">spread</span><h4>Quanta</h4><p>Randomness / variance in the result. High Quanta widens the range of outcomes; low Quanta makes results predictable.</p></div>
+        <div class="card"><span class="tag">treasure</span><h4>Arcana</h4><p>The chance of rolling <strong>rare / treasure</strong> enchantments. Crank Arcana when you're fishing for the hard-to-get ones.</p></div>
+      </div>
+
+      <h3>Blocks that tune the stats</h3>
+      <p>Different "library" blocks placed around the table contribute to different stats (and some come with diminishing returns or penalties). Plan the room around the stat you want:</p>
+      <div class="data-table">
+        <table>
+          <caption>Enchanting-stat blocks (representative)</caption>
+          <thead><tr><th>Block</th><th>Pushes</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Bookshelf (vanilla)</td><td>Eterna</td><td>The baseline; capped contribution as before.</td></tr>
+            <tr><td>Treasure / enchanted shelves</td><td>Eterna (higher)</td><td>Stronger power blocks that push past the vanilla ceiling.</td></tr>
+            <tr><td>Candles</td><td>Quanta</td><td>Add variance — useful with Arcana, risky alone.</td></tr>
+            <tr><td>Sightstone</td><td>Quanta (reduce)</td><td>Tightens results toward the top of the range.</td></tr>
+            <tr><td>Prismatic / pearl web</td><td>Arcana</td><td>Raise the rare-enchant chance for treasure rolls.</td></tr>
+            <tr><td>Blocks with penalties</td><td>Various</td><td>Some powerful blocks lower one stat while raising another — read the tooltips.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Hover the table</span><p>The reworked table's GUI shows your current Eterna / Quanta / Arcana totals and each enchant slot's preview live. Build, place a block, and watch the numbers — it's the fastest way to learn what every block is worth in <em>your</em> pack. <span class="vflag">in-game ground truth</span></p></div>
+      <div class="note warn"><span class="label">High &amp; safe</span><p>For reliable top-tier enchants, push <strong>Eterna</strong> to the ceiling, keep <strong>Quanta</strong> low enough that you don't roll garbage, and raise <strong>Arcana</strong> only when specifically hunting treasure enchantments. Max Quanta + low Eterna is how people get disappointing books.</p></div>
+    </section>
+
+    <!-- 06 LIBRARY -->
+    <section class="doc" id="library">
+      <p class="sec-index">06 — Bookkeeping</p>
+      <h2>Enchantment Library &amp; Infusion</h2>
+      <p>Rolling great enchantments is only half the battle — you also need to <strong>store, sort and apply</strong> them. Apotheosis adds the <strong>Enchantment Library</strong>, a bulk store for enchanted books that turns a chest full of random books into a searchable bank of exactly the enchant you want.</p>
+
+      <h3>The Enchantment Library</h3>
+      <ul>
+        <li><strong>Deposit books</strong> — feed it your enchanted-book overflow; it absorbs and catalogues every enchantment by level.</li>
+        <li><strong>Extract / "draw" books</strong> — withdraw a book of a specific enchantment and level on demand, paying experience to print it.</li>
+        <li><strong>Tiered libraries</strong> — bigger library tiers hold more total points and higher per-enchant levels, scaling with your needs.</li>
+      </ul>
+      <div class="note tip"><span class="label">Stop hoarding loose books</span><p>Treat the library as your enchant economy: dump every junk book in, and draw clean, exact-level books out when it's time to gear up. It also lets you <em>combine</em> levels — many low books become one high book.</p></div>
+
+      <h3>Applying it all</h3>
+      <p>Finished books reach your gear two ways:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">anvil</span><h4>Anvil</h4><p>The familiar route — combine a book onto an item. Apotheosis-raised levels and new enchantments apply here like any other.</p></div>
+        <div class="card"><span class="tag">infusion</span><h4>Infusion flow</h4><p>Use the table/library workflow to push high-level and treasure enchantments onto gear that the vanilla anvil would balk at, respecting the new caps.</p></div>
+      </div>
+      <div class="note warn"><span class="label">Watch the prior-work cost</span><p>Stacking many high-level enchantments still racks up anvil cost. Plan the order — apply the expensive, high-level enchants to a fresh item early, and use books drawn from the library to skip intermediate combines.</p></div>
+    </section>
+
+    <!-- 07 SPAWNER -->
+    <section class="doc" id="spawner">
+      <p class="sec-index">07 — Mob engineering</p>
+      <h2>Spawners &amp; the Garden</h2>
+      <p>The Spawner module makes vanilla <strong>Mob Spawners</strong> capturable and editable — the classic enabler for high-yield mob farms feeding your affix-loot hunt. Pick a spawner up (with the right tool) and reconfigure how, when and how fast it spits out mobs.</p>
+
+      <h3>What you can change</h3>
+      <div class="data-table">
+        <table>
+          <caption>Spawner modifications</caption>
+          <thead><tr><th>Modifier item</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Spawn-type change</td><td>Swap which mob the spawner produces.</td></tr>
+            <tr><td>Ignore players</td><td>Removes the "needs a player nearby" requirement.</td></tr>
+            <tr><td>Ignore light / conditions</td><td>Spawns regardless of light level or spawn rules.</td></tr>
+            <tr><td>Ignore spawn cap</td><td>Lets it keep spawning past the usual nearby-entity limit.</td></tr>
+            <tr><td>Redstone control</td><td>Toggle the spawner on/off with a signal.</td></tr>
+            <tr><td>Min/max delay &amp; count</td><td>Tune how fast and how many mobs per cycle.</td></tr>
+            <tr><td>No AI / "baby" toggles</td><td>Make farmable, stationary mobs for safe grinding.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Build the engine of the hunt</span><p>A modified spawner stacked with "ignore conditions" + faster delay + higher count, drained by a kill mechanism while you stand by with <strong>Luck</strong> and <strong>Scavenger</strong>, is the canonical Apotheosis affix-loot farm. Apply the modifiers in a crafting/anvil flow as the recipes allow.</p></div>
+
+      <h3>The Chronicle / reference tome</h3>
+      <p>Apotheosis ships an in-game reference book (the <strong>Chronicle of Shadows</strong> / Apotheosic reference) describing each module's items and recipes. When a number or recipe here is marked approximate, that tome — plus JEI — is the authoritative source for your pack.</p>
+      <div class="note warn"><span class="label">Spawners can overload a server</span><p>"Ignore spawn cap" + minimal delay can flood chunks with entities and tank performance. Pair aggressive spawner settings with an instant kill chamber and reasonable counts, especially on multiplayer.</p></div>
+    </section>
+
+    <!-- 08 OTHER MODULES -->
+    <section class="doc" id="other">
+      <p class="sec-index">08 — The remaining modules</p>
+      <h2>Potions, Villages &amp; More</h2>
+      <p>Beyond loot and enchanting, Apotheosis carries smaller modules that round out the RPG feel. Each is independently configurable and may be tuned or disabled by the pack.</p>
+
+      <h3>The Potion module</h3>
+      <ul>
+        <li><strong>Stronger &amp; longer potions</strong> — extended brewing options push effects to higher amplifiers and durations than vanilla allows.</li>
+        <li><strong>The Potion Charm</strong> — a carried item that keeps a potion effect topped up from a stored supply, so your Luck / Strength / Night Vision never lapses mid-run. Ideal for sustaining <strong>Luck</strong> while farming.</li>
+      </ul>
+
+      <h3>The Village module</h3>
+      <ul>
+        <li><strong>New villager trades</strong> — additional and rebalanced trades, including ways to acquire enchanting and loot-relevant goods, deepening villager economies.</li>
+      </ul>
+
+      <h3>The Garden module</h3>
+      <ul>
+        <li><strong>World &amp; plant additions</strong> — where enabled, the Garden module adds flora/decor and minor world content; treat its specifics as pack-dependent and check JEI for what's present.</li>
+      </ul>
+      <div class="note tip"><span class="label">Charm your Luck</span><p>A <strong>Potion Charm</strong> loaded with Luck is arguably the single best quality-of-life item for an affix-loot grinder — it turns "remember to re-drink" into a permanent passive while you farm bosses and spawners.</p></div>
+    </section>
+
+    <!-- 09 PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">09 — Putting it together</p>
+      <h2>Progression &amp; Synergy</h2>
+      <p>Apotheosis has no quest line — your "progression" is a feedback loop: raise <strong>Luck</strong>, farm <strong>affix loot &amp; gems</strong>, <strong>salvage</strong> the rejects, <strong>reroll &amp; fuse</strong> toward Mythic/Ancient gear, and use that gear to farm faster. Here's the efficient path through that loop.</p>
+
+      <h3>The power loop</h3>
+      <ol class="flow">
+        <li><strong>Stack Luck</strong> — Luck potions (via the module), a Potion Charm, Luck-granting affixes/gems, and a beacon. Luck multiplies every drop you're about to farm.</li>
+        <li><strong>Farm volume</strong> — a modified spawner farm and apothic bosses generate affix gear and gems en masse while your Luck is high.</li>
+        <li><strong>Salvage the chaff</strong> at the Salvaging Table into rarity materials and gem dust.</li>
+        <li><strong>Reroll &amp; cut</strong> — spend materials to reroll affixes on good bases and gemcut/fuse gems toward higher rarity.</li>
+        <li><strong>Socket the keepers</strong> — slot your best fused gems into Mythic/Ancient gear with the sockets to hold them.</li>
+        <li><strong>Enchant on top</strong> — finish each piece with high-Eterna table enchants and treasure books drawn from the Enchantment Library.</li>
+      </ol>
+
+      <h3>Pairing with the rest of the pack</h3>
+      <div class="data-table">
+        <table>
+          <caption>Apotheosis &amp; common "To the Moon 2.0" companions</caption>
+          <thead><tr><th>Mod</th><th>Synergy with Apotheosis</th></tr></thead>
+          <tbody>
+            <tr><td>Cataclysm / boss mods</td><td>Tougher bosses to test your affixed/socketed gear against; their loot complements yours.</td></tr>
+            <tr><td>Twilight Forest</td><td>A loot-dense dimension full of chests and mobs — prime hunting ground with Luck up.</td></tr>
+            <tr><td>Tinkers' Construct</td><td>Build a strong base weapon, then chase Apotheosis enchantments and gems to amplify it.</td></tr>
+            <tr><td>Iron's Spells / RPG mods</td><td>Spell gear benefits from the enchant rework and Luck-driven loot just like melee.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Pick a base, then perfect it</span><p>Don't chase a perfect random drop — find a base item you like at decent rarity, then <em>make</em> it perfect: reroll affixes, fuse and socket the right gems, and crown it with library enchantments. That deliberate path beats waiting on the Ancient lottery.</p></div>
+      <div class="note danger"><span class="label">Power creep is real</span><p>Fully kitted Apotheosis gear can trivialise normal content — that's the point, but it can also unbalance a pack. If fights feel pointless, the pack likely intends you to seek out its <em>boss</em> mods next. Let the difficulty pull you forward.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Affix Grimoire</strong><br>
+      An unofficial, fan-made field manual for Apotheosis on Minecraft 1.19.2 (Forge).<br>
+      Apotheosis is by <a href="https://github.com/Shadows-of-Fire/Apotheosis">Shadows_of_Fire</a> and requires Placebo. This guide is not affiliated with the author.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Adventure · Enchantment modules<br>
+      · Gems · Spawner · Potion · Village<br>
+      · the 1.19.2 Apotheosis feature set
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Affix pools, rarity tiers, drop chances and stat rolls are random and config-tunable. The in-game item tooltips, the Apotheosis reference tome, JEI and the wiki are ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

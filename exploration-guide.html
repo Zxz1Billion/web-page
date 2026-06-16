@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Cartographer's Journal — exploration, structures &amp; loot (MC 1.19.2)</title>
+<meta name="description" content="A field journal for the exploration half of To the Moon 2.0 (Minecraft 1.19.2 Forge): YUNG's overhauled structures, When Dungeons Arise &amp; Seven Seas, Dungeon Crawl, Dungeons and Taverns, Goblin Traders, boss lairs, and what to bring on the road." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#100d08; --bg-1:#15110a; --bg-2:#1f1810; --bg-3:#2a2115; --line:#3a2e1b;
+    --ink:#efe7d3; --ink-dim:#bcab83; --ink-faint:#82704f;
+    --accent:#c8a24a; --accent-2:#6fb78f; --accent-3:#d97a4a; --danger:#d8603a;
+    --accent-soft:rgba(200,162,74,0.14); --accent-glow:rgba(200,162,74,0.5);
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧭</span>
+      <span class="wordmark">The Cartographer's<br>Journal<small>EXPLORATION &amp; STRUCTURES</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The road ahead</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#yungs"><span class="ix">01</span> YUNG's Overhauled Structures</a>
+      <a href="#wda"><span class="ix">02</span> When Dungeons Arise &amp; Seven Seas</a>
+      <a href="#crawl"><span class="ix">03</span> Dungeon Crawl</a>
+      <a href="#taverns"><span class="ix">04</span> Dungeons and Taverns</a>
+      <p class="group-label">Folk &amp; foes</p>
+      <a href="#goblins"><span class="ix">05</span> Goblin Traders</a>
+      <a href="#lairs"><span class="ix">06</span> Boss Lairs to Find</a>
+      <p class="group-label">Provisioning</p>
+      <a href="#gearing"><span class="ix">07</span> Loot &amp; Gearing</a>
+      <a href="#checklist"><span class="ix">08</span> The Exploration Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Structures, loot tables and<br>spawn weights are config- and<br>seed-dependent. Coordinates and<br>contents below are described<br>qualitatively — the in-game<br>world and the mod wikis are<br>ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · worldgen, dungeons &amp; loot</p>
+      <h1>The Cartographer's<br>Journal</h1>
+      <p class="lede">To the Moon 2.0 is an <strong>exploration-heavy</strong> pack: the overworld, the ocean floor, the caves and the other dimensions are seeded with hand-crafted structures, sprawling procedural dungeons and rare boss lairs. This journal maps <em>what is out there</em> — what each structure is, roughly how dangerous it runs, and what reward it pays — so you can plan a route rather than stumble into a pirate ship at half hearts.</p>
+      <div class="badges">
+        <span class="badge accent">Worldgen &amp; structures</span>
+        <span class="badge">YUNG's · When Dungeons Arise · Dungeon Crawl</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">⚔ Some structures are lethal early</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">A surveyor's first job is not to dig — it is to know the terrain. This pack stacks several structure mods on top of vanilla worldgen, so almost every chunk you cross can hide something worth the detour, and a few things worth turning around for.</p>
+
+      <p>The mods covered here fall into a few families. Knowing which family a structure belongs to tells you what to expect before you even step inside:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">overhaul</span><h4>YUNG's family</h4><p>Replaces vanilla's tired dungeons, mineshafts, strongholds and temples with hand-built, loot-rich, more <em>dangerous</em> versions. You will meet these constantly.</p></div>
+        <div class="card"><span class="tag">landmark</span><h4>When Dungeons Arise</h4><p>Big, lavish set-pieces — keeps, towers, treehouses, undead pirate ships — scattered across biomes and oceans. Rare but spectacular and well-defended.</p></div>
+        <div class="card"><span class="tag">procedural</span><h4>Dungeon Crawl</h4><p>One enormous multi-level dungeon woven beneath the surface, themed by the biome above it. A grind-and-clear delve, not a quick raid.</p></div>
+        <div class="card"><span class="tag">flavour</span><h4>Taverns · Traders · Lairs</h4><p>Dungeons and Taverns fleshes out the world; Goblin Traders give you somewhere to spend emeralds; Mowzie's bosses hide in rare lairs.</p></div>
+      </div>
+
+      <h3>Two tools you should install first</h3>
+      <p>These live in the <strong>Quality-of-Life guide</strong> and are covered in full there — but no exploration run should leave home without them, so they earn a mention here:</p>
+      <ul>
+        <li><strong>A map mod</strong> — JourneyMap (with Map Atlases for the survival-friendly cartography side). A minimap and a waypoint list turn "I found a keep somewhere east" into a coordinate you can return to with a stack of repair materials.</li>
+        <li><strong>Nature's Compass</strong> — point it at a biome and it tells you the nearest one. Many structures are biome-locked (desert temples in deserts, pirate ships in oceans, jungle treehouses in jungles), so biome-hunting <em>is</em> structure-hunting.</li>
+      </ul>
+      <div class="note tip"><span class="label">How to read the danger ratings</span><p>Throughout this journal a structure's threat is described qualitatively as <strong>mild / moderate / severe / deadly</strong>. These are relative to <em>your</em> gear, not absolute — a Better Dungeon is trivial in netherite-plus-affixes and a death-trap in leather. When in doubt, scout the entrance, light it, and retreat to gear up.</p></div>
+
+      <div class="note"><span class="label">Cross-references</span><p>Two big structure families have their own dedicated journals and are <em>not</em> re-covered here: the abyssal/temple bosses of <a href="cataclysm-guide.html">Cataclysm</a>, and the entire dimension of <a href="twilight-forest-guide.html">Twilight Forest</a> with its progression of bossed structures. When this guide points you at a lair, it sends combat questions to those guides and to the <strong>Mobs &amp; Adventure guide</strong>.</p></div>
+    </section>
+
+    <!-- 01 YUNG'S -->
+    <section class="doc" id="yungs">
+      <p class="sec-index">01 — The overhaul</p>
+      <h2>YUNG's Overhauled Structures</h2>
+      <p>By <strong>YUNGNICKYOUNG</strong>, this is a whole family of mods that quietly rip out Minecraft's most forgettable structures and rebuild them as hand-crafted, multi-room, loot-rich, and noticeably more hostile places. They all sit on top of a shared library, <strong>YUNG's API</strong>, which handles the heavy lifting of placing big templated structures into the world — if the API is missing, none of them generate.</p>
+      <p>The design philosophy is consistent across the family: <strong>vanilla layouts you recognise, scaled up into proper dungeons</strong>. A cobweb-choked corridor instead of a single mossy box; a fortress you can actually get lost in; temples with real puzzles and real traps. Loot is richer than vanilla but described qualitatively below — treat any specific item as <em>approximate</em> and seed/config dependent.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The YUNG's family — what each mod replaces or adds</caption>
+          <thead><tr><th>Mod</th><th>Replaces / adds</th><th>Where to look</th><th>Threat</th></tr></thead>
+          <tbody>
+            <tr><td>Better Dungeons</td><td>The vanilla "spawner + two chests" dungeon, rebuilt as a large branching crypt</td><td>Underground, all overworld biomes</td><td class="num">moderate</td></tr>
+            <tr><td>Better Mineshafts</td><td>Abandoned mineshafts — sprawling, themed by biome, with new hazards</td><td>Underground; deserts, mesas, lush caves, etc.</td><td class="num">moderate</td></tr>
+            <tr><td>Better Strongholds</td><td>The stronghold (still holds the End Portal room) as a grand fortress</td><td>Deep underground, located by Eyes of Ender</td><td class="num">moderate</td></tr>
+            <tr><td>Better Desert Temples</td><td>The pyramid — multi-floor, trapped, with a hidden lower complex</td><td>Desert biomes</td><td class="num">severe</td></tr>
+            <tr><td>Better Jungle Temples</td><td>The jungle pyramid, expanded with traps and puzzle rooms</td><td>Jungle biomes</td><td class="num">moderate</td></tr>
+            <tr><td>Better Witch Huts</td><td>The swamp hut, fleshed out into a proper witch's lair</td><td>Swamp biomes</td><td class="num">mild</td></tr>
+            <tr><td>Better Ocean Monuments</td><td>The guardian monument, redesigned and more navigable</td><td>Deep ocean</td><td class="num">severe</td></tr>
+            <tr><td>Better Nether Fortresses</td><td>The fortress — vast, vertical, properly fortified</td><td>The Nether</td><td class="num">deadly</td></tr>
+            <tr><td>Better End Island</td><td>Reworked outer-End islands &amp; the central spire approach</td><td>The End</td><td class="num">severe</td></tr>
+            <tr><td>YUNG's Bridges</td><td>Adds ravine- and chasm-spanning rope/stone bridges to worldgen</td><td>Ravines, canyons, caves</td><td class="num">mild</td></tr>
+            <tr><td>YUNG's Extras</td><td>Small odds-and-ends structures (mini-dungeons, cellars, towers)</td><td>Scattered, all biomes</td><td class="num">mild</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How to find &amp; clear them</h3>
+      <p>Because most of these <em>replace</em> a vanilla structure, you find them exactly as you always have — Eyes of Ender to the stronghold, dig under a desert pyramid, follow rails to a mineshaft. The difference is what happens after you walk in:</p>
+      <ol class="flow">
+        <li><strong>Light the threshold first.</strong> These are bigger and darker than vanilla; carry a stack of torches and seal the entrance behind you so nothing follows you out.</li>
+        <li><strong>Expect more spawners.</strong> Better Dungeons and Mineshafts place several mob spawners per structure. Break or block-light them as you go rather than fighting an endless tide.</li>
+        <li><strong>Watch for traps in the temples.</strong> Better Desert &amp; Jungle Temples lean on pressure plates, TNT, falling sand and arrow dispensers. Mine in from above or break the plates from the side.</li>
+        <li><strong>The loot scales with the structure.</strong> The hidden lower levels (especially in desert temples) hold the best chests — clear the obvious floor, then look for the way down.</li>
+      </ol>
+      <div class="note warn"><span class="label">The Nether fortress is the spike</span><p>A YUNG's Better Nether Fortress is genuinely large and genuinely lethal — blazes, wither skeletons and piglin-adjacent threats across multiple levels, over lava. Bring fire resistance, gold trim, a bow, and blocks to bridge. It is still your source of <strong>blaze rods</strong> and <strong>wither skeleton skulls</strong>, so you will be coming here regardless.</p></div>
+    </section>
+
+    <!-- 02 WHEN DUNGEONS ARISE -->
+    <section class="doc" id="wda">
+      <p class="sec-index">02 — The set-pieces</p>
+      <h2>When Dungeons Arise &amp; Seven Seas</h2>
+      <p>By <strong>Aureljz</strong>, When Dungeons Arise is the pack's showcase mod — a collection of <strong>large, lavish, hand-built landmarks</strong> that generate sparsely across the world. Where YUNG's overhauls the familiar, this drops something you have never seen: a mountain keep clinging to a peak, a thatch-roofed jungle treehouse complex, an illager-held tower, a giant mushroom house. They are gorgeous, they are loot-dense, and they are <strong>guarded</strong> — most come pre-populated with mobs and a fair few with their own mini-boss-tier defenders.</p>
+      <p>The companion mod <strong>When Dungeons Arise: Seven Seas</strong> adds the naval half of the catalogue: undead pirate ships, merchant vessels and other floating structures that generate out on the open ocean. You will not find these by walking — you find them by sailing, or by spotting masts on the horizon from a high coast.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Representative When Dungeons Arise structures (catalogue varies by version/config)</caption>
+          <thead><tr><th>Structure type</th><th>Generates in</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Mountain / hill keeps &amp; castles</td><td>Mountains, highlands</td><td>Fortified, multi-tower, heavily guarded</td></tr>
+            <tr><td>Towers &amp; spires</td><td>Plains, forests, badlands</td><td>Vertical climbs with loot at the top</td></tr>
+            <tr><td>Jungle treehouses</td><td>Jungles</td><td>Sprawling canopy walkways, fall risk</td></tr>
+            <tr><td>Illager / bandit outposts</td><td>Plains, forests</td><td>Hostile humanoid garrisons</td></tr>
+            <tr><td>Giant mushroom &amp; thatch dwellings</td><td>Swamps, mushroom fields, dark forests</td><td>Atmospheric, moderate guard</td></tr>
+            <tr><td>Undead pirate ships <span class="vflag">Seven Seas</span></td><td>Open ocean</td><td>Crewed by undead; ship-borne loot</td></tr>
+            <tr><td>Merchant &amp; naval vessels <span class="vflag">Seven Seas</span></td><td>Open ocean</td><td>Floating treasure holds</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tactics</h3>
+      <ul>
+        <li><strong>Approach from above or from range.</strong> Keeps and towers funnel you into kill-zones. A bow, a few blocks and the high ground beat charging the front gate.</li>
+        <li><strong>Clear in layers.</strong> These are big enough that mobs respawn behind you in the dark. Light each cleared wing before pushing on.</li>
+        <li><strong>Bring a boat for Seven Seas.</strong> Pirate ships sit in deep water; you will be fighting on a deck with water on all sides. Watch your footing and don't drop your loot overboard.</li>
+        <li><strong>The reward is gear and blocks.</strong> Expect enchanted gear, emeralds, unique decorative blocks and the occasional rare drop. Worth a dedicated voyage once you are past iron.</li>
+      </ul>
+      <div class="note tip"><span class="label">Worth the trim</span><p>These structures are the single best <strong>scenic</strong> payoff in the pack and a strong source of mid-game gear. If you run a map mod, waypoint every keep and ship you spot — they are rare enough that you will want to come back rather than risk clearing one underprepared.</p></div>
+    </section>
+
+    <!-- 03 DUNGEON CRAWL -->
+    <section class="doc" id="crawl">
+      <p class="sec-index">03 — The deep delve</p>
+      <h2>Dungeon Crawl</h2>
+      <p>By <strong>xiroc_</strong>, Dungeon Crawl generates a single, <strong>large procedural dungeon beneath the surface</strong> in most places you stand. Unlike a YUNG's set-piece, this is not one room — it is a multi-level labyrinth of corridors, chambers and staircases that descends floor by floor, growing more dangerous (and more rewarding) the deeper you push. Each dungeon is <strong>themed by the surface biome</strong> above it, so a desert crawl looks and feels different from a forest one.</p>
+
+      <h3>Finding the entrance</h3>
+      <p>The dungeon hides underground, but it announces itself with a distinctive <strong>entrance staircase</strong> — a vertical spiral or stepped shaft that connects the surface (or a near-surface cave) down to the first floor. You find a Dungeon Crawl one of three ways:</p>
+      <ol class="flow">
+        <li><strong>Spot the entrance shaft.</strong> Watch for an unnatural square stairwell while caving or strip-mining; it leads straight into the top floor.</li>
+        <li><strong>Break in from the side.</strong> If you tunnel into a suspiciously clean stone corridor at depth, you have likely clipped a dungeon wing — follow it to find the stairs.</li>
+        <li><strong>Dig down and look for structure.</strong> They are common enough that a deep shaft in a fresh area often intersects one. The themed brickwork is unmistakable against natural stone.</li>
+      </ol>
+
+      <h3>What to expect inside</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">layout</span><h4>Descending floors</h4><p>Each level is a maze of rooms linked by staircases down. The lower you go, the tougher the mobs and the better the chests.</p></div>
+        <div class="card"><span class="tag">enemies</span><h4>Spawners &amp; ambushes</h4><p>Rooms are seeded with spawners and dark corners. Clear methodically; a single room can flood you if you sprint past a spawner.</p></div>
+        <div class="card"><span class="tag">loot</span><h4>Tiered chests</h4><p>Chests improve with depth. The deepest floors hold the run's best rewards — and usually a final guarded chamber.</p></div>
+        <div class="card"><span class="tag">theme</span><h4>Biome flavour</h4><p>Brick palette, decor and sometimes the mob mix shift with the surface biome above the dungeon.</p></div>
+      </div>
+      <div class="note warn"><span class="label">Pace yourself, mark your way</span><p>It is genuinely easy to get lost. Carry plenty of torches, place a consistent trail (e.g. torches always on your left going in), and don't descend a floor you can't afford to fight back up. These reward a slow, complete clear far more than a smash-and-grab.</p></div>
+    </section>
+
+    <!-- 04 DUNGEONS AND TAVERNS -->
+    <section class="doc" id="taverns">
+      <p class="sec-index">04 — The trimmings</p>
+      <h2>Dungeons and Taverns</h2>
+      <p>By <strong>Nova_Wostra</strong>, Dungeons and Taverns is the connective tissue that makes the world feel <em>lived in</em>. Rather than one signature mega-dungeon, it adds a spread of smaller structures and village additions — most notably <strong>taverns</strong> that generate as part of villages, plus standalone structures such as reworked strongholds, illager-themed buildings and other settlement set-pieces depending on the version and config.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">village</span><h4>Taverns</h4><p>A social hub building that generates within villages — decorative, occasionally with a chest or two and a bit of atmosphere. Worth a peek when you pass through.</p></div>
+        <div class="card"><span class="tag">structure</span><h4>Stronghold additions</h4><p>The mod expands or adds stronghold-style structures, giving you more fortified places to raid beyond the vanilla/YUNG's set.</p></div>
+        <div class="card"><span class="tag">structure</span><h4>Illager &amp; outpost builds</h4><p>Hostile humanoid set-pieces that flesh out the overworld between the bigger landmarks. Light defence, light loot.</p></div>
+      </div>
+
+      <p>Treat Dungeons and Taverns as <strong>opportunistic exploration</strong>. You will rarely set out specifically to find a tavern, but they reward the habit of actually walking into every village and checking every unfamiliar building. The loot is modest compared to a When Dungeons Arise keep, but the structures are low-risk and frequently right on your path.</p>
+      <div class="note tip"><span class="label">Good filler between big runs</span><p>When you are travelling between two major targets, the taverns, outposts and minor structures from this mod (and YUNG's Extras) are the snacks along the way — quick to clear, no real risk, and they keep a long overland trek from feeling empty.</p></div>
+    </section>
+
+    <!-- 05 GOBLIN TRADERS -->
+    <section class="doc" id="goblins">
+      <p class="sec-index">05 — Folk of the deep</p>
+      <h2>Goblin Traders</h2>
+      <p>By <strong>MrCrayfish</strong>, Goblin Traders sprinkles friendly <strong>goblin merchants</strong> into the underground. Unlike a villager, a goblin spawns out in the caves — you stumble across one in a torch-lit pocket while mining — and offers a rotating set of <strong>unusual trades</strong> for emeralds and assorted items. They are a genuinely handy <strong>mid-game shopping source</strong> for things that are otherwise a pain to gather.</p>
+      <p>There are two flavours. The ordinary <strong>Goblin Trader</strong> is peaceful and will deal with you; the rarer, hostile <strong>Vein Goblin</strong> spawns deeper down, will not trade, and would rather rob you — kill it for drops, or avoid it. Both are part of the same mod's underground ecosystem.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>What a Goblin Trader deals in (trade pool is randomised &amp; rotating — examples, not a fixed list)</caption>
+          <thead><tr><th>You give</th><th>You get</th><th>Why it's useful</th></tr></thead>
+          <tbody>
+            <tr><td>Emeralds</td><td>Ores, ingots &amp; raw materials</td><td>Top up on metals without a mining trip</td></tr>
+            <tr><td>Emeralds</td><td>Enchanted books &amp; enchanting odds</td><td>Cheap shortcut to enchantments you're missing</td></tr>
+            <tr><td>Emeralds / items</td><td>Food &amp; farm goods</td><td>Restock on the road</td></tr>
+            <tr><td>Surplus junk</td><td>Emeralds</td><td>Turn cave clutter into trade currency</td></tr>
+            <tr><td>Emeralds</td><td>Goblin-flavoured oddities &amp; utility items</td><td>Occasional rare or convenient finds</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note"><span class="label">Trading etiquette</span><p>Goblin trades are quirky by design — prices and stock shift, and some deals are clearly better than others. <strong>Don't hit a peaceful Goblin Trader</strong>; if provoked it can turn on you or flee. Keep a small emerald reserve while exploring so you can buy on the spot when a good trade comes up, because the same goblin may not be there when you return.</p></div>
+      <div class="note warn"><span class="label">Mind the Vein Goblins</span><p>A Vein Goblin is the hostile cousin — it spawns in the deep dark of the caves and is an enemy, not a shop. Engage it on your terms or back off; it is not worth dying to on a casual mining run.</p></div>
+    </section>
+
+    <!-- 06 BOSS LAIRS -->
+    <section class="doc" id="lairs">
+      <p class="sec-index">06 — Where the bosses sleep</p>
+      <h2>Boss Lairs to Find</h2>
+      <p>Some of the pack's bosses don't roam — they wait in <strong>rare, fixed lairs</strong> you have to seek out. <strong>Mowzie's Mobs</strong> (by <strong>bobmowzie</strong>) is the headline here: alongside its roaming creatures it generates a handful of dedicated arenas and lairs that house its bosses. This section is about <em>finding the lairs</em> — the fights themselves (movesets, phases, drops) belong in the <strong>Mobs &amp; Adventure guide</strong>, which covers Mowzie's combat in full.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Mowzie's Mobs — boss lairs &amp; where to hunt them</caption>
+          <thead><tr><th>Boss</th><th>Lair / structure</th><th>Hunt in</th></tr></thead>
+          <tbody>
+            <tr><td>Ferrous Wroughtnaut</td><td>A sealed underground barrow / chamber</td><td>Underground; look for its distinctive stone tomb</td></tr>
+            <tr><td>Frostmaw</td><td>An icy cave lair with a frozen entrance</td><td>Snowy mountains &amp; frozen biomes</td></tr>
+            <tr><td>Umvuthi (the Sun bird) / Umvuthana</td><td>An open-air shrine / arena with its tribe</td><td>Savanna-type biomes</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn"><span class="label">Don't wake one by accident</span><p>Several Mowzie's bosses are <strong>severe-to-deadly</strong> fights with mechanics you can't brute-force. If you find a barrow or a frozen lair while underprepared, mark it and leave. Come back with the strategy from the Mobs &amp; Adventure guide, proper potions and a bow.</p></div>
+
+      <h3>The other lair-holders (covered elsewhere)</h3>
+      <p>Two more structure-and-boss families have their own dedicated journals. Find their lairs the same way — scout, mark, return prepared — but read the <em>fights</em> there:</p>
+      <ul>
+        <li><strong><a href="cataclysm-guide.html">Cataclysm</a></strong> — its bosses sit in their own ruined temples and abyssal structures (the sunken cities, the ancient remnants). The Cataclysm guide covers how to reach and beat each one.</li>
+        <li><strong><a href="twilight-forest-guide.html">Twilight Forest</a></strong> — an entire dimension built as a structure-gated boss ladder (Naga courtyard, Lich tower, and onward). The Twilight Forest guide is the map for that progression.</li>
+      </ul>
+      <div class="note tip"><span class="label">Lairs are landmarks too</span><p>Even if you're not ready to fight, a discovered lair is a useful waypoint: it fixes a biome, often sits near other structures, and gives you a clear "graduation" goal to gear toward. Treat the boss as the boss-fight you schedule, not the ambush you blunder into.</p></div>
+    </section>
+
+    <!-- 07 GEARING -->
+    <section class="doc" id="gearing">
+      <p class="sec-index">07 — Provisioning</p>
+      <h2>Loot &amp; Gearing — What to Bring</h2>
+      <p>Exploration in this pack is a gear race: the structures pay out in equipment, but the dangerous ones demand equipment to survive. The combat and crafting systems below each have their own guide — this is just the field summary of <em>what to carry on the road</em>.</p>
+
+      <h3>Where your combat gear comes from</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">weapons &amp; tools</span><h4><a href="tinkers-guide.html">Tinkers' Construct</a></h4><p>Build and repair modular tools/weapons from parts and traits. Your everyday road kit — a sturdy, modifiable weapon and a pick that won't break mid-dungeon.</p></div>
+        <div class="card"><span class="tag">magic</span><h4><a href="spellbooks-guide.html">Iron's Spells 'n Spellbooks</a></h4><p>Ranged and utility magic — fireballs for clearing rooms, healing and mobility for the deep delves. Pack a focus and some mana support.</p></div>
+        <div class="card"><span class="tag">affixes</span><h4><a href="apotheosis-guide.html">Apotheosis</a></h4><p>The affix/gem/socket system that makes structure loot worth grabbing. Salvage junk affix gear; socket gems into your keepers before a big run.</p></div>
+      </div>
+
+      <h3>The road kit</h3>
+      <p>A sensible loadout before you set out to clear anything rated <strong>severe</strong> or worse:</p>
+      <div class="data-table">
+        <table>
+          <caption>Recommended exploration loadout</caption>
+          <thead><tr><th>Slot</th><th>Bring</th><th>Because</th></tr></thead>
+          <tbody>
+            <tr><td>Weapon</td><td>A solid Tinkers' melee weapon + a bow/crossbow</td><td>Range wins set-piece fights; melee finishes them</td></tr>
+            <tr><td>Armour</td><td>Best affixed/enchanted set you have, repaired</td><td>The deadly structures punish chip damage</td></tr>
+            <tr><td>Consumables</td><td>Healing, fire resistance, regen/strength potions</td><td>Nether fortresses, lava and boss lairs especially</td></tr>
+            <tr><td>Light &amp; blocks</td><td>2–3 stacks of torches, a stack of cheap building blocks</td><td>Seal spawners, bridge gaps, pillar out of danger</td></tr>
+            <tr><td>Utility</td><td>Water bucket, ender chest / shulker, food, boat</td><td>Fall/lava saves, loot storage, sailing to Seven Seas</td></tr>
+            <tr><td>Emeralds</td><td>A small reserve</td><td>Buy on the spot from Goblin Traders</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>What you'll find (qualitatively)</h3>
+      <ul>
+        <li><strong>Gear &amp; enchanted books</strong> — the bread and butter; YUNG's, When Dungeons Arise and Dungeon Crawl all drop equipment worth feeding into Apotheosis.</li>
+        <li><strong>Materials &amp; emeralds</strong> — ores, ingots, building blocks and trade currency, heaviest in the deeper Dungeon Crawl floors and the bigger landmarks.</li>
+        <li><strong>Unique &amp; decorative blocks</strong> — When Dungeons Arise structures in particular are worth visiting just for their palettes.</li>
+        <li><strong>Boss drops</strong> — the lair bosses (Mowzie's, and the cross-referenced Cataclysm/Twilight Forest bosses) gate the strongest rewards behind a real fight.</li>
+      </ul>
+      <div class="note danger"><span class="label">Loot specifics are approximate</span><p>Exact chest contents, drop rates and trade pools depend on the modpack's config, the mod versions and your world seed. Everything above is described <em>qualitatively</em> on purpose — the in-game chests and the mod wikis are the only ground truth.</p></div>
+    </section>
+
+    <!-- 08 CHECKLIST -->
+    <section class="doc" id="checklist">
+      <p class="sec-index">08 — The route</p>
+      <h2>The Exploration Checklist</h2>
+      <p>A surveyor works in passes, not in panic. Here is a rough progression that keeps your reach matched to your gear — explore upward in danger as your equipment improves.</p>
+
+      <ol class="flow">
+        <li><strong>Set up your tools.</strong> Install and learn the map mod and Nature's Compass (QoL guide). Make a habit of waypointing everything you spot.</li>
+        <li><strong>Early — the mild tier.</strong> Better Witch Huts, YUNG's Extras, Dungeons and Taverns builds, surface Better Dungeons. Low risk, learn the loot tables, build an emerald reserve from Goblin Traders.</li>
+        <li><strong>Mid — the moderate tier.</strong> Better Mineshafts, deeper Better Dungeons, Better Jungle Temples, the upper floors of a Dungeon Crawl. Start feeding loot into Apotheosis.</li>
+        <li><strong>Gear up.</strong> Lock in a Tinkers' weapon, an affixed armour set, and a magic option from Iron's Spells before pushing the severe tier.</li>
+        <li><strong>Severe — the landmarks.</strong> When Dungeons Arise keeps &amp; towers, Better Desert Temples, Better Ocean Monuments, Seven Seas pirate ships, the deep Dungeon Crawl floors.</li>
+        <li><strong>Deadly — the fortress &amp; the lairs.</strong> YUNG's Better Nether Fortress, Mowzie's boss lairs, and (via their own guides) the Cataclysm and Twilight Forest bosses. Bring everything.</li>
+      </ol>
+
+      <h3>Route advice</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">scout first</span><h4>Mark, then commit</h4><p>Discovering a structure and clearing it are two trips. Waypoint it, gauge the threat at the door, and come back at the right gear tier.</p></div>
+        <div class="card"><span class="tag">biome-chain</span><h4>Hunt by biome</h4><p>Use Nature's Compass to chain targets: a desert run nets temples and mineshafts; an ocean voyage nets monuments and Seven Seas ships.</p></div>
+        <div class="card"><span class="tag">light &amp; seal</span><h4>Own the dark</h4><p>Every severe structure is lost the moment mobs respawn behind you. Light as you go, seal entrances, clear in wings.</p></div>
+        <div class="card"><span class="tag">extract</span><h4>Have an exit plan</h4><p>Carry an ender chest or shulker, a water bucket and spare food. The goal is to leave <em>with</em> the loot, not to die on the deepest floor.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">One last word from the margin</span><p>This pack rewards curiosity over efficiency. The map fills in the more you walk it — every keep on a ridge, every staircase in the dark and every goblin in a torch-lit pocket is a line in the journal. Go slow, mark everything, and gear into the danger rather than against it. Safe travels, surveyor.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Cartographer's Journal</strong><br>
+      An unofficial, fan-made field guide to the exploration mods of "To the Moon 2.0" on Minecraft 1.19.2 (Forge).<br>
+      YUNG's family by YUNGNICKYOUNG · When Dungeons Arise &amp; Seven Seas by Aureljz · Dungeon Crawl by xiroc_ · Dungeons and Taverns by Nova_Wostra · Goblin Traders by MrCrayfish · Mowzie's Mobs by bobmowzie. All credit to their authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · YUNG's overhauled structures<br>
+      · When Dungeons Arise · Dungeon Crawl<br>
+      · Taverns · Goblin Traders · boss lairs<br>
+      · loot &amp; an exploration route
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Structures, loot tables, spawn weights and trades are config-, version- and seed-dependent; threat ratings are relative to your gear. Coordinates and contents are described qualitatively — the in-game world and the official mod wikis are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

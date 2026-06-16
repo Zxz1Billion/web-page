@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Pattern Book — a building, decoration &amp; gadget field manual (MC 1.19.2)</title>
+<meta name="description" content="An architect's pattern book for the To the Moon 2.0 modpack (Minecraft 1.19.2 Forge): Chipped's palette explosion, Supplementaries' functional &amp; decorative blocks, Decorative Blocks' builder kit, and Building Gadgets' power tools — with a full build workflow, themed palette ideas and gotchas." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#090c10; --bg-1:#0d1117; --bg-2:#131922; --bg-3:#1b232f; --line:#27313f;
+    --ink:#e6ecf4; --ink-dim:#9aa8bd; --ink-faint:#647386;
+    --accent:#56b3d4; --accent-2:#d99a5a; --accent-3:#8cc06a; --danger:#e0683a;
+    --accent-soft:rgba(86,179,212,0.13); --accent-glow:rgba(86,179,212,0.5);
+    --f-display:"Inter",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🏛</span>
+      <span class="wordmark">The Pattern<br>Book<small>BUILDING &amp; DECORATION</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <p class="group-label">The palette mods</p>
+      <a href="#chipped"><span class="ix">01</span> Chipped</a>
+      <a href="#supplementaries"><span class="ix">02</span> Supplementaries</a>
+      <a href="#decorative"><span class="ix">03</span> Decorative Blocks</a>
+      <p class="group-label">The power tools</p>
+      <a href="#gadgets"><span class="ix">04</span> Building Gadgets</a>
+      <p class="group-label">Putting it together</p>
+      <a href="#workflow"><span class="ix">05</span> A Build Workflow</a>
+      <a href="#themes"><span class="ix">06</span> Themed Palettes</a>
+      <a href="#tips"><span class="ix">07</span> Tips &amp; Gotchas</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Block counts and palette sizes<br>are described qualitatively and<br>marked approximate — the recipe<br>mods evolve. <strong style="color:var(--ink-dim)">JEI and the in-game<br>workbench GUIs are ground truth.</strong>
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · blocks, gadgets &amp; flair</p>
+      <h1>The Pattern<br>Book</h1>
+      <p class="lede">An architect's field manual for the four mods that turn <strong>To the Moon 2.0</strong> from a tech grind into a place worth living in. <strong>Chipped</strong> explodes every vanilla block into hundreds of textures; <strong>Supplementaries</strong> and <strong>Decorative Blocks</strong> fill your rooms with props that actually <em>do</em> things; and <strong>Building Gadgets</strong> lets you place, swap and copy whole structures in a heartbeat. Rough the shape, swap the texture, dress the set.</p>
+      <div class="badges">
+        <span class="badge accent">Chipped + Supplementaries</span>
+        <span class="badge">Decorative Blocks</span>
+        <span class="badge">Building Gadgets</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Pretty builds are not one skill — they are three working together. You need a <strong>palette</strong> (textures that read well at a glance), <strong>props</strong> (functional and decorative blocks that give a space purpose), and <strong>speed</strong> (tools so the labour of placing thousands of blocks never kills the idea). This guide maps one mod onto each, then a fourth that multiplies them all.</p>
+
+      <p>Think of these four mods as the three pillars of a build, plus the crane that raises them:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">palette</span><h4>Chipped</h4><p>Takes vanilla blocks you already have and offers a huge wall of decorative variants. Pure texture choice — no new materials to grind, just taste.</p></div>
+        <div class="card"><span class="tag">props · function</span><h4>Supplementaries</h4><p>A grab-bag of functional and decorative blocks: lanterns, signs, faucets &amp; jars, planters, flags, pulleys, safes. The stuff that makes a room feel inhabited.</p></div>
+        <div class="card"><span class="tag">props · form</span><h4>Decorative Blocks</h4><p>Elegant, simple builder blocks — beams, braziers, seats, thatch, palisades. The bones of medieval and cozy architecture.</p></div>
+        <div class="card"><span class="tag">power tool</span><h4>Building Gadgets</h4><p>Place, swap, copy and clear blocks by the volume. The crane that lets the other three pillars go up in minutes, not evenings.</p></div>
+      </div>
+
+      <h3>The mental model</h3>
+      <p>Every good build in this pack moves through the same loop, regardless of theme. Hold this in your head and the rest of the guide is just the parts catalogue:</p>
+      <ol class="flow">
+        <li><strong>Rough the shape</strong> — block out walls, floors and roofs fast with the <strong>Building Gadget</strong> (§04), in any cheap placeholder block.</li>
+        <li><strong>Swap the texture</strong> — once the massing looks right, use the <strong>Exchanging Gadget</strong> to flip the placeholder to your real material in one drag.</li>
+        <li><strong>Pick the palette</strong> — run that material through <strong>Chipped</strong> (§01) to choose the exact variant that sells the theme.</li>
+        <li><strong>Dress the set</strong> — fill it with props from <strong>Supplementaries</strong> (§02) and <strong>Decorative Blocks</strong> (§03): lighting, seating, signage, storage, greenery.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">JEI is your index</span>
+        <p>All four mods register cleanly with <strong>JEI</strong>. If you can't remember which workbench makes a variant or how a faucet is crafted, look the block up in JEI and read the recipe and usage tabs. This guide describes things qualitatively on purpose — the in-game GUIs are the authoritative source.</p>
+      </div>
+    </section>
+
+    <!-- 01 CHIPPED -->
+    <section class="doc" id="chipped">
+      <p class="sec-index">01 — The palette explosion</p>
+      <h2>Chipped — One Block, A Hundred Faces</h2>
+      <p><strong>Chipped</strong> (by terrariumearth) is the simplest pillar to explain and the most transformative in practice. It adds no new materials and almost no new mechanics. Instead, it takes blocks you already have — stone, oak, glass, terracotta, wool, sandstone, bricks and many more — and lets you craft them into a sprawling library of <em>decorative variants</em>: tiled, chiselled, mossy, cracked, layered, pillared, and countless other textures. <span class="vflag">counts approximate</span></p>
+
+      <h3>How it works: the workbenches</h3>
+      <p>Chipped routes each family of base block through a themed workbench. You craft the bench once, place it, then open it and pick a base block; a scrollable palette of every variant for that block appears, and you craft the one you want. The benches are organised by material so the right tool always feels obvious:</p>
+      <div class="data-table">
+        <table>
+          <caption>Chipped's workbenches (material families)</caption>
+          <thead><tr><th>Workbench</th><th>Handles roughly</th><th>Use it for</th></tr></thead>
+          <tbody>
+            <tr><td>Botanist Workbench</td><td>Leaves, saplings, plants, organic blocks</td><td>Foliage and garden variants.</td></tr>
+            <tr><td>Glassblower</td><td>Glass &amp; glass panes</td><td>Frosted, textured and patterned glass.</td></tr>
+            <tr><td>Carpenter's Table</td><td>Wood, planks, logs</td><td>Plank patterns, panelling, timber grains.</td></tr>
+            <tr><td>Loom Table</td><td>Wool &amp; carpet</td><td>Knitted, patterned and woven fabric looks.</td></tr>
+            <tr><td>Mason Table</td><td>Stone, granite, diorite, andesite, deepslate</td><td>Tiles, bricks, chiselled and pillared stone.</td></tr>
+            <tr><td>Alchemy Bench</td><td>Misc. arcane / odd blocks</td><td>Unusual and themed material variants.</td></tr>
+            <tr><td>Tinkering Table</td><td>Metal &amp; industrial blocks</td><td>Plated, riveted and panelled metal looks.</td></tr>
+            <tr><td>Brick worktable</td><td>Bricks, terracotta, concrete</td><td>Brickwork, masonry and ceramic patterns.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><span class="label">note</span>The exact bench-to-block mapping can shift between Chipped versions and is sometimes consolidated. If a base block isn't where you expect it, search the block in JEI — its usage tab points you at the correct bench.</p>
+
+      <h3>The cardinal rule: it's cosmetic</h3>
+      <p>Chipped variants are <strong>purely decorative</strong>. A Mason Table tile of stone behaves like stone; a Chipped oak plank still crafts and burns like oak. Most variants are reversible — you can usually convert a variant back to its base block, so experimenting costs you nothing but the trip to the bench.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">free taste</span><h4>No new grind</h4><p>You spend the same ingots, logs and stone you already mine. The only "cost" is choosing — which is the whole point.</p></div>
+        <div class="card"><span class="tag">read at range</span><h4>Texture variety</h4><p>Real buildings mix textures. A wall of one stone reads flat; a wall that alternates tiles, bricks and chiselled blocks reads built.</p></div>
+        <div class="card"><span class="tag">pairs with §04</span><h4>Exchanger-friendly</h4><p>Because variants share a base, the Exchanging Gadget swaps between them across a whole wall in one stroke.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Workflow tip</span><p>Craft a few stacks of your three or four favourite variants <em>before</em> you start building, and keep them on the hotbar. With the variants in your inventory, the Building Gadget (§04) can place them by the volume — Chipped's palette plus a gadget is the fastest way to put up a beautiful wall in the game.</p></div>
+    </section>
+
+    <!-- 02 SUPPLEMENTARIES -->
+    <section class="doc" id="supplementaries">
+      <p class="sec-index">02 — The grab-bag</p>
+      <h2>Supplementaries — Props That Do Things</h2>
+      <p><strong>Supplementaries</strong> (by MehVahdJukaar) is a giant, lovingly-detailed grab-bag of blocks that sit halfway between decoration and function. Where Chipped changes how a wall <em>looks</em>, Supplementaries changes how a room <em>works</em> — lighting it, labelling it, storing in it, and filling it with the small fixtures that make a space feel lived-in. It's powered by the author's <strong>Selene</strong> library and is deeply config-driven, so almost everything can be toggled. <span class="vflag">selection approximate</span></p>
+
+      <h3>The standout functional blocks</h3>
+      <p>If you only learn a handful of Supplementaries blocks, learn these — they earn their keep beyond looking nice:</p>
+      <div class="data-table">
+        <table>
+          <caption>High-value functional blocks</caption>
+          <thead><tr><th>Block</th><th>What it does</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Faucet + Jar</td><td>A faucet drains fluids/items from a block below or beside it; Jars store fluids or items and can be filled from kegs/faucets.</td><td>Visible liquid storage and tidy gravity-fed fluid transfer — great over barrels and kegs.</td></tr>
+            <tr><td>Safe</td><td>Locked, ownable storage that other players can't open without the key/password.</td><td>The mod's secure container — useful on shared/multiplayer worlds.</td></tr>
+            <tr><td>Item Shelf / Item Frames</td><td>Shelves display item stacks flat on a wall, like a horizontal frame.</td><td>Shop displays, pantries, tool walls — readable inventory at a glance.</td></tr>
+            <tr><td>Notice Board</td><td>A board that displays a written book or item to anyone passing.</td><td>Signage, quest notes, base rules, shop pricing.</td></tr>
+            <tr><td>Sign Posts &amp; Hanging Signs</td><td>Directional arrow signs that stack on a fence; hanging signs swing under blocks.</td><td>Wayfinding between bases and across the map.</td></tr>
+            <tr><td>Pulley &amp; Crank / Turntable</td><td>Pulley raises/lowers rope-hung blocks; crank and turntable provide hand-driven rotation/redstone.</td><td>Movable curtains, lifts and simple mechanisms without a full tech mod.</td></tr>
+            <tr><td>Spring Launcher</td><td>Bounces entities (and players) upward when triggered.</td><td>Quick vertical movement, parkour and trap builds.</td></tr>
+            <tr><td>Cannon</td><td>A loadable cannon that fires projectiles.</td><td>Defensive flair and novelty firepower.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The decorative line-up</h3>
+      <p>The other half of the mod is pure atmosphere. These are the blocks you reach for when a room is built but feels empty:</p>
+      <ul>
+        <li><strong>Sconces, Candle Holders &amp; Lanterns</strong> — a wide range of wall and standing light sources in many styles; the connective tissue of any cozy interior.</li>
+        <li><strong>Ropes</strong> — strung between blocks for hanging lanterns, climbing, and connecting pulleys.</li>
+        <li><strong>Planters</strong> — grow flowers and crops decoratively indoors or on sills.</li>
+        <li><strong>Flags &amp; Banners</strong> — large hanging cloth for halls, gates and faction identity.</li>
+        <li><strong>Globe &amp; Clock</strong> — desk and wall fixtures; the Clock genuinely tells in-game time.</li>
+        <li><strong>Bellows &amp; Ash</strong> — forge and hearth detailing for workshops and smithies.</li>
+        <li><strong>Daily Goods</strong> — a trading fixture offering rotating daily deals.</li>
+      </ul>
+      <div class="note tip"><span class="label">Selene config</span><p>Supplementaries exposes an unusually rich config (and an in-game config screen). If a block feels overpowered, too common in loot, or you simply don't want it, you can almost always disable or tune it without removing the mod. Check the config before assuming a behaviour is fixed.</p></div>
+      <div class="note warn"><span class="label">Don't over-furnish</span><p>Because the mod offers so much, the classic mistake is cramming every surface. Lean on a few repeated motifs — one lantern style, one sign style, one planter — so a build reads as designed rather than as a parts bin.</p></div>
+    </section>
+
+    <!-- 03 DECORATIVE BLOCKS -->
+    <section class="doc" id="decorative">
+      <p class="sec-index">03 — The builder's kit</p>
+      <h2>Decorative Blocks — Bones For Cozy Builds</h2>
+      <p><strong>Decorative Blocks</strong> (by stohun) is the most restrained of the three palette mods, and that restraint is its strength. It's a tight set of <em>elegant, simple</em> builder blocks — the structural and comfort pieces that vanilla never quite supplied. Where Supplementaries fills a room with objects, Decorative Blocks gives the room its frame: beams overhead, seats to sit on, thatch on the roof, a brazier for warmth. It's the natural toolkit for medieval, rustic and cozy architecture. <span class="vflag">selection approximate</span></p>
+
+      <h3>The structural pieces</h3>
+      <div class="data-table">
+        <table>
+          <caption>Frame &amp; surface blocks</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Beams &amp; Support Beams</td><td>Slim timber posts and crossbeams for exposed framing, pergolas and ceilings — the signature look of the mod.</td></tr>
+            <tr><td>Palisades</td><td>Sharpened vertical stakes for walls, fences and fort perimeters.</td></tr>
+            <tr><td>Lattice</td><td>Open cross-hatched panels for windows, trellises and screens.</td></tr>
+            <tr><td>Thatch</td><td>Straw roofing — the definitive cottage and village roof material.</td></tr>
+            <tr><td>Canopy / Awning</td><td>Overhanging cloth shades for market stalls, windows and porches.</td></tr>
+            <tr><td>Bar Panels</td><td>Counter fronts for taverns, kitchens and shops.</td></tr>
+            <tr><td>Rope Ladders</td><td>Flexible climbable ladders that hang naturally down a wall or shaft.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The comfort &amp; light pieces</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">sit</span><h4>Seats</h4><p>Stools and chairs you can <strong>actually sit on</strong> — right-click to take a seat. Pair Bar Stools with Bar Panels for an instant tavern counter.</p></div>
+        <div class="card"><span class="tag">light · warmth</span><h4>Brazier</h4><p>A standing fire bowl — warm light and a strong focal point for halls, camps and courtyards.</p></div>
+        <div class="card"><span class="tag">light · ceiling</span><h4>Chandelier</h4><p>A hanging multi-flame light fixture for grand rooms, dining halls and stairwells.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Why it pairs so well with Chipped</span><p>Decorative Blocks supplies the <em>shapes</em> vanilla lacks (beams, lattice, seats); Chipped supplies the <em>textures</em>. Build the frame in Decorative Blocks, fill the panels with a Chipped variant, and a plain box becomes a timber-framed cottage with almost no extra blocks.</p></div>
+    </section>
+
+    <!-- 04 BUILDING GADGETS -->
+    <section class="doc" id="gadgets">
+      <p class="sec-index">04 — The power tools</p>
+      <h2>Building Gadgets — Build By The Volume</h2>
+      <p><strong>Building Gadgets</strong> (by Direwolf20) is the power-builder's toolkit: four gadgets that place, swap, copy and clear blocks <em>in bulk</em>, turning hours of block-by-block labour into a few clicks. They draw blocks either from your inventory or from a stockpile of <strong>Construction Paste</strong>, and they're what make the rest of this guide practical at scale.</p>
+
+      <h3>The four gadgets</h3>
+      <div class="data-table">
+        <table>
+          <caption>The gadget line-up</caption>
+          <thead><tr><th>Gadget</th><th>What it does</th><th>Pulls blocks from</th></tr></thead>
+          <tbody>
+            <tr><td>Building Gadget</td><td>Places and extends areas of a chosen block instantly — floors, walls, surfaces, large flat or shaped fills.</td><td>Inventory or Construction Paste</td></tr>
+            <tr><td>Exchanging Gadget</td><td>Swaps existing blocks for a new block in place — retexture a wall without tearing it down.</td><td>Inventory or Construction Paste</td></tr>
+            <tr><td>Copy-Paste Gadget</td><td>Copies a structure to a <strong>template</strong>, then pastes that template elsewhere as a ghost preview you confirm.</td><td>Construction Paste (for the paste)</td></tr>
+            <tr><td>Destruction Gadget</td><td>Clears whole volumes of blocks in one action — demolition and site-clearing.</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each gadget has a <strong>mode</strong> and a <strong>range</strong> you adjust through its menu (and a configurable hotkey). The Building Gadget, for example, can lay a surface, build a wall, or grid out a fixed area; the Destruction Gadget can carve a box of an adjustable size. Hold the gadget and the world shows a <em>ghost preview</em> of what will happen before you commit.</p>
+
+      <h3>Construction Paste &amp; the paste workflow</h3>
+      <p><strong>Construction Paste</strong> is the gadgets' universal building material — a neutral substance that the gadgets can shape into <em>any</em> block when paired with a template. You craft paste and store it in a <strong>Paste Container</strong> (which clips onto a gadget to feed it) or produce/hold larger volumes via the <strong>Construction Chamber</strong> / Charging-station style block. This is what makes the Copy-Paste Gadget able to rebuild a structure even when you don't have all the original blocks on hand.</p>
+      <ol class="flow">
+        <li><strong>Make Construction Paste</strong> and load it into a <strong>Paste Container</strong>, then attach the container to the gadget that needs it.</li>
+        <li><strong>Copy</strong> a structure: aim the Copy-Paste Gadget, select the two corners of the region, and it stores the design to a <strong>Template</strong>.</li>
+        <li><strong>Position the paste</strong>: switch to paste mode and place a ghost preview of the template where you want the copy to appear.</li>
+        <li><strong>Align &amp; rotate</strong> the ghost until it sits correctly — the preview shows exactly which blocks will be placed.</li>
+        <li><strong>Confirm</strong>: the gadget spends Construction Paste (and any required blocks) to materialise the structure instantly.</li>
+        <li><strong>Reuse</strong> the template anywhere — copy a tower once, paste a skyline.</li>
+      </ol>
+      <div class="note tip"><span class="label">Inventory vs. paste</span><p>For everyday building, feeding the Building Gadget straight from your <strong>inventory</strong> is simplest — it just consumes the real blocks. Reach for <strong>Construction Paste</strong> when you're copy-pasting structures whose exact block list you don't have, or when you want a single material reservoir to draw from.</p></div>
+      <div class="note warn"><span class="label">It costs energy</span><p>The gadgets run on stored energy (and the blocks/paste they place). A drained gadget won't build — keep it charged at a charger/energy block, and remember that bigger ranges and bigger pastes drain it faster. Plan a charging spot near your build site.</p></div>
+    </section>
+
+    <!-- 05 WORKFLOW -->
+    <section class="doc" id="workflow">
+      <p class="sec-index">05 — Method</p>
+      <h2>A Build Workflow, End To End</h2>
+      <p>Here is the whole pattern book in one sequence — the method that ties all four mods together. Follow it once and it becomes second nature; every build in the pack, from a tavern to a space station, is a variation on these five moves.</p>
+
+      <ol class="flow">
+        <li><strong>Rough the massing</strong> — with the <strong>Building Gadget</strong> (§04), block out the footprint, walls and roof in any cheap placeholder (cobble, dirt). Don't fuss the texture yet; you're solving silhouette and proportion. Use the Destruction Gadget to undo mistakes by the volume.</li>
+        <li><strong>Swap to real materials</strong> — once the shape reads right, drag the <strong>Exchanging Gadget</strong> across each surface to flip the placeholder to your chosen block. Walls become stone, roof becomes wood, in seconds.</li>
+        <li><strong>Choose the exact variant</strong> — take that material to the matching <strong>Chipped</strong> bench (§01) and pick the precise texture: tiled vs. bricked stone, panelled vs. plank wood. Mix two or three variants for depth, and Exchange them in where you want accents.</li>
+        <li><strong>Add the frame</strong> — lace in <strong>Decorative Blocks</strong> (§03): beams across the ceiling, lattice in the windows, thatch or beams on the roofline, palisades around the yard.</li>
+        <li><strong>Dress the interior</strong> — finish with <strong>Supplementaries</strong> (§02): sconces and candle holders for light, seats and a brazier for warmth, item shelves and a notice board for storage and signage, planters and flags for life.</li>
+      </ol>
+
+      <div class="cards">
+        <div class="card"><span class="tag">order matters</span><h4>Shape before skin</h4><p>Resist texturing early. A beautifully-textured wall in the wrong place is just expensive rework. Lock the silhouette first.</p></div>
+        <div class="card"><span class="tag">copy yourself</span><h4>Template the repeats</h4><p>Built one perfect window bay or one tower? Copy-Paste it (§04) along the facade instead of rebuilding. Consistency is free.</p></div>
+        <div class="card"><span class="tag">light last</span><h4>Light to taste</h4><p>Place lighting after the room is built and furnished, so you can see where shadows actually fall and aim sconces accordingly.</p></div>
+      </div>
+      <div class="note tip"><span class="label">The exchange trick</span><p>The single highest-leverage move in this pack is <strong>Exchanging Gadget + Chipped variants</strong>. Build a whole structure in one base block, then audition entire palettes by exchanging the wall to a new variant in one stroke. You can re-theme a finished build in minutes — try the same cottage in oak, then dark oak, then spruce, and keep the winner.</p></div>
+    </section>
+
+    <!-- 06 THEMES -->
+    <section class="doc" id="themes">
+      <p class="sec-index">06 — Pattern library</p>
+      <h2>Themed Palette Ideas</h2>
+      <p>A starter pattern book — four recipes that combine the four mods toward a recognisable look, each cross-referencing the pack's other guides for the <em>contents</em> of the build. Treat these as departure points, not rules.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Theme recipes</caption>
+          <thead><tr><th>Theme</th><th>Chipped palette</th><th>Decorative Blocks frame</th><th>Supplementaries dressing</th></tr></thead>
+          <tbody>
+            <tr><td>Gothic Crypt</td><td>Cracked &amp; chiselled deepslate / blackstone, mossy stone tiles</td><td>Braziers, lattice screens, palisade spikes</td><td>Sconces, candle holders, hanging signs, ash detailing</td></tr>
+            <tr><td>Industrial Base</td><td>Plated &amp; riveted metal (Tinkering Table), panelled concrete</td><td>Support beams as catwalk framing, bar panels</td><td>Faucets &amp; jars over machines, item shelves, a wall clock</td></tr>
+            <tr><td>Space Station</td><td>Frosted/patterned glass (Glassblower), clean white concrete variants</td><td>Beams as bulkhead ribs, lattice grating</td><td>Globe, notice boards as consoles, sconce lighting strips</td></tr>
+            <tr><td>Cozy Tavern</td><td>Plank &amp; panelled wood (Carpenter's), brick worktable masonry</td><td>Beams, thatch roof, bar panels &amp; stools, chandelier</td><td>Lanterns on ropes, seats, planters, flags, a Daily Goods stall</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tie it to the rest of the pack</h3>
+      <p>These mods are the <em>wrapper</em>; the other guides supply the machinery that fills the build. Use them together:</p>
+      <ul>
+        <li><strong>Industrial Base</strong> → house a <a href="mekanism-guide.html">Mekanism</a> ore-processing line or reactor behind plated metal and faucet-and-jar plumbing. Hide cables in Decorative Blocks beams.</li>
+        <li><strong>Space Station</strong> → frame an <a href="ad-astra-guide.html">Ad Astra</a> launch pad or moon base in frosted glass and bulkhead ribs, with notice boards as control consoles.</li>
+        <li><strong>Cozy Tavern</strong> → pair with <a href="farmers-delight-guide.html">Farmer's Delight</a> for a working kitchen behind the bar panels, and <a href="create-guide.html">Create</a> contraptions for moving signage.</li>
+        <li><strong>Gothic Crypt</strong> → a fitting shell for a <a href="blood-magic-guide.html">Blood Magic</a> altar room or a <a href="spellbooks-guide.html">spellbooks</a> study, lit entirely by braziers and sconces.</li>
+      </ul>
+      <div class="note tip"><span class="label">Steal proportions, not just blocks</span><p>A palette is more than a block list — it's also scale and repetition. Keep window sizes, beam spacing and lantern intervals consistent across a build, and even a humble material set will read as intentional architecture.</p></div>
+    </section>
+
+    <!-- 07 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">07 — Field notes</p>
+      <h2>Tips &amp; Gotchas</h2>
+      <p>The small things that separate a smooth build session from a frustrating one. Most of these are about the gadgets, because that's where the surprises live.</p>
+
+      <h3>Building Gadgets</h3>
+      <ul>
+        <li><strong>Source Construction Paste before a big paste.</strong> Copy-Paste and large fills can burn through paste fast — stock a Paste Container (or a Construction Chamber's worth) ahead of time so you're not interrupted mid-build. <span class="vflag">paste cost approximate</span></li>
+        <li><strong>Watch the energy bar.</strong> Gadgets are powered; a flat gadget silently does nothing. Keep a charger at the build site and top up between sessions. Larger ranges drain faster.</li>
+        <li><strong>Copy-paste alignment is the classic pitfall.</strong> The ghost preview anchors to where you point — take the moment to rotate and nudge it before confirming. A misaligned paste means a Destruction Gadget cleanup and a redo.</li>
+        <li><strong>Match the gadget to the job.</strong> Use the Exchanging Gadget to retexture, not the Building Gadget — Building places <em>into air</em>, Exchanging swaps <em>existing</em> blocks. Mixing them up overbuilds or no-ops.</li>
+        <li><strong>The Destruction Gadget is undo.</strong> Treat its adjustable box as your bulk eraser during the rough-massing phase; it makes experimentation cheap.</li>
+      </ul>
+
+      <h3>Chipped</h3>
+      <ul>
+        <li><strong>Variants are cosmetic and usually reversible</strong> — experiment freely; you can convert most variants back to base.</li>
+        <li><strong>Can't find a block's bench? Ask JEI.</strong> The block's usage tab points at the correct workbench when the mapping isn't obvious.</li>
+        <li><strong>Stock favourites for the gadget.</strong> Pre-craft stacks of your chosen variants so the Building Gadget can place them by the volume.</li>
+      </ul>
+
+      <h3>Supplementaries &amp; Decorative Blocks</h3>
+      <ul>
+        <li><strong>Check the Selene config</strong> before assuming a Supplementaries behaviour (loot frequency, a block being enabled) is locked — most of it is tunable, including an in-game config screen.</li>
+        <li><strong>Seats and faucets are placement-sensitive.</strong> Seats want a clear sit-space; faucets want a valid source block to drain. If a function doesn't trigger, check the adjacency before assuming a bug.</li>
+        <li><strong>Restraint reads as design.</strong> Repeat a small set of motifs rather than using one of everything — the catalogue is huge, but a build doesn't need all of it.</li>
+      </ul>
+
+      <div class="note danger"><span class="label">Before you bulldoze</span><p>The Destruction Gadget and large Building/Exchanging operations are <strong>not trivially undoable</strong> beyond eyeballing it. On a shared world especially, double-check the ghost preview, mind your range, and don't fire a volume operation toward someone else's build. Measure twice, click once.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Pattern Book</strong><br>
+      An unofficial, fan-made building &amp; decoration manual for the To the Moon 2.0 modpack on Minecraft 1.19.2 (Forge).<br>
+      Chipped is by terrariumearth · Supplementaries by MehVahdJukaar · Decorative Blocks by stohun · Building Gadgets by Direwolf20. This guide is not affiliated with or endorsed by any of them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Chipped · Supplementaries<br>
+      · Decorative Blocks · Building Gadgets<br>
+      · workflow, themes &amp; gotchas
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Block counts, palette sizes and paste/energy costs are described qualitatively and marked approximate — they vary by mod version and config. JEI and the in-game workbench &amp; gadget GUIs are the authoritative source.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

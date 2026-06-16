@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Arcane Codex — Iron's Spells 'n Spellbooks (MC 1.19.2)</title>
+<meta name="description" content="An in-depth grimoire for Iron's Spells 'n Spellbooks (Minecraft 1.19.2 Forge): mana &amp; casting, the schools of magic, spell tiers &amp; rarity, acquiring scrolls, mage armour &amp; weapons, and full build paths for the To the Moon 2.0 modpack." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0a0814; --bg-1:#0e0b1c; --bg-2:#151229; --bg-3:#1d1838; --line:#2c2550;
+    --ink:#e7e3f5; --ink-dim:#a79ccb; --ink-faint:#6e6494;
+    --accent:#9b7bff; --accent-2:#4fc4e0; --accent-3:#f0b652; --danger:#ff6a6a;
+    --accent-soft:rgba(155,123,255,0.14); --accent-glow:rgba(155,123,255,0.5);
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">✦</span>
+      <span class="wordmark">The Arcane<br>Codex<small>IRON'S SPELLS 'N SPELLBOOKS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Foundations</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#mana"><span class="ix">01</span> Mana &amp; Casting</a>
+      <a href="#schools"><span class="ix">02</span> Schools of Magic</a>
+      <a href="#tiers"><span class="ix">03</span> Spell Tiers &amp; Rarity</a>
+      <p class="group-label">Practice</p>
+      <a href="#acquire"><span class="ix">04</span> Acquiring Spells</a>
+      <a href="#spells"><span class="ix">05</span> The Schools in Practice</a>
+      <a href="#gear"><span class="ix">06</span> Mage Gear &amp; Armour</a>
+      <p class="group-label">Mastery</p>
+      <a href="#progression"><span class="ix">07</span> Progression &amp; Builds</a>
+      <a href="#tips"><span class="ix">08</span> Tips &amp; Synergies</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the Iron's Spells<br>'n Spellbooks 1.19.2 line by<br>Iron431. Mana, damage and<br>cooldown values are config-tunable<br>— the in-game tooltips, JEI and<br>the mod wiki are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Iron431</p>
+      <h1>The Arcane<br>Codex</h1>
+      <p class="lede">A working grimoire for <strong>Iron's Spells 'n Spellbooks</strong> — the RPG spellcasting system at the heart of <em>To the Moon 2.0</em>. From your first scrap of <strong>Mana</strong> and a single scroll, through the nine schools of magic, into legendary spells, full <strong>mage armour</strong>, and the build paths that turn a robe-wearer into a walking artillery battery. Cast with intent; the void rewards focus.</p>
+      <div class="badges">
+        <span class="badge accent">Iron's Spells 'n Spellbooks</span>
+        <span class="badge">+ GeckoLib + Curios + Playeranimator</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">✦ Values are approximate / configurable</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Iron's Spells 'n Spellbooks bolts a full <strong>action-RPG magic system</strong> onto Minecraft. You learn <strong>spells</strong>, hold them on a <strong>casting focus</strong>, and spend <strong>Mana</strong> to hurl fireballs, raise the dead, mend wounds, or teleport across a battlefield. There is no vanilla XP cost — your power comes from <em>gear and specialisation</em>.</p>
+
+      <p>Three currencies and one verb describe almost everything in the mod. Get these straight and every tooltip in your inventory reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">resource</span><h4>Mana</h4><p>The fuel for every spell. A pool that regenerates over time; both its maximum size and refill speed come from your gear and stats, not from levelling up.</p></div>
+        <div class="card"><span class="tag">focus</span><h4>Casting Item</h4><p>You cannot cast bare-handed. A <strong>Spell Book</strong>, a single-use <strong>Scroll</strong>, or a casting <strong>weapon/staff</strong> channels the spell.</p></div>
+        <div class="card"><span class="tag">stat</span><h4>Spell Power</h4><p>The per-school multiplier on a spell's effect. Stack the right Spell Power and a common spell out-damages a careless legendary.</p></div>
+      </div>
+
+      <h3>The shape of the system</h3>
+      <ul>
+        <li><strong>Nine schools</strong> of magic, each with its own flavour, signature status effects, and dedicated scaling stat and gear.</li>
+        <li><strong>Spell rarity</strong> runs Common → Uncommon → Rare → Epic → Legendary, and most spells have multiple <strong>levels</strong> that raise mana cost and effect together.</li>
+        <li><strong>Mage mobs</strong> — Pyromancers, Cryomancers, Archevokers, Necromancers and friends — drop scrolls, gear and crafting reagents.</li>
+        <li>The <strong>Scroll Forge</strong> lets you craft scrolls from spell-specific ingredients once you find the recipe materials.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Your first hour</span>
+        <p>Pick up any <strong>spell scroll</strong> from a loot chest, hold it, and cast (default a quick-cast / use key). Then craft or find a <strong>Spell Book</strong> so you can <em>imbue</em> that scroll into a permanent, reusable slot. Wear even one piece of mage armour for a starter mana pool — without it your pool is tiny.</p>
+      </div>
+      <div class="note"><span class="label">Dependencies</span><p>Iron's Spells 'n Spellbooks runs on <strong>GeckoLib</strong> (animations &amp; models), <strong>Curios</strong> (the ring/amulet slots that hold your mana-boosting trinkets), and <strong>Playeranimator</strong> (casting gestures). All three ship with the pack.</p></div>
+    </section>
+
+    <!-- 01 MANA -->
+    <section class="doc" id="mana">
+      <p class="sec-index">01 — The fuel</p>
+      <h2>Mana &amp; Casting</h2>
+      <p>Mana is your single spell resource. Every cast subtracts a cost from your pool; the pool refills passively over time. You can never "run out forever" — but in a hard fight you <em>will</em> run dry, and a dry mage is a target. Managing the pool is the core skill of the class.</p>
+
+      <h3>What sets your mana</h3>
+      <div class="data-table">
+        <table>
+          <caption>Where max mana and regen come from</caption>
+          <thead><tr><th>Source</th><th>Affects</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Mage armour sets</td><td>+Max Mana, +Mana Regen</td><td>The single biggest source. A full set dwarfs unarmoured casting.</td></tr>
+            <tr><td>Curios trinkets</td><td>+Max Mana, +Regen, +Spell Power</td><td>Rings &amp; amulets in Curios slots — often school-specific.</td></tr>
+            <tr><td>Spell Power stat</td><td>×Spell effect</td><td>Multiplies damage/heal/duration; comes from gear, not the mana pool itself.</td></tr>
+            <tr><td>Cooldown Reduction</td><td>Recast speed</td><td>Lowers the per-spell cooldown so you spend a full pool faster.</td></tr>
+            <tr><td>Spell Resistance</td><td>Incoming magic taken</td><td>The defensive mirror of Spell Power; mage armour grants some.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn"><span class="label">Numbers are configurable</span><p>Exact mana pools, regen rates and per-spell costs vary by config and pack tuning, so this guide describes them <em>qualitatively</em>. Trust the live tooltip on each spell (it shows mana cost and cooldown) and your HUD mana bar over any number written here.</p></div>
+
+      <h3>The three ways to cast</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">reusable</span><h4>Spell Book</h4><p>Holds <em>multiple</em> spells in slots. Open it to imbue scrolls, then swap the selected spell on the fly while held. The mage's main hand for the whole game.</p></div>
+        <div class="card"><span class="tag">single-use</span><h4>Scroll</h4><p>One spell, one cast, then consumed. Great for emergencies, utility, or trying a spell before committing it to a book.</p></div>
+        <div class="card"><span class="tag">hybrid</span><h4>Weapon Casting</h4><p>Certain <strong>staffs</strong> and magic <strong>swords</strong> cast a bound spell directly — the foundation of spell-sword builds.</p></div>
+      </div>
+
+      <h3>Cooldowns</h3>
+      <p>Every spell has its own <strong>cooldown</strong> after casting, shown on the hotbar/HUD. Cooldown is independent of mana: a cheap spell can still gate you on time, and a pricey nuke might recharge instantly but bankrupt your pool. <strong>Cooldown Reduction</strong> gear lets you weave more casts into the same window — the second pillar of throughput after raw mana.</p>
+      <div class="note tip"><span class="label">Two knobs, not one</span><p>Damage per cast scales with <strong>Spell Power</strong>; casts per fight scale with <strong>Max Mana + Regen + Cooldown Reduction</strong>. A good build pushes both — a glass cannon with no mana is a one-shot wonder.</p></div>
+    </section>
+
+    <!-- 02 SCHOOLS -->
+    <section class="doc" id="schools">
+      <p class="sec-index">02 — The disciplines</p>
+      <h2>The Schools of Magic</h2>
+      <p>Spells belong to <strong>schools</strong>, each with a thematic identity, a signature status effect, its own <strong>Spell Power</strong> stat, and synergy gear that amplifies it. Specialising means picking a school and stacking its power, its cooldown reduction, and the mana to fuel it.</p>
+      <div class="data-table">
+        <table>
+          <caption>The schools of Iron's Spells 'n Spellbooks</caption>
+          <thead><tr><th>School</th><th>Flavour</th><th>Signature effect</th><th>Plays as</th></tr></thead>
+          <tbody>
+            <tr><td>Fire</td><td>Raw destruction &amp; ignition</td><td>Burning / ignite</td><td>Aggressive nuker &amp; AoE</td></tr>
+            <tr><td>Ice (Cold)</td><td>Frost, slows &amp; brittle armour</td><td>Freezing / chilled</td><td>Control + steady damage</td></tr>
+            <tr><td>Lightning</td><td>Speed, chains &amp; verticality</td><td>Shock / chain jumps</td><td>Burst + mobility</td></tr>
+            <tr><td>Holy</td><td>Light, mending &amp; protection</td><td>Heal / regen / buffs</td><td>Support &amp; sustain</td></tr>
+            <tr><td>Ender</td><td>Teleportation &amp; the void</td><td>Blink / displacement</td><td>Mobility &amp; trickery</td></tr>
+            <tr><td>Blood</td><td>Power paid in health/sacrifice</td><td>Bleed / life-steal</td><td>High-risk, high-reward</td></tr>
+            <tr><td>Nature / Poison</td><td>Growth, toxins &amp; entanglement</td><td>Poison / root</td><td>Damage-over-time control</td></tr>
+            <tr><td>Eldritch</td><td>Forbidden, otherworldly power</td><td>Arcane / unsettling effects</td><td>Esoteric specialists</td></tr>
+            <tr><td>Evocation</td><td>Pure magic missiles &amp; utility</td><td>Force damage / summons</td><td>Reliable all-rounder</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">Why schools matter</span><p>Spell Power is tracked <em>per school</em>. A piece of Pyromancer gear pumps <strong>Fire</strong> Spell Power but does nothing for your Ice spells. This is the whole reason to specialise rather than dabble — focused gear multiplies one school hard.</p></div>
+      <div class="note tip"><span class="label">Generic vs. school power</span><p>Some trinkets grant <strong>generic Spell Power</strong> that helps every school, while armour sets usually grant <strong>school-specific</strong> power plus cooldown reduction. Mix one generic-power amulet with a school-locked armour set for the best of both.</p></div>
+    </section>
+
+    <!-- 03 TIERS -->
+    <section class="doc" id="tiers">
+      <p class="sec-index">03 — Power &amp; scarcity</p>
+      <h2>Spell Tiers &amp; Rarity</h2>
+      <p>Two independent axes describe a spell: its <strong>rarity</strong> (how hard it is to find) and its <strong>level</strong> (how strong this particular copy is). Higher levels cost more mana and hit harder; rarer spells tend to be more powerful or more situational.</p>
+      <div class="data-table">
+        <table>
+          <caption>Rarity tiers (drop chance &amp; ceiling rise together)</caption>
+          <thead><tr><th>Rarity</th><th>Found</th><th>Typical role</th></tr></thead>
+          <tbody>
+            <tr><td>Common</td><td class="num">often</td><td>Bread-and-butter staples; cheap, spammable.</td></tr>
+            <tr><td>Uncommon</td><td class="num">regular</td><td>Stronger staples and early utility.</td></tr>
+            <tr><td>Rare</td><td class="num">scarce</td><td>Notable power spikes; build-defining picks.</td></tr>
+            <tr><td>Epic</td><td class="num">rare</td><td>Heavy hitters and signature school spells.</td></tr>
+            <tr><td>Legendary</td><td class="num">very rare</td><td>The capstone nukes, summons and ultimates.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Spell level</h3>
+      <p>Most spells roll at a <strong>level</strong> from 1 up to a per-spell maximum. Each level:</p>
+      <ul>
+        <li>Raises the spell's <strong>effect</strong> — more damage, longer duration, more summons, bigger heal.</li>
+        <li>Raises the <strong>mana cost</strong>, so a higher level is not free — it asks more of your pool.</li>
+        <li>Can be <strong>increased</strong> by acquiring a higher-level copy (or upgrading via the mod's progression items) and imbuing it into your book.</li>
+      </ul>
+      <div class="note warn"><span class="label">Level requirements</span><p>High-level spells often demand a minimum <strong>Spell Power</strong> or gear threshold to cast effectively — pouring a Level 5 nuke through a robe-less novice wastes most of its potential. Grow your gear and your spell levels together.</p></div>
+      <div class="note tip"><span class="label">Rarity ≠ best</span><p>A maxed common spell on a fully-kitted mage frequently out-performs a low-level legendary. Optimise the spell you have <em>gear for</em>, not the rarest line in the tooltip.</p></div>
+    </section>
+
+    <!-- 04 ACQUIRE -->
+    <section class="doc" id="acquire">
+      <p class="sec-index">04 — Gathering the lore</p>
+      <h2>Acquiring Spells</h2>
+      <p>You build a spellbook from scraps found across the world. There are four main pipelines, and a serious mage uses all of them:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">loot</span><h4>Loot Chests</h4><p>Dungeons, structures and the mod's own buildings hide scrolls and mage gear. The most reliable early supply.</p></div>
+        <div class="card"><span class="tag">mobs</span><h4>Mage Mobs</h4><p>The mod adds hostile casters that drop scrolls, gear and reagents — fight fire with fire.</p></div>
+        <div class="card"><span class="tag">craft</span><h4>Scroll Forge</h4><p>Craft specific scrolls from spell-specific ingredients once you've gathered the recipe materials.</p></div>
+        <div class="card"><span class="tag">imbue</span><h4>Imbuing</h4><p>Move a scroll's spell into a permanent <strong>Spell Book</strong> slot, turning a one-shot into a reusable spell.</p></div>
+      </div>
+
+      <h3>The mage mobs</h3>
+      <p>Iron's Spells adds themed enemy casters — each tied to a school, each dropping its school's loot. Hunt the one whose magic you want to learn:</p>
+      <div class="data-table">
+        <table>
+          <caption>Hostile casters &amp; what they teach you</caption>
+          <thead><tr><th>Mob</th><th>School</th><th>Drops / theme</th></tr></thead>
+          <tbody>
+            <tr><td>Pyromancer</td><td>Fire</td><td>Fire scrolls, Pyromancer gear</td></tr>
+            <tr><td>Cryomancer</td><td>Ice</td><td>Ice scrolls, Cryomancer gear</td></tr>
+            <tr><td>Archevoker</td><td>Evocation / mixed</td><td>Powerful evocation scrolls, robes</td></tr>
+            <tr><td>Necromancer</td><td>Ender / Blood / summons</td><td>Summoning &amp; death-themed loot</td></tr>
+            <tr><td>Apothecary</td><td>Nature / Poison / Holy</td><td>Potion-flavoured scrolls &amp; reagents</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Scroll Forge &amp; imbuing</h3>
+      <ol class="flow">
+        <li>Gather the <strong>spell-specific ingredients</strong> a scroll recipe calls for (often reagents dropped by the matching school's mobs).</li>
+        <li>Use the <strong>Scroll Forge</strong> to craft the scroll — a single-use copy of that spell at a given level.</li>
+        <li>Open your <strong>Spell Book</strong> and <strong>imbue</strong> the scroll into a free slot, consuming the scroll but making the spell permanent.</li>
+        <li>Repeat to fill the book; higher-tier books hold more slots, letting you carry a full school's kit at once.</li>
+      </ol>
+      <div class="note tip"><span class="label">Check JEI</span><p>Because exact recipes and ingredient lists are pack- and version-specific, look up each scroll in <strong>JEI</strong> in-game. It shows the Scroll Forge recipe and the reagents you still need to farm.</p></div>
+    </section>
+
+    <!-- 05 SPELLS IN PRACTICE -->
+    <section class="doc" id="spells">
+      <p class="sec-index">05 — The grimoire</p>
+      <h2>The Schools in Practice</h2>
+      <p>A tour of standout spells per school and the <strong>role</strong> each fills — nuke, control, mobility, healing, summons or utility. Treat these as archetypes; exact names, levels and numbers are in your in-game tooltips.</p>
+
+      <h3>Fire — burn it down</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">nuke</span><h4>Fireball</h4><p>The iconic ranged explosive — direct damage plus ignition. Your default Fire opener.</p></div>
+        <div class="card"><span class="tag">mobility/dmg</span><h4>Burning Dash</h4><p>Lunge forward through enemies, leaving fire in your wake. A gap-closer that bites.</p></div>
+        <div class="card"><span class="tag">aoe</span><h4>Magma Bomb</h4><p>A heavy area detonation — crowd-clearing artillery for grouped mobs.</p></div>
+      </div>
+
+      <h3>Ice — control the field</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">dmg</span><h4>Ice Spikes</h4><p>Erupting frozen spears in a line — reliable, pointed damage.</p></div>
+        <div class="card"><span class="tag">control</span><h4>Frostwave</h4><p>A spreading wave that chills and slows everything it touches.</p></div>
+        <div class="card"><span class="tag">aoe control</span><h4>Cone of Cold</h4><p>A short-range freezing cone — lock down whatever's in your face.</p></div>
+      </div>
+
+      <h3>Lightning — strike &amp; soar</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">burst</span><h4>Lightning Bolt</h4><p>Call a bolt onto a target for sharp single-target burst.</p></div>
+        <div class="card"><span class="tag">mobility</span><h4>Ascension</h4><p>Launch yourself skyward — reposition, escape, or set up an aerial follow-up.</p></div>
+        <div class="card"><span class="tag">chain</span><h4>Electrocute</h4><p>Arcing current that jumps between nearby foes — built for clusters.</p></div>
+      </div>
+
+      <h3>Holy — mend &amp; ward</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">heal</span><h4>Heal</h4><p>Restore your own health — the cornerstone of a sustain build.</p></div>
+        <div class="card"><span class="tag">summon</span><h4>Wisp</h4><p>A guardian light that fights or supports alongside you.</p></div>
+        <div class="card"><span class="tag">utility</span><h4>Cleanse · Angel Wings</h4><p>Strip debuffs (Cleanse) or grant flight (Angel Wings) — pure support utility.</p></div>
+      </div>
+
+      <h3>Ender &amp; Evocation — blink &amp; bolt</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">mobility</span><h4>Teleport</h4><p>Blink to where you're looking — the premier escape and engage tool.</p></div>
+        <div class="card"><span class="tag">defense</span><h4>Evasion</h4><p>A reactive dodge/displacement to slip incoming hits.</p></div>
+        <div class="card"><span class="tag">dmg</span><h4>Magic Arrow / Missile</h4><p>Cheap, accurate force projectiles — the Evocation staple that never stops being useful.</p></div>
+      </div>
+
+      <h3>Blood, Nature &amp; Summons — risk &amp; growth</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">life-steal</span><h4>Blood Slash · Devour</h4><p>Trade or steal health for damage — strong, but Blood magic can cost you HP.</p></div>
+        <div class="card"><span class="tag">execute</span><h4>Heartstop</h4><p>A grim Blood finisher for high-value targets.</p></div>
+        <div class="card"><span class="tag">control/util</span><h4>Root · Acid Orb · Gust</h4><p>Nature kit: entangle foes, melt them with acid, or shove them with wind.</p></div>
+        <div class="card"><span class="tag">summons</span><h4>Necromancy Minions</h4><p>Raise undead servants to tank and swarm — turn a fight into a numbers game.</p></div>
+      </div>
+      <div class="note danger"><span class="label">Blood magic bites back</span><p>Blood-school spells frequently pay their cost in <strong>your own health</strong> or apply bleed to <em>you</em> as well as the target. Pair them with Holy heals or life-steal sustain, and never open a fight at low HP.</p></div>
+    </section>
+
+    <!-- 06 GEAR -->
+    <section class="doc" id="gear">
+      <p class="sec-index">06 — The robes &amp; rings</p>
+      <h2>Mage Gear &amp; Armour</h2>
+      <p>Gear is where a mage's real power lives. Armour sets grant <strong>+Max Mana</strong>, <strong>+Mana Regen</strong>, <strong>+Spell Power</strong> (often school-specific), and <strong>−Cooldown</strong>. Weapons channel spells; Curios trinkets stack mana and power on top.</p>
+
+      <h3>Mage armour sets</h3>
+      <div class="data-table">
+        <table>
+          <caption>Representative armour sets &amp; their leanings</caption>
+          <thead><tr><th>Set</th><th>Leans toward</th><th>Grants</th></tr></thead>
+          <tbody>
+            <tr><td>Pyromancer</td><td>Fire</td><td>+Fire Spell Power, mana, fire affinity</td></tr>
+            <tr><td>Cryomancer</td><td>Ice</td><td>+Ice Spell Power, mana, frost resilience</td></tr>
+            <tr><td>Electromancer</td><td>Lightning</td><td>+Lightning Spell Power, regen</td></tr>
+            <tr><td>Plagued</td><td>Nature / Blood</td><td>+Poison/Blood power, sustain</td></tr>
+            <tr><td>Wandering Magician</td><td>Generic</td><td>+Generic Spell Power &amp; mana — flexible early set</td></tr>
+            <tr><td>Archmage robes</td><td>Generic / all</td><td>Big mana pool &amp; regen — the all-rounder caster set</td></tr>
+            <tr><td>Netherite-tier mage sets</td><td>Endgame</td><td>Highest mana, power &amp; cooldown bonuses + real armour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note"><span class="label">Read the tooltip set bonus</span><p>Many sets give their best numbers only when worn <em>complete</em>. Hover the pieces — a full Pyromancer set's combined Fire Spell Power and cooldown reduction far exceeds the sum of mismatched pieces.</p></div>
+
+      <h3>Weapons &amp; casting items</h3>
+      <ul>
+        <li><strong>Staffs</strong> — magic weapons that boost casting and can channel bound spells; the classic mage main-hand alternative to a book.</li>
+        <li><strong>Spell Book (offhand)</strong> — carry your reusable spell loadout in the offhand while wielding a staff or sword.</li>
+        <li><strong>Ritual / Concentrated weapons</strong> — specialised magic weapons that lean into spell-power scaling for spell-sword hybrids.</li>
+      </ul>
+
+      <h3>Curios trinkets</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">ring</span><h4>Mana Rings</h4><p>Slot rings that raise Max Mana or Mana Regen — the easiest way to top up your pool without changing armour.</p></div>
+        <div class="card"><span class="tag">amulet</span><h4>Power Amulets</h4><p>Necklaces granting Spell Power (generic or school-specific) and cooldown reduction.</p></div>
+        <div class="card"><span class="tag">slots</span><h4>Curios Slots</h4><p>Curios adds dedicated ring/amulet/belt slots so trinkets don't compete with armour or hands.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Trinkets are free stats</span><p>Because Curios slots sit <em>outside</em> your armour and hands, every ring and amulet is pure additional mana or power. Fill every slot you have — there's no opportunity cost.</p></div>
+    </section>
+
+    <!-- 07 PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">07 — The path to archmage</p>
+      <h2>Progression &amp; Build Paths</h2>
+      <p>Iron's Spells rewards <strong>focus</strong>. Rather than learning one spell of every school, pick a lane and stack everything that amplifies it: that school's Spell Power, cooldown reduction, and enough mana to keep casting.</p>
+
+      <h3>The general arc</h3>
+      <ol class="flow">
+        <li><strong>Scavenge scrolls.</strong> Cast from single-use scrolls and any starter armour piece for a basic mana pool.</li>
+        <li><strong>Get a Spell Book.</strong> Imbue your favourite scrolls into permanent slots so you stop burning consumables.</li>
+        <li><strong>Pick a school.</strong> Choose the school whose spells you keep reaching for, then farm its mage mobs for gear.</li>
+        <li><strong>Assemble a set.</strong> Complete that school's armour for the set bonus — a huge jump in power and cooldown.</li>
+        <li><strong>Fill Curios.</strong> Add mana rings and a power amulet; now you can sustain a whole fight.</li>
+        <li><strong>Push to endgame.</strong> Chase Archmage / Netherite-tier sets and Legendary spells for the capstone build.</li>
+      </ol>
+
+      <h3>Build archetypes</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">specialist</span><h4>Pure Caster</h4><p>One school, stacked Spell Power + cooldown + mana. Maximum damage, minimum melee. Wants the most mana of any build.</p></div>
+        <div class="card"><span class="tag">hybrid</span><h4>Spell-Sword</h4><p>A casting staff/sword in main hand, Spell Book in offhand. Fewer spells, but real armour and melee fallback when mana's dry.</p></div>
+        <div class="card"><span class="tag">support</span><h4>Holy Sustainer</h4><p>Heal, Cleanse, buffs &amp; Wisps to keep a team (or yourself) alive through long bosses.</p></div>
+        <div class="card"><span class="tag">summoner</span><h4>Necromancer</h4><p>Raise minions to tank and swarm while you cast from the back line — a numbers-game build.</p></div>
+      </div>
+
+      <h3>PvE in To the Moon 2.0</h3>
+      <ul>
+        <li><strong>Cataclysm bosses</strong> — big, hard-hitting fights reward ranged nukes (Fire/Lightning) plus a reliable escape (Teleport/Ascension) and self-heal.</li>
+        <li><strong>Twilight Forest</strong> — varied progression bosses; control schools (Ice root/slow) and summons shine for managing adds.</li>
+        <li>Keep at least one <strong>mobility</strong> and one <strong>defensive/heal</strong> spell slotted no matter your school — a glass cannon dies to one mistake.</li>
+      </ul>
+      <div class="note warn"><span class="label">Don't out-level your gear</span><p>A Legendary spell at high level with no matching Spell Power underperforms a tuned common. Grow spell level and school gear <em>together</em>, and check that you meet a spell's power threshold before relying on it in a boss fight.</p></div>
+    </section>
+
+    <!-- 08 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">08 — Field wisdom</p>
+      <h2>Tips &amp; Synergies</h2>
+      <p>The difference between a robe-wearer and an archmage is economy and timing. A few habits that compound:</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Mana economy &amp; combat habits</caption>
+          <thead><tr><th>Habit</th><th>Why it works</th></tr></thead>
+          <tbody>
+            <tr><td>Open with cheap spells</td><td>Save your big nuke's mana for when it lands clean; don't dump the pool turn one.</td></tr>
+            <tr><td>Watch the mana bar, not the cooldown</td><td>A ready spell you can't afford does nothing. Pace casts to your regen.</td></tr>
+            <tr><td>Stack cooldown reduction</td><td>More casts per fight from the same pool — multiplies your effective DPS.</td></tr>
+            <tr><td>Carry one mobility + one heal</td><td>Survival utility keeps you alive long enough for damage to matter.</td></tr>
+            <tr><td>Fill every Curios slot</td><td>Free, stacking mana &amp; power outside your armour and hands.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Combining schools</h3>
+      <p>Specialising doesn't mean ignoring everything else. The strongest builds keep a <strong>splash</strong> of off-school utility:</p>
+      <ul>
+        <li>Any damage school + a single <strong>Holy</strong> Heal or <strong>Ender</strong> Teleport scroll covers your two biggest survival gaps.</li>
+        <li><strong>Ice</strong> control before a <strong>Fire</strong> or <strong>Lightning</strong> nuke — freeze, then detonate into a stationary target.</li>
+        <li><strong>Summons</strong> (Necromancy/Wisp) plus a back-line caster turns every fight into a 2-against-1.</li>
+        <li>Generic Spell Power trinkets help the splash spells too, since they aren't school-locked.</li>
+      </ul>
+
+      <h3>Pairing with the pack</h3>
+      <ul>
+        <li>Iron's Spells slots in alongside the pack's <strong>combat content</strong> — use mage gear and trinkets as an alternative or complement to tech armour.</li>
+        <li><strong>Curios</strong> trinkets from other mods share the same slots — budget your rings/amulets across everything competing for them.</li>
+        <li>Magic <strong>mobility</strong> (Teleport, Ascension, Angel Wings) covers traversal in big structure dungeons without needing tech jetpacks.</li>
+      </ul>
+      <div class="note tip"><span class="label">When in doubt, read the tooltip</span><p>Every spell shows its mana cost, cooldown, school and level live. JEI shows where scrolls come from. The mod wiki and your in-game GUIs are the final word — this codex is a map, not the territory.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Arcane Codex</strong><br>
+      An unofficial, fan-made grimoire for Iron's Spells 'n Spellbooks on Minecraft 1.19.2 (Forge).<br>
+      The mod is by <a href="https://github.com/iron431">Iron431 &amp; contributors</a>. Depends on GeckoLib, Curios &amp; Playeranimator.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · mana · casting · the nine schools<br>
+      · spell tiers · gear · build paths<br>
+      · the To the Moon 2.0 feature set
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Mana, damage, cooldown and drop values are approximate and configurable. In-game tooltips, JEI and the mod wiki are ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

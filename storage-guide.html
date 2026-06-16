@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Quartermaster — a storage &amp; logistics field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth hub guide to the storage and item-routing mods of To the Moon 2.0 (Minecraft 1.19.2 Forge): Sophisticated Backpacks, Traveler's Backpack, Functional Storage, Storage Drawers, Tom's Simple Storage, Iron Chests, Modular Routers and Pipez — which mod for which job, and how to wire them together." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0a0c11; --bg-1:#0e1118; --bg-2:#141822; --bg-3:#1c2230; --line:#28303f;
+    --ink:#e4e9f2; --ink-dim:#98a3b8; --ink-faint:#626d82;
+    --accent:#5b8cff; --accent-2:#43d6c4; --accent-3:#f0b652; --danger:#e0683a;
+    --accent-soft:rgba(91,140,255,0.13); --accent-glow:rgba(91,140,255,0.5);
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📦</span>
+      <span class="wordmark">The Quarter-<br>master<small>STORAGE &amp; LOGISTICS</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <p class="group-label">Carry it</p>
+      <a href="#sophisticated"><span class="ix">01</span> Sophisticated Backpacks</a>
+      <a href="#travelers"><span class="ix">02</span> Traveler's Backpack</a>
+      <p class="group-label">Store it</p>
+      <a href="#functional"><span class="ix">03</span> Functional Storage</a>
+      <a href="#drawers"><span class="ix">04</span> Storage Drawers</a>
+      <a href="#toms"><span class="ix">05</span> Tom's Simple Storage</a>
+      <a href="#ironchests"><span class="ix">06</span> Iron &amp; Ender Chests</a>
+      <p class="group-label">Move it</p>
+      <a href="#routers"><span class="ix">07</span> Modular Routers</a>
+      <a href="#pipez"><span class="ix">08</span> Pipez</a>
+      <p class="group-label">Doctrine</p>
+      <a href="#together"><span class="ix">09</span> Putting It Together</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Eight mods, one supply chain.<br>Tier counts, slot totals and<br>capacities are config- and<br>upgrade-dependent — treat the<br>numbers here as approximate and<br>let JEI and the in-game tooltips<br>be ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · storage &amp; item-routing mods</p>
+      <h1>The Quarter-<br>master</h1>
+      <p class="lede">A working manual for the entire storage &amp; logistics shelf of <strong>To the Moon 2.0</strong>. Eight mods that answer four different questions: <em>what do I carry, what do I stockpile, what do I search, and how do I move it?</em> This hub puts each mod in its lane — backpacks for the field, drawers for bulk, a terminal for the searchable network, routers and pipes for the plumbing — and then shows how they stack into one supply chain.</p>
+      <div class="badges">
+        <span class="badge accent">8 mods, one shelf</span>
+        <span class="badge">Sophisticated · Traveler's</span>
+        <span class="badge">Drawers · Functional · Tom's</span>
+        <span class="badge">Routers · Pipez · Iron Chests</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here — Which Mod For Which Job</h2>
+      <p class="lead">Storage isn't one problem, it's four. New players cram everything into a wall of vanilla chests and then drown in it. The quartermaster's trick is to recognise which of the four jobs you're doing and reach for the tool built for it.</p>
+
+      <p>Every mod on this shelf solves one of these jobs well and the others badly. Learn the map first and the rest of the guide reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">job 1</span><h4>Personal carry</h4><p>Inventory that travels <em>with you</em> on expeditions. Backpacks, equippable packs, ender bags. Mobile, limited, often with built-in automation.</p></div>
+        <div class="card"><span class="tag">job 2</span><h4>Bulk single-item</h4><p>Thousands of cobble, iron, sand. Drawers shine: huge per-type capacity, item visible on the face, instant deposit by punching.</p></div>
+        <div class="card"><span class="tag">job 3</span><h4>Searchable network</h4><p>One terminal, every item, a search bar and a crafting grid. Tom's Simple Storage (or AE2) — random odds-and-ends, queried not browsed.</p></div>
+        <div class="card"><span class="tag">job 4</span><h4>Moving items</h4><p>Getting goods from machine to chest to drawer automatically. Pipez for clean tiered pipes; Modular Routers for compact pipeless automation.</p></div>
+      </div>
+
+      <h3>The decision table</h3>
+      <div class="data-table">
+        <table>
+          <caption>Pick the storage by the question you're asking</caption>
+          <thead><tr><th>If you need to…</th><th>Reach for</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Carry loot in the field, mine deep, fly out</td><td>Sophisticated Backpacks</td><td>Tiered bag + upgrade slots (magnet, pickup, feeding) — automation you wear.</td></tr>
+            <tr><td>Carry <em>and</em> haul fluids / craft on the move</td><td>Traveler's Backpack</td><td>Equips to the back slot, built-in tanks, crafting grid, sleeping bag, hose.</td></tr>
+            <tr><td>Stockpile 4,000 cobblestone, see it at a glance</td><td>Storage Drawers / Functional Storage</td><td>Massive single-type capacity, punch-to-insert, item shown on the face.</td></tr>
+            <tr><td>Auto-compact ingots ⇄ blocks ⇄ nuggets</td><td>Compacting drawers (either mod)</td><td>One block holds all three tiers and converts between them.</td></tr>
+            <tr><td>Search a thousand random items from one screen</td><td>Tom's Simple Storage</td><td>AE-lite terminal: search bar, sort, crafting grid, no per-item drawer.</td></tr>
+            <tr><td>Pack more into the same chest footprint</td><td>Iron Chests</td><td>Drop-in upgrades, up to a 9×12 grid; Ender variants for cross-base access.</td></tr>
+            <tr><td>Pull/push items with no pipe spaghetti</td><td>Modular Routers</td><td>One block + modules does extract, filter, eject, break, place, vacuum.</td></tr>
+            <tr><td>Run clean tiered item/fluid/energy/gas lines</td><td>Pipez</td><td>Per-side filters, extraction upgrades, round-robin, one pipe for many types.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">The golden rule</span><p>Drawers are for things you have <strong>a lot of one of</strong>. A terminal is for things you have <strong>a little of many of</strong>. Use both: bulk resources in drawers, then sub-net the messy stuff (mob drops, tools, spare circuits) into a Tom's terminal. Don't try to make one system do both jobs.</p></div>
+      <div class="note"><span class="label">AE2 lives in its own guide</span><p>Applied Energistics 2 is the heavyweight searchable-network mod and has its <strong>own dedicated page</strong> — this hub deliberately stops at Tom's Simple Storage as the lightweight terminal. See §09 for where AE2 picks up.</p></div>
+    </section>
+
+    <!-- 01 SOPHISTICATED BACKPACKS -->
+    <section class="doc" id="sophisticated">
+      <p class="sec-index">01 — Personal carry · automation</p>
+      <h2>Sophisticated Backpacks</h2>
+      <p class="lead">The single most quality-of-life early item on this shelf. A tiered backpack whose real power is its <strong>upgrade slots</strong> — you don't just carry more, you turn the bag into a tiny automated machine you wear on your back.</p>
+      <p>It ships alongside <strong>Sophisticated Core</strong>, a shared library mod (also used by Sophisticated Storage) that provides the upgrade and tier framework. You never craft Core directly; it's a dependency. The backpack itself climbs five tiers, each adding both inventory slots and upgrade-slot capacity.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Backpack tiers — capacity grows with the material (counts approximate, config-tunable)</caption>
+          <thead><tr><th>Tier</th><th>Crafted from</th><th>Inventory</th><th>Upgrade slots</th></tr></thead>
+          <tbody>
+            <tr><td>Leather Backpack</td><td>Leather + a chest</td><td class="num">small</td><td class="num">few</td></tr>
+            <tr><td>Iron</td><td>Leather pack + iron</td><td class="num">more</td><td class="num">more</td></tr>
+            <tr><td>Gold</td><td>Iron pack + gold</td><td class="num">more</td><td class="num">more</td></tr>
+            <tr><td>Diamond</td><td>Gold pack + diamond</td><td class="num">large</td><td class="num">many</td></tr>
+            <tr><td>Netherite</td><td>Diamond pack + netherite</td><td class="num">largest</td><td class="num">most</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Upgrading is non-destructive: feed a lower-tier pack into the recipe for the next and it keeps its contents and installed upgrades. You can also dye any backpack (and its trim separately) with dyes in the crafting grid for colour-coding your load-outs.</p>
+
+      <h3>The upgrade slots — automation you wear</h3>
+      <p>This is the whole reason the mod exists. Open the backpack, drop upgrades into the right-hand slots, and click each one to configure it. The big ones:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">capacity</span><h4>Stack Upgrade</h4><p>Multiplies the stack size every slot in the bag can hold — the cheap path to absurd capacity. Tiered (Iron→Diamond→Netherite) for bigger multipliers.</p></div>
+        <div class="card"><span class="tag">collect</span><h4>Magnet · Pickup</h4><p>Magnet vacuums nearby drops &amp; XP straight into the bag. Pickup catches items you'd normally collect, filtered, so junk never hits your hotbar.</p></div>
+        <div class="card"><span class="tag">sort</span><h4>Filter</h4><p>A pure filter that, with the Pickup/Deposit logic, decides what stays in the pack and what passes through. Whitelist/blacklist by item or tag.</p></div>
+        <div class="card"><span class="tag">live</span><h4>Feeding</h4><p>Auto-eats from food stored in the bag when your hunger drops. Set the threshold; never starve mid-mine again.</p></div>
+        <div class="card"><span class="tag">make</span><h4>Crafting · Smelting</h4><p>Crafting adds a 3×3 grid inside the bag. Smelting/Auto-Smelting runs furnace/blast/smoker logic on the pack's contents using its own fuel.</p></div>
+        <div class="card"><span class="tag">make</span><h4>Compacting</h4><p>Auto-crunches 9-/4-count items into their block form (and optionally back) as they enter — keeps cobble, iron, etc. compact.</p></div>
+        <div class="card"><span class="tag">trim</span><h4>Void</h4><p>Filtered auto-delete: any matched item entering the bag is destroyed. The clean way to never pick up cobble or rotten flesh again.</p></div>
+        <div class="card"><span class="tag">station</span><h4>Deposit · Refill</h4><p>Walk up to a chest: Deposit dumps matched items in; Refill tops your hotbar/inventory back up from the bag. Inventory-restock in two upgrades.</p></div>
+        <div class="card"><span class="tag">power</span><h4>Battery · Pump</h4><p>Battery gives the bag an FE buffer to run/charge tools. Pump (a Tank/Pump upgrade) lets the bag hold and move fluids.</p></div>
+      </div>
+      <div class="note tip"><span class="label">The starter loadout</span><p>For a first mining trip: a <strong>Stack Upgrade</strong> (capacity), a <strong>Magnet</strong> (auto-collect), a <strong>Void Upgrade</strong> filtered to cobblestone &amp; granite (no junk), and a <strong>Feeding Upgrade</strong> over a stack of cooked meat. You'll come back full of ore and never touch your inventory.</p></div>
+      <div class="note warn"><span class="label">Death &amp; recovery</span><p>By default the backpack drops on death like any item — and everything you owned is inside it. Many configs make it stay equipped or glow on the ground; check your pack settings. Consider a renamed/coloured netherite bag (netherite items survive lava/fire) for your "do not lose this" loadout.</p></div>
+    </section>
+
+    <!-- 02 TRAVELER'S BACKPACK -->
+    <section class="doc" id="travelers">
+      <p class="sec-index">02 — Personal carry · the toolkit pack</p>
+      <h2>Traveler's Backpack</h2>
+      <p class="lead">A different philosophy from Sophisticated. Where that pack is an automation chassis, the Traveler's Backpack is a <strong>mobile workstation</strong>: it equips to a dedicated back slot, carries two built-in fluid tanks, a crafting grid, and a sleeping bag, and grants material-specific abilities.</p>
+      <p>You wear it visibly on your back. Either open it from your inventory (a back-slot accessory), or place it in the world as a block and walk up to use it — a placed pack works like a chest plus tanks plus a workbench. Right-click while it's placed to pick it back up.</p>
+
+      <h3>What's built in</h3>
+      <ul>
+        <li><strong>Storage grid</strong> — the main inventory, plus tool slots on the sides.</li>
+        <li><strong>Two fluid tanks</strong> — one on each side, each holding a few buckets. Fill them at a source or with the <strong>hose</strong> attachment, and drink/place from them in the field.</li>
+        <li><strong>2×2 crafting grid</strong> with a result and a held-result slot — craft on the move without a bench.</li>
+        <li><strong>Sleeping bag</strong> — deploy it from the pack to set spawn and skip the night without carrying a bed.</li>
+        <li><strong>The hose</strong> — a tube that draws from / fills the tanks: drink, void, or place fluid in the world.</li>
+      </ul>
+
+      <h3>Tiers &amp; themed abilities</h3>
+      <p>Packs come in a wide range of <strong>themes/materials</strong>, and the higher-tier crafting materials carry special abilities rather than just more slots:</p>
+      <div class="data-table">
+        <table>
+          <caption>Notable Traveler's Backpack variants &amp; their abilities</caption>
+          <thead><tr><th>Variant</th><th>Built around</th><th>Signature ability</th></tr></thead>
+          <tbody>
+            <tr><td>Standard / basic themes</td><td>Wool, leather, mob-themed crafts</td><td>Storage + tanks + crafting; cosmetic variety.</td></tr>
+            <tr><td>Diamond</td><td>Diamonds</td><td>A larger, sturdier mid-game workhorse pack.</td></tr>
+            <tr><td>Ender</td><td>Ender-themed</td><td>Ender-flavoured utility; integrates with ender-fluid/teleport themes.</td></tr>
+            <tr><td>Diving</td><td>Diving / aquatic theme</td><td>Pair the tanks with a <strong>hose in spray/drink mode</strong> for breathing underwater — a portable air supply.</td></tr>
+            <tr><td>Netherite</td><td>Netherite</td><td>Top tier: most durable, fire/lava-resistant as a dropped item.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Tanks are the killer feature</span><p>The reason to pick Traveler's over Sophisticated is <strong>fluids</strong>. Carry a tank of water for a portable infinite drink, a tank of lava to refuel furnaces or as an emergency obsidian-maker, or run the diving setup as a self-contained scuba rig. No other backpack on this shelf does fluids this cleanly out of the box.</p></div>
+      <div class="note warn"><span class="label">One pack at a time</span><p>The Traveler's Backpack uses a single dedicated back slot, so you can wear exactly one. It is generally <em>not</em> compatible with wearing a Sophisticated Backpack in the same slot — pick the pack that matches the trip (automation vs. fluids/crafting), or swap between them at base.</p></div>
+    </section>
+
+    <!-- 03 FUNCTIONAL STORAGE -->
+    <section class="doc" id="functional">
+      <p class="sec-index">03 — Bulk · the modern drawers</p>
+      <h2>Functional Storage</h2>
+      <p class="lead">A clean, modern take on drawer storage. Like Storage Drawers it gives each block a huge capacity for a <em>single</em> item type with the item shown on the face — but it adds a tidy <strong>digital network</strong> via a Storage Controller, so a wall of drawers can be queried and accessed as one inventory.</p>
+
+      <h3>The pieces</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">drawer</span><h4>1 / 2 / 4-slot drawers</h4><p>Per-block drawers split into 1, 2 or 4 compartments. Fewer compartments = more capacity each. Punch to insert a stack; right-click to pull.</p></div>
+        <div class="card"><span class="tag">compact</span><h4>Compacting Drawer</h4><p>Holds an item across its block/ingot/nugget (or block/item/×9) tiers in one drawer and converts between them automatically.</p></div>
+        <div class="card"><span class="tag">core</span><h4>Storage Controller</h4><p>The network brain. Link drawers to it and it exposes them as one big inventory for pipes, terminals and the Controller's own search screen.</p></div>
+        <div class="card"><span class="tag">link</span><h4>Linking Tools &amp; Frames</h4><p>A linking tool ties drawers into the controller's range/network. Framed drawers let you re-skin the block to match your build.</p></div>
+      </div>
+
+      <h3>Upgrades</h3>
+      <p>Each drawer takes upgrades in its slots to raise capacity or change behaviour — storage-multiplier upgrades climb in tiers, and there are utility upgrades for voiding overflow, pulling/pushing, and locking the slot to an item. The exact multipliers are config-set; treat them as "each tier roughly multiplies the base."</p>
+      <div class="note tip"><span class="label">Why pick Functional over classic Drawers?</span><p>If you want your bulk store to <em>also</em> behave like a searchable network — one controller you can pipe into and pull from with a single tool — Functional Storage's controller-centric design is the smoother experience. If you want maximum drawer variety, trim, and the long-established upgrade ecosystem, see §04.</p></div>
+    </section>
+
+    <!-- 04 STORAGE DRAWERS -->
+    <section class="doc" id="drawers">
+      <p class="sec-index">04 — Bulk · the classic drawers</p>
+      <h2>Storage Drawers</h2>
+      <p class="lead">The original, time-tested bulk-storage mod and the bar everything else is measured against. Each drawer holds an enormous quantity of <strong>one item type</strong>, shows it on the face with a live count, and accepts a punch to dump your whole stack in at once.</p>
+
+      <h3>The drawer blocks</h3>
+      <ul>
+        <li><strong>Basic Drawers</strong> — full-block drawers in <strong>1×1, 1×2 and 2×2</strong> compartment layouts. Fewer compartments per block = more capacity in each.</li>
+        <li><strong>Half Drawers</strong> — half-height versions (1 and 2 compartment) for fitting storage into tighter walls.</li>
+        <li><strong>Trim</strong> — decorative filler that visually ties a drawer wall together and is used in upgrade-block crafts.</li>
+      </ul>
+
+      <h3>Connecting them — the Controller</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">core</span><h4>Drawer Controller</h4><p>Place one and every connected drawer within range becomes a single inventory. Pipes and hoppers insert to the controller and it routes each item to the right drawer.</p></div>
+        <div class="card"><span class="tag">extend</span><h4>Controller Slave</h4><p>An extra access face for the same network — put one on the far side of a big wall so pipes can reach the controller from anywhere.</p></div>
+        <div class="card"><span class="tag">tool</span><h4>Drawer Key</h4><p>Right-click a drawer to lock it to its current item (so it stays assigned even when empty). Variants below do special jobs.</p></div>
+      </div>
+
+      <h3>Upgrades &amp; keys</h3>
+      <div class="data-table">
+        <table>
+          <caption>Storage Drawers upgrades — capacity ladder &amp; utility (multipliers are config-set)</caption>
+          <thead><tr><th>Upgrade</th><th>Type</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Storage Upgrade I–VI</td><td>capacity</td><td>Each tier multiplies the drawer's base capacity higher than the last.</td></tr>
+            <tr><td>Obsidian / Emerald Upgrade</td><td>capacity</td><td>Top-end multipliers above tier VI for serious stockpiles.</td></tr>
+            <tr><td>Creative Upgrade</td><td>capacity</td><td>Infinite / fixed contents — for creative or display use.</td></tr>
+            <tr><td>Void Upgrade</td><td>utility</td><td>Once full, extra matching items are destroyed instead of backing up the line.</td></tr>
+            <tr><td>Compacting Upgrade</td><td>utility</td><td>Turns a drawer into a compacting drawer (block ⇄ item ⇄ nugget conversion).</td></tr>
+            <tr><td>Conversion Upgrade</td><td>utility</td><td>Treats equivalent items (e.g. ore variants/oredict matches) as the same slot.</td></tr>
+            <tr><td>Drawer Key (lock)</td><td>tool</td><td>Locks an item assignment; quantify with a <strong>Quantify/marker key</strong> to show exact counts on the face.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Quantify the wall</span><p>Use a <strong>key</strong> to toggle the exact-count display on a drawer's face, and <strong>lock</strong> drawers you always want assigned (so an empty cobble drawer stays "cobble" and doesn't get reassigned by the next punch). A locked, quantified, void-upgraded 1×1 drawer is the perfect cobblestone sink.</p></div>
+      <div class="note"><span class="label">Drawers vs. Functional Storage</span><p>These two mods overlap heavily. Many packs ship both; pick one as your house style to avoid two parallel drawer systems. Storage Drawers wins on upgrade depth and decoration; Functional Storage wins on the integrated controller network (§03).</p></div>
+    </section>
+
+    <!-- 05 TOM'S SIMPLE STORAGE -->
+    <section class="doc" id="toms">
+      <p class="sec-index">05 — Searchable · the AE-lite terminal</p>
+      <h2>Tom's Simple Storage Mod</h2>
+      <p class="lead">When you have a <em>little of a thousand things</em>, a drawer wall is the wrong tool — you want a <strong>terminal</strong>. Tom's Simple Storage is a lightweight, accessible storage network: connect your existing chests/barrels with cables and view them all through one searchable screen, no autocrafting math required.</p>
+
+      <h3>The three core blocks</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">screen</span><h4>Storage Terminal</h4><p>The view into the whole network. Search bar, sortable item list, shift-click to pull stacks. Place several around the base — they all see the same items.</p></div>
+        <div class="card"><span class="tag">link</span><h4>Inventory Connector</h4><p>The hub the terminal attaches to. Connectors bind nearby inventories into the network and can be chained.</p></div>
+        <div class="card"><span class="tag">reach</span><h4>Trim / Cable</h4><p>Storage Trim (and cables) extend a connector's reach so it can gather chests spread across a wall or room into one network.</p></div>
+        <div class="card"><span class="tag">craft</span><h4>Crafting Terminal</h4><p>A terminal with a built-in 3×3 crafting grid that pulls ingredients straight from the network — your everyday workbench replacement.</p></div>
+      </div>
+
+      <h3>Building a Tom's network</h3>
+      <ol class="flow">
+        <li>Place an <strong>Inventory Connector</strong> and surround it (directly or via <strong>Trim</strong>) with the chests and barrels you want pooled.</li>
+        <li>Attach one or more <strong>Storage Terminals</strong> (or a <strong>Crafting Terminal</strong>) to the connected mass.</li>
+        <li>Open a terminal: every item in every linked inventory is now searchable in one list. Type to filter, click to take, shift-click for a full stack.</li>
+        <li>Apply <strong>filters</strong> to the connector to control which inventories or items the network includes — handy to keep a "trash" chest out of the view.</li>
+      </ol>
+
+      <h3>Going wireless</h3>
+      <p>Tom's adds a <strong>Wireless Terminal</strong> (and a wireless crafting variant) that, once linked to your network, lets you browse and withdraw from anywhere in range — your network in your pocket. Charge/range behaviour is config-dependent.</p>
+      <div class="note tip"><span class="label">The sweet spot</span><p>Tom's is the perfect "good enough" network: far simpler than AE2, no channels or autocrafting to plan, and it reuses chests you already have. Use it for the messy long tail — mob drops, spare tools, one-off building blocks — and leave your high-volume resources in drawers (§04).</p></div>
+      <div class="note warn"><span class="label">It's not a bulk store</span><p>Because it reads through your underlying chests, a Tom's network is only as big as the inventories behind it. For 50,000 cobblestone you still want a void-upgraded drawer, not a hundred chests behind a connector.</p></div>
+    </section>
+
+    <!-- 06 IRON CHESTS -->
+    <section class="doc" id="ironchests">
+      <p class="sec-index">06 — Bigger boxes · cross-base access</p>
+      <h2>Iron Chests &amp; Ender Chests</h2>
+      <p class="lead">Sometimes you don't want a network or a drawer — you just want a <strong>bigger chest in the same footprint</strong>. Iron Chests is the classic answer: a ladder of upgraded vanilla chests with far more slots, plus glass-walled variants that show their contents and Ender variants that share storage across distance.</p>
+
+      <h3>The chest ladder</h3>
+      <div class="data-table">
+        <table>
+          <caption>Iron Chests tiers (grid sizes are the well-known defaults — config may differ)</caption>
+          <thead><tr><th>Chest</th><th>Grid</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Vanilla chest</td><td class="num">27</td><td>The baseline you upgrade from.</td></tr>
+            <tr><td>Iron Chest</td><td class="num">54</td><td>First step up; doubles a single chest.</td></tr>
+            <tr><td>Gold Chest</td><td class="num">81</td><td>Mid-tier; some variants are see-through.</td></tr>
+            <tr><td>Diamond Chest</td><td class="num">108</td><td>Glass-walled — shows its contents in-world.</td></tr>
+            <tr><td>Crystal Chest</td><td class="num">108</td><td>Fully transparent display chest; same capacity as Diamond, all glass.</td></tr>
+            <tr><td>Obsidian Chest</td><td class="num">108</td><td>Blast-resistant top tier — survives explosions.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>You don't re-craft from scratch each time: <strong>chest upgrade kits</strong> (Iron→Gold, Gold→Diamond, etc.) are crafted and applied to an existing chest, promoting it <em>in place with its contents intact</em>. There are also kits to upgrade from a vanilla chest, so a full chest is never a dead end.</p>
+
+      <h3>Iron (tiered) Ender Chests</h3>
+      <p>The Ender variants store to a <strong>frequency</strong> rather than a place: every Ender Chest set to the same colour-code combination shares one inventory, no matter where in the world it sits. The tiered Ender chests follow the same metal ladder for larger frequency inventories.</p>
+      <div class="note tip"><span class="label">Frequencies = teleporting items</span><p>Set an Ender Chest's three colour dials to a combination, place a second chest anywhere — your mining base, the Nether, your main store — on the same combination, and they're the same box. It's the cheapest "send items home" trick before you build real logistics. Give each player or each job its own frequency to avoid collisions.</p></div>
+      <div class="note warn"><span class="label">A chest is still just a chest</span><p>Iron Chests gives you depth, not routing or search. A diamond chest is a great machine-output buffer or a "miscellaneous" box, but a wall of them will still bury you the way vanilla chests do. Pair them with a Tom's terminal (§05) so the big chests are searchable.</p></div>
+    </section>
+
+    <!-- 07 MODULAR ROUTERS -->
+    <section class="doc" id="routers">
+      <p class="sec-index">07 — Moving it · pipeless automation</p>
+      <h2>Modular Routers</h2>
+      <p class="lead">A single block that replaces a tangle of hoppers and pipes. The <strong>Modular Router</strong> has nine module slots and an internal buffer; you tell it what to do by slotting in <strong>modules</strong> — puller, sender, breaker, placer, vacuum, and more. One block can pull from a chest, filter the items, and push them somewhere else, all without a single pipe.</p>
+
+      <h3>How it works</h3>
+      <p>The router holds a buffer stack and, every tick (its speed set by upgrades), runs its modules in slot order. A module targets a block <em>relative to the router</em> (a direction, or a ranged target) and either brings items in or sends them out. Filtering is per-module, so one router can sort several streams at once.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>A sampling of Modular Routers modules</caption>
+          <thead><tr><th>Module</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Item Puller</td><td>Draws matching items from the adjacent inventory into the router's buffer.</td></tr>
+            <tr><td>Sender (1/2/3)</td><td>Pushes buffered items to a target — adjacent, ranged, or cross-dimension at the top tier.</td></tr>
+            <tr><td>Extruder / Placer</td><td>Places blocks from the buffer into the world (build lines, extend platforms).</td></tr>
+            <tr><td>Breaker</td><td>Breaks the block in front and pulls the drops into the buffer (cobble gen, tree farms).</td></tr>
+            <tr><td>Vacuum</td><td>Sucks up nearby dropped items into the buffer — a tidy farm collector.</td></tr>
+            <tr><td>Activator / Player Module</td><td>Right-/left-clicks like a player: shears, milks, attacks, uses items.</td></tr>
+            <tr><td>Fluid / Energy modules</td><td>Move fluids and FE in addition to items — one router, several resources.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Upgrades</h3>
+      <p>Drop upgrades into the router to tune it: <strong>Speed</strong> (more operations per tick), <strong>Stack</strong> (move full stacks per op instead of one item), <strong>Filter</strong> (regex/tag matching), <strong>Range</strong>, and a <strong>Camouflage</strong> upgrade so the router can wear another block's skin and hide in a wall.</p>
+      <div class="note tip"><span class="label">When to reach for a router</span><p>Modular Routers shines for <strong>compact, self-contained machines</strong>: a cobblestone generator (breaker + sender), an auto-farm harvester (activator + vacuum + sender), a sorting hub feeding several chests from one input. If the job is "one box of logic, no long runs," it beats laying pipe.</p></div>
+    </section>
+
+    <!-- 08 PIPEZ -->
+    <section class="doc" id="pipez">
+      <p class="sec-index">08 — Moving it · clean tiered pipes</p>
+      <h2>Pipez</h2>
+      <p class="lead">When you <em>do</em> need to run things across the base, Pipez is the modern, fuss-free pipe mod. One pipe family carries <strong>items, fluids, energy or gas</strong>; each comes in five throughput tiers; and every side of every pipe can carry its own filter and extraction settings.</p>
+
+      <h3>The four pipe types &amp; five tiers</h3>
+      <p>There's a dedicated pipe for each resource — <strong>Item, Fluid, Energy and Gas</strong> (gas requires Mekanism). Each climbs the same tier ladder, raising how much it moves per operation and how fast it ticks:</p>
+      <div class="data-table">
+        <table>
+          <caption>Pipez tier ladder (throughput rises each tier; exact rates are config-set)</caption>
+          <thead><tr><th>Tier</th><th>Relative throughput</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Basic</td><td class="num">×1</td><td>Cheap early-game routing.</td></tr>
+            <tr><td>Improved</td><td class="num">×2+</td><td>The everyday workhorse.</td></tr>
+            <tr><td>Advanced</td><td class="num">×4+</td><td>For busy machine networks.</td></tr>
+            <tr><td>Ultimate</td><td class="num">×8+</td><td>High-volume backbones.</td></tr>
+            <tr><td>Infinity</td><td class="num">∞</td><td>Effectively unlimited — moves whole inventories per tick.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sides, filters &amp; upgrades</h3>
+      <p>The strength of Pipez is per-side control. Use the <strong>Wrench</strong> to set a face on a pipe to one of: <strong>Disconnected · Connected · Pull · Push</strong> (extract or insert). Each extracting/inserting face then gets its own settings panel:</p>
+      <ul>
+        <li><strong>Filters</strong> — whitelist/blacklist by item or tag, match NBT, and chain multiple filters per side for fine-grained sorting.</li>
+        <li><strong>Distribution mode</strong> — Normal, Round Robin, or Nearest-first, to spread or concentrate the flow across destinations.</li>
+        <li><strong>Redstone control</strong> — gate a side on a redstone signal.</li>
+        <li><strong>Upgrades</strong> — slot tier upgrades into a face to raise that connection's speed/amount independently, and a filter increase to add more filter rows.</li>
+      </ul>
+      <div class="note tip"><span class="label">Pipez vs. Modular Routers</span><p>Use <strong>Pipez</strong> when goods need to travel — long runs, branching networks, one pipe feeding many machines with per-side filters. Use <strong>Modular Routers</strong> (§07) when the logic lives in one spot and you want no runs at all. Most bases use both: routers as compact machines, Pipez as the connective tissue between them.</p></div>
+      <div class="note warn"><span class="label">Match the tier to the load</span><p>A Basic item pipe moving a Digital Miner's output will back up instantly. Either step the backbone up to Advanced/Ultimate or drop an extraction upgrade on the pulling face. Infinity pipes ignore the problem entirely — at a steeper cost.</p></div>
+    </section>
+
+    <!-- 09 TOGETHER -->
+    <section class="doc" id="together">
+      <p class="sec-index">09 — Doctrine</p>
+      <h2>Putting It Together</h2>
+      <p class="lead">No single mod here is the answer — the win is layering them in the right order as your base grows. Here's the quartermaster's recommended progression, from your first night to a fully plumbed industrial base.</p>
+
+      <h3>The progression</h3>
+      <ol class="flow">
+        <li><strong>Carry first.</strong> Craft a <strong>Sophisticated Backpack</strong> (or a Traveler's Backpack if you want fluids/crafting) before anything else. A Stack + Magnet + Void loadout makes early mining painless.</li>
+        <li><strong>Bulk next.</strong> As resources pile up, build a wall of <strong>drawers</strong> (Storage Drawers or Functional Storage) for your high-volume single items — cobble, ores, sand, drops. Void-upgrade the ones you over-produce.</li>
+        <li><strong>Search the long tail.</strong> Add a <strong>Tom's Simple Storage</strong> terminal over your chests/Iron Chests for the messy odds-and-ends you can't drawer. One screen, one search bar.</li>
+        <li><strong>Buffer &amp; share.</strong> Use <strong>Iron Chests</strong> as machine-output buffers and an <strong>Ender Chest frequency</strong> to teleport loot home from remote sites.</li>
+        <li><strong>Move it.</strong> Wire the whole thing with <strong>Pipez</strong> (long runs, filtered sides) and drop in <strong>Modular Routers</strong> for compact, pipeless machines (cobble gens, farm collectors, sorters).</li>
+        <li><strong>Scale up.</strong> When the long tail outgrows Tom's and you want autocrafting, graduate to <strong>Applied Energistics 2</strong> — covered in its own dedicated guide.</li>
+      </ol>
+
+      <h3>A worked example base</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">field</span><h4>On your back</h4><p>Netherite Sophisticated pack: Stack ×, Magnet, Pickup-filter, Feeding, Void(cobble). Loot flows in, junk vanishes, you never open inventory.</p></div>
+        <div class="card"><span class="tag">bulk</span><h4>The drawer wall</h4><p>Functional/Storage Drawers behind one Controller. Pipez pulls machine output to the controller; it auto-sorts each item to its drawer.</p></div>
+        <div class="card"><span class="tag">misc</span><h4>The terminal corner</h4><p>Tom's Crafting Terminal over a bank of Diamond/Crystal Chests — your workbench and your junk drawer in one searchable screen.</p></div>
+        <div class="card"><span class="tag">plumbing</span><h4>The router rigs</h4><p>Modular Routers run the cobble gen and farm collectors; their output rides Pipez into the drawer controller. No hopper spaghetti.</p></div>
+      </div>
+
+      <h3>Quick mod-to-job recap</h3>
+      <ul class="pills">
+        <li><b>Carry:</b> Sophisticated · Traveler's</li>
+        <li><b>Bulk:</b> Storage Drawers · Functional Storage</li>
+        <li><b>Search:</b> Tom's Simple Storage</li>
+        <li><b>Bigger box:</b> Iron Chests</li>
+        <li><b>Teleport:</b> Ender Chests</li>
+        <li><b>Pipeless logic:</b> Modular Routers</li>
+        <li><b>Runs &amp; filters:</b> Pipez</li>
+        <li><b>Endgame network:</b> AE2 <span class="vflag">own guide</span></li>
+      </ul>
+      <div class="note tip"><span class="label">Don't over-build</span><p>You do not need all eight mods running at once. Most bases thrive on <strong>one backpack + one drawer mod + Pipez</strong>, adding Tom's and routers only when the mess and the manual hauling start to hurt. Build the next layer when the current one strains — not before.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Quartermaster</strong><br>
+      An unofficial, fan-made storage &amp; logistics manual for To the Moon 2.0 on Minecraft 1.19.2 (Forge).<br>
+      All mods are the work of their respective authors. This guide is not affiliated with or endorsed by any of them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Sophisticated Backpacks (+ Core) · Traveler's Backpack<br>
+      · Functional Storage · Storage Drawers · Tom's Simple Storage<br>
+      · Iron Chests · Modular Routers · Pipez
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Tier counts, slot totals, capacities and throughput are upgrade- and config-dependent and approximate here. The in-game tooltips and JEI are the ground truth for your exact pack.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

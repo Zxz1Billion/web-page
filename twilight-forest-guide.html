@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Twilight Atlas — a Twilight Forest field guide (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Twilight Forest (Minecraft 1.19.2 Forge) progression guide: building the portal, the locked boss ladder from the Naga to the Snow Queen, every major dungeon and biome, the material &amp; magic-item catalogue, and how to gear up between bosses." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0a120d; --bg-1:#0d1711; --bg-2:#132018; --bg-3:#1a2c20; --line:#26402f;
+    --ink:#e7f0e3; --ink-dim:#9bbaa2; --ink-faint:#64846c;
+    --accent:#5bbf8f; --accent-2:#b06be0; --accent-3:#e0c14a; --danger:#e0683a;
+    --accent-soft:rgba(91,191,143,0.13); --accent-glow:rgba(91,191,143,0.5);
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🌲</span>
+      <span class="wordmark">The Twilight<br>Atlas<small>THE TWILIGHT FOREST</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Setting Out</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#portal"><span class="ix">01</span> The Portal &amp; First Steps</a>
+      <a href="#ladder"><span class="ix">02</span> The Progression Ladder</a>
+      <p class="group-label">The Boss Road</p>
+      <a href="#naga-lich"><span class="ix">03</span> Naga &amp; Lich</a>
+      <a href="#labyrinth"><span class="ix">04</span> Labyrinth &amp; Hydra</a>
+      <a href="#stronghold"><span class="ix">05</span> Stronghold &amp; Dark Tower</a>
+      <a href="#glacier"><span class="ix">06</span> Yeti &amp; Snow Queen</a>
+      <p class="group-label">The Wider Wood</p>
+      <a href="#gear"><span class="ix">07</span> Materials, Gear &amp; Magic</a>
+      <a href="#biomes"><span class="ix">08</span> Biomes &amp; Landmarks</a>
+      <a href="#strategy"><span class="ix">09</span> Strategy &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the Twilight<br>Forest (1.19.2) line. The boss<br>order and Progression gates are<br>enforced in-game — your<br>Advancements screen and the<br>in-world guidebook are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Benimatic</p>
+      <h1>The Twilight<br>Atlas</h1>
+      <p class="lede">A traveller's account of the <strong>Twilight Forest</strong> — a whole world hung in perpetual dusk, reached by drowning a diamond in a flowered pool. It is no sandbox to roam at will: it is a <em>locked road</em>. Each great beast you fell breaks a shimmering ward and opens the path to the next. This atlas walks that road from the Naga's coils to the Snow Queen's frozen throne, and catalogues every dungeon, biome, and treasure between.</p>
+      <div class="badges">
+        <span class="badge accent">Twilight Forest</span>
+        <span class="badge">Locked boss progression</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">⚔ Bosses gate the map</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">The Twilight Forest is a <strong>self-contained dimension</strong> — its own world, reached through a portal you build in the overworld. It is eternally twilight: never quite night, never quite day, and crowded with strange wood, hollow hills, and dungeons full of teeth.</p>
+
+      <p>The single most important thing to understand before you step through: this dimension is <strong>gated</strong>. The mod ships a <em>Progression</em> system that magically shields most bosses and many areas until you have defeated the boss before them. You will literally bounce off invisible barriers or take damage trying to enter a dungeon you haven't earned. So the whole adventure is a ladder, climbed one rung at a time.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">where</span><h4>A separate world</h4><p>The Forest is its own dimension, like the Nether. You travel there and back through a portal; what you build at home stays at home.</p></div>
+        <div class="card"><span class="tag">when</span><h4>Perpetual dusk</h4><p>It is always dim. Hostile mobs spawn freely on the surface, so light your camps and keep moving with intent.</p></div>
+        <div class="card"><span class="tag">how</span><h4>Earned, not explored</h4><p>Progression Advancements unlock each new boss and region. Beat the prerequisite, the ward drops, the next door opens.</p></div>
+      </div>
+
+      <h3>The shape of the journey</h3>
+      <ul>
+        <li><strong>Build &amp; light the portal</strong> — a flowered water pool plus a thrown diamond (§01).</li>
+        <li><strong>Climb the boss ladder</strong> — Naga → Lich → mid-bosses → Knight Phantoms → Ur-Ghast → Alpha Yeti → Snow Queen (§02).</li>
+        <li><strong>Loot the materials &amp; magic</strong> — each boss and dungeon hands you the gear that makes the next fight survivable (§07).</li>
+        <li><strong>Gear up between fights at home</strong> — this pack hands you Mekanism, Tinkers and Blood Magic; use them (§09).</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Your in-game compass</span>
+        <p>Keep an eye on the <strong>Advancements</strong> screen. The Twilight Forest tab spells out, in order, which boss unlocks what — it is the canonical, always-correct version of the ladder this atlas describes. When in doubt, trust the game.</p>
+      </div>
+    </section>
+
+    <!-- 01 PORTAL -->
+    <section class="doc" id="portal">
+      <p class="sec-index">01 — The threshold</p>
+      <h2>The Portal &amp; First Steps</h2>
+      <p>Getting in is a small ritual. You build a shallow natural-looking pool, ring it with growing things, and offer a diamond to the water. The Forest answers with lightning.</p>
+
+      <h3>Build &amp; light the portal</h3>
+      <ol class="flow">
+        <li><strong>Dig a 2×2 pool</strong> and fill it with <strong>water</strong> — a simple flush pool, source blocks all the way.</li>
+        <li><strong>Ring it with nature.</strong> Surround the water's edge with <strong>flowers, grass, saplings, mushrooms</strong> or similar growing blocks. The portal wants to be born in something green.</li>
+        <li><strong>Throw a diamond in.</strong> Drop (Q) a <strong>Diamond</strong> directly into the water — don't place it, <em>toss</em> it. A bolt of <strong>lightning</strong> strikes, the water churns, and the pool becomes a Twilight Forest portal.</li>
+        <li><strong>Step in</strong> to be carried to the dimension. The same portal at the far end carries you home — and you can always make a fresh return pool out there if you wander far.</li>
+      </ol>
+      <div class="note tip"><span class="label">Returning home</span><p>You exit the Forest the same way you entered: stand in a portal pool. If you're lost on the far side, just build a new 2×2 flowered pool and diamond it — every portal links back to the overworld near where you left.</p></div>
+
+      <h3>First dangers</h3>
+      <p>The early Forest is not subtle about wanting you dead. Among the welcoming committee:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">cave</span><h4>Kobolds</h4><p>Small, fast, swarming gremlins that pour out of Hollow Hills. Individually weak, dangerous in a pack.</p></div>
+        <div class="card"><span class="tag">cap</span><h4>Redcaps</h4><p>Pickaxe-swinging miners that mine toward you and lay TNT-like traps. Don't let them dig under your feet.</p></div>
+        <div class="card"><span class="tag">druid</span><h4>Skeleton Druids</h4><p>Robed skeletons that fling potions and summon swarms. Close the distance fast or break line of sight.</p></div>
+      </div>
+
+      <h3>Finding your bearings</h3>
+      <p>The landscape is studded with landmarks even before the bosses. You'll quickly meet:</p>
+      <ul>
+        <li><strong>Hollow Hills</strong> — grassy domes hollow inside, packed with ores, treasure, and the aforementioned Kobolds. Small, medium and large variants, each richer than the last.</li>
+        <li><strong>Hedge Mazes</strong> — sprawling labyrinths of dense hedge that hurts to push through; they hide chests at the heart.</li>
+        <li><strong>Mazestone</strong> — the patterned stone that marks dungeon structures. Seeing it is a sign you've found something built, not grown.</li>
+        <li><strong>Hollow Trees</strong> — enormous trunks you can climb or hollow out; some make ready-made bases.</li>
+      </ul>
+      <div class="note warn"><span class="label">Don't dive in underdressed</span><p>Arrive with at least iron gear, food, and torches. The Forest punishes the careless, and your very first goal — the Naga — wants you in solid armour before you tangle with it.</p></div>
+    </section>
+
+    <!-- 02 LADDER -->
+    <section class="doc" id="ladder">
+      <p class="sec-index">02 — The locked road</p>
+      <h2>The Progression Ladder</h2>
+      <p>Here is the spine of the whole mod. Each boss drops a ward elsewhere in the world, recorded as a <strong>Progression Advancement</strong>. You cannot meaningfully skip ahead — the later dungeons stay shielded (and will hurt or repel you) until the prerequisite is dead. Read this table top-to-bottom as your route.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The canonical boss order &amp; what each unlocks</caption>
+          <thead><tr><th>#</th><th>Boss</th><th>Where</th><th>Unlocks next</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Naga</td><td>Naga Courtyard</td><td>Access to the Lich Tower</td></tr>
+            <tr><td class="num">2</td><td>Twilight Lich</td><td>Lich Tower</td><td>The Labyrinth &amp; the Fire Swamp / Hydra</td></tr>
+            <tr><td class="num">3a</td><td>Minoshroom <span class="vflag">mid-boss</span></td><td>Minotaur Labyrinth</td><td>Deeper labyrinth loot; steps toward the Stronghold</td></tr>
+            <tr><td class="num">3b</td><td>Hydra <span class="vflag">mid-boss</span></td><td>Fire Swamp</td><td>Fiery materials; steps toward the Stronghold</td></tr>
+            <tr><td class="num">4</td><td>Knight Phantoms</td><td>Goblin Knight Stronghold</td><td>Access to the Dark Tower</td></tr>
+            <tr><td class="num">5</td><td>Ur-Ghast</td><td>Dark Tower</td><td>Access to the Snowy Forest / Yeti Cave</td></tr>
+            <tr><td class="num">6</td><td>Alpha Yeti</td><td>Yeti Cave</td><td>Access to the Glacier &amp; Aurora Palace</td></tr>
+            <tr><td class="num">7</td><td>Snow Queen</td><td>Aurora Palace</td><td>The Highlands (the last "completed" gate)</td></tr>
+            <tr><td>—</td><td>Highlands → Plateau</td><td>Final Castle</td><td>Forgotten / unfinished endgame content</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn"><span class="label">The mid-bosses sit side by side</span><p>The <strong>Minoshroom</strong> (Labyrinth) and the <strong>Hydra</strong> (Fire Swamp) both open after the Lich and both feed toward the Goblin Knight Stronghold. Tackle them in whichever order you like, but expect to want gear from both before facing the Knight Phantoms.</p></div>
+
+      <h3>How the ward actually works</h3>
+      <p>Picture each region behind glass. The glass is real: walk into a still-shielded dungeon and you'll be shoved back or singed. The instant the prerequisite boss dies, the matching Progression Advancement fires and that glass shatters — quietly, world-wide. Then, and only then, can you fight what's inside.</p>
+      <p>The Highlands and the unfinished <strong>Final Castle</strong> on the Plateau are the far end of the line. They contain placeholder and forgotten content — the road runs out before it truly ends, which is part of the Forest's lore: a story still being written.</p>
+    </section>
+
+    <!-- 03 NAGA & LICH -->
+    <section class="doc" id="naga-lich">
+      <p class="sec-index">03 — The first two rungs</p>
+      <h2>The Naga &amp; the Twilight Lich</h2>
+
+      <h3>The Naga</h3>
+      <p>Your first wall. The <strong>Naga</strong> is a giant serpent that circles its <strong>Naga Courtyard</strong> — a ring of mossy <strong>Naga Stone</strong> pillars. It charges, body-slams, and is too fast to simply out-run.</p>
+      <ul>
+        <li><strong>Tactic:</strong> use the pillars. The Naga can smash through some terrain, so duck behind the courtyard's stone to break its charges, then strike as it passes. Bring a bow and plenty of food.</li>
+        <li><strong>Drop:</strong> <strong>Naga Scales</strong>, which craft into <strong>Naga Scale Armor</strong> — a light, durable early set that's a clear upgrade over iron and your first proper Forest gear.</li>
+        <li><strong>Unlocks:</strong> the Naga's death opens the way to the <strong>Lich Tower</strong>.</li>
+      </ul>
+
+      <h3>The Twilight Lich</h3>
+      <p>The <strong>Twilight Lich</strong> waits atop the <strong>Lich Tower</strong>, a tall dark spire. It is a three-phase fight and the first real test of your reflexes:</p>
+      <div class="data-table">
+        <table>
+          <caption>The Lich's three phases</caption>
+          <thead><tr><th>Phase</th><th>What it does</th><th>How to answer</th></tr></thead>
+          <tbody>
+            <tr><td>Shield &amp; bolts</td><td>Surrounded by a shield, it hurls magic bolts at you.</td><td><strong>Deflect its own shots back</strong> by hitting them — each reflection chips its shield away.</td></tr>
+            <tr><td>Summon minions</td><td>With its shield gone it summons swarms of minions and teleports.</td><td>Cut down the adds, keep chasing, don't get cornered on the tower.</td></tr>
+            <tr><td>Melee</td><td>Out of tricks, it closes for a straight melee duel.</td><td>Trade blows and finish it. This is where it's most vulnerable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The Lich is generous with rewards — it drops a set of <strong>Scepters</strong>, the Forest's first taste of magic weaponry:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">summon</span><h4>Zombie Scepter</h4><p>Summons short-lived zombie minions to fight for you. Great for soaking aggro.</p></div>
+        <div class="card"><span class="tag">drain</span><h4>Lifedrain Scepter</h4><p>Saps life from foes and returns it to you — a portable, charge-based vampiric beam.</p></div>
+        <div class="card"><span class="tag">guard</span><h4>Shield Scepter</h4><p>Grants you temporary protective shields that absorb incoming hits.</p></div>
+      </div>
+      <div class="note tip"><span class="label">The Lich is the keystone</span><p>Beating the Lich unlocks <strong>both</strong> the Minotaur Labyrinth and the Fire Swamp / Hydra. It's the branch point of the whole tree — gear up well here, because the road forks after it.</p></div>
+    </section>
+
+    <!-- 04 LABYRINTH & HYDRA -->
+    <section class="doc" id="labyrinth">
+      <p class="sec-index">04 — The fork</p>
+      <h2>The Labyrinth &amp; the Hydra</h2>
+      <p>Two mid-bosses open after the Lich. Both feed toward the Goblin Knight Stronghold; do them in either order.</p>
+
+      <h3>The Minotaur Labyrinth &amp; Minoshroom</h3>
+      <p>An underground maze of <strong>Mazestone</strong> sprawling on multiple levels, full of Minotaurs and dead-ends. At its heart, on a lower floor, lurks the <strong>Minoshroom</strong> — a fungal Minotaur mini-boss.</p>
+      <ul>
+        <li><strong>Maze Maps</strong> are the key to sanity here: crafted cartography that reveals the labyrinth's layout level by level so you don't wander forever.</li>
+        <li>The Minoshroom drops the <strong>Diamond Minotaur Axe</strong> — a powerful weapon that hits harder while you're charging.</li>
+        <li>Clearing the labyrinth and the Minoshroom is a step on the road toward the Stronghold.</li>
+      </ul>
+
+      <h3>The Fire Swamp &amp; the Hydra</h3>
+      <p>The <strong>Fire Swamp</strong> is a hostile, smouldering biome of fire jets and choking spires — you'll want fire resistance just to cross it. Deep within, in its lair, coils the <strong>Hydra</strong>: a massive, multi-headed serpent boss.</p>
+      <ul>
+        <li><strong>Tactic:</strong> the Hydra's heads attack independently — biting, breathing fire, and slamming. Stay mobile, punish the heads when they recoil, and keep healing topped up; this is a long, attritional fight.</li>
+        <li><strong>Drops:</strong> <strong>Fiery Blood</strong> and <strong>Fiery Tears</strong>, used to craft the <strong>Fiery</strong> material set — armour and tools that set foes alight. The Hydra also yields <strong>Hydra Chops</strong>, a generous food source.</li>
+      </ul>
+      <div class="note warn"><span class="label">Bring fire protection</span><p>Both of these are fire-themed in part — especially the Fire Swamp. Fire Resistance potions, Fire Protection enchantments, or the Naga/Fiery gear go a long way toward surviving the crossing, never mind the boss.</p></div>
+    </section>
+
+    <!-- 05 STRONGHOLD & DARK TOWER -->
+    <section class="doc" id="stronghold">
+      <p class="sec-index">05 — Goblins &amp; ghasts</p>
+      <h2>Goblin Knight Stronghold &amp; the Dark Tower</h2>
+
+      <h3>Goblin Knight Stronghold &amp; the Knight Phantoms</h3>
+      <p>A fortified warren built of <strong>Cracked Stone Bricks</strong> and crawling with goblins and armoured knights. Its boss is the <strong>Knight Phantoms</strong> — a procession of spectral armoured knights you fight in sequence, each appearing as the last falls.</p>
+      <ul>
+        <li><strong>Tactic:</strong> face them one wave at a time, watch for their lance charges, and use pillars and corners. Patience beats panic here.</li>
+        <li><strong>Drops &amp; spoils:</strong> <strong>Knightmetal</strong> for the <strong>Knightly</strong> armour and tool set, plus the prized <strong>Phantom Helm</strong> and <strong>Phantom Plate</strong> — striking, sturdy armour pieces.</li>
+        <li><strong>Unlocks:</strong> clearing the Knight Phantoms opens the road to the <strong>Dark Tower</strong>.</li>
+      </ul>
+
+      <h3>The Dark Tower &amp; the Ur-Ghast</h3>
+      <p>The <strong>Dark Tower</strong> is a towering, trap-laden fortress in the Dark Forest, built of <strong>Towerwood</strong> and riddled with shifting blocks, ghastlings, and devices. You'll need a <strong>Tower Key</strong> (found within) to open its vaults.</p>
+      <ul>
+        <li>The tower swarms with <strong>Carminite</strong>-charged blocks that change and reform around you — towerwood that vanishes and reappears, ghastlings that harry you in clouds.</li>
+        <li>At the summit broods the <strong>Ur-Ghast</strong>: a colossal, weeping ghast that rains fireballs and calls lesser ghastlings to its side. Reflect or dodge its barrage, clear the ghastlings, and close in during its vulnerable windows.</li>
+        <li>Its death yields <strong>Carminite</strong> and tower spoils, and — crucially — drops the ward on the snowy north, opening the path to the Yeti.</li>
+      </ul>
+      <div class="note tip"><span class="label">Carminite is the tower's signature</span><p>The reactive blocks and the Ur-Ghast's loot revolve around <strong>Carminite</strong>, the substance that makes the Dark Tower shift and breathe. It threads into several of the mod's stranger magic items — keep what you gather.</p></div>
+    </section>
+
+    <!-- 06 GLACIER -->
+    <section class="doc" id="glacier">
+      <p class="sec-index">06 — The frozen north</p>
+      <h2>The Glacier: Alpha Yeti &amp; the Snow Queen</h2>
+      <p>Past the Ur-Ghast the Forest turns to ice. Two cold bosses crown the journey — and the Snow Queen is, for now, the last truly finished fight in the mod.</p>
+
+      <h3>The Alpha Yeti</h3>
+      <p>Deep in the snowy hills, the <strong>Yeti Cave</strong> holds the <strong>Alpha Yeti</strong> — a huge, furious yeti that charges and hurls you into the walls.</p>
+      <ul>
+        <li><strong>Tactic:</strong> let it charge into the cave walls to stun itself, then punish. Don't stand between it and a wall unless you want to be the thing it slams.</li>
+        <li><strong>Drops:</strong> <strong>Alpha Yeti Fur</strong>, which crafts <strong>Yeti Armor</strong> — warm, strong gear with handy cold-world perks. You'll also gather <strong>Ice Bombs</strong>, throwable freezing explosives.</li>
+        <li><strong>Unlocks:</strong> the Alpha Yeti's fall opens the <strong>Glacier</strong> and the Aurora Palace.</li>
+      </ul>
+
+      <h3>The Snow Queen</h3>
+      <p>Atop the <strong>Aurora Palace</strong> — a luminous structure of shifting <strong>Aurora Blocks</strong> — reigns the <strong>Snow Queen</strong>, the final completed boss of the Forest.</p>
+      <ul>
+        <li><strong>Tactic:</strong> she summons drifting ice clouds and shards and dashes about the throne room. Dodge the falling ice, close in during her grounded moments, and keep your footing on the slick floor.</li>
+        <li><strong>Drops:</strong> powerful bows — the <strong>Triple Bow</strong> (fires three arrows at once) and the <strong>Seeker Bow</strong> (homing arrows) — among the best ranged weapons the mod offers.</li>
+      </ul>
+      <div class="note warn"><span class="label">The road thins here</span><p>The Snow Queen is the last "complete" boss. Beyond her lie the <strong>Highlands</strong>, the <strong>Thornlands</strong>, and the unfinished <strong>Final Castle</strong> — content that is forgotten or still being built. Reaching her is, in practice, finishing the Twilight Forest.</p></div>
+    </section>
+
+    <!-- 07 GEAR -->
+    <section class="doc" id="gear">
+      <p class="sec-index">07 — The reward shelf</p>
+      <h2>Materials, Gear &amp; Magic</h2>
+      <p>The whole point of the climb is what you carry out. The Forest's loot falls into three families: <strong>materials &amp; armour sets</strong>, <strong>magic items</strong>, and the <strong>Trophy Pedestals</strong> that record your kills.</p>
+
+      <h3>Armour &amp; material sets</h3>
+      <div class="data-table">
+        <table>
+          <caption>The Twilight Forest gear ladder</caption>
+          <thead><tr><th>Set / material</th><th>Sourced from</th><th>Flavour</th></tr></thead>
+          <tbody>
+            <tr><td>Ironwood</td><td>Crafted (early Twilight wood + iron)</td><td>A craftable starter upgrade over iron.</td></tr>
+            <tr><td>Naga Scale</td><td>Naga drops</td><td>Light, durable first boss armour.</td></tr>
+            <tr><td>Steeleaf</td><td>Found / dropped in the wood</td><td>Leafy mid-tier metal for armour and tools.</td></tr>
+            <tr><td>Fiery</td><td>Hydra (Fiery Blood &amp; Tears)</td><td>Sets enemies alight; strong offensive set.</td></tr>
+            <tr><td>Knightmetal (Knightly)</td><td>Knight Phantoms / Stronghold</td><td>Heavy, sturdy knight's panoply.</td></tr>
+            <tr><td>Yeti / Arctic</td><td>Alpha Yeti (Yeti Fur)</td><td>Warm, robust cold-world gear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Magic &amp; utility items</h3>
+      <p>The Forest's charms and gadgets are half its character. A working traveller's kit:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">safety</span><h4>Charm of Keeping</h4><p>Protects part of your inventory from being dropped on death. A vital safety net before every boss.</p></div>
+        <div class="card"><span class="tag">safety</span><h4>Charm of Life</h4><p>Revives you with health when you'd otherwise die, consuming itself. Carry spares into hard fights.</p></div>
+        <div class="card"><span class="tag">mining</span><h4>Ore Magnet</h4><p>Pulls nearby ores toward you through stone — a treasure-hunter's wand for Hollow Hills.</p></div>
+        <div class="card"><span class="tag">build</span><h4>Crumble / Carminite Builder</h4><p>Crumble Horn weakens blocks; the Carminite Builder &amp; Reactor manipulate reactive towerwood.</p></div>
+        <div class="card"><span class="tag">light</span><h4>Moonworm Queen</h4><p>Fires glowing moonworms onto surfaces for light — your renewable torch in the dark.</p></div>
+        <div class="card"><span class="tag">tame</span><h4>Transformation Powder</h4><p>Transforms certain mobs into others — turning hostile creatures into friendlier (or different) ones.</p></div>
+      </div>
+
+      <h3>Trophies &amp; pedestals</h3>
+      <p>Every boss drops a <strong>Trophy</strong>. These aren't mere ornaments: placing boss trophies on the <strong>Trophy Pedestals</strong> in the <strong>Final Castle</strong> is part of the endgame gating. Mounted on a wall, they're also the bragging rights for a journey survived.</p>
+      <div class="note tip"><span class="label">Scepters &amp; Twilight tools</span><p>Beyond armour, keep the Lich's <strong>scepters</strong> and the boss bows (Triple Bow, Seeker Bow) in rotation — they cover summoning, draining, shielding and ranged work that plain swords can't. The Forest rewards a varied loadout.</p></div>
+    </section>
+
+    <!-- 08 BIOMES -->
+    <section class="doc" id="biomes">
+      <p class="sec-index">08 — The lay of the land</p>
+      <h2>Biomes &amp; Landmarks</h2>
+      <p>Between the dungeons, the Forest is a patchwork of distinct biomes — some idyllic, some lethal, several locked behind the same progression that gates the bosses.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Notable biomes &amp; what they hold</caption>
+          <thead><tr><th>Biome</th><th>Character</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Enchanted Forest</td><td>Bright, magical, rainbow-hued</td><td>Pleasant; rich in unique flora.</td></tr>
+            <tr><td>Mushroom Forest</td><td>Giant mushrooms &amp; Mushgloom</td><td>Towering fungi; whimsical and resource-rich.</td></tr>
+            <tr><td>Dark Forest</td><td>Pitch-dark canopy, dangerous</td><td>Home of the Dark Tower; needs progression to survive.</td></tr>
+            <tr><td>Fire Swamp</td><td>Burning, jets of flame</td><td>The Hydra's domain; bring fire resistance.</td></tr>
+            <tr><td>Glacier &amp; Snowy Forest</td><td>Ice, cold, the far north</td><td>Yeti and Snow Queen country.</td></tr>
+            <tr><td>Highlands &amp; Thornlands</td><td>Endgame uplands, thorn walls</td><td>Late gate; the Thornlands choke the way with giant thorns.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Landmarks worth a detour</h3>
+      <ul>
+        <li><strong>The Quest Ram</strong> — a friendly creature you <strong>feed wool of each colour</strong>. Complete the rainbow and it rewards you handsomely. A charming side-goal you can chip away at the whole journey.</li>
+        <li><strong>Hollow Hills</strong> — grassy domes hollow within, ranging small to large, stuffed with ores and treasure (and Kobolds).</li>
+        <li><strong>Hedge Mazes</strong> — dense hedge labyrinths hiding chests at the centre.</li>
+        <li><strong>Hollow Trees</strong> — colossal hollow trunks, climbable and habitable.</li>
+        <li><strong>Mushgloom</strong> — the glowing mushroom mobs of the Mushroom Forest, lighting the fungal canopy.</li>
+      </ul>
+      <div class="note tip"><span class="label">The Quest Ram is worth it</span><p>Hoard sheep and a loom early. Working through the Quest Ram's wool colours over the course of your run is the most pleasant "achievement" the Forest offers, and the payoff is generous.</p></div>
+    </section>
+
+    <!-- 09 STRATEGY -->
+    <section class="doc" id="strategy">
+      <p class="sec-index">09 — Hard-won advice</p>
+      <h2>Strategy &amp; Tips</h2>
+      <p class="lead">The Forest is designed to be climbed slowly. The single biggest mistake new travellers make is rushing — trying to sprint to the next boss in the gear from the last one.</p>
+
+      <h3>Gear up before each rung</h3>
+      <ul>
+        <li><strong>Use each boss's drops before the next fight.</strong> Naga Scale before the Lich, Fiery/Knightmetal before the Dark Tower, Yeti gear before the Snow Queen. The loot is balanced to make the <em>next</em> step survivable, not the current one.</li>
+        <li><strong>Carry a Charm of Keeping and a Charm of Life</strong> into every boss arena. They are your insurance policy — losing your kit on the floor of a shielded dungeon you then can't re-enter is a special kind of misery.</li>
+        <li><strong>Bring fire resistance</strong> for the Fire Swamp and Dark Tower stretch; <strong>warmth and footing</strong> for the Glacier.</li>
+      </ul>
+
+      <h3>Don't rush — and tech up at home</h3>
+      <p>Because this is a modpack, you don't have to fight fair. <strong>To the Moon 2.0</strong> hands you other toolboxes — go use them between bosses:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">tech</span><h4>Mekanism</h4><p>Power, ore-multiplication and the MekaSuit. See the <a href="mekanism-guide.html">Osmium Codex</a> — its armour and tools dwarf early Forest gear.</p></div>
+        <div class="card"><span class="tag">smith</span><h4>Tinkers' Construct</h4><p>Build custom weapons tuned to each boss — reach, damage, and modifiers the vanilla toolkit can't match.</p></div>
+        <div class="card"><span class="tag">arcane</span><h4>Blood Magic</h4><p>Sigils, living armour and altars give survivability and utility worth stacking before the harder fights.</p></div>
+      </div>
+
+      <h3>Why the gates matter</h3>
+      <p>The progression system isn't an obstacle to route around — it's the structure of the experience. Returning to the overworld to mine, smelt and craft between bosses is not "cheating ahead": the Forest stays locked no matter how strong you get, so you climb the ladder rung by rung <em>with</em> better gear, not by skipping rungs. Pace yourself, and the journey from the Naga to the Snow Queen is one of the most satisfying arcs in modded Minecraft.</p>
+      <div class="note danger"><span class="label">Respect the wards</span><p>Trying to brute-force into a still-shielded dungeon wastes potions and tempers. If an area repels or burns you, you haven't beaten its prerequisite yet — check the Advancements screen, find the boss you're missing, and go down the ladder first.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Twilight Atlas</strong><br>
+      An unofficial field guide to the Twilight Forest on Minecraft 1.19.2 (Forge).<br>
+      The Twilight Forest is by <a href="https://github.com/TeamTwilight/twilightforest">Benimatic &amp; the TeamTwilight team</a>. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · the locked boss progression<br>
+      · dungeons, biomes &amp; landmarks<br>
+      · materials, gear &amp; magic items
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Boss order and area gates are enforced by the mod's Progression system. The in-game Advancements screen and the in-world guidebook are the ground truth — exact stats and drops vary by version and pack config.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

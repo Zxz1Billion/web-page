@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Country Cookbook — a Farmer's Delight field guide (MC 1.19.2)</title>
+<meta name="description" content="A warm, in-depth Farmer's Delight (Minecraft 1.19.2 Forge, by vectorwing) guide for the To the Moon 2.0 modpack: kitchen workstations, knives, new crops &amp; farming, cooking-pot meals, feasts, the Comfort &amp; Nourishment buffs, and every Farmer's Delight add-on in the pack." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0c1009; --bg-1:#10140b; --bg-2:#181d10; --bg-3:#212817; --line:#2e3a21;
+    --ink:#eef0df; --ink-dim:#aebd8e; --ink-faint:#74855a;
+    --accent:#8cba5a; --accent-2:#d9a441; --accent-3:#e0883a; --danger:#d8603a;
+    --accent-soft:rgba(140,186,90,0.14); --accent-glow:rgba(140,186,90,0.5);
+    --f-display:"Inter",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🍲</span>
+      <span class="wordmark">The Country<br>Cookbook<small>FARMER'S DELIGHT</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Pantry</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#kitchen"><span class="ix">01</span> The Kitchen</a>
+      <a href="#knives"><span class="ix">02</span> Knives &amp; Tools</a>
+      <a href="#crops"><span class="ix">03</span> Crops &amp; Farming</a>
+      <p class="group-label">At the Stove</p>
+      <a href="#cooking"><span class="ix">04</span> Cooking in the Pot</a>
+      <a href="#feasts"><span class="ix">05</span> Feasts &amp; Sharing</a>
+      <a href="#comfort"><span class="ix">06</span> Comfort &amp; Nourishment</a>
+      <p class="group-label">The Wider Larder</p>
+      <a href="#addons"><span class="ix">07</span> Add-ons in this Pack</a>
+      <a href="#tips"><span class="ix">08</span> Tips &amp; Synergy</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Recipes follow Farmer's Delight<br>on 1.19.2 (Forge). Food effects,<br>saturation and buff durations are<br>described qualitatively — your<br>in-game JEI &amp; tooltips are the<br>true measuring cup.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · vectorwing</p>
+      <h1>The Country<br>Cookbook</h1>
+      <p class="lede">Pull up a chair by the stove. <strong>Farmer's Delight</strong> turns Minecraft's thin diet of porkchops and bread into a proper country kitchen — new crops in the garden, a <strong>Cooking Pot</strong> bubbling over the fire, a <strong>Cutting Board</strong> by the window, and hearty home-cooked meals that keep you full and warm for the long road ahead. This guide walks the whole homestead, from first seed to a feast big enough for the whole base.</p>
+      <div class="badges">
+        <span class="badge accent">Farmer's Delight</span>
+        <span class="badge">+ 6 add-ons in this pack</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">🍲 Hearty &amp; well-fed</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Farmer's Delight expands farming and cooking with hearty meals, a handful of new crops, and a set of kitchen workstations. Its food shines because so many dishes hand you long, gentle buffs — <strong>Nourishment</strong> from hearty plates and <strong>Comfort</strong> from soups and drinks — and because bowls and plates stack neatly in your pack instead of clogging it one steak at a time.</p>
+
+      <p>If you remember three things from this whole cookbook, remember these. Everything else is seasoning:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">the heart</span><h4>Cooking Pot</h4><p>Set it over a heat source, drop in a few ingredients and a <strong>container item</strong> (usually a Bowl), and it simmers stews, soups and meals.</p></div>
+        <div class="card"><span class="tag">the prep</span><h4>Cutting Board</h4><p>Right-click it with a tool to process an item — a <strong>Knife</strong> chops, an axe splits logs, shears snip. Many recipes start here.</p></div>
+        <div class="card"><span class="tag">the harvest</span><h4>New crops</h4><p>Tomatoes, Onions, Cabbage and Rice join your garden, foraged first as wild plants out in the world.</p></div>
+      </div>
+
+      <h3>Why bother, when steak exists?</h3>
+      <ul>
+        <li><strong>Bigger meals.</strong> A pot of stew refills far more hunger and saturation than a single grilled chop.</li>
+        <li><strong>Lasting buffs.</strong> Soups grant <strong>Comfort</strong> and hearty plates grant <strong>Nourishment</strong> — slow-burning effects that keep you topped up on long trips.</li>
+        <li><strong>Tidy packing.</strong> Bowls and plates stack, so a day's food is a single slot, not a column of meat.</li>
+        <li><strong>It uses the whole garden.</strong> Odds and ends — a carrot here, an onion there — all find a place in the pot.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Your first afternoon</span>
+        <p>Forage some <strong>wild crops</strong> for seeds, lay out a <strong>Cooking Pot</strong> over a campfire or stove, keep a <strong>Knife</strong> and a <strong>Cutting Board</strong> by the counter, and cook your first <strong>Vegetable Soup</strong>. That tiny kitchen already feeds a base — the rest of this guide is just refining the recipe.</p>
+      </div>
+    </section>
+
+    <!-- 01 KITCHEN -->
+    <section class="doc" id="kitchen">
+      <p class="sec-index">01 — The workstations</p>
+      <h2>The Kitchen</h2>
+      <p>A Farmer's Delight kitchen is a little cluster of blocks, each with one honest job. Lay them out the way you'd arrange a real counter — heat in the middle, a board for prep, a basket to catch the scraps — and the whole thing hums along while you do other work.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">heat + container</span><h4>Cooking Pot</h4><p>The cornerstone. Place it <strong>over a heat source</strong>, fill its ingredient slots, and supply a <strong>container item</strong> (a Bowl for stews) so the finished meal has something to ladle into. Outputs collect for you to pull.</p></div>
+        <div class="card"><span class="tag">right-click prep</span><h4>Cutting Board</h4><p>Hold an item, right-click the board to set it down, then right-click with a <strong>tool</strong> to process it. Knives chop crops and meat, axes split logs into planks, shears and pickaxes have their own recipes.</p></div>
+        <div class="card"><span class="tag">heat source</span><h4>Stove</h4><p>Cook food directly on top — no fuel-in-a-furnace-slot needed; it burns its own fuel below. It also counts as a <strong>heat source</strong> for a Cooking Pot placed on it. The tidy heart of a built-in kitchen.</p></div>
+        <div class="card"><span class="tag">pan + weapon</span><h4>Skillet</h4><p>Cook food held <strong>in-hand</strong>, or place it as a block to pan-fry over heat. In a pinch it doubles as a heavy <strong>weapon</strong> — a hot skillet to the face is a real attack.</p></div>
+        <div class="card"><span class="tag">storage</span><h4>Basket</h4><p>A <strong>hopper-like</strong> container that pulls and pushes items. Use it to catch a farm's harvest or to feed ingredients into your pot and clear finished meals.</p></div>
+        <div class="card"><span class="tag">campfire</span><h4>Campfires</h4><p>The humble starter heat source. A lit <strong>Campfire</strong> (or Soul Campfire) under a Cooking Pot gets you simmering before you've built a proper stove.</p></div>
+      </div>
+
+      <h3>The heat-source rule</h3>
+      <p>The Cooking Pot does not cook on its own — it needs <strong>heat underneath it</strong>. That heat can come from a Campfire, a Soul Campfire, a Farmer's Delight <strong>Stove</strong>, or other blocks the pack flags as heat sources. No heat, no simmer; the pot just sits there with cold ingredients.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The kitchen at a glance</caption>
+          <thead><tr><th>Station</th><th>How you use it</th><th>Needs</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>Cooking Pot</td><td>Fill slots + container item</td><td>A heat source below</td><td>Stews, soups, hearty meals</td></tr>
+            <tr><td>Cutting Board</td><td>Right-click with a tool</td><td>A tool (knife/axe/shears)</td><td>Slicing, splitting, prep recipes</td></tr>
+            <tr><td>Stove</td><td>Place food on top</td><td>Fuel below it</td><td>Fuel-free cooking + heat for pots</td></tr>
+            <tr><td>Skillet</td><td>In-hand or placed block</td><td>Heat (when placed)</td><td>Quick fries; emergency weapon</td></tr>
+            <tr><td>Basket</td><td>Auto in/out like a hopper</td><td>Redstone-aware placement</td><td>Catching harvests, automation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip"><span class="label">Build it once, cook forever</span><p>Set a <strong>Stove</strong> in the counter, drop a <strong>Cooking Pot</strong> on top, and tuck a <strong>Basket</strong> beside it to catch finished bowls. That three-block kitchen will feed your homestead from now until the end of the modpack.</p></div>
+    </section>
+
+    <!-- 02 KNIVES -->
+    <section class="doc" id="knives">
+      <p class="sec-index">02 — The blade</p>
+      <h2>Knives &amp; Tools</h2>
+      <p>The <strong>Knife</strong> is Farmer's Delight's signature new tool type. On the Cutting Board it's your everyday prep blade — slicing meat into cuts, chopping crops, breaking foods down into ingredients — and out in the field it's a light, quick <strong>weapon</strong> with its own swing.</p>
+
+      <h3>Knife materials</h3>
+      <p>Knives come in the familiar tiers plus a couple of Delight-specific ones. Higher tiers last longer and cut a touch better, but even a humble <strong>Flint Knife</strong> handles nearly every recipe on the board.</p>
+      <div class="data-table">
+        <table>
+          <caption>Knife materials, soft to sharp</caption>
+          <thead><tr><th>Knife</th><th>Tier feel</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Flint Knife</td><td>Starter</td><td>Cheap and early; gets the kitchen running on day one.</td></tr>
+            <tr><td>Golden Knife</td><td>Fast, fragile</td><td>Like gold tools everywhere — quick but wears out fast.</td></tr>
+            <tr><td>Iron Knife</td><td>Dependable</td><td>The workhorse most kitchens settle on.</td></tr>
+            <tr><td>Diamond Knife</td><td>Durable</td><td>Long-lived; a fine forever-knife for a busy counter.</td></tr>
+            <tr><td>Netherite Knife</td><td>Top tier</td><td>Toughest of the base set; survives fire and lava.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Right-click quality-of-life add-ons</h3>
+      <p>This pack ships two small mods that make farming and ranching feel wonderfully hands-on. They're not strictly part of Farmer's Delight, but they pair so naturally with a kitchen homestead that they belong here.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">RightClickHarvest</span><h4>Right-click to harvest</h4><p>Right-click a <strong>mature crop</strong> to harvest it <em>and</em> automatically replant the seed. Walk your rows tapping each plant — no breaking and re-sowing by hand. Some setups let it cost a little hunger or a tool.</p></div>
+        <div class="card"><span class="tag">Right Click &amp; Milk</span><h4>Right-click to milk</h4><p>Right-click a <strong>cow with a bucket</strong> (and goats/other animals where supported) to milk them with a satisfying directness, instead of fumbling the vanilla interaction.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">The two-tap garden</span><p>With RightClickHarvest active, a long bed of wheat, carrots, potatoes — and your new Tomatoes, Onions and Cabbages — becomes a stroll: tap, tap, tap, and the rows replant themselves behind you. Keep a Knife in the other hand for whatever wanders into the field.</p></div>
+    </section>
+
+    <!-- 03 CROPS -->
+    <section class="doc" id="crops">
+      <p class="sec-index">03 — The garden</p>
+      <h2>Crops &amp; Farming</h2>
+      <p>Before you can cook, you need a garden. Farmer's Delight adds several crops, each first found in the wild and then domesticated into neat rows. There's no tree-tapping or sap here — just honest dirt, water, and patience.</p>
+
+      <h3>The new crops</h3>
+      <div class="data-table">
+        <table>
+          <caption>Farmer's Delight crops</caption>
+          <thead><tr><th>Crop</th><th>Grows like</th><th>Goes into</th></tr></thead>
+          <tbody>
+            <tr><td>Tomatoes</td><td>Vine crop on farmland; harvest fruit, plant the seeds</td><td>Soups, sauces, pasta dishes</td></tr>
+            <tr><td>Onions</td><td>Pulled whole from farmland; replant a portion</td><td>Stews, stir-fries, almost everything savoury</td></tr>
+            <tr><td>Cabbage</td><td>Leafy farmland crop; harvest the head</td><td>Cabbage Rolls, salads, hearty meals</td></tr>
+            <tr><td>Rice</td><td>Grows <strong>in water</strong>, like sugarcane on the shoreline; harvest the panicle for grain &amp; rice</td><td>Rice bowls, soups, Rice Rolls</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Foraging the wild crops</h3>
+      <p>You won't find a tomato in your starting inventory — you find its ancestor growing wild. Scout the biomes for <strong>wild plants</strong> and break them for seeds and starter food:</p>
+      <ul class="pills" style="list-style:none">
+        <li>🍅 Wild Tomatoes</li>
+        <li>🥕 Wild Carrots</li>
+        <li>🥔 Wild Potatoes</li>
+        <li>🧅 Wild Onions</li>
+        <li>🫐 Wild Beetroots</li>
+        <li>🌾 Wild Rice</li>
+        <li>🥬 Wild Cabbages</li>
+      </ul>
+      <p>Each wild patch drops the seeds or roots you need to start a proper bed. Gather a few of each, bring them home, and your garden plan writes itself.</p>
+
+      <h3>Soil, compost &amp; straw</h3>
+      <p>Farmer's Delight closes the loop between kitchen scraps and the garden. Spare vegetables, seeds and plant matter become fertiliser, and fertiliser becomes faster-growing soil:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">compost</span><h4>Organic Compost</h4><p>Toss surplus crops and plant scraps onto a <strong>compost heap</strong> to break them down into Organic Compost — the garden's reward for a tidy kitchen.</p></div>
+        <div class="card"><span class="tag">soil</span><h4>Rich Soil</h4><p>Compost enriches dirt into <strong>Rich Soil</strong>, which helps nearby crops grow faster. The Rich Soil ↔ Compost cycle keeps a serious farm humming.</p></div>
+        <div class="card"><span class="tag">byproduct</span><h4>Straw</h4><p><strong>Straw</strong> (from wheat/grain) is a handy building and crafting material — bales, blocks, and the odd recipe. Nothing from the harvest goes to waste.</p></div>
+      </div>
+
+      <div class="note"><span class="label">No sap, no tapping</span><p>Unlike some farming mods, Farmer's Delight doesn't add tree-tapping or syrup. Its farming is grounded and familiar: water for the rice, farmland for the rest, compost to speed it all up.</p></div>
+    </section>
+
+    <!-- 04 COOKING -->
+    <section class="doc" id="cooking">
+      <p class="sec-index">04 — At the stove</p>
+      <h2>Cooking in the Pot</h2>
+      <p>Here's where the homestead earns its keep. The <strong>Cooking Pot</strong> takes a small handful of <strong>ingredients</strong> plus a <strong>container item</strong> and, given heat and a little time, turns them into a finished meal. Get the ingredients right and the container is the spoon: a Bowl for stews and soups, sometimes nothing for dry dishes.</p>
+
+      <h3>How a recipe works</h3>
+      <ol class="flow">
+        <li>Place the <strong>Cooking Pot over a heat source</strong> (campfire or stove).</li>
+        <li>Fill the pot's <strong>ingredient slots</strong> with the recipe's items — often prepped first on the Cutting Board.</li>
+        <li>Add the <strong>container item</strong> (usually a <strong>Bowl</strong>) so the meal has something to be served in.</li>
+        <li>Wait while it <strong>simmers</strong>; the finished meal appears in the output slot.</li>
+        <li>Pull it out by hand or with a <strong>Basket/hopper</strong> — and start the next pot.</li>
+      </ol>
+
+      <h3>A sampler of meals</h3>
+      <p>This is a taste, not the full menu — check <strong>JEI</strong> in game for exact ingredients. Nearly all of these refill plenty of hunger and saturation, and the soups in particular hand you a gentle buff alongside.</p>
+      <div class="data-table">
+        <table>
+          <caption>Cooking Pot meals (representative)</caption>
+          <thead><tr><th>Meal</th><th>Built around</th><th>Style</th></tr></thead>
+          <tbody>
+            <tr><td>Beef Stew</td><td>Beef, potato, carrot</td><td>Hearty bowl stew</td></tr>
+            <tr><td>Vegetable Soup</td><td>Garden veg medley</td><td>Easy starter soup</td></tr>
+            <tr><td>Noodle Soup</td><td>Pasta + broth</td><td>Comforting soup</td></tr>
+            <tr><td>Baked Cod Stew</td><td>Cod, tomato, veg</td><td>Fish bowl stew</td></tr>
+            <tr><td>Pumpkin Soup</td><td>Pumpkin, milk</td><td>Creamy autumn soup</td></tr>
+            <tr><td>Fish Stew</td><td>Fish + onion + tomato</td><td>Coastal bowl</td></tr>
+            <tr><td>Dumplings</td><td>Dough + filling</td><td>Dry, stackable plate</td></tr>
+            <tr><td>Pasta with… (meatballs / mutton / rabbit)</td><td>Pasta + a meat</td><td>Plated pasta</td></tr>
+            <tr><td>Cabbage Rolls</td><td>Cabbage leaf + filling</td><td>Wrapped morsel</td></tr>
+            <tr><td>Roast Chicken</td><td>Chicken + stuffing</td><td>Centrepiece roast</td></tr>
+            <tr><td>Honey Glazed Ham</td><td>Pork + honey</td><td>Sweet-savoury feast</td></tr>
+            <tr><td>Shepherd's Pie</td><td>Mutton + potato</td><td>Baked feast</td></tr>
+            <tr><td>Ratatouille</td><td>Tomato, onion, veg</td><td>Plated vegetable dish</td></tr>
+            <tr><td>Squid Ink Pasta</td><td>Pasta + ink sac</td><td>Dark plated pasta</td></tr>
+            <tr><td>Stuffed Pumpkin</td><td>Pumpkin + rice + veg</td><td>Feast block</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip"><span class="label">Bowls back, please</span><p>Eat a stew and you get the empty <strong>Bowl</strong> back — keep a few in rotation so your pot never stalls for want of a container. The same goes for plates on the dry dishes.</p></div>
+      <div class="note warn"><span class="label">Numbers are approximate</span><p>This guide describes <em>which</em> meals are filling and which give buffs, but it doesn't quote exact saturation values or buff durations — those are tuned per item and can be config-adjusted. Hover the food's tooltip or read the recipe in <strong>JEI</strong> for the real figures. <span class="vflag">approx · check JEI</span></p></div>
+    </section>
+
+    <!-- 05 FEASTS -->
+    <section class="doc" id="feasts">
+      <p class="sec-index">05 — The big table</p>
+      <h2>Feasts &amp; Sharing</h2>
+      <p>Some dishes are too grand for a bowl. <strong>Feasts</strong> are food <em>blocks</em> you place down on a table and eat from <strong>several times</strong> — each serving carved off until the dish is gone. They're the centrepiece of a base kitchen and a gift to multiplayer servers: cook once, feed the whole crew.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">poultry</span><h4>Roast Chicken Block</h4><p>A whole roasted bird set on the table; carve servings until it's picked clean. A satisfying, hearty feast.</p></div>
+        <div class="card"><span class="tag">harvest</span><h4>Stuffed Pumpkin</h4><p>Pumpkin packed with rice and vegetables — an autumn feast that serves a small party.</p></div>
+        <div class="card"><span class="tag">holiday</span><h4>Honey Glazed Ham</h4><p>Sweet-glazed pork, sliced from the block. The showpiece of a celebration spread.</p></div>
+        <div class="card"><span class="tag">baked</span><h4>Shepherd's Pie</h4><p>Mutton and potato baked into a shareable pie; scoop out portions as needed.</p></div>
+        <div class="card"><span class="tag">medley</span><h4>Rice Roll Medley</h4><p>An assorted platter of rice rolls — light, pretty, and great for grazing during a build session.</p></div>
+      </div>
+
+      <h3>Why a feast beats a stack of bowls</h3>
+      <ul>
+        <li><strong>Shared on the spot.</strong> Anyone walking past the table can take a serving — no handing out food.</li>
+        <li><strong>Set-and-forget.</strong> Place it once at base; it sits ready until eaten, like a pie or cake.</li>
+        <li><strong>Throughput.</strong> One cook fills many bellies, which is exactly what a busy modpack base wants.</li>
+      </ul>
+
+      <div class="note tip"><span class="label">A standing feast at base</span><p>Keep at least one feast block on a table near your spawn point or your main work area. Between dungeon runs and rocket prep, a quick serving off the Roast Chicken or Shepherd's Pie tops everyone up without breaking stride.</p></div>
+    </section>
+
+    <!-- 06 COMFORT -->
+    <section class="doc" id="comfort">
+      <p class="sec-index">06 — The long buff</p>
+      <h2>Comfort &amp; Nourishment</h2>
+      <p>This is the real reason a Farmer's Delight kitchen pays for itself. Beyond filling your hunger bar, the right meals grant <strong>slow, long-duration buffs</strong> that vanilla steak simply can't match — and they're what make home-cooked food the right fuel for exploration.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">soups &amp; drinks</span><h4>Comfort</h4><p>Granted by many <strong>soups and warm drinks</strong>. While it's active it keeps refreshing your saturation over time, so you stay topped up far longer than a single meal would suggest.</p></div>
+        <div class="card"><span class="tag">hearty meals</span><h4>Nourishment</h4><p>Granted by <strong>hearty, substantial plates</strong>. It similarly extends how long a meal carries you, rewarding you for cooking the bigger dishes rather than nibbling.</p></div>
+      </div>
+
+      <h3>Why this matters on a long trip</h3>
+      <p>Out in a dungeon or on the way to the Moon, your hunger ticks down with every sprint and jump. A pile of grilled meat refills the bar but burns off fast. A pot of soup, by contrast, leaves a <strong>buff working quietly in the background</strong> — you eat once and keep coasting on it, freeing up inventory slots and attention for the actual adventure.</p>
+
+      <div class="note warn"><span class="label">Durations kept approximate</span><p>The exact length and strength of Comfort and Nourishment depend on the dish and the pack's configuration, so this guide doesn't quote numbers. Watch the buff icons and your saturation in game to learn which of your favourite meals carry you furthest. <span class="vflag">approx · in-game truth</span></p></div>
+
+      <div class="note tip"><span class="label">Pack a soup, not a steak</span><p>Before a big expedition, cook a few stackable soup bowls. They take one inventory slot, refill more than steak, and leave Comfort running — the closest thing to a packed lunch this modpack offers.</p></div>
+    </section>
+
+    <!-- 07 ADDONS -->
+    <section class="doc" id="addons">
+      <p class="sec-index">07 — The extended pantry</p>
+      <h2>The Add-ons in this Pack</h2>
+      <p>To the Moon 2.0 doesn't stop at vanilla Farmer's Delight — it stacks several add-ons on top, each widening the menu and tying the kitchen into the rest of the modpack. Here's what each one brings to the counter.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">fishing</span><h4>Aquaculture Delight</h4><p>Bridges Farmer's Delight with <strong>Aquaculture 2</strong>: the new fish you reel in can be sliced on the Cutting Board and cooked into fish dishes, so your catch becomes proper meals instead of just raw filets.</p></div>
+        <div class="card"><span class="tag">tinkers</span><h4>Tinkers Delight</h4><p>Lets your <strong>Tinkers' Construct</strong> tools work on the Cutting Board (and adds dishes/integration), so a custom-forged knife or cleaver earns its place in the kitchen as well as the mine.</p></div>
+        <div class="card"><span class="tag">huge menu</span><h4>Extra Delight</h4><p>The big expansion: <strong>many more foods</strong>, baking and <strong>ovens</strong>, candy, drinks, a <strong>watering can</strong> for the garden, and a long list of new recipes. If the base menu felt short, this fills the larder.</p></div>
+        <div class="card"><span class="tag">twilight forest</span><h4>Twilight's Flavors &amp; Delight</h4><p>Turns <strong>Twilight Forest</strong> ingredients into Farmer's Delight dishes, so the loot and produce of that dimension finds its way into your cooking pot.</p></div>
+        <div class="card"><span class="tag">QoL harvest</span><h4>RightClickHarvest</h4><p>Right-click <strong>mature crops</strong> to harvest and replant in one motion — the backbone of a low-effort garden, covered back in §02.</p></div>
+        <div class="card"><span class="tag">QoL ranch</span><h4>Right Click and Milk</h4><p>Right-click <strong>cows and other animals</strong> with a bucket to milk them directly — small, but it makes the dairy side of the kitchen feel natural.</p></div>
+      </div>
+
+      <div class="note"><span class="label">One ecosystem</span><p>Together these add-ons mean almost everything you grow, catch, forge or loot in the pack has a home in your kitchen. The Cooking Pot and Cutting Board become the common endpoint for a dozen different mods.</p></div>
+    </section>
+
+    <!-- 08 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">08 — Putting it together</p>
+      <h2>Tips &amp; Synergy</h2>
+      <p>You've got the stations, the crops, the recipes and the buffs. Here's how to wire them into a kitchen that runs itself and feeds the pack's long, hungry adventures.</p>
+
+      <h3>The self-running kitchen</h3>
+      <ol class="flow">
+        <li>Set a <strong>Stove</strong> in the counter and a <strong>Cooking Pot</strong> on top for fuel-free, always-hot cooking.</li>
+        <li>Feed ingredients in and pull finished meals out with <strong>Baskets or hoppers</strong> so the pot never sits idle.</li>
+        <li>Run a small <strong>farm</strong> with RightClickHarvest into a Basket, dropping straight into your prep chests.</li>
+        <li>Keep a standing <strong>feast</strong> on a table at base for instant, shareable food.</li>
+        <li>Compost the scraps into <strong>Rich Soil</strong> and loop it back to the farm.</li>
+      </ol>
+
+      <h3>Cross-mod pairings</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">tools</span><h4>Knives ✕ Tinkers</h4><p>With Tinkers Delight, forge a custom blade and use it on the Cutting Board — one tool for prep, combat and mining.</p></div>
+        <div class="card"><span class="tag">fish</span><h4>Pot ✕ Aquaculture</h4><p>Turn the day's catch into Baked Cod Stew and other fish dishes instead of letting filets pile up.</p></div>
+        <div class="card"><span class="tag">expeditions</span><h4>Soups ✕ the void</h4><p>Stack soup bowls for space trips and dungeon dives — Comfort keeps you fed through the long haul.</p></div>
+        <div class="card"><span class="tag">garden</span><h4>Watering can ✕ compost</h4><p>Extra Delight's watering can plus Rich Soil makes a fast, renewable garden that never runs the pantry dry.</p></div>
+      </div>
+
+      <h3>Feeding the long road</h3>
+      <p>This is the payoff. The pack sends you on <strong>space trips, dungeon dives and dimension hops</strong> that chew through hunger fast. A pocketful of stackable soups — each leaving Comfort running — turns food from a constant chore into a single slot you barely think about. Cook the kitchen up once, and it quietly feeds every expedition that follows.</p>
+
+      <div class="note tip"><span class="label">The cook's whole philosophy</span><p>Grow it, prep it on the board, simmer it in the pot, share it from a feast, and let the buffs carry you. A warm kitchen at base is worth more on a long journey than another chest of raw meat.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Country Cookbook</strong><br>
+      An unofficial, fan-made field guide for Farmer's Delight on Minecraft 1.19.2 (Forge).<br>
+      Farmer's Delight is by <a href="https://github.com/vectorwing/FarmersDelight">vectorwing</a>. This guide is not affiliated with the mod or its authors.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Farmer's Delight + 6 add-ons<br>
+      · kitchen, crops, meals &amp; feasts<br>
+      · Comfort &amp; Nourishment buffs
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Recipes, food values and buff durations are described qualitatively and may be config-tuned in this pack — your in-game tooltips and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

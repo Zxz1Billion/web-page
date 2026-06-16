@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Wilds Bestiary — mobs, combat &amp; survival (MC 1.19.2)</title>
+<meta name="description" content="A survivalist's bestiary &amp; ledger for To the Moon 2.0 (Minecraft 1.19.2 Forge): Mowzie's Mobs bosses, Mutant Monsters, Corail Tombstone death insurance, Aquaculture 2 fishing, Comforts sleeping bags &amp; hammocks, plus a combat loadout and an expedition checklist." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0f0c0b; --bg-1:#140e0c; --bg-2:#1d1411; --bg-3:#271b16; --line:#382720;
+    --ink:#eee3da; --ink-dim:#bba493; --ink-faint:#806957;
+    --accent:#d8603a; --accent-2:#6fb7d8; --accent-3:#e0b452; --danger:#ff4a3a;
+    --accent-soft:rgba(216,96,58,0.14); --accent-glow:rgba(216,96,58,0.5);
+    --f-display:"Oswald",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🐾</span>
+      <span class="wordmark">The Wilds<br>Bestiary<small>MOBS, COMBAT &amp; SURVIVAL</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <p class="group-label">The Bestiary</p>
+      <a href="#mowzie"><span class="ix">01</span> Mowzie's Mobs</a>
+      <a href="#mutant"><span class="ix">02</span> Mutant Monsters</a>
+      <p class="group-label">Staying Alive</p>
+      <a href="#tombstone"><span class="ix">03</span> Corail Tombstone</a>
+      <a href="#aquaculture"><span class="ix">04</span> Aquaculture 2</a>
+      <a href="#comforts"><span class="ix">05</span> Comforts</a>
+      <p class="group-label">The Hunt</p>
+      <a href="#loadout"><span class="ix">06</span> Combat Loadout</a>
+      <a href="#expedition"><span class="ix">07</span> Expedition Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      A field bestiary for To the Moon 2.0<br>(1.19.2 · Forge). Mob behaviours and<br>drops are described qualitatively —<br>exact health, damage and loot tables<br>are config-tunable. The in-game mob<br>and the mod wiki are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · creatures, bosses &amp; staying alive</p>
+      <h1>The Wilds<br>Bestiary</h1>
+      <p class="lede">A survivalist's bestiary &amp; ledger for <strong>To the Moon 2.0</strong>. The overworld is no longer a petting zoo — barrows hide axe-swinging guardians, snow-caves hold an ice-mantis the size of a house, and the zombie that just cornered you may be a <em>mutant</em>. This is the hub for the new hostiles, how to put them down, and the survival nets — graves, sleeping bags, a full cooler of fish — that keep you in the fight after you lose one.</p>
+      <div class="badges">
+        <span class="badge accent">Mowzie's · Mutant Monsters</span>
+        <span class="badge">Tombstone · Aquaculture · Comforts</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">☠ Things here can one-shot you</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">To the Moon 2.0 is a <strong>dangerous</strong> pack. The mods on this page do two opposite jobs: some add monsters that will end a careless run in seconds, and the rest are the safety equipment that lets you take those fights at all. Read this guide as a pair of ledgers — a <em>bestiary</em> of what hunts you, and an <em>insurance policy</em> for when it wins.</p>
+
+      <p>There are three kinds of mod covered here. Sort them straight before you wander out:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">the threats</span><h4>New hostiles</h4><p><strong>Mowzie's Mobs</strong> mini-bosses &amp; ambient creatures, and <strong>Mutant Monsters</strong> — brutal upgrades of the vanilla mobs you stopped fearing long ago.</p></div>
+        <div class="card"><span class="tag">the nets</span><h4>Survival insurance</h4><p><strong>Corail Tombstone</strong> keeps your gear on death, <strong>Aquaculture 2</strong> keeps you fed, and <strong>Comforts</strong> lets you rest anywhere on the road.</p></div>
+        <div class="card"><span class="tag">the plan</span><h4>Loadout &amp; logistics</h4><p>A combat loadout drawn from the other guides' gear, plus an expedition checklist so you never leave base under-equipped.</p></div>
+      </div>
+
+      <h3>What this guide does <em>not</em> cover</h3>
+      <ul>
+        <li><strong>Cataclysm</strong> bosses (the Ender Guardian, Ignis, the Leviathan, the Netherite Monstrosity and friends) live in the <a href="cataclysm-guide.html">Cataclysm guide</a>.</li>
+        <li><strong>Twilight Forest</strong> progression bosses (Naga, Lich, Hydra, Ur-Ghast, and the rest of the locked-progression chain) live in the <a href="twilight-forest-guide.html">Twilight Forest guide</a>.</li>
+        <li><strong>Goblin Traders</strong> are only mentioned in passing here — they're wandering merchants you meet while exploring, covered with the rest of overworld exploration. (See the exploration material on the <a href="index.html">guide hub</a>.)</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">The golden rule</span>
+        <p>Never engage a Mowzie's or Mutant boss for the first time in your <strong>only</strong> set of good gear without a Tombstone safety net active and a totem in hand. The point of §03 is that death is a setback, not a wipe — but only if you set it up <em>before</em> the fight, not after.</p>
+      </div>
+    </section>
+
+    <!-- 01 MOWZIE'S MOBS -->
+    <section class="doc" id="mowzie">
+      <p class="sec-index">01 — The bestiary · bobmowzie</p>
+      <h2>Mowzie's Mobs</h2>
+      <p>Mowzie's Mobs is a creature mod built around a handful of hand-animated <strong>mini-bosses</strong> with real fight mechanics — telegraphs, phases, and signature gear rewards — plus a cast of ambient creatures that flavour the overworld. You don't grind these; you <em>hunt</em> them, usually after stumbling on their lair while exploring. Each boss is a self-contained encounter with a weapon or trinket worth the bruises.</p>
+
+      <div class="note tip"><span class="label">Where they live</span><p>Mowzie's lairs and creatures are placed by world generation — barrows, snowy caves, savanna-style structures and deep stone. You find them by <strong>exploring</strong>, not by farming spawners. Treat sighting one as the start of an expedition (§07), not a quick detour.</p></div>
+
+      <h3>The mini-bosses</h3>
+      <div class="data-table">
+        <table>
+          <caption>Mowzie's signature encounters &amp; their rewards</caption>
+          <thead><tr><th>Boss</th><th>Where</th><th>Fight in brief</th><th>Signature drop</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ferrous Wroughtnaut</strong></td><td>Barrow / underground chamber</td><td>An armoured guardian asleep behind iron bars; wake it and it swings a giant axe with heavy melee combos and ground-slams. Punishes greed — strike in the gaps after a swing.</td><td><strong>Axe of a Thousand Metals</strong> — a powerful, charged-attack greataxe.</td></tr>
+            <tr><td><strong>Frostmaw</strong></td><td>Snowy caves / icy biomes</td><td>A huge ice mantis-cat that sleeps until provoked; lunges, swipes, and a frost roar that slows. A roaming arena fight in the snow.</td><td><strong>Ice Crystal</strong> &amp; frozen-themed materials used to craft frost weapons / tools.</td></tr>
+            <tr><td><strong>Barako, the Sun Chief</strong> <span class="vflag">Umvuthi / Sunbird</span></td><td>Savanna idol / tribal arena</td><td>A seated tribal boss that hurls solar projectiles and summons aid; a ranged-pressure fight where cover and dodging the <em>Sunstrike</em> matter most.</td><td><strong>Sol Visage</strong> mask &amp; <strong>Sunstrike / Solar</strong> gear — sun-themed offence and trinkets.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The creatures &amp; ambient life</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">cave</span><h4>Grottol</h4><p>A shy, crystalline cave mob that flees through stone. Kill it before it escapes and it drops <strong>diamonds</strong> — a rare but worthwhile cave windfall.</p></div>
+        <div class="card"><span class="tag">flying</span><h4>Naga</h4><p>A flying serpent that strafes and dives at travellers in the open. Aerial harassment — bring a bow and keep a wall at your back.</p></div>
+        <div class="card"><span class="tag">ambush</span><h4>Foliaath</h4><p>A carnivorous plant that lies hidden in jungle foliage until you step close, then lunges to bite. The classic "the bush just ate me" hazard.</p></div>
+        <div class="card"><span class="tag">lore</span><h4>Lanterns &amp; Ferrous lore</h4><p>Decorative and lore items tie the bosses together — the mod has a quiet narrative threaded through its structures and drops for the curious.</p></div>
+      </div>
+
+      <div class="note warn"><span class="label">Read the telegraph</span><p>Every Mowzie's boss broadcasts its big attack with an animation wind-up. These fights reward <strong>patience</strong> over DPS: bait the slam or the roar, sidestep, punish the recovery, repeat. Going in swinging blindly is how a Wroughtnaut deletes a full set of diamond.</p></div>
+    </section>
+
+    <!-- 02 MUTANT MONSTERS -->
+    <section class="doc" id="mutant">
+      <p class="sec-index">02 — The bestiary · Fuzs</p>
+      <h2>Mutant Monsters</h2>
+      <p>Mutant Monsters takes the four vanilla horrors you long ago stopped fearing — the zombie, skeleton, creeper and enderman — and re-imagines each as a hulking, multi-attack <strong>mini-boss</strong> with far more health, devastating moves, and gear-grade drops. They appear naturally in the world (rarely) and can be deliberately created, so they're as much a resource as a threat.</p>
+
+      <h3>The four mutants</h3>
+      <div class="data-table">
+        <table>
+          <caption>Mutant variants — behaviour &amp; the gear they enable</caption>
+          <thead><tr><th>Mutant</th><th>What it does</th><th>Reward / crafting payoff</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mutant Zombie</strong></td><td>A massive bruiser with ground-pound shockwaves and a roar that knocks you back. Plays dead and revives if you don't finish it.</td><td>Drops <strong>Hulk Hammer</strong> material — a heavy, AoE-slamming weapon.</td></tr>
+            <tr><td><strong>Mutant Skeleton</strong></td><td>Fires barrages of fast arrows and slams with its bow in melee; mobile and relentless at range.</td><td>Drops the parts for strong skeletal/mutant gear and ranged upgrades.</td></tr>
+            <tr><td><strong>Mutant Enderman</strong></td><td>Teleports aggressively, throws blocks, and reaches with long-range tendril attacks. The most chaotic of the four.</td><td>Drops the <strong>Endersoul Hand</strong> — a teleportation/utility tool built from its essence.</td></tr>
+            <tr><td><strong>Mutant Creeper</strong></td><td>Charges and detonates in a much larger blast; can launch and spawn smaller creepers. Terrain-wrecking on a fuse.</td><td>Explosive-themed drops; extreme reward-for-risk if you can out-range the blast.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Making your own mutants</h3>
+      <p>You don't have to wait for a wild spawn. Using <strong>Chemical X</strong> on the corresponding vanilla mob transforms it into its mutant form — a way to farm the gear drops on your own terms, at your own risk.</p>
+      <div class="note warn"><span class="label">Approximate, by design</span><p>Mutants carry <em>vastly</em> more effective health than their vanilla counterparts and hit far harder — exact figures are config-tunable and best read from the in-game entity, so treat any number you hear as approximate. Practically: assume a mutant survives several hits that would have flattened the normal mob, and that one of <em>its</em> hits can take a big chunk of an un-totemed health bar.</p></div>
+      <div class="note tip"><span class="label">Open ground, please</span><p>The Mutant Creeper and Mutant Zombie both have AoE knock-and-slam moves and the Creeper a building-flattening blast. Fight all four in the <strong>open</strong> with room to kite — never in a corridor, and never standing on anything you'd hate to lose to an explosion.</p></div>
+    </section>
+
+    <!-- 03 CORAIL TOMBSTONE -->
+    <section class="doc" id="tombstone">
+      <p class="sec-index">03 — Staying alive · Corail_31</p>
+      <h2>Corail Tombstone — death insurance &amp; soul magic</h2>
+      <p>This is the single most important quality-of-life mod for the bosses above. When you die, Corail Tombstone generates a <strong>Grave</strong> at the spot that holds your entire inventory <em>and</em> your experience. Your gear doesn't scatter, despawn, or burn in lava — it waits for you behind the grave's protection. For a pack that can one-shot you, this turns a death from a run-ending catastrophe into an inconvenient walk back.</p>
+
+      <h3>The death net</h3>
+      <ul>
+        <li><strong>Grave on death</strong> — all items and XP are stored in a grave block where you fell. Retrieve them by breaking it or using a <strong>Grave Key</strong>.</li>
+        <li><strong>Grave Key</strong> — a craftable key that instantly recovers a grave's contents from a distance, so you don't have to fight back to the exact death tile through whatever killed you.</li>
+        <li><strong>Teleport-to-grave scrolls</strong> — soul-magic scrolls that warp you (or pull the grave) so a death deep in a lair doesn't strand your gear.</li>
+        <li><strong>Decorative graves</strong> — once recovered, graves can be kept as memorials; the mod has a whole cosmetic layer.</li>
+      </ul>
+
+      <h3>Knowledge of death &amp; soul magic</h3>
+      <p>Tombstone is more than a grave block — surviving (and dying) builds <strong>Knowledge of Death</strong>, a progression that unlocks soul-powered abilities fuelled by <strong>Soul energy</strong>:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">progression</span><h4>Knowledge of Death</h4><p>An XP-like track earned through play that gates the mod's enchantments and magical perks. The more you live dangerously, the more it grants.</p></div>
+        <div class="card"><span class="tag">enchants</span><h4>Tombstone enchantments</h4><p>Unique enchantments — soul-bound gear, magic siphon, and more — that lean into the death/soul theme and reinforce the safety net.</p></div>
+        <div class="card"><span class="tag">companion</span><h4>Familiar Receptacle</h4><p>Capture and carry a <strong>familiar</strong> — a pet/companion bound to you via soul magic, summonable as backup in a fight.</p></div>
+        <div class="card"><span class="tag">fuel</span><h4>Soul energy</h4><p>The currency for scrolls and abilities, gathered through the soul mechanics. Budget it like any consumable before a big delve.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">Set it up before you need it</span><p>The grave appears automatically, but the <strong>Grave Key</strong> and <strong>teleport scrolls</strong> are things you craft in advance. Carry a Grave Key on every expedition — recovering your loadout from across a lair, instead of corpse-running past the boss that killed you, is the difference between a bad day and a lost run.</p></div>
+      <div class="note warn"><span class="label">Not a substitute for skill</span><p>Tombstone protects your <em>items</em>, not your <em>progress</em> on a fight — most bosses reset when you die. Use the net as a buffer to learn an encounter safely, not as a licence to facetank it.</p></div>
+    </section>
+
+    <!-- 04 AQUACULTURE 2 -->
+    <section class="doc" id="aquaculture">
+      <p class="sec-index">04 — Staying alive · Shadow</p>
+      <h2>Aquaculture 2 — the fishing overhaul</h2>
+      <p>An empty hunger bar gets you killed as surely as any boss. Aquaculture 2 turns fishing from a vanilla afterthought into a reliable, scalable <strong>food and loot pipeline</strong>: dozens of new fish keyed to biome and water type, upgraded rods, and a real tackle system. It's the calmest way to keep an expedition fed and to pull genuine treasure out of the water.</p>
+
+      <h3>The tackle</h3>
+      <div class="data-table">
+        <table>
+          <caption>Aquaculture's gear &amp; what it changes</caption>
+          <thead><tr><th>Item</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Material fishing rods</strong> (Iron &amp; up)</td><td>Sturdier, higher-durability rods beyond the vanilla wooden one — the Iron Rod is the baseline upgrade; better materials raise durability and capability.</td></tr>
+            <tr><td><strong>Hooks</strong></td><td>Slot into the rod to bias your catch — faster bites, better loot odds, or double-catches depending on the hook.</td></tr>
+            <tr><td><strong>Bait &amp; lures</strong></td><td>Worms and bait improve catch rate and quality. Stock up before a long trip so the fishing pays out.</td></tr>
+            <tr><td><strong>Fillet Knife</strong></td><td>Processes whole fish into fillets (and turns some catches into usable cooking ingredients), stretching every catch further.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>What you pull up</h3>
+      <ul>
+        <li><strong>Biome &amp; water-type fish</strong> — different species appear in different biomes and in fresh vs salt vs other water, so where you cast matters. Cooked fish are solid, abundant food.</li>
+        <li><strong>Treasure &amp; fishing loot</strong> — Aquaculture's loot tables yield more than fish: gear, materials, and rare hauls like <strong>Neptune's Bounty</strong>-tier finds for the patient angler.</li>
+        <li><strong>Cross-mod cooking</strong> — fish flow straight into <strong>Farmer's Delight</strong> via Aquaculture Delight integration, so your catch becomes real cooked meals. (See the <a href="farmers-delight-guide.html">Farmer's Delight guide</a>.)</li>
+      </ul>
+      <div class="note tip"><span class="label">The lazy food economy</span><p>Set up near water at base, slot a good hook, keep bait on hand, and a few minutes of fishing yields a stack of meals plus occasional loot. It's the lowest-effort way to never starve mid-delve — pack the surplus before an expedition (§07).</p></div>
+    </section>
+
+    <!-- 05 COMFORTS -->
+    <section class="doc" id="comforts">
+      <p class="sec-index">05 — Staying alive · TheIllusiveC4</p>
+      <h2>Comforts — rest on the road</h2>
+      <p>On a long delve you'll want to skip the night without dragging a bed everywhere or accidentally resetting your spawn to the middle of a hostile cave. Comforts solves both with two portable items: <strong>Sleeping Bags</strong> and <strong>Hammocks</strong>. Small mod, outsized impact on any expedition.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">expedition</span><h4>Sleeping Bag</h4><p>Sleep through the night <strong>without</strong> setting your spawn point — your home bed stays your respawn. Lightweight and great for delves; they wear out with use, so pack a few rather than relying on one forever.</p></div>
+        <div class="card"><span class="tag">overworld</span><h4>Hammock</h4><p>String it between two solid blocks to skip the night out in the open. The same "rest anywhere" idea in a more permanent, reusable form for camps.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">Why this matters for the bosses</span><p>Mowzie's and Mutant fights are easier in daylight with full hunger and no swarm of regular night mobs piling on. A Sleeping Bag lets you skip to morning right outside a lair, take the boss fresh, and keep your real spawn safely at base — no risk of respawning next to the thing that just killed you.</p></div>
+      <div class="note warn"><span class="label">Same rules still apply</span><p>You can only sleep at night (or during a thunderstorm), and only when no hostile mobs are nearby. Clear the area first — a Sleeping Bag won't save you from trying to nap on a monster's doorstep.</p></div>
+    </section>
+
+    <!-- 06 COMBAT LOADOUT -->
+    <section class="doc" id="loadout">
+      <p class="sec-index">06 — The hunt</p>
+      <h2>Combat Loadout &amp; Tactics</h2>
+      <p>The pack gives you several whole arsenals to bring against the bestiary above. You won't use all of them at once — pick a primary damage source, layer on defence and consumables, and tailor the kit to the fight. Here's where the firepower comes from and how to point it.</p>
+
+      <h3>Where your gear comes from</h3>
+      <div class="data-table">
+        <table>
+          <caption>Arsenals across the pack (each has its own guide)</caption>
+          <thead><tr><th>Source</th><th>Brings to a boss fight</th><th>Guide</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tinkers' Construct</strong></td><td>Build-your-own melee weapons with modifiers (sharpness, looting/luck, fiery, knockback resist) tuned per encounter.</td><td><a href="tinkers-guide.html">Tinkers' guide</a></td></tr>
+            <tr><td><strong>Iron's Spells 'n Spellbooks</strong></td><td>Ranged magic — fire/lightning/ice damage and mobility spells to kite fliers and pressure ranged bosses.</td><td><a href="spellbooks-guide.html">Spellbooks guide</a></td></tr>
+            <tr><td><strong>Apotheosis</strong></td><td>Affix-enchanted gear, gems and the enchantment ceiling that pushes your damage and defence past vanilla limits.</td><td><a href="apotheosis-guide.html">Apotheosis guide</a></td></tr>
+            <tr><td><strong>Mekanism</strong></td><td>The MekaSuit &amp; Meka-Tool — powered armour with damage absorption, flight and an electric melee for the late game.</td><td><a href="mekanism-guide.html">Mekanism guide</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Consumables &amp; safety items</h3>
+      <ul>
+        <li><strong>Totem of Undying</strong> — the single most valuable thing in your offhand against any boss. It eats the one-shot you didn't see coming. Never fight without one.</li>
+        <li><strong>Potions</strong> — Regeneration and Strength for the damage race; Fire Resistance for solar/fire bosses; Slow Falling and Speed for fliers and kiting.</li>
+        <li><strong>Golden apples / enchanted apples</strong> — instant absorption + regen buffer to ride out a burst.</li>
+        <li><strong>Milk bucket</strong> — clears the slows and debuffs Frostmaw's frost and others apply.</li>
+        <li><strong>Tombstone Grave Key</strong> (§03) — your recovery plan, carried <em>before</em> the fight.</li>
+      </ul>
+
+      <h3>Tactics by threat type</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">heavy melee</span><h4>vs Wroughtnaut / Mutant Zombie</h4><p>Bait the slow wind-up, sidestep the slam, punish the recovery. Stack knockback-resistance gear so the shockwaves don't juggle you. Patience &gt; DPS.</p></div>
+        <div class="card"><span class="tag">ranged</span><h4>vs Barako / Mutant Skeleton</h4><p>Use cover and break line of sight between volleys; close the gap or out-range them with magic. Fire Resistance for Barako's solar attacks.</p></div>
+        <div class="card"><span class="tag">flying</span><h4>vs Naga / fliers</h4><p>Bow, spells, or a thrown weapon. Keep a wall or overhang at your back so you only watch one approach lane; Slow Falling if you take the fight elevated.</p></div>
+        <div class="card"><span class="tag">explosive</span><h4>vs Mutant Creeper</h4><p>Out-range the blast entirely — ranged only, in open ground, never standing on anything you can't afford to lose. Blast Protection helps if it closes.</p></div>
+      </div>
+      <div class="note danger"><span class="label">Offhand discipline</span><p>If you remember one thing from this section: <strong>Totem of Undying in the offhand, every single fight.</strong> Combined with the Tombstone net, it means almost nothing in this pack can permanently cost you — but only if the totem is equipped <em>before</em> the hit lands, not in your hotbar waiting to be swapped.</p></div>
+    </section>
+
+    <!-- 07 EXPEDITION CHECKLIST -->
+    <section class="doc" id="expedition">
+      <p class="sec-index">07 — The hunt · the ledger</p>
+      <h2>A Survival Checklist for Expeditions</h2>
+      <p>Most deaths in this pack are logistics failures, not skill failures — you ran out of food, slept in the wrong place, or left your totem in a chest. Run this checklist before you leave base to hunt a Mowzie's lair, chase a mutant, or push into a structure.</p>
+
+      <h3>Pre-departure ledger</h3>
+      <ol class="flow">
+        <li><strong>Tombstone ready</strong> — Grave Key crafted and in your pack; a teleport scroll if you have one. Confirm your real spawn is set at base. (§03)</li>
+        <li><strong>Totem(s) of Undying</strong> — at least one in the offhand, spares in the hotbar. (§06)</li>
+        <li><strong>Food packed</strong> — a stack of cooked fish or Farmer's Delight meals from your Aquaculture pipeline. Never leave on a half-empty hunger bar. (§04)</li>
+        <li><strong>Rest gear</strong> — a few Sleeping Bags (or a Hammock) so you can skip the night at the lair without moving spawn. (§05)</li>
+        <li><strong>Primary weapon + backup</strong> — your tuned melee or spellbook, plus a ranged option for fliers and a second weapon in case durability runs out mid-delve. (§06)</li>
+        <li><strong>Potions &amp; cures</strong> — Regen/Strength, Fire Resistance, and a milk bucket for debuffs. (§06)</li>
+        <li><strong>Build &amp; light</strong> — blocks for walling off and pillaring, plus torches; the ability to seal a fighting arena turns chaos into a duel.</li>
+      </ol>
+
+      <div class="note tip"><span class="label">The expedition loop</span><p>Arrive → clear the area → <strong>Sleeping Bag to morning</strong> → scout the boss and read its telegraphs from safety → equip totem → engage with an escape route planned. If you die, <strong>Grave Key</strong> recovers your loadout while you regroup, then re-approach fresh. That loop beats every boss on this page eventually.</p></div>
+      <div class="note warn"><span class="label">Cross-reference for the big bosses</span><p>This checklist also carries you into the pack's dedicated boss content. For the <a href="cataclysm-guide.html">Cataclysm</a> bosses and the <a href="twilight-forest-guide.html">Twilight Forest</a> progression chain, the same loadout philosophy applies — but those mods gate their own gear and arenas, so read their guides before you commit a loadout to them.</p></div>
+
+      <h3>The short version</h3>
+      <ul class="pills">
+        <li><b>Net:</b> Grave Key</li>
+        <li><b>Cheat death:</b> Totem offhand</li>
+        <li><b>Fuel:</b> Cooked fish</li>
+        <li><b>Rest:</b> Sleeping Bag</li>
+        <li><b>Reach:</b> Bow / spell</li>
+        <li><b>Cure:</b> Milk + potions</li>
+        <li><b>Read:</b> the telegraph</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Wilds Bestiary</strong><br>
+      An unofficial, fan-made survival &amp; combat field guide for To the Moon 2.0 on Minecraft 1.19.2 (Forge).<br>
+      Mowzie's Mobs (bobmowzie), Mutant Monsters (Fuzs), Corail Tombstone (Corail_31), Aquaculture 2 (Shadow) &amp; Comforts (TheIllusiveC4) belong to their respective authors. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Mowzie's Mobs · Mutant Monsters<br>
+      · Corail Tombstone · Aquaculture 2<br>
+      · Comforts (sleeping bags &amp; hammocks)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Mob behaviours, health, damage and loot tables are described qualitatively and are config-tunable — any specific numbers are approximate. The in-game entity and each mod's official wiki are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

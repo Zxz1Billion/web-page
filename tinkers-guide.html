@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Smeltery Ledger — a Tinkers' Construct 3 field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Tinkers' Construct 3 (Minecraft 1.19.2 Forge, SlimeKnights) guide: building tools from parts, materials &amp; traits, the Smeltery multiblock with an interactive schematic, casting &amp; casts, modifiers, Tinkers' armor, smeltery automation, bows and endgame material picks." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#120c09; --bg-1:#18100b; --bg-2:#231710; --bg-3:#2f1f15; --line:#3d2a1b;
+    --ink:#f1e6d6; --ink-dim:#bba585; --ink-faint:#80684f;
+    --accent:#e8902f; --accent-2:#e0c14a; --accent-3:#d44a2f; --danger:#ff5a3c;
+    --accent-soft:rgba(232,144,47,0.14); --accent-glow:rgba(232,144,47,0.5);
+    --f-display:"Oswald",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🔨</span>
+      <span class="wordmark">The Smeltery<br>Ledger<small>TINKERS' CONSTRUCT 3</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Foundations</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#firsttools"><span class="ix">01</span> First Tools (no smithing)</a>
+      <a href="#materials"><span class="ix">02</span> Materials &amp; Traits</a>
+      <p class="group-label">The Forge</p>
+      <a href="#smeltery"><span class="ix">03</span> The Smeltery</a>
+      <a href="#casting"><span class="ix">04</span> Casting &amp; Casts</a>
+      <p class="group-label">Mastery</p>
+      <a href="#modifiers"><span class="ix">05</span> Modifiers</a>
+      <a href="#armor"><span class="ix">06</span> Armor</a>
+      <a href="#automation"><span class="ix">07</span> Smeltery Automation</a>
+      <p class="group-label">Beyond</p>
+      <a href="#bows"><span class="ix">08</span> Bows &amp; Special Tools</a>
+      <a href="#endgame"><span class="ix">09</span> Tips &amp; Endgame</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track the Tinkers'<br>Construct 3.x (1.19.2) line by<br>SlimeKnights. Exact stat numbers<br>are config-tunable and shift by<br>version — the in-game books and<br>JEI are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · SlimeKnights</p>
+      <h1>The Smeltery<br>Ledger</h1>
+      <p class="lede">A working field manual for <strong>Tinkers' Construct 3</strong> — the mod where you never touch a crafting grid to make a tool. You forge <em>parts</em>, assemble them at a station, then layer on <em>modifiers</em> forever. From your first flint hand axe to a molten Smeltery that triples your ore and casts Manyullyn into a blade that out-mines diamond — this is how the whole machine fits together, plus a representative interactive Smeltery schematic.</p>
+      <div class="badges">
+        <span class="badge accent">Tinkers' Construct 3.x</span>
+        <span class="badge">+ Tinkers' addons</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">🔥 The Smeltery runs on lava</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Tinkers' Construct is not a "craft a pickaxe" mod. It is a <strong>tool foundry</strong>. Every tool is built from interchangeable <strong>parts</strong>, each part is a chosen <strong>material</strong> with its own stats and traits, and every finished tool is an upgradeable platform you sink <strong>modifiers</strong> into for the rest of the world.</p>
+
+      <p>Three ideas carry the entire mod. Internalise them now and every later screen reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">build</span><h4>Tools = Parts</h4><p>A pickaxe is a Pickaxe Head + Tool Handle + Tool Binding. You make each part separately, then assemble — never in a 3×3 grid.</p></div>
+        <div class="card"><span class="tag">choose</span><h4>Material = Identity</h4><p>The same part shape in Flint, Bone, Iron or Manyullyn behaves completely differently. Material picks <em>are</em> the gameplay.</p></div>
+        <div class="card"><span class="tag">grow</span><h4>Modifiers = Forever</h4><p>Tools gain XP, level up, and accept Sharpness, Haste, Fortune, Unbreaking and dozens more. You upgrade one tool for the whole save.</p></div>
+      </div>
+
+      <h3>Why you never "lose" a tool</h3>
+      <ul>
+        <li><strong>Tinkers tools don't break.</strong> At 0 durability they go inert until repaired — they are never destroyed, and they keep every modifier you invested.</li>
+        <li><strong>They earn XP.</strong> Using a tool levels it, granting extra modifier slots over time (the leveling system / addons like <em>Tinkers' Leveling</em> expand this).</li>
+        <li><strong>They are repairable.</strong> Patch them at a Tinker Station with more of the head material, or pour molten metal over them in the Smeltery.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Your first hour</span>
+        <p>Punch a tree, craft a <strong>Pattern</strong> and a <strong>Part Builder</strong> + <strong>Tinker Station</strong>, and make a wooden Pickaxe and a flint/stone Hand Axe. No Smeltery required yet. Read the in-game book <strong>"Materials and You"</strong> — it is the canonical tutorial and updates itself as you progress.</p>
+      </div>
+    </section>
+
+    <!-- 01 FIRST TOOLS -->
+    <section class="doc" id="firsttools">
+      <p class="sec-index">01 — The wood tier</p>
+      <h2>First Tools — No Smithing Needed</h2>
+      <p>You can play a full early game before melting a single ingot. The starter loop is three blocks and a stack of patterns. Everything here works with materials you can punch, mine or kill for: wood, stone, flint, bone and a little copper.</p>
+
+      <h3>The starter stations</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">templates</span><h4>Pattern</h4><p>A blank template crafted from wood. Used in the Part Builder to shape a part. Cheap and reusable.</p></div>
+        <div class="card"><span class="tag">parts</span><h4>Part Builder</h4><p>Crafts non-metal parts from a Pattern + a material (planks, stone, flint, bone). Your no-Smeltery part factory.</p></div>
+        <div class="card"><span class="tag">assembly</span><h4>Tinker Station</h4><p>Where parts become tools, where you repair, and where you apply modifiers. The heart of the workflow.</p></div>
+        <div class="card"><span class="tag">book</span><h4>Materials &amp; You</h4><p>The given starter book. "Puny Smelting" then "Mighty Smelting" unlock as you build the Smeltery.</p></div>
+      </div>
+
+      <h3>The starter tools</h3>
+      <p>Build a tool by laying its parts on the Tinker Station. A few you'll want immediately:</p>
+      <div class="data-table">
+        <table>
+          <caption>Early tools and the parts they need</caption>
+          <thead><tr><th>Tool</th><th>Parts</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Pickaxe</td><td>Pickaxe Head + Handle + Binding</td><td>Standard mining; your day-one tool.</td></tr>
+            <tr><td>Hand Axe</td><td>Small Axe Head + Handle</td><td>Chops wood and fights — a flint head is a great start.</td></tr>
+            <tr><td>Mattock</td><td>Pick Head + Small Axe Head + Handle</td><td>Hoe + axe + shovel in one; the classic farming/utility multitool.</td></tr>
+            <tr><td>Dagger / Sword</td><td>Blade + Handle (+ Crossguard)</td><td>Melee. Fast and modifiable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Part shapes vs material</h3>
+      <p>A part has a <strong>shape</strong> (what slot it fills — head, handle, binding) and a <strong>material</strong> (what it's made of). The Part Builder handles non-metal materials directly; metal parts are <em>cast</em> in the Smeltery (see §03–04). The same Pickaxe Head shape in Flint, Bone or Iron is three very different heads.</p>
+      <div class="note">
+        <span class="label">Material tiers gate mining</span>
+        <p>A tool can only mine blocks at or below its <strong>head's harvest tier</strong>. Stone/flint mine iron-level; you need an iron-tier (or higher) head to mine diamonds and obsidian. Pick your <em>head</em> material first, then dress the rest for stats.</p>
+      </div>
+    </section>
+
+    <!-- 02 MATERIALS -->
+    <section class="doc" id="materials">
+      <p class="sec-index">02 — The substance</p>
+      <h2>Materials &amp; Traits</h2>
+      <p>Every material a part can be made from carries two things: a set of <strong>stats</strong> (durability, mining speed, attack damage, harvest tier, and for handles a durability/speed multiplier) and one or more <strong>traits</strong> — passive quirks that change how the tool plays. Materials are loosely grouped into <strong>tiers 1–4</strong>, roughly mirroring vanilla tool progression.</p>
+
+      <div class="note warn">
+        <span class="label">Numbers are descriptive here</span>
+        <p>Exact durability/speed/attack values shift between Tinkers' versions and are config-tunable. Treat the table below as <em>relative</em> guidance — JEI and the in-game material screens are authoritative for your pack.</p>
+      </div>
+
+      <h3>A representative material table</h3>
+      <div class="data-table">
+        <table>
+          <caption>Selected materials by tier (relative / approximate)</caption>
+          <thead><tr><th>Material</th><th>Tier</th><th>Feel</th><th>Signature trait(s)</th></tr></thead>
+          <tbody>
+            <tr><td>Wood</td><td class="num">1</td><td>Disposable starter, cheap.</td><td>Ecological (slow self-repair)</td></tr>
+            <tr><td>Stone / Flint</td><td class="num">1</td><td>Fast but fragile.</td><td>Stonebound · Jagged (Flint)</td></tr>
+            <tr><td>Bone</td><td class="num">1–2</td><td>Solid all-round handle/head.</td><td>Splitting / sturdy</td></tr>
+            <tr><td>Copper</td><td class="num">2</td><td>Reliable early metal.</td><td>Dwarven (better in depths)</td></tr>
+            <tr><td>Slimewood / Slimesteel</td><td class="num">2–3</td><td>Bouncy slime-line metals.</td><td>Overcast · slime synergies</td></tr>
+            <tr><td>Iron</td><td class="num">2</td><td>Dependable workhorse.</td><td>(plain, takes modifiers well)</td></tr>
+            <tr><td>Pig Iron</td><td class="num">3</td><td>Edible-themed alloy.</td><td>Tasty (drops food / heals)</td></tr>
+            <tr><td>Cobalt</td><td class="num">3</td><td>Very fast mining.</td><td>Lightweight · momentum</td></tr>
+            <tr><td>Rose Gold / Hepatizon</td><td class="num">3</td><td>Modifier-leaning alloys.</td><td>extra modifier / curses</td></tr>
+            <tr><td>Queen's Slime</td><td class="num">3–4</td><td>High-end slime alloy.</td><td>Overlord · regen synergy</td></tr>
+            <tr><td>Manyullyn</td><td class="num">4</td><td>The classic endgame head.</td><td>Insatiable (ramping damage)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Traits worth knowing</h3>
+      <p>Traits are free, permanent, and stack with modifiers. A few canonical ones:</p>
+      <ul>
+        <li><strong>Stonebound</strong> — mines <em>faster</em> as durability drops (Stone). The inverse, <strong>Dense/Sturdy</strong>-style traits, reward keeping it full.</li>
+        <li><strong>Jagged</strong> — deals <em>more</em> damage the more worn it is (Flint). Pairs with Stonebound on a "use-it-down" build.</li>
+        <li><strong>Ecological</strong> — slowly self-repairs over time (Wood). Great on backup tools.</li>
+        <li><strong>Crumbling</strong> — bonus speed on instant-mine / soft blocks.</li>
+        <li><strong>Sharp / Insatiable</strong> — raw or ramping attack — the reason Manyullyn blades hit so hard.</li>
+        <li><strong>Dwarven</strong> — copper-line bonus the deeper (lower Y) you are.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Mix materials for synergy</span>
+        <p>Because each <em>part</em> picks its own material, you can stack traits: a fast Cobalt head, a Stonebound-leaning handle for late-durability speed, and a binding chosen purely for its trait. The art of Tinkers is in the combination, not any single "best" material.</p>
+      </div>
+    </section>
+
+    <!-- 03 SMELTERY -->
+    <section class="doc" id="smeltery">
+      <p class="sec-index">03 — The core multiblock</p>
+      <h2>The Smeltery</h2>
+      <p>The Smeltery is the beating heart of mid-game Tinkers. It is a <strong>hollow multiblock furnace</strong> built from <strong>Seared Bricks</strong> that melts metals (and more) into <strong>molten fluid</strong>, then lets you cast that fluid into parts, ingots and blocks. Crucially, melting <strong>ore</strong> yields more metal than smelting it — most ores melt into roughly <strong>2× (or more)</strong> an ingot's worth of molten metal, and the Smeltery <strong>alloys</strong> metals you can't get any other way.</p>
+
+      <h3>The required pieces</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">shell</span><h4>Seared Bricks</h4><p>The wall and floor blocks. Smelt grout (clay + sand + gravel) to seared brick. The hollow interior is the melting volume.</p></div>
+        <div class="card"><span class="tag">brain</span><h4>Smeltery Controller</h4><p>One special wall block with a face — your access point and the block that "forms" the structure.</p></div>
+        <div class="card"><span class="tag">fuel</span><h4>Seared / Fuel Tank</h4><p>Holds the fuel. <strong>Lava</strong> is the standard — one bucket melts a lot. Tanks also raise the liquid capacity.</p></div>
+        <div class="card"><span class="tag">output</span><h4>Seared Drain + Faucet</h4><p>The Drain is a wall port; a Faucet on its outer face pours molten fluid onto a Casting Table or Basin below.</p></div>
+      </div>
+
+      <h3>How melting &amp; alloying work</h3>
+      <ol class="flow">
+        <li><strong>Heat the bottom.</strong> A Seared/Fuel Tank of lava sits in the wall; the Smeltery heats from the fuel and melts whatever you drop inside.</li>
+        <li><strong>Ore → more metal.</strong> Raw ore and many ores melt into a surplus of molten metal — your ore-doubling. Ingots/blocks melt to exactly their worth.</li>
+        <li><strong>Alloy automatically.</strong> When two compatible molten metals share the tank in the right ratio, they combine into an alloy on their own.</li>
+        <li><strong>Pour it out.</strong> A Faucet on a Drain empties molten fluid onto a Casting Table (parts/ingots) or Casting Basin (blocks/large items).</li>
+      </ol>
+
+      <div class="data-table">
+        <table>
+          <caption>Signature Smeltery alloys (ratios approximate / version-dependent)</caption>
+          <thead><tr><th>Alloy</th><th>Molten inputs</th><th>Known for</th></tr></thead>
+          <tbody>
+            <tr><td>Manyullyn</td><td>Cobalt + Copper (+ Debris in some versions)</td><td>Top-tier blades &amp; heads.</td></tr>
+            <tr><td>Hepatizon</td><td>Cobalt + Bronze (Copper-line)</td><td>Modifier-heavy gear.</td></tr>
+            <tr><td>Rose Gold</td><td>Gold + Copper</td><td>Cheap "+1 modifier" material.</td></tr>
+            <tr><td>Pig Iron</td><td>Iron + Blood + Clay (themed)</td><td>The "Tasty" food trait.</td></tr>
+            <tr><td>Slimesteel</td><td>Iron + Skyslime + Sand-line</td><td>Slime-suit &amp; tool synergy.</td></tr>
+            <tr><td>Queen's Slime</td><td>Slimesteel + Gold + Magma-line</td><td>High-end slime alloy.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>A representative Smeltery build</h3>
+      <p>Below is a small, legal Smeltery: a hollow seared-brick shell with a floor, a Controller, a Tank (fuel), a Drain with a Faucet, and a hollow interior. Step through the Y-layers. The Smeltery scales up — taller and wider gives more melting slots and capacity, with a foundry-style interior that grows with height.</p>
+      <div id="smeltery-viewer"></div>
+      <div class="note warn">
+        <span class="label">It must be airtight and seared</span>
+        <p>Every wall, floor and corner must be a valid <strong>seared</strong> block (bricks, tank, drain, controller, etc.), the interior must be hollow, and the controller forms it. A single gap or a non-seared block and the structure won't activate.</p>
+      </div>
+    </section>
+
+    <!-- 04 CASTING -->
+    <section class="doc" id="casting">
+      <p class="sec-index">04 — Shaping the molten</p>
+      <h2>Casting &amp; Casts</h2>
+      <p>Molten metal is useless until you pour it into a mold. Tinkers gives you two surfaces and a clever bootstrap for the molds themselves — the <strong>Cast</strong> system.</p>
+
+      <h3>The two casting surfaces</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">small</span><h4>Casting Table</h4><p>Sits under a Faucet. Holds a Cast (or item) and casts <strong>parts, ingots, and the Casts themselves</strong>. Your part-printer.</p></div>
+        <div class="card"><span class="tag">large</span><h4>Casting Basin</h4><p>For <strong>blocks and large items</strong> — metal blocks, seared blocks, gems, Plate parts for armor. Pour and let it cool.</p></div>
+      </div>
+
+      <h3>Making a Cast (the bootstrap)</h3>
+      <ol class="flow">
+        <li><strong>Place the item you want a mold of</strong> on a Casting Table — say an iron Pickaxe Head you made in the Part Builder, or a vanilla ingot.</li>
+        <li><strong>Pour molten Gold (or Copper)</strong> over it from the Faucet. The metal hardens <em>around</em> the item into a reusable <strong>Gold Cast</strong>.</li>
+        <li><strong>Reuse the Cast forever.</strong> Place the Cast on the table and pour any metal in to stamp out that shape, again and again.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Sand &amp; Red Sand Casts — the cheap path</span>
+        <p>Don't want to spend gold? Press a <strong>Sand Cast</strong> or <strong>Red Sand Cast</strong> against an item to make a <em>single-use</em> mold — it's consumed when filled. Perfect for one-off parts before you commit to permanent gold molds.</p>
+      </div>
+
+      <div class="data-table">
+        <table>
+          <caption>What goes where</caption>
+          <thead><tr><th>You want…</th><th>Surface</th><th>Need</th></tr></thead>
+          <tbody>
+            <tr><td>A metal tool part</td><td>Casting Table</td><td>The matching part Cast</td></tr>
+            <tr><td>An ingot / nugget / gem</td><td>Casting Table</td><td>Ingot / Nugget / Gem Cast</td></tr>
+            <tr><td>A new reusable Cast</td><td>Casting Table</td><td>Item + molten Gold/Copper</td></tr>
+            <tr><td>A metal / seared block</td><td>Casting Basin</td><td>(no cast — fills the basin)</td></tr>
+            <tr><td>A Plate / large armor part</td><td>Casting Basin</td><td>The Plate Cast</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 MODIFIERS -->
+    <section class="doc" id="modifiers">
+      <p class="sec-index">05 — The heart of the mod</p>
+      <h2>Modifiers</h2>
+      <p>If parts are the body, <strong>modifiers</strong> are the soul. At the Tinker Station you drop a finished tool plus a modifier item into a <strong>slot</strong>, and the tool gains a permanent ability. Slots come in types, and you earn more of them as the tool levels or by spending special items.</p>
+
+      <h3>Slot types</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">common</span><h4>Upgrade Slots</h4><p>The everyday slots — Sharpness, Haste, Fortune, Unbreaking and friends. Most tools start with a few.</p></div>
+        <div class="card"><span class="tag">rare</span><h4>Ability Slots</h4><p>Powerful actives like Auto-smelt, Silky, Expanded (AoE). Scarce — spend them carefully.</p></div>
+        <div class="card"><span class="tag">defense</span><h4>Defense Slots</h4><p>Armor-side — protection modifiers (used on Tinkers' armor, see §06).</p></div>
+        <div class="card"><span class="tag">soul</span><h4>Soul Slots</h4><p>For the rarest, gated modifiers. Earned, not crafted cheaply.</p></div>
+      </div>
+
+      <h3>Modifiers you'll reach for</h3>
+      <div class="data-table">
+        <table>
+          <caption>A working modifier shortlist (item costs vary by version)</caption>
+          <thead><tr><th>Modifier</th><th>Made with</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td>Sharpness</td><td>Quartz</td><td>+ attack damage, in tiers.</td></tr>
+            <tr><td>Haste</td><td>Redstone</td><td>+ mining speed, stacks in tiers.</td></tr>
+            <tr><td>Luck / Fortune</td><td>Lapis (→ tiers)</td><td>More drops; tops out at a Fortune/Looting tier.</td></tr>
+            <tr><td>Diamond</td><td>Diamond</td><td>Raises tier + durability and mining.</td></tr>
+            <tr><td>Emerald</td><td>Emerald</td><td>Durability boost &amp; tier support.</td></tr>
+            <tr><td>Reinforced</td><td>Obsidian-line plates</td><td>Chance to not use durability (Unbreaking).</td></tr>
+            <tr><td>Auto-smelt</td><td>(ability) lava-line</td><td>Smelts what you mine. Ability slot.</td></tr>
+            <tr><td>Silky</td><td>(ability) wool/cloth</td><td>Silk Touch. Ability slot.</td></tr>
+            <tr><td>Expanded</td><td>(ability)</td><td>Grows AoE tools (Hammer/Excavator area).</td></tr>
+            <tr><td>Bane / Smite</td><td>themed drops</td><td>Bonus vs spiders / undead.</td></tr>
+            <tr><td>Knockback · Magnetic</td><td>piston / magnetite-line</td><td>Punt mobs · pull drops to you.</td></tr>
+            <tr><td>Soulbound</td><td>(soul) gated</td><td>Keep the tool on death.</td></tr>
+            <tr><td>Necrotic</td><td>(rare) wither-line</td><td>Lifesteal on hit.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Getting more slots</h3>
+      <ul>
+        <li><strong>Level the tool.</strong> Using a tool grants XP; leveling awards extra upgrade slots over time.</li>
+        <li><strong>Spend special items.</strong> <em>Silky Cloth / Silky Jewels</em>, <em>Ancient Hides</em> and similar gated drops convert into extra Upgrade or Ability slots.</li>
+        <li><strong>Embellishment / leveling system.</strong> Cosmetic <strong>Embellishments</strong> dress slime-line gear; the broader leveling framework is how you keep growing one tool into the endgame.</li>
+      </ul>
+      <div class="note danger">
+        <span class="label">Ability slots are precious</span>
+        <p>You'll have far more Upgrade slots than Ability slots. Decide early whether a tool is your Silk-Touch tool or your Auto-smelt tool — converting later means re-earning a scarce slot. Plan the build, then commit.</p>
+      </div>
+    </section>
+
+    <!-- 06 ARMOR -->
+    <section class="doc" id="armor">
+      <p class="sec-index">06 — Wearable Tinkers</p>
+      <h2>Armor</h2>
+      <p>In Tinkers' Construct 3, armor is built and modified <strong>exactly like tools</strong> — from parts, with materials and modifiers — using <strong>Defense Slots</strong> in place of some upgrade slots. There are three main lines, each with its own niche.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The Tinkers' armor lines (1.19)</caption>
+          <thead><tr><th>Set</th><th>Built from</th><th>Best at</th></tr></thead>
+          <tbody>
+            <tr><td>Travelers Gear</td><td>Leather-line parts, light</td><td>Early, cheap, very modifiable; great mobility base.</td></tr>
+            <tr><td>Plate Armor</td><td><strong>Plate parts cast in the Smeltery</strong></td><td>Heavy protection; the tanky endgame set.</td></tr>
+            <tr><td>Slimesuit</td><td>Slime-line parts</td><td>Utility / fun set with strong slime synergies &amp; embellishments.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How it plays</h3>
+      <ul>
+        <li><strong>Plate parts are cast.</strong> Pour molten metal into <strong>Plate Casts</strong> in a <strong>Casting Basin</strong> (large item), then assemble at the station — this is why §03–04 matter for armor too.</li>
+        <li><strong>Defense slots take protection mods.</strong> Stack defense-oriented modifiers; embellishments add cosmetic color (slime line).</li>
+        <li><strong>Same upgrade ecosystem.</strong> Many tool modifiers apply — Reinforced (Unbreaking), Soulbound, Magnetic and more carry over to armor pieces.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Mix and match</span>
+        <p>You aren't locked to one set. A Plate chestplate for raw defense plus lighter Travelers pieces for mobility, each individually modified, is a perfectly valid loadout — exactly the part-by-part freedom the tools enjoy.</p>
+      </div>
+    </section>
+
+    <!-- 07 AUTOMATION -->
+    <section class="doc" id="automation">
+      <p class="sec-index">07 — Scaling the forge</p>
+      <h2>Smeltery Automation</h2>
+      <p>A hand-poured Smeltery is fine for a few parts; a base wants a <strong>casting line</strong>. Tinkers gives you fluid-routing blocks and early single-block melters so the forge runs while you do other things.</p>
+
+      <h3>Routing molten metal</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">pour</span><h4>Faucet</h4><p>The valve. Place on a Drain or Channel; a redstone pulse (or a held signal) makes it pour onto the surface below.</p></div>
+        <div class="card"><span class="tag">route</span><h4>Channel</h4><p>Seared Channels carry molten fluid horizontally from a Drain to several Faucets — fan one Smeltery out to many Casting Tables.</p></div>
+        <div class="card"><span class="tag">control</span><h4>Redstone</h4><p>Faucets respond to redstone, so a comparator/clock can drive continuous, hands-free casting of ingots or parts.</p></div>
+        <div class="card"><span class="tag">drain</span><h4>Seared Drain</h4><p>The wall port molten fluid leaves through. Multiple drains = multiple parallel output lines.</p></div>
+      </div>
+
+      <h3>Single-block early melting</h3>
+      <p>Before the full multiblock, or for small jobs, the smaller seared machines do real work:</p>
+      <div class="data-table">
+        <table>
+          <caption>The pre-Smeltery / support blocks</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Melter + Heater</td><td>A single-block melter heated by a Seared Heater (solid fuel). Melts a couple of things at a time — great early.</td></tr>
+            <tr><td>Alloyer</td><td>Combines molten metals into alloys without the full Smeltery (fed by tanks).</td></tr>
+            <tr><td>Seared Heater</td><td>Burns solid fuel to power the Melter/Alloyer. The non-lava heat source.</td></tr>
+            <tr><td>Seared Tank</td><td>Buffers molten fluid or fuel; raises Smeltery capacity when built into the wall.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Seared vs Scorched</span>
+        <p>Tinkers ships two forge "flavors". The overworld <strong>Seared</strong> Smeltery runs on <strong>lava</strong>. The Nether <strong>Scorched</strong> Smeltery (Scorched Bricks) is an alternative built around <strong>magma/blood</strong>-themed mechanics — same idea, different aesthetic and fuel path, useful if you base in the Nether.</p>
+      </div>
+    </section>
+
+    <!-- 08 BOWS -->
+    <section class="doc" id="bows">
+      <p class="sec-index">08 — Ranged &amp; exotic</p>
+      <h2>Bows &amp; Special Tools</h2>
+      <p>Tinkers goes well past pickaxes. Ranged weapons are part-built like everything else, and a stable of "special" tools covers AoE mining and big-swing combat.</p>
+
+      <h3>Bows &amp; arrows</h3>
+      <ul>
+        <li><strong>Longbow / Crossbow / Shortbow</strong> — assembled from <strong>limbs</strong>, a <strong>grip</strong>, and a <strong>bowstring</strong>. Limb material sets draw speed and power; grip and string tune handling.</li>
+        <li><strong>Arrows</strong> are themselves modifiable Tinkers items in many setups — head + shaft + fletching — so your ammo carries traits too.</li>
+        <li>Like all Tinkers gear, bows accept modifiers (Power-equivalents, Haste-as-drawspeed, etc.) and never truly break.</li>
+      </ul>
+
+      <h3>The special tool roster</h3>
+      <div class="data-table">
+        <table>
+          <caption>Big tools and what they're for</caption>
+          <thead><tr><th>Tool</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Hammer / Sledge Hammer</td><td>3×3 AoE mining — the quarry replacement.</td></tr>
+            <tr><td>Excavator</td><td>3×3 AoE digging for dirt/gravel/sand.</td></tr>
+            <tr><td>Broadsword / Cleaver</td><td>Heavy melee; Cleaver hits hard and beheads.</td></tr>
+            <tr><td>Scythe</td><td>AoE harvesting &amp; sweeping attacks.</td></tr>
+            <tr><td>Kama</td><td>Shears, harvests crops, light melee.</td></tr>
+            <tr><td>Mattock / Pickadze</td><td>Multi-function dig tools (axe/shovel/hoe blends).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Addons extend the toolbox</span>
+        <p><strong>Tinkers' Delight</strong> bridges Tinkers with <em>Farmer's Delight</em>, adding cooking-tool integration (knives and the like) so your kitchen gear gets the part/modifier treatment too. Many packs ship a few such addons — check JEI to see what your "To the Moon 2.0" install actually includes.</p>
+      </div>
+    </section>
+
+    <!-- 09 ENDGAME -->
+    <section class="doc" id="endgame">
+      <p class="sec-index">09 — Mastery</p>
+      <h2>Tips &amp; Endgame</h2>
+      <p>By now you can build, cast, and modify anything. The endgame is about <strong>picking materials per slot</strong>, keeping tools fed and repaired, and understanding why a maxed Tinkers tool simply leaves vanilla behind.</p>
+
+      <h3>Material picks by slot (rules of thumb)</h3>
+      <div class="data-table">
+        <table>
+          <caption>Common late-game choices (tune to your pack)</caption>
+          <thead><tr><th>Slot</th><th>Reach for</th><th>Because</th></tr></thead>
+          <tbody>
+            <tr><td>Head (mining)</td><td>Cobalt / Manyullyn</td><td>Cobalt = speed; Manyullyn = durability + tier.</td></tr>
+            <tr><td>Head (combat)</td><td>Manyullyn / Queen's Slime</td><td>Strong attack &amp; ramping traits.</td></tr>
+            <tr><td>Handle</td><td>Stat-multiplier metals</td><td>Handles multiply head durability/speed — high-leverage slot.</td></tr>
+            <tr><td>Binding / extra</td><td>Hepatizon / Rose Gold</td><td>Extra-modifier traits beat raw stats here.</td></tr>
+            <tr><td>Bow limbs</td><td>fast/strong alloys</td><td>Limbs set draw speed and arrow power.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Keeping tools alive</h3>
+      <ul>
+        <li><strong>Repair at the station</strong> with the head material, or <strong>pour molten metal</strong> over the tool in the Smeltery — fast and cheap once the forge is up.</li>
+        <li><strong>Reinforced / Unbreaking</strong> stacks reduce durability use so far that high-tier tools rarely need topping up.</li>
+        <li><strong>Ecological</strong> handles self-mend slowly — handy on a backup or rarely-used tool.</li>
+      </ul>
+
+      <h3>The Plate + Embossment endgame</h3>
+      <p>At the top of the tree you're casting <strong>Plate parts</strong> for armor, dressing slime gear with <strong>embellishments</strong>, and embossing/leveling tools far past their starting modifier budget. A single fully-built pickaxe can carry Fortune III, max Haste, Auto-smelt, Reinforced, Expanded and more — all at once.</p>
+      <div class="note tip">
+        <span class="label">Why Tinkers out-scales vanilla</span>
+        <p>A diamond pickaxe is fixed: one enchant set, then it's done. A Tinkers pickaxe <em>compounds</em> — material traits + a dozen stacking modifiers + leveling + endless repair on one tool you keep all game. The Smeltery makes the materials cheap; the station makes the tool eternal. That's the whole game.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Smeltery Ledger</strong><br>
+      An unofficial, fan-made field manual for Tinkers' Construct on Minecraft 1.19.2 (Forge).<br>
+      Tinkers' Construct is by <a href="https://github.com/SlimeKnights/TinkersConstruct">mDiyo &amp; the SlimeKnights team</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game "Materials and You"<br>
+      · "Puny Smelting" / "Mighty Smelting"<br>
+      · JEI in your own install
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Stat numbers, alloy ratios and modifier costs are version-dependent and config-tunable — treated here as approximate/relative. The Smeltery schematic is a small representative build; real Smelteries scale with size. The in-game books and JEI win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic, initChrome } from "./assets/js/guide-chrome.js";
+
+  /* ---- palette for the Smeltery schematic ---- */
+  const PAL = {
+    brick:     { label: "Seared Bricks",       color: "#7a4a26" },
+    controller:{ label: "Smeltery Controller", color: "#e8902f" },
+    tank:      { label: "Seared / Fuel Tank",  color: "#d44a2f" },
+    drain:     { label: "Seared Drain",        color: "#e0c14a" },
+    faucet:    { label: "Faucet (outer face)", color: "#9fd6e6" },
+    molten:    { label: "Melting interior",    color: "#3a2415" },
+  };
+
+  const grid = (rows, cols, fill = null) =>
+    Array.from({ length: rows }, () => Array(cols).fill(fill));
+  const ring = (n, edge, inner = null) => {
+    const g = grid(n, n, inner);
+    for (let i = 0; i < n; i++) { g[0][i] = edge; g[n-1][i] = edge; g[i][0] = edge; g[i][n-1] = edge; }
+    return g;
+  };
+  const solid = (n, k) => grid(n, n, k);
+
+  /* ---- A small representative Smeltery (3×3 footprint, hollow) ---- */
+  // Wall layer: seared brick ring around a hollow melting interior,
+  // with a Controller, a Fuel Tank, and a Drain set into the walls.
+  const wall = ring(3, "brick", "molten");
+  wall[0][1] = "controller";   // north face — the controller / access
+  wall[1][0] = "tank";         // west face  — fuel (lava) tank
+  wall[1][2] = "drain";        // east face  — drain (Faucet hangs outside)
+
+  const wall2 = ring(3, "brick", "molten"); // second interior layer, plain shell
+
+  mountSchematic({
+    title: "The Smeltery",
+    subtitle: "representative 3×3 shell · hollow interior",
+    meta: { footprint: "3×3", height: "4 (scales taller/wider)" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Y0 · floor", grid: solid(3, "brick"),
+        note: "A solid Seared Brick floor. Every floor block must be a valid seared block or the structure won't form." },
+      { label: "Y1 · ports", grid: wall,
+        note: "Hollow brick ring around the melting interior. North = Smeltery Controller (access), West = Fuel Tank (lava), East = Seared Drain — hang a Faucet on the Drain's outer face to pour onto a Casting Table below." },
+      { label: "Y2 · shell", grid: wall2,
+        note: "Continue the brick walls. Taller and wider = more melting slots and more liquid capacity; add extra Tanks and Drains as you grow." },
+      { label: "Y3 · rim", grid: ring(3, "brick", "molten"),
+        note: "The top wall ring. The Smeltery is open-topped — you drop ores and metals straight in through the open top into the molten interior." },
+    ],
+  }, "#smeltery-viewer");
+
+  initChrome();
+</script>
+</body>
+</html>

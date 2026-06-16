@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The ME Network — an Applied Energistics 2 field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Applied Energistics 2 (Minecraft 1.19.2 Forge, AE2 15.x rv-rewrite) progression guide: certus quartz &amp; processors, AE energy, channels &amp; the ME Controller, storage cells &amp; bytes, terminals, autocrafting CPUs, import/export automation, Spatial IO, and the addons shipped in To the Moon 2.0." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#070b14; --bg-1:#0b101d; --bg-2:#121829; --bg-3:#1a2238; --line:#26314e;
+    --ink:#e2e9f7; --ink-dim:#94a3c4; --ink-faint:#5f6e90;
+    --accent:#4a9bff; --accent-2:#b06be0; --accent-3:#43d6c4; --danger:#ff6a6a;
+    --accent-soft:rgba(74,155,255,0.13); --accent-glow:rgba(74,155,255,0.5);
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">◈</span>
+      <span class="wordmark">The ME<br>Network<small>APPLIED ENERGISTICS 2</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Foundations</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#quartz"><span class="ix">01</span> Quartz &amp; Processors</a>
+      <a href="#power"><span class="ix">02</span> Power &amp; Energy (AE)</a>
+      <p class="group-label">The Network</p>
+      <a href="#network"><span class="ix">03</span> Cables &amp; Channels</a>
+      <a href="#storage"><span class="ix">04</span> Storage &amp; Cells</a>
+      <a href="#terminals"><span class="ix">05</span> Access &amp; Terminals</a>
+      <p class="group-label">Automation</p>
+      <a href="#autocrafting"><span class="ix">06</span> Autocrafting</a>
+      <a href="#io"><span class="ix">07</span> Automation &amp; IO</a>
+      <a href="#spatial"><span class="ix">08</span> Spatial &amp; Matter</a>
+      <p class="group-label">This Pack</p>
+      <a href="#addons"><span class="ix">09</span> Addons in the Pack</a>
+      <a href="#tips"><span class="ix">10</span> Tips &amp; Gotchas</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the AE2 15.x<br>(1.19.2, the "rv-rewrite") line.<br>Exact AE costs, byte counts and<br>channel limits are the in-game<br>Guidebook &amp; JEI — those win.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · TeamAppliedEnergistics</p>
+      <h1>The ME<br>Network</h1>
+      <p class="lede">A working field manual for <strong>Applied Energistics 2</strong> — the digital storage and autocrafting mod that replaces a wall of chests with one searchable, wireless network. From growing your first <em>Certus Quartz</em> and grinding out processors, through wiring <em>channels</em> and the ME Controller, into mass storage cells, crafting CPUs, and the import/export buses that automate the whole base. AE2 is not a grid you build once — it is a <strong>system you grow</strong>.</p>
+      <div class="badges">
+        <span class="badge accent">AE2 15.x (rv-rewrite)</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">+ pack addons</span>
+        <span class="badge danger">⚠ Channels will humble you</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Applied Energistics 2 is a <strong>digital storage and autocrafting network</strong>. Instead of sorting items into chests, you pour them into the network as data, then pull them back from a terminal anywhere — and ask the network to <em>craft</em> anything you have a recipe for, on demand, in bulk.</p>
+
+      <p>Four ideas hold the whole mod together. Get these straight first and every later block reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">power</span><h4>Energy (AE)</h4><p>The network runs on stored power measured in <strong>AE</strong>. You feed it Forge Energy (FE/RF) through an <strong>Energy Acceptor</strong>; without power, the whole grid goes dark.</p></div>
+        <div class="card"><span class="tag">wiring</span><h4>ME Cable</h4><p>Every device connects to the grid with <strong>ME Cable</strong>. Cables carry power <em>and</em> the data channels that authorise each device.</p></div>
+        <div class="card"><span class="tag">limit</span><h4>Channels</h4><p>The central constraint. Each device that does work consumes one <strong>channel</strong>, and cables only carry so many. Channel planning <em>is</em> the AE2 skill.</p></div>
+        <div class="card"><span class="tag">brain</span><h4>ME Controller</h4><p>The multiblock heart. It generates channels for the whole network. Without one you are limited to a tiny ad-hoc grid.</p></div>
+      </div>
+
+      <h3>The shape of the mod</h3>
+      <p>You will progress in roughly this order, and this guide follows it: grow <strong>Certus Quartz</strong> and grind out <strong>processors</strong> (the universal bottleneck), set up <strong>power</strong>, lay <strong>cable</strong> and stand up a <strong>Controller</strong>, plug in <strong>storage</strong> and a <strong>terminal</strong>, then layer on <strong>autocrafting</strong> and <strong>import/export automation</strong>. Spatial IO and the pack's addons are the deep end.</p>
+
+      <div class="note tip">
+        <span class="label">The in-game Guidebook is your friend</span>
+        <p>AE2 ships an excellent illustrated <strong>Guidebook</strong> (you get one on first pickup of certus quartz, or craft it). It has every recipe and a working diagram for the Controller and crafting multiblocks. Pair it with JEI and you rarely need to leave the game. This page is the map; the Guidebook is the territory.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Don't fear channels — learn them</span>
+        <p>Most AE2 frustration is one mechanic: <strong>channels</strong>. Read §03 before you build anything permanent. A network that "randomly stops working" is almost always a channel that ran out, not a bug.</p>
+      </div>
+    </section>
+
+    <!-- 01 QUARTZ & PROCESSORS -->
+    <section class="doc" id="quartz">
+      <p class="sec-index">01 — Materials</p>
+      <h2>Certus Quartz &amp; the Processor Chain</h2>
+      <p>Everything in AE2 is built from <strong>Certus Quartz</strong>, <strong>Fluix</strong>, and the three families of <strong>processor</strong>. The first hour is spent setting up renewable crystal growth so the processor grind stops being a chore.</p>
+
+      <h3>Finding &amp; growing crystals</h3>
+      <p>Certus Quartz Ore generates underground; mining a meteorite is the bigger prize (see below). To make it renewable, you grow crystals from seeds in water:</p>
+      <ol class="flow">
+        <li><strong>Charged Certus Quartz</strong> — pass plain certus quartz through a <strong>Charger</strong> (powered by AE/FE). Charged certus is needed for Fluix and for some crafts directly.</li>
+        <li><strong>Fluix Crystals</strong> — drop <strong>Charged Certus + Redstone + Quartz Dust</strong> into a block of <em>water</em>; they react and form Fluix in-world. Fluix is the mod's signature material (cables, glass, the Controller).</li>
+        <li><strong>Crystal seeds</strong> — craft <strong>Certus / Fluix seeds</strong> and toss them in water. They slowly grow into full crystals.</li>
+        <li><strong>Crystal Growth Accelerators</strong> — line a water channel with these (they need power) to speed seed growth dramatically. A short accelerated growth lane gives you effectively unlimited certus and fluix.</li>
+      </ol>
+      <div class="note tip"><span class="label">Quartz Grindstone for early dusts</span><p>Before you have power for a Charger, the hand-cranked <strong>Quartz Grindstone</strong> turns certus quartz, ores and more into <strong>dust</strong> (including the Quartz Dust you need for Fluix). It is your zero-power bootstrap tool.</p></div>
+
+      <h3>Meteorites &amp; the Inscriber presses</h3>
+      <p>Scattered <strong>Meteorites</strong> bury a core of <strong>Sky Stone</strong> and, crucially, the <strong>Inscriber Presses</strong> — the only source of these tools. You need all three press types, plus the <strong>Silicon Press</strong>, to make processors. Use a <strong>Meteorite Compass</strong> to find the nearest one.</p>
+      <div class="data-table">
+        <table>
+          <caption>The Inscriber presses (found in meteorites)</caption>
+          <thead><tr><th>Press</th><th>Stamps</th><th>Used in</th></tr></thead>
+          <tbody>
+            <tr><td>Silicon Press</td><td>Silicon → Printed Silicon</td><td>Every processor</td></tr>
+            <tr><td>Calculation Processor Press</td><td>Certus Quartz → Printed Calculation Circuit</td><td>Calculation Processor</td></tr>
+            <tr><td>Engineering Processor Press</td><td>Diamond → Printed Engineering Circuit</td><td>Engineering Processor</td></tr>
+            <tr><td>Logic Processor Press</td><td>Gold → Printed Logic Circuit</td><td>Logic Processor</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn"><span class="label">Presses are reusable — don't lose them</span><p>A press is a permanent tool that never wears out. You only need <strong>one of each</strong>. If you can't find meteorites, the <strong>AE2 Things</strong> addon in this pack adds alternative ways to obtain presses and an Advanced Inscriber — see §09.</p></div>
+
+      <h3>Building a processor</h3>
+      <p>The <strong>Inscriber</strong> stamps printed parts; the processor is then crafted from the printed circuit + printed silicon + a redstone-class material. This is the single biggest early bottleneck in AE2, so automate it (see §06 and §07):</p>
+      <div class="data-table">
+        <table>
+          <caption>The three processors and their feedstock</caption>
+          <thead><tr><th>Processor</th><th>Printed circuit (from press)</th><th>Plus</th><th>Identity</th></tr></thead>
+          <tbody>
+            <tr><td>Calculation Processor</td><td>Printed Calculation Circuit (certus)</td><td>Printed Silicon + Redstone</td><td>The most-used; certus-based.</td></tr>
+            <tr><td>Engineering Processor</td><td>Printed Engineering Circuit (diamond)</td><td>Printed Silicon + Redstone</td><td>Higher-tier devices.</td></tr>
+            <tr><td>Logic Processor</td><td>Printed Logic Circuit (gold)</td><td>Printed Silicon + Redstone</td><td>The common workhorse.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Automate inscribers early</span><p>A row of three Inscribers fed by an <strong>ME Pattern Provider</strong> (each set to a printed part), feeding a fourth assembling Inscriber, is the classic processor factory. Once the network can make its own processors on demand, the whole mod opens up.</p></div>
+    </section>
+
+    <!-- 02 POWER -->
+    <section class="doc" id="power">
+      <p class="sec-index">02 — Power</p>
+      <h2>Power &amp; Energy (AE)</h2>
+      <p>The network stores energy in its own unit, <strong>AE</strong>. Every device draws a small <em>idle</em> power even when doing nothing, and channels and active operations cost more. Run out of stored AE and the whole grid shuts down — so power is the first system to make robust.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">input</span><h4>Energy Acceptor</h4><p>The on-ramp: converts external <strong>FE/RF</strong> (and other supported energy) into <strong>AE</strong> for the network. Point your generators at one of these.</p></div>
+        <div class="card"><span class="tag">buffer</span><h4>Energy Cell</h4><p>Stores a buffer of AE so the grid rides out demand spikes and brief power gaps. Place several near the Controller.</p></div>
+        <div class="card"><span class="tag">buffer+</span><h4>Dense Energy Cell</h4><p>A much larger AE buffer (roughly an order of magnitude more than a standard cell). Essential before big autocrafting jobs spike demand.</p></div>
+        <div class="card"><span class="tag">emergency</span><h4>Vibration Chamber</h4><p>Burns furnace fuel to make a trickle of AE directly. A clutch <em>emergency</em> generator to restart a dead network — not a primary source.</p></div>
+      </div>
+
+      <h3>How the network spends power</h3>
+      <p>Power draw comes from three places, roughly in increasing order:</p>
+      <ul>
+        <li><strong>Idle device drain</strong> — every connected device sips a small amount of AE continuously just to stay online. Big networks idle-drain a lot; this is normal.</li>
+        <li><strong>Channels</strong> — the Controller and channel usage add to the baseline. More devices using channels = more idle cost.</li>
+        <li><strong>Active operations</strong> — autocrafting (Molecular Assemblers, Crafting CPUs) and import/export buses moving items cost AE per action. A large craft can briefly draw far more than idle.</li>
+      </ul>
+      <div class="note warn"><span class="label">Size for the spike, not the average</span><p>A network can idle happily on a tiny generator, then brown-out the instant you queue a 10,000-item craft. Keep at least one <strong>Dense Energy Cell</strong> as a shock absorber, and make sure your FE input can sustain a busy crafting job — not just the idle baseline. <span class="vflag">numbers approximate / config-tunable</span></p></div>
+    </section>
+
+    <!-- 03 NETWORK & CHANNELS -->
+    <section class="doc" id="network">
+      <p class="sec-index">03 — The constraint</p>
+      <h2>Cables, the Controller &amp; Channels</h2>
+      <p>This is the section that makes or breaks an AE2 player. Every device that does meaningful work needs a <strong>channel</strong>, channels are a finite resource carried by cable, and the <strong>ME Controller</strong> is the only thing that generates them in bulk. Learn this and you will never "randomly lose" a device again.</p>
+
+      <h3>The channel rule</h3>
+      <p>A <strong>channel</strong> is the network's authorisation token for an active device. Storage drives, terminals, import/export buses, interfaces, pattern providers, planes — each consumes a channel. Passive parts (the Controller itself, plain cable, Quartz Fiber) do not.</p>
+      <div class="data-table">
+        <table>
+          <caption>Cable types and channel capacity</caption>
+          <thead><tr><th>Cable / source</th><th>Channels carried</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Glass / Covered / Smart Cable</td><td class="num">8</td><td>Standard cable. <em>Smart</em> cable visually shows channel load — invaluable for debugging.</td></tr>
+            <tr><td>Dense Cable (Smart / Covered)</td><td class="num">32</td><td>The backbone. Carries a full Controller's worth of channels along a trunk line.</td></tr>
+            <tr><td>ME Controller</td><td class="num">32 / face</td><td>Each exposed face of the Controller multiblock can emit up to 32 channels.</td></tr>
+            <tr><td>Ad-hoc (no Controller)</td><td class="num">8 total</td><td>A controllerless network is hard-capped at 8 channel-using devices, full stop.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The ME Controller multiblock</h3>
+      <p>The Controller is a block of Controller cores you place together into a compact 3D structure. It has rules: it can be a cuboid up to a limited size, faces must stay valid, and an over-built or badly shaped Controller will visibly turn off (turning red) rather than work. Channels flow <em>out of its faces</em> onto your cable. The closer a device is (in cable hops) to the Controller, the easier it is to route a channel to it.</p>
+      <div class="note tip"><span class="label">Smart cable is X-ray for channels</span><p>Use <strong>Smart Cable</strong> on your trunk lines while building. It animates coloured dots showing exactly how many channels are flowing through each segment. The moment a segment hits 8 (or 32 for dense), you can <em>see</em> the bottleneck instead of guessing.</p></div>
+
+      <h3>Multiplexing with P2P Tunnels</h3>
+      <p>The single most powerful channel tool is the <strong>P2P Tunnel</strong> (ME variant). It lets you stuff up to <strong>32 channels</strong> through a single cable: one input P2P "swallows" up to 32 channels, runs them down one dense line, and a paired output P2P "spits" them back out at the far end. This is how you wire a large base without a forest of dense cable everywhere.</p>
+      <ul>
+        <li><strong>Memory Card</strong> — shift-click an input P2P to copy its frequency, then right-click outputs to bind them. This pairs tunnels.</li>
+        <li><strong>P2P also tunnels other things</strong> — FE/RF, items, fluids, light, redstone — not just ME channels. It is a general-purpose multiplexer.</li>
+        <li><strong>Quartz Fiber</strong> — a special connector that shares <em>power</em> between two networks without sharing channels or merging them. Used to power a subnet from a main grid.</li>
+      </ul>
+      <div class="note warn"><span class="label">Subnets dodge the channel tax</span><p>A device on its own small <em>subnet</em> (a separate network joined only by a Storage Bus or Quartz Fiber) doesn't spend a channel on your main grid. Heavy automation builders run many tiny subnets to keep the main network's channel count low. More on this in §10.</p></div>
+    </section>
+
+    <!-- 04 STORAGE -->
+    <section class="doc" id="storage">
+      <p class="sec-index">04 — Storage</p>
+      <h2>Storage, Cells &amp; the Byte Budget</h2>
+      <p>The reason AE2 exists: dissolve your chests into a searchable digital pool. Storage lives in <strong>Storage Cells</strong> slotted into an <strong>ME Drive</strong> (or ME Chest), and understanding the <strong>types vs bytes</strong> cost is the key to not wasting capacity.</p>
+
+      <h3>Drives and cells</h3>
+      <p>An <strong>ME Drive</strong> holds up to 10 storage cells and exposes them all to the network (it uses one channel for the whole drive). An <strong>ME Chest</strong> holds a single cell but gives you a built-in terminal view of it — handy for early game.</p>
+      <div class="data-table">
+        <table>
+          <caption>Item storage cells (relative scale)</caption>
+          <thead><tr><th>Cell</th><th>Bytes</th><th>Item types</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>1k</td><td class="num">1,024</td><td class="num">63</td><td>Early game; cheap.</td></tr>
+            <tr><td>4k</td><td class="num">4,096</td><td class="num">63</td><td>General storage.</td></tr>
+            <tr><td>16k</td><td class="num">16,384</td><td class="num">63</td><td>Bulk single-item stores.</td></tr>
+            <tr><td>64k</td><td class="num">65,536</td><td class="num">63</td><td>The vanilla ceiling per cell.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>There are also <strong>fluid cells</strong> (same tiers, for fluids) and, via addons, far larger and specialised cells (see §09).</p>
+
+      <h3>Types vs bytes — the cost model</h3>
+      <p>Each cell has two limits: a total <strong>byte</strong> capacity and a fixed number of distinct <strong>item types</strong> (typically 63). The byte math is the part that trips people up:</p>
+      <ul>
+        <li>Storing a <strong>new item type</strong> reserves a chunk of bytes up front (a fixed overhead per type).</li>
+        <li>Beyond that overhead, items pack in tightly — one byte holds many items of an already-present type.</li>
+        <li>So a cell crammed with <strong>63 different items</strong> wastes capacity on overhead, while a cell holding <strong>one item in bulk</strong> uses its bytes efficiently.</li>
+      </ul>
+      <div class="note tip"><span class="label">Partition with a Cell Workbench</span><p>Use the <strong>Cell Workbench</strong> to <em>partition</em> a cell — lock it to specific item types. A partitioned cell only accepts those items, which (a) reserves that cell for a known purpose, and (b) lets you dedicate a big cell to a single bulk resource without it filling up with junk. Pair with priority (below) for clean routing.</p></div>
+
+      <h3>Storage Bus &amp; priority</h3>
+      <ul>
+        <li><strong>Storage Bus</strong> — attach to <em>any</em> external inventory (a chest, a barrel, a machine, a whole other mod's storage) to expose it <em>as if it were network storage</em>. The network can read and write it directly. Great for bulk barrels and drawer mods.</li>
+        <li><strong>Priority</strong> — every storage destination (cells and storage buses) has a priority. The network writes to the <strong>highest priority</strong> that will accept the item first. Set bulk-resource destinations high so cobblestone goes to its barrel, not your general cells.</li>
+        <li><strong>Partition + priority together</strong> is how you build a network that auto-sorts itself: void/overflow cells at low priority, bulk barrels at high priority, general cells in the middle.</li>
+      </ul>
+    </section>
+
+    <!-- 05 TERMINALS -->
+    <section class="doc" id="terminals">
+      <p class="sec-index">05 — Access</p>
+      <h2>Access &amp; Terminals</h2>
+      <p>A terminal is your window into the network: search, withdraw, insert, and craft. AE2 offers several flavours for different jobs, plus wireless access so you never have to walk back to a wall.</p>
+      <div class="data-table">
+        <table>
+          <caption>Terminal types</caption>
+          <thead><tr><th>Terminal</th><th>Adds</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td>ME Terminal</td><td>Search / store / withdraw</td><td>The basic view of the whole pool.</td></tr>
+            <tr><td>Crafting Terminal</td><td>A built-in 3×3 crafting grid</td><td>Hand-crafting straight from the network.</td></tr>
+            <tr><td>Pattern Access Terminal</td><td>Remote view of every Pattern Provider's patterns</td><td>Editing/organising patterns from one place.</td></tr>
+            <tr><td>Wireless Terminal</td><td>Network access from your inventory</td><td>Roaming the base without a wall terminal.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Going wireless</h3>
+      <p>A <strong>Wireless Terminal</strong> connects to the network through one or more <strong>ME Wireless Access Points</strong>. Each access point has a range; you boost that range by slotting <strong>Wireless Booster</strong> cards into the access point. Cover a large base by placing several access points. The terminal itself draws AE and must be charged (in a Charger or the network).</p>
+      <div class="note tip"><span class="label">Search syntax saves your sanity</span><p>The terminal search bar is powerful: prefix <code>@</code> to search by <em>mod name</em>, <code>#</code> to search by <em>tooltip/tag</em>, and <code>*</code> as a wildcard. So <code>@mekanism ingot</code> finds Mekanism ingots only. Some packs also let you search by item ID. Learn these and a 5,000-item network feels small.</p></div>
+      <div class="note warn"><span class="label">Wireless range, solved</span><p>This pack ships <strong>AEInfinityBooster</strong> (see §09), which provides an <em>unlimited-range</em> wireless booster — bind it once and your wireless terminal works anywhere, any dimension. If you have it, you can skip the access-point sprawl entirely.</p></div>
+    </section>
+
+    <!-- 06 AUTOCRAFTING -->
+    <section class="doc" id="autocrafting">
+      <p class="sec-index">06 — The payoff</p>
+      <h2>Autocrafting</h2>
+      <p>This is what people stay in AE2 for: tell the network "make me 64 of X" and it figures out the whole recipe tree, gathers ingredients, runs the crafts, and delivers. It is built from <strong>encoded patterns</strong>, a <strong>Crafting CPU</strong> to plan and track the job, and the machines/assemblers that do the work.</p>
+
+      <h3>Patterns: the recipes the network knows</h3>
+      <p>You encode a <strong>pattern</strong> in a <strong>Pattern Terminal</strong> (or Pattern Encoding Terminal). There are two kinds, and the difference matters:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">crafting</span><h4>Crafting Pattern</h4><p>A 3×3 recipe the network can make in a <strong>Molecular Assembler</strong> — anything that fits a crafting grid. The assembler auto-builds it on demand.</p></div>
+        <div class="card"><span class="tag">processing</span><h4>Processing Pattern</h4><p>"Put these items in, get these items out" for an <em>external machine</em> (a furnace, a Mekanism machine, an Inscriber). The network pushes inputs and waits for outputs.</p></div>
+      </div>
+
+      <h3>Where patterns live: Pattern Providers</h3>
+      <p>Encoded patterns go into a <strong>Pattern Provider</strong> (the rewrite-era replacement/companion to the old Interface for crafting). The provider <em>pushes</em> ingredients to whatever it's attached to:</p>
+      <ul>
+        <li>Stick a Pattern Provider against a <strong>Molecular Assembler</strong> for crafting-grid recipes (a "1-up" Assembler with a provider face is the classic auto-craft block).</li>
+        <li>Stick one against a <strong>machine</strong> (or a chest feeding it) for processing patterns — it pushes the inputs in and the machine's output returns to the network.</li>
+        <li>An <strong>ME Interface</strong> can also hold patterns and import results; in the rewrite the Pattern Provider handles the pushing and the Interface handles import/stocking.</li>
+      </ul>
+
+      <h3>The Crafting CPU multiblock</h3>
+      <p>The brain of a craft is the <strong>Crafting CPU</strong>, assembled from a hollow shell of these blocks:</p>
+      <div class="data-table">
+        <table>
+          <caption>Crafting CPU components</caption>
+          <thead><tr><th>Block</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Crafting Storage (1k–64k)</td><td>Holds the in-progress items for the job. More/bigger storage = the CPU can handle bigger, deeper craft trees.</td></tr>
+            <tr><td>Co-Processing Unit</td><td>Lets the CPU run multiple craft steps in <em>parallel</em>. More co-processors = faster jobs.</td></tr>
+            <tr><td>Crafting Monitor</td><td>Shows what the CPU is currently making (text on the block face). Optional but handy.</td></tr>
+            <tr><td>Crafting Unit</td><td>Filler/structure block; the base of the multiblock.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A network can hold <strong>several CPUs</strong>; each handles one crafting job at a time. Build a few small CPUs plus one big one so several requests can run at once and a giant order doesn't block a tiny one.</p>
+      <div class="note tip"><span class="label">Sub-crafting just works</span><p>The CPU recursively crafts missing intermediates. Ask for a block that needs processors that need printed circuits that need silicon, and as long as patterns exist for each step and raw materials are in the network, it builds the whole chain in order. This is why automating your processor line (§01) pays off so hard.</p></div>
+      <div class="note warn"><span class="label">Stock-keeping needs a Level/Crafting Card or the Requester</span><p>By default autocrafting is on-demand. To keep a buffer of an item permanently in stock, use an <strong>Interface set to stock a level</strong>, an <strong>Export Bus + Crafting Card</strong>, or — far more flexibly — the <strong>ME Requester</strong> addon in this pack (§09), which maintains target stock levels of many items at once.</p></div>
+    </section>
+
+    <!-- 07 AUTOMATION & IO -->
+    <section class="doc" id="io">
+      <p class="sec-index">07 — Moving items</p>
+      <h2>Automation &amp; IO</h2>
+      <p>Buses and planes connect the digital network to the physical world: pulling outputs out of machines, pushing inputs in, and even vacuuming items and blocks straight from the world. Each bus uses a channel and accepts <strong>upgrade cards</strong> to tune its behaviour.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">in</span><h4>Import Bus</h4><p>Pulls items <em>from</em> an attached inventory <em>into</em> the network. Put one on a furnace output, a farm chest, anything.</p></div>
+        <div class="card"><span class="tag">out</span><h4>Export Bus</h4><p>Pushes filtered items <em>from</em> the network <em>into</em> an attached inventory or machine. The workhorse of feeding processes.</p></div>
+        <div class="card"><span class="tag">interface</span><h4>ME Interface / Pattern Provider</h4><p>The flexible IO/stocking block: import results, stock items, and (provider) push craft ingredients.</p></div>
+        <div class="card"><span class="tag">world</span><h4>Annihilation / Formation Plane</h4><p>Annihilation: breaks blocks/picks up items in front of it into the network. Formation: places blocks/drops items from the network into the world.</p></div>
+      </div>
+
+      <h3>Upgrade cards</h3>
+      <p>Slot these into a bus's upgrade slots to change how it works:</p>
+      <div class="data-table">
+        <table>
+          <caption>Common bus upgrade cards</caption>
+          <thead><tr><th>Card</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Capacity Card</td><td>Adds filter slots — lets a bus handle more item types at once.</td></tr>
+            <tr><td>Acceleration Card</td><td>Moves more items per operation (faster throughput). Stackable.</td></tr>
+            <tr><td>Redstone Card</td><td>Gates the bus on a redstone signal (active high/low, or pulse).</td></tr>
+            <tr><td>Fuzzy Card</td><td>Matches by damage/NBT tolerance — useful for tools or near-identical items.</td></tr>
+            <tr><td>Crafting Card</td><td>On an Export Bus, lets it <em>request a craft</em> if the item isn't in stock — the basis of keep-in-stock automation.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Keep-in-stock recipe</span><p><strong>Export Bus + Crafting Card + Acceleration Cards</strong>, pointed at a chest in front of a machine, will keep that machine fed and auto-craft the input if it runs out. For per-item target levels across the whole base, the <strong>ME Requester</strong> addon is cleaner (§09).</p></div>
+    </section>
+
+    <!-- 08 SPATIAL & MATTER -->
+    <section class="doc" id="spatial">
+      <p class="sec-index">08 — The deep end</p>
+      <h2>Spatial IO &amp; Matter Tools</h2>
+      <p>The exotic corner of AE2: storing entire <em>regions of the world</em> as data, and a set of charged tools and toys that fall out of the same fluix tech.</p>
+
+      <h3>Spatial IO</h3>
+      <p><strong>Spatial IO</strong> lets you capture a whole 3D region — blocks, machines and all — into a <strong>Spatial Storage Cell</strong>, then paste it back elsewhere. The capture is performed by a <strong>Spatial IO Port</strong> sitting inside a frame of <strong>Spatial Pylons</strong>: you build pylon lines along the three axes to define the bounding box, power it heavily, and the port swaps the contained region into/out of a pocket dimension stored on the cell.</p>
+      <ul>
+        <li>Cell tiers (2³, 16³, 128³) cap the region size you can store.</li>
+        <li>The operation costs a <strong>large</strong> burst of AE — keep Dense Energy Cells nearby.</li>
+        <li>Classic uses: a portable, relocatable base; or a self-contained "machine in a box" you can move whole.</li>
+      </ul>
+
+      <h3>Charged &amp; matter gadgets</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">tool</span><h4>Entropy Manipulator</h4><p>A charged tool that heats or cools blocks — smelt-on-break, instant-mine certain blocks, melt snow/ice, light fires.</p></div>
+        <div class="card"><span class="tag">weapon</span><h4>Matter Cannon</h4><p>Fires loaded ammo (metal nuggets, or <strong>Paint Balls</strong>) at high speed. Denser ammo hits harder; Paint Balls colour blocks and cables.</p></div>
+        <div class="card"><span class="tag">tool</span><h4>Color Applicator</h4><p>Recolours cables and other blocks straight from network-stored dyes/paint balls. Essential for tidy channel-colour routing.</p></div>
+        <div class="card"><span class="tag">tool</span><h4>Charged Staff</h4><p>A melee charged tool that deals bonus damage and can break certain blocks quickly. Runs on AE charge.</p></div>
+        <div class="card"><span class="tag">mobile</span><h4>Portable Cell</h4><p>A handheld storage cell with its own terminal view — a pocket ME store you can carry and access anywhere, no network needed.</p></div>
+      </div>
+      <div class="note tip"><span class="label">Paint your channels</span><p>Cables come in 16 colours. A coloured cable only connects to same-colour (or "fluix"/uncoloured) cable, which lets you run independent channel lines through the same physical space without them merging. The <strong>Color Applicator</strong> recolours runs in seconds.</p></div>
+    </section>
+
+    <!-- 09 ADDONS -->
+    <section class="doc" id="addons">
+      <p class="sec-index">09 — In this pack</p>
+      <h2>AE2 Addons in To the Moon 2.0</h2>
+      <p>This pack layers several AE2 addons on top of the base mod. They smooth out the grind and lift the vanilla storage/wireless ceilings. Here's what each adds and why you'd reach for it.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">crafting</span><h4>AE2 Things (AE Additions companion / AE2 Things)</h4><p>Quality-of-life: an <strong>Advanced Inscriber</strong> that batches multiple inscriber steps, easier <strong>crystal growth</strong>, plus fluid/portable cell conveniences. Big help for the processor grind.</p></div>
+        <div class="card"><span class="tag">storage</span><h4>AE Additions / ExtraCells2 fork</h4><p>Adds far bigger <strong>storage cells</strong> beyond 64k, <strong>void cells</strong> (overflow that deletes excess), and richer <strong>fluid terminals</strong>. Set void cells to low priority as an overflow safety valve.</p></div>
+        <div class="card"><span class="tag">stocking</span><h4>ME Requester</h4><p>A <strong>Requester</strong> block/terminal that maintains <strong>target stock levels</strong> for many items at once — far cleaner than juggling Export Bus + Crafting Card per item. Set "keep 64 of X" and forget it.</p></div>
+        <div class="card"><span class="tag">wireless</span><h4>AEInfinityBooster</h4><p>An <strong>infinite-range</strong> wireless booster. Bind your Wireless Terminal once and access the network from anywhere, even across dimensions — no access-point grid required.</p></div>
+      </div>
+      <div class="note warn"><span class="label">Names &amp; exact features vary by version</span><p>Addon naming overlaps between forks and pack versions. Check the in-game JEI/Guidebook and the addon's own tooltips for the exact blocks present in <em>your</em> install — treat the descriptions above as the general role each addon plays.</p></div>
+    </section>
+
+    <!-- 10 TIPS -->
+    <section class="doc" id="tips">
+      <p class="sec-index">10 — Field notes</p>
+      <h2>Tips &amp; Gotchas</h2>
+      <p>Hard-won habits that separate a network that "keeps breaking" from one that quietly runs your whole base.</p>
+
+      <h3>Channel budgeting</h3>
+      <ul>
+        <li><strong>Plan trunk lines with dense cable + P2P.</strong> Run one dense backbone, then P2P-tunnel 32 channels per drop to where you need them. Don't daisy-chain glass cable across the base and wonder why drive #9 is offline.</li>
+        <li><strong>Use Smart Cable while building.</strong> The animated channel dots tell you exactly which segment is saturated.</li>
+        <li><strong>Subnet heavy automation.</strong> A bank of import/export buses on its own tiny network (joined to the main grid by a single Storage Bus or Quartz Fiber) costs the main network only the channels you choose to expose — not one per bus.</li>
+      </ul>
+
+      <h3>Power &amp; storage</h3>
+      <ul>
+        <li><strong>Keep a Dense Energy Cell as a buffer.</strong> Crafting jobs spike demand; idle figures lie to you.</li>
+        <li><strong>Partition cells</strong> with the Cell Workbench so bulk resources don't eat your general-purpose storage, and so a cell's 63 type-slots aren't wasted.</li>
+        <li><strong>Priority routes items.</strong> Set bulk barrels (via Storage Bus) high, void/overflow cells low, general cells in between, and the network self-sorts.</li>
+        <li><strong>One item per big cell</strong> for bulk — a 64k cell holding a single resource is far more byte-efficient than one juggling 63 types.</li>
+      </ul>
+
+      <h3>Autocrafting</h3>
+      <ul>
+        <li><strong>Multiple CPUs, mixed sizes.</strong> A small order shouldn't wait behind a 10k craft — give it its own small CPU.</li>
+        <li><strong>Automate processors first.</strong> Encode patterns for every printed part and processor; sub-crafting then makes the rest of the mod effortless.</li>
+        <li><strong>Add Co-Processing Units</strong> to make deep craft trees finish in parallel rather than one step at a time.</li>
+      </ul>
+
+      <div class="note danger"><span class="label">The classic failure mode</span><p>"My terminal went blank / my drives disappeared." Nine times out of ten this is <strong>a channel running out</strong> (a cable segment hit its limit) or <strong>the network running out of power</strong> (a generator stalled and the Energy Cells drained). Check Smart Cable channel load and your AE buffer <em>first</em> — it is almost never a bug.</p></div>
+      <div class="note tip"><span class="label">When in doubt, ask the Guidebook</span><p>Every block in AE2 has a Guidebook entry with a diagram and recipe. The Controller and Crafting CPU pages in particular show valid shapes far better than any text can. The in-game book + JEI are the ground truth; this guide is the orientation.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The ME Network</strong><br>
+      An unofficial field manual for Applied Energistics 2 on Minecraft 1.19.2 (Forge).<br>
+      AE2 is by <a href="https://github.com/AppliedEnergistics/Applied-Energistics-2">TeamAppliedEnergistics</a>. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · AE2 15.x (1.19.2 · the rv-rewrite)<br>
+      · pack addons: AE2 Things · AE Additions<br>
+      &nbsp;&nbsp;ME Requester · AEInfinityBooster
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Exact AE costs, byte counts, channel limits and addon features are version- and config-dependent — the in-game Guidebook and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

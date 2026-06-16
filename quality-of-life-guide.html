@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Operator's Handbook — QoL, info, maps &amp; the glue (MC 1.19.2)</title>
+<meta name="description" content="The quality-of-life hub for To the Moon 2.0 (Minecraft 1.19.2 Forge): JEI &amp; Jade, JourneyMap &amp; Map Atlases, FTB Quests &amp; Teams, the performance stack (Rubidium, ModernFix, FerriteCore, Distant Horizons), Almost Unified, and every library mod that holds the pack together." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#080f0d; --bg-1:#0c1411; --bg-2:#121d19; --bg-3:#1a2823; --line:#26382f;
+    --ink:#e3efe9; --ink-dim:#92b3a6; --ink-faint:#5f8073;
+    --accent:#43d6a8; --accent-2:#5b8cff; --accent-3:#f0b652; --danger:#e0683a;
+    --accent-soft:rgba(67,214,168,0.13); --accent-glow:rgba(67,214,168,0.5);
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🛠</span>
+      <span class="wordmark">The Operator's<br>Handbook<small>QUALITY OF LIFE &amp; UTILITY</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Orientation</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#info"><span class="ix">01</span> Recipe &amp; Info</a>
+      <a href="#maps"><span class="ix">02</span> Maps &amp; Navigation</a>
+      <p class="group-label">Comfort</p>
+      <a href="#input"><span class="ix">03</span> Inventory &amp; Input QoL</a>
+      <a href="#progression"><span class="ix">04</span> Progression &amp; Multiplayer</a>
+      <p class="group-label">Under the floorboards</p>
+      <a href="#performance"><span class="ix">05</span> Performance &amp; Visuals</a>
+      <a href="#unified"><span class="ix">06</span> Almost Unified</a>
+      <a href="#hood"><span class="ix">07</span> Under the Hood</a>
+      <a href="#checklist"><span class="ix">08</span> First-Hour Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      These are the mods you<br>rarely think about and<br>never want to lose. Keys,<br>configs and toggles vary —<br>JEI and the in-game GUIs<br>are always the ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · info, maps, performance &amp; glue</p>
+      <h1>The Operator's<br>Handbook</h1>
+      <p class="lede">Every modpack has a tech tree people argue about — and a quiet layer of mods that make the whole thing <em>pleasant</em>: the recipe lookup, the look-at tooltip, the minimap, the quest book, the rendering engine, and a stack of libraries nobody sees. This page covers all of it for <strong>To the Moon 2.0</strong>, so no mod in the pack goes unmentioned. Read it once, bind a few keys, and the rest of the pack reads itself.</p>
+      <div class="badges">
+        <span class="badge accent">JEI · Jade · JourneyMap</span>
+        <span class="badge">FTB Quests + Teams</span>
+        <span class="badge">Rubidium · Distant Horizons</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Most of what's on this page is invisible until it's missing. These are the <strong>quality-of-life, information, mapping, performance and library</strong> mods — the connective tissue that turns a heap of tech and magic mods into a coherent pack you can actually play.</p>
+
+      <p>You don't need to "progress" through any of this. Almost all of it is on the moment you load in. The single most useful habit for reading a big modpack is to lean on two mods from minute one:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">what is this</span><h4>JEI — the index</h4><p>Hover any item and press <strong>R</strong> (recipe) or <strong>U</strong> (uses). It's the searchable encyclopedia of the entire pack. If you don't know how to make something, ask JEI first.</p></div>
+        <div class="card"><span class="tag">what am I looking at</span><h4>Jade — the tooltip</h4><p>Point at any block or mob and a tooltip tells you what it is, which mod it's from, its progress, and whether your tool can harvest it. Your in-world eyes.</p></div>
+        <div class="card"><span class="tag">where to go next</span><h4>FTB Quests — the path</h4><p>If the pack ships a quest book, it's your intended route through the mods, with rewards. Open it early to see what the authors want you to build.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How to read this page</span>
+        <p>The first half (§01–04) is mods you'll <em>use</em> daily — info, maps, inventory, quests. The second half (§05–07) is the machinery <em>under</em> the pack — the performance stack, ore unification, and the library mods. §08 is a checklist for your literal first hour. Skip around; nothing here is sequential.</p>
+      </div>
+    </section>
+
+    <!-- 01 INFO -->
+    <section class="doc" id="info">
+      <p class="sec-index">01 — Know what you're touching</p>
+      <h2>Recipe &amp; Info Mods</h2>
+      <p>This cluster answers the two questions you ask constantly in a modpack: <em>"how do I make this?"</em> and <em>"what is this thing?"</em>. Learn the four below and you'll rarely need to alt-tab to a wiki.</p>
+
+      <h3>Just Enough Items (JEI)</h3>
+      <p>The backbone of pack literacy. JEI's item list sits on the right of every inventory screen; the search bar at the bottom filters it live. It indexes <strong>every recipe in the pack</strong>, including those added by machines and custom processes, and chains them — click through from an ingot to the ore that makes it to the machine that processes it.</p>
+      <div class="data-table">
+        <table>
+          <caption>JEI — the keys worth muscle-memory</caption>
+          <thead><tr><th>Key / action</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>R</strong> (hover item)</td><td>Show <strong>recipes</strong> that make this item.</td></tr>
+            <tr><td><strong>U</strong> (hover item)</td><td>Show <strong>uses</strong> — every recipe this item goes into.</td></tr>
+            <tr><td><strong>A</strong> (hover item)</td><td>Toggle a <strong>bookmark</strong>; the bookmark list pins items you're working toward.</td></tr>
+            <tr><td>Type in search</td><td><code>@modname</code> filters to one mod, <code>#tag</code> by tag, <code>$</code> for fluids.</td></tr>
+            <tr><td>Click a tab</td><td>Cycle recipe categories (e.g. crafting → smelting → a machine's own page).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn"><span class="label">Cheat mode is a setting, not a default</span><p>JEI has a "cheat" mode that gives items on click — usually only enabled in creative or by a server. In normal survival, JEI shows recipes; it doesn't hand you items. Don't expect to click-grab on a survival server.</p></div>
+
+      <h3>Jade — the "look-at" tooltip</h3>
+      <p>Jade (a maintained fork of the classic HWYLA/WAILA idea) draws a small overlay naming whatever your crosshair is on. Out of the box it shows the block/entity name, the <strong>mod it comes from</strong>, and — via plugins from other mods — extra state: machine progress bars, energy/fluid contents, crop growth stage, mob health, and crucially <strong>harvestability</strong> (whether your current tool can mine it, shown by a wrench/pick icon). Toggle individual data lines in its config screen if the overlay gets busy.</p>
+
+      <h3>AppleSkin</h3>
+      <p>A tiny but beloved mod: it adds <strong>saturation and hunger information</strong> to the HUD and to food tooltips. Hover a food item and you'll see how much hunger <em>and</em> saturation it restores; the hunger bar gains shading that previews what a food will refill and how much saturation you have left. It makes food choices in a tech pack (where you'd rather not babysit hunger) a non-issue.</p>
+
+      <h3>Better F3 &amp; Nature's Compass</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">debug</span><h4>Better F3</h4><p>Reorganises the vanilla <strong>F3 debug screen</strong> into clean, colour-coded, configurable sections. Same data, far more readable — handy when you're chasing coordinates, biome, light level or FPS.</p></div>
+        <div class="card"><span class="tag">biomes</span><h4>Nature's Compass</h4><p>Craft it, right-click to open a searchable list of <strong>every biome</strong>, pick one, and it points you toward the nearest instance with the distance. The fastest way to find that one biome a recipe or mob needs.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 MAPS -->
+    <section class="doc" id="maps">
+      <p class="sec-index">02 — Don't get lost</p>
+      <h2>Maps &amp; Navigation</h2>
+      <p>Two complementary mapping approaches ship here: a live, screen-overlay minimap (JourneyMap) and an in-world, hold-in-hand atlas item (Map Atlases). They coexist happily — use the minimap for moment-to-moment travel and the atlas for a tangible, shareable record.</p>
+
+      <h3>JourneyMap</h3>
+      <p>The standard real-time mapper. It gives you a corner <strong>minimap</strong>, a fullscreen map (default <strong>J</strong>), and a web map you can open in a browser. It auto-explores as you move, and its big draw is <strong>waypoints</strong> — drop a marker (default <strong>B</strong> at your location, or click on the fullscreen map) and it shows distance and a beacon you can navigate to across dimensions.</p>
+      <ul>
+        <li><strong>Waypoints</strong> — name and colour them; deaths auto-drop a waypoint so you can recover gear. Essential for marking your base, the Nether portal, and that ore vein you couldn't carry home.</li>
+        <li><strong>Mob radar</strong> — toggleable dots for mobs, players and animals around you.</li>
+        <li><strong>Fullscreen tools</strong> — measure, teleport (if permitted), and edit waypoints from the big map.</li>
+      </ul>
+      <div class="note warn"><span class="label">Servers can clip its wings</span><p>On multiplayer, the server controls JourneyMap features through its own config. Mob radar, cave mapping and the player-tracker are frequently disabled server-side to prevent cheating. If a feature is greyed out online, that's intended — not a bug.</p></div>
+
+      <h3>Map Atlases</h3>
+      <p>A different, charming take on mapping. <strong>Map Atlases</strong> gives you a craftable <strong>Atlas</strong> item that holds vanilla maps and <strong>auto-stitches them together</strong> into one seamless, Antique-Atlas-style scrollable map as you explore — no need to craft and frame dozens of separate maps. Open it in your hand, pan and zoom, and add <strong>markers</strong> for points of interest. Because it's built on real in-world map items, it works cleanly in multiplayer and can be handed to another player.</p>
+      <div class="note tip"><span class="label">Two maps, two jobs</span><p>Let JourneyMap handle live navigation and waypoint beacons; let the Atlas be your physical, in-inventory record you can pull out, annotate and trade. They don't conflict — keeping both is the comfortable setup.</p></div>
+
+      <p>Need to <em>find</em> a place rather than remember one? That's <strong>Nature's Compass</strong> from §01 — pair it with JourneyMap waypoints: locate the biome, then drop a waypoint when you arrive.</p>
+    </section>
+
+    <!-- 03 INPUT -->
+    <section class="doc" id="input">
+      <p class="sec-index">03 — Stop fighting the UI</p>
+      <h2>Inventory &amp; Input QoL</h2>
+      <p>A loose bag of mods that each fix one small, daily annoyance. None of them change progression — they just remove friction.</p>
+      <div class="data-table">
+        <table>
+          <caption>Small comforts, big difference</caption>
+          <thead><tr><th>Mod</th><th>Fixes</th><th>How you notice it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mouse Tweaks</strong></td><td>Slow, click-by-click inventory work</td><td>Drag to move/split across slots, RMB-drag to distribute, and a shift-scroll to pull whole stacks. Inventory chores get 3× faster.</td></tr>
+            <tr><td><strong>Clumps</strong></td><td>Lag from huge XP-orb sprays</td><td>XP orbs <em>clump</em> into a few merged orbs (after a mob farm or a big mine). Same XP, far fewer entities, smoother frames.</td></tr>
+            <tr><td><strong>FastWorkbench / FastFurnace / FastBench</strong></td><td>Slow recipe lookups in crafting tables &amp; furnaces</td><td>Caches recipe matching so big modpacks don't hitch when you open a workbench or a furnace ticks. Invisible — that's the point.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>RightClickHarvest</h3>
+      <p><strong>RightClickHarvest</strong> lets you harvest mature crops with a right-click — it picks the produce and replants the seed in one motion, optionally costing a little hunger. It's most relevant to farming, so it's covered alongside the agriculture mods: see the <a href="farmers-delight-guide.html">Farmer's Delight guide</a> for the full treatment. Mentioned here so you know <em>why</em> right-clicking your wheat suddenly just works.</p>
+
+      <div class="note tip"><span class="label">These are "set and forget"</span><p>Mouse Tweaks, Clumps and the Fast* trio have almost nothing to configure — they're correct by default. The only knob most players touch is Clumps' merge radius, and only on heavily-modded mob farms.</p></div>
+    </section>
+
+    <!-- 04 PROGRESSION -->
+    <section class="doc" id="progression">
+      <p class="sec-index">04 — Structure &amp; company</p>
+      <h2>Progression &amp; Multiplayer</h2>
+      <p>The FTB suite provides the pack's <strong>quest framework</strong> and its <strong>team/party</strong> system. Even in single-player these shape how you experience the pack; in multiplayer they're how you share a base and a goal.</p>
+
+      <h3>FTB Quests</h3>
+      <p>An in-game <strong>quest book</strong> organised into chapters. Pack authors use it to lay out intended progression — "smelt your first ingot," "build a Mekanism enrichment line," "reach the Moon" — and to hand out <strong>rewards</strong> (loot, items, sometimes unlocks) for completing tasks. Quests can be <em>detection-based</em> (auto-complete when you have the item) or require you to submit items. Open the book early: it's the clearest map of what the pack actually wants you to do, and a good antidote to the "I have 200 mods, now what?" paralysis.</p>
+      <ul>
+        <li><strong>Chapters</strong> group related goals; lines between quests show prerequisites.</li>
+        <li><strong>Rewards</strong> are claimed from completed quests — don't forget to collect them.</li>
+        <li>The book is read-only for players (authors edit it in a separate mode), so you can't break your own progression.</li>
+      </ul>
+
+      <h3>FTB Teams &amp; FTB Library</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">parties</span><h4>FTB Teams</h4><p>Create or join a <strong>team</strong> to share quest progress, claimed chunks and (in some packs) a shared inventory of rewards. Invite friends, set a party so a quest completed by one member counts for all.</p></div>
+        <div class="card"><span class="tag">shared base</span><h4>FTB Library</h4><p>The common code FTB Quests and Teams both sit on — sided data, the team system, GUI widgets and config plumbing. You never open it directly; it just has to be present for the other two to work.</p></div>
+      </div>
+
+      <h3>Corail Tombstone — death insurance</h3>
+      <p>When you die, <strong>Corail Tombstone</strong> drops a <strong>grave</strong> at the death site holding all your items and XP, instead of scattering them on the ground to despawn. Walk back, right-click the grave, and everything's restored. It also layers in a small progression of its own (soul tokens, enchantments, perks) tied to the mod's altar. Because it's most relevant to surviving the pack's mobs and dimensions, the full rundown lives in the <a href="mobs-guide.html">Mobs &amp; Combat guide</a> — flagged here so you know your loot is safe behind a tombstone, not a 5-minute despawn timer.</p>
+    </section>
+
+    <!-- 05 PERFORMANCE -->
+    <section class="doc" id="performance">
+      <p class="sec-index">05 — Make it run, make it shine</p>
+      <h2>Performance &amp; Visuals</h2>
+      <p>A 200-mod pack is heavy. This stack is why it still runs: a chain of rendering, memory and tick optimisations, plus one mod that's a genuine visual upgrade. Most need zero configuration — but it's worth knowing what each one buys you.</p>
+      <div class="data-table">
+        <table>
+          <caption>The optimisation stack</caption>
+          <thead><tr><th>Mod</th><th>Targets</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Rubidium</strong></td><td>Rendering / FPS</td><td>A Forge port of Sodium — a from-scratch rewrite of the chunk renderer. The single biggest FPS win in the pack.</td></tr>
+            <tr><td><strong>ModernFix</strong></td><td>Load time, memory, lag spikes</td><td>A grab-bag of fixes: faster startup, dynamic resource loading, reduced memory churn, patched mod bugs.</td></tr>
+            <tr><td><strong>FerriteCore</strong></td><td>RAM usage</td><td>Deduplicates and compacts in-memory data (blockstates, models). Cuts memory footprint substantially with no visible change.</td></tr>
+            <tr><td><strong>Entity Culling</strong></td><td>FPS near mobs/blocks</td><td>Skips rendering entities and block-entities the camera genuinely can't see, using async occlusion checks.</td></tr>
+            <tr><td><strong>Clumps</strong></td><td>XP-orb lag</td><td>(Also in §03.) Merges XP orbs into fewer entities — helps both ticks and frames at farms.</td></tr>
+            <tr><td><strong>FastFurnace / FastWorkbench / FastBench</strong></td><td>Recipe-lookup lag</td><td>Cache recipe matching so furnaces and crafting tables stop scanning every recipe each tick.</td></tr>
+            <tr><td><strong>spark</strong></td><td>Diagnosis</td><td>An in-game <strong>profiler</strong>. Run <code>/spark profiler</code> to find what's actually causing lag, or <code>/spark tps</code> / <code>/spark health</code> for a quick read.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Distant Horizons — the visual upgrade</h3>
+      <p>The headliner. <strong>Distant Horizons</strong> adds a <strong>Level-of-Detail (LOD)</strong> system: it generates simplified, low-detail geometry for terrain <em>far beyond</em> your normal render distance and draws it cheaply. The result is mountains and coastlines visible kilometres away — render distances that would be impossible to load as full chunks — at a modest performance cost. The first time you crest a hill with it on, the world looks completely different.</p>
+      <ul>
+        <li><strong>It builds LODs from chunks you've visited</strong>, so distant terrain "fills in" as you explore. A freshly-generated world starts sparse and improves.</li>
+        <li><strong>Toggle &amp; tune it</strong> in its dedicated config screen (reachable from Options → and its own button). The key sliders are LOD render distance and quality — turn them up for views, down if your GPU struggles.</li>
+        <li>It works <em>with</em> Rubidium here; keep your vanilla render distance modest and let Distant Horizons handle the far field for the best frames-to-view ratio.</li>
+      </ul>
+      <div class="note tip"><span class="label">CustomSkinLoader, quietly</span><p>The pack also bundles <strong>CustomSkinLoader</strong>, which fetches player skins from multiple sources so everyone shows up correctly even on offline/alternate servers. Nothing to configure — it just keeps players from looking like Steve.</p></div>
+      <div class="note warn"><span class="label">Config libraries do the wiring</span><p><strong>Placebo</strong> and <strong>Carbon Config</strong> (and the broader config libs in §07) provide the shared config and registry helpers many of these mods read. They have no gameplay of their own — if you see them in the mod list, they're dependencies, not features.</p></div>
+    </section>
+
+    <!-- 06 ALMOST UNIFIED -->
+    <section class="doc" id="unified">
+      <p class="sec-index">06 — One ingot to rule them</p>
+      <h2>Almost Unified</h2>
+      <p>This one deserves its own section because <em>players notice it directly</em>. In a big pack, several mods each add their own copper, tin, lead, silver, steel, etc. — functionally identical metals with different names and textures. Left alone, that means duplicate JEI entries, recipes that demand "Mod A's tin" when you only have "Mod B's tin," and ore-doubling lines that won't accept each other's output.</p>
+
+      <h3>What it actually does</h3>
+      <p><strong>Almost Unified</strong> reads the shared ore/ingot/dust <strong>tags</strong> (<code>forge:ingots/tin</code>, <code>forge:ores/silver</code>, and so on) and <strong>picks one canonical item per material</strong>, then quietly rewrites recipe <em>outputs</em> to produce that chosen variant. Every mod's machines still accept any tagged equivalent as <em>input</em> (that's vanilla tag behaviour), but they all <em>output</em> the one unified version. The net effect:</p>
+      <ul>
+        <li><strong>JEI gets cleaner</strong> — fewer near-duplicate entries cluttering the item list.</li>
+        <li><strong>Recipes stop being picky</strong> — you no longer hoard three brands of the same ingot hoping one matches.</li>
+        <li><strong>Ore processing converges</strong> — whatever mod doubles your ore, the result slots straight into any other mod's recipes.</li>
+      </ul>
+      <div class="note tip"><span class="label">Why your tin all looks the same now</span><p>If you've wondered why every mod's tin/lead/silver suddenly shares one texture and name, that's Almost Unified choosing a winner per material. The choice is driven by a priority list in its config (the pack author sets which mod "wins" each metal). It doesn't delete the other items — it just stops new ones being produced.</p></div>
+      <div class="note warn"><span class="label">It only unifies what's tagged</span><p>Materials without a common tag, or items the pack explicitly excludes, are left alone. So a few oddball metals may still appear in multiple forms — that's expected, not a unification failure.</p></div>
+    </section>
+
+    <!-- 07 UNDER THE HOOD -->
+    <section class="doc" id="hood">
+      <p class="sec-index">07 — The mods that aren't features</p>
+      <h2>Under the Hood — Libraries &amp; Dependencies</h2>
+      <p>Open the mod list and a third of it is <strong>libraries</strong>: shared code other mods depend on. They add no items, blocks or recipes you'll interact with directly — but if they're missing, the mods that need them won't load. Listed here compactly so nothing in the pack is unaccounted for.</p>
+      <div class="data-table">
+        <table>
+          <caption>Library &amp; dependency mods — name and one-line purpose</caption>
+          <thead><tr><th>Library</th><th>Provides for…</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Architectury API</strong></td><td>Cross-loader (Fabric/Forge) shared code; base for many ported mods.</td></tr>
+            <tr><td><strong>GeckoLib</strong></td><td>Animation engine for animated models/entities.</td></tr>
+            <tr><td><strong>Curios API</strong></td><td>Extra equipment slots (rings, belts, charms) other mods plug into.</td></tr>
+            <tr><td><strong>Patchouli</strong></td><td>In-game illustrated guidebooks (the physical "book" items).</td></tr>
+            <tr><td><strong>Moonlight Lib</strong> / <strong>Selene</strong></td><td>Shared library behind Supplementaries &amp; friends (registration, blocks, maps).</td></tr>
+            <tr><td><strong>Cyclops Core</strong></td><td>Base for EvilCraft / Integrated Dynamics-family mods.</td></tr>
+            <tr><td><strong>Common Capabilities</strong></td><td>Shared capabilities (item/fluid/energy handlers) between mods.</td></tr>
+            <tr><td><strong>McJtyLib</strong></td><td>Core library for McJty's mods (RFTools, etc.).</td></tr>
+            <tr><td><strong>Resourceful Lib</strong> / <strong>Resourceful Config</strong></td><td>Shared utilities &amp; a config system for the Resourceful team's mods.</td></tr>
+            <tr><td><strong>Puzzles Lib</strong></td><td>Common framework for Fuzs's mods (incl. AppleSkin's family).</td></tr>
+            <tr><td><strong>Lionfish API</strong></td><td>Dependency utilities for select content mods.</td></tr>
+            <tr><td><strong>Kotlin for Forge</strong></td><td>Lets Kotlin-written mods run on Forge (e.g. FTB mods).</td></tr>
+            <tr><td><strong>Mantle</strong></td><td>Core library for Tinkers' Construct and SlimeKnights mods.</td></tr>
+            <tr><td><strong>Titanium</strong></td><td>Library backing Industrial Foregoing and related tech mods.</td></tr>
+            <tr><td><strong>Item Filters</strong></td><td>Tag/filter item logic shared by FTB and other mods.</td></tr>
+            <tr><td><strong>Caelus API</strong></td><td>Elytra-style flight capability other mods build on.</td></tr>
+            <tr><td><strong>playerAnimator</strong></td><td>Custom first/third-person player animation framework.</td></tr>
+            <tr><td><strong>AnvilCore</strong></td><td>Removes the vanilla anvil "too expensive" cap / repair limits.</td></tr>
+            <tr><td><strong>Botarium</strong></td><td>Cross-loader energy/fluid/item transfer &amp; block-entity helpers.</td></tr>
+            <tr><td><strong>L2Library</strong></td><td>Shared base for the L2 (Lootr/combat) family, where present.</td></tr>
+            <tr><td><strong>Sophisticated Core</strong></td><td>Backbone for Sophisticated Backpacks/Storage (upgrades, UI).</td></tr>
+            <tr><td><strong>YUNG's API</strong></td><td>Worldgen helpers for YUNG's structure mods (Better Mineshafts, etc.).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">If a mod "doesn't appear," check its library</span><p>When a content mod seems missing, its library dependency is usually the culprit — a version mismatch on Architectury, GeckoLib or Kotlin for Forge will silently disable the mod that needs it. The pack's launcher log (or a <code>/spark</code> health check) will name the offender.</p></div>
+    </section>
+
+    <!-- 08 CHECKLIST -->
+    <section class="doc" id="checklist">
+      <p class="sec-index">08 — Sixty minutes in</p>
+      <h2>A First-Hour QoL Checklist</h2>
+      <p>You can play the whole pack on defaults, but five minutes of setup makes the next hundred hours smoother. Run down this list right after you spawn:</p>
+      <ol class="flow">
+        <li><strong>Open JEI and learn R / U / A.</strong> Search a known item, press <strong>R</strong> for its recipe and <strong>U</strong> for its uses. Bookmark (<strong>A</strong>) your first big goal so you can re-find its recipe instantly.</li>
+        <li><strong>Confirm Jade is showing harvestability.</strong> Point at a stone and an ore — the tooltip should name the block, its mod, and whether your tool can mine it. Open Jade's config to trim any data lines you don't want.</li>
+        <li><strong>Set your first JourneyMap waypoints.</strong> Drop one on your spawn/base (default <strong>B</strong>), open the fullscreen map (<strong>J</strong>) to look around, and remember that deaths auto-mark a recovery waypoint.</li>
+        <li><strong>Open the FTB Quest book.</strong> Read chapter one to see the intended path, and check whether you're meant to join or create an <strong>FTB Team</strong> before progressing (especially on a server).</li>
+        <li><strong>Craft a Nature's Compass</strong> as soon as you have the materials — it pays for itself the first time a recipe demands a specific biome.</li>
+        <li><strong>Tune Distant Horizons.</strong> Open its settings, set an LOD render distance you like, and travel a bit to let the far terrain build. Pair it with a modest vanilla render distance for the best frames.</li>
+        <li><strong>Glance at the food HUD (AppleSkin)</strong> and trust that a tombstone (Corail Tombstone) will hold your loot if you die — then go mine without paranoia.</li>
+        <li><strong>If anything stutters, run <code>/spark profiler</code></strong> for ~60 seconds and read the report. It'll point straight at the laggy mod or chunk.</li>
+      </ol>
+      <div class="note tip"><span class="label">That's the whole handbook</span><p>Bind those keys, set those waypoints, and the rest of the pack — every tech tree and magic system in the other guides — sits on top of a base that's fast, legible and forgiving. That was always the job of the mods on this page.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Operator's Handbook</strong><br>
+      An unofficial, fan-made companion for To the Moon 2.0 on Minecraft 1.19.2 (Forge).<br>
+      All mods named here belong to their respective authors. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · info · maps · input QoL<br>
+      · quests · performance · visuals<br>
+      · Almost Unified + every library mod
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Keybinds, toggles and config defaults vary by pack version and server settings. The in-game keybind menu, each mod's config screen, and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

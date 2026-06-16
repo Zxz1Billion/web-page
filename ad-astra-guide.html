@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ad Astra Per Aspera — a deep-space field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Ad Astra (Minecraft 1.19.2 Forge) progression guide: ore-and-plate tech chain, oxygen &amp; temperature survival, Tier 1–4 rockets at the NASA Workbench, life-support and space suits, every planet and moon, off-world resources, energy &amp; cabling, the Rover, and a launch-pad schematic." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#05060c; --bg-1:#080a14; --bg-2:#0e1120; --bg-3:#15192c; --line:#222845;
+    --ink:#e6e9f5; --ink-dim:#9aa1c0; --ink-faint:#646b8c;
+    --accent:#ff7a3c; --accent-2:#6f8cff; --accent-3:#43d6c4; --danger:#ff5a5a;
+    --accent-soft:rgba(255,122,60,0.13); --accent-glow:rgba(255,122,60,0.5);
+    --f-display:"Orbitron",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🚀</span>
+      <span class="wordmark">Ad Astra<br>Per Aspera<small>AD ASTRA · SPACE</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Ground Control</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#machines"><span class="ix">01</span> Early Machines &amp; Power</a>
+      <a href="#rocket"><span class="ix">02</span> Building a Rocket</a>
+      <a href="#life"><span class="ix">03</span> Life Support</a>
+      <p class="group-label">Out There</p>
+      <a href="#worlds"><span class="ix">04</span> The Worlds</a>
+      <a href="#resources"><span class="ix">05</span> Planet Resources &amp; Ores</a>
+      <a href="#energy"><span class="ix">06</span> Energy &amp; Cabling</a>
+      <p class="group-label">Field Kit</p>
+      <a href="#vehicles"><span class="ix">07</span> Vehicles</a>
+      <a href="#checklist"><span class="ix">08</span> Survival Checklist</a>
+      <a href="#gotchas"><span class="ix">09</span> Gotchas &amp; Tips</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics match the Ad Astra<br>(by AlexNijjar / Terra) 1.19.2<br>Forge line. Exact energy, fuel<br>and capacity values are<br>config-tunable — JEI and the<br>in-game GUIs are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · AlexNijjar</p>
+      <h1>Ad Astra<br>Per Aspera</h1>
+      <p class="lede">The headline act of <strong>To the Moon 2.0</strong> is, of course, leaving it. <strong>Ad Astra</strong> bolts a whole space program onto Minecraft — a metal-and-plate tech chain, oxygen and temperature survival, fuel refining, and <strong>Tier 1–4 rockets</strong> that carry you from the launch pad to the Moon, Mars, Venus, Mercury, and the frozen world of Glacio. This manual walks the full arc: from your first Coal Generator to a sealed, oxygenated base on another planet.</p>
+      <div class="badges">
+        <span class="badge accent">Ad Astra</span>
+        <span class="badge">Rockets · Planets · Oxygen</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">☠ Vacuum &amp; heat will kill you</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Ad Astra is a <strong>destination mod</strong>. Everything you build on the ground exists to get you off it — and then to keep you alive once you arrive somewhere that wants you dead. Two systems run the whole show: a <strong>tech chain</strong> (ore → plate → machine → rocket) and a <strong>survival layer</strong> (oxygen + temperature).</p>
+
+      <p>Three rules describe almost every hazard you'll meet out there. Internalise them before you spend a single ingot:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">breathe</span><h4>Oxygen</h4><p>Off-world atmospheres are unbreathable. Without an <strong>Oxygen Tank</strong> on your back or an <strong>Oxygen Distributor</strong> sealing your base, your air bar drains and you suffocate.</p></div>
+        <div class="card"><span class="tag">temperature</span><h4>Heat &amp; Cold</h4><p>Venus and Mercury cook you; Glacio freezes you. A bare-skinned visit deals continuous damage. The right <strong>Space Suit</strong> tier shrugs it off.</p></div>
+        <div class="card"><span class="tag">gravity</span><h4>Gravity</h4><p>Low-gravity worlds (the Moon especially) send you floating on every jump. Useful for traversal, dangerous near a cliff or a launch.</p></div>
+      </div>
+
+      <h3>The places you can go</h3>
+      <p>Ad Astra ships a compact solar system plus orbital space stations. Each body is gated behind a higher rocket tier and demands more of your survival kit:</p>
+      <ul>
+        <li><strong>Earth</strong> — home. Plus an orbital <strong>Earth space station</strong> you build and dock at.</li>
+        <li><strong>Moon</strong> — the first hop (Tier 1). Low gravity, no air, source of <strong>Desh</strong> and <strong>Cheese</strong>.</li>
+        <li><strong>Mars</strong> — a thin, hostile atmosphere; home of <strong>Ostrum</strong>.</li>
+        <li><strong>Venus</strong> — searing heat and <strong>acid rain</strong>; a <strong>Calorite</strong> heat-tier world.</li>
+        <li><strong>Mercury</strong> — brutal sun-side heat, a barren resource run.</li>
+        <li><strong>Glacio</strong> — the frozen, distant end-tier world; the toughest cold survival.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">The shortest path to space</span>
+        <p>Build a <strong>Coal Generator</strong> for power, a <strong>Compressor</strong> to make plates, a <strong>NASA Workbench</strong> to assemble the rocket, and an <strong>Oxygen Loader + tank</strong> to breathe. That quartet gets you a Tier 1 rocket and a one-way ticket to the Moon — bring a return supply of fuel.</p>
+      </div>
+    </section>
+
+    <!-- 01 MACHINES -->
+    <section class="doc" id="machines">
+      <p class="sec-index">01 — On the ground</p>
+      <h2>Early Machines &amp; Power</h2>
+      <p>Ad Astra runs on its own energy system and its own set of metals. The early game is a short, satisfying ladder: generate power, press metal into <strong>plates</strong>, and refine oil into <strong>rocket fuel</strong>. Build these and you've built a space program in miniature.</p>
+
+      <h3>The starter machines</h3>
+      <div class="data-table">
+        <table>
+          <caption>Core Ad Astra machines</caption>
+          <thead><tr><th>Machine</th><th>Does what</th><th>Why you need it</th></tr></thead>
+          <tbody>
+            <tr><td>Coal Generator</td><td>Burns coal/fuel into energy</td><td>Your first power source for every other machine.</td></tr>
+            <tr><td>Compressor</td><td>Ingot → <strong>Plate</strong></td><td>Plates are the body of every rocket and many recipes.</td></tr>
+            <tr><td>Fuel Refinery</td><td>Oil → <strong>Fuel</strong></td><td>Refines crude oil into the rocket fuel that actually lifts you.</td></tr>
+            <tr><td>Oxygen Loader</td><td>Fills Oxygen Tanks with O₂</td><td>Bottles the air you carry off-world (needs water + power).</td></tr>
+            <tr><td>Oxygen Distributor</td><td>Floods a sealed room with O₂</td><td>Makes an enclosed base breathable — life support for a colony.</td></tr>
+            <tr><td>NASA Workbench</td><td>Assembles rockets</td><td>The multi-slot bench where nose, body, fins, engine &amp; fuel become a rocket.</td></tr>
+            <tr><td>Cryo Freezer</td><td>Water handling → ice</td><td>Processes water/ice for off-world supply where liquid is scarce.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Steel &amp; the metal tiers</h3>
+      <p>Before any of this you need <strong>Steel</strong>. Ad Astra's Steel is crafted by compressing/smelting iron (an Iron Plate route through the Compressor and smelting), and it's the backbone of every early machine and the Tier 1 rocket. Above Steel sit the <em>planet-tier</em> metals, each mined on a world that the previous rocket tier can reach:</p>
+      <div class="data-table">
+        <table>
+          <caption>The metal ladder (each tier from a farther world)</caption>
+          <thead><tr><th>Tier</th><th>Metal</th><th>Found on</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>Steel</td><td>Earth (crafted)</td><td>Early machines, Tier 1 rocket.</td></tr>
+            <tr><td>1</td><td>Desh</td><td>Moon</td><td>Tier 2 plates &amp; rocket parts.</td></tr>
+            <tr><td>2</td><td>Ostrum</td><td>Mars</td><td>Tier 3 plates &amp; rocket parts.</td></tr>
+            <tr><td>3</td><td>Calorite</td><td>Venus / Mercury (heat tier)</td><td>Tier 4 plates &amp; heat-grade gear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Etrium is the energy-grade metal — it shows up in cables, the <strong>Energizer</strong>, and Etrionic blocks (see §06). Each metal is pressed into a plate in the Compressor before it goes into anything structural.</p>
+
+      <div class="note warn"><span class="label">Plates first, always</span><p>Almost nothing structural takes raw ingots. The pattern is <strong>ore → ingot → plate (Compressor) → part</strong>. When a recipe stalls, the missing reagent is usually a plate you forgot to press. Keep a stack of every plate tier on hand.</p></div>
+    </section>
+
+    <!-- 02 ROCKET -->
+    <section class="doc" id="rocket">
+      <p class="sec-index">02 — Liftoff</p>
+      <h2>Building a Rocket</h2>
+      <p>Rockets are assembled in the <strong>NASA Workbench</strong> from four physical parts plus a fuel charge. Each rocket comes in <strong>Tier 1 through Tier 4</strong>, and the tier determines how far you can travel — and which plate metal the parts demand.</p>
+
+      <h3>The anatomy of a rocket</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">top</span><h4>Nose Cone</h4><p>The aerodynamic tip. Crafted from the tier's plate metal.</p></div>
+        <div class="card"><span class="tag">core</span><h4>Body / Fuel Tank</h4><p>The hull and fuel reservoir. The bulk of the plates go here.</p></div>
+        <div class="card"><span class="tag">stability</span><h4>Fins</h4><p>The fins at the base that keep the craft upright.</p></div>
+        <div class="card"><span class="tag">thrust</span><h4>Engine</h4><p>The motor at the very bottom. Higher tiers carry you farther.</p></div>
+      </div>
+
+      <h3>Tiers &amp; reach</h3>
+      <div class="data-table">
+        <table>
+          <caption>Rocket tiers and where they go (destinations approximate to pack defaults)</caption>
+          <thead><tr><th>Tier</th><th>Plate metal</th><th>Reaches (typical)</th></tr></thead>
+          <tbody>
+            <tr><td>Tier 1</td><td>Steel</td><td>Moon (and Earth orbit station)</td></tr>
+            <tr><td>Tier 2</td><td>Desh</td><td>Mars</td></tr>
+            <tr><td>Tier 3</td><td>Ostrum</td><td>Venus &amp; Mercury</td></tr>
+            <tr><td>Tier 4</td><td>Calorite</td><td>Glacio (the full system)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><span class="label" style="color:var(--ink-faint)">note</span> Exact destination gating can be tuned by the pack; treat the table as the standard Ad Astra progression and confirm reachable bodies from the launch screen in-game.</p>
+
+      <h3>From parts to launch</h3>
+      <ol class="flow">
+        <li><strong>Press the plates.</strong> Run your tier's ingots through the <strong>Compressor</strong> to make the plate stacks each part needs.</li>
+        <li><strong>Craft the parts.</strong> Build the Nose Cone, Body, Fins, and Engine for that tier.</li>
+        <li><strong>Assemble in the NASA Workbench.</strong> Slot the four parts into their positions; the workbench shows the completed rocket and outputs it as a placeable item.</li>
+        <li><strong>Place the rocket</strong> on flat, open ground — it acts as its own launch pad.</li>
+        <li><strong>Refine fuel</strong> in the <strong>Fuel Refinery</strong> (oil → fuel) and <strong>load it into the rocket</strong> with a fuel container until the tank is full.</li>
+        <li><strong>Board and launch.</strong> Right-click to enter, hold the launch key to count down, then pick a destination from the map screen.</li>
+      </ol>
+
+      <h3>Launch site layout</h3>
+      <p>The rocket needs clear air above it and a tidy, fuelled pad below. Here's a simple representative pad — fuel feeds in at the base, the rocket sits on the central plate, and there's an air gap all around so nothing burns:</p>
+      <div id="pad-viewer"></div>
+
+      <div class="note danger"><span class="label">One-way until you pack a return</span><p>Your rocket is <strong>consumed on landing</strong> — you arrive on foot. To get home you must bring the means to build and fuel another rocket, or pre-stage fuel and parts. Stranding yourself fuel-less on Mars is the classic Ad Astra death.</p></div>
+    </section>
+
+    <!-- 03 LIFE SUPPORT -->
+    <section class="doc" id="life">
+      <p class="sec-index">03 — Staying alive</p>
+      <h2>Life Support</h2>
+      <p>The moment your rocket touches down on an airless world, the clock starts. Two systems keep you breathing: <strong>carried oxygen</strong> (tanks + suit) for moving around, and <strong>sealed atmosphere</strong> (the Oxygen Distributor) for living in a base.</p>
+
+      <h3>Carried oxygen — tanks &amp; suits</h3>
+      <p>An <strong>Oxygen Tank</strong> stores breathable air; the <strong>Oxygen Loader</strong> fills it from water + power before you leave. Worn with a <strong>Space Suit</strong>, the tank feeds your air bar. The suit tiers also handle temperature and, at the top, flight:</p>
+      <div class="data-table">
+        <table>
+          <caption>Space Suit tiers</caption>
+          <thead><tr><th>Suit</th><th>Oxygen</th><th>Temperature</th><th>Extra</th></tr></thead>
+          <tbody>
+            <tr><td>Space Suit</td><td>Holds tank air</td><td>Basic protection</td><td>The standard kit for the Moon &amp; Mars.</td></tr>
+            <tr><td>Netherite Space Suit</td><td>Larger capacity</td><td>Stronger</td><td>Tougher, more durable mid-tier armour.</td></tr>
+            <tr><td>Jet Suit</td><td>Largest capacity</td><td>Best</td><td><strong>Powered flight</strong> — the endgame suit for hostile worlds.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Wear all four pieces</span><p>Oxygen and temperature protection only apply when the <strong>full suit set</strong> is equipped. A missing boot means a draining air bar — Ad Astra checks the whole armour set, not just the chestplate.</p></div>
+
+      <h3>Sealed atmosphere — the Oxygen Distributor</h3>
+      <p>For a permanent off-world home you don't want to babysit a tank. The <strong>Oxygen Distributor</strong> floods a fully enclosed room with breathable air, creating a pocket of atmosphere you can walk around in helmet-off. The rules:</p>
+      <ul>
+        <li>The room must be <strong>completely sealed</strong> — no open doorways or gaps, or the oxygen leaks and the seal fails.</li>
+        <li>The distributor needs <strong>power and an oxygen supply</strong> (piped O₂ or its own loading) to maintain the bubble.</li>
+        <li>Bigger sealed volumes need more oxygen throughput; the distributor has a coverage limit per unit.</li>
+      </ul>
+      <p>Pair it with a <strong>Cryo Freezer</strong> for water/ice handling where liquid water is scarce, so your Oxygen Loader and distributor never run dry.</p>
+
+      <div class="note warn"><span class="label">Seal discipline</span><p>Use <strong>airlocks</strong> (a two-door buffer) for entrances so opening a door doesn't dump your whole atmosphere. One unsealed block and the distributor stops counting the room as airtight — and your colonists start suffocating.</p></div>
+    </section>
+
+    <!-- 04 WORLDS -->
+    <section class="doc" id="worlds">
+      <p class="sec-index">04 — The destinations</p>
+      <h2>The Worlds</h2>
+      <p>Each body has its own gravity, atmosphere, temperature hazard, signature resource, and natives. Plan your kit around the column that will hurt you most — for the Moon that's oxygen, for Venus it's heat, for Glacio it's cold.</p>
+      <div class="data-table">
+        <table>
+          <caption>Celestial bodies at a glance (qualitative — confirm exact stats in-game)</caption>
+          <thead><tr><th>World</th><th>Gravity</th><th>Air</th><th>Hazard</th><th>Signature</th><th>Natives</th></tr></thead>
+          <tbody>
+            <tr><td>Earth</td><td>Normal</td><td>Breathable</td><td>—</td><td>Steel, oil</td><td>Vanilla mobs</td></tr>
+            <tr><td>Moon</td><td>Low</td><td>None</td><td>Vacuum, cold nights</td><td>Desh, Cheese</td><td>Lunarian</td></tr>
+            <tr><td>Mars</td><td>Low-ish</td><td>None / thin</td><td>Vacuum</td><td>Ostrum, Ice Shard</td><td>Martian Raptor</td></tr>
+            <tr><td>Venus</td><td>High-ish</td><td>Toxic</td><td><strong>Heat + acid rain</strong></td><td>Calorite</td><td>Star Crawler</td></tr>
+            <tr><td>Mercury</td><td>Low</td><td>None</td><td><strong>Extreme heat</strong></td><td>Calorite, ores</td><td>Pygmy</td></tr>
+            <tr><td>Glacio</td><td>Low-ish</td><td>Thin</td><td><strong>Extreme cold</strong></td><td>End-tier loot</td><td>Frozen-world mobs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Orbit &amp; space stations</h3>
+      <p>Beyond the surfaces, you can launch into <strong>orbit</strong> and assemble a <strong>Space Station</strong> from its component blocks — a buildable platform that floats in the void. Solar power is strongest off-world (no atmosphere, no night-cycle dimming on some bodies), so orbit makes a fine power and staging hub.</p>
+      <div class="note tip"><span class="label">Read the hazard before you pack</span><p>The hostile column dictates your suit. The Moon &amp; Mars are <em>oxygen</em> trips (a basic Space Suit suffices). Venus and Mercury are <em>heat</em> trips — bring the highest temperature-rated suit and watch for acid rain on Venus. Glacio is a <em>cold</em> trip and the stiffest survival test in the mod.</p></div>
+    </section>
+
+    <!-- 05 RESOURCES -->
+    <section class="doc" id="resources">
+      <p class="sec-index">05 — Off-world haul</p>
+      <h2>Planet Resources &amp; Ores</h2>
+      <p>Every world you unlock supplies the metal that builds the <em>next</em> rocket. The loop is self-propelling: land, mine the local ore, press it into plates, build the higher-tier rocket, fly farther. Here's what each world is worth carrying home.</p>
+      <div class="data-table">
+        <table>
+          <caption>Signature off-world resources</caption>
+          <thead><tr><th>Resource</th><th>World</th><th>What it's for</th></tr></thead>
+          <tbody>
+            <tr><td>Desh</td><td>Moon</td><td>Tier 2 plates/parts; mid-tier machinery.</td></tr>
+            <tr><td>Cheese</td><td>Moon</td><td>The Moon's signature novelty block/food.</td></tr>
+            <tr><td>Ostrum</td><td>Mars</td><td>Tier 3 plates/parts.</td></tr>
+            <tr><td>Ice Shard</td><td>Mars (&amp; cold worlds)</td><td>Water/ice supply, Cryo Freezer feedstock.</td></tr>
+            <tr><td>Calorite</td><td>Venus / Mercury</td><td>Tier 4 (heat-grade) plates &amp; gear.</td></tr>
+            <tr><td>Etrium</td><td>Various</td><td>Energy-grade metal: cables, Energizer, Etrionic blocks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The ore → plate → rocket chain</h3>
+      <p>Stripped to its bones, the entire mod is one repeating pipeline. Memorise it once and every tier reads the same:</p>
+      <ol class="flow">
+        <li><strong>Mine</strong> the planet's ore (Desh, Ostrum, Calorite…).</li>
+        <li><strong>Smelt</strong> it to an ingot.</li>
+        <li><strong>Compress</strong> the ingot into a <strong>Plate</strong>.</li>
+        <li><strong>Craft</strong> the rocket parts (nose, body, fins, engine) from those plates.</li>
+        <li><strong>Assemble &amp; fuel</strong> the next-tier rocket — and go one world farther.</li>
+      </ol>
+      <div class="note tip"><span class="label">Bring the press with you</span><p>Setting up a small off-world base with a Compressor and a power source means you can mine, press, and even assemble the next rocket <em>on site</em> — no hauling raw ore back through a return trip you might not be able to afford.</p></div>
+    </section>
+
+    <!-- 06 ENERGY -->
+    <section class="doc" id="energy">
+      <p class="sec-index">06 — Power grid</p>
+      <h2>Energy &amp; Cabling</h2>
+      <p>Ad Astra has its own energy machines and <strong>cables</strong> to wire them together. Power flows from generators, through cables, into machines and the <strong>Energizer</strong> for buffering. In a kitchen-sink pack like To the Moon 2.0 it also coexists with the other big energy systems.</p>
+      <div class="data-table">
+        <table>
+          <caption>Power sources &amp; carriers</caption>
+          <thead><tr><th>Block</th><th>Role</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Coal Generator</td><td>Generation</td><td>The reliable bootstrap; burns coal/fuel for energy.</td></tr>
+            <tr><td>Solar Panel</td><td>Generation</td><td><strong>Stronger off-world</strong> — vacuum &amp; clear skies boost output.</td></tr>
+            <tr><td>Cables (Etrionic)</td><td>Transmission</td><td>Carry energy between generators, machines &amp; the Energizer.</td></tr>
+            <tr><td>Energizer</td><td>Storage / buffer</td><td>Banks energy so demand spikes don't stall your machines.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Off-world solar wins</span><p>Plant a field of <strong>Solar Panels</strong> on the Moon or in orbit and let them feed an Energizer. With no clouds and a hard vacuum, off-world solar far outpaces the same array back on Earth — ideal for a remote base that has to run an Oxygen Distributor around the clock.</p></div>
+      <div class="note warn"><span class="label">Cross-mod energy</span><p>Because the pack bundles other tech mods, Ad Astra's energy generally interoperates with the broader Forge Energy economy, and converters/bridges may let you feed Ad Astra machines from a Mekanism or generic-FE grid. Treat the exact compatibility as pack-specific — check JEI for converter recipes rather than assuming.</p></div>
+    </section>
+
+    <!-- 07 VEHICLES -->
+    <section class="doc" id="vehicles">
+      <p class="sec-index">07 — Getting around</p>
+      <h2>Vehicles</h2>
+      <p>Walking a low-gravity world in a bulky suit is slow. Ad Astra gives you two ways to cover ground fast: the drivable <strong>Rover</strong> and, at the top of the suit tree, personal <strong>flight</strong>.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">drive</span><h4>Rover</h4><p>A planet-surface buggy you place, fuel, and drive. Seats you (and a passenger), handles rough terrain, and turns a long Desh-mining trek into a quick loop.</p></div>
+        <div class="card"><span class="tag">fly</span><h4>Jet Suit Flight</h4><p>The <strong>Jet Suit</strong> grants powered flight — the cleanest way to cross Venus's acid plains or Glacio's ice fields without touching the hazardous ground.</p></div>
+      </div>
+      <h3>Fuelling the Rover</h3>
+      <p>The Rover runs on the same <strong>fuel</strong> economy as your rockets — refine oil in the Fuel Refinery and top up the vehicle's tank. Keep a fuel can in your inventory for refills in the field, and remember the Rover is recoverable: pick it back up when you're done rather than abandoning it on the surface.</p>
+      <div class="note warn"><span class="label">Suit up before you board</span><p>A vehicle doesn't supply oxygen or temperature protection on its own — you still need your full Space Suit and a charged Oxygen Tank while driving an airless world. The Rover moves you faster; it doesn't keep you breathing.</p></div>
+    </section>
+
+    <!-- 08 CHECKLIST -->
+    <section class="doc" id="checklist">
+      <p class="sec-index">08 — Pre-flight</p>
+      <h2>Survival Checklist</h2>
+      <p>The difference between a colony and a corpse is what's in your inventory at liftoff. Run this list before every launch — and bias toward <em>more</em>, because there's no shop on Mars.</p>
+      <div class="data-table">
+        <table>
+          <caption>Pack-this-before-you-launch checklist</caption>
+          <thead><tr><th>Item</th><th>Why</th><th>Bring how many</th></tr></thead>
+          <tbody>
+            <tr><td>Full Space Suit (right tier)</td><td>Oxygen + temperature for the destination</td><td class="num">1 set</td></tr>
+            <tr><td>Oxygen Tanks (filled)</td><td>Your air supply while moving</td><td class="num">2–3</td></tr>
+            <tr><td>Oxygen Distributor + sealed-base kit</td><td>To set up breathable shelter</td><td class="num">1+</td></tr>
+            <tr><td>Compressor + power source</td><td>Press local ore into plates on site</td><td class="num">1</td></tr>
+            <tr><td>Rocket parts / return fuel</td><td>So you can fly home</td><td class="num">full set</td></tr>
+            <tr><td>Food</td><td>Hunger ticks off-world too</td><td class="num">a stack</td></tr>
+            <tr><td>Building blocks + torches</td><td>Seal a room, light a mine</td><td class="num">plenty</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Setting up an off-world base</h3>
+      <ol class="flow">
+        <li><strong>Seal a shelter.</strong> Wall off a small airtight room the moment you land — somewhere to refill and breathe.</li>
+        <li><strong>Power it.</strong> Drop a Solar Panel field (off-world solar is strong) into an Energizer.</li>
+        <li><strong>Pressurise.</strong> Run the Oxygen Distributor; confirm the room seals and the air bubble forms.</li>
+        <li><strong>Mine &amp; press.</strong> Gather the local metal and Compress it into plates for the next-tier rocket.</li>
+        <li><strong>Stage your return.</strong> Build and fuel the homeward (or onward) rocket before you run low on supplies.</li>
+      </ol>
+      <div class="note danger"><span class="label">Fuel is the lifeline</span><p>The single most common way to die in Ad Astra isn't a mob — it's <strong>stranding</strong>. Always know how you're getting home <em>before</em> you leave the launch pad. If in doubt, bring a full extra fuel load and the parts for a spare rocket.</p></div>
+    </section>
+
+    <!-- 09 GOTCHAS -->
+    <section class="doc" id="gotchas">
+      <p class="sec-index">09 — Field notes</p>
+      <h2>Gotchas &amp; Tips</h2>
+      <p>The small things that trip up first-time astronauts. None of these are obvious from the recipe book — they're learned the hard way, so learn them here instead.</p>
+      <ul>
+        <li><strong>Oxygen needs the whole set.</strong> Three pieces of suit and one vanilla boot equals a draining air bar. Equip all four.</li>
+        <li><strong>Distributor rooms must be airtight.</strong> A single open block, an ungated doorway, or a gap behind a torch breaks the seal. Build airlocks.</li>
+        <li><strong>The rocket is consumed on launch/landing.</strong> Plan your return trip's parts and fuel before you go anywhere.</li>
+        <li><strong>Refuel the rocket after assembly.</strong> A freshly built rocket is empty — load fuel into its tank or the launch does nothing.</li>
+        <li><strong>Heat worlds need a heat suit.</strong> A basic Space Suit will cook on Venus and Mercury; bring the temperature-rated tier.</li>
+        <li><strong>Acid rain on Venus</strong> damages you in the open — stay sheltered or fly over it in a Jet Suit.</li>
+        <li><strong>Low gravity is a hazard near launch.</strong> A mistimed jump on the Moon can drift you somewhere you didn't intend; mind ledges.</li>
+        <li><strong>Press, don't smelt-and-pray.</strong> Structural recipes want plates from the Compressor, not raw ingots — check JEI when a craft greys out.</li>
+      </ul>
+      <div class="note tip"><span class="label">JEI is your co-pilot</span><p>Every value in this guide that says "approximate" can be confirmed precisely in-game. Use <strong>JEI</strong> to trace any recipe back to its raw ore, and read the live machine GUIs for energy and fuel rates — they're the final word over any wiki or guide.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">Ad Astra Per Aspera</strong><br>
+      An unofficial field manual for Ad Astra on Minecraft 1.19.2 (Forge).<br>
+      Ad Astra is by <a href="https://github.com/terrarium-earth/Ad-Astra">AlexNijjar &amp; the Terra team</a>. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · rockets · planets · oxygen &amp; heat<br>
+      · the tech &amp; plate chain<br>
+      · part of the To the Moon 2.0 pack
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Destinations, fuel, energy and capacity values are config-tunable and may differ in this pack. Tiers and mechanics are described qualitatively — the in-game launch screen, machine GUIs and JEI are ground truth.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic, initChrome } from "./assets/js/guide-chrome.js";
+
+  /* ---- palette for the launch-pad schematic ---- */
+  const PAL = {
+    pad:    { label: "Launch Pad block",    color: "#5f6e78" },
+    rocket: { label: "Rocket (placed)",     color: "#ff7a3c" },
+    fuel:   { label: "Fuel feed / hatch",   color: "#43d6c4" },
+    light:  { label: "Pad marker light",    color: "#6f8cff" },
+  };
+
+  const grid = (rows, cols, fill = null) =>
+    Array.from({ length: rows }, () => Array(cols).fill(fill));
+  const solid = (n, k) => grid(n, n, k);
+
+  /* ---- Launch Pad 5×5 (representative) ---- */
+  const padBase = solid(5, "pad");
+  padBase[0][0] = "light"; padBase[0][4] = "light";
+  padBase[4][0] = "light"; padBase[4][4] = "light";
+  padBase[2][0] = "fuel";
+
+  const padRocket = grid(5, 5, null);
+  padRocket[2][2] = "rocket";
+
+  mountSchematic({
+    title: "Launch Pad", subtitle: "representative 5×5 · clear sky above",
+    meta: { footprint: "5×5", height: "rocket + open air" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Y0 · pad", grid: padBase, note: "A flat 5×5 of pad/floor blocks. Run the fuel feed in from one edge (west, shown) and mark the corners so you don't drift off in low gravity." },
+      { label: "Y1 · rocket", grid: padRocket, note: "Place the assembled rocket dead-centre on the pad. Right-click to board; load fuel until the tank is full, then hold launch to count down and pick a destination." },
+      { label: "Y2+ · open air", grid: grid(5, 5, null), note: "Leave the column above the rocket completely open — no roof, no overhang. The exhaust and ascent need clear sky." },
+    ],
+  }, "#pad-viewer");
+
+  initChrome();
+</script>
+</body>
+</html>

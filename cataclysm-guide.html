@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Cataclysm Bestiary — a monster-hunter's field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth, cautious field manual for L_Ender's Cataclysm (Minecraft 1.19.2 Forge): the structure-bosses and the dimensions they guard, their fight mechanics described qualitatively, the gear they unlock, and a survivor's loadout. Exact stats, spawns and recipes vary by version/config — the in-game guide, wiki and JEI are ground truth." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0e0908; --bg-1:#130b0a; --bg-2:#1d100d; --bg-3:#281712; --line:#3a221a;
+    --ink:#eee0d4; --ink-dim:#bb9d8a; --ink-faint:#80644f;
+    --accent:#c0432f; --accent-2:#d9a441; --accent-3:#e07a3a; --danger:#ff5a3c;
+    --accent-soft:rgba(192,67,47,0.14); --accent-glow:rgba(192,67,47,0.5);
+    --f-display:"Cinzel",Georgia,serif; --f-body:"EB Garamond",Georgia,serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗡</span>
+      <span class="wordmark">The Cataclysm<br>Bestiary<small>L_ENDER'S CATACLYSM</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Hunt Begins</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#bestiary"><span class="ix">01</span> The Bestiary at a Glance</a>
+      <p class="group-label">By Dominion</p>
+      <a href="#desert"><span class="ix">02</span> Overworld &amp; Desert</a>
+      <a href="#ocean"><span class="ix">03</span> The Drowned Deep</a>
+      <a href="#nether"><span class="ix">04</span> The Burning Citadel</a>
+      <a href="#end"><span class="ix">05</span> The Ender Throne</a>
+      <p class="group-label">Spoils &amp; Survival</p>
+      <a href="#gear"><span class="ix">06</span> Weapons &amp; Gear</a>
+      <a href="#remnant"><span class="ix">07</span> The Ancient Remnant</a>
+      <a href="#loadout"><span class="ix">08</span> Strategy &amp; Loadout</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      A cautious bestiary for L_Ender's<br>Cataclysm (1.19.2). Exact health,<br>damage, spawn conditions and<br>recipes vary by version &amp; config —<br>the in-game guide, the wiki and<br>JEI are the ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · mcl_ender</p>
+      <h1>The Cataclysm<br>Bestiary</h1>
+      <p class="lede">There are doors in this world that should have stayed shut. Behind each one waits a thing that was bound, not buried — a citadel-king of molten bronze, a serpent coiled in a drowned city, a guardian throned at the world's edge. <strong>L_Ender's Cataclysm</strong> is endgame combat content: a handful of monstrous <em>structure-bosses</em> scattered across the dimensions, each guarding gear worth the scars. This manual marks the lairs, names the wardens, and describes how they fight. Stat numbers are deliberately left to the in-game guide — what you'll find here is <em>how to survive them</em>.</p>
+      <div class="badges">
+        <span class="badge accent">L_Ender's Cataclysm</span>
+        <span class="badge">Lionfish API + GeckoLib</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge danger">☠ Endgame difficulty</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Cataclysm is not a progression ladder you climb for the early game — it is a gauntlet of optional, brutal boss fights you walk into <em>after</em> you are already strong. Treat every entry in this book as a tombstone-in-waiting until you have the gear, the consumables, and ideally the company to face it.</p>
+
+      <p>The mod adds challenging structure-bosses spread across the Overworld, the Nether and the End, each lairing in its own purpose-built dungeon and each guarding powerful, often unique gear. It leans on two libraries to do its work, and you must install them or nothing spawns:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">dependency</span><h4>Lionfish API</h4><p>L_Ender's own shared library. Cataclysm will not load without it — it carries the common code the bosses are built on.</p></div>
+        <div class="card"><span class="tag">dependency</span><h4>GeckoLib</h4><p>The animation runtime that drives the bosses' elaborate, telegraphed movesets. The wind-up animations are your dodge cues.</p></div>
+        <div class="card"><span class="tag">posture</span><h4>This is endgame</h4><p>These fights are tuned to test maxed-out gear. Come back when you can already shrug off a Wither — not before.</p></div>
+      </div>
+
+      <h3>Gear up with the rest of the pack first</h3>
+      <p>"To the Moon 2.0" hands you many roads to power before you ever knock on a Cataclysm door. Walk at least one of them to the end first:</p>
+      <ul>
+        <li><strong>Tinkers' Construct</strong> — a forged-and-modified weapon with the right traits and modifiers carries many of these fights.</li>
+        <li><strong>Mekanism MekaSuit</strong> — modular armour with damage absorption, flight and life-support trivialises the arena-positioning problem.</li>
+        <li><strong>Apotheosis-affixed gear</strong> — rolled and socketed weapons/armour add the raw damage and defensive affixes that turn a loss into a win.</li>
+        <li><strong>Iron's Spells 'n Spellbooks</strong> — ranged and healing magic lets you fight from outside a boss's reach and patch yourself between attacks.</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">Come prepared to die</span>
+        <p>These bosses hit like freight trains and many have phases that escalate. Bring stacked <strong>healing &amp; resistance potions</strong>, a death-insurance plan (<strong>Corail Tombstone</strong> graves so a wipe doesn't scatter your kit across an arena you can't re-enter safely), totems if your pack provides them, and — wherever possible — <strong>friends</strong>. Solo runs are the hardest version of every fight in this book.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">On accuracy — read this once</span>
+        <p>Exact health pools, damage values, spawn conditions, structure rarities and crafting recipes <strong>vary by mod version and pack config</strong> and are easy to get wrong. This guide describes mechanics <em>qualitatively</em> on purpose. When you need a precise number or recipe, trust the <strong>in-game guide book, the official wiki, and JEI</strong> over anything written here.</p>
+      </div>
+    </section>
+
+    <!-- 01 BESTIARY -->
+    <section class="doc" id="bestiary">
+      <p class="sec-index">01 — The roll-call</p>
+      <h2>The Bestiary at a Glance</h2>
+      <p>Below are the major wardens of Cataclysm, sorted by the dominion they haunt. Treat the "lair" and "signature reward" columns as a map, not a contract — names and locations are stable across the well-known bosses, but the finer details belong to your version's guide book. Where a listing is less certain, it is flagged.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The major structure-bosses of Cataclysm</caption>
+          <thead><tr><th>Boss</th><th>Dominion</th><th>Lair / structure</th><th>Signature spoils</th></tr></thead>
+          <tbody>
+            <tr><td>Wadjet (the Maxilla / serpent-guard)</td><td>Overworld · desert</td><td>The Cursed Pyramid</td><td>Cursed weapons &amp; the Cursed Bow line</td></tr>
+            <tr><td>The Maledictus</td><td>Overworld · desert</td><td>The Sandstorm (desert sand-arena) <span class="vflag">verify locally</span></td><td>Desert-tier weapon / trophy</td></tr>
+            <tr><td>The Harbinger</td><td>Overworld · ocean</td><td>The Sunken City</td><td>Black Steel material &amp; abyssal gear</td></tr>
+            <tr><td>The Leviathan</td><td>Overworld · ocean</td><td>The Sunken City (deep) <span class="vflag">verify locally</span></td><td>Aquatic boss weapon / mount-tier reward</td></tr>
+            <tr><td>The Scylla</td><td>Overworld · ocean</td><td>Deep-ocean lair <span class="vflag">verify locally</span></td><td>Ocean-themed weapon</td></tr>
+            <tr><td>Netherite Monstrosity</td><td>Nether</td><td>Burning / ruined citadel arena</td><td>Monstrous weapon · Netherite-tier spoils</td></tr>
+            <tr><td>Ignis</td><td>Nether</td><td>Fiery knight's arena (citadel)</td><td>Ignitium ingots → the Ignitium fire-tier set</td></tr>
+            <tr><td>The Ender Guardian</td><td>The End</td><td>End-stone arena beyond the central island</td><td>End-tier gauntlet / boss weapon</td></tr>
+            <tr><td>The Ancient Remnant</td><td>Overworld (secret) <span class="vflag">verify locally</span></td><td>Hidden super-boss summon</td><td>Unique super-boss reward</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">How to read a lair</span>
+        <p>Each structure is built around an <strong>arena</strong> — open floor, ringed walls, often a hazard (lava, water, drop-offs). The structure spawns the lesser mobs of its theme; the boss is summoned or awakened at the arena's heart. Clearing the trash first, then triggering the boss with healing and escape routes ready, is the universal opening move.</p>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Names you can trust vs. names to confirm</span>
+        <p>The <strong>Ender Guardian, Netherite Monstrosity, Ignis, The Harbinger, Wadjet</strong> and <strong>The Ancient Remnant</strong> are the load-bearing, well-documented bosses. Listings flagged <span class="vflag">verify locally</span> (Maledictus' exact arena, the Leviathan/Scylla deep-ocean particulars) should be confirmed against your installed version before you go hunting — the family is right even where a detail drifts.</p>
+      </div>
+    </section>
+
+    <!-- 02 DESERT -->
+    <section class="doc" id="desert">
+      <p class="sec-index">02 — The parched dominion</p>
+      <h2>The Overworld &amp; the Desert</h2>
+      <p>The sand keeps its dead poorly. Across the desert biomes Cataclysm raises tomb-structures whose guardians wake when you breach them — and the road there is patrolled by creatures of its own.</p>
+
+      <h3>The Cursed Pyramid &amp; Wadjet</h3>
+      <p>The <strong>Cursed Pyramid</strong> is a desert dungeon crowned by a serpent-warden commonly known as <strong>Wadjet</strong> (the Maxilla). The structure funnels you inward through trapped, mob-laden halls toward a sealed chamber; awaken the warden and the room becomes the arena. Expect a melee-plus-projectile fighter that punishes standing still — it favours lunges and area-denial that reward circling and ranged pressure. The Pyramid's signature spoils feed the <strong>Cursed</strong> weapon family, including the <strong>Cursed Bow</strong> line.</p>
+
+      <h3>The Sandstorm &amp; The Maledictus</h3>
+      <p>The desert also hosts <strong>The Maledictus</strong>, a sand-and-curse themed boss tied to a desert arena sometimes called the <strong>Sandstorm</strong> <span class="vflag">confirm in-game</span>. Treat it as a high-mobility melee threat with sand/visibility hazards; keep open ground at your back and don't let the trash mobs sandwich you while you focus the boss.</p>
+
+      <h3>The desert &amp; abyssal mob roster</h3>
+      <p>Cataclysm seeds its biomes with themed lesser mobs — useful for materials and dangerous in numbers:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">overworld</span><h4>Amethyst Crab</h4><p>A skittering crystal-shelled mob; its drops feed cosmetic/utility crafts. More nuisance than threat alone, deadly in packs near a fight.</p></div>
+        <div class="card"><span class="tag">aquatic</span><h4>Coralssus</h4><p>A hulking coral brute of the warmer waters — a heavy hitter you'll meet on the way to the ocean bosses. Bait its swings, then punish.</p></div>
+        <div class="card"><span class="tag">abyssal</span><h4>Deeplings</h4><p>The Sunken City's drowned cult-mobs. They swarm, they hit hard underwater, and they soften you up before the Harbinger ever appears.</p></div>
+        <div class="card"><span class="tag">loot</span><h4>Themed drops</h4><p>Lesser mobs drop materials and trophies — check JEI for what each feeds before you sweep an arena clean.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">Loot the lair, not just the boss</span><p>Cataclysm structures hide chests and crafting components alongside the boss reward. Sweep the Cursed Pyramid for its loot on the way in; you may find the materials that upgrade the very weapon the boss drops.</p></div>
+    </section>
+
+    <!-- 03 OCEAN -->
+    <section class="doc" id="ocean">
+      <p class="sec-index">03 — The drowned dominion</p>
+      <h2>The Drowned Deep — the Sunken City</h2>
+      <p>Beneath the waves lies the <strong>Sunken City</strong>, a ruined metropolis claimed by the sea and its cult. It is the single most punishing <em>environment</em> in the book: the fight is hard, and the ocean is trying to kill you the whole time.</p>
+
+      <h3>The Harbinger</h3>
+      <p>The <strong>Harbinger</strong> is the Sunken City's warden — a towering aquatic boss attended by Deeplings. Expect heavy melee, summoned adds, and ranged or shockwave-style attacks that close the distance for it. Its defeat is the gateway to <strong>Black Steel</strong> and the abyssal gear tied to the city.</p>
+
+      <h3>The Leviathan &amp; The Scylla</h3>
+      <p>Deeper still swim larger horrors — the serpentine <strong>Leviathan</strong> and the multi-limbed <strong>Scylla</strong> <span class="vflag">confirm details in-game</span>. These are large-bodied ocean bosses; the same survival rules apply, magnified. Their exact arenas and triggers are the kind of detail that shifts between versions, so verify before you dive.</p>
+
+      <h3>Surviving the water itself</h3>
+      <div class="note danger">
+        <span class="label">The ocean is the third combatant</span>
+        <p>Underwater you mine slower, swing slower, sink, and drown. Before any ocean boss, secure: <strong>Water Breathing</strong> (potion, Respiration/Aqua Affinity armour, or a Mekanism scuba setup), <strong>vertical mobility</strong> (Depth Strider, Dolphin's Grace, a Riptide trident or jet boots), and <strong>night-vision</strong> so you can read the boss's telegraphs in the murk. Consider draining or air-pocketing a fight chamber if your kit lets you turn it into a dry arena.</p>
+      </div>
+      <div class="note tip"><span class="label">Bring ranged pressure</span><p>Melee in deep water is a trap. Spells, tridents, and bows let you damage the boss while keeping your mobility — fight from the edge of its reach and retreat upward to breathe and heal.</p></div>
+    </section>
+
+    <!-- 04 NETHER -->
+    <section class="doc" id="nether">
+      <p class="sec-index">04 — The burning dominion</p>
+      <h2>The Burning Citadel — Netherite Monstrosity &amp; Ignis</h2>
+      <p>The Nether holds Cataclysm's forge-kings. Their arena is a ruined, fire-wreathed citadel where the floor is as likely to kill you as the boss — these are fights about <strong>positioning over fire</strong> as much as trading blows.</p>
+
+      <h3>Netherite Monstrosity</h3>
+      <p>The <strong>Netherite Monstrosity</strong> is a colossal brute of fused netherite — a slow, earth-shaking melee titan that fights with ground slams and shockwaves rather than finesse. Its attacks are heavily telegraphed (read the GeckoLib wind-ups) but devastating if they land, and many ripple outward across the arena floor, so jumping or breaking line-of-floor-contact at the right beat matters. It is associated with <strong>Monstrous</strong>-tier boss weapons and netherite-grade spoils.</p>
+
+      <h3>Ignis</h3>
+      <p><strong>Ignis</strong> is a fiery knight-boss — faster and more aggressive than the Monstrosity, trading in fire pillars, ranged flame, and aggressive closing attacks. Defeating Ignis is the path to <strong>Ignitium</strong>, the mod's fire-tier ingot, which crafts the <strong>Ignitium armour &amp; tools</strong> set (see §06).</p>
+
+      <div class="note warn">
+        <span class="label">Fire resistance is mandatory, not optional</span>
+        <p>Both fights take place over lava and amid flame, and several attacks set you alight. Stack <strong>Fire Resistance</strong> (potions, beacon, or Fire Protection armour) before you enter — without it the environment alone will end the run before the boss does. Bridge yourself a solid, lava-free platform to fight on so you control the footing.</p>
+      </div>
+      <div class="note tip"><span class="label">Range the big one, dodge the fast one</span><p>Against the slow <strong>Monstrosity</strong>, kite at range and punish recovery frames after each slam. Against the faster <strong>Ignis</strong>, manage your spacing tightly and use cover/pillars to break its ranged fire while you close for melee windows.</p></div>
+    </section>
+
+    <!-- 05 END -->
+    <section class="doc" id="end">
+      <p class="sec-index">05 — The dominion at the edge</p>
+      <h2>The Ender Throne — The Ender Guardian</h2>
+      <p>Past the central island, out across the End-stone, sits an arena and its sentinel. The <strong>Ender Guardian</strong> is widely regarded as one of Cataclysm's flagship fights and a fitting capstone to the End.</p>
+
+      <h3>The fight</h3>
+      <p>The Ender Guardian is a teleport-heavy duellist: it blinks around the arena, closes the gap unexpectedly, and chains aggressive melee combos with phase-shifting movement. The challenge is less about raw tanking and more about <strong>not losing track of it</strong> — every blink resets your spacing, and standing flat-footed waiting for it to reappear is how you get deleted. It is associated with End-tier rewards, including a powerful boss weapon / gauntlet-class drop.</p>
+
+      <div class="note tip">
+        <span class="label">Fighting a teleporter</span>
+        <p>Keep the camera moving and the feet moving. Pre-place light and clear the arena floor so adds and Endermen don't compound the chaos. <strong>Ranged options</strong> and <strong>movement abilities</strong> shine here — anything that lets you re-acquire and re-engage the moment it blinks back in. Don't over-commit to a combo you can't cancel; the Guardian will teleport out and punish your recovery.</p>
+      </div>
+      <div class="note warn"><span class="label">Mind the ledge</span><p>The End is a void. Many Cataclysm End arenas have edges, and knockback over a drop is an instant, gear-on-the-ground death. Fight toward the centre and keep a feather-fall / slow-fall or ender-pearl bailout ready.</p></div>
+    </section>
+
+    <!-- 06 GEAR -->
+    <section class="doc" id="gear">
+      <p class="sec-index">06 — The spoils</p>
+      <h2>Weapons, Armour &amp; the Infernal Forge</h2>
+      <p>Cataclysm's whole point is its loot: each warden drops a material or a weapon that no other content in the pack can give you, and a dedicated crafting station to forge boss-tier gear from them. Roles below are described qualitatively — exact stats and recipes belong to JEI and the in-game guide.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Signature materials &amp; gear (roles, not stats)</caption>
+          <thead><tr><th>Item / set</th><th>Source</th><th>What it's good for</th></tr></thead>
+          <tbody>
+            <tr><td>Ignitium armour &amp; tools</td><td>Ignis (Ignitium ingots)</td><td>The fire-tier set — strong armour with fire-themed perks; the go-to for further Nether work.</td></tr>
+            <tr><td>Black Steel</td><td>The Harbinger / Sunken City</td><td>A high-tier crafting material for abyssal-grade gear and components.</td></tr>
+            <tr><td>Cursed weapons &amp; Cursed Bow</td><td>The Cursed Pyramid / Wadjet</td><td>Desert boss weapons with curse-themed effects; the Bow gives ranged punch.</td></tr>
+            <tr><td>Monstrous weapon(s)</td><td>Netherite Monstrosity</td><td>Heavy, hard-hitting netherite-grade boss weapons for the big-swing playstyle.</td></tr>
+            <tr><td>The Gauntlets</td><td>Boss drops / Infernal Forge</td><td>The signature off-hand/main weapons — Bulwark, Maelstrom and Guard (see below).</td></tr>
+            <tr><td>The Infernal Forge</td><td>Crafted station</td><td>The workbench where boss materials become boss-tier gear. Your endgame crafting hub.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Gauntlets</h3>
+      <p>Cataclysm's marquee weapons are its gauntlet line — powerful fist-weapons with charged, ability-style attacks. Their flavours map to playstyles:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">defence</span><h4>Gauntlet of Bulwark</h4><p>The shield-fist — leans on blocking and survivability, turning a defensive stance into a counter. For players who want to tank and punish.</p></div>
+        <div class="card"><span class="tag">offence</span><h4>Gauntlet of Maelstrom</h4><p>The aggressive, area-sweeping fist — built to dish out and control space against crowds and big bodies.</p></div>
+        <div class="card"><span class="tag">control</span><h4>Gauntlet of Guard</h4><p>A parry/guard-oriented fist that rewards reading telegraphs and answering attacks with your own. <span class="vflag">confirm exact behaviour in-game</span></p></div>
+        <div class="card"><span class="tag">station</span><h4>Black Steel kit</h4><p>Black Steel feeds armour and weapons that bridge you from "geared adventurer" to "boss hunter" — a worthwhile mid-Cataclysm stop.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">Forge order matters</span><p>Plan a route: an early boss whose drops let you craft gear that makes the <em>next</em> boss survivable. A common path is securing fire-tier (Ignitium) and an abyssal/Black Steel kit before attempting the hardest teleporting and super-boss fights, all assembled at the <strong>Infernal Forge</strong>.</p></div>
+    </section>
+
+    <!-- 07 REMNANT -->
+    <section class="doc" id="remnant">
+      <p class="sec-index">07 — Beyond the bestiary</p>
+      <h2>The Ancient Remnant &amp; Superbosses</h2>
+      <p>Some fights in Cataclysm are not gates on a path — they are dares. The <strong>Ancient Remnant</strong> is the mod's optional super-boss: a hidden, summoned challenge tuned above the standard wardens, fought for bragging rights and a unique reward rather than necessity.</p>
+
+      <p>Super-boss fights of this class share a profile you should expect:</p>
+      <ul>
+        <li><strong>Higher everything</strong> — health, damage and attack density all climb past the standard bosses. Margin for error shrinks to almost nothing.</li>
+        <li><strong>Multi-phase escalation</strong> — expect the fight to change as it drops, adding new attacks or hazards rather than simply getting weaker.</li>
+        <li><strong>A summon, not a spawn</strong> — these are usually triggered deliberately with a crafted/found item at a set place, so you fight on your terms — bring your full kit. <span class="vflag">confirm the exact summon in-game</span></li>
+        <li><strong>A unique prize</strong> — the reward is something you cannot get any other way; it is the whole reason to take the dare.</li>
+      </ul>
+
+      <div class="note danger">
+        <span class="label">Do this one last, and do it prepared</span>
+        <p>Attempt the Ancient Remnant only after you've cleared the standard wardens and crafted their gear. Stack every consumable you have, secure your death-recovery (graves/totems), bring allies, and pick a controlled arena. This is the fight that punishes "good enough" — exact stats and the summon ritual <strong>vary by version</strong>, so confirm them in-game before you commit.</p>
+      </div>
+    </section>
+
+    <!-- 08 LOADOUT -->
+    <section class="doc" id="loadout">
+      <p class="sec-index">08 — The survivor's kit</p>
+      <h2>Strategy &amp; Loadout</h2>
+      <p>Every Cataclysm fight rewards the same fundamentals: out-heal the chip damage, out-position the big hits, and never enter a fight you can't leave. Here is the universal boss-hunter's kit, drawn from across the pack.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The universal boss loadout</caption>
+          <thead><tr><th>Slot</th><th>Bring</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Survival insurance</td><td>Totems · Corail Tombstone grave kit</td><td>A wipe shouldn't cost your gear in an arena you can't safely re-enter.</td></tr>
+            <tr><td>Healing</td><td>Healing/Regen potions, lifesteal, heal spells</td><td>Chip damage is constant — sustain decides long fights.</td></tr>
+            <tr><td>Resistance</td><td>Resistance · Fire Resistance · Water Breathing</td><td>Match the dominion: fire for the Nether, breathing for the ocean.</td></tr>
+            <tr><td>Mobility</td><td>Slow-fall, ender pearls, jet boots, Riptide</td><td>Re-acquire teleporters, escape void edges, control the deep water.</td></tr>
+            <tr><td>Ranged option</td><td>Bow/crossbow, trident, spells</td><td>Damage from outside reach; essential underwater and vs. blink fights.</td></tr>
+            <tr><td>Armour</td><td>MekaSuit / Apotheosis-affixed / Ignitium</td><td>Absorb the hits you can't dodge; pick the set that fits the dominion.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How to fight anything in this book</h3>
+      <ol class="flow">
+        <li><strong>Clear the lair first.</strong> Sweep the structure's trash mobs and grab its chest loot before you wake the boss — you don't want adds on you mid-fight.</li>
+        <li><strong>Build your arena.</strong> Floor over hazards, place light, and mark an escape route. You control the ground or the ground controls you.</li>
+        <li><strong>Buff before the trigger.</strong> Potions, resistance and your survival insurance go up <em>before</em> you summon/awaken the boss — never during.</li>
+        <li><strong>Read the wind-up.</strong> GeckoLib gives every attack a telegraph. Learn the tells and dodge the slam, the pillar, the lunge — don't trade into them.</li>
+        <li><strong>Punish recovery, not aggression.</strong> Strike in the gaps after a big attack, then disengage. Greed gets you hit by the follow-up.</li>
+        <li><strong>Sustain and reset.</strong> Retreat to heal and re-buff between phases. A patient hunter wins; an impatient one feeds the arena.</li>
+      </ol>
+
+      <h3>Where this slots into the pack's late game</h3>
+      <p>Cataclysm is a <em>combat</em> capstone, not a tech one. Once your Mekanism, Tinkers, Apotheosis and Iron's Spells lines have given you a strong, self-sustaining kit, the wardens are the fights worth that kit — and their unique gear (gauntlets, Ignitium, Black Steel, Monstrous weapons) feeds back into your loadout for the next dominion. Hunt them in roughly ascending difficulty, forge their spoils at the Infernal Forge, and save the Ancient Remnant for when nothing else in the world can scare you.</p>
+
+      <div class="note warn">
+        <span class="label">One last word from the bestiary</span>
+        <p>Nothing in this book is a substitute for the in-game guide, the wiki and JEI when you need an exact number, recipe, or spawn rule — those drift between versions and configs. What survives every version is the discipline: <strong>prepare, position, punish, persist.</strong> Bring friends. Bring graves. Come home.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Cataclysm Bestiary</strong><br>
+      An unofficial monster-hunter's field manual for L_Ender's Cataclysm on Minecraft 1.19.2 (Forge).<br>
+      Cataclysm is by <a href="https://www.curseforge.com/minecraft/mc-mods/lenders-cataclysm">mcl_ender</a>; it depends on Lionfish API &amp; GeckoLib. This guide is fan-made.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · the structure-bosses &amp; their lairs<br>
+      · fight mechanics (described qualitatively)<br>
+      · the gear they unlock &amp; the loadout to win
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Mechanics are described qualitatively on purpose. Exact health, damage, spawn conditions, structure rarity and crafting recipes vary by mod version and pack config — the in-game guide book, the official wiki and JEI are the ground truth.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

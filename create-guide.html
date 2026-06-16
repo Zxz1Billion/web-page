@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brass &amp; Cogs — a Create field manual (MC 1.19.2)</title>
+<meta name="description" content="An in-depth Create 0.5.x (Minecraft 1.19.2 Forge) field manual: rotational force &amp; stress, generating and controlling rotation, processing &amp; logistics, trains, contraptions, the casing ladder, and the tools that hold it all together." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#120f0a; --bg-1:#171309; --bg-2:#211a0f; --bg-3:#2c2313; --line:#3a2f1a;
+    --ink:#efe6d2; --ink-dim:#b7a880; --ink-faint:#7d7050;
+    --accent:#d9a441; --accent-2:#6fb7d8; --accent-3:#e0883a; --danger:#d8603a;
+    --accent-soft:rgba(217,164,65,0.13); --accent-glow:rgba(217,164,65,0.5);
+    --f-display:"Oswald",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">⚙</span>
+      <span class="wordmark">Brass &amp;<br>Cogs<small>CREATE · 0.5.x</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Foundations</p>
+      <a href="#start"><span class="ix">00</span> Start Here</a>
+      <a href="#generate"><span class="ix">01</span> Generating Rotation</a>
+      <a href="#control"><span class="ix">02</span> Controlling Rotation</a>
+      <p class="group-label">Throughput</p>
+      <a href="#process"><span class="ix">03</span> Processing &amp; Recipes</a>
+      <a href="#logistics"><span class="ix">04</span> Item &amp; Fluid Logistics</a>
+      <p class="group-label">Big Builds</p>
+      <a href="#trains"><span class="ix">05</span> Trains &amp; Tracks</a>
+      <a href="#contraptions"><span class="ix">06</span> Contraptions</a>
+      <p class="group-label">Kit &amp; Ladder</p>
+      <a href="#tools"><span class="ix">07</span> Tools &amp; Equipment</a>
+      <a href="#materials"><span class="ix">08</span> Materials &amp; Casing</a>
+      <a href="#aesthetics"><span class="ix">09</span> Aesthetics &amp; Building</a>
+      <a href="#ponder"><span class="ix">10</span> Learn It In-Game</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track the Create<br>0.5.x (1.19.2) line. Exact SU,<br>RPM and recipe values are<br>config-tunable and version-<br>drifting — Ponder + JEI are<br>ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · simibubi</p>
+      <h1>Brass &amp;<br>Cogs</h1>
+      <p class="lede">A working field manual for <strong>Create 0.5.x</strong> — the mod where nothing is "powered" and everything is <em>turned</em>. From your first water wheel, through cogwheels, belts and gearshifts, into the processing chain that doubles ore and forges brass, then up to assembled contraptions and full-blown <strong>trains</strong>. Build kinetic machines that visibly spin, and learn to read a network at a glance.</p>
+      <div class="badges">
+        <span class="badge accent">Create 0.5.x</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+        <span class="badge">Kinetic · Stress · RPM</span>
+        <span class="badge danger">⚙ Overstress halts everything</span>
+      </div>
+    </header>
+
+    <!-- 00 START -->
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Start Here</h2>
+      <p class="lead">Create is not an energy mod. There are no joules, no cables, no batteries. There is one currency — <strong>Rotational Force</strong> — and it travels mechanically through shafts, cogs and belts. Generators add capacity; machines spend it; if a network spends more than it has, the whole thing <strong>locks up</strong>.</p>
+
+      <p>Three numbers describe any kinetic network. Get them straight and the entire mod reads cleanly:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">capacity</span><h4>Stress Units (SU)</h4><p>Generators <em>produce</em> stress capacity; machines <em>impose</em> stress. If imposed stress exceeds available capacity the network is <strong>overstressed</strong> and stops dead. Goggles show the meter.</p></div>
+        <div class="card"><span class="tag">tempo</span><h4>Speed (RPM)</h4><p>How fast a shaft turns, in rotations per minute. Many machines need a minimum RPM to run; faster usually means more throughput — and more stress drawn.</p></div>
+        <div class="card"><span class="tag">trade</span><h4>The exchange</h4><p>Gearing trades one for the other. Speeding rotation up costs more stress per machine; slowing it down frees capacity. You never get something for nothing.</p></div>
+      </div>
+
+      <h3>How stress actually balances</h3>
+      <p>Stress is measured <em>at a reference RPM</em>. A machine's stress <strong>impact</strong> scales with how fast you drive it — run a press at double speed and it draws roughly double the stress. A generator's <strong>capacity</strong> is what it can sustain. Your job is simply: keep total impact under total capacity on every connected network.</p>
+
+      <ul>
+        <li><strong>Andesite Alloy</strong> — the foundational material. Andesite + iron or zinc nuggets, mixed or crafted; nearly every early machine and casing needs it.</li>
+        <li><strong>Brass</strong> — the mid-tier metal. Crush/mix <strong>zinc + copper</strong> into brass; it gates the smarter machines (Mechanical Arm, Brass Funnel, Deployer-grade automation).</li>
+        <li><strong>Casings</strong> — Andesite, Copper, Brass and Railway casings wrap shafts and turn raw blocks into proper machines. The casing you can craft marks your tier.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">First three things to build</span>
+        <p>A <strong>Water Wheel</strong> (free, silent SU), a <strong>Hand Crank</strong> for one-off tasks, and a <strong>Mechanical Press</strong> over a depot to start pressing sheets. Craft a pile of <strong>Andesite Alloy</strong> and an <strong>Engineer's Goggles</strong> first — you'll want to <em>see</em> stress before you build anything that can overstress.</p>
+      </div>
+    </section>
+
+    <!-- 01 GENERATE -->
+    <section class="doc" id="generate">
+      <p class="sec-index">01 — The prime movers</p>
+      <h2>Generating Rotation</h2>
+      <p>Every kinetic network starts at a generator: a block that produces both <strong>speed</strong> and <strong>stress capacity</strong>. They scale very differently, so pick by tier and by how much you need.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Generators, roughly weakest to strongest</caption>
+          <thead><tr><th>Source</th><th>How it spins</th><th>Tier</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Hand Crank</td><td>Right-click to turn</td><td>manual</td><td>One-shot power for a single machine. Great for testing or a deployer you trigger by hand.</td></tr>
+            <tr><td>Water Wheel</td><td>Flowing water on its blades</td><td>early</td><td>Free, silent, reliable. Flow on opposite sides and matching direction maximises output.</td></tr>
+            <tr><td>Large Water Wheel</td><td>Flowing water, bigger radius</td><td>early</td><td>Several times the capacity of a small wheel for the same stream. The early workhorse.</td></tr>
+            <tr><td>Windmill</td><td>Sail blocks assembled on a Mechanical Bearing</td><td>early–mid</td><td>Capacity scales with sail count up to a cap; needs open sky and a bearing to assemble.</td></tr>
+            <tr><td>Steam Engine + Boiler</td><td>Heated water → steam pressure</td><td>late</td><td>The big-league SU. Scales with boiler tank size and number/heat of Blaze Burners.</td></tr>
+            <tr><td>Creative Motor</td><td>Set RPM directly (creative only)</td><td>debug</td><td>Infinite capacity, configurable speed. For testing — not survival progression.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Water Wheels</h3>
+      <p>The honest beginner's generator. Place a wheel so flowing water hits its blades; line the wheel with <strong>blue and brown wheel material</strong> if you like, but the mechanics only care about flow. Run water down <em>both</em> sides in the same rotational direction to get full output, and remember: stacking wheels on the same shaft does not multiply a single stream — give each its own water.</p>
+
+      <h3>Windmills</h3>
+      <p>Build a cross or radial pattern of <strong>Sail</strong> (or wool/any sail-tagged) blocks, attach it to a <strong>Mechanical Bearing</strong> pointing at open sky, and right-click the bearing to <em>assemble</em> it into a spinning Windmill Contraption. Capacity rises with sail count up to a ceiling; speed is fixed-ish and slow, so windmills are a capacity source, not a speed source.</p>
+
+      <h3>Steam power — the endgame SU</h3>
+      <p>The late-game answer to "I need more stress than the world can give." A <strong>Fluid Tank</strong> filled with water is heated from below by <strong>Blaze Burners</strong> to become a <strong>Boiler</strong>; the boiler feeds <strong>Steam Engines</strong> mounted on its sides, each engine driving a shaft. Output scales in tiers with the tank's water volume and the number of (ideally Blaze-fed, super-heated) burners. A maxed boiler dwarfs every other generator combined.</p>
+      <div class="note warn"><span class="label">Build capacity before consumers</span><p>Add the generator <em>first</em>, watch the goggles meter, then attach machines. Overstressing is not a soft warning — the network halts, contraptions freeze mid-motion, and you'll be hunting for the culprit. Always keep visible headroom.</p></div>
+    </section>
+
+    <!-- 02 CONTROL -->
+    <section class="doc" id="control">
+      <p class="sec-index">02 — Gearing &amp; routing</p>
+      <h2>Controlling Rotation</h2>
+      <p>Raw rotation off a generator is rarely the speed or direction you want. Create's gearing parts let you reroute, reverse, multiply and precisely set RPM — each with consequences for stress.</p>
+
+      <h3>Carrying rotation</h3>
+      <ul>
+        <li><strong>Shafts</strong> — straight-line transmission. Encase them for tidy builds; they carry the same speed end to end.</li>
+        <li><strong>Cogwheels &amp; Large Cogwheels</strong> — mesh side by side to transfer power. A <strong>small ↔ large</strong> pairing is a <strong>2× gear ratio</strong>: small-to-large halves speed (and doubles torque headroom), large-to-small doubles speed.</li>
+        <li><strong>Belts</strong> — connect two shafts at a distance and carry items on top. Belted shafts share the same speed.</li>
+        <li><strong>Gearboxes &amp; Vertical Gearboxes</strong> — turn rotation around corners and between axes without changing speed.</li>
+        <li><strong>Chain Drives &amp; Encased Chain Drive</strong> — link several parallel shafts at once, all at the same speed; great for driving a row of machines.</li>
+      </ul>
+
+      <div class="data-table">
+        <table>
+          <caption>The control blocks and what they do</caption>
+          <thead><tr><th>Block</th><th>Effect</th><th>Driven by</th></tr></thead>
+          <tbody>
+            <tr><td>Gearshift</td><td>Reverses rotation direction</td><td>Redstone signal toggles it</td></tr>
+            <tr><td>Clutch</td><td>Disconnects power (free-spins the far side)</td><td>Redstone signal cuts it</td></tr>
+            <tr><td>Rotation Speed Controller</td><td>Sets an exact target RPM on a large cog</td><td>Scroll-set value in its GUI</td></tr>
+            <tr><td>Adjustable Chain Gearshift</td><td>Variable ratio on a chain-drive line</td><td>Redstone strength = ratio</td></tr>
+            <tr><td>Sequenced Gearshift</td><td>Runs a timed program of moves (turn N°, wait, reverse…)</td><td>Redstone pulse starts the sequence</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Setting an exact speed</h3>
+      <p>The <strong>Rotation Speed Controller</strong> (RSC) sits under a Large Cogwheel and lets you dial a precise RPM — positive or negative — regardless of input speed, as long as your network has the stress to back it. This is the clean way to feed a machine its ideal speed without a fragile tower of cogs.</p>
+
+      <div class="note tip"><span class="label">Speed costs stress, not power</span><p>There is no efficiency loss in gearing, but faster shafts impose proportionally more stress on the machines they drive. The cheapest way to run a heavy line is often to gear it <em>down</em> to the minimum RPM the machines need, freeing capacity for more machines elsewhere.</p></div>
+
+      <div class="note warn"><span class="label">Mind the rotation conflict</span><p>If two power sources try to spin the same shaft in opposite directions, the network seizes with a <strong>rotation conflict</strong>. Use Clutches and Gearshifts deliberately and don't accidentally close a loop back onto itself.</p></div>
+    </section>
+
+    <!-- 03 PROCESSING -->
+    <section class="doc" id="process">
+      <p class="sec-index">03 — Turning rotation into goods</p>
+      <h2>Processing &amp; Recipes</h2>
+      <p>This is where rotation earns its keep. Create's processing blocks grind, press, mix, cut, wash and assemble — and most of them chain together over belts and depots into automated lines.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The core processing machines</caption>
+          <thead><tr><th>Machine</th><th>Does</th><th>Headline use</th></tr></thead>
+          <tbody>
+            <tr><td>Millstone</td><td>Grinds a single item (self-contained, slow)</td><td>Early ore → crushed ore, flour, gravel</td></tr>
+            <tr><td>Crushing Wheels (pair)</td><td>Crush items dropped between two counter-rotating wheels</td><td>Bulk ore doubling, fast crushing</td></tr>
+            <tr><td>Mechanical Press</td><td>Stamps items on a belt/depot</td><td>Sheets, packing, compacting</td></tr>
+            <tr><td>Mechanical Mixer + Basin</td><td>Mixes/compacts multiple inputs (needs heat for some)</td><td>Brass, Andesite Alloy, alloys &amp; foods</td></tr>
+            <tr><td>Mechanical Saw</td><td>Cuts logs/blocks; fells trees when mounted</td><td>Planks, stripped logs, stonecutting recipes</td></tr>
+            <tr><td>Encased Fan</td><td>Projects the block behind it (fire/water/air) onto items</td><td>Smelting, smoking, washing, splashing</td></tr>
+            <tr><td>Spout &amp; Item Drain</td><td>Fills items with fluid / drains filled items</td><td>Fluid-based recipes, bottling</td></tr>
+            <tr><td>Deployer</td><td>Uses a held item on a block/item in front of it</td><td>"Right-click" automation, in-world crafting</td></tr>
+            <tr><td>Mechanical Crafter (array)</td><td>Crafts a shaped recipe across a grid</td><td>Precision Mechanism, casings, multi-step crafts</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Encased Fan is secretly four machines</h3>
+      <p>Place a fan and it processes items in the airflow according to the block <em>behind</em> it:</p>
+      <ul>
+        <li><strong>Fire / lava / campfire behind</strong> → <strong>smelting</strong> (and <em>smoking</em> via a campfire for food).</li>
+        <li><strong>Flowing water behind</strong> → <strong>washing</strong> (Bulk Washing): crushed ore → nuggets, gravel → flint/clay, sifting drops.</li>
+        <li><strong>Open air</strong> → <strong>splashing</strong>-adjacent and general air recipes.</li>
+      </ul>
+      <p>Fan processing is the cheapest bulk smelter/washer in the mod — point a fan at a furnace-fire and run a belt through the breeze.</p>
+
+      <h3>Ore doubling, the practical version</h3>
+      <ol class="flow">
+        <li><strong>Crushing Wheels</strong> (a counter-rotating pair, geared so they spin <em>toward each other</em>) crush raw ore into <strong>crushed ore</strong>, yielding extra plus a chance of nuggets.</li>
+        <li><strong>Encased Fan over water</strong> washes the crushed ore for bonus <strong>nuggets</strong>, squeezing out the last fraction of yield.</li>
+        <li><strong>Encased Fan over fire</strong> (or any furnace) smelts the result back into ingots. A single belt can run all three stages in a row.</li>
+      </ol>
+
+      <h3>Mixing the foundational metals</h3>
+      <p>The <strong>Mechanical Mixer</strong> over a <strong>Basin</strong> compacts and alloys. <strong>Andesite Alloy</strong> comes from andesite plus iron or zinc nuggets; <strong>Brass</strong> comes from <strong>zinc + copper</strong> (often crushed first, then mixed with heat). Many mixing recipes require a <strong>Blaze Burner</strong> under the basin for heat — passive, heated, or super-heated changes what recipes are available.</p>
+
+      <div class="note tip"><span class="label">Depots, belts and funnels are the conveyor</span><p>Single items process on a <strong>Depot</strong>; streams process on a <strong>Belt</strong>. A press, saw or fan straddling a moving belt processes everything that passes underneath — no per-item triggering needed. This is the difference between a toy and a factory.</p></div>
+    </section>
+
+    <!-- 04 LOGISTICS -->
+    <section class="doc" id="logistics">
+      <p class="sec-index">04 — Moving things around</p>
+      <h2>Item &amp; Fluid Logistics</h2>
+      <p>Create moves items in the open, on belts and through funnels you can watch and filter. Fluids run through a separate pipe network. Both reward thinking in <em>flows</em>.</p>
+
+      <h3>Items</h3>
+      <ul>
+        <li><strong>Belts</strong> — visible item transport; also the surface processing happens on.</li>
+        <li><strong>Funnels (Andesite / Brass)</strong> — pull items into or push out of inventories and belts. <strong>Brass Funnels</strong> can <em>filter</em> by item; Andesite ones cannot.</li>
+        <li><strong>Chutes &amp; Smart Chutes</strong> — vertical item transport; Smart Chutes filter and count.</li>
+        <li><strong>Mechanical Arm</strong> — a configurable arm that picks from several inputs and places to several outputs by rule; the flexible router of the mod.</li>
+        <li><strong>Tunnels (Brass / Andesite)</strong> — split, merge and balance belt lines; Brass Tunnels can synchronise, round-robin, randomise and filter.</li>
+      </ul>
+
+      <h3>Filtering</h3>
+      <p>The <strong>Filter</strong> item slots into Brass funnels, tunnels, arms and more. Two advanced variants make complex sorting trivial:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">list</span><h4>Smart Filter</h4><p>An item with its own slots — whitelist/blacklist a set of items, even nesting other filters. Drop it into any filter slot.</p></div>
+        <div class="card"><span class="tag">rules</span><h4>Attribute Filter</h4><p>Filters by <em>properties</em> rather than exact items: "is a tool", "has fortune", "is food", "in tag". Powerful for messy sorting.</p></div>
+        <div class="card"><span class="tag">push</span><h4>Brass Funnel</h4><p>The everyday filtering funnel. Set one item (or a filter) and it only moves matching items.</p></div>
+        <div class="card"><span class="tag">split</span><h4>Brass Tunnel</h4><p>Balances and routes belt lines: round-robin to keep parallel machines evenly fed.</p></div>
+      </div>
+
+      <h3>Fluids</h3>
+      <p>Fluids are their own network and do <em>not</em> mix with item logistics:</p>
+      <ul>
+        <li><strong>Fluid Pipes</strong> — carry liquids; a pipe network needs flow driven by a pump and has a wind-up before it moves at full rate.</li>
+        <li><strong>Mechanical Pump</strong> — kinetically powered; pushes fluid one direction (reversible with rotation direction or redstone).</li>
+        <li><strong>Fluid Tanks</strong> — bulk storage; stack them into multiblocks for large volume and as boiler vessels.</li>
+        <li><strong>Hose Pulley</strong> — fills or drains entire bodies of fluid; over an "ocean-sized" source it draws <strong>infinitely</strong> without draining it.</li>
+        <li><strong>Smart Fluid Pipe</strong> — restricts a pipe to a single fluid type, preventing cross-contamination.</li>
+        <li><strong>Portable Fluid / Storage Interface</strong> — transfer fluids/items to and from moving contraptions at a docking point.</li>
+      </ul>
+
+      <div class="note warn"><span class="label">Pipes need a reason to flow</span><p>An idle Create pipe network does nothing — it needs a <strong>pressure differential</strong> from a pump, or a tank that wants filling/draining. If fluid "won't move," check that a pump is actually powered and pointed the right way, and that there's somewhere for the fluid to go.</p></div>
+    </section>
+
+    <!-- 05 TRAINS -->
+    <section class="doc" id="trains">
+      <p class="sec-index">05 — The headline feature</p>
+      <h2>Trains &amp; Tracks</h2>
+      <p>Create 0.5's banner addition: real, drivable, schedulable <strong>trains</strong> built from track, bogeys and assembled carriages. They route automatically across a network and can haul cargo, players and whole contraptions.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The railway toolkit</caption>
+          <thead><tr><th>Part</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Train Track</td><td>The rail itself — laid in curves, slopes and junctions with a paving tool for long runs.</td></tr>
+            <tr><td>Train Station</td><td>Assembly &amp; control point: build, name, dispatch and dock trains here.</td></tr>
+            <tr><td>Train Bogey</td><td>The wheel-trucks placed on track; carriages mount on bogeys.</td></tr>
+            <tr><td>Train Casing / Carriage</td><td>The body you build over bogeys, then assemble at a station into a carriage.</td></tr>
+            <tr><td>Train Couplings</td><td>Link carriages into a longer train.</td></tr>
+            <tr><td>Train Signals</td><td>Block-signal traffic control so multiple trains don't collide.</td></tr>
+            <tr><td>Schedule</td><td>A programmable itinerary item placed in the train: go to station X, wait, conditions, repeat.</td></tr>
+            <tr><td>Train Controls</td><td>Stand-on controls to drive a train manually.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>From rails to a running line</h3>
+      <ol class="flow">
+        <li><strong>Lay Train Track</strong> and place a <strong>Station</strong> against it. Use the station's "new train" mode to mark the assembly zone.</li>
+        <li><strong>Set Bogeys</strong> on the track and build your <strong>carriage</strong> body (casings, storage, seats, even mounted contraptions) over them.</li>
+        <li><strong>Assemble</strong> at the station — the build becomes a train entity. Name it.</li>
+        <li><strong>Insert a Schedule</strong> with stops and conditions, or hop on the <strong>Train Controls</strong> and drive it yourself.</li>
+        <li><strong>Add Signals</strong> on busy networks so trains hold at blocks instead of colliding.</li>
+      </ol>
+
+      <div class="note tip"><span class="label">Stations are the brains</span><p>Trains navigate <em>between named stations</em>. A schedule references station names, so plan a clear naming scheme early. Station blocks also let you import/export cargo automatically while a train is docked, turning a rail line into a logistics backbone.</p></div>
+      <div class="note warn"><span class="label">Signals or smash-ups</span><p>Without signals, two scheduled trains on shared track <em>will</em> eventually meet. Place Train Signals to divide track into blocks; a train waits at a red signal until the block ahead clears.</p></div>
+    </section>
+
+    <!-- 06 CONTRAPTIONS -->
+    <section class="doc" id="contraptions">
+      <p class="sec-index">06 — Things that move</p>
+      <h2>Contraptions</h2>
+      <p>A <strong>contraption</strong> is a group of blocks that Create temporarily turns into a single moving entity — a rotating windmill, a rising elevator platform, a sweeping drill. Each is built around an <em>actuator</em> block that you trigger to assemble and move it.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The actuators</caption>
+          <thead><tr><th>Actuator</th><th>Motion</th><th>Typical build</th></tr></thead>
+          <tbody>
+            <tr><td>Mechanical Bearing</td><td>Rotates an attached structure</td><td>Windmills, rotating houses, fan/clock arms</td></tr>
+            <tr><td>Linear Chassis + Mechanical Piston</td><td>Pushes/pulls a structure in a line</td><td>Doors, drawbridges, moving walls (+ Piston Extension Poles for reach)</td></tr>
+            <tr><td>Rope / Linear Pulley</td><td>Raises and lowers a platform</td><td>Elevators, lifts</td></tr>
+            <tr><td>Gantry Shaft + Gantry Carriage</td><td>Drives a carriage along a shaft, reading position</td><td>Auto-miners, scanning machines, precise placement</td></tr>
+            <tr><td>Cart Assembler</td><td>Mounts a contraption on a minecart</td><td>Mobile drills/harvesters on vanilla rail</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Binding blocks: chassis &amp; glue</h3>
+      <p>A moving contraption only takes the blocks it's told to. Two ways to declare that group:</p>
+      <ul>
+        <li><strong>Radial / Linear Chassis</strong> — attach blocks within a configurable range (scroll to set how far it grips); ideal for solid platforms and pistons.</li>
+        <li><strong>Super Glue</strong> — paint a box around any blocks to bind them together, even oddly-shaped builds the chassis range can't cover.</li>
+      </ul>
+
+      <h3>Mounting machines on the move</h3>
+      <p>Drills, saws, deployers, harvesters and dispensers all keep working <em>while mounted on a contraption</em>. That's how you get a piston-driven tunnel borer, a bearing-mounted tree farm, or a gantry auto-quarry. <strong>Contraption Controls</strong> let you operate mounted machinery remotely, and <strong>Portable Storage/Fluid Interfaces</strong> dock the cargo when it returns home.</p>
+
+      <div class="note tip"><span class="label">Assemble, then move</span><p>Most actuators need a redstone or right-click trigger to <em>assemble</em> the build into a contraption before it moves. If your piston "won't push," confirm the blocks are glued/chassis-bound and that the actuator has both power and a trigger.</p></div>
+    </section>
+
+    <!-- 07 TOOLS -->
+    <section class="doc" id="tools">
+      <p class="sec-index">07 — The kit</p>
+      <h2>Tools &amp; Equipment</h2>
+      <p>A handful of tools make Create bearable to build with — and a few wearables turn the mod into a toolbox you carry.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">essential</span><h4>Wrench</h4><p>Rotates blocks, configures and picks up kinetic blocks cleanly. The single most-used tool — craft it before anything else.</p></div>
+        <div class="card"><span class="tag">diagnostic</span><h4>Engineer's Goggles</h4><p>Worn, they overlay <strong>stress capacity vs impact</strong> and <strong>speed</strong> on any kinetic block you look at. You're flying blind without them.</p></div>
+        <div class="card"><span class="tag">reach</span><h4>Extendo Grip</h4><p>Extends your interaction range — invaluable for placing and wrenching across big contraptions.</p></div>
+        <div class="card"><span class="tag">combat</span><h4>Potato Cannon</h4><p>A goofy-but-real ranged weapon firing food ammo with different effects. Pairs with the goggles' Hat slot cosmetics.</p></div>
+      </div>
+
+      <h3>Diving &amp; movement gear</h3>
+      <p>The <strong>Copper Backtank</strong> stores compressed air (wind it up with rotation or wear it while it fills) and powers the <strong>Diving Helmet</strong> and <strong>Diving Boots</strong> — breathe underwater and walk the seabed. Useful long before any "suit" tier in other mods.</p>
+
+      <h3>Schematics &amp; the Schematicannon</h3>
+      <p>Create can <em>build for you</em>. Save a structure to a <strong>Schematic</strong> at a <strong>Schematic Table</strong>, position it in-world with the <strong>Schematic</strong> item, then load it into a <strong>Schematicannon</strong>. Fed <strong>gunpowder</strong> (as propellant) and the actual building materials, the cannon places the structure block by block — the fastest way to clone a working factory or stamp out repeated builds.</p>
+
+      <div class="note tip"><span class="label">Goggles + Wrench is the whole survival kit</span><p>If you take two items into a Create build session, take these. The wrench fixes orientation mistakes instantly; the goggles tell you <em>why</em> a network stalled (overstressed? under minimum speed?) before you start tearing things apart.</p></div>
+    </section>
+
+    <!-- 08 MATERIALS -->
+    <section class="doc" id="materials">
+      <p class="sec-index">08 — The tiering ladder</p>
+      <h2>Materials &amp; the Casing Ladder</h2>
+      <p>Create's progression is a quiet material ladder. Each tier of casing and component unlocks smarter machines, with one notorious bottleneck in the middle.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The component ladder, early to late</caption>
+          <thead><tr><th>Material</th><th>Made from</th><th>Unlocks</th></tr></thead>
+          <tbody>
+            <tr><td>Andesite Alloy</td><td>Andesite + iron/zinc nuggets (craft or mix)</td><td>Shafts, basic machines, Andesite Casing</td></tr>
+            <tr><td>Andesite Casing</td><td>Andesite Alloy + stripped log</td><td>Encased shafts &amp; the early machine block</td></tr>
+            <tr><td>Copper / Copper Casing</td><td>Copper sheets &amp; logs</td><td>Fluid handling, pipes, tank-adjacent builds</td></tr>
+            <tr><td>Brass</td><td>Zinc + Copper, mixed (often crushed first)</td><td>The smart tier — filters, arms, deployers</td></tr>
+            <tr><td>Brass Casing</td><td>Brass sheets + log</td><td>Brass-tier machines &amp; the Mechanical Arm</td></tr>
+            <tr><td>Precision Mechanism</td><td>Mechanical Crafters: cogs + brass + electron tube + gold sheet</td><td>The mid-game gate — bearings, deployers, controllers, gearshifts</td></tr>
+            <tr><td>Electron Tube</td><td>Rose Quartz (charged) + brass</td><td>Component of Precision Mechanisms &amp; smart blocks</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The Precision Mechanism wall</h3>
+      <p>Most of Create's "smart" blocks — Mechanical Bearings, Deployers, Rotation Speed Controllers, Gearshifts, the Mechanical Arm — require <strong>Precision Mechanisms</strong>, and those are built in a <strong>Mechanical Crafter array</strong> from cogwheels, brass and an <strong>Electron Tube</strong>. Setting up a Precision Mechanism factory early is the best investment in the mid-game: it converts a recurring tedious craft into a hands-off supply.</p>
+
+      <h3>Rose Quartz &amp; Electron Tubes</h3>
+      <p><strong>Rose Quartz</strong> (from washing crushed materials, then crafting) is "charged" via a Deployer/recipe into <strong>Polished Rose Quartz</strong> and combined with brass into <strong>Electron Tubes</strong> — the little glowing component that gates the smart tier. It's a small chain, but automating it removes the only real grind in Create progression.</p>
+
+      <div class="note tip"><span class="label">Read your tier off the casing</span><p>If you can craft <strong>Brass Casing</strong> on demand, you're mid-game and everything below it should already be automated. If you're still hand-crafting <strong>Andesite Alloy</strong>, build a Mixer + Basin line for it before anything fancier — it's the bottleneck under everything.</p></div>
+    </section>
+
+    <!-- 09 AESTHETICS -->
+    <section class="doc" id="aesthetics">
+      <p class="sec-index">09 — The decorative half</p>
+      <h2>Aesthetics &amp; Building</h2>
+      <p>Half of Create's reputation is <em>looks</em>. The mod ships an enormous palette of building blocks and quality-of-life tools that have nothing to do with stress — and everything to do with making a factory feel like a workshop.</p>
+
+      <ul>
+        <li><strong>Stone &amp; brick variants</strong> — cut, layered, polished and pillared forms of many vanilla and Create stones, processed through Create's stonecutting-style recipes for huge decorative range.</li>
+        <li><strong>Copper, weathered &amp; oxidising</strong> — copper-themed blocks, shingles, tiles and pipes that age through oxidation stages (waxable to freeze the patina).</li>
+        <li><strong>Windows, Trapdoors, Ladders, Train Doors</strong> — themed in each material family so machinery and architecture share a palette.</li>
+        <li><strong>Sails, banners &amp; flaps</strong> — the moving-part decorations that double as windmill material.</li>
+      </ul>
+
+      <h3>Quality-of-life building tools</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">notes</span><h4>Clipboard</h4><p>A writable in-world checklist/notepad — track to-dos, material counts or station names without leaving the game.</p></div>
+        <div class="card"><span class="tag">storage</span><h4>Toolbox</h4><p>A placeable tool chest you can link to your hotbar; pull tools wirelessly within range and auto-return them. Build-session bliss.</p></div>
+        <div class="card"><span class="tag">align</span><h4>Wrench</h4><p>Doubles as your decorating chisel: rotate slabs, stairs, windows and machinery to point exactly where you want.</p></div>
+        <div class="card"><span class="tag">copy</span><h4>Schematicannon</h4><p>Not just for factories — clone decorative structures across your base for instant, consistent architecture.</p></div>
+      </div>
+
+      <div class="note tip"><span class="label">Function and form share a kit</span><p>Because casings, copper and brass blocks come in decorative variants, you can wrap working machinery in matching trim. A pretty Create base isn't a separate project — it's the same blocks, finished.</p></div>
+    </section>
+
+    <!-- 10 PONDER -->
+    <section class="doc" id="ponder">
+      <p class="sec-index">10 — The best teacher</p>
+      <h2>Learn It In-Game: Ponder</h2>
+      <p>Create ships its own interactive tutorial system, and it is genuinely the fastest way to learn any block. This guide gives you the map; <strong>Ponder</strong> shows you the territory in motion.</p>
+
+      <ul>
+        <li><strong>Ponder scenes</strong> — animated, narrated demonstrations built into nearly every Create item. Hover the item and press <kbd>W</kbd> (in JEI/inventory) to watch the block assemble itself and explain its rules step by step.</li>
+        <li><strong>JEI integration</strong> — for recipes (what crushes into what, what the mixer accepts), JEI is ground truth for <em>your exact pack version</em>, which may differ from any written guide.</li>
+        <li><strong>The goggles overlay</strong> — once a network exists, the Engineer's Goggles are your live debugger for stress and speed.</li>
+      </ul>
+
+      <div class="note tip"><span class="label">When in doubt, Ponder it</span><p>If a block confuses you, don't read another paragraph — point at it in your inventory and press <kbd>W</kbd>. Create's Ponder scenes answer "which way does this face?" and "what feeds in here?" better than any text can.</p></div>
+
+      <div class="note warn"><span class="label">Numbers drift; mechanics don't</span><p>Exact SU values, RPM thresholds and recipe yields are config-tunable and shift between Create versions and modpacks. Trust the <em>mechanics</em> described here — generators add capacity, machines impose stress, gearing trades speed for headroom — and trust your in-game goggles and JEI for the precise figures.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">Brass &amp; Cogs</strong><br>
+      An unofficial, fan-made field manual for Create on Minecraft 1.19.2 (Forge).<br>
+      Create is by <a href="https://github.com/Creators-of-Create/Create">simibubi &amp; the Creators of Create</a>. This guide is not affiliated with or endorsed by them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Covers:<br>
+      · Create 0.5.x (1.19.2) feature set<br>
+      · rotation · stress · processing · trains<br>
+      · contraptions · the casing ladder
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Stress values, RPM thresholds and recipes are configurable and version-dependent. The in-game <strong>Ponder</strong> scenes (press W on an item) and <strong>JEI</strong> are ground truth — they win over anything written here.</p>
+</footer>
+
+<script type="module">
+  import { initChrome } from "./assets/js/guide-chrome.js";
+  initChrome();
+</script>
+</body>
+</html>

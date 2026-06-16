@@ -3,61 +3,68 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Home · Web Page</title>
-<meta name="description" content="A small hub of pages — guides, proposals, and browser widget demos." />
+<title>To the Moon 2.0 — Field Guides</title>
+<meta name="description" content="In-depth, fan-made field guides for every major mod in the To the Moon 2.0 modpack (Minecraft 1.19.2 Forge): Mekanism, Blood Magic, Create, Applied Energistics 2, Ad Astra, Tinkers' Construct, and more." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg-0:#0b0d12; --bg-1:#11141c; --bg-2:#171b25; --line:#242a36;
+    --bg-0:#080a0f; --bg-1:#0e121b; --bg-2:#141926; --line:#222a3a;
     --ink:#e7ebf3; --ink-dim:#9aa3b5; --ink-faint:#5f6878;
-    --accent:#7aa2ff; --accent-2:#56d4dd; --amber:#f0b652; --blood:#c63a2a;
     --f:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-display:"Chakra Petch",var(--f);
     --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    /* per-mod accents */
+    --a-mek:#2ce0b0; --a-blood:#c63a2a; --a-create:#d9a441; --a-ae2:#4a9bff;
+    --a-astra:#ff7a3c; --a-tinkers:#e8902f; --a-twilight:#5bbf8f; --a-cata:#c0432f;
+    --a-spell:#9b7bff; --a-apoth:#e0b440; --a-food:#8cba5a; --a-store:#5b8cff;
+    --a-auto:#ff5a4c; --a-explore:#c8a24a; --a-mobs:#d8603a; --a-build:#56b3d4;
+    --a-qol:#43d6a8; --a-demo:#56d4dd;
   }
   *{box-sizing:border-box}
   body{
     margin:0; font-family:var(--f); color:var(--ink); line-height:1.6;
     background:
-      radial-gradient(900px 520px at 82% -8%, rgba(122,162,255,.12), transparent 60%),
-      radial-gradient(700px 480px at 4% 102%, rgba(86,212,221,.08), transparent 55%),
+      radial-gradient(1000px 560px at 82% -8%, rgba(44,224,176,.10), transparent 60%),
+      radial-gradient(760px 520px at 2% 2%, rgba(74,155,255,.08), transparent 55%),
+      radial-gradient(700px 480px at 50% 108%, rgba(255,122,60,.06), transparent 55%),
       var(--bg-0);
     background-attachment:fixed; min-height:100vh;
   }
-  .wrap{max-width:960px; margin:0 auto; padding:0 22px}
-  header.hero{padding:clamp(56px,11vw,120px) 0 30px}
-  .eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--accent-2); margin:0 0 14px}
-  h1{font-size:clamp(2.3rem,6vw,3.6rem); line-height:1.04; margin:0; letter-spacing:-.02em; font-weight:800}
-  .lede{color:var(--ink-dim); max-width:60ch; font-size:1.12rem; margin:16px 0 0}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+  header.hero{padding:clamp(56px,11vw,116px) 0 26px}
+  .eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--a-mek); margin:0 0 14px}
+  h1{font-family:var(--f-display); font-size:clamp(2.4rem,6.5vw,4rem); line-height:1.02; margin:0; letter-spacing:-.02em; font-weight:800;
+     background:linear-gradient(180deg,#fff 35%,#9fb2c8); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{color:var(--ink-dim); max-width:64ch; font-size:1.12rem; margin:16px 0 0}
+  .stat-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+  .chip{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.04em; padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink-dim); background:rgba(0,0,0,.25)}
+  .chip b{color:var(--ink)}
 
-  section{padding:8px 0 60px}
-  .group-label{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); margin:30px 0 12px}
-  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px}
+  section{padding:10px 0 50px}
+  .group-label{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); margin:34px 0 14px; display:flex; align-items:center; gap:12px}
+  .group-label::after{content:""; flex:1; height:1px; background:var(--line)}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:15px}
 
   a.card{
-    display:flex; flex-direction:column; gap:8px; text-decoration:none; color:inherit;
+    display:flex; flex-direction:column; gap:7px; text-decoration:none; color:inherit;
     background:linear-gradient(180deg,var(--bg-2),var(--bg-1));
-    border:1px solid var(--line); border-radius:14px; padding:20px 20px 18px;
+    border:1px solid var(--line); border-radius:14px; padding:18px 19px 16px;
     position:relative; overflow:hidden; transition:border-color .18s, transform .18s;
   }
-  a.card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent); opacity:.0; transition:opacity .18s}
+  a.card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--ac,#7aa2ff); opacity:.55; transition:opacity .18s, width .18s}
   a.card:hover{transform:translateY(-3px); border-color:#37425a}
-  a.card:hover::before{opacity:1}
-  a.card .tag{font-family:var(--f-mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint)}
-  a.card h2{margin:2px 0 0; font-size:1.24rem; font-weight:700; letter-spacing:-.01em}
-  a.card p{margin:0; color:var(--ink-dim); font-size:.95rem}
-  a.card .go{margin-top:auto; padding-top:10px; font-family:var(--f-mono); font-size:.78rem; color:var(--accent)}
+  a.card:hover::before{opacity:1; width:5px}
+  a.card .tag{font-family:var(--f-mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:7px}
+  a.card .emoji{font-size:1.15rem; line-height:1}
+  a.card h2{margin:3px 0 0; font-family:var(--f-display); font-size:1.22rem; font-weight:700; letter-spacing:-.01em; color:#fff}
+  a.card .sub{font-family:var(--f-mono); font-size:.64rem; letter-spacing:.06em; color:var(--ac,#7aa2ff); text-transform:uppercase}
+  a.card p{margin:6px 0 0; color:var(--ink-dim); font-size:.92rem}
+  a.card .go{margin-top:auto; padding-top:12px; font-family:var(--f-mono); font-size:.76rem; color:var(--ac,#7aa2ff)}
   a.card .go::after{content:" →"}
 
-  /* accent variants */
-  a.card.blood::before{background:var(--blood)} a.card.blood .go{color:#e9907f}
-  a.card.moon::before{background:var(--amber)} a.card.moon .go{color:var(--amber)}
-  a.card.demo::before{background:var(--accent-2)} a.card.demo .go{color:var(--accent-2)}
-
-  .emoji{font-size:1.3rem; line-height:1}
-
-  footer{padding:28px 0 60px; color:var(--ink-faint); font-size:.84rem; border-top:1px solid var(--line)}
+  footer{padding:30px 0 64px; color:var(--ink-faint); font-size:.84rem; border-top:1px solid var(--line); margin-top:20px}
   footer a{color:var(--ink-dim)}
 </style>
 </head>
@@ -65,59 +72,201 @@
 <div class="wrap">
 
   <header class="hero">
-    <p class="eyebrow">Index</p>
-    <h1>Web Page</h1>
-    <p class="lede">A little hub for the things built here — game guides, a modpack proposal, and a few browser-widget demos. Pick a door.</p>
+    <p class="eyebrow">To the Moon 2.0 · Minecraft 1.19.2 Forge</p>
+    <h1>The Field Guides</h1>
+    <p class="lede">In-depth, fan-made guides to every major mod in the <strong>To the Moon 2.0</strong> pack — from doubling ore in a Mekanism factory to bleeding LP into a Blood Altar, building brass contraptions, flying to Mars, and clearing the dungeons in between. Pick a door.</p>
+    <div class="stat-row">
+      <span class="chip"><b>17</b> guides</span>
+      <span class="chip"><b>100+</b> mods covered</span>
+      <span class="chip">MC <b>1.19.2</b> · Forge</span>
+      <span class="chip">Interactive schematics</span>
+    </div>
   </header>
 
   <section>
-    <p class="group-label">Guides &amp; Proposals</p>
+    <p class="group-label">Flagship deep-dives</p>
     <div class="cards">
-      <a class="card blood" href="blood-magic-guide.html">
-        <span class="tag"><span class="emoji">🩸</span> Minecraft · Blood Magic 3.3.0</span>
-        <h2>The Sanguine Scientum</h2>
-        <p>A step-by-step Blood Magic guide (MC 1.19.2 Forge) with interactive, layer-by-layer schematics for the altar and a decorative "Sanguine Crypt" build.</p>
-        <span class="go">Open the grimoire</span>
-      </a>
-      <a class="card demo" href="mekanism-guide.html">
-        <span class="tag"><span class="emoji">⚛️</span> Minecraft · Mekanism 10.x</span>
+      <a class="card" style="--ac:var(--a-mek)" href="mekanism-guide.html">
+        <span class="tag"><span class="emoji">⬡</span> Mekanism · Generators · Tools</span>
         <h2>The Osmium Codex</h2>
-        <p>A fully in-depth Mekanism guide (MC 1.19.2 Forge): resources, energy, 5× ore processing, every machine, chemicals, logistics, QIO, and interactive schematics for the tanks, boiler, turbine, and fission &amp; fusion reactors.</p>
+        <span class="sub">Ore 1×→5× · multiblocks · reactors</span>
+        <p>The full Mekanism tech tree with interactive top-down schematics for the tanks, evaporation, boiler, turbine and the fission &amp; fusion reactors.</p>
         <span class="go">Open the codex</span>
       </a>
-      <a class="card demo" href="mekanism-ic2c-bridge.html">
-        <span class="tag"><span class="emoji">🔌</span> Minecraft · Mekanism ⇄ IC2 Classic</span>
-        <h2>The EU/FE Bridge</h2>
-        <p>A drop-in server compat patch (MC 1.19.2 Forge) that locks the Mekanism↔IC2 Classic power exchange at 1&nbsp;EU&nbsp;=&nbsp;4&nbsp;FE&nbsp;=&nbsp;10&nbsp;J, with an idempotent config patcher and an in-game wiring guide.</p>
-        <span class="go">Cross the bridge</span>
-      </a>
-      <a class="card moon" href="modpack-proposal.html">
-        <span class="tag"><span class="emoji">🌙</span> Minecraft · Modpack</span>
-        <h2>To the Moon — Mod Proposal</h2>
-        <p>Proposed mods to add to our 1.19.2 Forge pack, tagged and annotated with compatibility &amp; performance notes for the server host.</p>
-        <span class="go">Read the proposal</span>
+      <a class="card" style="--ac:var(--a-blood)" href="blood-magic-guide.html">
+        <span class="tag"><span class="emoji">🩸</span> Blood Magic 3.3.0</span>
+        <h2>The Sanguine Scientum</h2>
+        <span class="sub">Altar · runes · rituals · living armor</span>
+        <p>A step-by-step Blood Magic grimoire with layer-by-layer altar schematics and a decorative "Sanguine Crypt" build.</p>
+        <span class="go">Open the grimoire</span>
       </a>
     </div>
   </section>
 
   <section>
-    <p class="group-label">Browser Demos</p>
+    <p class="group-label">Tech, power &amp; logistics</p>
     <div class="cards">
-      <a class="card demo" href="widgets.html">
+      <a class="card" style="--ac:var(--a-create)" href="create-guide.html">
+        <span class="tag"><span class="emoji">⚙</span> Create 0.5.x</span>
+        <h2>Brass &amp; Cogs</h2>
+        <span class="sub">Rotation · contraptions · trains</span>
+        <p>Kinetic mechanics from water wheels to steam engines, processing, trains and moving contraptions.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-ae2)" href="ae2-guide.html">
+        <span class="tag"><span class="emoji">◈</span> Applied Energistics 2</span>
+        <h2>The ME Network</h2>
+        <span class="sub">Channels · storage · autocrafting</span>
+        <p>Digital storage and autocrafting — processors, channels, crafting CPUs, and the pack's AE2 add-ons.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-astra)" href="ad-astra-guide.html">
+        <span class="tag"><span class="emoji">🚀</span> Ad Astra</span>
+        <h2>Ad Astra, Per Aspera</h2>
+        <span class="sub">Rockets · planets · life support</span>
+        <p>Build rockets, breathe in the void, and reach the Moon, Mars, Venus, Mercury and Glacio.</p>
+        <span class="go">Launch</span>
+      </a>
+      <a class="card" style="--ac:var(--a-store)" href="storage-guide.html">
+        <span class="tag"><span class="emoji">📦</span> Storage &amp; Logistics</span>
+        <h2>The Quartermaster</h2>
+        <span class="sub">Backpacks · drawers · pipes</span>
+        <p>Sophisticated &amp; Traveler's backpacks, drawers, Tom's storage, Iron Chests, Modular Routers and Pipez.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-auto)" href="automation-guide.html">
+        <span class="tag"><span class="emoji">🔌</span> Automation &amp; Power</span>
+        <h2>The Control Bus</h2>
+        <span class="sub">XNet · Integrated D. · Flux · IC2</span>
+        <p>Routing and logic networks, wireless FE with Flux Networks, RFTools, and the IC2 Classic tech tree.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-mek)" href="mekanism-ic2c-bridge.html">
+        <span class="tag"><span class="emoji">⚡</span> Mekanism ⇄ IC2 Classic</span>
+        <h2>The EU/FE Bridge</h2>
+        <span class="sub">Power compat patch</span>
+        <p>A drop-in server patch fixing the Mekanism↔IC2 Classic power exchange, with a config patcher and a wiring guide.</p>
+        <span class="go">Cross the bridge</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Magic, gear &amp; RPG</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--a-tinkers)" href="tinkers-guide.html">
+        <span class="tag"><span class="emoji">🔨</span> Tinkers' Construct 3</span>
+        <h2>The Smeltery Ledger</h2>
+        <span class="sub">Parts · smeltery · modifiers</span>
+        <p>Build tools from parts, melt ore into more metal, and stack modifiers — with a Smeltery schematic.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-spell)" href="spellbooks-guide.html">
+        <span class="tag"><span class="emoji">✦</span> Iron's Spells 'n Spellbooks</span>
+        <h2>The Arcane Codex</h2>
+        <span class="sub">Schools · mana · mage gear</span>
+        <p>The RPG spellcasting system: schools of magic, mana economy, spell tiers and mage armor builds.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-apoth)" href="apotheosis-guide.html">
+        <span class="tag"><span class="emoji">💎</span> Apotheosis</span>
+        <h2>The Affix Grimoire</h2>
+        <span class="sub">Affixes · gems · enchanting</span>
+        <p>Affixed loot, gem socketing, the reworked enchanting table, apothic bosses and spawner editing.</p>
+        <span class="go">Read it</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Adventure &amp; the world</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--a-twilight)" href="twilight-forest-guide.html">
+        <span class="tag"><span class="emoji">🌲</span> The Twilight Forest</span>
+        <h2>The Twilight Atlas</h2>
+        <span class="sub">Portal · the boss ladder</span>
+        <p>The locked progression dimension — Naga to Snow Queen — with every gate, boss and reward mapped.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-cata)" href="cataclysm-guide.html">
+        <span class="tag"><span class="emoji">🗡</span> L_Ender's Cataclysm</span>
+        <h2>The Cataclysm Bestiary</h2>
+        <span class="sub">Structure bosses · boss gear</span>
+        <p>The endgame structure-bosses across every dimension, their arenas, and the gear they guard.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-explore)" href="exploration-guide.html">
+        <span class="tag"><span class="emoji">🧭</span> Exploration &amp; Structures</span>
+        <h2>The Cartographer's Journal</h2>
+        <span class="sub">YUNG's · WDA · dungeons</span>
+        <p>YUNG's overhauls, When Dungeons Arise, Dungeon Crawl, taverns and the goblin traders below.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-mobs)" href="mobs-guide.html">
+        <span class="tag"><span class="emoji">🐾</span> Mobs, Combat &amp; Survival</span>
+        <h2>The Wilds Bestiary</h2>
+        <span class="sub">Mowzie's · mutants · graves</span>
+        <p>Mowzie's Mobs, Mutant Monsters, Corail Tombstone death-graves, Aquaculture fishing and Comforts.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-food)" href="farmers-delight-guide.html">
+        <span class="tag"><span class="emoji">🍲</span> Farmer's Delight</span>
+        <h2>The Country Cookbook</h2>
+        <span class="sub">Kitchen · crops · feasts</span>
+        <p>The cooking pot, knives and crops, hearty buff-meals and every delight add-on in the pack.</p>
+        <span class="go">Read it</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Build &amp; quality of life</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--a-build)" href="building-guide.html">
+        <span class="tag"><span class="emoji">🏛</span> Building &amp; Decoration</span>
+        <h2>The Pattern Book</h2>
+        <span class="sub">Chipped · Supplementaries · Gadgets</span>
+        <p>Endless palettes with Chipped, props from Supplementaries &amp; Decorative Blocks, and Building Gadgets.</p>
+        <span class="go">Read it</span>
+      </a>
+      <a class="card" style="--ac:var(--a-qol)" href="quality-of-life-guide.html">
+        <span class="tag"><span class="emoji">🛠</span> Quality of Life &amp; Utility</span>
+        <h2>The Operator's Handbook</h2>
+        <span class="sub">JEI · maps · performance · libs</span>
+        <p>JEI, Jade, JourneyMap, FTB Quests, the performance stack, Almost Unified and every library mod.</p>
+        <span class="go">Read it</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Reference &amp; demos</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--a-demo)" href="modpack-proposal.html">
+        <span class="tag"><span class="emoji">🌙</span> Modpack · Reference</span>
+        <h2>To the Moon — Mod Proposal</h2>
+        <span class="sub">The full curated catalog</span>
+        <p>The proposed/curated mod list with compatibility &amp; performance notes for the server host.</p>
+        <span class="go">Read the proposal</span>
+      </a>
+      <a class="card" style="--ac:var(--a-demo)" href="widgets.html">
         <span class="tag"><span class="emoji">🧩</span> Demo</span>
         <h2>Browser Widgets</h2>
+        <span class="sub">Input features sandbox</span>
         <p>Explore and test modern browser input features and widgets.</p>
         <span class="go">Try the widgets</span>
       </a>
-      <a class="card demo" href="index2.html">
+      <a class="card" style="--ac:var(--a-demo)" href="index2.html">
         <span class="tag"><span class="emoji">🗂️</span> Demo</span>
-        <h2>Persistence, Tables &amp; Permissions</h2>
+        <h2>Persistence &amp; Tables</h2>
+        <span class="sub">Client-side storage demo</span>
         <p>A demo of client-side persistence, data tables, and permission prompts.</p>
         <span class="go">View the demo</span>
       </a>
-      <a class="card demo" href="weekly_perks_table.html">
+      <a class="card" style="--ac:var(--a-demo)" href="weekly_perks_table.html">
         <span class="tag"><span class="emoji">📅</span> Reference</span>
         <h2>Weekly Perks Table</h2>
+        <span class="sub">Styled reference</span>
         <p>A styled reference table of weekly perks.</p>
         <span class="go">See the table</span>
       </a>
@@ -125,7 +274,7 @@
   </section>
 
   <footer>
-    <p>Hosted on GitHub Pages. Built with <a href="https://claude.com/claude-code">Claude Code</a>. Game guides are fan-made and unaffiliated with their respective mods.</p>
+    <p>Hosted on GitHub Pages. Built with <a href="https://claude.com/claude-code">Claude Code</a>. Game guides are fan-made and unaffiliated with their respective mods; numbers are configurable and the in-game guidebooks &amp; JEI are ground truth.</p>
   </footer>
 
 </div>
