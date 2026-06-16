@@ -1,0 +1,21 @@
+# Patched excerpt of  config/Mekanism/general.toml
+# Section: [general.energy_conversion]
+# (paste these values over the existing ones, or run apply_patch.py)
+
+	#Energy Conversion Rate Settings
+	[general.energy_conversion]
+		#Disables IC2 power integration. Requires world restart (server-side option in SMP).
+		#  -> true forces ALL cross-mod energy through the explicit FE bridge (recommended).
+		#     Set to false if you want Mekanism cables/machines to read IC2 EU directly too.
+		blacklistIC2 = true
+		#Conversion multiplier from EU to Joules (EU * JoulePerEU = Joules)
+		JoulePerEU = "10"
+		#Disables Forge Energy (FE,RF,IF,uF,CF) power integration. Requires world restart (server-side option in SMP).
+		blacklistForge = false
+		#Conversion multiplier from Forge Energy to Joules (FE * JoulePerForgeEnergy = Joules)
+		JoulePerForgeEnergy = "2.5000"
+		#Disables Flux Networks higher throughput Forge Energy power integration.
+		blacklistFluxNetworks = false
+
+# Consistency check:  JoulePerEU / JoulePerForgeEnergy  =  10 / 2.5  =  4  ==  fluxBalance
+# => 1 EU = 4 FE = 10 J, and the round-trip EU -> FE -> EU is lossless.

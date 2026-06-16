@@ -1,0 +1,22 @@
+# Patched excerpt of  config/ic2c/ic2.cfg
+
+[balance]
+
+  [balance.blocks]
+
+    # RF per EU Produced  (Forge Energy <-> EU exchange rate)
+    #  Range: 1 ~ 1000
+    I:fluxBalance=4
+
+[plugins]
+
+    # Enables IC2 Classic's Mekanism cross-mod plugin (recipe / material compat).
+    #  Requires Restart
+    B:mekanism=true
+
+# Note on overvolting (this pack ships energyEasyMode=false):
+#   [balance] B:energyEasyMode=false
+# With easy mode OFF, feeding an IC2 block above its voltage tier will NOT
+# explode it — the energy simply will not flow. So match your FE feed to the
+# IC2 tier you are bridging at (see the bridge guide). This is intentional and
+# left unchanged by the patch.
