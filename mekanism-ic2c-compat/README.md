@@ -9,6 +9,12 @@ systems interoperate cleanly and losslessly.
 > **`1 EU = 4 FE = 10 J`**. There is *no* coremod/mixin to install — EU/FE
 > interop on 1.19.2 is entirely config-driven, so this patch is just a small,
 > idempotent edit to two config files plus a wiring guide.
+>
+> **Directionality matters:** **IC2 → Mekanism works out of the box** (IC2's
+> Flux Generator outputs FE). **Mekanism → IC2 needs one extra mod** — the
+> [EU Converter](https://www.curseforge.com/minecraft/mc-mods/eu-converter)
+> (default 4 FE/EU, matches this rate) — because IC2 Classic machines accept
+> only EU and its built-in FE support is output-only. See *Wiring it in-game*.
 
 A reader-friendly version of this guide (matching the site's Osmium Codex
 style) lives at [`../mekanism-ic2c-bridge.html`](../mekanism-ic2c-bridge.html).
@@ -107,35 +113,52 @@ to every server member (these are server-authoritative, world-restart options).
 Prefer to edit by hand? The exact patched blocks are in
 [`reference/`](reference/).
 
-## Wiring it in-game (the part the config can't do for you)
+## Wiring it in-game — and which directions actually work
 
-The config sets the *rate*; you still place a block at the boundary that
-actually converts:
+The config sets the *rate*; a block at the boundary does the converting. The
+two directions are **not symmetric** in the base pack:
 
-1. **Mekanism side** accepts/emits FE everywhere — Universal Cables, Energy
-   Cubes, and machine energy ports all take FE directly. Nothing special
-   needed.
-2. **IC2 Classic side** converts at its **FE-aware block** (e.g. an LV/MV/HV
-   Transformer / energy interface — confirm the exact block in your build via
-   JEI and its tooltip). Feed FE *into* that block to get EU, or pull FE *out*
-   of it to drain an EU grid.
-3. **Match the IC2 voltage tier to your FE throughput.** IC2 is tiered; with
-   `energyEasyMode=false` an over-voltage feed doesn't explode the block —
-   **the energy just won't flow.** Bridge at the right tier:
+### IC2 → Mekanism (works out of the box)
 
-   | IC2 tier | EU/t | = FE/t (×4) |
-   |---|---|---|
-   | LV | 32 | 128 |
-   | MV | 128 | 512 |
-   | HV | 512 | 2048 |
-   | EV | 2048 | 8192 |
+IC2 Classic's **Flux Generator** turns EU into Forge Energy — gray faces are EU
+*in*, the red face is FE *out* — at `fluxBalance` (4 FE/EU). Point its FE face
+at a Mekanism Universal Cable / Energy Cube and IC2 power flows into the
+Mekanism grid, lossless at the locked rate.
 
-   Throttle the Mekanism cable/cube output (or step IC2 voltage up/down with
-   transformers) so the FE you push matches the tier you're bridging at.
+### Mekanism → IC2 (needs one extra mod)
+
+**IC2 Classic machines only accept EU — they do not accept FE on any face**, and
+IC2C's built-in FE support is *output only* (the Flux Generator). A Mekanism
+cable therefore can't power an IC2 Macerator/transformer/battery box directly,
+and a Flux Networks plug won't feed them either.
+
+To push Mekanism power into IC2, add the **EU Converter** mod
+(`euconverter-1.19.2-1.0.5`, Forge — not currently in this pack). It takes FE on
+its input face and emits EU to adjacent IC2C machines/transformers/battery
+boxes, at a configurable default of **4 FE/EU — already matching this patch's
+rate**. Flow: Mekanism FE → EU Converter → IC2 machine.
+
+> Mekanism's *own* IC2-EU integration (`blacklistIC2`) is a separate,
+> historically flaky path with IC2 Classic and is disabled by this patch. The
+> EU Converter route is FE-based and unaffected by that setting.
+
+### Throughput / voltage tiers
+
+Both converter blocks meter EU in IC2's tiered voltages. With
+`energyEasyMode=false` an over-voltage feed doesn't explode the block — **the
+energy just won't flow** — so size the converter/transformer to the tier you
+need:
+
+| IC2 tier | EU/t | = FE/t (×4) |
+|---|---|---|
+| LV | 32 | 128 |
+| MV | 128 | 512 |
+| HV | 512 | 2048 |
+| EV | 2048 | 8192 |
 
 > **Verify in-world:** put a known load on one side and read the other with an
 > IC2 EU-Reader / Mekanism Network Reader (or just watch a battery fill). At a
-> correct setup, EU·4 in = FE out, with no drift.
+> correct setup, EU·4 = FE, with no drift.
 
 ## Compatibility notes
 

@@ -90,8 +90,13 @@
 
       <div class="cards">
         <div class="card"><span class="tag">mekanism</span><h4>Joules ⇄ FE</h4><p>Native. Universal Cables, Energy Cubes, and every machine port take FE directly at <code>JoulePerForgeEnergy</code> (2.5 J / FE).</p></div>
-        <div class="card"><span class="tag">ic2 classic</span><h4>EU ⇄ FE</h4><p>Via FE-aware blocks at <code>fluxBalance</code> (4 FE / EU). This is IC2C's doorway onto any Forge-Energy grid.</p></div>
+        <div class="card"><span class="tag">ic2 classic</span><h4>EU → FE (output)</h4><p>IC2C's <strong>Flux Generator</strong> emits FE from EU at <code>fluxBalance</code> (4 FE / EU). This is IC2C's doorway <em>onto</em> a Forge-Energy grid — output only.</p></div>
         <div class="card"><span class="tag">the catch</span><h4>One rate, both sides</h4><p>If the two ratios disagree, every EU→FE→EU round-trip quietly multiplies or destroys power. The patch pins them so the loop is lossless.</p></div>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Which way does power flow?</span>
+        <p><strong>IC2 → Mekanism works out of the box</strong> (the Flux Generator outputs FE). <strong>Mekanism → IC2 needs one extra mod</strong> — IC2 Classic machines accept only EU and its built-in FE support is <em>output-only</em>, so feeding Mekanism FE into IC2 requires the <strong>EU Converter</strong> add-on (default 4&nbsp;FE/EU, matches this patch). Full detail in §03.</p>
       </div>
 
       <div class="note tip">
@@ -173,18 +178,26 @@
     <section class="doc" id="wiring">
       <p class="sec-index">03 — In the world</p>
       <h2>Wiring it in-game</h2>
-      <p class="lead">The config sets the <em>rate</em>; you still place a block at the boundary that does the converting. The pattern is short:</p>
+      <p class="lead">The config sets the <em>rate</em>; a block at the boundary does the converting. The two directions are <strong>not symmetric</strong> in the base pack — read this before you build.</p>
 
-      <ol class="flow">
-        <li><strong>Mekanism side — nothing special.</strong> Universal Cables, Energy Cubes, and machine energy ports all accept and emit FE directly. Treat the boundary as "a Forge-Energy grid."</li>
-        <li><strong>IC2 Classic side — convert at an FE-aware block.</strong> Use IC2C's FE-capable interface/transformer (confirm the exact block in your build via JEI &amp; its tooltip). Push FE <em>into</em> it to make EU; pull FE <em>out</em> of it to drain an EU grid.</li>
-        <li><strong>Match the IC2 voltage tier to your FE throughput.</strong> IC2 is tiered and, with easy mode off, an over-voltage feed just stops flowing rather than exploding. Bridge at the right tier (below), throttling the Mekanism cube/cable output or stepping IC2 voltage with transformers.</li>
-      </ol>
+      <h3>IC2 → Mekanism — works out of the box</h3>
+      <p>IC2 Classic's <strong>Flux Generator</strong> turns EU into Forge Energy: gray faces are EU <em>in</em>, the red face is FE <em>out</em>, at <code>fluxBalance</code> (4&nbsp;FE/EU). Point its FE face at a Mekanism Universal Cable or Energy Cube and IC2 power flows into the Mekanism grid, lossless at the locked rate. Nothing else needed.</p>
 
+      <h3>Mekanism → IC2 — needs one extra mod</h3>
+      <p><strong>IC2 Classic machines accept only EU</strong> — they do not accept FE on any face, and IC2C's built-in FE support is <em>output-only</em> (the Flux Generator). So a Mekanism cable can't power an IC2 Macerator, transformer, or battery box directly, and a Flux Networks plug won't feed them either.</p>
+      <p>To send Mekanism power into IC2, add the <strong>EU Converter</strong> mod (<code>euconverter-1.19.2-1.0.5</code>, Forge — not currently in this pack). It accepts FE on its input face and emits EU to adjacent IC2C machines/transformers/battery boxes, at a configurable default of <strong>4&nbsp;FE/EU — already matching this patch</strong>. Flow: <em>Mekanism FE → EU Converter → IC2 machine.</em></p>
+
+      <div class="note warn">
+        <span class="label">Not the blacklistIC2 path</span>
+        <p>Mekanism's <em>own</em> IC2-EU integration (<code>blacklistIC2</code>) is a separate, historically flaky route with IC2 Classic and is disabled by this patch. The EU Converter above is FE-based and unaffected by that setting — it's the reliable way to power IC2 machines from Mekanism.</p>
+      </div>
+
+      <h3>Throughput &amp; voltage tiers</h3>
+      <p>Both converter blocks meter EU in IC2's tiered voltages. With <code>energyEasyMode=false</code>, an over-voltage feed doesn't explode — the energy simply won't flow — so size the converter/transformer to the tier you need.</p>
       <div class="vellum-table">
         <table>
           <caption>IC2 voltage tiers and their FE-equivalent throughput (×4)</caption>
-          <thead><tr><th>IC2 tier</th><th>EU/t</th><th>= FE/t</th><th>Bridge with</th></tr></thead>
+          <thead><tr><th>IC2 tier</th><th>EU/t</th><th>= FE/t</th><th>Carry with</th></tr></thead>
           <tbody>
             <tr><td>LV</td><td>32</td><td>128</td><td>Basic Mekanism cable is plenty</td></tr>
             <tr><td>MV</td><td>128</td><td>512</td><td>Basic/Advanced cable</td></tr>
@@ -196,7 +209,7 @@
 
       <div class="note tip">
         <span class="label">Verify in-world</span>
-        <p>Put a known load on one side and read the other with an IC2 <strong>EU-Reader</strong> / Mekanism <strong>Network Reader</strong> (or just watch a battery fill). At a correct setup, EU×4&nbsp;in = FE&nbsp;out, with no drift over time.</p>
+        <p>Put a known load on one side and read the other with an IC2 <strong>EU-Reader</strong> / Mekanism <strong>Network Reader</strong> (or just watch a battery fill). At a correct setup, EU×4 = FE, with no drift over time.</p>
       </div>
     </section>
 
