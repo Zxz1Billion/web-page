@@ -33,9 +33,15 @@
       <a href="#rituals"><span class="ix">06</span> Rituals</a>
       <a href="#demon-will"><span class="ix">07</span> Demon Will &amp; Forge</a>
       <a href="#living-armor"><span class="ix">08</span> Living Armor</a>
-      <a href="#alchemy"><span class="ix">09</span> Alchemy</a>
+      <a href="#alchemy"><span class="ix">09</span> Alchemy &amp; Incense</a>
+      <p class="group-label">The Arts</p>
+      <a href="#tools"><span class="ix">10</span> Bound &amp; Sentient Tools</a>
+      <a href="#automation"><span class="ix">11</span> Automation &amp; Routing</a>
+      <p class="group-label">Reference</p>
+      <a href="#compendium"><span class="ix">12</span> Compendium</a>
+      <a href="#roadmap"><span class="ix">13</span> Progression Roadmap</a>
       <p class="group-label">The Sanctum</p>
-      <a href="#crypt"><span class="ix">10</span> Build It Beautiful</a>
+      <a href="#crypt"><span class="ix">14</span> Build It Beautiful</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--bone-faint);line-height:1.7">
       Numbers verified against the<br>BloodMagic 3.3.x source &amp;<br>the in-game guidebook.<br>Recipes may differ in your pack.
@@ -105,6 +111,26 @@
       <div class="note tip">
         <span class="label">First sigil first</span>
         <p>Your very first craft should arguably be the <strong>Divination Sigil</strong> (free to use). Right-click it to read your network LP; right-click an altar to read its tier, contents and capacity. You are flying blind without it.</p>
+      </div>
+
+      <h3>Where everything is made</h3>
+      <p>Blood Magic uses <strong>five</strong> crafting surfaces. Knowing which one a thing comes from is half the battle:</p>
+      <div class="vellum-table">
+        <table>
+          <caption>The five crafting stations</caption>
+          <thead><tr><th>Station</th><th>Spends</th><th>Makes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Crafting Table</strong></td><td>vanilla items</td><td>The Blood Altar itself, daggers, the Hellfire Forge, the Alchemy Table, Ritual Stones, the Ritual Diviner, Activation Crystals, casings — the “machines.”</td></tr>
+            <tr><td><strong>Blood Altar</strong></td><td>LP (bled in)</td><td>Slates, Blood Orbs, Reagents, Inscription Tools, Weak Blood Shards, Lava Crystals — anything that needs to be “charged” with life.</td></tr>
+            <tr><td><strong>Alchemy Table</strong></td><td>LP (via orb) + items</td><td>Arcane Ash, array reagents, and most early intermediates. Tier is gated by the orb you slot in.</td></tr>
+            <tr><td><strong>Hellfire Forge</strong></td><td>Demon Will</td><td>Tartaric Gems, the Sentient Gem, sentient weapons/tools, and Will-tier reagents.</td></tr>
+            <tr><td><strong>Alchemy Array</strong> <span class="kbd">on the ground</span></td><td>two items</td><td>Sigils and short-lived effect arrays — drawn with Arcane Ashes, not in any GUI.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">On exact recipes</span>
+        <p>This grimoire gives you the <em>station</em>, the <em>LP/Will cost</em> and the <em>tier</em> for everything — the numbers that are read from the mod's source and don't drift. The one thing that <strong>does</strong> drift between packs is the literal 3×3 crafting-table layout, which recipe tweaks and “unification” mods love to rewrite. For those grids, press <span class="kbd">JEI</span>/<span class="kbd">REI</span> in-game or open the <em>Sanguine Scientum</em> book — both read your live pack. Don't memorise a layout off any website, this one included.</p>
       </div>
     </section>
 
@@ -266,6 +292,46 @@
         <p><strong>Gathering of the Forsaken Souls</strong> changed meaning: in 3.3.x it's a <em>crystal-growth</em> ritual (it applies Will catalysts from a chest), <strong>not</strong> the old “kill mobs for Will” ritual. Get raw Will from Snares and Sentient tools instead (see §07).</p>
       </div>
       <p>The base Ritual Diviner only builds basic rituals; advanced (Dusk) rituals need a <strong>Dusk-upgraded Diviner</strong> (Tier-4 altar + Dusk Elemental Inscription Tools, 2,000 LP each). The <strong>Weak Activation Crystal</strong> handles every staple above; <strong>Awakened</strong> is for higher tiers.</p>
+
+      <h3>The full ritual roster</h3>
+      <p>Beyond the staples, the diviner knows a long list of situational rituals. Activation LP is given where it is fixed in source; otherwise read it as a relative <em>weight</em> (rituals are configurable). “Diviner” is the tier of <strong>Elemental Inscription</strong> the diviner must hold to draw it.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Every ritual, by purpose — 3.3.x roster</caption>
+          <thead><tr><th>Ritual</th><th>Does</th><th>Diviner</th><th>Weight</th></tr></thead>
+          <tbody>
+            <tr><td>Ritual of the Full Spring</td><td>Infinite water source in range.</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Serenade of the Nether</td><td>Generates lava blocks in range.</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ritual of the Green Grove</td><td>Accelerates crop &amp; sapling growth (bonemeal-like).</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of Magnetism</td><td>Pulls ores from the stone below up to the surface.</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ritual of the Crusher</td><td>Breaks an area into an adjacent chest; Will runes add Fortune/Silk.</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ritual of the High Jump</td><td>Launches entities upward (vertical elevator).</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of Speed</td><td>Flings entities horizontally in the ritual's facing.</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of Containment</td><td>Drags loose mobs to the centre — pairs with the Well.</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of Interdiction</td><td>Pushes mobs away from the centre (a soft wall).</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of the Shepherd</td><td>Feeds &amp; breeds nearby passive animals from a chest.</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ritual of Regeneration</td><td>Regen to hurt entities (and can drain healthy ones into LP).</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Well of Suffering</td><td>Damages mobs in range, feeding the LP to an adjacent altar.</td><td>Basic</td><td class="num">40,000</td></tr>
+            <tr><td>Ritual of the Feathered Knife</td><td>Auto self-sacrifices nearby players into an altar.</td><td>Basic</td><td class="num">25,000</td></tr>
+            <tr><td>Ritual of the Feathered Earth</td><td>Negates fall damage across a wide area.</td><td>Basic</td><td class="num">cheap</td></tr>
+            <tr><td>Ritual of Suppression</td><td>Holds liquids back in a sphere (no removal) — dry altar pits.</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ritual of Expulsion</td><td>Ejects other players who enter the area (claim defence).</td><td>Basic</td><td class="num">costly</td></tr>
+            <tr><td>Sound of the Cleansing Soul</td><td>Strips Living Armor upgrades into tomes (re-spec).</td><td>Basic</td><td class="num">moderate</td></tr>
+            <tr><td>Ward of Sacrosanctity</td><td>Buffs allies / suppresses hostile spawns in range.</td><td>Dusk</td><td class="num">costly</td></tr>
+            <tr><td>Mark of the Falling Tower</td><td>Calls a lightning storm — charges Creepers, smites foes.</td><td>Dusk</td><td class="num">costly</td></tr>
+            <tr><td>Reverence of the Condor</td><td>Grants creative-style flight while inside the area.</td><td>Dusk</td><td class="num">costly</td></tr>
+            <tr><td>Gathering of the Forsaken Souls</td><td>Applies Will catalysts from a chest to grow/convert crystals.</td><td>Dusk</td><td class="num">40,000</td></tr>
+            <tr><td>Aura of Expansion</td><td>Raises the Demon Will Aura ceiling of the chunk.</td><td>Dusk</td><td class="num">costly</td></tr>
+            <tr><td>Resonance of the Faceted Crystal</td><td>Splits a Will crystal cluster so it regrows faster.</td><td>Dusk</td><td class="num">moderate</td></tr>
+            <tr><td>Focus of the Ellipsoid</td><td>Pulls/places blocks into a hollow sphere shell.</td><td>Dusk</td><td class="num">costly</td></tr>
+            <tr><td>Ritual of Living Evolution</td><td>Raises the Living Armor upgrade-point cap to 300.</td><td>Dusk</td><td class="num">very costly</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Tuning a running ritual</span>
+        <p>Hold a <strong>Ritual Tinkerer</strong> and right-click the MRS to change the ritual's <em>active range</em>, move its chest target, or rotate its facing — handy for aiming the Crusher's output or widening the Well's kill box. Some rituals also accept <strong>Demon Will</strong> in the chunk's aura to modify their behaviour (e.g. Steadfast Will adds Silk Touch to the Crusher, Destructive adds Fortune).</p>
+      </div>
     </section>
 
     <!-- ============================================ 07 DEMON WILL -->
@@ -305,6 +371,32 @@
         <li><strong>Demon Crucible</strong> burns Will Crystals of an aspect into the chunk's <em>Demon Will Aura</em>; clusters in that aura grow up to <strong>7 spires</strong>. Will Catalysts (applied via Gathering of the Forsaken Souls) speed growth ~10× and cut the per-spire cost from 45 to 25.</li>
       </ul>
       <p>A <strong>Sentient Gem</strong> lets you pick the dominant aspect; sentient gear pulls Will from a held/equipped Tartaric Gem and gets stronger the more Will you carry.</p>
+
+      <h3>The Hellfire Forge</h3>
+      <p>The forge is your Will workbench — four ingredient slots plus a gem slot. Drop a Tartaric Gem in, lay ingredients, and it spends Will (not LP) to craft:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">storage</span><h4>Tartaric Gem ladder</h4><p>Upgrade Petty → Lesser → Common → Greater here, each step feeding the smaller gem plus reagents and Will.</p></div>
+        <div class="card"><span class="tag">selector</span><h4>Sentient Gem</h4><p>The toggle that locks your sentient gear to a single Will aspect.</p></div>
+        <div class="card"><span class="tag">arsenal</span><h4>Sentient weapons &amp; tools</h4><p>Sword, Bow, Pickaxe, Axe, Shovel, Scythe — forged from a Tartaric Gem and a base tool.</p></div>
+        <div class="card"><span class="tag">reagents</span><h4>Will-tier reagents</h4><p>The catalysts and components later infrastructure (crystallizer parts, routing upgrades) leans on.</p></div>
+      </div>
+
+      <h3>The Demon Will Aura &amp; its machines</h3>
+      <p>Every loaded chunk holds an invisible, per-aspect <strong>Demon Will Aura</strong> — a pool of each of the five Wills. Tartaric Gems are <em>your</em> portable Will; the aura is the <em>world's</em>. Three blocks move Will between the two:</p>
+      <div class="compendium">
+        <div class="entry will"><div><span class="e-name">Demon Crucible</span><div class="e-where">Hellfire Forge build · holds a gem/crystal</div></div><p class="e-desc">Burns the Will out of a held Tartaric Gem or Will Crystal and <strong>pumps it into the chunk's aura</strong>. The pressure valve that feeds everything below.</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Crystallizer</span><div class="e-where">draws from aura</div></div><p class="e-desc">Once the chunk's aura clears a threshold, it <strong>grows a Demon Will Crystal cluster</strong> on top of itself, slowly converting aura into solid, harvestable Will.</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Pylon</span><div class="e-where">balances neighbours</div></div><p class="e-desc">Equalises aura with adjacent chunks — place a line of them to <strong>spread one rich chunk's Will</strong> out to a row of crystallizers.</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Will Crystal Cluster</span><div class="e-where">harvest with any pickaxe</div></div><p class="e-desc">Grows up to <strong>7 spires</strong>. Break the outer spires for raw Will crystals and leave one to regrow. Aspect it (Corrosive/Destructive/Vengeful/Steadfast) with catalysts.</p></div>
+      </div>
+      <p>The hands-off endgame Will farm is a single chunk: one <strong>Crucible</strong> raising the aura, several <strong>Crystallizers</strong> harvesting it back out, optionally a <strong>Gathering of the Forsaken Souls</strong> ritual applying catalysts to aspect and speed the crystals. Lay it out like this:</p>
+
+      <div id="will-garden-viewer"></div>
+
+      <div class="note tip">
+        <span class="label">Bootstrapping the aura</span>
+        <p>You face a chicken-and-egg: crystallizers need a full aura, but the aura starts empty. Prime it by feeding the <strong>Crucible</strong> a few full Tartaric Gems (charged from Soul-Snare/Sentient-Sword kills) until the aura clears the crystallizer threshold, then let the loop run. A <strong>Sentient Sword</strong> on a mob farm is the easiest Will income to get there.</p>
+      </div>
     </section>
 
     <!-- ============================================ 08 LIVING ARMOR -->
@@ -317,21 +409,58 @@
         <li><strong>Training:</strong> upgrades level up by doing the matching activity — mining, taking hits, sprinting, eating.</li>
         <li><strong>Re-spec:</strong> the <em>Sound of the Cleansing Soul</em> ritual strips all upgrades into <strong>Upgrade Tomes</strong> (one per ability, level retained). Re-apply a tome in hand, or combine two identical tomes in an anvil.</li>
       </ul>
-      <div class="cards">
-        <div class="card"><h4>Dwarven Might</h4><p>Mining-speed surge after breaking blocks.</p></div>
-        <div class="card"><h4>Healthy</h4><p>Bonus max HP and knockback resistance (caps near 100% KB).</p></div>
-        <div class="card"><h4>Brilliance</h4><p>Extra armour &amp; armour toughness on the chest.</p></div>
-        <div class="card"><h4>+ Speed · Arrow Protection · Step Assist · Jump · Grave Digger · Experienced…</h4><p>Spend points where your playstyle leans.</p></div>
+      <h3>The upgrade roster</h3>
+      <p>Each upgrade has several levels; higher levels cost more of your shared point budget, so the set is a build, not a checklist. <strong>Weight</strong> below is the rough point appetite of a maxed upgrade — “ultimate” abilities can eat most of a 100-point set on their own.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>Living Armor upgrades — trained by play</caption>
+          <thead><tr><th>Upgrade</th><th>Effect at high level</th><th>Trained by</th><th>Weight</th></tr></thead>
+          <tbody>
+            <tr><td>Tough (Physical Protection)</td><td>Flat damage reduction beyond the armour bar.</td><td>Taking physical hits</td><td class="num">high</td></tr>
+            <tr><td>Healthy</td><td>Bonus maximum hearts.</td><td>Eating food</td><td class="num">med</td></tr>
+            <tr><td>Knockback Resistance</td><td>Approaches near-total knockback immunity.</td><td>Being knocked around</td><td class="num">med</td></tr>
+            <tr><td>Fierce (Melee Damage)</td><td>Bonus melee damage.</td><td>Hitting mobs in melee</td><td class="num">high</td></tr>
+            <tr><td>Quick Feet (Speed)</td><td>Movement-speed boost.</td><td>Sprinting</td><td class="num">med</td></tr>
+            <tr><td>Dwarven Might (Digging)</td><td>Mining-speed surge.</td><td>Breaking stone/ore</td><td class="num">med</td></tr>
+            <tr><td>Grave Digger</td><td>Faster shovel work.</td><td>Digging dirt/sand/gravel</td><td class="num">low</td></tr>
+            <tr><td>Step Assist</td><td>Walk up full blocks.</td><td>Stepping up ledges</td><td class="num">low</td></tr>
+            <tr><td>Jump</td><td>Higher jumps.</td><td>Jumping</td><td class="num">low</td></tr>
+            <tr><td>Arrow Protection</td><td>Reduces projectile damage.</td><td>Being shot</td><td class="num">med</td></tr>
+            <tr><td>Repairing</td><td>Passive self-repair of the armour.</td><td>Wearing it under damage</td><td class="num">med</td></tr>
+            <tr><td>Experienced</td><td>Bonus XP from kills.</td><td>Killing mobs</td><td class="num">low</td></tr>
+            <tr><td>Poison Resistance</td><td>Shortens/blocks poison.</td><td>Being poisoned</td><td class="num">low</td></tr>
+            <tr><td>Self Sacrifice</td><td>More LP from the Sacrificial Dagger.</td><td>Self-sacrificing</td><td class="num">med</td></tr>
+            <tr><td>Critical Strike</td><td>Extra critical-hit damage.</td><td>Landing crits</td><td class="num">high</td></tr>
+            <tr><td>Night Vision / Sight</td><td>See in the dark.</td><td>Time spent in darkness</td><td class="num">low</td></tr>
+            <tr><td>Solar Powered</td><td>Buffs in daylight.</td><td>Standing in sunlight</td><td class="num">med</td></tr>
+            <tr><td>Grim Reaper's Sprint</td><td><strong>Ultimate:</strong> cheat death once, with a speed burst, then a cooldown.</td><td>Dying with it slotted</td><td class="num">ultimate</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Build, don't hoard</span>
+        <p>Point weights vary by pack and level. The honest rule: pick a <em>theme</em> (a miner leans Dwarven Might + Step Assist + Repairing; a fighter leans Tough + Fierce + Grim Reaper's Sprint) and re-spec with <em>Sound of the Cleansing Soul</em> when your playstyle changes. The in-game armour screen shows your exact remaining budget.</p>
       </div>
     </section>
 
     <!-- ============================================ 09 ALCHEMY -->
     <section class="doc" id="alchemy">
       <p class="sec-index">09 — The bench</p>
-      <h2>Alchemy</h2>
+      <h2>Alchemy &amp; Incense</h2>
 
       <h3>Alchemy Table</h3>
-      <p>A bench that runs recipes on <strong>LP from your network</strong>. A <strong>Blood Orb</strong> in its slot sets both the available LP and the recipe <strong>tier</strong> you can craft — it makes Arcane Ash, reagents and many early intermediates that used to be altar-only.</p>
+      <p>A bench that runs recipes on <strong>LP from your network</strong>. A <strong>Blood Orb</strong> in its slot sets both the available LP and the recipe <strong>tier</strong> you can craft — it makes Arcane Ash, reagents and many early intermediates that used to be altar-only. It has six ingredient slots and an orb slot; each recipe lists its tier and an LP cost drawn per craft.</p>
+      <div class="vellum-table">
+        <table>
+          <caption>What the Alchemy Table makes (by orb tier)</caption>
+          <thead><tr><th>Orb tier</th><th>Unlocks</th></tr></thead>
+          <tbody>
+            <tr><td>Weak / Apprentice</td><td><strong>Arcane Ash</strong>, basic array reagents, and the cheap binding components.</td></tr>
+            <tr><td>Magician's</td><td>The <strong>Binding Reagent</strong> &amp; <strong>mid reagents</strong> for sigils and Living Armor.</td></tr>
+            <tr><td>Master+</td><td>Higher-tier reagents and intermediates that feed the demonic slates &amp; late sigils.</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>Alchemy Arrays</h3>
       <p>Right-click the ground with <strong>Arcane Ashes</strong> (~20 uses) to draw a blank array; the placement also sets the array's <strong>facing</strong>. Each effect takes <strong>two items</strong> — a reagent (defines it) and a catalyst (activates it). Break the array to recover both.</p>
@@ -341,10 +470,29 @@
         <div class="card"><span class="tag">arrow + feather</span><h4>Skeleton Turret</h4><p>Fires arrows at nearby mobs.</p></div>
         <div class="card"><span class="tag">utility</span><h4>Bounce &amp; bound-tool arrays</h4><p>The cheap toolbox you reach for before rituals.</p></div>
       </div>
-      <div class="note tip"><span class="label">Teleport, honestly</span><p>A true teleport <em>array</em> is limited/experimental in 3.3.x. For reliable teleportation use the <strong>Teleposer + Sigil of Teleposition</strong> (1,000 LP/use).</p></div>
+      <div class="vellum-table">
+        <table>
+          <caption>Alchemy array roster — reagent + catalyst</caption>
+          <thead><tr><th>Array</th><th>Reagent + Catalyst</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Movement</td><td>Feather + Redstone</td><td>Launches entities horizontally in the array's facing.</td></tr>
+            <tr><td>Updraft</td><td>Feather + Glowstone</td><td>Flings entities straight up — a cheap elevator.</td></tr>
+            <tr><td>Skeleton Turret</td><td>Arrow + Feather</td><td>Fires arrows at the nearest mob in range.</td></tr>
+            <tr><td>Bounce</td><td>Slimeball + array base</td><td>Negates fall damage / bounces entities on the cell.</td></tr>
+            <tr><td>Furnace (Day)</td><td>Iron + reagent</td><td>Smelts/lights — small portable heat source.</td></tr>
+            <tr><td>Bound-tool arrays</td><td>tool + slate reagent</td><td>The cheap toolbox you reach for before rituals come online.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The same <strong>Arcane Ashes</strong> draw the two-item array that <em>binds a sigil</em>: a slate (defines the sigil) + a reagent (its element). That is how every sigil in §05 is actually assembled — the altar only forges the slate.</p>
+      <div class="note tip"><span class="label">Teleport, honestly</span><p>A true teleport <em>array</em> is limited/experimental in 3.3.x. For reliable teleportation use the <strong>Teleposer + Sigil of Teleposition</strong> (1,000 LP/use): bind the sigil to one Teleposer, stand on a second, and swap places (and any blocks/entities on the pads).</p></div>
 
       <h3>Incense Altar (Tranquility)</h3>
-      <p>The Incense Altar multiblock supercharges <strong>self-sacrifice</strong>. When active your Sacrificial Dagger “shines” — hold and release right-click near the Blood Altar to sacrifice <strong>~90% of your health at once</strong>, multiplied by the surrounding <strong>Tranquility</strong>. You raise Tranquility by laying 3-wide path blocks outward in all four directions from a 3×3 base:</p>
+      <p>The Incense Altar multiblock supercharges <strong>self-sacrifice</strong>. When active your Sacrificial Dagger “shines” — hold and release right-click near the Blood Altar to sacrifice <strong>~90% of your health at once</strong>, multiplied by the surrounding <strong>Tranquility</strong>. Tranquility comes from two things: <strong>path roads</strong> radiating from the altar (each tier raising the ceiling) and <strong>tranquil blocks</strong> in range — crops, leaves, water, lava and bookshelves each contribute a flavour of calm. Watch the live number on the <strong>Sigil of the Seer</strong> as you build out.</p>
+
+      <div id="incense-viewer"></div>
+
+      <p>Lay paths 3-wide outward in all four directions from the base; the road's block tier caps the bonus:</p>
       <div class="vellum-table">
         <table>
           <caption>Incense path tiers → self-sacrifice bonus</caption>
@@ -360,9 +508,210 @@
       </div>
     </section>
 
-    <!-- ============================================ 10 THE CRYPT -->
+    <!-- ============================================ 10 BOUND & SENTIENT TOOLS -->
+    <section class="doc" id="tools">
+      <p class="sec-index">10 — The arsenal</p>
+      <h2>Bound &amp; Sentient Tools</h2>
+      <p class="lead">Blood Magic gives you two parallel weapon lines, each powered by one of the mod's two currencies. <strong>Bound tools</strong> run on <strong>LP</strong> from your Soul Network; <strong>Sentient tools</strong> run on <strong>Demon Will</strong> from a carried gem. Both are fast and strong; which you favour depends on which economy you've built out.</p>
+
+      <h3>Bound tools — LP-powered</h3>
+      <p>Forged in the altar around a high-tier orb, a bound tool sits inert until you <strong>hold right-click to “activate”</strong> it, at which point it draws LP from your network and becomes brutally efficient. Let go and it costs nothing.</p>
+      <div class="cards">
+        <div class="card"><h4>Bound Blade</h4><p>While active, a fast, high-damage sword. Drains LP per swing/second held.</p></div>
+        <div class="card"><h4>Bound Pickaxe</h4><p>Near-instant mining of stone/ores while active; great with a fat network.</p></div>
+        <div class="card"><h4>Bound Axe</h4><p>Felling and combat in one; chews wood while active.</p></div>
+        <div class="card"><h4>Bound Shovel</h4><p>Wide, instant dirt/gravel clearing for big digs.</p></div>
+      </div>
+      <div class="statline">
+        <span class="pill tier">Altar tier · T4+</span>
+        <span class="pill lp">Cost · <b>LP per use while active</b></span>
+        <span class="pill">Upkeep · none when idle</span>
+      </div>
+      <p>Because cost is paid only while the trigger is held, bound tools are effectively free to <em>carry</em> — the danger is draining your whole network mid-fight. Keep a Well of Suffering topping you up.</p>
+
+      <h3>Sentient tools — Will-powered</h3>
+      <p>Forged in the <strong>Hellfire Forge</strong> (see §07), a sentient tool pulls Will from a Tartaric Gem in your inventory and <strong>scales with the Will you carry</strong> and the <strong>aspect</strong> you've locked with the <strong>Sentient Gem</strong>:</p>
+      <ul>
+        <li><strong>Raw</strong> — straight damage &amp; attack speed.</li>
+        <li><strong>Corrosive</strong> — applies Poison/Wither on hit.</li>
+        <li><strong>Destructive</strong> — highest raw hit, best for filling gems fast.</li>
+        <li><strong>Vengeful</strong> — fast swings + a movement buff that scales with Will held.</li>
+        <li><strong>Steadfast</strong> — Absorption after a kill for a defensive farm loop.</li>
+      </ul>
+      <p>The full line is <strong>Sentient Sword, Bow, Pickaxe, Axe, Shovel</strong> and <strong>Scythe</strong> (the Scythe is the AoE mob-farm star). A sentient weapon also <em>refills the gem it draws from</em> on kills, so a single Greater gem + Sentient Sword is a self-sustaining Will engine.</p>
+
+      <h3>The Lava Crystal</h3>
+      <p>Not a weapon, but the everyday LP tool you'll use most: a <strong>Lava Crystal</strong> is a furnace fuel that burns on <strong>LP from your network</strong> instead of coal. Drop one in a furnace's fuel slot and it smelts indefinitely as long as your network has LP. Altar-forged; a quiet quality-of-life win once you have a Well running.</p>
+      <div class="note">
+        <span class="label">Bound vs Sentient — the honest call</span>
+        <p>If your LP income (a Well) is strong, bound tools are simpler — no gem juggling. If you've invested in a Will garden, sentient gear hits harder <em>and</em> feeds your Will economy as you fight. Most players end up carrying a Sentient Sword for kills (it makes Will) and a bound or sentient pickaxe for digging. Exact recipes and costs are pack-tunable — check JEI.</p>
+      </div>
+    </section>
+
+    <!-- ============================================ 11 AUTOMATION & ROUTING -->
+    <section class="doc" id="automation">
+      <p class="sec-index">11 — Logistics</p>
+      <h2>Automation &amp; Routing</h2>
+      <p class="lead">Once the Well, the forge and the Will garden are all running, the late game is <em>plumbing</em> — moving items, fluids and LP between them without you standing there. Blood Magic ships its own logistics network and treats LP itself as a pumpable fluid.</p>
+
+      <h3>The Routing Node network</h3>
+      <p>A self-contained item network built from three node types plus a linking tool. Place a chain of nodes, link each to the master with the <strong>Node Router</strong>, attach inventories, and items flow on a tick.</p>
+      <div class="compendium">
+        <div class="entry item"><div><span class="e-name">Master Routing Node</span><div class="e-where">one per network</div></div><p class="e-desc">The brain. Every input/output node must be linked back to a single master, and the master is the heart you build the rest around.</p></div>
+        <div class="entry item"><div><span class="e-name">Output Routing Node</span><div class="e-where">pulls from its inventory</div></div><p class="e-desc">Takes items <strong>out of</strong> the chest/machine it touches and pushes them into the network. Filterable by item, with a priority number.</p></div>
+        <div class="entry item"><div><span class="e-name">Input Routing Node</span><div class="e-where">inserts into its inventory</div></div><p class="e-desc">Receives items from the network and places them <strong>into</strong> the chest/machine it touches. Filter + priority decide what lands where.</p></div>
+        <div class="entry item"><div><span class="e-name">Node Router</span><div class="e-where">linking tool</div></div><p class="e-desc">Right-click the master, then a node, to wire them together. Also used to read/clear links.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">A clean Well loop</span>
+        <p>Output node on your mob-drop chest → Input node on a sorting array, or → Input node feeding a furnace bank fuelled by a <strong>Lava Crystal</strong>. Set <strong>filters</strong> (whitelist the drops you want) and <strong>priority</strong> (negative numbers fill last) so overflow routes to a void chest instead of clogging the master.</p>
+      </div>
+
+      <h3>LP as a fluid — Life Essence</h3>
+      <p>LP exists in-world as a fluid called <strong>Life Essence</strong>. The altar can be drained or filled with it, which means you can:</p>
+      <ul>
+        <li>Pump LP out of one altar into a <strong>tank</strong> and across to a far-off crafting altar.</li>
+        <li>Buffer a Well's overflow into storage so nothing is wasted when the altar caps.</li>
+        <li>Bridge to other mods' fluid logistics (pipes, pumps) since Life Essence behaves like any Forge fluid.</li>
+      </ul>
+      <div class="note warn">
+        <span class="label">Mind the tier wall</span>
+        <p>You can pipe LP <em>around</em>, but a craft still needs the destination altar at the right <strong>tier</strong> and with enough <strong>capacity</strong> for that single recipe. Plumbing solves transport, not the tier requirement — keep a fully-runed crafting altar at the end of the pipe.</p>
+      </div>
+
+      <h3>Teleposer logistics</h3>
+      <p>The <strong>Teleposer</strong> (driven by a <strong>Telepositional Focus</strong>) swaps the blocks <em>and entities</em> standing on two linked pads. Beyond travel it's a blunt automation tool — shuttle a stack of mobs into a kill room, or relocate a block of ore on a timer. 1,000 LP per activation.</p>
+    </section>
+
+    <!-- ============================================ 12 COMPENDIUM -->
+    <section class="doc" id="compendium">
+      <p class="sec-index">12 — The index</p>
+      <h2>Compendium</h2>
+      <p class="lead">A single shelf with every block and item in one place. Tables earlier in the grimoire carry the exact LP/Will numbers (runes §03, orbs §04, slates &amp; sigils §05, rituals §06, gems §07); this is the “what is that thing and where does it come from” index for everything else.</p>
+
+      <h3>Core blocks</h3>
+      <div class="compendium">
+        <div class="entry block"><div><span class="e-name">Blood Altar</span><div class="e-where">crafting table</div></div><p class="e-desc">The engine. Bled into for LP; transmutes items; tiers up with rings of runes. (§02)</p></div>
+        <div class="entry block"><div><span class="e-name">Blood Rune (×11 types)</span><div class="e-where">altar</div></div><p class="e-desc">Structural + functional tiles ringing the altar. Speed, Capacity, Sacrifice and friends. (§03)</p></div>
+        <div class="entry block"><div><span class="e-name">Alchemy Table</span><div class="e-where">crafting table</div></div><p class="e-desc">LP-fuelled bench for ash, reagents and intermediates; tier set by its orb. (§09)</p></div>
+        <div class="entry block"><div><span class="e-name">Hellfire Forge</span><div class="e-where">crafting table</div></div><p class="e-desc">Will-fuelled bench for gems and sentient gear. (§07)</p></div>
+        <div class="entry block"><div><span class="e-name">Incense Altar</span><div class="e-where">crafting table</div></div><p class="e-desc">Tranquility multiblock that multiplies self-sacrifice. (§09)</p></div>
+        <div class="entry block"><div><span class="e-name">Ritual Stone · Master Ritual Stone</span><div class="e-where">crafting table</div></div><p class="e-desc">The painted blocks a ritual multiblock is built from; the MRS is its anchor. (§06)</p></div>
+        <div class="entry block"><div><span class="e-name">Blood Tank</span><div class="e-where">crafting table</div></div><p class="e-desc">Stores Life Essence (LP-as-fluid) for buffering and piping. (§11)</p></div>
+        <div class="entry block"><div><span class="e-name">Teleposer</span><div class="e-where">crafting table</div></div><p class="e-desc">Swaps blocks/entities between two linked pads. (§11)</p></div>
+        <div class="entry block"><div><span class="e-name">Mimic blocks</span><div class="e-where">crafting table</div></div><p class="e-desc">Disguise blocks that copy a neighbour's texture — for hidden altar traps &amp; secret doors.</p></div>
+      </div>
+
+      <h3>Will infrastructure</h3>
+      <div class="compendium">
+        <div class="entry will"><div><span class="e-name">Demon Crucible</span><div class="e-where">Hellfire Forge build</div></div><p class="e-desc">Burns held Will into the chunk's aura. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Crystallizer</span><div class="e-where">Hellfire Forge build</div></div><p class="e-desc">Grows Will-crystal clusters from a charged aura. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Pylon</span><div class="e-where">Hellfire Forge build</div></div><p class="e-desc">Balances aura between neighbouring chunks. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Demon Will Crystal / Cluster</span><div class="e-where">grown / harvested</div></div><p class="e-desc">Solid Will, up to 7 spires; aspect it with catalysts. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Tartaric Gem (Petty→Greater)</span><div class="e-where">Hellfire Forge</div></div><p class="e-desc">Portable Will battery, 64 → 4,096 capacity. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Sentient Gem</span><div class="e-where">Hellfire Forge</div></div><p class="e-desc">Locks sentient gear to one Will aspect. (§07)</p></div>
+        <div class="entry will"><div><span class="e-name">Soul Snare</span><div class="e-where">crafting table</div></div><p class="e-desc">Thrown marker that makes a tagged mob drop raw Will on death. (§07)</p></div>
+      </div>
+
+      <h3>Tools, weapons &amp; gear</h3>
+      <div class="compendium">
+        <div class="entry item"><div><span class="e-name">Sacrificial Dagger</span><div class="e-where">crafting table</div></div><p class="e-desc">Self-sacrifice for LP (+200/heart base). The opening item. (§01)</p></div>
+        <div class="entry item"><div><span class="e-name">Dagger of Sacrifice</span><div class="e-where">crafting table</div></div><p class="e-desc">Kills mobs near the altar for LP — feeds early farms before the Well. (§06)</p></div>
+        <div class="entry item"><div><span class="e-name">Bound Blade / Pickaxe / Axe / Shovel</span><div class="e-where">altar</div></div><p class="e-desc">LP-powered tools, free until activated. (§10)</p></div>
+        <div class="entry item"><div><span class="e-name">Sentient Sword / Bow / Pickaxe / Axe / Shovel / Scythe</span><div class="e-where">Hellfire Forge</div></div><p class="e-desc">Will-powered gear that scales with Will carried. (§10)</p></div>
+        <div class="entry item"><div><span class="e-name">Living Armor (4 pieces)</span><div class="e-where">iron + Binding Reagent + Arcane Ash</div></div><p class="e-desc">Trains as you play; shared upgrade-point budget. (§08)</p></div>
+        <div class="entry item"><div><span class="e-name">Lava Crystal</span><div class="e-where">altar</div></div><p class="e-desc">Furnace fuel that burns on LP. (§10)</p></div>
+        <div class="entry item"><div><span class="e-name">Sigils (14+)</span><div class="e-where">Alchemy Array</div></div><p class="e-desc">The toggle/use toolbox — water, lava, fast-miner, magnetism, teleposition… (§05)</p></div>
+      </div>
+
+      <h3>Ritual &amp; logistics items</h3>
+      <div class="compendium">
+        <div class="entry item"><div><span class="e-name">Ritual Diviner (Basic / Dusk / Dawn)</span><div class="e-where">crafting table + Inscription Tools</div></div><p class="e-desc">Ghost-builds ritual stone layouts; tier gates which rituals you can draw. (§06)</p></div>
+        <div class="entry item"><div><span class="e-name">Activation Crystal (Weak / Awakened / Creative)</span><div class="e-where">altar</div></div><p class="e-desc">Right-click an MRS to start a ritual; higher crystals unlock higher rituals. (§06)</p></div>
+        <div class="entry item"><div><span class="e-name">Ritual Tinkerer</span><div class="e-where">crafting table</div></div><p class="e-desc">Re-tunes a running ritual's range, facing &amp; target. (§06)</p></div>
+        <div class="entry item"><div><span class="e-name">Elemental Inscription Tools (Air/Fire/Water/Earth/Dusk/Dawn)</span><div class="e-where">altar</div></div><p class="e-desc">Upgrade the diviner to draw advanced rituals (≈2,000 LP each). (§06)</p></div>
+        <div class="entry item"><div><span class="e-name">Master / Input / Output Routing Node · Node Router</span><div class="e-where">crafting table</div></div><p class="e-desc">The item-logistics network. (§11)</p></div>
+        <div class="entry item"><div><span class="e-name">Telepositional Focus</span><div class="e-where">altar</div></div><p class="e-desc">Links Teleposers / binds the Sigil of Teleposition. (§11)</p></div>
+      </div>
+
+      <h3>Components &amp; materials</h3>
+      <div class="compendium">
+        <div class="entry item"><div><span class="e-name">Blood Slate (Blank→Ethereal)</span><div class="e-where">altar</div></div><p class="e-desc">The substrate every sigil and many reagents are built on. (§05)</p></div>
+        <div class="entry item"><div><span class="e-name">Blood Orb (Weak→Archmage)</span><div class="e-where">altar</div></div><p class="e-desc">Your Soul Network battery &amp; the gate on what you can craft. (§04)</p></div>
+        <div class="entry item"><div><span class="e-name">Arcane Ash</span><div class="e-where">Alchemy Table</div></div><p class="e-desc">Draws alchemy arrays on the ground (~20 uses). (§09)</p></div>
+        <div class="entry item"><div><span class="e-name">Binding Reagent</span><div class="e-where">Alchemy Table</div></div><p class="e-desc">The key ingredient that turns iron armour into Living Armor. (§08)</p></div>
+        <div class="entry item"><div><span class="e-name">Weak Blood Shard</span><div class="e-where">altar / mob drop</div></div><p class="e-desc">Step-up material for the Master Blood Orb. (§04)</p></div>
+        <div class="entry item"><div><span class="e-name">Will Catalysts (Lengthening / Power)</span><div class="e-where">Hellfire Forge</div></div><p class="e-desc">Applied via Gathering of the Forsaken Souls to grow &amp; aspect crystals. (§06/§07)</p></div>
+        <div class="entry item"><div><span class="e-name">Reagents (Water, Lava, Air, Fast Miner…)</span><div class="e-where">Alchemy Table</div></div><p class="e-desc">Define which sigil an array binds. (§05/§09)</p></div>
+      </div>
+    </section>
+
+    <!-- ============================================ 13 ROADMAP -->
+    <section class="doc" id="roadmap">
+      <p class="sec-index">13 — The path</p>
+      <h2>Progression Roadmap</h2>
+      <p class="lead">Everything above, in the order that actually works. Each phase unlocks the tools that make the next one painless — chase them roughly in this sequence and you'll never be stuck bleeding for an hour with nothing to show for it.</p>
+      <ol class="roadmap">
+        <li>
+          <span class="goal">Survive the bleeding</span>
+          <h4>Bootstrap (Tier 1)</h4>
+          <ul>
+            <li>Craft the <strong>Blood Altar</strong> + <strong>Sacrificial Dagger</strong> + <strong>Divination Sigil</strong>.</li>
+            <li>Bleed a diamond into a <strong>Weak Blood Orb</strong>; bind it.</li>
+            <li>Make <strong>Blank Slates</strong> and 8 <strong>Blood Runes</strong> → reach <strong>Tier 2</strong>.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="goal">Stop hurting yourself</span>
+          <h4>The Alchemy bench &amp; first sigils (T2–T3)</h4>
+          <ul>
+            <li>Build the <strong>Alchemy Table</strong>; make <strong>Arcane Ash</strong> and your first array-bound sigils (Water, Fast Miner, Magnetism).</li>
+            <li>Add <strong>Speed</strong> + <strong>Self-Sacrifice</strong> runes; ring out to <strong>Tier 3</strong> with pillars + glowstone.</li>
+            <li>Upgrade to the <strong>Apprentice</strong>, then <strong>Magician's</strong> orb.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="goal">Make LP without dying</span>
+          <h4>Automate the blood (T3–T4)</h4>
+          <ul>
+            <li>Build a <strong>Ritual Diviner</strong> + <strong>Weak Activation Crystal</strong>.</li>
+            <li>Run a <strong>Well of Suffering</strong> over a mob farm above the altar — the headline hands-off LP engine.</li>
+            <li>Reach <strong>Tier 4</strong>, craft the <strong>Master Blood Orb</strong>, and build an <strong>Incense Altar</strong> for burst self-sacrifice.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="goal">Open the second economy</span>
+          <h4>Demon Will (T4)</h4>
+          <ul>
+            <li>Craft the <strong>Hellfire Forge</strong>; gather Will with <strong>Soul Snares</strong> → a <strong>Sentient Sword</strong>.</li>
+            <li>Climb the <strong>Tartaric Gem</strong> ladder; build a <strong>Crucible + Crystallizer</strong> garden.</li>
+            <li>Use <strong>Gathering of the Forsaken Souls</strong> to aspect &amp; grow crystals.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="goal">Become unkillable</span>
+          <h4>Living Armor &amp; the arsenal (T4–T5)</h4>
+          <ul>
+            <li>Transmute iron armour into <strong>Living Armor</strong>; train a themed build.</li>
+            <li>Drink the <strong>Draft of Angelus</strong> (cap 200), then run <strong>Ritual of Living Evolution</strong> (cap 300).</li>
+            <li>Forge <strong>Bound</strong> or <strong>Sentient</strong> tools; carry a <strong>Lava Crystal</strong>.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="goal">Industrialise &amp; beautify</span>
+          <h4>Endgame (T5)</h4>
+          <ul>
+            <li>Push the altar to <strong>Tier 5</strong> with four Beacons; craft the <strong>Archmage Orb</strong>.</li>
+            <li>Wire <strong>Routing Nodes</strong> and pipe <strong>Life Essence</strong> between altars.</li>
+            <li>Sink it all into <strong>The Sanguine Crypt</strong> (§14) and stand back.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============================================ 14 THE CRYPT -->
     <section class="doc" id="crypt">
-      <p class="sec-index">10 — The sanctum</p>
+      <p class="sec-index">14 — The sanctum</p>
       <h2>Build It Beautiful — The Sanguine Crypt</h2>
       <p class="lead">A functional altar is a pile of runes in a hole. <em>The Sanguine Crypt</em> sinks that altar into a circular ritual pit at the base of your spire, open to a vertical skylight, ringed by a balcony of ritual stones. Darker and more gothic than the coastal spruce-and-grey above it — deepslate, blackstone, crimson, and cold soul-fire blue against the altar's warm glow.</p>
       <p>Each module below is a small, symmetric, tileable piece with its own palette. Step through the <strong>Y-layers</strong> (bottom → top); the rail tallies the <strong>full-build block list</strong> for that piece.</p>

@@ -4,7 +4,13 @@ An unofficial, fan-made field guide for **Blood Magic 3.3.0** on **Minecraft 1.1
 the version repackaged as `BloodMagic-1.19.2-3.3.0-42.jar` for the Ragnarok Reincarnated server.
 
 It pairs a full step-by-step progression guide with **interactive, layer-by-layer schematics**
-for both the functional **Blood Altar** and a decorative **"Sanguine Crypt"** ritual space.
+for the functional **Blood Altar**, the **Incense Altar**, a **Demon Will garden**, the **Well of
+Suffering** ritual, and a decorative **"Sanguine Crypt"** ritual space.
+
+The guide runs end-to-end: altar tiers, runes, orbs, slates & sigils, the full ritual roster,
+the Demon Will aura/crucible/crystallizer/pylon economy, Living Armor's upgrade roster, alchemy
+arrays & the Incense Altar, bound vs sentient tools, item/fluid **automation & routing**, a
+complete **compendium** of every block and item, and a phased **progression roadmap**.
 
 > Heads-up on versioning: WayofTime's Blood Magic went **1.18.2 → 1.20.1**, and the `3.3.0` tag
 > belongs to the 1.20.1 line — there is no *official* 1.19.2 build. The Ragnarok jar is a
@@ -21,7 +27,7 @@ assets/
   js/
     schematic-viewer.js        reusable top-down layer/tier schematic widget
     main.js                    mounts the widgets + nav/scroll-spy
-  data/schematics.js           altar tiers + 5 decorative builds + ritual layout
+  data/schematics.js           altar tiers + incense altar + will garden + 5 crypt builds + ritual layout
 
 index.html, index2.html, weekly_perks_table.html   pre-existing pages (untouched)
 ```

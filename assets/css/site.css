@@ -265,6 +265,66 @@ section.doc code { font-family: var(--f-mono); font-size: 0.86em; background: rg
 }
 .flow li strong { color: #f2e6cb; }
 
+/* ----------------------------------------------------------------- stat pills */
+.statline { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+.pill {
+  font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.04em;
+  padding: 4px 10px; border-radius: 6px; color: #f0deba;
+  background: rgba(0,0,0,0.3); border: 1px solid rgba(201,180,141,0.22);
+}
+.pill b { color: #f3b9aa; font-weight: 600; }
+.pill.lp { border-color: rgba(198,58,42,0.5); }
+.pill.will { border-color: rgba(70,201,189,0.45); color: #bfeae6; }
+.pill.tier { border-color: rgba(224,173,68,0.5); color: #f0d49a; }
+
+/* keycap / station tag */
+.kbd {
+  font-family: var(--f-mono); font-size: 0.74em; padding: 1px 7px; border-radius: 5px;
+  background: rgba(0,0,0,0.34); border: 1px solid rgba(201,180,141,0.28);
+  box-shadow: 0 2px 0 rgba(201,180,141,0.18); color: #ecdcbd; white-space: nowrap;
+}
+
+/* ----------------------------------------------------------------- compendium */
+.compendium { margin: 22px 0; display: grid; gap: 10px; }
+.entry {
+  display: grid; grid-template-columns: 150px 1fr; gap: 0 18px;
+  background: rgba(0,0,0,0.22); border: 1px solid rgba(201,180,141,0.14);
+  border-left: 3px solid var(--blood); border-radius: 0 9px 9px 0; padding: 12px 16px;
+}
+@media (max-width: 620px) { .entry { grid-template-columns: 1fr; } }
+.entry.item { border-left-color: #46c9bd; }
+.entry.block { border-left-color: #e0ad44; }
+.entry.will { border-left-color: #c764b4; }
+.entry .e-name { font-family: var(--f-display); font-weight: 600; font-size: 1.02rem; color: #f0deba; }
+.entry .e-where { font-family: var(--f-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-faint); margin-top: 4px; }
+.entry .e-desc { font-size: 0.9rem; color: #cfc1a4; margin: 0; align-self: center; }
+.entry .e-desc strong { color: #f2e6cb; }
+
+/* ----------------------------------------------------------------- roadmap */
+.roadmap { counter-reset: phase; margin: 24px 0; padding: 0; list-style: none; }
+.roadmap > li {
+  position: relative; padding: 16px 18px 16px 64px; margin: 0 0 12px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.14));
+  border: 1px solid rgba(201,180,141,0.16); border-radius: 12px;
+}
+.roadmap > li::before {
+  counter-increment: phase; content: counter(phase);
+  position: absolute; left: 16px; top: 16px; width: 34px; height: 34px;
+  display: grid; place-items: center; border-radius: 9px;
+  background: var(--bg-3); border: 1px solid var(--blood); color: #f0c9a8;
+  font-family: var(--f-display); font-weight: 700; font-size: 1.05rem;
+}
+.roadmap h4 { margin: 0 0 4px; color: #f3e7cd; }
+.roadmap .goal { font-family: var(--f-mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: #46c9bd; }
+.roadmap ul { margin: 8px 0 0; }
+.roadmap li li { font-size: 0.92rem; }
+
+/* ----------------------------------------------------------------- recipe note grid */
+.obtain { margin: 20px 0; }
+.obtain .src-key { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 10px 0 0; font-size: 0.84rem; color: var(--bone-dim); }
+.obtain .src-key span { display: inline-flex; align-items: center; gap: 7px; }
+.obtain .src-key i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; font-style: normal; }
+
 /* ============================================================ SCHEMATIC VIEWER */
 .schematic {
   margin: 30px 0;

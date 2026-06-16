@@ -41,6 +41,20 @@ export const PAL = {
   // ritual
   master_ritual_stone: { label: "Master Ritual Stone", color: "#c08a3a" },
   ritual_stone:        { label: "Ritual Stone",        color: "#6b6f74" },
+
+  // incense altar (tranquility)
+  incense_altar:   { label: "Incense Altar",        color: "#8a6326" },
+  path_wood:       { label: "Wooden Path",          color: "#6e4a24" },
+  path_stone:      { label: "Stone Path",           color: "#7d7d7d" },
+  path_wornstone:  { label: "Worn Stone Path",      color: "#565656" },
+  path_obsidian:   { label: "Obsidian Path",        color: "#241830" },
+  tranquil_plant:  { label: "Tranquil block (crop/leaves)", color: "#3f6b34" },
+
+  // demon will infrastructure
+  demon_crucible:    { label: "Demon Crucible",       color: "#7a2330" },
+  demon_crystallizer:{ label: "Demon Crystallizer",   color: "#2f6a70" },
+  demon_pylon:       { label: "Demon Pylon",          color: "#9a6a2a" },
+  will_crystal:      { label: "Demon Will Cluster",   color: "#c764b4" },
 };
 
 /* --------------------------------------------------------------- utilities */
@@ -354,6 +368,70 @@ function wellOfSufferingRitual() {
   };
 }
 
+/* ============================================ INCENSE ALTAR (Tranquility) ==
+   Representative top-down. The Incense Altar block sits at the centre; four
+   path "roads" radiate on the cardinal axes. The block tier of each road ring
+   sets the maximum self-sacrifice bonus (see §09 table). Tranquil blocks
+   (crops, leaves, water) scattered in range raise Tranquility further. Exact
+   detection radius/levels are config- and version-sensitive — trust the
+   Sigil of the Seer's on-screen readout in-game. */
+function incenseAltar() {
+  const S = 11, mid = 5;
+  const g = grid(S, S);
+  // distance band -> path tier (closest rings cheap, outer rings need better path)
+  const band = (d) => (d <= 1 ? "path_wood" : d === 2 ? "path_wood" : d === 3 ? "path_stone" : d === 4 ? "path_wornstone" : "path_obsidian");
+  for (let r = 0; r < S; r++)
+    for (let c = 0; c < S; c++) {
+      const dx = Math.abs(c - mid), dy = Math.abs(r - mid), d = Math.max(dx, dy);
+      if (d === 0) { g[r][c] = "incense_altar"; continue; }
+      // four 1-wide cardinal roads
+      if ((r === mid || c === mid) && d <= 5) { g[r][c] = band(d); continue; }
+      // a few tranquil blocks salted into the quadrants for ambience/bonus
+      if (dx === dy && d >= 2 && d <= 4) g[r][c] = "tranquil_plant";
+    }
+  return {
+    title: "Incense Altar — Tranquility",
+    subtitle: "module · self-sacrifice multiplier",
+    meta: { footprint: "11×11 area", height: "1 (+ altar)" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Path layout", grid: g,
+        note: "Incense Altar at the centre; four roads radiate on the cardinals. Ring colour shows the path tier — wood near the altar, upgrading to stone → worn stone → obsidian as you go out, each tier raising the cap. Diagonal tranquil blocks (crops, leaves, water) sweeten the bonus. Representative: confirm the live number on the Sigil of the Seer before you bleed." },
+    ],
+  };
+}
+
+/* ============================================== DEMON WILL GARDEN (aura) ==
+   A Demon Crucible burns Will (gems / crystals) into the chunk's invisible
+   Demon Will Aura; Demon Crystallizers in the same chunk pull from that aura
+   and grow Demon Will Crystal clusters on top of themselves. Placement inside
+   the chunk is loose — they share one aura pool — so this is orientation, not
+   a strict multiblock. A Demon Pylon equalises aura with neighbouring chunks. */
+function willGarden() {
+  const S = 7, mid = 3;
+  const g = grid(S, S);
+  g[mid][mid] = "demon_crucible";
+  // crystallizers on the cardinals, two out
+  for (const [r, c] of [[mid - 2, mid], [mid + 2, mid], [mid, mid - 2], [mid, mid + 2]])
+    g[r][c] = "demon_crystallizer";
+  // a grown cluster sitting beside each crystallizer (visual)
+  for (const [r, c] of [[mid - 3, mid], [mid + 3, mid], [mid, mid - 3], [mid, mid + 3]])
+    if (g[r] && g[r][c] === null) g[r][c] = "will_crystal";
+  // pylons at the corners to share aura outward
+  for (const [r, c] of [[0, 0], [0, S - 1], [S - 1, 0], [S - 1, S - 1]])
+    g[r][c] = "demon_pylon";
+  return {
+    title: "Demon Will Garden",
+    subtitle: "module · passive Will crystal farm",
+    meta: { footprint: "≈ one chunk", height: "2" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Crucible + crystallizers", grid: g,
+        note: "Centre: a Demon Crucible, fed Will to raise the chunk's aura. Around it: Demon Crystallizers, each growing a Will-crystal cluster (shown beside them) once the aura is high enough — harvest the outer crystals and leave one to regrow. Demon Pylons at the corners bleed aura into neighbour chunks if you want to spread it. Exact spacing is free: they all share the one chunk-wide aura pool." },
+    ],
+  };
+}
+
 /* --------------------------------------------------------------- registry */
 export const DECOR = {
   floor: bloodChannelFloor(),
@@ -363,3 +441,5 @@ export const DECOR = {
   balcony: balconyRing(),
 };
 export const RITUAL = wellOfSufferingRitual();
+export const INCENSE = incenseAltar();
+export const WILL_GARDEN = willGarden();

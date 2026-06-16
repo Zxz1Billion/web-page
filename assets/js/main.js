@@ -2,11 +2,13 @@
    main.js — mounts the schematic viewers and drives the site chrome.
    ========================================================================== */
 import { mountSchematic } from "./schematic-viewer.js";
-import { altarSchematic, DECOR, RITUAL } from "../data/schematics.js";
+import { altarSchematic, DECOR, RITUAL, INCENSE, WILL_GARDEN } from "../data/schematics.js";
 
 /* ---- mount the schematic widgets ------------------------------------- */
 mountSchematic(altarSchematic(), "#altar-viewer");
 mountSchematic(RITUAL, "#ritual-viewer");
+mountSchematic(WILL_GARDEN, "#will-garden-viewer");
+mountSchematic(INCENSE, "#incense-viewer");
 mountSchematic(DECOR.floor, "#decor-floor");
 mountSchematic(DECOR.vault, "#decor-vault");
 mountSchematic(DECOR.pillar, "#decor-pillar");
