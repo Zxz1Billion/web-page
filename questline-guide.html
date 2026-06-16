@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Questline — a To the Moon 2.0 quest companion (MC 1.19.2)</title>
+<meta name="description" content="An FTB-Quests-style chapter-by-chapter questline companion for To the Moon 2.0 (Minecraft 1.19.2 Forge): eight chapters of objectives and rewards from first night to the Moon, cross-linking every mod guide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#080f0e; --bg-1:#0c1413; --bg-2:#121d1c; --bg-3:#192927; --line:#26393a;
+    --ink:#e2f0ee; --ink-dim:#90b3b1; --ink-faint:#5d807e;
+    --accent:#43d6c4; --danger:#e0683a;
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+  /* quest checklist niceties (uses native checkboxes; no JS needed) */
+  .quest-list{list-style:none;padding:0;margin:18px 0;max-width:74ch}
+  .quest-list li{display:flex;gap:11px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:9px;margin:7px 0;background:var(--panel)}
+  .quest-list input{margin-top:5px;width:15px;height:15px;accent-color:var(--accent);flex:0 0 auto}
+  .quest-list .q-body{min-width:0}
+  .quest-list .q-title{color:#fff;font-weight:600}
+  .quest-list .q-reward{font-family:var(--f-mono);font-size:.74rem;color:var(--accent);display:block;margin-top:2px}
+  .chapter-meta{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.06em;margin:0 0 4px}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📜</span>
+      <span class="wordmark">The<br>Questline<small>TO THE MOON 2.0 · QUEST BOOK</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Chapters</p>
+      <a href="#start"><span class="ix">00</span> How Quests Work</a>
+      <a href="#c1"><span class="ix">I</span> Getting Grounded</a>
+      <a href="#c2"><span class="ix">II</span> First Machines</a>
+      <a href="#c3"><span class="ix">III</span> Power Up</a>
+      <a href="#c4"><span class="ix">IV</span> The Arcane Arts</a>
+      <a href="#c5"><span class="ix">V</span> Into the Wild</a>
+      <a href="#c6"><span class="ix">VI</span> Industrial Might</a>
+      <a href="#c7"><span class="ix">VII</span> To the Moon</a>
+      <a href="#c8"><span class="ix">VIII</span> Apex Predator</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      A companion questline. The pack's<br>own FTB Quests book may differ —<br>tick these as you go for a<br>self-guided run.
+    </p>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · FTB Quests companion</p>
+      <h1>The Questline</h1>
+      <p class="lede">A chapter-by-chapter questline for <strong>To the Moon 2.0</strong>, in the spirit of an <strong>FTB Quests</strong> book: eight chapters of concrete objectives and rewards that march you from your first night to a rocket on the pad. Tick the boxes as you complete each task — they're plain checkboxes, so your progress sticks while the page is open.</p>
+      <div class="badges">
+        <span class="badge accent">8 chapters</span>
+        <span class="badge">objectives &amp; rewards</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>How Quests Work</h2>
+      <p class="lead">This is a <em>companion</em> questline you can follow even if the pack's built-in <strong>FTB Quests</strong> book is laid out differently — think of it as a self-guided checklist that ties the whole pack together.</p>
+      <ul>
+        <li>Each chapter has a short list of <strong>quests</strong>: an objective, a reason, and a suggested <strong>reward</strong> (the milestone you unlock by doing it).</li>
+        <li>Chapters are <strong>roughly</strong> sequential — finish most of one before the next will feel achievable — but tracks overlap, so dip ahead when you have the gear.</li>
+        <li>Every quest links to the guide with the full detail. Lost? Start at the <a href="roadmap-guide.html">progression roadmap</a> for the big picture.</li>
+      </ul>
+      <div class="note tip"><span class="label">In-game tip</span><p>If the pack ships an actual FTB Quests book (it does — see the <a href="quality-of-life-guide.html">QoL guide</a>), open it with its keybind/quest-book item; its rewards and order are authoritative for <em>this</em> pack. Use this page as a readable walkthrough alongside it.</p></div>
+    </section>
+
+    <!-- CHAPTER I -->
+    <section class="doc" id="c1">
+      <p class="sec-index">Chapter I</p>
+      <h2>Getting Grounded</h2>
+      <p class="chapter-meta">GOAL — survive the first days with food, tools and a safety net.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Break ground.</span> Gather wood, stone and your first iron. <span class="q-reward">↳ unlocks: a crafting base</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Forge a Tinkers tool.</span> Build a Part Builder + Tinker Station and assemble a pickaxe. <a href="tinkers-guide.html">[Tinkers]</a> <span class="q-reward">↳ reward: an upgradeable, repairable tool</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Cook a real meal.</span> Set up a Cooking Pot + Stove and cook a stew. <a href="farmers-delight-guide.html">[Farmer's Delight]</a> <span class="q-reward">↳ reward: long-lasting food buffs</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Pack a bag.</span> Craft a backpack. <a href="sophisticated-backpacks-guide.html">[Sophisticated]</a> / <a href="travelers-backpack-guide.html">[Traveler's]</a> <span class="q-reward">↳ reward: carry capacity</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Buy insurance.</span> Confirm Tombstone graves work and craft a sleeping bag. <a href="tombstone-guide.html">[Tombstone]</a> <a href="comforts-guide.html">[Comforts]</a> <span class="q-reward">↳ reward: death &amp; night safety net</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER II -->
+    <section class="doc" id="c2">
+      <p class="sec-index">Chapter II</p>
+      <h2>First Machines</h2>
+      <p class="chapter-meta">GOAL — multiply your ore and store the surplus.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Build the Mekanism trio.</span> Metallurgic Infuser, Enrichment Chamber, Energized Smelter for instant 2× ore. <a href="mekanism-guide.html">[Mekanism]</a> <a href="mekanism-blueprint.html">[Assembly Line]</a> <span class="q-reward">↳ reward: doubled ore + alloys/circuits</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Light the first generator.</span> A Heat Generator (lava) or a Create water wheel to power it. <a href="create-guide.html">[Create]</a> <span class="q-reward">↳ reward: scalable power source</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Raise a Smeltery.</span> Build a Tinkers Smeltery to melt ore into extra metal and cast parts. <a href="tinkers-guide.html">[Tinkers]</a> <span class="q-reward">↳ reward: alloy tooling</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Bulk storage.</span> Stand up a wall of drawers with a controller. <a href="storage-drawers-guide.html">[Drawers]</a> / <a href="functional-storage-guide.html">[Functional]</a> <span class="q-reward">↳ reward: tidy, countable stock</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER III -->
+    <section class="doc" id="c3">
+      <p class="sec-index">Chapter III</p>
+      <h2>Power Up</h2>
+      <p class="chapter-meta">GOAL — automate power and item flow across the base.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Brew ethylene.</span> Feed a Gas-Burning Generator from a Pressurized Reaction Chamber. <a href="mekanism-guide.html">[Mekanism]</a> <span class="q-reward">↳ reward: serious mid-game power</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Go wireless.</span> Distribute that power with Flux Networks. <a href="flux-networks-guide.html">[Flux]</a> <span class="q-reward">↳ reward: cable-free base power</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Route the items.</span> Wire machines with Pipez or an XNet network. <a href="pipez-guide.html">[Pipez]</a> <a href="xnet-guide.html">[XNet]</a> <span class="q-reward">↳ reward: hands-off processing</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Searchable storage.</span> Build a Tom's terminal, then start an AE2 network. <a href="toms-storage-guide.html">[Tom's]</a> <a href="ae2-guide.html">[AE2]</a> <span class="q-reward">↳ reward: one-search inventory</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER IV -->
+    <section class="doc" id="c4">
+      <p class="sec-index">Chapter IV</p>
+      <h2>The Arcane Arts</h2>
+      <p class="chapter-meta">GOAL — pick up a magic track and forge real gear.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Bleed for power.</span> Build a Blood Altar and bind your first orb. <a href="blood-magic-guide.html">[Blood Magic]</a> <a href="blood-magic-roadmap.html">[Long Bleed]</a> <span class="q-reward">↳ reward: the LP economy</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Cast your first spell.</span> Acquire a scroll and a spell book; pick a school. <a href="spellbooks-guide.html">[Iron's Spells]</a> <span class="q-reward">↳ reward: ranged magic</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Enchant properly.</span> Set up an Apotheosis enchanting table (Eterna/Quanta/Arcana) and socket a gem. <a href="apotheosis-guide.html">[Apotheosis]</a> <span class="q-reward">↳ reward: high-tier enchants + sockets</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Stack modifiers.</span> Cast Manyullyn/Hepatizon parts and load a weapon with modifiers. <a href="tinkers-guide.html">[Tinkers]</a> <span class="q-reward">↳ reward: a boss-ready weapon</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER V -->
+    <section class="doc" id="c5">
+      <p class="sec-index">Chapter V</p>
+      <h2>Into the Wild</h2>
+      <p class="chapter-meta">GOAL — raid structures and beat your first real bosses.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Clear a dungeon.</span> Loot a YUNG's or When Dungeons Arise structure, or descend Dungeon Crawl. <a href="exploration-guide.html">[Exploration]</a> <span class="q-reward">↳ reward: enchanted gear &amp; XP</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Open the Twilight.</span> Build the portal and defeat the Naga. <a href="twilight-forest-guide.html">[Twilight Forest]</a> <span class="q-reward">↳ reward: Naga Scale armour + progression</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Slay a lair boss.</span> Take down the Ferrous Wroughtnaut or a Mutant. <a href="mowzies-mobs-guide.html">[Mowzie's]</a> <a href="mutant-monsters-guide.html">[Mutants]</a> <span class="q-reward">↳ reward: a unique boss weapon</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Strike a deal.</span> Trade with a Goblin Trader for something useful. <a href="goblin-traders-guide.html">[Goblin Traders]</a> <span class="q-reward">↳ reward: convenience goods</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER VI -->
+    <section class="doc" id="c6">
+      <p class="sec-index">Chapter VI</p>
+      <h2>Industrial Might</h2>
+      <p class="chapter-meta">GOAL — scale to the big multiblocks and autocrafting.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Go nuclear.</span> Run a Fission Reactor into a Boiler + Industrial Turbine; bank it in an Induction Matrix. <a href="mekanism-guide.html">[Mekanism]</a> <span class="q-reward">↳ reward: industrial-scale power</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Automate crafting.</span> Build AE2 Crafting CPUs and Pattern Providers. <a href="ae2-guide.html">[AE2]</a> <span class="q-reward">↳ reward: one-click crafting of anything</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Don the MekaSuit.</span> Assemble the MekaSuit + Meka-Tool and install modules. <a href="mekanism-guide.html">[Mekanism]</a> <span class="q-reward">↳ reward: flight, auto-feed, vein mining</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Unify the grid.</span> If running IC2, bridge EU↔FE. <a href="mekanism-ic2c-bridge.html">[EU/FE Bridge]</a> <a href="ic2c-guide.html">[IC2]</a> <span class="q-reward">↳ reward: one shared power network</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER VII -->
+    <section class="doc" id="c7">
+      <p class="sec-index">Chapter VII</p>
+      <h2>To the Moon</h2>
+      <p class="chapter-meta">GOAL — leave the planet (the whole point of the pack).</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Build a rocket.</span> Work up the Tier 1–4 rockets at the NASA Workbench. <a href="ad-astra-guide.html">[Ad Astra]</a> <span class="q-reward">↳ reward: spaceflight</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Breathe off-world.</span> Pack a space suit + Oxygen Distributor and seal a base. <a href="ad-astra-guide.html">[Ad Astra]</a> <span class="q-reward">↳ reward: survive the Moon</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Plant a flag.</span> Land on the Moon, then Mars, and mine Desh/Ostrum. <a href="ad-astra-guide.html">[Ad Astra]</a> <span class="q-reward">↳ reward: higher-tier rocket parts</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Build a space station.</span> Assemble an orbital base. <a href="ad-astra-guide.html">[Ad Astra]</a> <a href="building-guide.html">[Building]</a> <span class="q-reward">↳ reward: an off-world home</span></span></li>
+      </ul>
+    </section>
+
+    <!-- CHAPTER VIII -->
+    <section class="doc" id="c8">
+      <p class="sec-index">Chapter VIII</p>
+      <h2>Apex Predator</h2>
+      <p class="chapter-meta">GOAL — finish the boss ladders and reach the true endgame.</p>
+      <ul class="quest-list">
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Finish the Twilight.</span> Climb the boss ladder to the Snow Queen. <a href="twilight-forest-guide.html">[Twilight Forest]</a> <span class="q-reward">↳ reward: top Twilight gear</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Hunt the Cataclysm.</span> Defeat the structure-bosses across the dimensions. <a href="cataclysm-guide.html">[Cataclysm]</a> <span class="q-reward">↳ reward: the pack's strongest weapons</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Make antimatter.</span> Run a Fusion Reactor + SPS and feed the Nucleosynthesizer. <a href="mekanism-guide.html">[Mekanism]</a> <span class="q-reward">↳ reward: the endgame fabricator</span></span></li>
+        <li><input type="checkbox" aria-label="quest"><span class="q-body"><span class="q-title">Make it yours.</span> Decorate, automate the last holdouts, and show off the base. <a href="building-guide.html">[Building]</a> <a href="chipped-guide.html">[Chipped]</a> <span class="q-reward">↳ reward: a finished world</span></span></li>
+      </ul>
+      <div class="note tip"><span class="label">Completion</span><p>Eight chapters, one rocket, and a wardrobe of boss gear later — you've "won" To the Moon 2.0. From here it's a sandbox: pick the track you love and push it to the limit. For the loose version of this path, see <a href="roadmap-guide.html">The Ascent</a>.</p></div>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Questline</strong><br>
+      An unofficial FTB-Quests-style companion for To the Moon 2.0 (MC 1.19.2 Forge).<br>
+      Checkboxes are local to this page view — for tracked progress, use the pack's in-game quest book.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion to:<br>
+      · The Ascent (roadmap)<br>
+      · every mod guide in the hub<br>
+      · the in-game FTB Quests book
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Fan-made and unofficial. The pack's actual FTB Quests chapters and rewards are authoritative; this is a readable walkthrough alongside them.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>

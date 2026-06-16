@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Ascent — a To the Moon 2.0 progression roadmap (MC 1.19.2)</title>
+<meta name="description" content="A whole-pack progression roadmap for To the Moon 2.0 (Minecraft 1.19.2 Forge): a stage-by-stage route from your first stone tools to fission reactors, full mage gear, and a rocket to the Moon — cross-linking every mod guide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<style>
+  :root{
+    --bg-0:#0b0c10; --bg-1:#101218; --bg-2:#171a23; --bg-3:#1f232f; --line:#2b3140;
+    --ink:#e9edf5; --ink-dim:#9aa6bc; --ink-faint:#636f86;
+    --accent:#e0b84a; --danger:#e0683a;
+    --f-display:"Chakra Petch",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗺</span>
+      <span class="wordmark">The<br>Ascent<small>TO THE MOON 2.0 · ROADMAP</small></span>
+    </div>
+    <a href="index.html" class="home-link">← Guide hub</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The Climb</p>
+      <a href="#start"><span class="ix">00</span> How to Use This</a>
+      <a href="#s0"><span class="ix">01</span> Stage 0 · Landing</a>
+      <a href="#s1"><span class="ix">02</span> Stage 1 · First Machines</a>
+      <a href="#s2"><span class="ix">03</span> Stage 2 · Power &amp; Logistics</a>
+      <a href="#s3"><span class="ix">04</span> Stage 3 · Magic &amp; Gear</a>
+      <a href="#s4"><span class="ix">05</span> Stage 4 · Exploration</a>
+      <a href="#s5"><span class="ix">06</span> Stage 5 · Heavy Industry</a>
+      <a href="#s6"><span class="ix">07</span> Stage 6 · To the Moon</a>
+      <p class="group-label">Reference</p>
+      <a href="#tracks"><span class="ix">08</span> The Parallel Tracks</a>
+      <a href="#links"><span class="ix">09</span> Per-Mod Roadmaps</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.08em;color:var(--ink-faint);line-height:1.7">
+      A suggested route, not a rulebook.<br>The pack has no single forced<br>path — follow the track you<br>enjoy and raid the others for gear.
+    </p>
+  </aside>
+
+  <main class="content">
+    <header class="hero" id="top">
+      <p class="kicker">Minecraft 1.19.2 · Forge · Progression</p>
+      <h1>The Ascent</h1>
+      <p class="lede">A whole-pack roadmap for <strong>To the Moon 2.0</strong>: seven stages that carry you from a stone pickaxe and a cooking pot to fission reactors, a full mage's wardrobe, and a rocket standing on the launch pad. It doesn't replace the individual guides — it <em>sequences</em> them, telling you what to build next and where to read the detail.</p>
+      <div class="badges">
+        <span class="badge accent">7 stages</span>
+        <span class="badge">cross-links every guide</span>
+        <span class="badge">MC 1.19.2 · Forge</span>
+      </div>
+    </header>
+
+    <section class="doc" id="start">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>How to Use This Roadmap</h2>
+      <p class="lead">To the Moon 2.0 is an open pack — there is no single quest gate forcing one order (though the <a href="questline-guide.html">questline companion</a> offers one if you want structure). Most players braid several <strong>tracks</strong> at once: tech, magic, combat, logistics and building.</p>
+      <p>The stages below are <strong>capability tiers</strong>, not a strict checklist. Each stage lists the milestone that "unlocks" the next, the mods you'll lean on, and a tip for not getting stuck. When a stage points at a system, the linked guide has the full detail.</p>
+      <div class="note tip"><span class="label">The golden rule</span><p>Whenever a boss or dungeon out-scales you, drop back a stage and <em>tech up</em> — better tools (<a href="tinkers-guide.html">Tinkers</a>), an <a href="apotheosis-guide.html">Apotheosis</a>-affixed weapon, or a <a href="spellbooks-guide.html">spell</a> — then return. The pack is balanced around bouncing between tracks.</p></div>
+      <div class="note warn"><span class="label">Before you do anything dangerous</span><p>Set up your safety net first: a <a href="tombstone-guide.html">Corail Tombstone</a> grave keeps your gear on death, and a <a href="comforts-guide.html">Comforts</a> sleeping bag lets you rest in the field without moving your spawn. Both pay for themselves the first time a Mutant Creeper finds you.</p></div>
+    </section>
+
+    <section class="doc" id="s0">
+      <p class="sec-index">01 — Stage 0</p>
+      <h2>Landing — the first night</h2>
+      <p>Vanilla survival, but with better food and a softer death penalty. Get fed, armed, and insured.</p>
+      <ol class="flow">
+        <li><strong>Eat well.</strong> Stand up a <a href="farmers-delight-guide.html">Farmer's Delight</a> kitchen — a Cooking Pot over a stove gives hearty, long-lasting meals that beat raw steak for exploration.</li>
+        <li><strong>First real tools.</strong> Build a <a href="tinkers-guide.html">Tinkers' Construct</a> Part Builder + Tinker Station and assemble a pick and a sword you can repair and upgrade forever.</li>
+        <li><strong>Carry capacity.</strong> Craft a <a href="sophisticated-backpacks-guide.html">Sophisticated</a> or <a href="travelers-backpack-guide.html">Traveler's</a> backpack so loot doesn't pin you to base.</li>
+        <li><strong>Insurance.</strong> Sort out <a href="tombstone-guide.html">Tombstone</a> graves and a <a href="comforts-guide.html">Comforts</a> sleeping bag before your first cave dive.</li>
+      </ol>
+      <p><strong>Gate to Stage 1:</strong> a steady food supply, a Tinkers tool set, and enough iron/osmium/tin to start machines.</p>
+    </section>
+
+    <section class="doc" id="s1">
+      <p class="sec-index">02 — Stage 1</p>
+      <h2>First Machines — doubling everything</h2>
+      <p>The moment ore stops being 1:1. Pick a tech entry point (you can run more than one):</p>
+      <div class="cards">
+        <div class="card"><span class="tag">recommended</span><h4><a href="mekanism-guide.html">Mekanism</a></h4><p>Metallurgic Infuser + Enrichment Chamber + Energized Smelter = 2× ore immediately, and the alloys/circuits that unlock the whole pack. See the <a href="mekanism-blueprint.html">Assembly Line</a> for the exact build order.</p></div>
+        <div class="card"><span class="tag">kinetic</span><h4><a href="create-guide.html">Create</a></h4><p>A water wheel + Millstone/Crushing Wheels doubles ore with no power grid — pure mechanical charm.</p></div>
+        <div class="card"><span class="tag">classic</span><h4><a href="tinkers-guide.html">Tinkers Smeltery</a></h4><p>Even a small Smeltery melts ore into extra metal and casts your tool parts — a magic-free multiplication path.</p></div>
+      </div>
+      <h3>Store the output</h3>
+      <p>Bulk single items into <a href="storage-drawers-guide.html">Storage Drawers</a> or <a href="functional-storage-guide.html">Functional Storage</a>; keep an <a href="iron-chests-guide.html">Iron Chest</a> or two for odds and ends.</p>
+      <p><strong>Gate to Stage 2:</strong> a working ore-doubling line and a basic generator you can scale.</p>
+    </section>
+
+    <section class="doc" id="s2">
+      <p class="sec-index">03 — Stage 2</p>
+      <h2>Power &amp; Logistics — make it flow</h2>
+      <p>Stop hand-carrying items and hand-cranking power. Build a grid and let it run.</p>
+      <h3>Power</h3>
+      <ul>
+        <li><a href="mekanism-guide.html">Mekanism</a> Gas-Burning Generator on home-brewed <strong>ethylene</strong> is the mid-game workhorse; <a href="ic2c-guide.html">IC2 Classic</a> offers a parallel EU tech tree (mind the voltage tiers!).</li>
+        <li>Move it without cables using <a href="flux-networks-guide.html">Flux Networks</a> — wireless FE across your whole base.</li>
+      </ul>
+      <h3>Logistics</h3>
+      <ul>
+        <li><a href="pipez-guide.html">Pipez</a> for simple tiered item/fluid/energy/gas runs; <a href="xnet-guide.html">XNet</a> when you want a cheap, fast router with filters; <a href="modular-routers-guide.html">Modular Routers</a> to replace a wall of hoppers with one block.</li>
+        <li>For searchable storage, graduate from drawers to a <a href="toms-storage-guide.html">Tom's Simple Storage</a> terminal, then to a full <a href="ae2-guide.html">Applied Energistics 2</a> network with autocrafting.</li>
+        <li>Need conditional logic (do X only when Y)? That's <a href="integrated-dynamics-guide.html">Integrated Dynamics</a>.</li>
+      </ul>
+      <p><strong>Gate to Stage 3:</strong> automated power feeding automated machines, and a storage system you can search.</p>
+    </section>
+
+    <section class="doc" id="s3">
+      <p class="sec-index">04 — Stage 3</p>
+      <h2>Magic &amp; Gear — sharpen the edge</h2>
+      <p>Now arm yourself for what's out there. These tracks run in parallel with tech.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">blood</span><h4><a href="blood-magic-guide.html">Blood Magic</a></h4><p>Build the altar, ring it with runes, and start the LP economy. The <a href="blood-magic-roadmap.html">Long Bleed</a> roadmap sequences it act by act.</p></div>
+        <div class="card"><span class="tag">arcane</span><h4><a href="spellbooks-guide.html">Iron's Spells</a></h4><p>Pick a school, stack spell power + cooldown gear, and carry a spell-book offhand for ranged punch.</p></div>
+        <div class="card"><span class="tag">loot</span><h4><a href="apotheosis-guide.html">Apotheosis</a></h4><p>Reforge affixed gear, socket gems, and master the Eterna/Quanta/Arcana enchanting rework for top-tier enchants.</p></div>
+        <div class="card"><span class="tag">forge</span><h4><a href="tinkers-guide.html">Tinkers Modifiers</a></h4><p>A full Smeltery lets you cast Manyullyn/Hepatizon parts and stack modifiers into a weapon that out-scales vanilla netherite.</p></div>
+      </div>
+      <p><strong>Gate to Stage 4:</strong> a weapon and armour set you trust against a mini-boss, plus healing, totems and a grave net.</p>
+    </section>
+
+    <section class="doc" id="s4">
+      <p class="sec-index">05 — Stage 4</p>
+      <h2>Exploration — raid the world</h2>
+      <p>The pack is packed with structures and bosses that drop gear you can't craft. Go take it.</p>
+      <ul>
+        <li><strong>Structures:</strong> <a href="yungs-guide.html">YUNG's</a> overhauled dungeons/strongholds/temples, <a href="when-dungeons-arise-guide.html">When Dungeons Arise</a> keeps and galleons, and the multi-floor <a href="dungeon-crawl-guide.html">Dungeon Crawl</a>. Use the <a href="exploration-guide.html">Cartographer's Journal</a> as the overview map.</li>
+        <li><strong>A whole dimension:</strong> open the <a href="twilight-forest-guide.html">Twilight Forest</a> and start its locked boss ladder (Naga first).</li>
+        <li><strong>Hunt bosses:</strong> <a href="mowzies-mobs-guide.html">Mowzie's</a> lair bosses and <a href="mutant-monsters-guide.html">Mutant Monsters</a> for unique gear — read the <a href="mobs-guide.html">Wilds Bestiary</a> for tactics.</li>
+        <li><strong>Shop:</strong> trade with <a href="goblin-traders-guide.html">Goblin Traders</a> while you're underground anyway.</li>
+      </ul>
+      <p><strong>Gate to Stage 5:</strong> boss-tier loot and the resources (uranium, advanced alloys) to go nuclear.</p>
+    </section>
+
+    <section class="doc" id="s5">
+      <p class="sec-index">06 — Stage 5</p>
+      <h2>Heavy Industry — the big multiblocks</h2>
+      <p>Scale everything. This is where Mekanism's late game and AE2's autocrafting take over your base.</p>
+      <ol class="flow">
+        <li><strong>Go nuclear.</strong> A <a href="mekanism-guide.html">Mekanism</a> Boiler + Industrial Turbine on a Fission Reactor produces orders of magnitude more power — store the surplus in an Induction Matrix. (Respect the meltdown warnings.)</li>
+        <li><strong>Autocraft it all.</strong> A full <a href="ae2-guide.html">AE2</a> network with Crafting CPUs and Pattern Providers turns "go make 64 of X" into one click.</li>
+        <li><strong>Suit up.</strong> Assemble the <strong>MekaSuit</strong> and Meka-Tool and load them with modules — flight, auto-feed, radiation immunity, vein mining. This is your endgame body.</li>
+        <li><strong>Bridge your grids.</strong> If you ran IC2 too, use the <a href="mekanism-ic2c-bridge.html">EU/FE Bridge</a> so every system shares power.</li>
+      </ol>
+      <p><strong>Gate to Stage 6:</strong> abundant power, a MekaSuit, and the alloys/plates a rocket demands.</p>
+    </section>
+
+    <section class="doc" id="s6">
+      <p class="sec-index">07 — Stage 6</p>
+      <h2>To the Moon — and the apex fights</h2>
+      <p>The pack's namesake. With a tech base humming and a wardrobe of boss gear, leave the planet.</p>
+      <ul>
+        <li><strong>Build a rocket.</strong> Follow <a href="ad-astra-guide.html">Ad Astra</a> through the Tier 1–4 rockets, oxygen distributors and space suits, and reach the Moon → Mars → Venus → Mercury → Glacio, setting up sealed off-world bases.</li>
+        <li><strong>Finish the boss ladders.</strong> Clear the <a href="twilight-forest-guide.html">Twilight Forest</a> up to the Snow Queen, and take on <a href="cataclysm-guide.html">L_Ender's Cataclysm</a>'s structure-bosses across every dimension for the strongest gear in the pack.</li>
+        <li><strong>The final flex.</strong> Mekanism's Fusion Reactor and SPS turn fission waste into <strong>antimatter</strong>, feeding the Antiprotonic Nucleosynthesizer — the literal endgame fabricator.</li>
+      </ul>
+      <div class="note tip"><span class="label">There is no "end"</span><p>Once you're off-world with a fusion plant and antimatter, the pack becomes a sandbox: perfect your <a href="building-guide.html">builds</a>, automate the last holdouts, and decorate that space station. The journey was the point.</p></div>
+    </section>
+
+    <section class="doc" id="tracks">
+      <p class="sec-index">08 — At a glance</p>
+      <h2>The Parallel Tracks</h2>
+      <p>Most players push several tracks in parallel. Here's roughly where each sits at each stage — use it to spot what you've been neglecting.</p>
+      <div class="data-table">
+        <table>
+          <caption>Tracks across the seven stages</caption>
+          <thead><tr><th>Stage</th><th>Tech / Power</th><th>Logistics</th><th>Magic / Gear</th><th>Combat / World</th></tr></thead>
+          <tbody>
+            <tr><td>0 · Landing</td><td>—</td><td>Backpack</td><td>Tinkers tools</td><td>Tombstone + Comforts</td></tr>
+            <tr><td>1 · Machines</td><td>Ore 2× + generator</td><td>Drawers</td><td>Tinkers Smeltery</td><td>Iron-tier gear</td></tr>
+            <tr><td>2 · Flow</td><td>Ethylene / IC2 · Flux</td><td>Pipez / XNet · Tom's→AE2</td><td>—</td><td>Cave dives</td></tr>
+            <tr><td>3 · Edge</td><td>Bigger power</td><td>AE2 autocraft start</td><td>Blood Magic · Spells · Apotheosis</td><td>Mini-bosses</td></tr>
+            <tr><td>4 · Raid</td><td>Uranium sourcing</td><td>Integrated Dynamics logic</td><td>Affixed/socketed gear</td><td>YUNG's · WDA · Twilight</td></tr>
+            <tr><td>5 · Industry</td><td>Fission · Turbine · Matrix</td><td>Full AE2 CPUs</td><td>MekaSuit</td><td>Mowzie's · Mutants</td></tr>
+            <tr><td>6 · Moon</td><td>Fusion · SPS · antimatter</td><td>QIO / wireless</td><td>Max gear</td><td>Ad Astra · Cataclysm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc" id="links">
+      <p class="sec-index">09 — Go deeper</p>
+      <h2>Per-Mod Roadmaps &amp; the Questline</h2>
+      <p>Three companion routes drill into a single track in tick-by-tick detail:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">structured</span><h4><a href="questline-guide.html">The Questline</a></h4><p>An FTB-Quests-style chapter walkthrough of the whole pack if you prefer concrete objectives and rewards over a loose roadmap.</p></div>
+        <div class="card"><span class="tag">mekanism</span><h4><a href="mekanism-blueprint.html">The Assembly Line</a></h4><p>Mekanism stage by stage, from first power to a fully-modded MekaSuit, with the multiblocks raised inline.</p></div>
+        <div class="card"><span class="tag">blood magic</span><h4><a href="blood-magic-roadmap.html">The Long Bleed</a></h4><p>Blood Magic from your first heart of LP to an automated Tier-5 altar, in tickable acts.</p></div>
+      </div>
+      <p>And the full library lives on the <a href="index.html">guide hub</a> — every mod in the pack has a page.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Ascent</strong><br>
+      An unofficial progression roadmap for To the Moon 2.0 (MC 1.19.2 Forge).<br>
+      A suggested route only — the pack does not force a single path.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Sequences:<br>
+      · every mod guide in the hub<br>
+      · the Mekanism &amp; Blood Magic roadmaps<br>
+      · the questline companion
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Fan-made and unofficial. Balance and progression vary with the pack's config and the FTB Quests book — treat this as guidance, not gospel.</p>
+</footer>
+
+<script type="module">import { initChrome } from "./assets/js/guide-chrome.js"; initChrome();</script>
+</body>
+</html>
