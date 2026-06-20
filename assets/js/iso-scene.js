@@ -71,6 +71,14 @@ export function renderSceneSVG(def) {
       body += poly([pj(x1, y, z1), pj(x1, yr, z), pj(x, yr, z), pj(x, y, z1)], shade(c, -0.06)); // east edge band
       body += poly([pj(x, y, z1), pj(x1, y, z1), pj(x1, yr, z), pj(x, yr, z)], shade(c, 0.10)); // top slope
     },
+    wedge(o) { // right triangular prism (ramp/buttress/embankment). Low at z, high at z+d
+      const { x, y, z, w, h, d, c } = o, flip = o.flip ? 1 : 0;
+      const z1 = z + d, x1 = x + w, yh = y + h;
+      const zh = flip ? z : z1; // high (vertical) edge
+      body += poly([pj(x, y, zh), pj(x1, y, zh), pj(x1, yh, zh), pj(x, yh, zh)], shade(c, -0.20)); // vertical face
+      body += poly([pj(x, y, flip ? z1 : z), pj(x1, y, flip ? z1 : z), pj(x1, yh, zh), pj(x, yh, zh)], shade(c, 0.11)); // sloped top
+      body += poly([pj(x1, y, flip ? z1 : z), pj(x1, y, zh), pj(x1, yh, zh)], shade(c, -0.07)); // east triangle
+    },
     cyl(o) {
       const { x, y, z, r, h, c, n = 18 } = o;
       const segs = [];

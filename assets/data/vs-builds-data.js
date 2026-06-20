@@ -6,46 +6,32 @@
    generator (tools/build-pattern-book.mjs) and the offline render check.
    ========================================================================== */
 
-const P = {
-  ground: "#473d2c", soil: "#4f4334", water: "#356b7d", mud: "#5a4a33",
-  log: "#7a5c3a", plaster: "#9a8763", stone: "#8d8475", whitestone: "#cdc6b5",
-  wood: "#5a4630", post: "#483724",
-  thatch: "#6e4630", shingle: "#6d4a30", roofdk: "#5b3b2a",
-  glass: "#9fd0d8", clay: "#a85c3c", metal: "#6b6b6b", black: "#2c2620",
-  cloth: "#d9cdae", green: "#3f5d2f", crop: "#6f8a3a", hay: "#c8a84a",
-  red: "#a23b2b", fire: "#d2691e", glow: "#ffe39a",
-};
-
-const rep = (n, fn) => Array.from({ length: n }, (_, i) => fn(i));
-const tree = (x, z, s = 1) => [
-  { t: "cyl", x, y: 0, z, r: 0.32 * s, h: 1.6 * s, c: P.wood, n: 8 },
-  { t: "dome", x, y: 1.4 * s, z, r: 1.3 * s, h: 1.7 * s, c: P.green, n: 12, lat: 4 },
-];
+import { P, rep, tree, fence } from "./builds/_kit.js";
 
 export const GROUPS = [
-  { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters",
-    intro: "Get a roof over your head fast. None of these are pretty, but each one survives a night while you scout the spot for something permanent." },
-  { id: "homes", index: "02", kicker: "Settling in", title: "Homes",
-    intro: "The builds you actually live in for a season or three: log cabins, cob cottages, longhouses and a house on stilts over the water." },
-  { id: "grand", index: "03", kicker: "Built to last", title: "Grand & stone",
-    intro: "When the base is established and stone is cheap: two-storey homesteads, a manor with wings, a keep, a watchtower and a lighthouse." },
-  { id: "work", index: "04", kicker: "Making things", title: "Workshops",
-    intro: "Sheds and halls for the trades — smithing, sawing, tanning, brewing, baking, weaving and stabling." },
-  { id: "furnace", index: "05", kicker: "Fire & ore", title: "Furnaces & industry",
-    intro: "The hot end of the tech tree: charcoal pits, kilns, the bloomery, a blast furnace, a cementation furnace and a clay quarry." },
-  { id: "farm", index: "06", kicker: "Food & beasts", title: "Farming & livestock",
-    intro: "Feed the base: tilled fields, an orchard, a greenhouse, granary and barn, plus coops, sties, dovecotes, hives and haystacks." },
-  { id: "power", index: "07", kicker: "Work while you sleep", title: "Power & water",
-    intro: "Automate the grind and secure the water: windmills, a waterwheel, a well, a water tower, a cistern and a helve-hammer shed." },
-  { id: "defence", index: "08", kicker: "Keeping trouble out", title: "Defence & walls",
-    intro: "Walls, gates and lookouts: a palisade gate, a stone gatehouse, a city wall with a walkway, a signal beacon and a blockhouse." },
-  { id: "cross", index: "09", kicker: "Over the water", title: "Crossings & waterworks",
-    intro: "Span the gap and reach the deep: a pier bridge, an arched stone bridge, a jetty, a boathouse and an aqueduct." },
-  { id: "mine", index: "10", kicker: "Down & stored", title: "Mining & storage",
-    intro: "The works around a dig and the stores that keep food: a mine adit, a headframe, a root cellar, an ice house, a grain silo and a market stall." },
+  { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters", intro: "Get a roof over your head fast. None are pretty, but each survives a night while you scout for somewhere permanent." },
+  { id: "homes", index: "02", kicker: "Settling in", title: "Homes", intro: "The builds you actually live in for a season or three: cabins, cottages, longhouses, timber-frame and houses over the water." },
+  { id: "grand", index: "03", kicker: "Built to last", title: "Grand & stone", intro: "When the base is established and stone is cheap: homesteads, manors, halls, keeps and chateaux." },
+  { id: "work", index: "04", kicker: "Making things", title: "Workshops", intro: "Sheds and halls for the trades — smithing, sawing, tanning, brewing, baking, weaving, glass and carpentry." },
+  { id: "furnace", index: "05", kicker: "Fire & ore", title: "Furnaces & industry", intro: "The hot end of the tech tree: charcoal, kilns, bloomeries, blast and cementation furnaces, foundries and quarries." },
+  { id: "farm", index: "06", kicker: "Food & crops", title: "Farming & crops", intro: "Feed the base: tilled fields, terraces, orchards, vineyards, greenhouses and the stores that hold the harvest." },
+  { id: "animals", index: "07", kicker: "Beasts", title: "Livestock & animals", intro: "Housing for the herd and flock: barns, stables, coops, sties, dovecotes, hives, folds and ponds." },
+  { id: "power", index: "08", kicker: "Mechanical power", title: "Power & machines", intro: "Turn wind, water and gears into work: windmills, waterwheels, helve hammers, gear towers and powered mills." },
+  { id: "water", index: "09", kicker: "Water & sanitation", title: "Water & sanitation", intro: "Catch, lift, carry and clean water: wells, towers, cisterns, fountains, aqueducts, baths and drains." },
+  { id: "defence", index: "10", kicker: "Keeping trouble out", title: "Defence & fortification", intro: "Walls, gates and strongpoints: palisades, curtain walls, gatehouses, bastions, moats and drawbridges." },
+  { id: "cross", index: "11", kicker: "Over the gap", title: "Crossings & transport", intro: "Span the gap and move goods: bridges, causeways, jetties, roads, rail and carts." },
+  { id: "mine", index: "12", kicker: "Down & deep", title: "Mining & underground", intro: "The works around a dig: adits, headframes, shafts, sorting floors and prospect camps." },
+  { id: "monument", index: "13", kicker: "Faith & memory", title: "Temples & monuments", intro: "Build for awe: shrines, chapels, cathedrals, standing stones, obelisks, statues and tombs." },
+  { id: "civic", index: "14", kicker: "Town life", title: "Civic & social", intro: "The shared buildings of a settlement: markets, inns, halls, libraries, schools and bathhouses." },
+  { id: "garden", index: "15", kicker: "Pure cosmetic", title: "Decorative & garden", intro: "Nothing functional, all charm: gazebos, pergolas, fountains, hedges, topiary, ponds, benches and lamps." },
+  { id: "towers", index: "16", kicker: "Going up", title: "Towers & verticals", intro: "Tall things for sight, sound and show: watchtowers, clock and bell towers, observatories and spires." },
+  { id: "coast", index: "17", kicker: "By the sea", title: "Coastal & naval", intro: "Where land meets water: lighthouses, piers, boathouses, shipyards, fish racks and harbour cranes." },
+  { id: "store", index: "18", kicker: "Keeping it", title: "Storage & logistics", intro: "Hold the surplus: warehouses, silos, granaries, woodsheds, ice houses and barrel yards." },
+  { id: "advanced", index: "19", kicker: "Master works", title: "Advanced contraptions", intro: "Big, complex, mechanical: powered mill complexes, ore washeries, crane gantries, clockworks and gear halls." },
+  { id: "wild", index: "20", kicker: "Out in the wild", title: "Wilderness & utility", intro: "Out-camps and odd jobs: hunting blinds, fishing huts, trapper cabins, lookouts, signposts and cairns." },
 ];
 
-export const SCENES = [
+const CORE = [
   /* ----------------------------------------------------------- QUICK SHELTERS */
   { id: "leanto", group: "camp", title: "Lean-to shelter", tags: ["Day one", "Temporary"],
     meta: { size: "6×4", materials: "Logs, sticks, dry grass", best: "A roof over your head on night one" },
@@ -441,7 +427,7 @@ export const SCENES = [
       { t: "box", x: 2.4, y: 0, z: 5.05, w: 0.8, h: 1.7, d: 0.12, c: P.wood },
       { t: "gable", x: 0, y: 4.6, z: 0, w: 5.5, d: 5, rise: 2.4, axis: "x", c: P.thatch },
     ] },
-  { id: "barn", group: "farm", title: "Barn & paddock", tags: ["Livestock", "Storage"],
+  { id: "barn", group: "animals", title: "Barn & paddock", tags: ["Livestock", "Storage"],
     meta: { size: "7×6 + pen", materials: "Logs, thatch, fencing", best: "Housing animals and feed" },
     note: "A big door for hauling, a steep roof for hay and a fenced paddock alongside for grazing.",
     parts: [
@@ -454,7 +440,7 @@ export const SCENES = [
       { t: "box", x: 8, y: 0.8, z: 6.15, w: 5.3, h: 0.18, d: 0.18, c: P.post },
       { t: "box", x: 13, y: 0.8, z: 1.8, w: 0.18, h: 0.18, d: 4.4, c: P.post },
     ] },
-  { id: "coop", group: "farm", title: "Chicken coop", tags: ["Poultry", "Raised"],
+  { id: "coop", group: "animals", title: "Chicken coop", tags: ["Poultry", "Raised"],
     meta: { size: "3×3 + run", materials: "Planks, wire/fence", best: "Eggs and meat from hens" },
     note: "A raised hutch with a ramp and a fenced run. Off the ground keeps it dry and predator-shy.",
     parts: [
@@ -467,7 +453,7 @@ export const SCENES = [
       ...[[3.6, 0], [6.5, 0], [3.6, 3], [6.5, 3]].map(([x, z]) => ({ t: "box", x, y: 0, z, w: 0.18, h: 1.2, d: 0.18, c: P.post })),
       { t: "box", x: 3.6, y: 0.9, z: 0, w: 2.9, h: 0.14, d: 0.14, c: P.post },
     ] },
-  { id: "pigsty", group: "farm", title: "Pigsty", tags: ["Pigs", "Mud"],
+  { id: "pigsty", group: "animals", title: "Pigsty", tags: ["Pigs", "Mud"],
     meta: { size: "6×5 pen", materials: "Rails, a shelter", best: "Raising pigs for meat and fat" },
     note: "A low-railed pen with a wallow and a corner shelter. Pigs root everything, so fence it well.",
     parts: [
@@ -480,7 +466,7 @@ export const SCENES = [
       { t: "box", x: 0.4, y: 0, z: 0.4, w: 2, h: 1.4, d: 2, c: P.log },
       { t: "shed", x: 0.2, y: 1.4, z: 0.2, w: 2.4, d: 2.4, rise: 0.8, c: P.thatch },
     ] },
-  { id: "dovecote", group: "farm", title: "Dovecote", tags: ["Birds", "Tower"],
+  { id: "dovecote", group: "animals", title: "Dovecote", tags: ["Birds", "Tower"],
     meta: { size: "3×3 tower", materials: "Plaster, timber", best: "Pigeons for eggs and meat" },
     note: "A little tower full of nesting holes under a conical cap. Birds come and go as they please.",
     parts: [
@@ -491,7 +477,7 @@ export const SCENES = [
       { t: "door", face: "S", x: -0.5, y: 0, z: 1.0, w: 1, h: 1.8, c: P.wood },
       { t: "cone", x: 0, y: 5, z: 0, r: 1.7, h: 1.6, c: P.roofdk, n: 16 },
     ] },
-  { id: "apiary", group: "farm", title: "Apiary", tags: ["Bees", "Honey"],
+  { id: "apiary", group: "animals", title: "Apiary", tags: ["Bees", "Honey"],
     meta: { size: "5×3", materials: "Skeps, a bench", best: "Honey and wax from hives" },
     note: "A row of skeps on a bench near flowers. Honey sweetens food; wax seals and waterproofs.",
     parts: [
@@ -500,7 +486,7 @@ export const SCENES = [
       ...[[1.2, 1.2], [2.8, 1.2], [4.4, 1.2]].map(([x, z]) => ({ t: "dome", x, y: 0.8, z, r: 0.6, h: 0.9, c: P.hay, n: 10, lat: 3 })),
       ...[[6, 3], [6.6, 3.6], [5.6, 3.8]].map(([x, z]) => ({ t: "box", x, y: 0, z, w: 0.15, h: 0.7, d: 0.15, c: P.crop })),
     ] },
-  { id: "haystack", group: "farm", title: "Haystack", tags: ["Feed", "Simple"],
+  { id: "haystack", group: "animals", title: "Haystack", tags: ["Feed", "Simple"],
     meta: { size: "4×4 mound", materials: "Dried grass", best: "Storing winter feed outdoors" },
     note: "A thatched cone of dried grass. Cheap winter feed; cap it well so the rain runs off.",
     parts: [
@@ -531,7 +517,7 @@ export const SCENES = [
       { t: "gable", x: -0.4, y: 4, z: -1.4, w: 5.8, d: 4.8, rise: 2.4, axis: "z", c: P.shingle },
       { t: "sails", x: -2, y: 2.6, z: 4.3, r: 2.6, n: 8, tilt: 0, bw: 0.7, plane: "zy", c: P.wood },
     ] },
-  { id: "well", group: "power", title: "Covered well", tags: ["Water", "Utility"],
+  { id: "well", group: "water", title: "Covered well", tags: ["Water", "Utility"],
     meta: { size: "3×3", materials: "Stone, timber, rope", best: "Clean water at the doorstep" },
     note: "A stone ring, two posts and a little gable to keep rain out. Dig to the water table first.",
     parts: [
@@ -541,7 +527,7 @@ export const SCENES = [
       { t: "box", x: -0.2, y: 1.4, z: 1.3, w: 0.4, h: 3, d: 0.4, c: P.wood },
       { t: "gable", x: -1.4, y: 4, z: -2, w: 2.8, d: 4, rise: 1.4, axis: "x", c: P.roofdk },
     ] },
-  { id: "watertower", group: "power", title: "Water tower", tags: ["Storage", "Pressure"],
+  { id: "watertower", group: "water", title: "Water tower", tags: ["Storage", "Pressure"],
     meta: { size: "3×3 × tall", materials: "Timber frame, a tank", best: "Gravity-fed water across a base" },
     note: "A tank up on a timber frame. Height gives pressure, so it can feed troughs and fountains downhill.",
     parts: [
@@ -553,7 +539,7 @@ export const SCENES = [
       { t: "cone", x: 0, y: 7.4, z: 0, r: 2.1, h: 1.2, c: P.roofdk, n: 18 },
       { t: "box", x: 0.2, y: 0, z: 1.8, w: 0.3, h: 5, d: 0.3, c: P.metal },
     ] },
-  { id: "cistern", group: "power", title: "Cistern & pump", tags: ["Water", "Reserve"],
+  { id: "cistern", group: "water", title: "Cistern & pump", tags: ["Water", "Reserve"],
     meta: { size: "5×5 tank", materials: "Stone, a pump", best: "Catching and storing rainwater" },
     note: "A stone tank that holds rain, with a pump to draw it. A dry-season reserve that needs no stream.",
     parts: [
@@ -762,3 +748,5 @@ export const SCENES = [
       ...[[0.6, 2.7], [1.6, 2.7], [2.6, 2.7]].map(([x, z]) => ({ t: "box", x, y: 1.2, z, w: 0.5, h: 0.4, d: 0.5, c: P.hay })),
     ] },
 ];
+
+export const SCENES = [...CORE];

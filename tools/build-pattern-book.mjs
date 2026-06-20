@@ -10,14 +10,19 @@ import { dirname, join } from "path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const count = SCENES.length;
 
-const nav = GROUPS.map((g) =>
-  `      <a href="#${g.id}"><span class="ix">${g.index}</span> ${g.title}</a>`).join("\n");
+// only groups that actually have scenes, numbered sequentially
+const used = GROUPS.filter((g) => SCENES.some((s) => s.group === g.id))
+  .map((g, i) => ({ ...g, n: String(i + 1).padStart(2, "0") }));
 
-const sections = GROUPS.map((g) => {
-  const cards = SCENES.filter((s) => s.group === g.id).map(buildCard).join("\n");
-  return `    <!-- ${g.index} ${g.title} -->
+const nav = used.map((g) =>
+  `      <a href="#${g.id}"><span class="ix">${g.n}</span> ${g.title}</a>`).join("\n");
+
+const sections = used.map((g) => {
+  const inGroup = SCENES.filter((s) => s.group === g.id);
+  const cards = inGroup.map(buildCard).join("\n");
+  return `    <!-- ${g.n} ${g.title} -->
     <section class="doc" id="${g.id}">
-      <p class="sec-index">${g.index} — ${g.kicker}</p>
+      <p class="sec-index">${g.n} — ${g.kicker} · ${inGroup.length} builds</p>
       <h2>${g.title}</h2>
       <p class="lead">${g.intro}</p>
       <div class="buildgrid">
