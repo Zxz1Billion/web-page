@@ -157,7 +157,7 @@
           <tbody>
             <tr><td><strong>Wolf</strong></td><td class="num">2</td><td>Yes</td><td>Very high early — large seek radius, hunts in packs</td></tr>
             <tr><td><strong>Hyena</strong></td><td class="num">2</td><td>Yes</td><td>High in warm regions; small ~10-block radius makes it avoidable</td></tr>
-            <tr><td><strong>Bear</strong></td><td class="num">2–3</td><td>No</td><td>Extreme — high health and high damage; avoid until well-armed</td></tr>
+            <tr><td><strong>Bear</strong></td><td class="num">2</td><td>No</td><td>Extreme — very high health and a heavy ~15-point tier-2 hit; ~20-block aggro. Brown/black in temperate, polar in cold. Avoid until well-armed</td></tr>
           </tbody>
         </table>
       </div>
@@ -174,23 +174,41 @@
       <p class="lead">Not everything here is an animal. The world's broken time bleeds <strong>drifters</strong>, cave <strong>locusts</strong> and <strong>rift creatures</strong> into reality. These are the monsters of Vintage Story — and dealing with them is bound up with <strong>temporal stability</strong>.</p>
 
       <h3>Drifters — the core hostile</h3>
-      <p>The shambling, rasping <strong>drifter</strong> is the creature you'll fight most. They spawn in <strong>low light</strong>, cluster near <strong>rifts</strong>, and during a <strong>temporal storm</strong> they appear <em>everywhere</em> — even in daylight. Deeper, stronger drifter variants hit in <strong>higher damage tiers</strong>, so the same surface tactic that works on a weak drifter can get you killed against a deep-cave one without good armour.</p>
+      <p>The shambling, rasping <strong>drifter</strong> is the creature you'll fight most. They spawn at <strong>light level 7 or below</strong>, cluster near <strong>rifts</strong>, and during a <strong>temporal storm</strong> they appear <em>everywhere</em> — even in daylight. Besides a melee swipe they have a <strong>thrown-rock attack for ~1 damage</strong> when they can't path to you. There are <strong>six tiers</strong>, and deeper/stronger ones hit far harder — and note <strong>tainted &amp; corrupt drifters can spawn on the surface</strong> in low light, not only deep underground, so a night-time fight isn't always against the weak kind.</p>
+      <div class="data-table">
+        <table>
+          <caption>Drifter tiers — relative toughness (HP/damage approximate, config-tunable)</caption>
+          <thead><tr><th>Tier</th><th>HP</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td>Surface (normal)</td><td class="num">~15</td><td>Night surface &amp; shallow, low light</td></tr>
+            <tr><td>Deep</td><td class="num">~25</td><td>Deeper caves; faster, meaner</td></tr>
+            <tr><td>Tainted</td><td class="num">higher</td><td>Deep — but can surface in low light</td></tr>
+            <tr><td>Corrupt</td><td class="num">higher still</td><td>Deep / near a bell; can surface</td></tr>
+            <tr><td>Nightmare</td><td class="num">high</td><td>The deepest layers</td></tr>
+            <tr><td>Double-headed</td><td class="num">highest</td><td>One spawns each temporal storm</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>There's an upside: <strong>killing drifters restores some temporal stability</strong>, and stronger variants restore more. They also drop <strong>temporal gears</strong> — the stability currency that powers translocators, repairs and trade. Fighting drifters is how you both defend and resupply.</p>
 
       <h3>Locusts — metal in the dark</h3>
-      <p><strong>Locusts</strong> are metal insectoid creatures lurking in dark <strong>caves</strong>, usually deep where you go mining. They're tougher than they look in cramped tunnels. The <strong>Clockmaker</strong> class is specifically strong against them, so a Clockmaker deep-miner has an easier time clearing infested caverns.</p>
+      <p><strong>Locusts</strong> are corrupt-metal insectoids lurking in dark <strong>caves</strong>, usually deep where you mine. The common <strong>bronze locust</strong> hits for only ~1.5, but the deep <strong>corrupt locust</strong> hits for ~4 and is far nastier in a cramped tunnel. The <strong>Clockmaker</strong> class is specifically strong against them, so a Clockmaker deep-miner clears infested caverns more easily.</p>
+
+      <h3>The bell — a deep mini-boss</h3>
+      <p>Rarely, deep down, you'll find a <strong>bell</strong>: a stationary object with <strong>enormous HP and no attack of its own</strong>. Get within ~15 blocks and it <strong>rings</strong>, continuously spawning <strong>deep/tainted/corrupt drifters and bronze locusts</strong> in a ~12-block radius until you destroy it. Come prepared or leave it be.</p>
 
       <h3>Rift creatures — born of the surface tears</h3>
-      <p>Surface <strong>rifts</strong> spawn their own horrors — <strong>bowtorn</strong>, <strong>shivers</strong> and similar — which are generally <strong>tougher than basic drifters</strong>. Where a rift glows on the surface, expect a harder fight than the usual nighttime drifter.</p>
+      <p>Surface <strong>rifts</strong> spawn their own horrors. <strong>Bowtorn</strong> carry a <strong>ranged turret attack</strong> (effective ~14–29 blocks, activating if you're within 30) and flee below 30% HP; <strong>shivers</strong> climb walls and bite. Both are <strong>tougher than basic drifters</strong> — where a rift glows on the surface, expect a harder fight than the usual night-time drifter.</p>
 
       <div class="data-table">
         <table>
           <caption>Temporal &amp; hostile creatures → where → drops &amp; notes</caption>
           <thead><tr><th>Creature</th><th>Where it spawns</th><th>Drops / effect</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td><strong>Drifter</strong></td><td>Low light, near rifts, everywhere in storms</td><td>Temporal gears; killing restores stability</td><td>Deeper variants hit at higher tiers &amp; restore more stability</td></tr>
-            <tr><td><strong>Locust</strong></td><td>Dark caves, deep underground</td><td>Metal parts</td><td>Metal insectoid; <strong>Clockmaker</strong> class excels against them</td></tr>
-            <tr><td><strong>Rift creatures</strong><br>(bowtorn, shivers)</td><td>From surface rifts</td><td>Varies by type</td><td>Tougher than basic drifters — armour up</td></tr>
+            <tr><td><strong>Drifter</strong> (6 tiers)</td><td>Light ≤7, near rifts, everywhere in storms</td><td>Temporal gears; killing restores stability</td><td>Melee + ~1-dmg thrown rock; deeper tiers hit harder &amp; restore more</td></tr>
+            <tr><td><strong>Locust</strong></td><td>Dark caves, deep underground</td><td>Metal / temporal loot</td><td>Bronze ~1.5 dmg, corrupt ~4 dmg; <strong>Clockmaker</strong> excels against them</td></tr>
+            <tr><td><strong>Bell</strong></td><td>Rare, deep</td><td>—</td><td>Huge HP, no attack; rings to spawn drifters + locusts within ~12 blocks until destroyed</td></tr>
+            <tr><td><strong>Rift creatures</strong><br>(bowtorn, shivers)</td><td>From surface rifts</td><td>Varies by type</td><td>Bowtorn = ranged turret (~14–29 blocks); shivers climb. Tougher than basic drifters</td></tr>
           </tbody>
         </table>
       </div>

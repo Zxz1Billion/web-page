@@ -56,8 +56,8 @@
         <span class="badge danger">⚡ Storms spawn drifters in daylight</span>
       </div>
       <div class="facts">
-        <div class="f"><div class="k">Surface stability</div><div class="v">~100% <small>mostly safe</small></div></div>
-        <div class="f"><div class="k">Storm cadence</div><div class="v">~10–20 <small>in-game days</small></div></div>
+        <div class="f"><div class="k">Stability scale</div><div class="v">0–150% <small>100% = neutral</small></div></div>
+        <div class="f"><div class="k">Storm cadence</div><div class="v">~10–20 <small>days (speeds up)</small></div></div>
         <div class="f"><div class="k">Gear restore</div><div class="v">~30% <small>per gear, instant</small></div></div>
         <div class="f"><div class="k">Gear cost</div><div class="v">~2 HP <small>self-damage + the gear</small></div></div>
       </div>
@@ -67,23 +67,24 @@
     <section class="doc" id="what">
       <p class="sec-index">00 — The mechanic</p>
       <h2>What It Is</h2>
-      <p class="lead">Temporal stability is a hidden percentage measuring how firmly <em>reality holds together</em> where you are standing. When it's full you'll never see it; the moment it starts to drop, a <strong>stability bar</strong> appears on your HUD and the world begins to misbehave.</p>
+      <p class="lead">Temporal stability is a percentage measuring how firmly <em>reality holds together</em> where you are standing. It runs on a <strong>0–150%</strong> scale where <strong>100% is neutral</strong> — stable surface areas sit at or above 100% (up to 150%), refilling you fast. The moment it starts to drop, a spinning <strong>stability gauge</strong> — a blue gear icon above the hotbar — appears and the world begins to misbehave.</p>
       <p>Most of the world's <strong>surface is stable</strong> — out in daylight, far from a rift, you can live for days without the bar ever appearing. Stability falls in three situations: when you go <strong>deep underground</strong> (the deeper, the worse), when you stand <strong>near a temporal rift</strong>, and during a <strong>temporal storm</strong>. As the number drops, the symptoms escalate.</p>
       <div class="data-table">
         <table>
-          <caption>What low stability does to you (symptoms worsen as the number falls)</caption>
+          <caption>What low stability does to you — and the thresholds where each kicks in</caption>
           <thead><tr><th>Stability</th><th>What you see &amp; feel</th></tr></thead>
           <tbody>
-            <tr><td><strong>High</strong> (surface)</td><td>No bar, no effects. Reality is solid — business as usual.</td></tr>
-            <tr><td><strong>Dropping</strong></td><td>The stability bar appears. Subtle screen <strong>warping</strong> and colour shifts creep in at the edges.</td></tr>
-            <tr><td><strong>Low</strong></td><td>Heavy visual distortion — warping, desaturation, the world "swimming." A clear warning to get out.</td></tr>
-            <tr><td><strong>Very low / zero</strong></td><td>You take <strong>damage over time</strong> and risk being <strong>teleported</strong> elsewhere or attacked by things reaching through the tear.</td></tr>
+            <tr><td><strong>100%+</strong> (surface)</td><td>No gauge, no effects. Areas read up to 150%, so surface time refills you.</td></tr>
+            <tr><td><strong>Below ~50%</strong></td><td>The gear gauge shows and spins (counter-clockwise = losing). Screen <strong>warping</strong> and colour shifts creep in and worsen as it falls.</td></tr>
+            <tr><td><strong>≤ 25%</strong></td><td><strong>Bowtorn force-spawn</strong> around you regardless of light level. Distortion is heavy — leave now.</td></tr>
+            <tr><td><strong>≤ 12%</strong></td><td>You take <strong>unavoidable damage every 4s</strong>, starting ~0.02 HP and rising toward ~0.15 HP per tick near 0%.</td></tr>
+            <tr><td><strong>0%</strong></td><td>You're pulled into the <strong>Rust World</strong> and take continuous damage until your stability recovers.</td></tr>
           </tbody>
         </table>
       </div>
       <div class="note tip">
-        <span class="label">Watch the bar, not the clock</span>
-        <p>The stability bar is your single most important readout underground and during storms. If it's on screen and falling, you're somewhere reality is thin — move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
+        <span class="label">Watch the gauge, not the clock</span>
+        <p>The stability gauge is your single most important readout underground and during storms. A perfectly stable spot refills it (~1% every 4s); a fully unstable one drains it (~1% every 7.5s). If it's on screen and falling, reality is thin where you stand — move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
       </div>
     </section>
 
@@ -110,9 +111,9 @@
       <p>Temporal <strong>rifts</strong> are shimmering tears — "rust world" phenomena that puncture the boundary between your world and the one that's rusting through it. They appear out in the world (more readily at night and where stability is already low) and they do two nasty things at once.</p>
       <ul>
         <li><strong>They spawn hostiles on the surface.</strong> A rift acts as a doorway: <strong>drifters</strong> climb out near it, along with tougher rift creatures — <strong>bowtorn</strong> and <strong>shivers</strong> — that are far meaner than an ordinary night-time drifter. The surface around a rift is genuinely dangerous, day or night.</li>
-        <li><strong>They drain stability fast.</strong> Stand too close and your stability bar plummets. The drain is steep and positional, so the cure is distance — step away and it stops.</li>
+        <li><strong>They drain stability fast.</strong> Stand too close and the gauge plummets — roughly <strong>3% per second</strong>. The drain is steep and positional, so the cure is distance — step away and it stops.</li>
       </ul>
-      <p>Rifts <strong>wax and wane on a cycle</strong>: they flare up, fade, and reappear elsewhere rather than sitting in one spot forever. Rift activity rises and falls over time and can be checked — so you can read when the world is "loud" with rifts versus quiet — but the practical rule never changes.</p>
+      <p>Rifts <strong>wax and wane on a cycle</strong>: they flare up, fade, and reappear elsewhere rather than sitting in one spot forever. This is governed by the world's <strong>Rift Activity</strong> setting, which has three modes: <strong>Visible</strong> (default — rifts are seen, heard, drain nearby stability and spawn drifters), <strong>Invisible</strong> (no visuals/sound or stability drain, but drifters still spawn), and <strong>Off</strong> (no rifts at all — which also disables surface drifter spawns entirely).</p>
       <div class="note danger">
         <span class="label">Never build next to a rift</span>
         <p>A rift beside your base means a steady drip of surface drifters and a permanent stability sink right where you sleep. If one opens near home, keep your distance and wait for the cycle to move it on — don't try to live alongside it.</p>
@@ -125,11 +126,11 @@
       <p class="sec-index">03 — The world event</p>
       <h2>Temporal Storms</h2>
       <p class="lead">A temporal storm is a periodic, world-wide event that arrives roughly <strong>every ~10–20 in-game days</strong>. For its duration, reality frays everywhere and <strong>drifters spawn all around you regardless of light level — even in broad daylight</strong>. It is the single most dangerous recurring event in the game.</p>
-      <p>The crucial mercy is that storms are <strong>telegraphed well in advance</strong>. You get a <strong>warning message</strong> some time before it begins, and as it approaches the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. There's no excuse for being caught out — the game is explicitly giving you time to prepare.</p>
-      <p>Two more things scale with your save:</p>
+      <p>The crucial mercy is that storms are <strong>telegraphed well in advance</strong> with <em>two</em> messages: a <strong>"temporal storm approaching"</strong> warning about <strong>8½ hours</strong> (in-game) ahead, then a final <strong>"imminent"</strong> warning roughly <strong>29 minutes</strong> before it lands. As it nears, the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. There's no excuse for being caught out.</p>
+      <p>A storm itself lasts about <strong>2.4–4.8 in-game hours</strong>, and each comes at an intensity of <strong>Light, Medium or Heavy</strong> (higher = stronger distortion and more stability loss). Two more things scale with your save:</p>
       <ul>
-        <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately — the first temporal storm is days away, giving new players time to get established before the sky ever darkens.</li>
-        <li><strong>Storms escalate.</strong> The further into the game you are, the more <strong>intense and longer</strong> storms become. The early ones are survivable in a hut; late-game storms are a serious siege.</li>
+        <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately — the first one is days away, and the <strong>first storm is never Heavy</strong>, giving new players room to get established.</li>
+        <li><strong>Storms escalate.</strong> Each storm makes the next <strong>~10% more frequent</strong> (capping at +100%, so the cadence tightens toward ~5–15 days), and average duration/intensity climb over time. Early storms are survivable in a hut; late-game storms are a serious siege.</li>
       </ul>
 
       <h3>The storm routine</h3>

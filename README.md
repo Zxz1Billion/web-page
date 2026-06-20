@@ -43,7 +43,7 @@ config snippets live in `mekanism-ic2c-compat/`).
 The site also hosts a complete, **iPad-friendly** field guide to **Vintage Story** (the
 standalone survival game by Anego Studios — *not* a Minecraft mod), targeting **v1.22.3**,
 Standard world, Commoner class. Its hub is **`vintage-story.html`** (linked from the top of
-`index.html`), leading to 11 self-contained chapters that lean hard into clear, numbered
+`index.html`), leading to 13 self-contained chapters that lean hard into clear, numbered
 How-Tos and interactive build plans:
 
 | File | Guide | Covers |
@@ -62,6 +62,7 @@ How-Tos and interactive build plans:
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
 | `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |
 | `vs-locations.html` | Ruins & Wayfarers | Ruins, translocators, traders, the 1.22 dynamic dungeon, spoiler-light story |
+| `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, anvils, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
 
 These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
 add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via

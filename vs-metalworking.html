@@ -140,16 +140,22 @@
       <p>Heat needs fuel, and not all fuel burns equally hot or long. From handy to high-grade:</p>
       <div class="data-table">
         <table>
-          <caption>Solid fuels, low grade → high grade</caption>
-          <thead><tr><th>Fuel</th><th>Character</th></tr></thead>
+          <caption>Solid fuels, low grade → high grade (max temperatures, °C)</caption>
+          <thead><tr><th>Fuel</th><th>Max temp</th><th>Character</th></tr></thead>
           <tbody>
-            <tr><td>Peat</td><td>Cheap surface fuel; warm enough for the fire pit and copper, but burns out fast.</td></tr>
-            <tr><td>Lignite (brown coal)</td><td>Step up from peat; modest heat.</td></tr>
-            <tr><td>Bituminous coal</td><td>Hotter, longer-burning; good general furnace fuel.</td></tr>
-            <tr><td>Anthracite</td><td>The hottest natural coal.</td></tr>
-            <tr><td><strong>Charcoal</strong></td><td>You make it (section 07). The key high-temp fuel, the <strong>bloomery's</strong> fuel, and the <strong>carbon for steel</strong>.</td></tr>
+            <tr><td>Firewood</td><td class="num">~600–800</td><td>Fine for cooking &amp; the pit kiln; too cool to smelt metal on its own.</td></tr>
+            <tr><td>Peat</td><td class="num">~low</td><td>Cheap surface fuel; burns out fast. Marginal — only just reaches copper when bellowed.</td></tr>
+            <tr><td>Lignite (brown coal)</td><td class="num">1100</td><td>Lowest-temp coal; OK for copper/bronze but <strong>too cool for the bloomery</strong>.</td></tr>
+            <tr><td>Bituminous coal</td><td class="num">~1300</td><td>Hot, long-burning; good general furnace fuel; bloomery-capable.</td></tr>
+            <tr><td>Anthracite</td><td class="num">~1500</td><td>Hottest natural coal; the <strong>longest burn</strong> of any fuel.</td></tr>
+            <tr><td><strong>Charcoal</strong></td><td class="num">1300</td><td>You make it (section 07). Bloomery-capable and the <strong>carbon for steel</strong>.</td></tr>
+            <tr><td>Coke</td><td class="num">1340</td><td>Manufactured from coal in a coke oven; the hottest practical fuel.</td></tr>
           </tbody>
         </table>
+      </div>
+      <div class="note">
+        <span class="label">Two fuel rules that catch people out</span>
+        <p>(1) <strong>Bellows matter:</strong> without a bellows worked, a fuel only reaches about <strong>60%</strong> of its rated temperature — which is why a fire pit needs the bellows (or a forge) to actually melt copper. (2) The <strong>bloomery</strong> isn't charcoal-only: it accepts any fuel that reaches ≥<strong>1200°C</strong> — <strong>charcoal, anthracite, or bituminous (black) coal</strong> — but <em>not</em> lignite, which is too cool.</p>
       </div>
       <div class="note warn">
         <span class="label">You need copper before you need iron</span>
@@ -163,8 +169,8 @@
       <h2>The Crucible &amp; Smelting</h2>
       <p>To melt ore you need a <strong>crucible</strong>: a fire-clay vessel that holds your ore nuggets while heat does the work. You form it from <strong>fire clay</strong> on the clay-forming grid and harden it in a <strong>pit kiln</strong> before it can take the fire — both covered in <a href="vs-crafting.html#clay">The Four Crafts</a>.</p>
       <ol class="flow">
-        <li><strong>Fill the crucible.</strong> Right-click ore nuggets into it — a full crucible holds enough for a useful pour. One metal at a time for pure copper; a deliberate mix for an alloy (section 03).</li>
-        <li><strong>Heat it.</strong> Place the filled crucible in a <strong>fire pit</strong> (or, later, a <strong>forge</strong>) and feed it fuel. With <strong>charcoal or peat</strong> a fire pit reaches copper's melting point.</li>
+        <li><strong>Fill the crucible.</strong> Right-click ore nuggets into it — it holds a large batch, enough for several ingots in one pour (<strong>1 ingot = 100 units = 20 nuggets</strong>). One metal at a time for pure copper; a deliberate mix for an alloy (section 03).</li>
+        <li><strong>Heat it.</strong> Place the filled crucible in a <strong>fire pit</strong> (or, later, a <strong>forge</strong>) and feed it fuel. With <strong>charcoal</strong> and the <strong>bellows worked</strong>, a fire pit reaches copper's melting point (1084°C) — without a bellows most fuels manage only ~60% of their rated heat.</li>
         <li><strong>Watch it melt.</strong> The contents turn molten when they pass the metal's melting temperature — the crucible's tooltip shows the temperature and the units of liquid metal inside.</li>
         <li><strong>Pour.</strong> Pick up the hot crucible and right-click a <strong>mold</strong> to pour (section 04). Mind the heat — hot metal will burn you.</li>
       </ol>
@@ -263,7 +269,7 @@
     <section class="doc" id="anvil">
       <p class="sec-index">06 — Shaping iron</p>
       <h2>The Anvil &amp; Smithing Iron</h2>
-      <p>You cannot smith anything without an <strong>anvil</strong>, and the anvil's <strong>tier matters</strong>: a harder metal can only be worked on an anvil made of a metal at least as hard. This is the gate that paces the whole back half of the game.</p>
+      <p>You cannot smith anything without an <strong>anvil</strong>, and the anvil's <strong>tier matters</strong>: an anvil works its own metal tier <strong>and one tier above it</strong> — so a bronze anvil can shape the higher-tier iron, but a copper anvil (two tiers below iron) cannot. This is the gate that paces the whole back half of the game.</p>
       <ul class="ladder">
         <li style="--rung:var(--accent-2)">
           <span class="age">Copper anvil<small>FIRST RUNG</small></span>
@@ -293,13 +299,13 @@
       <div id="charcoal-viewer"></div>
       <ol class="flow">
         <li><strong>Stack firewood logs.</strong> Lay a pile of firewood on the ground — the bigger the pile, the more charcoal per burn.</li>
-        <li><strong>Cover it completely.</strong> Bury the entire stack in <strong>soil or dirt</strong> so no part of the wood is exposed. Any gap lets it burn away instead of smoldering.</li>
-        <li><strong>Ignite it.</strong> Light the pile; sealed under soil, it <strong>smolders</strong> rather than flames.</li>
-        <li><strong>Wait.</strong> Over time the smoldering wood converts to <strong>charcoal</strong>. Dig it out once it's done.</li>
+        <li><strong>Cover it completely.</strong> Bury the entire stack in <strong>soil/dirt</strong> (any non-flammable cover works) so no part of the wood is exposed. Any gap lets it burn to ash instead of smoldering.</li>
+        <li><strong>Ignite, then seal fast.</strong> Light the pile and close the last cover block <strong>within ~30 seconds</strong> of ignition — sealed, it <strong>smolders</strong> rather than flames.</li>
+        <li><strong>Wait ~18 hours.</strong> Over roughly <strong>18 in-game hours</strong> the smoldering wood converts to <strong>charcoal</strong>. Dig it out once it's done.</li>
       </ol>
       <div class="note warn">
         <span class="label">Seal it or lose it</span>
-        <p>An uncovered or leaky pit will simply burn your firewood to nothing. Make sure the soil cover is complete on every side before you light it — and make a lot, because the bloomery and cementation furnace are hungry.</p>
+        <p>An uncovered or leaky pit — or one not sealed within ~30 seconds of lighting — burns your firewood to nothing. Make the cover complete on every side, and make a <em>lot</em>: a single big pit can convert well over a thousand firewood, and the bloomery and cementation furnace are hungry.</p>
       </div>
     </section>
 
@@ -307,11 +313,11 @@
     <section class="doc" id="bloomery">
       <p class="sec-index">08 — Smelting iron</p>
       <h2>The Bloomery</h2>
-      <p>Iron can't be cast and can't be melted in a crucible, so it's smelted in a built <strong>bloomery</strong>: a charcoal-fueled furnace that reduces <strong>iron ore</strong> into a spongy <strong>iron bloom</strong>. The bloom isn't a finished ingot — it has to be hammered to drive out the slag and consolidate the metal.</p>
+      <p>Iron can't be cast and can't be melted in a crucible, so it's smelted in a built <strong>bloomery</strong>: a furnace that reduces <strong>iron ore</strong> into a spongy <strong>iron bloom</strong>. The bloom isn't a finished ingot — it has to be hammered to drive out the slag and consolidate the metal.</p>
       <div id="bloomery-viewer"></div>
       <ol class="flow">
-        <li><strong>Build the bloomery</strong> and load it with <strong>iron ore</strong> and plenty of <strong>charcoal</strong> (its required fuel).</li>
-        <li><strong>Fire it</strong> and let it run hot enough to reduce the ore.</li>
+        <li><strong>Build the bloomery</strong> and load it with <strong>iron ore</strong> (up to <strong>120 nuggets</strong>) and a high-heat fuel — <strong>charcoal, anthracite, or bituminous coal</strong> (anything reaching ≥1200°C; <em>not</em> lignite). Load ore before fuel.</li>
+        <li><strong>Fire it (~10 hours).</strong> It yields <strong>1 bloom per 20 ore nuggets</strong> — up to 6 blooms a burn — then break it open.</li>
         <li><strong>Collect the iron bloom</strong> — a rough, porous lump rather than a clean ingot.</li>
         <li><strong>Hammer the bloom on an anvil</strong> (bronze or better) to consolidate it into <strong>wrought-iron ingots</strong>.</li>
         <li><strong>Forge &amp; smith</strong> those ingots into tools on the anvil, the same as any other metal.</li>
@@ -350,9 +356,9 @@
         <div class="f"><div class="k">Raw output</div><div class="v">Blister steel <small>must be hammered</small></div></div>
       </div>
       <ol class="flow">
-        <li><strong>Build the cementation furnace</strong> and pack its coffin with <strong>iron ingots surrounded by charcoal</strong> — the charcoal is the carbon source and is <strong>not consumed</strong> by the carburizing.</li>
-        <li><strong>Keep it hot.</strong> A full firing takes roughly <strong>6.67 in-game days</strong> of sustained heat — this is the longest single process in the game, so stockpile fuel before you start.</li>
-        <li><strong>Collect blister steel.</strong> The output is <strong>blister steel ingots</strong> — like a bloom, they're not yet usable steel.</li>
+        <li><strong>Build the cementation furnace</strong> (a 5×5 footprint, ~6 blocks tall, of refractory/fire brick with a stone coffin) and pack its coffin with <strong>iron ingots surrounded by charcoal</strong> — up to <strong>16 iron ingots per firing</strong>. The charcoal is the carbon source and is <strong>not consumed</strong> by the carburizing.</li>
+        <li><strong>Keep it hot.</strong> A full firing takes roughly <strong>6.67 in-game days</strong> of sustained heat (≈200 pieces of coal) — the longest single process in the game, so stockpile fuel before you start.</li>
+        <li><strong>Collect blister steel.</strong> You get <strong>16 blister steel ingots</strong> (1:1 from the iron you packed) — but, like a bloom, they're not yet usable steel.</li>
         <li><strong>Hammer the blister steel</strong> on an <strong>iron anvil</strong> (or under a <strong>helve hammer</strong>) to consolidate it into proper <strong>steel ingots</strong>.</li>
         <li><strong>Smith</strong> the steel ingots into the best tools, weapons and armour in the game.</li>
       </ol>

@@ -28,6 +28,7 @@ const ALMANAC = [
   { f: "vs-world.html",            t: "The World",            s: "🧭" },
   { f: "vs-creatures.html",        t: "The Bestiary",         s: "🐺" },
   { f: "vs-locations.html",        t: "Ruins & Wayfarers",    s: "🏛" },
+  { f: "vs-reference.html",        t: "The Codex",            s: "📊" },
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");

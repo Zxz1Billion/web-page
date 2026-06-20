@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Codex — Vintage Story reference tables (v1.22.3)</title>
+<meta name="description" content="The definitive Vintage Story 1.22.3 reference: melting points, every alloy ratio, the full ore &amp; host-rock table, fuel temperatures, anvil tiers, prospecting readout ladders, crops &amp; soil nutrients, nutrition &amp; health numbers, meal shelf life, food-preservation multipliers, temporal-storm timings, a creature stat table, all seven character classes, the calendar and default controls — sourced and cross-checked." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📊</span>
+      <span class="wordmark">The<br>Codex<small>VINTAGE STORY · REFERENCE</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Metal &amp; stone</p>
+      <a href="#metals"><span class="ix">01</span> Metals &amp; Melting</a>
+      <a href="#alloys"><span class="ix">02</span> Alloys</a>
+      <a href="#ores"><span class="ix">03</span> Ores &amp; Hosts</a>
+      <a href="#fuels"><span class="ix">04</span> Fuels &amp; Heat</a>
+      <a href="#anvils"><span class="ix">05</span> Anvils &amp; Units</a>
+      <a href="#prospect"><span class="ix">06</span> Prospecting Readouts</a>
+      <a href="#rocks"><span class="ix">07</span> Rock Types</a>
+      <p class="group-label">Hearth &amp; field</p>
+      <a href="#crops"><span class="ix">08</span> Crops &amp; Soil</a>
+      <a href="#nutrition"><span class="ix">09</span> Nutrition &amp; Health</a>
+      <a href="#meals"><span class="ix">10</span> Meals &amp; Preservation</a>
+      <p class="group-label">World &amp; danger</p>
+      <a href="#temporal"><span class="ix">11</span> Temporal Numbers</a>
+      <a href="#creatures"><span class="ix">12</span> Creature Stats</a>
+      <a href="#classes"><span class="ix">13</span> Character Classes</a>
+      <a href="#calendar"><span class="ix">14</span> Calendar &amp; World</a>
+      <a href="#controls"><span class="ix">15</span> Default Controls</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Cross-checked against the VS<br>wiki, patch notes &amp; community<br>guides for <b style="color:var(--accent)">v1.22.3</b>. Numbers are<br>config-tunable; the in-game<br>Survival Handbook is final word.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Reference</p>
+      <h1>The Codex</h1>
+      <p class="lede">Every number worth knowing, on one page. This is the fact-checked appendix to the whole Almanac — melting points and alloy ratios, ore hosts and fuel temperatures, prospecting ladders, crop nutrients, nutrition and preservation maths, temporal-storm timings, creature stats, the classes, the calendar and the controls. When a guide says "see the Codex," this is where it sends you.</p>
+      <div class="badges">
+        <span class="badge accent">15 reference sections</span>
+        <span class="badge">Sourced &amp; cross-checked</span>
+        <span class="badge">Printable</span>
+        <span class="badge danger">Numbers are config-tunable</span>
+      </div>
+      <div class="note tip" style="margin-top:24px">
+        <span class="label">How to read these tables</span>
+        <p>Values are <strong>defaults for a Standard world</strong> and are tunable in world settings; some are community-measured and marked <em>approx</em>. Where a number here ever disagrees with your game, the in-game <strong>Survival Handbook (H)</strong> wins. Use the <strong>Print / Save as PDF</strong> button at the foot of the page to keep a copy.</p>
+      </div>
+    </header>
+
+    <!-- 01 METALS -->
+    <section class="doc" id="metals">
+      <p class="sec-index">01 — Metals</p>
+      <h2>Metals &amp; Melting Points</h2>
+      <p>The hard rule of metallurgy: metals that melt at <strong>≤ 1340 °C</strong> can be smelted in a crucible and <strong>cast</strong> into molds; <strong>iron, meteoric iron and steel melt above that cap</strong>, so they are never cast — they're <strong>smithed</strong> (hammered hot). A metal becomes workable on the anvil above roughly <strong>half its melting point</strong>, and cools as you hammer, so you reheat repeatedly.</p>
+      <div class="data-table">
+        <table>
+          <caption>Melting points &amp; how each metal is shaped</caption>
+          <thead><tr><th>Metal</th><th>Melting point</th><th>Shaped by</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Tin</td><td class="num">232 °C</td><td>Cast</td><td>Alloy component (tin bronze)</td></tr>
+            <tr><td>Bismuth</td><td class="num">271 °C</td><td>Cast</td><td>Alloy component (bismuth bronze)</td></tr>
+            <tr><td>Lead</td><td class="num">327 °C</td><td>Cast / smith</td><td>Smithable at <em>any</em> temperature; decor &amp; molybdochalkos</td></tr>
+            <tr><td>Zinc</td><td class="num">419 °C</td><td>Cast</td><td>Alloy component (brass, bismuth bronze)</td></tr>
+            <tr><td>Silver</td><td class="num">961 °C</td><td>Cast</td><td>Black bronze, electrum, decor</td></tr>
+            <tr><td>Gold</td><td class="num">1063 °C</td><td>Cast</td><td>Black bronze, electrum, decor</td></tr>
+            <tr><td><strong>Copper</strong></td><td class="num">1084 °C</td><td>Cast</td><td>Sets the early heat bar; the first metal</td></tr>
+            <tr><td>Bronzes</td><td class="num">~copper-class</td><td>Cast</td><td>Tin / bismuth / black bronze (see §02)</td></tr>
+            <tr><td><strong>Iron</strong></td><td class="num">&gt; 1340 °C</td><td><strong>Smith</strong> (bloomery)</td><td>Cannot be cast — smelted to a bloom, then hammered</td></tr>
+            <tr><td>Meteoric iron</td><td class="num">&gt; 1340 °C</td><td>Smith</td><td>From meteorites; iron-class, premium</td></tr>
+            <tr><td><strong>Steel</strong></td><td class="num">&gt; 1340 °C</td><td>Smith (cementation)</td><td>Carburized iron; the top tier</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 02 ALLOYS -->
+    <section class="doc" id="alloys">
+      <p class="sec-index">02 — Alloys</p>
+      <h2>Alloy Ratios</h2>
+      <p>Alloys are mixed by combining molten metals in a <strong>crucible</strong> to an exact percentage window — even <strong>0.1% outside the range fails</strong> the melt. Tool strength runs <strong>black bronze &gt; tin bronze &gt; bismuth bronze &gt; copper</strong>; tin bronze is roughly twice copper's durability.</p>
+      <div class="data-table">
+        <table>
+          <caption>Every base-game alloy &amp; its exact component window</caption>
+          <thead><tr><th>Alloy</th><th>Composition (by units)</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tin bronze</strong></td><td>88–92% Cu · 8–12% Sn</td><td>Tools/armor — strongest common bronze</td></tr>
+            <tr><td><strong>Bismuth bronze</strong></td><td>50–70% Cu · 20–30% Zn · 10–20% Bi</td><td>Tools/armor — cheapest, weakest of the three</td></tr>
+            <tr><td><strong>Black bronze</strong></td><td>70–90% Cu · 8–16% Au · 8–16% Ag</td><td>Tools/armor — highest durability, costly</td></tr>
+            <tr><td>Brass</td><td>60–70% Cu · 30–40% Zn</td><td>Decorative (lanterns, fittings); not a tool metal</td></tr>
+            <tr><td>Molybdochalkos</td><td>Copper + lead</td><td>Decorative (lanterns)</td></tr>
+            <tr><td>Electrum</td><td>Gold + silver</td><td>Decorative / jewelry</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn"><span class="label">Mod check</span><p>Cupronickel, leaded bronze and chalcopyrite/garnierite/pentlandite ores are <strong>not in the base game</strong> — they come from add-on mods (e.g. Advanced Geology). This Codex covers vanilla 1.22.3.</p></div>
+    </section>
+
+    <!-- 03 ORES -->
+    <section class="doc" id="ores">
+      <p class="sec-index">03 — Ores</p>
+      <h2>Ores &amp; Host Rocks</h2>
+      <p>Surface metal <strong>nuggets</strong> hint at a vein below; deeper ores leave no surface clue. Flint/stone tools can't mine ore — you need a copper (or better) pickaxe.</p>
+      <div class="data-table">
+        <table>
+          <caption>Ore → metal → where it forms (depth/abundance approximate)</caption>
+          <thead><tr><th>Ore</th><th>Yields</th><th>Host rock</th><th>Depth / note</th></tr></thead>
+          <tbody>
+            <tr><td>Native copper</td><td>Copper</td><td>Nearly all rock types</td><td>Shallow &amp; deep; common</td></tr>
+            <tr><td>Malachite</td><td>Copper</td><td>Limestone, marble</td><td>Shallow–mid; common</td></tr>
+            <tr><td>Cuprite · Tetrahedrite</td><td>Copper (tetra. + trace silver)</td><td>Several rock types</td><td>Mid; widespread</td></tr>
+            <tr><td>Cassiterite</td><td><strong>Tin</strong></td><td>Igneous/metamorphic (granite)</td><td>Scarce — the tin bottleneck; often reads "poor"</td></tr>
+            <tr><td>Sphalerite</td><td><strong>Zinc</strong></td><td>Vein ore</td><td>Mid; uncommon</td></tr>
+            <tr><td>Bismuthinite</td><td><strong>Bismuth</strong></td><td>Vein, near copper/galena</td><td>Mid; low readings</td></tr>
+            <tr><td>Galena</td><td><strong>Lead + silver</strong></td><td>Layered sedimentary veins</td><td>Mid–deep</td></tr>
+            <tr><td>Native gold · native silver</td><td>Gold · Silver</td><td>Quartz veins / sedimentary</td><td>Deep; rare; often "poor"</td></tr>
+            <tr><td><strong>Limonite (bog iron)</strong></td><td>Iron</td><td>Chert, shale, basalt</td><td>Surface in wetlands — easiest iron</td></tr>
+            <tr><td>Hematite</td><td>Iron</td><td>Limestone, granite, peridotite, phyllite</td><td>Large deep deposits</td></tr>
+            <tr><td>Magnetite</td><td>Iron</td><td>Andesite, chalk, conglomerate, claystone, slate</td><td>Deep</td></tr>
+            <tr><td>Lignite / bituminous / anthracite</td><td>Coal (fuel)</td><td>Sedimentary strata</td><td>Mid–deep seams</td></tr>
+            <tr><td>Halite / sylvite</td><td>Salt / potash</td><td>Salt domes (dolomite/siltstone)</td><td>Deep domes</td></tr>
+            <tr><td>Quartz · lapis · cinnabar · borax</td><td>Crystal / pigment / mercury / flux</td><td>Chunk &amp; vein deposits</td><td>Varies</td></tr>
+            <tr><td>Diamond</td><td>Diamond (gem)</td><td><strong>Kimberlite only</strong></td><td>The deepest layer</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 FUELS -->
+    <section class="doc" id="fuels">
+      <p class="sec-index">04 — Fuels</p>
+      <h2>Fuels &amp; Heat</h2>
+      <p>Two rules first: <strong>without a bellows worked, a fuel reaches only ~60% of its rated temperature</strong> (so a fire pit needs the bellows to melt copper); and the <strong>bloomery accepts any fuel ≥ 1200 °C</strong> — charcoal, anthracite or bituminous coal — but <em>not</em> lignite.</p>
+      <div class="data-table">
+        <table>
+          <caption>Solid fuels — maximum temperatures (°C)</caption>
+          <thead><tr><th>Fuel</th><th>Max temp</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Firewood</td><td class="num">~600–800</td><td>Cooking &amp; pit kiln; too cool to smelt metal alone</td></tr>
+            <tr><td>Peat</td><td class="num">~low</td><td>Cheap, fast-burning; only just reaches copper when bellowed</td></tr>
+            <tr><td>Lignite (brown coal)</td><td class="num">1100</td><td>Copper/bronze OK; too cool for the bloomery</td></tr>
+            <tr><td>Bituminous (black) coal</td><td class="num">~1300</td><td>Long-burning; bloomery-capable</td></tr>
+            <tr><td>Charcoal</td><td class="num">1300</td><td>Bloomery fuel &amp; the carbon source for steel</td></tr>
+            <tr><td>Coke</td><td class="num">1340</td><td>From coal in a coke oven; hottest practical fuel</td></tr>
+            <tr><td>Anthracite</td><td class="num">~1500</td><td>Hottest natural coal; <strong>longest burn</strong> of any fuel</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table">
+        <table>
+          <caption>Heat structures &amp; their batch numbers</caption>
+          <thead><tr><th>Structure</th><th>Does</th><th>Key numbers</th></tr></thead>
+          <tbody>
+            <tr><td>Fire pit</td><td>Cook; smelt a crucible</td><td>Reaches copper (1084 °C) when bellowed</td></tr>
+            <tr><td>Forge <span class="vs-ver">1.22</span></td><td>Heat metal for the anvil</td><td>Bellows, tongs, quench &amp; temper</td></tr>
+            <tr><td>Pit kiln</td><td>Fire pottery</td><td>~10–20 in-game hours</td></tr>
+            <tr><td>Charcoal pit</td><td>Firewood → charcoal</td><td>Seal within ~30 s of lighting; ~18 h burn</td></tr>
+            <tr><td>Coke oven</td><td>Coal → coke</td><td>~12 h; black coal stack → 12 coke, brown → 8</td></tr>
+            <tr><td>Bloomery</td><td>Iron ore → bloom</td><td>≤120 nuggets; 1 bloom / 20 nuggets (max 6); ~10 h</td></tr>
+            <tr><td>Cementation furnace</td><td>Iron → blister steel</td><td>16 ingots → 16 blister (1:1); ~6.67 days; ~200 coal</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 ANVILS -->
+    <section class="doc" id="anvils">
+      <p class="sec-index">05 — Anvils &amp; quantities</p>
+      <h2>Anvil Tiers &amp; Units</h2>
+      <p>The load-bearing rule of the back half of the game: an <strong>anvil works its own metal tier and one tier above it</strong> (plus everything below). That's why a bronze anvil can shape the higher-tier iron, and why a copper anvil — two tiers below iron — cannot.</p>
+      <div class="split">
+        <div>
+          <h4>Anvil → what it can work</h4>
+          <ul>
+            <li><strong>Copper anvil</strong> → copper + all bronze</li>
+            <li><strong>Bronze anvil</strong> → bronze + <strong>iron</strong> (the iron gate)</li>
+            <li><strong>Iron anvil</strong> → iron + <strong>steel</strong> &amp; meteoric iron</li>
+            <li>The <em>hammer's</em> metal doesn't matter (normal or helve).</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quantities (1 ingot = 100 units)</h4>
+          <ul>
+            <li><strong>1 ingot</strong> = 100 units = <strong>20 ore nuggets</strong> (1 nugget = 5u)</li>
+            <li>Most tool/ingot <strong>molds</strong> = 100 units</li>
+            <li><strong>Anvil</strong> = 900 units · <strong>helve hammer</strong> = 200 units</li>
+            <li>Crucible holds a large batch — several ingots per pour</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 PROSPECT -->
+    <section class="doc" id="prospect">
+      <p class="sec-index">06 — Prospecting</p>
+      <h2>Prospecting-Pick Readouts</h2>
+      <p>Toggle the pick's two modes with the held-item function key (default <code>F</code>). <strong>Density</strong> finds the region; <strong>node</strong> finds the deposit.</p>
+      <div class="split">
+        <div>
+          <h4>Density Search — relative-density ladder</h4>
+          <p>Sample <strong>3 rock blocks within ~16 blocks</strong>; reports each ore's probability in <strong>‰ (per-thousand)</strong>. Words low → high:</p>
+          <div class="readout">Miniscule › Very Poor › Poor › <b>Decent</b> › High › Very High › Ultra High</div>
+          <p><em>Decent or better</em> = a real chance the ore generates there. Some ores cap low by design — even <em>Miniscule</em> means "present."</p>
+        </div>
+        <div>
+          <h4>Node Search — size ladder</h4>
+          <p>Break <strong>one block</strong>; scans a radius (default <strong>~6 blocks</strong>) and gives direction + size. Words small → large:</p>
+          <div class="readout">Trace › Small › Medium › Large › Very large › Huge <span style="color:var(--ink-faint)">amounts</span></div>
+          <p>Anything but <em>"No ore node nearby"</em> means ore within range — in any direction, including up/down.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 ROCKS -->
+    <section class="doc" id="rocks">
+      <p class="sec-index">07 — Stone</p>
+      <h2>Rock Types</h2>
+      <p>Rock stacks top → bottom as <strong>basalt › sedimentary › metamorphic › igneous › kimberlite</strong>. Rock family gates which ores can appear and what stone you build with.</p>
+      <div class="data-table">
+        <table>
+          <caption>The three rock families (vanilla 1.22)</caption>
+          <thead><tr><th>Family</th><th>Rocks</th></tr></thead>
+          <tbody>
+            <tr><td>Sedimentary</td><td>Limestone, chalk, sandstone, shale, claystone, conglomerate, chert, halite (rock salt)</td></tr>
+            <tr><td>Igneous</td><td>Granite, basalt, andesite, peridotite, scoria, tuff, suevite, obsidian — and <strong>kimberlite</strong> (deepest; diamonds)</td></tr>
+            <tr><td>Metamorphic</td><td>Slate, marble, phyllite</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="color:var(--ink-faint);font-size:.85rem">Note: gneiss, quartzite and schist are <em>not</em> vanilla VS rock layers.</p>
+    </section>
+
+    <!-- 08 CROPS -->
+    <section class="doc" id="crops">
+      <p class="sec-index">08 — Agriculture</p>
+      <h2>Crops &amp; Soil</h2>
+      <p>Vintage Story assigns a drained nutrient <strong>per crop</strong> — it does <em>not</em> follow the "leafy=N / root=P / grain=K" rule of thumb. Rotate N → P → K so each plot's other nutrients recover.</p>
+      <div class="data-table">
+        <table>
+          <caption>Crops — nutrient drained, food group &amp; climate</caption>
+          <thead><tr><th>Crop</th><th>Drains</th><th>Group</th><th>Climate note</th></tr></thead>
+          <tbody>
+            <tr><td>Turnip</td><td>N</td><td>Vegetable</td><td>Cool-season; overheats in hot summers</td></tr>
+            <tr><td>Cabbage</td><td>N</td><td>Vegetable</td><td>Leafy; seeds rare (vessels/traders)</td></tr>
+            <tr><td>Spelt</td><td>N</td><td>Grain</td><td>Staple cereal → flour</td></tr>
+            <tr><td>Rye</td><td>N</td><td>Grain</td><td><strong>Most cold-tolerant</strong> cereal</td></tr>
+            <tr><td>Parsnip</td><td>P</td><td>Vegetable</td><td>Hardy root</td></tr>
+            <tr><td>Onion</td><td>P</td><td>Vegetable</td><td>Stew base</td></tr>
+            <tr><td>Pumpkin</td><td>P</td><td>Vegetable</td><td>Sprawling; needs space &amp; warmth</td></tr>
+            <tr><td>Carrot</td><td>K</td><td>Vegetable</td><td>Reliable staple</td></tr>
+            <tr><td>Rice</td><td>K</td><td>Grain</td><td><strong>Most heat-tolerant</strong>; wants water</td></tr>
+            <tr><td>Soybean</td><td>K</td><td>Protein</td><td>Legume</td></tr>
+            <tr><td>Flax</td><td>K</td><td>(industrial)</td><td>Twine &amp; linen; temperate</td></tr>
+            <tr><td>Fennel · Licorice <span class="vs-ver">1.22</span></td><td>aromatic</td><td>—</td><td>New; used for fishing stinkbait</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="data-table">
+        <table>
+          <caption>Soil fertility tiers &amp; fertilizers</caption>
+          <thead><tr><th>Soil tier</th><th>Max fertility</th><th>Fertilizer</th><th>Restores</th></tr></thead>
+          <tbody>
+            <tr><td>Bony</td><td class="num">0%</td><td>Saltpeter</td><td>Nitrogen</td></tr>
+            <tr><td>Barren</td><td class="num">5%</td><td>Bone meal</td><td>Phosphorus</td></tr>
+            <tr><td>Low</td><td class="num">25%</td><td>Potash</td><td>Potassium</td></tr>
+            <tr><td>Medium</td><td class="num">50%</td><td>Compost</td><td>All three evenly</td></tr>
+            <tr><td>High</td><td class="num">65%</td><td>Rot → compost</td><td>(20-day barrel; 64 rot → 16 compost)</td></tr>
+            <tr><td><strong>Terra preta</strong></td><td class="num">80%</td><td>(crafted)</td><td>Richest soil; the farmer's goal</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 09 NUTRITION -->
+    <section class="doc" id="nutrition">
+      <p class="sec-index">09 — Vitals</p>
+      <h2>Nutrition &amp; Health</h2>
+      <p>You have a <strong>saturation</strong> bar (energy) and five <strong>nutrition</strong> bars. A varied diet literally raises your maximum health.</p>
+      <div class="facts">
+        <div class="f"><div class="k">Base max health</div><div class="v">15 <small>HP</small></div></div>
+        <div class="f"><div class="k">Per full group</div><div class="v">+2.5 <small>HP × 5 groups</small></div></div>
+        <div class="f"><div class="k">Max possible</div><div class="v">27.5 <small>HP (all 5 full)</small></div></div>
+        <div class="f"><div class="k">Saturation cap</div><div class="v">1500 <small>satiety</small></div></div>
+      </div>
+      <ul>
+        <li><strong>Five groups:</strong> Fruit · Vegetable · Protein · Grain · Dairy — each fills its own bar and adds up to <strong>+2.5 max HP</strong> (so all five full = <strong>+12.5</strong>, total ≈ <strong>27.5 HP</strong>).</li>
+        <li><strong>Gain rate:</strong> for every <strong>100 saturation</strong> eaten you gain <strong>40 nutrition</strong> of that food's group(s). Eating while already full adds no nutrition.</li>
+        <li><strong>Saturation</strong> drains from sprinting, cold, healing, a torch in the offhand and most armor; at 0 you <strong>starve</strong> and take damage.</li>
+      </ul>
+    </section>
+
+    <!-- 10 MEALS -->
+    <section class="doc" id="meals">
+      <p class="sec-index">10 — Kitchen &amp; larder</p>
+      <h2>Meals &amp; Preservation</h2>
+      <p>A <strong>cooking pot</strong> has 4 ingredient slots (up to 6 each / 6 L liquid) and yields up to <strong>6 servings</strong>; the first two slots set the meal type. Preservation factors <strong>stack multiplicatively</strong>.</p>
+      <div class="split">
+        <div>
+          <h4>Meal shelf life</h4>
+          <div class="data-table"><table>
+            <thead><tr><th>Meal</th><th>Shelf life</th></tr></thead>
+            <tbody>
+              <tr><td>Porridge</td><td class="num">3 days</td></tr>
+              <tr><td>Scrambled eggs</td><td class="num">3 days</td></tr>
+              <tr><td>Soup</td><td class="num">6 days</td></tr>
+              <tr><td>Vegetable / meat stew</td><td class="num">6 days</td></tr>
+              <tr><td>Jam</td><td class="num">45 days</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div>
+          <h4>Preservation multipliers (lower = slower spoilage)</h4>
+          <div class="data-table"><table>
+            <thead><tr><th>Method</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td>Perfect cellar</td><td class="num">≈0.26× (~75% slower)</td></tr>
+              <tr><td>Storage vessel (veg)</td><td class="num">×0.75</td></tr>
+              <tr><td>Storage vessel (grain)</td><td class="num">×0.50</td></tr>
+              <tr><td>Sealed crock (meals/meat)</td><td class="num">×0.10</td></tr>
+              <tr><td>Sealed crock (pickled)</td><td class="num">×0.25</td></tr>
+              <tr><td>Salted in barrel</td><td>20-day cure → up to ~3.4 yr</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <p>A cellar scores <strong>100% − up to 40% (skylight) − up to 50% (cooling)</strong> and holds ≈ <strong>5 °C</strong>; it only helps when the outside is warmer. Stack it: salted/dried food → in a sealed crock → inside a high-scoring cellar = the longest life. Full build in <a href="vs-structures.html#cellar">The Homestead</a>.</p>
+    </section>
+
+    <!-- 11 TEMPORAL -->
+    <section class="doc" id="temporal">
+      <p class="sec-index">11 — Temporal</p>
+      <h2>Temporal Numbers</h2>
+      <div class="data-table">
+        <table>
+          <caption>Stability scale, storms, rifts &amp; the gear</caption>
+          <thead><tr><th>Thing</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Stability scale</td><td>0–150% area (100% = neutral); player 0–100%</td></tr>
+            <tr><td>Regen / drain</td><td>+1% per ~4 s (stable) · −1% per ~7.5 s (unstable)</td></tr>
+            <tr><td>Bowtorn force-spawn</td><td>at ≤ 25% stability, any light level</td></tr>
+            <tr><td>Stability damage</td><td>at ≤ 12% — ~0.02 → ~0.15 HP every 4 s toward 0%</td></tr>
+            <tr><td>Drifter spawn light</td><td>light level ≤ 7 (and everywhere during storms)</td></tr>
+            <tr><td>Storm cadence</td><td>~10–20 days; +10% more frequent each storm (cap +100% → ~5–15 days)</td></tr>
+            <tr><td>Storm duration</td><td>~2.4–4.8 in-game hours (rises over time)</td></tr>
+            <tr><td>Storm warnings</td><td>"approaching" ~8 h 24 m before · "imminent" ~29 m before</td></tr>
+            <tr><td>Storm intensity</td><td>Light / Medium / Heavy — first storm is never Heavy</td></tr>
+            <tr><td>Rift stability drain</td><td>~3% per second when close</td></tr>
+            <tr><td>Temporal gear</td><td>+30% stability, ~2 HP self-cost (offhand gear + main-hand knife)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Full mechanics in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+    </section>
+
+    <!-- 12 CREATURES -->
+    <section class="doc" id="creatures">
+      <p class="sec-index">12 — Bestiary</p>
+      <h2>Creature Stats</h2>
+      <p>Damage comes in <strong>tiers</strong>; armor applies a flat reduction first, then a percentage, and resists better when its tier meets the attack's. HP values are approximate/community-measured.</p>
+      <div class="data-table">
+        <table>
+          <caption>Threats — damage tier &amp; behaviour</caption>
+          <thead><tr><th>Creature</th><th>Damage</th><th>Aggro</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Wolf</td><td class="num">Tier 2</td><td>~20 blocks</td><td>Packs of 2–3; temperate/cold</td></tr>
+            <tr><td>Hyena</td><td class="num">Tier 2</td><td>~10 blocks</td><td>Packs; warm regions (too hot for wolves)</td></tr>
+            <tr><td>Bear</td><td class="num">Tier 2 (~15)</td><td>~20 blocks</td><td>Very high HP; brown/black temperate, polar cold</td></tr>
+            <tr><td>Wild pig</td><td class="num">Tier 1</td><td>defensive</td><td>Passive from 3rd bred generation</td></tr>
+            <tr><td>Gray boar</td><td class="num">Tier 2</td><td>defensive</td><td>The dangerous pig; drops tusks</td></tr>
+            <tr><td>Drifter (surface→nightmare)</td><td class="num">Tier 1→high</td><td>light ≤7</td><td>6 tiers; +~1 thrown rock; restores stability on kill</td></tr>
+            <tr><td>Bronze locust</td><td class="num">~1.5</td><td>cave</td><td>Deep caves; Clockmaker excels</td></tr>
+            <tr><td>Corrupt locust</td><td class="num">~4</td><td>deep cave</td><td>Far nastier than bronze</td></tr>
+            <tr><td>Bowtorn (rift)</td><td>melee + ranged</td><td>~30 blocks</td><td>Turret ~14–29 blocks; flees &lt;30% HP</td></tr>
+            <tr><td>Bell</td><td class="num">none</td><td>~15 blocks</td><td>Huge HP; rings to spawn drifters/locusts</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Behaviour, drops &amp; husbandry in <a href="vs-creatures.html">The Bestiary</a>. Husbandry quick numbers: eggs every <strong>8–15 days</strong>, shear wool every <strong>10 days</strong> (2–4 wool), milk <strong>1–2 L/day</strong>; pigs passive at <strong>gen 3</strong>.</p>
+    </section>
+
+    <!-- 13 CLASSES -->
+    <section class="doc" id="classes">
+      <p class="sec-index">13 — Character</p>
+      <h2>The Seven Classes</h2>
+      <div class="data-table">
+        <table>
+          <caption>All starting classes — bonus &amp; drawback (percentages approximate)</caption>
+          <thead><tr><th>Class</th><th>Bonus</th><th>Drawback</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Commoner</strong></td><td>None — balanced all-rounder (recommended)</td><td>None</td></tr>
+            <tr><td>Hunter</td><td>Crafts bows/arrows; strong ranged &amp; butchering</td><td>Reduced melee damage</td></tr>
+            <tr><td>Malefactor</td><td>+loot from cracked vessels &amp; ruins; better foraging; crafts the sling</td><td>Frail; weak melee</td></tr>
+            <tr><td>Clockmaker</td><td>+~25% damage vs locusts; repairs/dismantles machinery</td><td>Frail; weaker vs everything else</td></tr>
+            <tr><td>Blackguard</td><td>+melee damage, +armor durability, −armor move penalty</td><td>Hungrier; weak ranged &amp; poor food harvest</td></tr>
+            <tr><td>Tailor</td><td>Unique clothing; efficient clothing repair</td><td>Ill-suited to wilderness hardship</td></tr>
+            <tr><td>Blacksmith</td><td>Metalworking / smithing efficiency</td><td>Combat/survival trade-off</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 14 CALENDAR -->
+    <section class="doc" id="calendar">
+      <p class="sec-index">14 — World</p>
+      <h2>Calendar &amp; World Dimensions</h2>
+      <div class="data-table">
+        <table>
+          <caption>Default world &amp; calendar values</caption>
+          <thead><tr><th>Thing</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Months per year</td><td>12 (3 per season)</td></tr>
+            <tr><td>Days per month</td><td>9 (configurable)</td></tr>
+            <tr><td>Days per year</td><td>108</td></tr>
+            <tr><td>Seasons</td><td>Spring → Summer → Autumn → Winter</td></tr>
+            <tr><td>Temperature range</td><td>clamped −20 °C … +40 °C</td></tr>
+            <tr><td>Crop growth stops</td><td>below 0 °C (slows 10%/°C under 10 °C)</td></tr>
+            <tr><td>Greenhouse bonus</td><td>+5 °C</td></tr>
+            <tr><td>World height</td><td>256 (sea level ≈ Y 110)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 15 CONTROLS -->
+    <section class="doc" id="controls">
+      <p class="sec-index">15 — Input</p>
+      <h2>Default Controls</h2>
+      <div class="data-table">
+        <table>
+          <caption>Default keybinds (rebindable in Settings → Controls)</caption>
+          <thead><tr><th>Key</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><code>W A S D</code> · <code>Space</code></td><td>Move · jump</td></tr>
+            <tr><td><code>Ctrl</code></td><td>Sprint (hold)</td></tr>
+            <tr><td><code>Shift</code></td><td>Sneak — and place a knapping/clay/loose-stone work surface (Shift+click)</td></tr>
+            <tr><td>Left / Right click</td><td>Mine·attack·chip / use·place·interact (hold-release RMB throws a spear)</td></tr>
+            <tr><td><code>E</code> · <code>C</code></td><td>Inventory &amp; crafting grid · character &amp; clothing/armor</td></tr>
+            <tr><td><code>H</code> · <code>M</code> · <code>J</code></td><td>Survival Handbook · world map · diary</td></tr>
+            <tr><td><code>F</code></td><td>Toggle held-item function (e.g. prospecting-pick mode)</td></tr>
+            <tr><td><code>Q</code> · <code>G</code></td><td>Drop item · sit / rest</td></tr>
+            <tr><td><code>1</code>–<code>0</code> · <code>F5</code></td><td>Hotbar slots · cycle camera</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">That's the Codex</span><p>Every figure here is cross-referenced from the deep-dive chapters of <a href="vintage-story.html">The Drifter's Almanac</a>. Spot something your game disagrees with? Trust the in-game Handbook — numbers are config-tunable and shift between versions.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Codex</strong><br>
+      The reference appendix to <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Cross-checked against:<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · the 1.22 patch notes<br>
+      · community guides &amp; the in-game Handbook
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">All values are Standard-world defaults and are config-tunable; several are community-measured and marked approximate. Where a number disagrees with your install, the in-game Survival Handbook and the wiki are ground truth.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  /* reference page — importing runs the shared nav, chapter pager + print button */
+</script>
+</body>
+</html>

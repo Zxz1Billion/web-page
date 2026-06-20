@@ -127,10 +127,10 @@
     <section class="doc" id="seasons">
       <p class="sec-index">03 — The clock and the calendar</p>
       <h2>Seasons &amp; the Calendar</h2>
-      <p>The year cycles <strong>spring → summer → autumn → winter</strong>. Month length is configurable, but a common default is roughly <strong>9–12 days per month</strong>, so a season is a meaningful stretch of real play. <strong>Day length</strong> also shifts with season and latitude — long summer days near the poles, short dark winter ones.</p>
+      <p>The year is <strong>12 months</strong> — three each of <strong>spring → summer → autumn → winter</strong>. The <strong>default month length is 9 days</strong> (configurable), making a season 27 days and a <strong>full year 108 days</strong>. <strong>Day length</strong> also shifts with season and latitude — long summer days near the poles, short dark winter ones.</p>
       <div class="facts">
-        <div class="f"><div class="k">Cycle</div><div class="v">4 <small>seasons / year</small></div></div>
-        <div class="f"><div class="k">Month length</div><div class="v">~9–12 <small>days (config)</small></div></div>
+        <div class="f"><div class="k">Year</div><div class="v">108 <small>days (default)</small></div></div>
+        <div class="f"><div class="k">Month length</div><div class="v">9 <small>days (default)</small></div></div>
         <div class="f"><div class="k">The threat</div><div class="v">❄ <small>winter</small></div></div>
         <div class="f"><div class="k">Survival rule</div><div class="v">Larder <small>+ warmth</small></div></div>
       </div>
@@ -175,10 +175,11 @@
       <h2>Geology</h2>
       <p>Rock isn't just background — its <strong>type</strong> decides which ores can appear in it and what building stone you get. The world's stone comes in three families:</p>
       <ul>
-        <li><strong>Sedimentary</strong> — laid down in layers: limestone, chalk, sandstone, shale, claystone, conglomerate.</li>
-        <li><strong>Igneous</strong> — cooled from melt: granite, basalt, andesite, peridotite.</li>
-        <li><strong>Metamorphic</strong> — reformed under heat and pressure: slate, marble, gneiss, phyllite, quartzite.</li>
+        <li><strong>Sedimentary</strong> — laid down in layers: limestone, chalk, sandstone, shale, claystone, conglomerate, chert, plus rock salt (halite).</li>
+        <li><strong>Igneous</strong> — cooled from melt: granite, basalt, andesite, peridotite (plus volcanic scoria, tuff, suevite, obsidian). The deepest layer, <strong>kimberlite</strong>, is where diamonds hide.</li>
+        <li><strong>Metamorphic</strong> — reformed under heat and pressure: slate, marble and phyllite.</li>
       </ul>
+      <p>Stone stacks top-to-bottom in the order <strong>basalt → sedimentary → metamorphic → igneous → kimberlite</strong>, so the rock around you also hints at how deep you are.</p>
       <p>Because certain ores <strong>favour certain host rocks</strong>, identifying the stone around you is half of prospecting — it tells you what's even <em>possible</em> before you sample. (Bog-iron limonite is the exception: it forms on the surface in wetlands, not inside a host rock.)</p>
       <div class="data-table">
         <table>
@@ -192,9 +193,9 @@
             <tr><td>Granite</td><td>Igneous</td><td>Hard, handsome building stone; hosts various ores</td></tr>
             <tr><td>Basalt / andesite</td><td>Igneous</td><td>Dark dense stone; host to several metal ores</td></tr>
             <tr><td>Peridotite</td><td>Igneous</td><td>Favoured host for <strong>nickel/platinum-group</strong> finds</td></tr>
-            <tr><td>Slate / phyllite</td><td>Metamorphic</td><td>Layered building stone; coal-region association</td></tr>
-            <tr><td>Marble</td><td>Metamorphic</td><td>Prized decorative stone; can host ore</td></tr>
-            <tr><td>Gneiss / quartzite</td><td>Metamorphic</td><td>Hard stone; <strong>quartz</strong> &amp; gem associations</td></tr>
+            <tr><td>Slate / phyllite</td><td>Metamorphic</td><td>Layered building stone; hosts <strong>hematite</strong> (phyllite) &amp; magnetite (slate)</td></tr>
+            <tr><td>Marble</td><td>Metamorphic</td><td>Prized decorative stone; hosts <strong>malachite</strong> (copper) like limestone</td></tr>
+            <tr><td>Kimberlite</td><td>Igneous (deepest)</td><td>The bottom layer; the only host of <strong>diamonds</strong></td></tr>
           </tbody>
         </table>
       </div>
@@ -244,11 +245,15 @@
       <div class="split">
         <div>
           <h4>Density Search</h4>
-          <p>Break up to <strong>three rock blocks</strong> within about <strong>16 blocks</strong> of each other to take a sample. The propick reports the <strong>probability of each ore type</strong> present in that part of the world, expressed in <strong>‰ (parts per thousand)</strong>. It tells you <em>what</em> a region holds — not exactly where. Some ores only ever read low because of how rarely they generate, so a small number still means "present."</p>
+          <p>Break up to <strong>three rock blocks</strong> within about <strong>16 blocks</strong> of each other to take a sample. The propick reports the <strong>probability of each ore type</strong> present in that part of the world, expressed in <strong>‰ (parts per thousand)</strong>. It tells you <em>what</em> a region holds — not exactly where. The relative-density words, lowest to highest, are:</p>
+          <p style="font-family:var(--f-mono);font-size:.8rem;color:var(--accent-2)">Miniscule › Very Poor › Poor › <b style="color:var(--accent)">Decent</b> › High › Very High › Ultra High</p>
+          <p><strong>"Decent" or better</strong> means a strong chance the ore generates there. Some ores are capped low by design, so even <em>Miniscule</em> means "present."</p>
         </div>
         <div>
           <h4>Node Search</h4>
-          <p>Break a <strong>single block</strong> and the game scans a radius around you, reporting nearby ore <strong>nodes</strong> with a <strong>direction</strong> and a relative <strong>size</strong> — from <em>"Trace amounts"</em> up through to <em>"Huge amounts."</em> This is the precise homing-in mode: it points you at a specific deposit so you can dig straight to it.</p>
+          <p>Break a <strong>single block</strong> and the game scans a radius (default <strong>~6 blocks</strong>) around you, reporting nearby ore <strong>nodes</strong> with a <strong>direction</strong> and a relative <strong>size</strong>. The size words, smallest to largest, are:</p>
+          <p style="font-family:var(--f-mono);font-size:.8rem;color:var(--accent-2)">Trace › Small › Medium › Large › Very large › Huge <span style="color:var(--ink-faint)">amounts</span></p>
+          <p>Anything other than <em>"No ore node nearby"</em> means ore within range — in <strong>any</strong> direction, including up or down. This is the precise homing-in mode.</p>
         </div>
       </div>
 
