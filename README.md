@@ -38,6 +38,34 @@ Plus a compatibility extra: **`mekanism-ic2c-bridge.html`** ("The EU/FE Bridge")
 server patch and wiring guide for the Mekanism ↔ IC2 Classic power exchange (the patcher and
 config snippets live in `mekanism-ic2c-compat/`).
 
+## The Drifter's Almanac — a Vintage Story guide (a different game)
+
+The site also hosts a complete, **iPad-friendly** field guide to **Vintage Story** (the
+standalone survival game by Anego Studios — *not* a Minecraft mod), targeting **v1.22.3**,
+Standard world, Commoner class. Its hub is **`vintage-story.html`** (linked from the top of
+`index.html`), leading to 11 self-contained chapters that lean hard into clear, numbered
+How-Tos and interactive build plans:
+
+| File | Guide | Covers |
+| --- | --- | --- |
+| `vintage-story.html` | The Drifter's Almanac | Vintage Story hub / landing |
+| `vs-getting-started.html` | The First Day | Survival start, knapping, fire, first-night shelter (interactive plan) + a saved Day-One checklist |
+| `vs-progression.html` | The Long Road | Flagship Stone→Copper→Bronze→Iron→Steel ladder as a 40-step browser-saved checklist with a progress meter |
+| `vs-crafting.html` | The Four Crafts | Knapping, clay forming, smithing & casting — with interactive grid/voxel pattern viewers |
+| `vs-metalworking.html` | Fire & Metal | Ores, crucible smelting, alloys, the 1.22 forge, bloomery, blast furnace, cementation steel |
+| `vs-mechanical-power.html` | The Turning World | Axles, gears, windmill & 1.22 waterwheel, quern/helve hammer/pulverizer (with wiring schematics) |
+| `vs-food.html` | The Larder | Nutrition groups, foraging, farming & soil nutrients, cooking, 1.22 fishing |
+| `vs-structures.html` | The Homestead | House, food cellar, charcoal pit, smithy & greenhouse — five interactive layer-by-layer plans |
+| `vs-temporal.html` | The Rust & The Gear | Temporal stability, rifts, storms, temporal gears, storm-proofing |
+| `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
+| `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |
+| `vs-locations.html` | Ruins & Wayfarers | Ruins, translocators, traders, the 1.22 dynamic dungeon, spoiler-light story |
+
+These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
+add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via
+**`assets/js/vs-guide.js`** (shared nav + a generic localStorage checklist/progress meter keyed
+by each page's `data-ckstore`).
+
 ## Structure
 
 ```

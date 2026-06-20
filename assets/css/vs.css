@@ -1,0 +1,144 @@
+/* ============================================================================
+   vs.css — shared theme + mobile/iPad layer for the Vintage Story field guides.
+   Loaded AFTER guide.css on every vs-*.html page (and the vintage-story.html hub).
+   It (1) re-skins the guide framework in Vintage Story's earthy temporal palette
+   and (2) hardens the layout for touch devices, especially the iPad.
+
+   Fonts are linked per-page: Cinzel (display), Inter (body), JetBrains Mono.
+   ========================================================================== */
+
+:root {
+  /* ground — warm, dim, lantern-lit */
+  --bg-0: #0c0b08;
+  --bg-1: #13110c;
+  --bg-2: #1b1710;
+  --bg-3: #241e15;
+  --line: #3a3122;
+  --panel: rgba(0, 0, 0, 0.28);
+
+  /* ink — aged parchment */
+  --ink: #ece3d3;
+  --ink-dim: #b6a787;
+  --ink-faint: #82725a;
+
+  /* accents — temporal teal, hammered copper, lantern amber, rust */
+  --accent: #4fc7bb;     /* temporal stability / gears  */
+  --accent-2: #d98a45;   /* copper / bronze             */
+  --accent-3: #e3b755;   /* lantern amber / warnings    */
+  --danger: #d65b39;     /* rust / temporal storm       */
+
+  --accent-soft: rgba(79, 199, 187, 0.13);
+  --accent-glow: rgba(79, 199, 187, 0.46);
+
+  /* type */
+  --f-display: "Cinzel", "Marcellus", Georgia, serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* The hero gradient + carved headings read better with a slightly tighter
+   display tracking for Cinzel's capitals. */
+.hero h1 { letter-spacing: 0.01em; }
+section.doc h2 { letter-spacing: 0.005em; }
+.brand .wordmark { letter-spacing: 0.06em; }
+
+/* A "ground truth" version flag chip used across the VS pages */
+.vs-ver {
+  font-family: var(--f-mono); font-size: 0.62rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+}
+
+/* tier ladder used on the progression page (and reused elsewhere) */
+.ladder { list-style: none; padding: 0; margin: 22px 0; display: grid; gap: 10px; }
+.ladder li {
+  display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: start;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 14px; border-left: 3px solid var(--rung, var(--accent));
+}
+.ladder .age { font-family: var(--f-display); font-weight: 700; color: var(--rung, var(--accent)); font-size: 0.96rem; line-height: 1.25; }
+.ladder .age small { display: block; font-family: var(--f-mono); font-size: 0.56rem; letter-spacing: 0.12em; color: var(--ink-faint); margin-top: 3px; }
+.ladder .body { min-width: 0; }
+.ladder .body p { margin: 0; max-width: none; font-size: 0.95rem; }
+
+/* ============================================================ INTERACTIVE
+   Progression checklist + saved progress meter (driven by vs-guide.js). */
+.progress-wrap {
+  position: sticky; top: 8px; z-index: 5; margin: 10px 0 26px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.progress-wrap .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.progress-wrap .ttl { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); }
+.progress-wrap .pct { font-family: var(--f-display); font-weight: 800; color: var(--accent); font-size: 1.3rem; }
+.progress-wrap .bar { height: 10px; margin-top: 10px; border-radius: 999px; background: rgba(0,0,0,0.42); overflow: hidden; border: 1px solid var(--line); }
+.progress-wrap .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent-2), var(--accent)); box-shadow: 0 0 12px var(--accent-glow); transition: width 420ms; border-radius: 999px; }
+.progress-wrap .reset { font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--ink-dim); background: transparent; border: 1px solid var(--line); border-radius: 7px; padding: 5px 10px; cursor: pointer; }
+.progress-wrap .reset:hover { color: var(--accent); border-color: var(--accent); }
+
+.checklist { list-style: none; padding: 0; margin: 16px 0; max-width: 74ch; }
+.checklist li { margin: 0; }
+.checklist label {
+  display: flex; gap: 12px; align-items: flex-start; padding: 11px 13px; margin: 7px 0;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  cursor: pointer; transition: border-color 160ms, background 160ms;
+}
+.checklist label:hover { border-color: var(--accent); }
+.checklist input { margin: 3px 0 0; width: 20px; height: 20px; flex: 0 0 20px; accent-color: var(--accent); cursor: pointer; }
+.checklist input:checked + .ck-body .ck-title { color: var(--ink-faint); text-decoration: line-through; }
+.ck-body { min-width: 0; }
+.ck-body .ck-title { color: #fff; font-weight: 600; }
+.ck-body .ck-note { display: block; color: var(--ink-dim); font-size: 0.9rem; margin-top: 2px; }
+
+/* keyed-fact stat strip (hero-adjacent) */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+.facts .f { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.facts .f .k { font-family: var(--f-mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+.facts .f .v { font-family: var(--f-display); font-weight: 700; color: var(--accent); font-size: 1.18rem; margin-top: 2px; }
+.facts .f .v small { font-family: var(--f-body); font-weight: 400; color: var(--ink-dim); font-size: 0.78rem; }
+
+/* a compact two-column comparison block */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+.split > div { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.split h4 { margin-top: 0; }
+
+/* ============================================================ MOBILE / iPad
+   guide.css already turns the sidebar into a drawer below 940px (iPad portrait)
+   and keeps the two-column layout in iPad landscape. These rules harden the
+   data-dense widgets for touch + narrow widths. */
+
+/* tables: let wide tables scroll horizontally instead of crushing columns */
+@media (max-width: 1000px) {
+  .data-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .data-table table { min-width: 540px; }
+  .data-table::-webkit-scrollbar { height: 8px; }
+}
+
+/* schematic plate can be wider than the viewport on big builds — scroll it */
+.schematic__plate-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+.schematic__plate { margin: 0 auto; }
+
+/* iPad portrait & phones: stack the schematic rail under the diagram, and make
+   the stepper buttons comfortably tappable. */
+@media (max-width: 760px) {
+  .schematic__body { grid-template-columns: 1fr; }
+  .schematic__stepper button { padding: 9px 14px; }
+  .schematic__stepper .nav-btn { width: 42px; height: 42px; }
+  .facts { grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); }
+  .split { grid-template-columns: 1fr; }
+  .ladder li { grid-template-columns: 1fr; gap: 6px; }
+  .ladder .age { font-size: 1rem; }
+}
+
+/* roomier base text + tap targets on touch pointers (covers iPad nicely) */
+@media (pointer: coarse) {
+  .nav a { padding: 10px 10px; }
+  .home-link { padding: 6px 0; }
+  section.doc li { margin: 7px 0; }
+  .checklist input { width: 22px; height: 22px; flex-basis: 22px; }
+}
+
+/* keep long code / readouts from forcing horizontal page scroll */
+section.doc code { overflow-wrap: anywhere; }
+.readout { font-family: var(--f-mono); font-size: 0.84rem; background: rgba(0,0,0,0.4); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 14px; color: var(--ink-dim); white-space: pre-wrap; overflow-wrap: anywhere; margin: 16px 0; }
+.readout b { color: var(--accent); }

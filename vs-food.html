@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Larder — Vintage Story food, nutrition, farming & cooking (v1.22.3)</title>
+<meta name="description" content="A complete guide to eating well in Vintage Story 1.22.3: the saturation bar and the five nutrition groups that raise your max health, foraging and hunting for early food, farming and soil fertility (nitrogen/phosphorus/potassium) with crop rotation and fertilizers, cooking on the fire pit / cooking pot / clay oven, the new 1.22 fishing overhaul, and a pointer to food preservation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🍲</span>
+      <span class="wordmark">The<br>Larder<small>NUTRITION · FARMING · COOKING</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Eat to live</p>
+      <a href="#overview"><span class="ix">00</span> Saturation &amp; Nutrition</a>
+      <a href="#groups"><span class="ix">01</span> The Five Groups</a>
+      <p class="group-label">Get the food</p>
+      <a href="#foraging"><span class="ix">02</span> Foraging &amp; Hunting</a>
+      <a href="#farming"><span class="ix">03</span> Farming &amp; Soil</a>
+      <p class="group-label">Make it a meal</p>
+      <a href="#cooking"><span class="ix">04</span> Cooking</a>
+      <a href="#fishing"><span class="ix">05</span> Fishing</a>
+      <a href="#fresh"><span class="ix">06</span> Keeping It Fresh</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Fertility consumption, climate<br>and recipes are config-tunable —<br>the in-game <b>Survival Handbook<br>(H)</b> is ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Food &amp; Farming</p>
+      <h1>The Larder</h1>
+      <p class="lede">Eating well in Vintage Story is a <strong>system</strong>, not an afterthought. You don't just stave off a hunger bar — you balance five separate nutrition groups that, kept full, make you measurably tougher. This is the whole loop: forage and hunt to survive, till soil and rotate crops to thrive, then cook it all into meals that last. A varied diet is the difference between frail and formidable.</p>
+      <div class="badges">
+        <span class="badge accent">Five nutrition groups</span>
+        <span class="badge">Soil fertility &amp; rotation</span>
+        <span class="badge">Cooking &amp; fishing</span>
+        <span class="badge danger">🍄 Some mushrooms are poisonous</span>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">Nutrition groups</div><div class="v">5 <small>fruit · veg · protein · grain · dairy</small></div></div>
+        <div class="f"><div class="k">Soil nutrients</div><div class="v">3 <small>N · P · K, per plot</small></div></div>
+        <div class="f"><div class="k">Stew shelf life</div><div class="v">~6 <small>in-game days</small></div></div>
+        <div class="f"><div class="k">Fish species (1.22)</div><div class="v">20+ <small>freshwater, new overhaul</small></div></div>
+      </div>
+    </header>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — Two systems at once</p>
+      <h2>Saturation &amp; Nutrition</h2>
+      <p class="lead">Hunger in Vintage Story is two systems stacked on top of each other. You manage <strong>saturation</strong> — the bar that drains as you move, mine and fight — <em>and</em> <strong>five separate nutrition bars</strong>. Keeping them all topped up is the goal; letting any of them run dry quietly costs you.</p>
+      <div class="split">
+        <div>
+          <h4>Saturation — the hunger bar</h4>
+          <p>This is the short-term fuel gauge. Every action you take drains it; eating any food refills it. Run it to empty and you begin to <strong>starve</strong>, losing health over time. Saturation is the urgent, moment-to-moment number.</p>
+        </div>
+        <div>
+          <h4>Nutrition — five slow bars</h4>
+          <p>Underneath saturation sit five long-term bars, one per food group. Eating a food adds satiety <em>and</em> tops up the nutrition bar(s) of its group. A fuller, more even set of bars raises your <strong>maximum health</strong>; mono-eating leaves you frail.</p>
+        </div>
+      </div>
+      <div class="note tip">
+        <span class="label">The one rule that matters</span>
+        <p>Eat the rainbow. Saturation only asks "are you full?" — nutrition asks "are you eating <em>variety</em>?" The tougher, higher-max-health character is always the one with five reasonably full bars, not the one who ate forty berries.</p>
+      </div>
+    </section>
+
+    <!-- 01 GROUPS -->
+    <section class="doc" id="groups">
+      <p class="sec-index">01 — Eat the rainbow</p>
+      <h2>The Five Nutrition Groups</h2>
+      <p>Every edible item belongs to one or more of five groups: <strong>Fruit, Vegetable, Protein, Grain</strong> and <strong>Dairy</strong>. Each group fills its own bar as you eat foods of that type. The combined fullness of those bars sets your <strong>max health</strong> — so a balanced eater is literally harder to kill, while someone living on a single group stays frail no matter how stuffed they are.</p>
+      <div class="data-table">
+        <table>
+          <caption>The five nutrition groups and where to find them</caption>
+          <thead><tr><th>Group</th><th>Example foods</th><th>Easiest early source</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fruit</strong></td><td>Berries (many bush types), tree fruit</td><td>Forage berry bushes</td></tr>
+            <tr><td><strong>Vegetable</strong></td><td>Turnip, carrot, cabbage, onion, mushrooms, cattail root</td><td>Forage cattail roots &amp; safe mushrooms</td></tr>
+            <tr><td><strong>Protein</strong></td><td>Meat, fish, eggs, soybean</td><td>Hunt hares/chickens; fish</td></tr>
+            <tr><td><strong>Grain</strong></td><td>Spelt, rye, rice, flour &amp; flour-based meals</td><td>Wild grain &amp; later farmed cereals</td></tr>
+            <tr><td><strong>Dairy</strong></td><td>Milk, cheese</td><td>Milk tamed animals (mid-game)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Dairy is the slow one</span>
+        <p>Fruit, vegetable, protein and grain are all reachable in your first days. <strong>Dairy</strong> typically lags — it needs tamed, milkable animals and a churn/cheese workflow — so don't be surprised if that bar trails the others for a while. Aim to bring it up once your homestead is established.</p>
+      </div>
+    </section>
+
+    <!-- 02 FORAGING -->
+    <section class="doc" id="foraging">
+      <p class="sec-index">02 — Before you farm</p>
+      <h2>Foraging &amp; Hunting</h2>
+      <p>Your first meals come from the land as it is. Foraging covers four nutrition groups before you've turned a single clod of soil, and a little hunting handles protein.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">forage · fruit</span><h4>Berries</h4><p><strong>Right-click</strong> a berry bush to pick it <em>without</em> destroying the plant — it will fruit again. Breaking the bush kills it, so harvest, don't smash.</p></div>
+        <div class="card"><span class="tag">forage · veg</span><h4>Cattails &amp; roots</h4><p>Cut cattails at the water's edge for <strong>cattail roots</strong> (roast them for veg nutrition) plus tops that double as cordage.</p></div>
+        <div class="card"><span class="tag">forage · veg</span><h4>Mushrooms</h4><p>Common and good veg — but <strong>some are poisonous</strong>. Press <code>H</code> and check the Handbook before eating an unfamiliar one, and cook the safe ones.</p></div>
+        <div class="card"><span class="tag">forage · seeds</span><h4>Wild crops &amp; seeds</h4><p>Wild grasses and crops drop the first <strong>seeds</strong> you'll plant. Gather them now — they bootstrap your whole farm.</p></div>
+        <div class="card"><span class="tag">hunt · protein</span><h4>Hares &amp; chickens</h4><p>Easy first prey. Kill them, then <strong>butcher with a knife</strong> for raw meat (cook it before eating), plus hide and fat.</p></div>
+        <div class="card"><span class="tag">hunt · protein</span><h4>Deer &amp; bigger game</h4><p>More meat, more risk. Larger animals reward the same knife-butchering with hide and fat for tallow, leather and candles later.</p></div>
+      </div>
+      <div class="note warn">
+        <span class="label">Always butcher with a knife — and cook the meat</span>
+        <p>Hitting a corpse without a <strong>knife</strong> wastes most of the carcass; the knife is what yields raw meat, hide and fat. Raw meat can make you ill, so roast it on a fire pit first. For where animals live and how to hunt them safely, see <a href="vs-creatures.html">The Bestiary</a>.</p>
+      </div>
+    </section>
+
+    <!-- 03 FARMING -->
+    <section class="doc" id="farming">
+      <p class="sec-index">03 — Grow your own</p>
+      <h2>Farming &amp; Soil Fertility</h2>
+      <p>To farm, take a <strong>hoe</strong> to grass-covered soil to till it into <strong>farmland</strong>, plant a seed, and let <strong>water (or rain) plus warmth</strong> grow it. The catch — and the heart of farming — is that soil isn't infinite. Each plot tracks <strong>three nutrients</strong>, and crops eat the one they prefer.</p>
+
+      <h3>The three soil nutrients</h3>
+      <p>Every farmland plot carries its own levels of three nutrients. Different crops drain different ones, and if any nutrient a crop needs hits <strong>0%</strong>, that crop <strong>stops growing entirely</strong> until it recovers.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">N</span><h4>Nitrogen</h4><p>Feeds <strong>leafy crops</strong> — cabbage, lettuce and the like. Replenish with <strong>saltpeter</strong>.</p></div>
+        <div class="card"><span class="tag">P</span><h4>Phosphorus</h4><p>Feeds <strong>root crops</strong> — turnip, carrot, parsnip. Replenish with <strong>bone meal</strong>.</p></div>
+        <div class="card"><span class="tag">K</span><h4>Potassium</h4><p>Feeds <strong>grains &amp; flax</strong> — spelt, rye, rice, flax. Replenish with <strong>potash</strong>.</p></div>
+      </div>
+
+      <h3>Crop rotation</h3>
+      <p>Because each crop drains mostly one nutrient, the trick is to <strong>alternate</strong>: plant a nitrogen-hungry crop, then a phosphorus crop, then a potassium crop, so the two nutrients a given crop <em>isn't</em> using have time to recover between plantings.</p>
+      <div class="readout">Example rotation on one plot:
+  carrots  (eats <b>Phosphorus</b>)  →  turnips (eats <b>Phosphorus</b>… pair with a leafy crop)  →  spelt (eats <b>Potassium</b>)
+A cleaner three-step: <b>cabbage</b> (N) → <b>carrot</b> (P) → <b>spelt</b> (K) → repeat,
+so each nutrient gets two rest cycles before it's tapped again.</div>
+
+      <h3>Fertilizers &amp; soil tiers</h3>
+      <p>You don't have to wait for nature. Apply fertilizer <strong>pre-emptively</strong> to offset what a crop will consume, rather than waiting for a bar to bottom out.</p>
+      <div class="data-table">
+        <table>
+          <caption>Fertilizers — what each one restores</caption>
+          <thead><tr><th>Fertilizer</th><th>Restores</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Saltpeter</strong></td><td>+ Nitrogen</td><td>Leafy crops</td></tr>
+            <tr><td><strong>Bone meal</strong></td><td>+ Phosphorus</td><td>Root crops</td></tr>
+            <tr><td><strong>Potash</strong></td><td>+ Potassium</td><td>Grains &amp; flax</td></tr>
+            <tr><td><strong>Compost</strong></td><td>+ all three, evenly</td><td>General top-up between rotations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Soil also comes in <strong>tiers</strong> that hold different maximum fertility: <strong>low → medium → high → compost(ed) → terra preta</strong>, with terra preta the richest. Better soil simply lets you push crops further before nutrients run out — but rotation and fertilizer still matter on every tier.</p>
+
+      <h3>What grows, and where</h3>
+      <div class="data-table">
+        <table>
+          <caption>Crop list — primary nutrient consumed &amp; climate notes (v1.22.3)</caption>
+          <thead><tr><th>Crop</th><th>Mainly eats</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Turnip</td><td>Phosphorus</td><td>Fast root crop; <strong>overheats</strong> in hot-temperate summers — plant in cooler seasons</td></tr>
+            <tr><td>Carrot</td><td>Phosphorus</td><td>Reliable staple root</td></tr>
+            <tr><td>Parsnip</td><td>Phosphorus</td><td>Hardy root</td></tr>
+            <tr><td>Onion</td><td>Phosphorus</td><td>Great flavour base for stews</td></tr>
+            <tr><td>Cabbage</td><td>Nitrogen</td><td>Leafy; <strong>seeds are rare</strong> — from cracked vessels or traders</td></tr>
+            <tr><td>Spelt</td><td>Potassium</td><td>Grain → flour → bread</td></tr>
+            <tr><td>Rye</td><td>Potassium</td><td>Grain; hardier cereal</td></tr>
+            <tr><td>Rice</td><td>Potassium</td><td>Grain; wants warmth &amp; water</td></tr>
+            <tr><td>Flax</td><td>Potassium</td><td>For <strong>twine &amp; linen</strong>; suits <strong>temperate</strong> climates</td></tr>
+            <tr><td>Soybean</td><td>Nitrogen</td><td>Plant protein; also a cooking ingredient</td></tr>
+            <tr><td>Pumpkin</td><td>—</td><td>Sprawling crop; needs space &amp; warmth</td></tr>
+            <tr><td><strong>Fennel</strong> <span class="vflag">new 1.22</span></td><td>—</td><td>New culinary crop added in 1.22</td></tr>
+            <tr><td><strong>Licorice</strong> <span class="vflag">new 1.22</span></td><td>—</td><td>New crop added in 1.22</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Climate &amp; cold-climate farming</span>
+        <p>Crops care about temperature and season — flax likes temperate ground, turnips bolt in hot summers, and rice/pumpkin want warmth. Match crops to your biome and the calendar (see <a href="vs-world.html">The Lay of the Land</a> for climate &amp; seasons). In genuinely cold climates, grow indoors: a <strong>greenhouse</strong> extends your season, covered in <a href="vs-structures.html">The Homestead</a>.</p>
+      </div>
+    </section>
+
+    <!-- 04 COOKING -->
+    <section class="doc" id="cooking">
+      <p class="sec-index">04 — Turn ingredients into meals</p>
+      <h2>Cooking</h2>
+      <p>Raw ingredients are survival; <strong>cooked meals</strong> are where food becomes efficient — more satiety per item, better nutrition, and far longer shelf life. There are three cookers, each for a different job.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">cooker</span><h4>Fire pit</h4><p>Your first cooker. <strong>Roasts single foods</strong> — a piece of meat, a vegetable. Quick, no clay required, and the base everything else is built on.</p></div>
+        <div class="card"><span class="tag">cooker</span><h4>Cooking pot</h4><p>A <strong>clay pot</strong>, formed and fired, set on a fire pit. This is how you make multi-ingredient <strong>stews, soups and porridge</strong>.</p></div>
+        <div class="card"><span class="tag">cooker</span><h4>Clay oven</h4><p><strong>Bakes</strong> bread, dough and other baked goods. Pair it with a quern to turn your grain harvest into loaves.</p></div>
+      </div>
+
+      <h3>The cooking pot, in detail</h3>
+      <p>The pot has <strong>4 ingredient slots</strong>; each slot holds up to <strong>6 items</strong> (or 6 L of a liquid). The <strong>first two slots determine the meal type</strong>; the other two are optional ingredients that raise nutrition and satiety. A meal's satiety is the <strong>sum of its ingredients</strong>, improved by the act of cooking — so a four-slot pot beats eating the same foods raw and separately.</p>
+      <div class="data-table">
+        <table>
+          <caption>Meal types &amp; shelf life (cooking pot)</caption>
+          <thead><tr><th>Meal</th><th>Made from (gist)</th><th>Shelf life</th></tr></thead>
+          <tbody>
+            <tr><td>Porridge</td><td>Grain + liquid</td><td class="num">~3 days</td></tr>
+            <tr><td>Scrambled eggs</td><td>Eggs (+ extras)</td><td class="num">~3 days</td></tr>
+            <tr><td>Vegetable stew</td><td>Vegetables (+ extras)</td><td class="num">~6 days</td></tr>
+            <tr><td>Meat stew</td><td>Meat (+ extras)</td><td class="num">~6 days</td></tr>
+            <tr><td>Soup</td><td>Ingredients + plenty of liquid</td><td class="num">~6 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Make your first stew</h3>
+      <ol class="flow">
+        <li><strong>Form &amp; fire a clay cooking pot.</strong> Shape it from clay on a crafting/clay surface, then fire it in a pit kiln (or kiln) until it's a usable pot.</li>
+        <li><strong>Set the pot on a lit fire pit.</strong> The fire pit is the heat source; the pot sits on top of it.</li>
+        <li><strong>Fill the first two slots to pick the meal type.</strong> Two slots of vegetables → vegetable stew; two of meat → meat stew. This choice <em>defines</em> the dish.</li>
+        <li><strong>Add optional ingredients in slots 3–4.</strong> Onion, extra veg, a little grain — each raises nutrition and satiety. More variety, better meal.</li>
+        <li><strong>Cook, then collect into bowls.</strong> Let it cook, serve it into bowls, and eat. One pot feeds you for several meals — and stew keeps ~6 days.</li>
+      </ol>
+
+      <h3>Bread, from grain to loaf</h3>
+      <p>Cereal grain isn't eaten as-is for best value. Grind it into <strong>flour</strong> at a <strong>quern</strong> (a hand mill — or power it; see <a href="vs-mechanical-power.html">The Turning Gear</a>), mix flour into <strong>dough</strong>, then <strong>bake</strong> the dough in a clay oven into bread. That's your durable grain-group staple.</p>
+    </section>
+
+    <!-- 05 FISHING -->
+    <section class="doc" id="fishing">
+      <p class="sec-index">05 — New in 1.22</p>
+      <h2>Fishing</h2>
+      <p>Version 1.22 brought a full <strong>fishing overhaul</strong>: <strong>20+ freshwater fish species</strong> with location-specific populations and their own <strong>bait and lure preferences</strong>. Fish are a reliable, renewable source of the <strong>protein</strong> group — and once you learn a water's species, a steady supply.</p>
+      <h3>How to fish</h3>
+      <ul>
+        <li><strong>Craft your gear.</strong> Build <strong>rods</strong>, <strong>lures</strong> and <strong>traps</strong>. Rods are active fishing; traps work passively while you do other things.</li>
+        <li><strong>Match bait to the catch.</strong> Different species favour different bait/lures, and populations vary by body of water — scout what lives where, then bring the right tackle.</li>
+        <li><strong>Cook or dry the catch.</strong> Fish count as protein and can be <strong>cooked</strong> (roasted or into stew/soup) or <strong>dried</strong> for preservation.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">A standing protein supply</span>
+        <p>Once your hunting grounds thin out, fishing — especially with <strong>traps</strong> — becomes the low-effort way to keep the protein bar full. Set traps near your homestead and check them as part of your routine.</p>
+      </div>
+    </section>
+
+    <!-- 06 FRESH -->
+    <section class="doc" id="fresh">
+      <p class="sec-index">06 — Don't let it rot</p>
+      <h2>Keeping It Fresh</h2>
+      <p>Every food <strong>spoils</strong> over time. Preservation doesn't just delay that — it can extend shelf life dramatically, turning a glut of summer harvest into winter survival. The full preservation system and the cellar build live in <a href="vs-structures.html"><strong>The Homestead</strong></a>; here's the short version.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">salt</span><h4>Salting</h4><p>Use <strong>salt</strong> in a <strong>crock or barrel</strong> to salt-cure meat and fish — a big jump in shelf life over raw.</p></div>
+        <div class="card"><span class="tag">dry</span><h4>Drying racks</h4><p>Hang sliced <strong>meat, fish or mushrooms</strong> on a drying rack to dry them out and keep them far longer.</p></div>
+        <div class="card"><span class="tag">seal</span><h4>Sealed crocks &amp; cellars</h4><p>Sealed crocks and storage vessels kept in a cold <strong>cellar</strong> last far longer than food left in the open.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Where to read more</span>
+        <p>Building a proper cold cellar, the rules for what counts as "cellar" space, and the full salting/drying/sealing workflow are all in <a href="vs-structures.html">The Homestead</a>. Pair it with this page: grow and cook the food here, store it there.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Next stop</span>
+        <p>With a full larder, branch out: <a href="vs-world.html">The Lay of the Land</a> for the climate &amp; seasons that govern your crops, <a href="vs-creatures.html">The Bestiary</a> for hunting and animal husbandry (and that elusive dairy bar), or back to <a href="vs-getting-started.html">The First Day</a> if you're still finding your feet.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Larder</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Nutrition effects, soil-fertility consumption, climate ranges, shelf lives and recipes are config-tunable and shift between versions. Shelf-life figures are representative in-game days. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Drifter's Almanac — a complete Vintage Story field guide (v1.22.3)</title>
+<meta name="description" content="A complete, interactive fan-made field guide to Vintage Story 1.22.3 (standard world, Commoner class): stone-age survival, the full Stone→Copper→Bronze→Iron→Steel progression, knapping & clay forming & smithing, mechanical power, food & farming, base & cellar build plans, temporal stability, biomes, the bestiary, ruins and traders." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg-0:#0c0b08; --bg-1:#13110c; --bg-2:#1b1710; --line:#3a3122;
+    --ink:#ece3d3; --ink-dim:#b6a787; --ink-faint:#82725a;
+    --f:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-display:"Cinzel",Georgia,serif;
+    --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    --teal:#4fc7bb; --copper:#d98a45; --amber:#e3b755; --rust:#d65b39; --green:#86b35a; --violet:#9b86e0;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:var(--f); color:var(--ink); line-height:1.62;
+    background:
+      radial-gradient(1000px 560px at 84% -6%, rgba(79,199,187,.10), transparent 60%),
+      radial-gradient(760px 520px at 2% 2%, rgba(217,138,69,.08), transparent 55%),
+      radial-gradient(720px 500px at 50% 110%, rgba(214,91,57,.06), transparent 55%),
+      var(--bg-0);
+    background-attachment:fixed; min-height:100vh; -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 clamp(16px,4vw,22px)}
+  header.hero{padding:clamp(54px,11vw,112px) 0 24px}
+  .eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--teal); margin:0 0 14px}
+  h1{font-family:var(--f-display); font-size:clamp(2.3rem,6.4vw,4rem); line-height:1.04; margin:0; letter-spacing:.01em; font-weight:800;
+     background:linear-gradient(180deg,#fff 35%,#cdb184); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lede{color:var(--ink-dim); max-width:66ch; font-size:1.1rem; margin:18px 0 0}
+  .stat-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px}
+  .chip{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.04em; padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--ink-dim); background:rgba(0,0,0,.25)}
+  .chip b{color:var(--ink)}
+  .intro{color:var(--ink-dim); max-width:74ch; margin:26px 0 0; font-size:1rem}
+  .intro b{color:var(--ink)}
+
+  section{padding:8px 0 46px}
+  .group-label{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); margin:32px 0 14px; display:flex; align-items:center; gap:12px}
+  .group-label::after{content:""; flex:1; height:1px; background:var(--line)}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:15px}
+
+  a.card{
+    display:flex; flex-direction:column; gap:7px; text-decoration:none; color:inherit;
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-1));
+    border:1px solid var(--line); border-radius:14px; padding:18px 19px 16px;
+    position:relative; overflow:hidden; transition:border-color .18s, transform .18s;
+  }
+  a.card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--ac,var(--teal)); opacity:.55; transition:opacity .18s, width .18s}
+  a.card:hover{transform:translateY(-3px); border-color:#534527}
+  a.card:hover::before{opacity:1; width:5px}
+  a.card .tag{font-family:var(--f-mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:7px}
+  a.card .emoji{font-size:1.15rem; line-height:1}
+  a.card h2{margin:3px 0 0; font-family:var(--f-display); font-size:1.2rem; font-weight:700; letter-spacing:.01em; color:#fff}
+  a.card .sub{font-family:var(--f-mono); font-size:.62rem; letter-spacing:.05em; color:var(--ac,var(--teal)); text-transform:uppercase}
+  a.card p{margin:6px 0 0; color:var(--ink-dim); font-size:.9rem}
+  a.card .go{margin-top:auto; padding-top:12px; font-family:var(--f-mono); font-size:.74rem; color:var(--ac,var(--teal))}
+  a.card .go::after{content:" →"}
+
+  .backlink{display:inline-block; margin-top:26px; font-family:var(--f-mono); font-size:.72rem; letter-spacing:.1em; color:var(--ink-faint); text-decoration:none}
+  .backlink:hover{color:var(--teal)}
+  footer{padding:30px 0 64px; color:var(--ink-faint); font-size:.84rem; border-top:1px solid var(--line); margin-top:18px}
+  footer a{color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Vintage Story · v1.22.3 · Standard world · Commoner</p>
+    <h1>The Drifter's<br>Almanac</h1>
+    <p class="lede">A complete, interactive field guide to <strong>Vintage Story</strong> — the cold, beautiful, unforgiving survival game where you start with nothing but your hands and a sharp eye for a flint nodule, and end forging steel under a windmill while the temporal storms roll in.</p>
+    <div class="stat-row">
+      <span class="chip"><b>12</b> guides</span>
+      <span class="chip"><b>Stone → Steel</b> progression</span>
+      <span class="chip">v<b>1.22.3</b></span>
+      <span class="chip">Interactive build plans</span>
+      <span class="chip">iPad-friendly</span>
+    </div>
+    <p class="intro">This almanac assumes the defaults most players start with: a <b>Standard</b> world preset and the <b>Commoner</b> class — the all-rounder with no bonuses and no penalties. Every page is a self-contained chapter you can read end-to-end, with clear step-by-step <b>How-Tos</b>, real numbers, interactive top-down <b>build schematics</b>, and a tickable progression you can carry from your first knapped knife to the cementation furnace. Pick a door.</p>
+  </header>
+
+  <section>
+    <p class="group-label">Start here · the spine</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--teal)" href="vs-getting-started.html">
+        <span class="tag"><span class="emoji">🌅</span> Survival · Day One</span>
+        <h2>The First Day</h2>
+        <span class="sub">Knap · fire · shelter · survive the night</span>
+        <p>From spawn to your first sunrise — controls, the Commoner class, knapping a knife, cordage, firewood, a fire pit, your first meal and surviving night one. A tickable Day-One checklist included.</p>
+        <span class="go">Open the chapter</span>
+      </a>
+      <a class="card" style="--ac:var(--copper)" href="vs-progression.html">
+        <span class="tag"><span class="emoji">⛏</span> Flagship · The full ladder</span>
+        <h2>The Long Road</h2>
+        <span class="sub">Stone → Copper → Bronze → Iron → Steel</span>
+        <p>The entire metal-age progression as one interactive, browser-saved checklist with a live progress meter — every gate, every tool, every furnace, in the exact order you should build them.</p>
+        <span class="go">Walk the road</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Craft &amp; industry</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--amber)" href="vs-crafting.html">
+        <span class="tag"><span class="emoji">🪨</span> The making minigames</span>
+        <h2>The Four Crafts</h2>
+        <span class="sub">Knapping · clay forming · smithing · casting</span>
+        <p>Vintage Story's signature grid minigames, each with interactive voxel patterns you can step through — chip a knife, form a crucible, hammer an ingot, pour a mold.</p>
+        <span class="go">Learn the crafts</span>
+      </a>
+      <a class="card" style="--ac:var(--rust)" href="vs-metalworking.html">
+        <span class="tag"><span class="emoji">🔥</span> Ore to steel</span>
+        <h2>Fire &amp; Metal</h2>
+        <span class="sub">Crucible · forge · bloomery · cementation</span>
+        <p>Smelt ore in a crucible, work iron on an anvil, run the new 1.22 forge with bellows, tongs, quenching &amp; tempering, and carburize blister steel in a cementation furnace.</p>
+        <span class="go">Light the forge</span>
+      </a>
+      <a class="card" style="--ac:var(--teal)" href="vs-mechanical-power.html">
+        <span class="tag"><span class="emoji">⚙</span> Wind &amp; water</span>
+        <h2>The Turning World</h2>
+        <span class="sub">Axles · gears · windmill · waterwheel</span>
+        <p>Build a mechanical-power network — quern, grindstone, helve hammer and pulverizer driven by a windmill or the new 1.22 waterwheel. With wiring schematics and a power budget.</p>
+        <span class="go">Turn the gears</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">Survive &amp; settle</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--green)" href="vs-food.html">
+        <span class="tag"><span class="emoji">🍲</span> Nutrition · farming · fishing</span>
+        <h2>The Larder</h2>
+        <span class="sub">Food groups · crops · meals · fishing</span>
+        <p>The four-plus-one nutrition bars, foraging and hunting, soil nutrients and crop rotation, cooking pot meals and clay-oven baking, and the new 1.22 fishing overhaul.</p>
+        <span class="go">Fill the pot</span>
+      </a>
+      <a class="card" style="--ac:var(--copper)" href="vs-structures.html">
+        <span class="tag"><span class="emoji">🏠</span> Build plans</span>
+        <h2>The Homestead</h2>
+        <span class="sub">House · cellar · smithy · kiln · greenhouse</span>
+        <p>Interactive, layer-by-layer build plans for a starter house, a high-scoring food cellar, a charcoal pit, a smithy and a greenhouse — with cellar cooling-score maths explained.</p>
+        <span class="go">Raise the walls</span>
+      </a>
+      <a class="card" style="--ac:var(--rust)" href="vs-creatures.html">
+        <span class="tag"><span class="emoji">🐺</span> Bestiary &amp; husbandry</span>
+        <h2>The Bestiary</h2>
+        <span class="sub">Prey · predators · drifters · livestock</span>
+        <p>Every creature you'll meet — hares to bears, drifters to locusts — their damage tiers, behaviour and drops, plus how to tame, breed and butcher livestock.</p>
+        <span class="go">Read the bestiary</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="group-label">The world &amp; what lies beneath</p>
+    <div class="cards">
+      <a class="card" style="--ac:var(--green)" href="vs-world.html">
+        <span class="tag"><span class="emoji">🧭</span> Climate · geology · prospecting</span>
+        <h2>The World</h2>
+        <span class="sub">Biomes · seasons · rock layers · the propick</span>
+        <p>How temperature and rainfall shape every biome, the seasonal calendar, the rock-layer stack from soil to bedrock, where ores hide by depth, and how to read a prospecting pick.</p>
+        <span class="go">Map the world</span>
+      </a>
+      <a class="card" style="--ac:var(--teal)" href="vs-temporal.html">
+        <span class="tag"><span class="emoji">🌀</span> Stability &amp; storms</span>
+        <h2>The Rust &amp; The Gear</h2>
+        <span class="sub">Stability · rifts · storms · gears</span>
+        <p>The mechanic that defines Vintage Story: temporal stability, rifts that bleed it away, the storms that summon drifters everywhere, temporal gears, and how to storm-proof a base.</p>
+        <span class="go">Hold the line</span>
+      </a>
+      <a class="card" style="--ac:var(--violet)" href="vs-locations.html">
+        <span class="tag"><span class="emoji">🏛</span> Ruins · traders · the story</span>
+        <h2>Ruins &amp; Wayfarers</h2>
+        <span class="sub">Ruins · translocators · traders · dungeons</span>
+        <p>Surface and underground ruins, trader caravans and what they sell, the translocator network, the new 1.22 dynamic dungeon, and a spoiler-light tour of the story locations.</p>
+        <span class="go">Go wandering</span>
+      </a>
+    </div>
+  </section>
+
+  <a class="backlink" href="index.html">← This site also hosts the “To the Moon 2.0” Minecraft field guides</a>
+
+  <footer>
+    <p>An unofficial, fan-made guide to <a href="https://www.vintagestory.at/">Vintage Story</a> by Anego Studios — mechanics target <strong>v1.22.3</strong>. Numbers are config-tunable and shift between versions; the in-game <strong>Survival Handbook</strong> and the official <a href="https://wiki.vintagestory.at/">wiki</a> are ground truth. Built with <a href="https://claude.com/claude-code">Claude Code</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Four Crafts — knapping, clay, smithing &amp; casting in Vintage Story (v1.22.3)</title>
+<meta name="description" content="A hands-on guide to Vintage Story 1.22.3's four hand-craft minigames: knapping stone tool heads, building pottery and crucibles voxel-by-voxel with clay forming, hammering hot iron and steel on the anvil (smithing), and casting copper and bronze tools from a crucible into clay molds. Includes interactive blueprint viewers for each craft." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🪨</span>
+      <span class="wordmark">The Four<br>Crafts<small>KNAPPING · CLAY · SMITHING · CASTING</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Shaping the world</p>
+      <a href="#overview"><span class="ix">00</span> Overview</a>
+      <p class="group-label">By hand</p>
+      <a href="#knapping"><span class="ix">01</span> Knapping</a>
+      <a href="#clay"><span class="ix">02</span> Clay Forming</a>
+      <p class="group-label">By heat</p>
+      <a href="#smithing"><span class="ix">03</span> Smithing</a>
+      <a href="#casting"><span class="ix">04</span> Casting</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · the four hand-<br>craft minigames. Voxel patterns<br>here are representative — the in-<br>game <b>Survival Handbook (H)</b> shows<br>the canonical blueprint for each item.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · The hand crafts</p>
+      <h1>The Four Crafts</h1>
+      <p class="lede">Vintage Story has no all-purpose 3×3 crafting table for the things that matter. Most early gear is <strong>shaped</strong> on a work surface — you chip a stone, stack clay voxel by voxel, or hammer glowing metal — following a blueprint from the Survival Handbook. These four minigames are the spine of the whole tech tree: knapping, clay forming, smithing and casting.</p>
+      <div class="badges">
+        <span class="badge accent">🪨 Knapping</span>
+        <span class="badge">🏺 Clay forming</span>
+        <span class="badge">🔨 Smithing</span>
+        <span class="badge">🫗 Casting</span>
+      </div>
+    </header>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Overview</h2>
+      <p class="lead">Where Minecraft hands you items from a recipe grid, Vintage Story makes you <strong>form</strong> them. Each of the four crafts is a small voxel puzzle, and which one you reach for depends entirely on the material and the age you're in.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">stone age</span><h4>🪨 Knapping</h4><p>Chip a loose stone into a tool head. This is how you make your very first knife, axe, hoe, shovel and spear — no fire or metal required.</p></div>
+        <div class="card"><span class="tag">pottery</span><h4>🏺 Clay forming</h4><p>Build pottery up voxel by voxel: bowls, jugs, storage vessels, ingot &amp; tool <strong>molds</strong>, and the all-important <strong>crucible</strong>. Everything is then fired in a pit kiln.</p></div>
+        <div class="card"><span class="tag">iron &amp; steel</span><h4>🔨 Smithing</h4><p>Heat an ingot in a forge until it glows, set it on an anvil, and hammer it to a blueprint. The only way to shape <strong>iron</strong> and <strong>steel</strong>.</p></div>
+        <div class="card"><span class="tag">copper &amp; bronze</span><h4>🫗 Casting</h4><p>Melt copper or bronze in a crucible and pour the liquid metal into clay molds. The fast route to early metal tools — and the way you cast your first anvil.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">The dividing line: cast vs. smithed</span>
+        <p><strong>Copper and bronze are CAST</strong> — they melt at temperatures a crucible can reach, so you pour them into molds. <strong>Iron and steel are SMITHED</strong> — they melt far too hot to cast practically, so you work them solid (but glowing) on the anvil with a hammer. Knowing which metal does which saves a lot of confusion at the forge.</p>
+      </div>
+      <p>If you've just spawned, start at the stone age: <a href="vs-getting-started.html#tools">The First Day</a> walks through knapping your first knife and axe. For the full Stone→Copper→Bronze→Iron→Steel ladder these crafts climb, see <a href="vs-progression.html">The Long Road</a>; for smelting and alloys specifically, <a href="vs-metalworking.html">the metalworking guide</a>.</p>
+    </section>
+
+    <!-- 01 KNAPPING -->
+    <section class="doc" id="knapping">
+      <p class="sec-index">01 — Stone by hand</p>
+      <h2>Knapping</h2>
+      <p>Knapping is the first craft anyone does. You lay a loose stone flat as a grid of voxels and <strong>chip away everything that isn't the tool</strong>, leaving the head behind. No fire, no workbench — just a stone, a surface, and a steady left mouse button.</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Place a knapping surface.</strong> With a loose stone selected on your hotbar, hold <strong>Shift</strong> and click the <em>top</em> of a solid block. The stone lays out as a flat voxel grid.</li>
+        <li><strong>Chip to the shape.</strong> <strong>Left-click</strong> the voxels you want <em>removed</em>. You're carving negative space — chip everything outside the blueprint until only the target shape remains.</li>
+        <li><strong>The head pops off.</strong> When the pattern is complete, the finished tool head (a Knife Blade, Axe Head, etc.) drops into your inventory.</li>
+        <li><strong>Assemble the tool.</strong> Press <code>E</code> and combine the <strong>head + a stick</strong> in the 4-slot crafting grid to finish a usable tool.</li>
+      </ol>
+
+      <div class="note warn">
+        <span class="label">Flint is special</span>
+        <p>Only <strong>flint</strong> knaps a usable <strong>knife</strong> or <strong>axe</strong> blade — those edges need its sharpness. Other stones (chert, granite, andesite, peridotite, basalt and friends) still knap fine for the blunter tools: hoes, shovels, spears and arrow/spear heads. Grab flint whenever you see it near gravel and water.</p>
+      </div>
+
+      <h3>What you can knap</h3>
+      <div class="data-table">
+        <table>
+          <caption>Knappable tool heads (combine each with a stick at the grid unless noted)</caption>
+          <thead><tr><th>Tool head</th><th>Stone</th><th>What it's for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Knife blade</strong></td><td>Flint only</td><td>Grass, reeds, berries, butchering — your first tool</td></tr>
+            <tr><td><strong>Axe head</strong></td><td>Flint only</td><td>Felling trees for firewood &amp; logs</td></tr>
+            <tr><td>Hoe head</td><td>Any knappable stone</td><td>Tilling soil for your first farm</td></tr>
+            <tr><td>Shovel head</td><td>Any knappable stone</td><td>Digging dirt, gravel, sand, clay</td></tr>
+            <tr><td>Spear head</td><td>Any knappable stone</td><td>Thrown or stabbed — early hunting &amp; defence</td></tr>
+            <tr><td>Arrow heads</td><td>Any knappable stone</td><td>Crafting arrows (with a bow)</td></tr>
+            <tr><td>Small shovel head</td><td>Any knappable stone</td><td>Compact digging variant</td></tr>
+            <tr><td>Saw blade <span class="muted">(early)</span></td><td>Flint</td><td>Sawing logs into planks before metal saws</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Pattern explorer</h3>
+      <p>Use the stepper to flip between common knapping blueprints. Filled cells are the <strong>material you keep</strong>; the hatched cells are what you chip away. These are recognizable representative shapes — the Handbook shows the exact canonical pattern for each tool in your world.</p>
+      <div id="knap-viewer"></div>
+      <div class="note">
+        <span class="label">Read the blueprint, not this page</span>
+        <p>Knapping patterns are precise and can shift slightly between versions. Always hover the recipe and press <code>H</code> for the canonical outline before you start chipping — the viewer above is a teaching aid, not a pixel-perfect spec.</p>
+      </div>
+    </section>
+
+    <!-- 02 CLAY FORMING -->
+    <section class="doc" id="clay">
+      <p class="sec-index">02 — Building with earth</p>
+      <h2>Clay Forming</h2>
+      <p>Clay forming is the opposite of knapping: instead of chipping away, you <strong>add</strong> voxels, building a vessel up layer by layer until it matches the blueprint. It's how you make every piece of pottery — including the <strong>crucible</strong> and <strong>molds</strong> that the metal crafts depend on.</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Dig clay.</strong> Find clay deposits (often near water) and dig <strong>red</strong>, <strong>blue</strong>, or <strong>fire clay</strong>. Fire clay is the heat-tolerant kind needed for crucibles and molds.</li>
+        <li><strong>Start a clay form.</strong> Select clay in hand and <strong>Shift-click</strong> a surface to lay out a form, then pick the item you want from the recipe list.</li>
+        <li><strong>Add the voxels.</strong> <strong>Left-click adds</strong> a voxel where the blueprint calls for one; <strong>right-click removes</strong>. You work the build up one layer at a time until it's complete.</li>
+        <li><strong>Fire it in a pit kiln.</strong> Stack the unfired item with <strong>dry grass</strong> plus <strong>firewood/peat/coal</strong> over it and light it. After roughly <strong>10–20 in-game hours</strong> it hardens into usable, watertight ceramic.</li>
+      </ol>
+
+      <div class="note warn">
+        <span class="label">Fire clay for anything that meets metal</span>
+        <p>Ordinary red/blue clay is fine for bowls, jugs and storage. But a <strong>crucible</strong> and <strong>molds</strong> have to survive molten-metal heat, so they must be made from <strong>fire clay</strong>. A crucible is cheap — roughly <strong>2 clay → 1 crucible</strong> (or about <strong>13 clay → 4</strong> in a batch) — and fired crucibles are what you'll smelt copper and bronze in.</p>
+      </div>
+
+      <h3>What you can form</h3>
+      <div class="data-table">
+        <table>
+          <caption>Common clay-formed items (all must be pit-kiln fired before use)</caption>
+          <thead><tr><th>Item</th><th>Clay</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Bowl</td><td>Any clay</td><td>Eating &amp; meal prep</td></tr>
+            <tr><td>Crock</td><td>Any clay</td><td>Sealed food storage (with wax)</td></tr>
+            <tr><td>Jug</td><td>Any clay</td><td>Carrying liquids</td></tr>
+            <tr><td>Storage vessel</td><td>Any clay</td><td>Bulk dry-goods storage</td></tr>
+            <tr><td>Planter / flowerpot</td><td>Any clay</td><td>Indoor growing &amp; decoration</td></tr>
+            <tr><td><strong>Crucible</strong></td><td>Fire clay</td><td>Smelting &amp; melting metal (~2 clay each)</td></tr>
+            <tr><td><strong>Ingot mold</strong></td><td>Fire clay</td><td>Casting metal into ingots</td></tr>
+            <tr><td><strong>Tool molds</strong></td><td>Fire clay</td><td>Casting axe/pick/knife/hoe heads &amp; more</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Layer explorer — a crucible</h3>
+      <p>Clay forming is genuinely <em>additive</em>, bottom to top — which is exactly why this viewer steps through <strong>Y-layers</strong>: it mirrors how you actually build the piece in-game. Step up from the solid base disk through the rising ring walls.</p>
+      <div id="clay-viewer"></div>
+      <div class="note tip">
+        <span class="label">Batch your firing</span>
+        <p>A pit kiln can fire many items at once, and it takes the same many hours either way — so form a whole stack of bowls, molds and crucibles, then fire them all in one overnight burn rather than one at a time.</p>
+      </div>
+    </section>
+
+    <!-- 03 SMITHING -->
+    <section class="doc" id="smithing">
+      <p class="sec-index">03 — Hammer &amp; anvil</p>
+      <h2>Smithing</h2>
+      <p>Smelting metal isn't enough to make a tool — for <strong>iron</strong> and <strong>steel</strong>, you have to <strong>shape it solid</strong>. You heat an ingot in a forge until it glows, lay it on an <strong>anvil</strong>, and <strong>hammer</strong> it to a voxel blueprint, one strike at a time. It's the most involved of the four crafts and the gateway to the late game.</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Heat the metal.</strong> Put an ingot in a <strong>forge</strong> and wait until it glows: dull red is too cold, <strong>orange→yellow is working temperature</strong>. White means you're about to ruin it.</li>
+        <li><strong>Set it on the anvil.</strong> Place the hot ingot on an anvil of the right tier and the blueprint appears as a voxel grid.</li>
+        <li><strong>Choose a hammer op &amp; strike.</strong> Select an operation — <strong>flatten/hit</strong> (push down), <strong>upset</strong> (push material inward), or <strong>split</strong> — and the recipe shows which voxels to add or remove. Hammer until the shape matches.</li>
+        <li><strong>Reheat as needed.</strong> Metal cools fast and can't be worked cold. Pop it back in the forge to reheat and keep going — bigger pieces need several trips.</li>
+      </ol>
+
+      <div class="note warn">
+        <span class="label">Tier your anvil to your metal</span>
+        <p>Bigger and harder work needs a stronger anvil. The progression runs <strong>copper → bronze → iron → steel</strong> anvils, each able to shape its own tier and below. Your first anvil is usually <strong>cast</strong> in copper or bronze (see Casting) before you ever smith iron on it.</p>
+      </div>
+
+      <h3>What's new in 1.22</h3>
+      <ul>
+        <li><strong>Metal tongs</strong> — hold hot work safely and move it between forge and anvil without burning your hands.</li>
+        <li><strong>A new forge with bellows</strong> — pump the <strong>bellows</strong> to drive the fire hotter and heat metal faster.</li>
+        <li><strong>Quenching &amp; tempering</strong> — dunk a finished tool head in <strong>water</strong> to quench, then temper it to trade some durability for extra working power. A real heat-treatment loop on tool heads.</li>
+      </ul>
+
+      <h3>Blueprint explorer</h3>
+      <p>Step through a few simple anvil blueprints. Filled cells are <strong>hot-metal voxels</strong> that must be present in the final shape; you flatten, upset and split until the ingot matches.</p>
+      <div id="smith-viewer"></div>
+      <div class="note tip">
+        <span class="label">Automate the grind</span>
+        <p>Hammering by hand is slow and repetitive. Once you have rotational power, a <strong>helve hammer</strong> can do the striking for you — see <a href="vs-mechanical-power.html">the mechanical power guide</a> for building one off a windmill or water wheel.</p>
+      </div>
+    </section>
+
+    <!-- 04 CASTING -->
+    <section class="doc" id="casting">
+      <p class="sec-index">04 — Pour &amp; cool</p>
+      <h2>Casting</h2>
+      <p>Casting is the quickest path to metal tools, and the only way to shape <strong>copper</strong> and <strong>bronze</strong>: you melt the metal fully liquid in a crucible and <strong>pour</strong> it into clay molds, then let it cool into a solid part. No hammering, no blueprint puzzle — just heat, pour, wait, extract.</p>
+
+      <h3>How it works</h3>
+      <ol class="flow">
+        <li><strong>Melt the metal.</strong> Load copper or bronze (ore or bits) into a <strong>fired crucible</strong> and heat it in a <strong>fire pit</strong> or <strong>forge</strong> until it's fully molten.</li>
+        <li><strong>Place a mold.</strong> Set a fired clay <strong>mold</strong> on the ground — an <strong>ingot mold</strong> (casts several ingots) or a <strong>tool mold</strong> (axe, pickaxe, knife, hoe and more).</li>
+        <li><strong>Pour.</strong> Right-click the mold with the hot crucible to fill it with liquid metal.</li>
+        <li><strong>Cool &amp; extract.</strong> Wait for the metal to solidify, then take the finished ingot or tool head out. The clay molds are <strong>reusable</strong> — pour again and again.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">You cast your first anvil, too</span>
+        <p>An <strong>anvil</strong> is itself cast — pour copper or bronze into an anvil mold to make the first one. That cast anvil is then what lets you <em>smith</em> iron and steel later, so casting quite literally bootstraps smithing.</p>
+      </div>
+
+      <h3>Cast · Smithed · Knapped</h3>
+      <p>Three ways to make a tool head, three different materials and motions. This is the whole page in one glance:</p>
+      <div class="cards">
+        <div class="card"><span class="tag">poured</span><h4>🫗 Cast</h4><p><strong>Copper &amp; bronze.</strong> Melt in a crucible, pour into a clay mold, cool, extract. Reusable molds; no minigame. Low melting point makes this practical.</p></div>
+        <div class="card"><span class="tag">hammered</span><h4>🔨 Smithed</h4><p><strong>Iron &amp; steel.</strong> Heat to glowing, then hammer solid metal on an anvil to a voxel blueprint, reheating as it cools. Too high-melting to cast.</p></div>
+        <div class="card"><span class="tag">chipped</span><h4>🪨 Knapped</h4><p><strong>Stone.</strong> Lay a loose stone flat and chip away the negative space until the tool head remains. No heat at all — the stone-age craft.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Where to go next</span>
+        <p>For smelting temperatures, ore bits and the bronze alloy recipe, see <a href="vs-metalworking.html">the metalworking guide</a>. To place all four crafts on the broader tech tree, follow <a href="vs-progression.html">The Long Road</a>. And if you haven't yet, <a href="vs-getting-started.html">The First Day</a> gets you from spawn to your first knapped knife.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Four Crafts</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The voxel patterns in the interactive viewers are representative teaching aids, not pixel-perfect specs — knapping, clay and anvil blueprints are precise and version-sensitive, so the in-game Handbook and the wiki win any disagreement. Mechanics described track v1.22.3.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  /* small grid helpers (same shape as the canonical page) */
+  const grid = (rows, cols, f = null) => Array.from({ length: rows }, () => Array(cols).fill(f));
+  // paint a list of [r,c] coords with a key onto a fresh grid
+  const shape = (rows, cols, key, cells) => {
+    const g = grid(rows, cols);
+    for (const [r, c] of cells) if (g[r] && c >= 0 && c < cols) g[r][c] = key;
+    return g;
+  };
+
+  /* ---- 01 · KNAPPING ------------------------------------------------------ */
+  // top-down 7×7 patterns; filled = flint you KEEP, null = chipped away.
+  const F = "flint";
+  const knife = shape(7, 7, F, [
+    [1,5],
+    [2,4],[2,5],
+    [3,3],[3,4],[3,5],
+    [4,2],[4,3],[4,4],
+    [5,1],[5,2],[5,3],
+  ]);
+  const axe = shape(7, 7, F, [
+    [1,2],[1,3],[1,4],
+    [2,1],[2,2],[2,3],[2,4],[2,5],
+    [3,1],[3,2],[3,3],[3,4],[3,5],
+    [4,2],[4,3],[4,4],
+    [5,3],
+  ]);
+  const spear = shape(7, 7, F, [
+    [0,3],
+    [1,2],[1,3],[1,4],
+    [2,2],[2,3],[2,4],
+    [3,3],
+    [4,3],
+    [5,3],
+  ]);
+  const arrow = shape(7, 7, F, [
+    [1,3],
+    [2,2],[2,3],[2,4],
+    [3,2],[3,3],[3,4],
+    [4,3],
+    [5,3],
+  ]);
+  const hoe = shape(7, 7, F, [
+    [1,1],[1,2],[1,3],[1,4],[1,5],
+    [2,1],[2,2],[2,3],[2,4],[2,5],
+    [3,3],
+    [4,3],
+    [5,3],
+  ]);
+
+  mountSchematic({
+    title: "Knapping Patterns",
+    subtitle: "top-down · filled = flint you keep · hatched = chip away",
+    meta: { footprint: "7×7", height: "1" },
+    palette: { flint: { label: "Flint (kept)", color: "#7d6e58" } },
+    mode: "cumulative", segmented: true, coords: true,
+    frames: [
+      { label: "Knife blade", grid: knife, note: "A long diagonal edge — flint only. Combine with a stick for a knife." },
+      { label: "Axe head", grid: axe, note: "A broad bit with a haft notch — flint only. The tree-feller." },
+      { label: "Spear head", grid: spear, note: "A narrow point on a shaft. Thrown (G) or stabbed; any knappable stone works." },
+      { label: "Arrow head", grid: arrow, note: "A small barbed point — knapped in batches for fletching arrows." },
+      { label: "Hoe head", grid: hoe, note: "A wide flat blade on a neck — for tilling. Any knappable stone." },
+    ],
+  }, "#knap-viewer");
+
+  /* ---- 02 · CLAY FORMING -------------------------------------------------- */
+  // a crucible built bottom -> top: solid base disk, then rising ring walls.
+  const C = "clay";
+  const N = 7;
+  const ring = (key, inner = null) => {
+    // a roughly circular wall ring on a 7×7 grid (corners trimmed)
+    const g = grid(N, N, inner);
+    const wall = [
+      [0,2],[0,3],[0,4],
+      [1,1],[1,5],
+      [2,0],[2,6],
+      [3,0],[3,6],
+      [4,0],[4,6],
+      [5,1],[5,5],
+      [6,2],[6,3],[6,4],
+    ];
+    for (const [r, c] of wall) g[r][c] = key;
+    return g;
+  };
+  const baseDisk = () => {
+    // a filled disk (the floor of the crucible)
+    const g = grid(N, N);
+    const fill = [
+      [0,2],[0,3],[0,4],
+      [1,1],[1,2],[1,3],[1,4],[1,5],
+      [2,0],[2,1],[2,2],[2,3],[2,4],[2,5],[2,6],
+      [3,0],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6],
+      [4,0],[4,1],[4,2],[4,3],[4,4],[4,5],[4,6],
+      [5,1],[5,2],[5,3],[5,4],[5,5],
+      [6,2],[6,3],[6,4],
+    ];
+    for (const [r, c] of fill) g[r][c] = C;
+    return g;
+  };
+
+  mountSchematic({
+    title: "Clay Forming — Crucible",
+    subtitle: "fire clay · built bottom → top, layer by layer",
+    meta: { footprint: "7×7", height: "5" },
+    palette: { clay: { label: "Clay voxel", color: "#a0673e" } },
+    mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Y0 · base disk", grid: baseDisk(),
+        note: "Lay a solid round floor first — this becomes the bottom of the crucible that the molten metal sits on." },
+      { label: "Y1 · wall starts", grid: ring(C),
+        note: "Drop the inner voxels and keep only the rim. The walls of the vessel begin rising as a ring." },
+      { label: "Y2 · wall rises", grid: ring(C),
+        note: "Add another course of wall voxels directly above the last — the bowl deepens." },
+      { label: "Y3 · wall rises", grid: ring(C),
+        note: "Another ring up. By now the crucible holds real volume; this is most of the clay you'll add." },
+      { label: "Y4 · rim", grid: ring(C),
+        note: "A final rim course tops it off. Pull it from the form, then pit-kiln fire it before you ever pour metal in." },
+    ],
+  }, "#clay-viewer");
+
+  /* ---- 03 · SMITHING ------------------------------------------------------ */
+  // simple 7×7 hot-metal blueprints (filled = voxel present in final shape).
+  const M = "metal";
+  const plate = shape(7, 7, M, [
+    [2,1],[2,2],[2,3],[2,4],[2,5],
+    [3,1],[3,2],[3,3],[3,4],[3,5],
+    [4,1],[4,2],[4,3],[4,4],[4,5],
+  ]);
+  const smithAxe = shape(7, 7, M, [
+    [1,2],[1,3],
+    [2,1],[2,2],[2,3],[2,4],
+    [3,1],[3,2],[3,3],[3,4],[3,5],
+    [4,2],[4,3],[4,4],
+  ]);
+  const pick = shape(7, 7, M, [
+    [2,0],[2,1],
+    [3,0],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6],
+    [4,5],[4,6],
+  ]);
+  const smithKnife = shape(7, 7, M, [
+    [2,5],
+    [3,3],[3,4],[3,5],
+    [4,1],[4,2],[4,3],[4,4],
+  ]);
+
+  mountSchematic({
+    title: "Smithing Blueprints",
+    subtitle: "anvil · filled = hot-metal voxel to keep",
+    meta: { footprint: "7×7", height: "1" },
+    palette: { metal: { label: "Hot metal voxel", color: "#d98a45" } },
+    mode: "cumulative", segmented: true, coords: true,
+    frames: [
+      { label: "Metal plate", grid: plate, note: "The simplest job — flatten an ingot into a clean rectangular plate. Good first practice." },
+      { label: "Axe head", grid: smithAxe, note: "A flared bit with a haft eye — upset and split to flare the cutting edge." },
+      { label: "Pickaxe head", grid: pick, note: "A long bar with points at each end. Split the tips and flatten the middle." },
+      { label: "Knife blade", grid: smithKnife, note: "A slim tapering edge — flatten thin and draw the point out to the corner." },
+    ],
+  }, "#smith-viewer");
+</script>
+</body>
+</html>

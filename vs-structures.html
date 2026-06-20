@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Homestead — building, cellars &amp; workshops in Vintage Story (v1.22.3)</title>
+<meta name="description" content="A builder's field guide for Vintage Story 1.22.3: building materials (cob, clay & stone brick, planks, chiseling), upgrading the day-one box into a real starter house, storage options, and the all-important food cellar — with the exact cellar scoring mechanics (skylight & cooling), preservation methods, a smithy layout, the pit kiln and charcoal pit, a cold-climate greenhouse and storm-proofing pointers. Five interactive, layer-by-layer build plans." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🏠</span>
+      <span class="wordmark">The<br>Homestead<small>HOUSE · CELLAR · KILN · SMITHY</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Walls &amp; rooms</p>
+      <a href="#basics"><span class="ix">00</span> Building Basics</a>
+      <a href="#house"><span class="ix">01</span> The Starter House</a>
+      <a href="#storage"><span class="ix">02</span> Storage</a>
+      <p class="group-label">Keeping food</p>
+      <a href="#cellar"><span class="ix">03</span> The Food Cellar</a>
+      <a href="#preserve"><span class="ix">04</span> Food Preservation</a>
+      <p class="group-label">Workshops</p>
+      <a href="#smithy"><span class="ix">05</span> The Smithy</a>
+      <a href="#kiln"><span class="ix">06</span> Kiln &amp; Charcoal Pit</a>
+      <a href="#greenhouse"><span class="ix">07</span> Greenhouse</a>
+      <p class="group-label">Staying safe</p>
+      <a href="#storm"><span class="ix">08</span> Storm-Proofing</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Cellar &amp; spoilage numbers are<br>config-tunable — the in-game<br><b>Survival Handbook (H)</b> is<br>ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Standard · Building &amp; structures</p>
+      <h1>The Homestead</h1>
+      <p class="lede">Four dirt walls kept you alive on Night One. Now you turn that box into a home that <strong>keeps food from rotting</strong>, a workshop that smiths metal, and a base that shrugs off a temporal storm. This is the build guide: the materials, a real starter house, the precise mechanics of a high-scoring <strong>food cellar</strong>, and the kiln, charcoal pit and smithy that power the rest of your tech tree — each laid out as an interactive, layer-by-layer plan.</p>
+      <div class="badges">
+        <span class="badge accent">Building &amp; structures</span>
+        <span class="badge">5 interactive plans</span>
+        <span class="badge">Cellar scoring, exact</span>
+        <span class="badge danger">🌀 Storm-proof your walls</span>
+      </div>
+    </header>
+
+    <!-- 00 BASICS -->
+    <section class="doc" id="basics">
+      <p class="sec-index">00 — Materials</p>
+      <h2>Building Basics</h2>
+      <p class="lead">Every structure on this page is made from a handful of building blocks. Pick by what you can reach: cheap cob for the first real walls, fired brick and cut stone for permanence, planks for floors and furniture, and the chisel for detail.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">cheapest</span><h4>Cob</h4><p>Mix <strong>soil + dry grass</strong> by hand to get <strong>cob</strong> — the cheapest sturdy wall in the game. Great for the first proper house and for sealing a cellar early. It also insulates reasonably for winter warmth.</p></div>
+        <div class="card"><span class="tag">fired</span><h4>Clay bricks</h4><p>Form clay into <strong>bricks</strong>, dry them, then <strong>fire</strong> them (pit kiln → later an oven). Fired brick is solid, handsome, and the backbone of a permanent home and a tidy cellar.</p></div>
+        <div class="card"><span class="tag">stone</span><h4>Stone bricks</h4><p>Knock stone into <strong>cobblestone</strong>, then craft <strong>stone bricks</strong> for the most durable, fireproof walls — ideal around a forge or a deep, cool cellar.</p></div>
+        <div class="card"><span class="tag">wood</span><h4>Logs &amp; planks</h4><p>Fell trees for <strong>logs</strong>, then cut them into <strong>planks</strong> with a <strong>saw</strong> (the saw is a tool you craft). Planks become floors, doors, ladders, shelves and most furniture.</p></div>
+      </div>
+
+      <h3>Chiseling for detail</h3>
+      <p>A <strong>chisel</strong> (plus a hammer in hand) lets you carve <em>any</em> placed block into a custom voxel shape — slopes, arches, beams, trims, slabs. It's how Vintage Story builds look hand-made rather than blocky. Chiseling is purely cosmetic for the builds here, but it's how you turn a plain cob box into something you actually want to live in.</p>
+
+      <h3>Doors, windows &amp; weatherproofing</h3>
+      <ul>
+        <li><strong>Doors</strong> (planks) seal a doorway against rain and let you in and out without leaving a gap drifters can use. A real door is required for a room to count as an enclosed cellar.</li>
+        <li><strong>Windows.</strong> Fire <strong>quartz or sand</strong> into <strong>glass</strong>, then craft window panes for light. Important: windows let in daylight, which <em>hurts</em> a cellar's score — keep glass in the house, not the larder.</li>
+        <li><strong>Walls &amp; roofs</strong> keep out rain (which sputters your fire and chills you) and keep <strong>drifters</strong> from wandering or spawning inside. A solid, gap-free shell is the goal everywhere on this page.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Insulation matters in winter</span>
+        <p>As seasons turn cold, body temperature becomes a real threat. A fully enclosed room with a heat source (fire pit, forge, oven) stays warm; thick walls like cob and stone hold that warmth. The same enclosure that makes a good cellar in summer makes a survivable bedroom in winter.</p>
+      </div>
+    </section>
+
+    <!-- 01 STARTER HOUSE -->
+    <section class="doc" id="house">
+      <p class="sec-index">01 — From box to home</p>
+      <h2>The Starter House</h2>
+      <p>Once you have cob or planks, replace the dirt hole with a real house: a footprint big enough for a hearth, a bed and storage, with a door and one window for light. The plan below is a cosy <strong>7×7</strong> — step through floor → walls → fittings → roof.</p>
+
+      <div id="house-viewer"></div>
+
+      <ol class="flow">
+        <li><strong>Lay the floor.</strong> Level a 7×7 footprint and floor it (planks or stone brick). A clean floor stops things spawning or burrowing under you.</li>
+        <li><strong>Raise the walls.</strong> Ring the footprint two-to-three blocks high in cob or brick. Leave a <strong>1-wide doorway</strong> on one side and a <strong>1-block window gap</strong> on another for daylight.</li>
+        <li><strong>Fit it out.</strong> Put an <strong>indoor fire pit/hearth</strong> against a wall for warmth and cooking, a <strong>bed</strong> in a corner (a bed sets your spawn point), and a <strong>chest or two</strong> for storage.</li>
+        <li><strong>Glaze &amp; door it.</strong> Drop a glass pane in the window gap and hang a plank door in the doorway — now you're sealed against rain and drifters but still lit.</li>
+        <li><strong>Roof it.</strong> Cap the top completely. Chisel the edges into a pitched roof later if you want the look; flat is fine to start.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Keep the hearth away from the bed</span>
+        <p>Fire spreads to flammable blocks. Set the fire pit on a stone/brick tile and keep planks and thatch a block clear of it. A small stone hearth corner inside an otherwise wooden house is the safe pattern.</p>
+      </div>
+    </section>
+
+    <!-- 02 STORAGE -->
+    <section class="doc" id="storage">
+      <p class="sec-index">02 — Where everything goes</p>
+      <h2>Storage</h2>
+      <p>You'll outgrow your inventory fast. Vintage Story has distinct containers, and the right one matters for <em>food</em> — some slow spoilage, some don't. Match the container to the job.</p>
+      <div class="data-table">
+        <table>
+          <caption>Containers and their best use (v1.22.3)</caption>
+          <thead><tr><th>Container</th><th>Made from</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Chest</strong></td><td>Planks</td><td>General bulk storage — tools, blocks, ores. No spoilage benefit, so not for food.</td></tr>
+            <tr><td><strong>Storage vessel</strong></td><td>Fired clay</td><td>Bulk loose items <em>and</em> food: holds large stacks and <strong>slows spoilage</strong>. The cellar workhorse.</td></tr>
+            <tr><td><strong>Shelf</strong></td><td>Planks</td><td>Display/quick-access for small items, pottery and food on show. Decorative + handy.</td></tr>
+            <tr><td><strong>Barrel</strong></td><td>Planks + hoops</td><td>Liquids (water, oils), and <strong>sealing/curing</strong> recipes — salting, fermenting, cheese. Sealed barrels run timed processes.</td></tr>
+            <tr><td><strong>Cabinet</strong> <span class="muted">(new in 1.22)</span></td><td>Planks</td><td>Furniture-grade storage placed with voxel precision — tidy kitchen/workshop walls.</td></tr>
+            <tr><td><strong>Sealed crock</strong></td><td>Fired clay + lid</td><td>Prepared meals &amp; preserved food; combined with a cellar it gives the <strong>longest shelf life</strong> of all.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Food rule of thumb</span>
+        <p>Loose food in a chest spoils at the normal rate. Move it into <strong>storage vessels</strong> or <strong>sealed crocks</strong>, and put those inside a <strong>cellar</strong> — the benefits stack. That's the whole job of the next section.</p>
+      </div>
+    </section>
+
+    <!-- 03 CELLAR -->
+    <section class="doc" id="cellar">
+      <p class="sec-index">03 — The star of the homestead</p>
+      <h2>The Food Cellar</h2>
+      <p class="lead">Food rots in real time. A well-built cellar slows that rot dramatically by giving the game an enclosed, dark, cool room to recognise. Build one early — it's the single biggest quality-of-life upgrade after fire and walls.</p>
+
+      <div class="facts">
+        <div class="f"><div class="k">Base room score</div><div class="v">100%</div></div>
+        <div class="f"><div class="k">Max skylight penalty</div><div class="v">−40%</div></div>
+        <div class="f"><div class="k">Max cooling penalty</div><div class="v">−50%</div></div>
+        <div class="f"><div class="k">Held temperature</div><div class="v">~5°C <small>or colder</small></div></div>
+      </div>
+
+      <p>This plan is a compact, fully enclosed <strong>5×5</strong> cob/stone room: solid roof, <strong>no skylight</strong>, one door, walls lined with storage vessels and sealed crocks. Step through it.</p>
+
+      <div id="cellar-viewer"></div>
+
+      <h3>How the cellar score works (be precise)</h3>
+      <p>When you place food storage in a room, the game checks whether that room is enclosed and scores how <strong>cellar-like</strong> it is. The room starts at <strong>100%</strong> effectiveness and loses points two ways:</p>
+      <ul>
+        <li><strong>Skylight score — up to −40%.</strong> Any block in the ceiling that lets <em>direct sunlight</em> in (an open hole, glass, a non-solid roof) raises the room's skylight and cuts effectiveness. A solid, opaque roof with zero sky exposure keeps this penalty at <strong>0</strong>.</li>
+        <li><strong>Cooling score — up to −50%.</strong> The warmer the room sits, the bigger this penalty. A cellar holds a fixed cool temperature of roughly <strong>5°C</strong> (or colder if the surroundings are colder). Being underground, shaded, and away from heat sources keeps the room cool and this penalty small.</li>
+      </ul>
+      <p>So a perfect cellar — fully roofed, no skylight, genuinely cold — keeps close to the full 100%, while a leaky, sun-lit, warm room can drop toward ~10%. Crucially, because the cellar holds about 5°C, it only <strong>helps when the outside is warmer than ~8°C</strong>; in deep winter the open air is already that cold, so the cellar matters most in spring, summer and autumn.</p>
+
+      <h3>Vessels multiply the benefit</h3>
+      <p>The room score is only half of it. Putting food inside <strong>storage vessels</strong> and <strong>sealed crocks</strong> applies its own spoilage multiplier <em>on top of</em> the cellar's. A cold, dark cellar lined with sealed crocks is far better than the same cellar with food sitting loose on shelves.</p>
+
+      <div class="note tip">
+        <span class="label">High-scoring cellar checklist</span>
+        <p>
+          ✓ Keep it <strong>small</strong> — a 3×3 to 5×5 room scores and cools better than a hall.<br>
+          ✓ <strong>Fully enclose</strong> it: solid walls, solid floor, <strong>solid opaque roof, no skylight</strong> (and no glass/window).<br>
+          ✓ Exactly <strong>one door</strong> for access — a real plank/solid door, kept shut.<br>
+          ✓ Build it <strong>underground or deeply shaded</strong>, away from the forge, oven and direct sun, so it stays cool.<br>
+          ✓ Line the walls with <strong>storage vessels and sealed crocks</strong>, and keep your food inside them.
+        </p>
+      </div>
+
+      <div class="split">
+        <div>
+          <h4>Root / stone cellar</h4>
+          <p>The standard build above: a cool, dark, enclosed cob or stone room. Holds ~5°C and gives a big, reliable spoilage cut for fruit, veg, grain and prepared meals.</p>
+        </div>
+        <div>
+          <h4>Ice cellar</h4>
+          <p>The premium version: line the room with <strong>ice</strong> to push it below freezing for the best preservation of meat and fish. Harder to keep frozen and best in cold biomes, but it's the longest-lasting cold storage in the game.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PRESERVATION -->
+    <section class="doc" id="preserve">
+      <p class="sec-index">04 — Make it last</p>
+      <h2>Food Preservation</h2>
+      <p>The cellar slows spoilage; <strong>preservation</strong> changes the food so it keeps far longer to begin with. Pair the two. The full nutrition and cooking system lives in <a href="vs-food.html">The Larder</a> — here's the structural side.</p>
+
+      <h3>Salting</h3>
+      <p>Layer meat or fish with <strong>salt</strong> in a <strong>crock or barrel</strong> for full coverage — partial coverage preserves less. Salt comes from <strong>saltpeter deposits</strong> or by <strong>evaporating saltwater</strong> (boil it down). Salted food keeps for a very long time.</p>
+
+      <h3>Drying racks</h3>
+      <p>Place a <strong>drying rack</strong> and hang sliced <strong>meat, fish or mushrooms</strong>; they lose moisture over in-game time and become longer-keeping dried food. Cheap, early, and great for surplus.</p>
+
+      <h3>Crocks &amp; vessels in the cold</h3>
+      <p><strong>Sealed crocks</strong> and <strong>storage vessels</strong> in a cold cellar give the longest shelf life — preservation method plus container multiplier plus cellar score, all stacking.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Preservation methods &amp; relative effectiveness</caption>
+          <thead><tr><th>Method</th><th>Needs</th><th>Good for</th><th>Relative shelf life</th></tr></thead>
+          <tbody>
+            <tr><td>Loose in a chest</td><td>—</td><td>Nothing (baseline)</td><td class="num">×1 (baseline)</td></tr>
+            <tr><td>Storage vessel</td><td>Fired clay vessel</td><td>Bulk dry &amp; fresh food</td><td class="num">moderate</td></tr>
+            <tr><td>Drying rack</td><td>Rack + slices</td><td>Meat, fish, mushrooms</td><td class="num">good</td></tr>
+            <tr><td>Salting</td><td>Salt + crock/barrel</td><td>Meat, fish</td><td class="num">very long</td></tr>
+            <tr><td><strong>Sealed crock in a cold cellar</strong></td><td>Crock + cellar</td><td>Prepared meals, preserved food</td><td class="num">longest</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Stack everything</span>
+        <p>The best result is preserved food (salted/dried) inside a sealed crock or vessel, inside a high-scoring cellar. Each layer multiplies the last — that's how you carry a summer's harvest through winter.</p>
+      </div>
+    </section>
+
+    <!-- 05 SMITHY -->
+    <section class="doc" id="smithy">
+      <p class="sec-index">05 — The workshop</p>
+      <h2>The Smithy</h2>
+      <p>Metalworking wants a dedicated, fireproof space. Lay it out so heat, anvil and quench form a tight <strong>working triangle</strong>: pull hot metal from the forge, hammer it on the anvil, quench it in the barrel — all within a step. The 6×6 floor plan below shows it.</p>
+
+      <div id="smithy-viewer"></div>
+
+      <ul>
+        <li><strong>Forge</strong> — heats metal to working temperature. Keep it on stone brick; flames love planks.</li>
+        <li><strong>Anvil</strong> — where you smith hot ingots into tool heads and parts. Place it within a step of the forge.</li>
+        <li><strong>Quench barrel</strong> (1.22) — a water barrel for quenching/tempering finished pieces right beside the anvil.</li>
+        <li><strong>Tool &amp; ingot rack</strong> — hammers, tongs, chisels and ingots within reach.</li>
+        <li><strong>Ore &amp; fuel bins</strong> — charcoal/coal and ore stored by the forge so you never walk for fuel.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Keep the bloomery &amp; charcoal pit close</span>
+        <p>Smelting bog iron in a <strong>bloomery</strong> eats charcoal, so site your charcoal pit and bloomery just outside the smithy door. The full smithing and casting workflow is in <a href="vs-metalworking.html">The Forge &amp; The Bloom</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 KILN & CHARCOAL -->
+    <section class="doc" id="kiln">
+      <p class="sec-index">06 — Fire &amp; fuel</p>
+      <h2>Kiln &amp; Charcoal Pit</h2>
+      <p>Two ground-built "structures" power your early tech: the <strong>pit kiln</strong> fires your pottery, and the <strong>charcoal pit</strong> turns logs into the high-heat fuel your forge and bloomery need.</p>
+
+      <h3>The pit kiln</h3>
+      <p>To fire clay pots, bowls, crucibles and bricks: place the dry clay items on the ground, then pack <strong>dry grass</strong> around and over them, then a layer of fuel — <strong>firewood, peat or coal</strong> — and light it. It smoulders for roughly <strong>10–20 in-game hours</strong> and leaves your fired pottery behind. Build it on bare dirt, away from anything flammable.</p>
+
+      <h3>The charcoal pit</h3>
+      <p>Charcoal is made by smouldering wood in a low-oxygen mound. Stack <strong>firewood logs</strong>, cover the whole pile completely with <strong>soil</strong>, then ignite it; starved of air, the wood chars into <strong>charcoal</strong> instead of burning to ash. The plan below shows the three stages — ground, log core, soil cap.</p>
+
+      <div id="charcoal-viewer"></div>
+
+      <div class="note warn">
+        <span class="label">Cover it completely</span>
+        <p>Any gap in the soil cap lets in air and the wood just burns away. Seal every side and the top before lighting. The pottery and casting workflows that consume this output are in <a href="vs-crafting.html">The Four Crafts</a> and <a href="vs-metalworking.html">The Forge &amp; The Bloom</a>.</p>
+      </div>
+    </section>
+
+    <!-- 07 GREENHOUSE -->
+    <section class="doc" id="greenhouse">
+      <p class="sec-index">07 — Cold-climate farming</p>
+      <h2>Greenhouse</h2>
+      <p>Crops stop growing when it's too cold. A <strong>greenhouse</strong> — a glass-roofed, glass-walled structure over tilled farmland — lets sunlight in while sheltering the soil, extending the growing season into the cold months and letting you farm in cold biomes. The plan below is a small glass box over a tilled bed.</p>
+
+      <div id="greenhouse-viewer"></div>
+
+      <ol class="flow">
+        <li><strong>Till the bed.</strong> Hoe a patch of soil into farmland and plant your crops.</li>
+        <li><strong>Wall it in glass.</strong> Ring the bed with glass blocks/panes so light reaches the crops from the sides.</li>
+        <li><strong>Glaze the roof.</strong> Cap it with glass too — light from above keeps growth ticking even when it's cold outside.</li>
+        <li><strong>Leave a door.</strong> One glass-flanked doorway to tend the crops.</li>
+      </ol>
+      <div class="note tip">
+        <span class="label">Light + shelter = growth</span>
+        <p>The greenhouse trades the cellar's logic: here you <em>want</em> all the daylight you can get. The full farming, soil-fertility and climate detail lives in <a href="vs-food.html">The Larder</a> and <a href="vs-world.html">The Living World</a>.</p>
+      </div>
+    </section>
+
+    <!-- 08 STORM-PROOFING -->
+    <section class="doc" id="storm">
+      <p class="sec-index">08 — When the rust comes</p>
+      <h2>Storm-Proofing</h2>
+      <p>During a <strong>temporal storm</strong>, drifters spawn everywhere — even in daylight, even on the surface. Your homestead is your shelter: a sealed, lit, fully walled base with controllable chokepoints lets you wait the storm out instead of fighting in the open.</p>
+      <ul>
+        <li><strong>Seal it.</strong> No gaps in walls, floor or roof — the same gap-free shell the cellar wants keeps drifters from wandering in.</li>
+        <li><strong>Light it.</strong> Keep the interior bright (lanterns, fire) so nothing spawns inside with you.</li>
+        <li><strong>Chokepoints.</strong> One door you control beats four open archways. Fight from a doorway, not the middle of a room.</li>
+      </ul>
+      <div class="note danger">
+        <span class="label">Know the schedule</span>
+        <p>Storms are periodic and escalate over the game. The full temporal-stability system — warning signs, gear, and the rewards for surviving — is covered in <a href="vs-temporal.html">The Rust &amp; The Gear</a>. Build the walls before you need them.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Homestead</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Cellar scoring, spoilage rates, firing times and recipes are config-tunable and shift between versions; the cellar percentages here describe the v1.22.3 model. Build plans are minimal representative footprints — scale and decorate them to taste. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  /* ---- shared inline grid helpers (canonical pattern) ---- */
+  const grid = (n, fill = null) => Array.from({ length: n }, () => Array(n).fill(fill));
+  const ring = (n, edge, inner = null) => {
+    const g = grid(n, inner);
+    for (let i = 0; i < n; i++) { g[0][i] = edge; g[n-1][i] = edge; g[i][0] = edge; g[i][n-1] = edge; }
+    return g;
+  };
+
+  /* ========================================================== (A) STARTER HOUSE */
+  {
+    const PAL = {
+      floor:  { label: "Plank / stone floor", color: "#6e5538" },
+      wall:   { label: "Cob / brick wall",    color: "#857056" },
+      door:   { label: "Plank door",          color: "#caa15e" },
+      window: { label: "Glass window",        color: "#7fd1e6" },
+      fire:   { label: "Fire pit / hearth",   color: "#e3782f" },
+      bed:    { label: "Bed (sets spawn)",    color: "#5fb9ad" },
+      chest:  { label: "Chest / storage",     color: "#9c6f3a" },
+      roof:   { label: "Roof block",          color: "#5b4730" },
+    };
+    // Y1 — walls with south door + east window; interior fittings
+    const y1 = ring(7, "wall");
+    y1[6][3] = "door";    // south doorway
+    y1[3][6] = "window";  // east window gap
+    y1[1][1] = "fire";    // hearth in a corner (place on stone)
+    y1[1][5] = "bed";     // bed opposite corner
+    y1[5][1] = "chest";   // storage
+    y1[5][2] = "chest";
+    // Y2 — second wall course; door + window continue as gaps
+    const y2 = ring(7, "wall");
+    y2[6][3] = "door";
+    y2[3][6] = "window";
+
+    mountSchematic({
+      title: "Starter House",
+      subtitle: "cosy 7×7 · door · window · hearth · bed · storage",
+      meta: { footprint: "7×7", height: "4" },
+      palette: PAL, mode: "layers", segmented: false, coords: true,
+      frames: [
+        { label: "Y0 · floor", grid: grid(7, "floor"),
+          note: "Level a 7×7 footprint and floor it with planks or stone brick so nothing spawns or burrows beneath you." },
+        { label: "Y1 · walls + fittings", grid: y1,
+          note: "Ring it in cob or brick. Leave a 1-wide doorway (south) and a window gap (east). Set the hearth on a stone tile in one corner, a bed in another (it sets your spawn), and chests for storage." },
+        { label: "Y2 · walls", grid: y2,
+          note: "Second wall course for headroom. The door and window stay open as gaps; you'll fit a plank door and a glass pane next." },
+        { label: "Y3 · roof", grid: grid(7, "roof"),
+          note: "Cap the top completely against rain and drifters. Chisel the eaves into a pitched roof later for looks — flat works to start." },
+      ],
+    }, "#house-viewer");
+  }
+
+  /* ========================================================== (B) FOOD CELLAR */
+  {
+    const PAL = {
+      floor:  { label: "Stone / cob floor",        color: "#5e5236" },
+      wall:   { label: "Stone / cob wall (sealed)", color: "#857056" },
+      door:   { label: "Solid door (the only one)", color: "#caa15e" },
+      vessel: { label: "Storage vessel",            color: "#c98a52" },
+      crock:  { label: "Sealed crock",              color: "#9b6bd0" },
+      roof:   { label: "Solid roof · NO skylight",  color: "#4a3a26" },
+    };
+    // Y1 — sealed walls, ONE door, walls lined with vessels & crocks
+    const y1 = ring(5, "wall");
+    y1[4][2] = "door";   // the single door
+    // line the interior wall edge with storage (leave centre walkway)
+    y1[1][1] = "vessel"; y1[1][2] = "crock"; y1[1][3] = "vessel";
+    y1[2][1] = "crock";  y1[2][3] = "crock";
+    y1[3][1] = "vessel"; y1[3][3] = "vessel";
+
+    mountSchematic({
+      title: "Food Cellar",
+      subtitle: "enclosed 5×5 · one door · NO skylight · vessels + crocks",
+      meta: { footprint: "5×5", height: "3" },
+      palette: PAL, mode: "layers", segmented: false, coords: true,
+      frames: [
+        { label: "Y0 · floor", grid: grid(5, "floor"),
+          note: "Dig in underground or in deep shade and floor it in stone or cob. Small + cool = a high cellar score (starts at 100%)." },
+        { label: "Y1 · sealed room + storage", grid: y1,
+          note: "Solid walls all around with exactly ONE solid door. Line the walls with storage vessels and sealed crocks (keep a centre walkway); these multiply the spoilage benefit on top of the room score." },
+        { label: "Y2 · roof · NO skylight", grid: grid(5, "roof"),
+          note: "Cap it with a SOLID, OPAQUE roof — no holes, no glass, no skylight. Any sky exposure adds up to −40%; a warm room adds up to −50%. Sealed + cold keeps you near the full 100%." },
+      ],
+    }, "#cellar-viewer");
+  }
+
+  /* ========================================================== (C) CHARCOAL PIT */
+  {
+    const PAL = {
+      ground: { label: "Bare dirt / ground", color: "#5e4a30" },
+      log:    { label: "Firewood logs",      color: "#a8702f" },
+      soil:   { label: "Soil cap (airtight)", color: "#6e5538" },
+      ignite: { label: "Ignition point",      color: "#e3782f" },
+    };
+    // Y1 — a core of firewood logs on the ground
+    const y1 = grid(5, "ground");
+    for (let r = 1; r <= 3; r++) for (let c = 1; c <= 3; c++) y1[r][c] = "log";
+    // Y2 — full soil cap, with one ignition point
+    const y2 = grid(5, "soil");
+    y2[2][2] = "ignite";
+
+    mountSchematic({
+      title: "Charcoal Pit",
+      subtitle: "log core → full soil cover → ignite → smoulders to charcoal",
+      meta: { footprint: "5×5", height: "3" },
+      palette: PAL, mode: "layers", segmented: false, coords: true,
+      frames: [
+        { label: "Y0 · ground", grid: grid(5, "ground"),
+          note: "Clear bare dirt away from anything flammable. The pit is built directly on the ground." },
+        { label: "Y1 · log stack", grid: y1,
+          note: "Stack a tight core of firewood logs (one or more courses tall). The denser the pile, the more charcoal you get." },
+        { label: "Y2 · soil cap + ignite", grid: y2,
+          note: "Bury the logs COMPLETELY in soil — every side and the top, no gaps. Then ignite. Starved of air, the wood chars into charcoal instead of burning away." },
+      ],
+    }, "#charcoal-viewer");
+  }
+
+  /* ========================================================== (D) SMITHY */
+  {
+    const PAL = {
+      floor:  { label: "Stone-brick floor", color: "#5e5236" },
+      wall:   { label: "Wall",              color: "#857056" },
+      door:   { label: "Doorway",           color: "#caa15e" },
+      forge:  { label: "Forge (heat)",      color: "#e3782f" },
+      anvil:  { label: "Anvil (smith)",     color: "#9aa3ad" },
+      quench: { label: "Quench barrel",     color: "#5f9fb9" },
+      rack:   { label: "Tool / ingot rack", color: "#caa15e" },
+      bins:   { label: "Ore / fuel bins",   color: "#9c6f3a" },
+    };
+    // Y1 — walls + the working triangle (forge ▸ anvil ▸ quench) + storage
+    const y1 = ring(6, "wall");
+    y1[5][2] = "door";    // south doorway out to bloomery/charcoal pit
+    y1[1][1] = "forge";   // heat
+    y1[2][2] = "anvil";   // smith — one step from forge & quench
+    y1[1][3] = "quench";  // quench barrel beside the anvil
+    y1[4][1] = "bins";    // fuel/ore by the forge side
+    y1[4][2] = "bins";
+    y1[1][4] = "rack";    // tool/ingot rack
+    y1[2][4] = "rack";
+
+    mountSchematic({
+      title: "Smithy",
+      subtitle: "6×6 · forge ▸ anvil ▸ quench working triangle",
+      meta: { footprint: "6×6", height: "3" },
+      palette: PAL, mode: "layers", segmented: false, coords: true,
+      frames: [
+        { label: "Y0 · floor", grid: grid(6, "floor"),
+          note: "Floor it in stone brick — the forge throws sparks and heat, so keep planks and thatch out of the workshop." },
+        { label: "Y1 · stations", grid: y1,
+          note: "Set forge, anvil and quench barrel within a single step of each other (the working triangle). Fuel/ore bins sit by the forge; the tool & ingot rack stays within reach. Door faces the bloomery & charcoal pit outside." },
+        { label: "Y2 · walls + roof", grid: ring(6, "wall"),
+          note: "Wall it up and roof it. A vent gap or window is fine here — unlike the cellar, the smithy doesn't care about light, only fire safety." },
+      ],
+    }, "#smithy-viewer");
+  }
+
+  /* ========================================================== (E) GREENHOUSE */
+  {
+    const PAL = {
+      farm:  { label: "Tilled farmland", color: "#6e5538" },
+      glass: { label: "Glass wall",      color: "#7fd1e6" },
+      door:  { label: "Doorway",         color: "#caa15e" },
+      roof:  { label: "Glass roof",      color: "#a9e3f0" },
+    };
+    // Y1 — glass walls around a tilled bed, one door
+    const y1 = ring(5, "glass", "farm");
+    y1[4][2] = "door";
+
+    mountSchematic({
+      title: "Greenhouse",
+      subtitle: "glass shell over tilled farmland · grow through the cold",
+      meta: { footprint: "5×5", height: "3" },
+      palette: PAL, mode: "layers", segmented: false, coords: true,
+      frames: [
+        { label: "Y0 · tilled bed", grid: grid(5, "farm"),
+          note: "Hoe the soil into farmland and plant your crops — the whole interior is growing space." },
+        { label: "Y1 · glass walls", grid: y1,
+          note: "Ring the bed in glass so daylight reaches the crops from the sides. Leave one doorway to tend them. Unlike the cellar, here you WANT the light." },
+        { label: "Y2 · glass roof", grid: grid(5, "roof"),
+          note: "Cap it in glass too. Light from above keeps growth ticking even when the air outside is too cold to farm normally." },
+      ],
+    }, "#greenhouse-viewer");
+  }
+</script>
+</body>
+</html>

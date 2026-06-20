@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Bestiary — a Vintage Story creatures & combat field guide (v1.22.3)</title>
+<meta name="description" content="A field bestiary for Vintage Story 1.22.3: how combat and damage tiers work, the prey you hunt for meat, hide and resources, the predators that hunt you (wolves, hyenas, bears), temporal and hostile creatures (drifters, locusts, rift creatures), the new freshwater fish, and animal husbandry — taming, breeding and butchering to start a farmstead." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🐺</span>
+      <span class="wordmark">The<br>Bestiary<small>PREY · PREDATORS · LIVESTOCK</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Read this first</p>
+      <a href="#combat"><span class="ix">00</span> Combat &amp; Damage Tiers</a>
+      <p class="group-label">The living world</p>
+      <a href="#prey"><span class="ix">01</span> Prey &amp; Passive Animals</a>
+      <a href="#predators"><span class="ix">02</span> Predators</a>
+      <p class="group-label">The unliving</p>
+      <a href="#temporal"><span class="ix">03</span> Temporal &amp; Hostile</a>
+      <p class="group-label">Water &amp; home</p>
+      <a href="#fish"><span class="ix">04</span> Fish</a>
+      <a href="#husbandry"><span class="ix">05</span> Animal Husbandry</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Damage tiers, drops and spawn<br>rules are config-tunable and vary<br>by world &amp; region — the in-game<br><b>Survival Handbook (H)</b> is ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Field bestiary</p>
+      <h1>The Bestiary</h1>
+      <p class="lede">Everything that moves in this world wants something — your meat to eat, your hide to wear, or simply to be left alone. This is the field guide to the creatures you'll meet: what they <strong>do</strong>, what they <strong>drop</strong>, and exactly how to <strong>handle</strong> each one. Learn the damage tiers first, then read your neighbours: the skittish prey, the pack hunters, the things that crawl out of rifts, and the livestock you can raise once you stop running.</p>
+      <div class="badges">
+        <span class="badge accent">Prey &amp; drops</span>
+        <span class="badge">Predators</span>
+        <span class="badge">Temporal creatures</span>
+        <span class="badge danger">🐺 Packs &amp; bears can end a run</span>
+      </div>
+    </header>
+
+    <!-- 00 COMBAT -->
+    <section class="doc" id="combat">
+      <p class="sec-index">00 — Read this first</p>
+      <h2>Combat &amp; Damage Tiers</h2>
+      <p class="lead">Fighting in Vintage Story isn't about raw hit-point swings — it's a game of <strong>tiers</strong>. Almost every attack lands at a damage tier (roughly <strong>1, 2 or 3</strong>), and your armour reduces incoming damage <em>by tier</em>. Matching your gear to the threat matters more than swinging harder.</p>
+
+      <h3>How damage and armour interact</h3>
+      <p>An attack's <strong>damage tier</strong> describes how penetrating it is. <strong>Armour reduces incoming damage by tier</strong>: light armour blunts tier-1 hits well but barely slows a tier-3 blow, while heavier, higher-tier plate is what keeps you standing against the worst predators. This is why tiered armour matters — a hare bite is nothing, but a bear or a deep-cave drifter punches through anything flimsy.</p>
+      <div class="note tip">
+        <span class="label">The simple rule</span>
+        <p>Wear the best armour you can carry against tougher creatures. The same blow that a leather jerkin shrugs off from a wild pig will gut you when it comes from a <strong>gray boar</strong>, a <strong>wolf</strong>, or a storm-grade <strong>drifter</strong> — because those land at a higher tier.</p>
+      </div>
+
+      <h3>Aggression &amp; seek radius</h3>
+      <p>Each animal has its own <strong>seek radius</strong> — how close you can get before it reacts. For prey that means how soon they bolt; for predators it's how far away they'll notice and charge you. A wolf's aggression radius is large and unforgiving; a hyena's is much smaller (around 10 blocks); a hare's "radius" just means it sprints off the moment you're near.</p>
+
+      <h3>Your weapons</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">throw + stab</span><h4>Spears</h4><p>Knappable from stone, then later metal. Stab in melee or <strong>throw them</strong> with <code>G</code> for a ranged opener — the one true ranged option a Commoner has on Day One.</p></div>
+        <div class="card"><span class="tag">butcher</span><h4>Knives</h4><p>Weak as a weapon but essential: a knife is how you <strong>butcher</strong> a downed animal into meat, hide and fat. Carry one on every hunt.</p></div>
+        <div class="card"><span class="tag">Hunter</span><h4>Bows</h4><p>Crafted by the <strong>Hunter</strong> class. The premier ranged weapon — kite predators and pick off prey before they ever close the distance.</p></div>
+        <div class="card"><span class="tag">Malefactor</span><h4>Slings</h4><p>The <strong>Malefactor</strong>'s ranged tool. Cheap ammo, useful for softening targets from cover when you can't craft a bow.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Where this fits</span>
+        <p>New to fighting at all? Start with <a href="vs-getting-started.html">The First Day</a> for knapping a spear and surviving night one. For the full weapon, armour and metal-tier ladder, see <a href="vs-progression.html">The Long Road</a> — better tiers there directly translate into surviving the creatures below.</p>
+      </div>
+    </section>
+
+    <!-- 01 PREY -->
+    <section class="doc" id="prey">
+      <p class="sec-index">01 — The harvest</p>
+      <h2>Prey &amp; Passive Animals</h2>
+      <p class="lead">These animals won't hurt you — they're walking food, hide and resources. The challenge is <strong>catching</strong> them: most are skittish and bolt the moment you're spotted. Approach low, open with a thrown spear or an arrow, then close in and <strong>butcher with a knife</strong>.</p>
+
+      <h3>How to hunt skittish prey</h3>
+      <ol class="flow">
+        <li><strong>Approach downwind and crouched.</strong> Skittish animals (hare, deer, gazelle) bolt early. Move slowly and use cover; sprinting straight at them never works.</li>
+        <li><strong>Open at range.</strong> Throw a spear (<code>G</code>) or loose an arrow before they flee. A hit that doesn't kill still slows the chase.</li>
+        <li><strong>Finish &amp; butcher.</strong> Close in for the kill, then <strong>right-click the carcass with a knife</strong> to harvest meat, hide and fat.</li>
+      </ol>
+
+      <h4>The herbivores &amp; small game</h4>
+      <p><strong>Hares</strong> are the classic first kill — small, skittish, common, and they'll happily eat <strong>vegetables tossed into or near a trough</strong>, which makes them tameable. <strong>Deer</strong> are larger and very skittish but worth the stalk for meat, hide and <strong>fat</strong>. <strong>Gazelle</strong> are <em>fast</em> and live in warm regions — open at range or you'll never catch one. <strong>Raccoons</strong> and <strong>foxes</strong> are small wildlife: minor meat and hide, and a fox will scatter your loose poultry.</p>
+
+      <h4>Poultry &amp; farm stock</h4>
+      <p><strong>Chickens</strong> (and the <strong>rooster</strong>) are the easiest sustainable food — keep a small flock for a steady supply of <strong>eggs</strong> plus meat. <strong>Sheep</strong> give <strong>wool</strong> (shear them), <strong>goats</strong> give <strong>milk</strong>, and all of them give meat and hide when butchered.</p>
+
+      <h4>Wild pigs &amp; boar — read the tier</h4>
+      <p>Pigs are a special case. A wild pig will defend itself but only deals <strong>tier-1 damage</strong> — manageable in any armour. The exception is the large <strong>gray boar</strong>, which hits at <strong>tier 2</strong> and should be treated with respect. The good news: pigs <strong>breed into tameness</strong> — by the <strong>3rd generation</strong> of bred pigs the piglets lose their fear and become passive farm animals.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Prey &amp; passive animals → drops → handling notes</caption>
+          <thead><tr><th>Animal</th><th>Behaviour</th><th>Drops</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hare</strong></td><td>Skittish; bolts on sight</td><td>Meat, hide</td><td>Easiest first kill; eats vegetables at a trough → tameable</td></tr>
+            <tr><td><strong>Chicken / Rooster</strong></td><td>Passive; wanders</td><td>Eggs, meat</td><td>Keep a flock for steady eggs; foxes prey on them</td></tr>
+            <tr><td><strong>Deer</strong></td><td>Skittish; flees fast</td><td>Meat, hide, fat</td><td>Stalk crouched; open at range</td></tr>
+            <tr><td><strong>Gazelle</strong></td><td>Very fast; warm regions</td><td>Meat, hide, fat</td><td>Outruns you — ranged opener essential</td></tr>
+            <tr><td><strong>Raccoon</strong></td><td>Small; flees</td><td>Meat, hide</td><td>Minor game; opportunistic kill</td></tr>
+            <tr><td><strong>Fox</strong></td><td>Small; skittish</td><td>Meat, hide</td><td>Will harass loose chickens</td></tr>
+            <tr><td><strong>Sheep</strong></td><td>Passive; farmable</td><td>Wool, meat, hide</td><td>Shear for wool → cloth; keep penned</td></tr>
+            <tr><td><strong>Goat</strong></td><td>Passive; farmable</td><td>Milk, meat, hide</td><td>Milk for dairy nutrition</td></tr>
+            <tr><td><strong>Wild Pig</strong></td><td>Defensive; <strong>tier-1</strong> damage</td><td>Meat, hide, fat</td><td>Tameable; passive by the 3rd bred generation</td></tr>
+            <tr><td><strong>Gray Boar</strong></td><td>Defensive; <strong>tier-2</strong> damage</td><td>Meat, hide, fat</td><td>The dangerous pig — armour up before engaging</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Don't waste the kill</span>
+        <p>Always carry a <strong>knife</strong> when hunting — without one you can't butcher, and the carcass goes to waste. Raw meat must be cooked, and a varied diet (protein <em>and</em> veg, fruit, grain, dairy) raises your max health. Full system in <a href="vs-food.html">The Larder</a>.</p>
+      </div>
+    </section>
+
+    <!-- 02 PREDATORS -->
+    <section class="doc" id="predators">
+      <p class="sec-index">02 — Things that hunt you</p>
+      <h2>Predators</h2>
+      <p class="lead">Three wild predators will actively come for you. Early on — before armour and metal weapons — they are the most likely thing to kill you in daylight. Know which is which, and never let a fight happen on open ground.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">tier 2 · packs</span><h4>🐺 Wolf</h4><p>Hunts in <strong>packs</strong>, deals <strong>tier-2 damage</strong>, and has a <strong>large aggression radius</strong> — it notices you from far off and commits. The single most dangerous early-game animal. A lone wolf is survivable; three are not.</p></div>
+        <div class="card"><span class="tag">tier 2 · warm</span><h4>🐆 Hyena</h4><p>The warm-region answer to the wolf — appears where it's <strong>too hot for wolves</strong>. Also <strong>tier-2</strong> and also pack-hunting, but with a much <strong>smaller aggression radius (~10 blocks)</strong>, so you can often avoid one by giving it room.</p></div>
+        <div class="card"><span class="tag">high HP · high dmg</span><h4>🐻 Bear</h4><p><strong>High health and high damage</strong> — a bear is dangerous to players and to other animals alike. It can soak a lot of punishment and dish out more. <strong>Avoid early</strong>; only fight one when well-armed and well-armoured.</p></div>
+      </div>
+
+      <h3>How to survive each</h3>
+      <ol class="flow">
+        <li><strong>Use terrain against packs.</strong> Wolves and hyenas swarm. Put your back to a wall, a cliff or a tree so they can't surround you — being flanked is what kills you, not any single bite.</li>
+        <li><strong>Fight from a doorway.</strong> A one-block gap funnels a pack into single file so you face one mouth at a time. Your shelter doorway is a fortress against wolves.</li>
+        <li><strong>Kite with ranged.</strong> Throw spears or shoot a bow while backing away. Open hits before the gap closes; for a bear, ranged kiting is often the <em>only</em> safe way to whittle that big health pool down.</li>
+        <li><strong>Give the hyena space.</strong> Its short ~10-block radius means walking a wide arc around one frequently avoids the fight entirely.</li>
+        <li><strong>Just leave the bear.</strong> Early on, a bear is not a fight — it's a hazard to walk around. Come back with metal armour and a metal spear or bow.</li>
+      </ol>
+
+      <div class="data-table">
+        <table>
+          <caption>Predators → damage tier → threat profile</caption>
+          <thead><tr><th>Predator</th><th>Damage tier</th><th>Pack?</th><th>Threat</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Wolf</strong></td><td class="num">2</td><td>Yes</td><td>Very high early — large seek radius, hunts in packs</td></tr>
+            <tr><td><strong>Hyena</strong></td><td class="num">2</td><td>Yes</td><td>High in warm regions; small ~10-block radius makes it avoidable</td></tr>
+            <tr><td><strong>Bear</strong></td><td class="num">2–3</td><td>No</td><td>Extreme — high health and high damage; avoid until well-armed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note danger">
+        <span class="label">Never fight a pack in the open</span>
+        <p>If you hear a pack and you're caught outside, get to a doorway, a one-wide ledge or up a block they can't reach — anywhere they have to come at you one at a time. Running across flat ground means being surrounded and torn down. Better armour (see <a href="vs-progression.html">The Long Road</a>) turns these tier-2 hits from lethal into survivable.</p>
+      </div>
+    </section>
+
+    <!-- 03 TEMPORAL -->
+    <section class="doc" id="temporal">
+      <p class="sec-index">03 — The unliving</p>
+      <h2>Temporal &amp; Hostile Creatures</h2>
+      <p class="lead">Not everything here is an animal. The world's broken time bleeds <strong>drifters</strong>, cave <strong>locusts</strong> and <strong>rift creatures</strong> into reality. These are the monsters of Vintage Story — and dealing with them is bound up with <strong>temporal stability</strong>.</p>
+
+      <h3>Drifters — the core hostile</h3>
+      <p>The shambling, rasping <strong>drifter</strong> is the creature you'll fight most. They spawn in <strong>low light</strong>, cluster near <strong>rifts</strong>, and during a <strong>temporal storm</strong> they appear <em>everywhere</em> — even in daylight. Deeper, stronger drifter variants hit in <strong>higher damage tiers</strong>, so the same surface tactic that works on a weak drifter can get you killed against a deep-cave one without good armour.</p>
+      <p>There's an upside: <strong>killing drifters restores some temporal stability</strong>, and stronger variants restore more. They also drop <strong>temporal gears</strong> — the stability currency that powers translocators, repairs and trade. Fighting drifters is how you both defend and resupply.</p>
+
+      <h3>Locusts — metal in the dark</h3>
+      <p><strong>Locusts</strong> are metal insectoid creatures lurking in dark <strong>caves</strong>, usually deep where you go mining. They're tougher than they look in cramped tunnels. The <strong>Clockmaker</strong> class is specifically strong against them, so a Clockmaker deep-miner has an easier time clearing infested caverns.</p>
+
+      <h3>Rift creatures — born of the surface tears</h3>
+      <p>Surface <strong>rifts</strong> spawn their own horrors — <strong>bowtorn</strong>, <strong>shivers</strong> and similar — which are generally <strong>tougher than basic drifters</strong>. Where a rift glows on the surface, expect a harder fight than the usual nighttime drifter.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Temporal &amp; hostile creatures → where → drops &amp; notes</caption>
+          <thead><tr><th>Creature</th><th>Where it spawns</th><th>Drops / effect</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Drifter</strong></td><td>Low light, near rifts, everywhere in storms</td><td>Temporal gears; killing restores stability</td><td>Deeper variants hit at higher tiers &amp; restore more stability</td></tr>
+            <tr><td><strong>Locust</strong></td><td>Dark caves, deep underground</td><td>Metal parts</td><td>Metal insectoid; <strong>Clockmaker</strong> class excels against them</td></tr>
+            <tr><td><strong>Rift creatures</strong><br>(bowtorn, shivers)</td><td>From surface rifts</td><td>Varies by type</td><td>Tougher than basic drifters — armour up</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">The whole system, explained</span>
+        <p>Temporal stability, rifts, storms, gears and translocators are the spine of the late game. This page is just the bestiary half — the mechanics live in <a href="vs-temporal.html">The Rust &amp; The Gear</a>. Keep light around your base: drifters spawn in the dark, so a lit base is a quiet base.</p>
+      </div>
+    </section>
+
+    <!-- 04 FISH -->
+    <section class="doc" id="fish">
+      <p class="sec-index">04 — New in 1.22</p>
+      <h2>Fish</h2>
+      <p class="lead">Version 1.22 added <strong>fishing</strong>, and with it a whole new tier of prey: <strong>20+ freshwater fish species</strong> living in rivers and lakes, with <strong>location-specific populations</strong> and their own <strong>bait preferences</strong>.</p>
+      <p>You catch them with <strong>rods and lures</strong> or with <strong>traps</strong>, matching bait to the species you're after. Fish are a reliable source of <strong>protein</strong> nutrition that doesn't require chasing skittish land game, and the catch can be <strong>dried or salted</strong> for long-term storage — invaluable for stocking a larder before winter or a storm.</p>
+      <div class="note">
+        <span class="label">Brief, on purpose</span>
+        <p>This is the bestiary's quick note on fish as <em>creatures</em>. Rods, lures, traps, bait tables and the dry/salt preservation chains are covered in <a href="vs-food.html">The Larder</a>.</p>
+      </div>
+    </section>
+
+    <!-- 05 HUSBANDRY -->
+    <section class="doc" id="husbandry">
+      <p class="sec-index">05 — Stop running, start farming</p>
+      <h2>Animal Husbandry</h2>
+      <p class="lead">Once you can survive the wildlife, you can <strong>raise</strong> it. Husbandry turns the hunt into a renewable supply: tame animals by <strong>feeding them at a trough</strong>, breed them across <strong>generations</strong>, and <strong>butcher</strong> the surplus for meat, hide and fat without ever leaving home.</p>
+
+      <h3>Taming &amp; breeding</h3>
+      <p>You keep and tame animals by <strong>feeding them at a trough</strong> — hares and pigs, for example, eat <strong>vegetables</strong> tossed nearby or placed in a trough. Fed, penned animals settle, and a well-fed pair will <strong>breed</strong>. Offspring are tamer than their parents: this is why <strong>wild pigs become fully passive by the 3rd generation</strong> — each generation born in captivity loses more of its fear.</p>
+
+      <h3>What to keep, and why</h3>
+      <div class="cards">
+        <div class="card"><span class="tag">wool</span><h4>Sheep</h4><p>Shear for <strong>wool</strong> → cloth and warm clothing. Renewable and they never need killing.</p></div>
+        <div class="card"><span class="tag">eggs</span><h4>Chickens</h4><p>A small flock means steady <strong>eggs</strong> — the easiest sustainable food in the game — plus meat from the surplus.</p></div>
+        <div class="card"><span class="tag">milk</span><h4>Goats</h4><p>Milk for <strong>dairy</strong> nutrition (and the dairy products that come from it). Fills a whole nutrition bar most players neglect.</p></div>
+        <div class="card"><span class="tag">meat · hide · fat</span><h4>Pigs &amp; others</h4><p>Bred to passivity, pigs are a reliable meat, <strong>hide</strong> and <strong>fat</strong> herd. The workhorse of a survival farmstead.</p></div>
+      </div>
+
+      <h3>Butchering — turning an animal into goods</h3>
+      <p><strong>Butchering with a knife</strong> yields three things: <strong>meat</strong> (food), <strong>hide</strong> (which becomes <strong>leather via tanning</strong>), and <strong>fat</strong> (rendered into <strong>tallow</strong> for candles, soap and recipes). A managed herd gives you all three on demand.</p>
+
+      <h3>Start a small farmstead</h3>
+      <ol class="flow">
+        <li><strong>Catch a breeding pair.</strong> Tame a couple of the same animal (e.g. two wild pigs, or a few hares) by feeding vegetables near a trough until they settle.</li>
+        <li><strong>Pen them in.</strong> Fence a paddock so they can't wander off or get eaten by wolves. Keep predators out.</li>
+        <li><strong>Build a trough &amp; keep it stocked.</strong> Toss in vegetables (or the right feed) so they stay fed — fed animals breed.</li>
+        <li><strong>Breed across generations.</strong> Let a fed pair produce young; raise those young to breed again. By the <strong>3rd generation</strong> pigs are fully passive farm stock.</li>
+        <li><strong>Harvest sustainably.</strong> Shear sheep for wool, collect eggs, milk goats — and butcher only the surplus with a knife for meat, hide and fat. Keep your breeders alive.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Where the goods go next</span>
+        <p>Leather (from tanning hide), tallow (from fat), wool-cloth and a full larder of dried meat, eggs and dairy all feed into the wider crafting and cooking systems. Pick that thread up in <a href="vs-food.html">The Larder</a>, and bring it all home with the basics in <a href="vs-getting-started.html">The First Day</a>.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Bestiary</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Damage tiers, drops, spawn rules and aggression radii are representative defaults — they are config-tunable and vary by world, region and version. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Turning World — mechanical power, windmills &amp; waterwheels in Vintage Story (v1.22.3)</title>
+<meta name="description" content="A practical guide to mechanical power in Vintage Story 1.22.3: how a network of generators, transmission and consumers shares one rotating speed; building windmills (sails on a rotor) and the new waterwheel + small 4-way hub; turning power 90° with angled gears; powering the quern, grindstone, helve hammer and pulverizer; and a concrete power budget (2–3 sail sets to run a helve hammer) with interactive top-down schematics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">⚙</span>
+      <span class="wordmark">The Turning<br>World<small>WIND · WATER · GEARS</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The principle</p>
+      <a href="#overview"><span class="ix">00</span> How A Network Works</a>
+      <p class="group-label">The parts</p>
+      <a href="#generators"><span class="ix">01</span> Generators</a>
+      <a href="#transmission"><span class="ix">02</span> Transmission</a>
+      <a href="#consumers"><span class="ix">03</span> Consumers</a>
+      <p class="group-label">The numbers</p>
+      <a href="#budget"><span class="ix">04</span> Power Budget</a>
+      <p class="group-label">In practice</p>
+      <a href="#build"><span class="ix">05</span> Build It</a>
+      <a href="#example"><span class="ix">06</span> Worked Example</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · the waterwheel and<br>small 4-way hub arrived in<br>1.22. Numbers are config-<br>tunable — the in-game <b>Survival<br>Handbook (H)</b> is ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Wind · Water · Gears</p>
+      <h1>The Turning World</h1>
+      <p class="lede">Grinding grain by hand is fine for Day Three. By the time you are smithing steel you want the world to turn the crank for you. <strong>Mechanical power</strong> is a chain — a generator catches wind or water, axles and gears carry that rotation across your base, and a machine at the far end does the work. Master four parts and one rule, and a single windmill can grind your flour, sharpen your tools and hammer your steel while you sleep.</p>
+      <div class="badges">
+        <span class="badge accent">Automation</span>
+        <span class="badge">Windmills &amp; waterwheels</span>
+        <span class="badge">Angled gears</span>
+        <span class="badge">NEW in 1.22 · waterwheel + hub</span>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">To run a helve hammer</div><div class="v">2–3 <small>sail sets</small></div></div>
+        <div class="f"><div class="k">Turn corners with</div><div class="v">Angled gears <small>90°</small></div></div>
+        <div class="f"><div class="k">One shared</div><div class="v">Speed <small>across the whole network</small></div></div>
+        <div class="f"><div class="k">1.22 fixed</div><div class="v">No oscillation <small>helve cost flattened</small></div></div>
+      </div>
+    </header>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — The principle</p>
+      <h2>How A Network Works</h2>
+      <p class="lead">A mechanical network is a single chain of three roles, and every connected block spins at <strong>one shared speed</strong>. Get the picture of that chain in your head and everything else is just plumbing.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">source</span><h4>Generators</h4><p>Turn an outside force into rotation: a <strong>windmill</strong> catching wind, a <strong>waterwheel</strong> in flowing water, or your own arm on a hand crank. They supply <strong>torque</strong>.</p></div>
+        <div class="card"><span class="tag">carry</span><h4>Transmission</h4><p><strong>Axles</strong> run rotation in a straight line; <strong>angled gears</strong> turn it 90° around corners; gearboxes, clutches and the small <strong>4-way hub</strong> split it, change ratios or toggle a branch.</p></div>
+        <div class="card"><span class="tag">work</span><h4>Consumers</h4><p>Machines that spend the power doing a job — the <strong>quern</strong>, <strong>grindstone</strong>, <strong>helve hammer</strong> and <strong>pulverizer</strong>. Each adds <strong>resistance</strong>.</p></div>
+      </div>
+      <p>The whole thing balances like a tug of war. Generators provide <strong>torque</strong>; every machine downstream adds <strong>resistance</strong>. If the torque available is greater than the total resistance, the network turns and does work. If the machines' combined resistance exceeds the torque, <strong>nothing moves at all</strong> — not just the overloaded machine, the entire shared network stalls.</p>
+      <div class="readout">network turns  ⟺  <b>torque available</b>  ≥  <b>Σ resistance of all engaged machines</b>
+stalls         ⟺  too many / too heavy machines for the wind you have</div>
+      <p>You connect the parts with <strong>axles</strong> — wooden first, metal later for longer, stronger runs — and you change direction with <strong>angled gears</strong>, which take a turning axle and hand the rotation off at 90° around a corner or up a wall.</p>
+      <div class="note tip">
+        <span class="label">One speed, shared</span>
+        <p>Because the network shares a single rotational speed, adding a slow heavy machine slows <em>everything</em>, and switching one off (with a clutch/toggle) speeds the rest back up. This is why on/off branches matter — you rarely want every machine engaged at once.</p>
+      </div>
+    </section>
+
+    <!-- 01 GENERATORS -->
+    <section class="doc" id="generators">
+      <p class="sec-index">01 — The source</p>
+      <h2>Generators</h2>
+      <p>A generator is whatever first puts torque into the chain. You have three, in roughly ascending order of effort and output.</p>
+
+      <h3>Windmill — wind into rotation</h3>
+      <p>The windmill is the workhorse. It is a <strong>multiblock</strong>: a horizontal axle on a bearing, a <strong>rotor</strong> mounted on it, and one to several sets of <strong>sails</strong> — broad cloth blades made from sailcloth / fabric — arranged as a cross on the rotor. Wind pushes the sails, the rotor turns, and that rotation is fed into your axle network.</p>
+      <ul>
+        <li><strong>More sail sets = more power.</strong> Each set you add increases the torque the windmill can deliver.</li>
+        <li><strong>Higher is windier.</strong> Wind strength rises with altitude, so a windmill on a tower or hilltop produces far more than one at sea level. Weather matters too — a storm is worth several calm days.</li>
+      </ul>
+      <p>See schematic (C) below for how the sails sit as a <strong>+ cross</strong> on the rotor.</p>
+
+      <h3>Waterwheel — flowing water into rotation <span class="vs-ver">new in 1.22</span></h3>
+      <p>New in 1.22, the <strong>waterwheel</strong> is the steady alternative to wind. It is driven by <strong>rapidly flowing water</strong> — the fast-flow water blocks introduced alongside it — and it arrived together with the small <strong>4-way hub</strong>. Power is taken off at the wheel's <strong>centre</strong> through that hub, which you then wire into the rest of your network. Where a windmill's output rises and falls with the weather, a wheel in a good flow gives you a dependable, near-constant turn.</p>
+
+      <h3>The hand crank — zero tech</h3>
+      <p>Before any of that, the humble <strong>hand crank</strong> on a quern is your generator: you are the engine. It costs no resources and powers exactly one quern, slowly, for as long as you hold the button. Fine for your first sacks of flour — but the moment you are grinding ore in bulk, build a windmill.</p>
+
+      <div class="note">
+        <span class="label">Wind vs water, at a glance</span>
+        <p><strong>Windmill:</strong> easy to site anywhere with sky above; output swings with weather and altitude. <strong>Waterwheel:</strong> needs rapidly flowing water nearby; output is steady and reliable. Many bases run a windmill for headline power and keep a small wheel for a constant baseline.</p>
+      </div>
+    </section>
+
+    <!-- 02 TRANSMISSION -->
+    <section class="doc" id="transmission">
+      <p class="sec-index">02 — Carrying the power</p>
+      <h2>Transmission</h2>
+      <p>Transmission is how rotation gets from the generator to the machine. The pieces are simple and they snap together along the grid.</p>
+      <div class="data-table">
+        <table>
+          <caption>The transmission kit (wooden parts first; metal versions go further and faster)</caption>
+          <thead><tr><th>Part</th><th>What it does</th><th>Use it to…</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Axle</strong></td><td>Carries rotation in a straight line along its length</td><td>Run power across, down or along — the spine of every network</td></tr>
+            <tr><td><strong>Angled gear</strong></td><td>Transfers rotation through a 90° corner</td><td>Turn a corner, climb a wall, or feed a machine sideways</td></tr>
+            <tr><td><strong>Gearbox / clutch</strong></td><td>Changes the gear ratio, or toggles a branch on/off</td><td>Trade speed for torque (or back), and disengage idle machines</td></tr>
+            <tr><td><strong>Small 4-way hub</strong> <span class="vs-ver">1.22</span></td><td>Splits one input into multiple outputs at a junction</td><td>Drive several machines from one source; take power off a waterwheel's centre</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Two practical rules keep a network healthy:</p>
+      <ul>
+        <li><strong>Support your axle runs.</strong> Long unsupported spans want a block beneath or beside them at intervals; keep runs neat and bridged so they don't float awkwardly through your base.</li>
+        <li><strong>Toggle what you aren't using.</strong> A clutch on a branch lets you cut a heavy machine out of the shared network so the rest can spin up to full speed — essential once you have several consumers on one line.</li>
+      </ul>
+      <p>Schematic (A) below shows the canonical run: hub → a row of axles → an angled gear turning 90° → into a machine.</p>
+    </section>
+
+    <!-- 03 CONSUMERS -->
+    <section class="doc" id="consumers">
+      <p class="sec-index">03 — Spending the power</p>
+      <h2>Consumers</h2>
+      <p>These are the machines worth automating. Each one can be hand-driven in a pinch, but mechanical power is what turns them from chores into a standing workshop.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">grind</span><h4>Quern</h4><p>The first machine you'll ever power. Grinds <strong>grain into flour</strong> and <strong>ores / rock into powders</strong>. Hand-crank it early, mechanize it the moment you're milling in volume. Flour feeds straight into <a href="vs-food.html">the kitchen</a>.</p></div>
+        <div class="card"><span class="tag">sharpen</span><h4>Grindstone</h4><p>Sharpens and repairs <strong>tool heads</strong>, restoring an edge so a good tool lasts far longer before it's spent. A light load — easy to add to an existing line.</p></div>
+        <div class="card"><span class="tag">forge</span><h4>Helve hammer</h4><p>Automates the anvil's worst grind: hammering <strong>blooms, ingots and blister steel</strong> flat. Enormous for iron and steel work — see <a href="vs-metalworking.html">the forge</a>. It is also the <strong>heaviest</strong> common consumer.</p></div>
+        <div class="card"><span class="tag">crush</span><h4>Pulverizer</h4><p>Crushes <strong>ore to boost yield</strong> and is a key link in the steel pipeline. Pair it with the helve hammer and you've mechanized the back half of <a href="vs-metalworking.html">metalworking</a>.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">The smithy pair</span>
+        <p>The two machines that justify a windmill on their own are the <strong>helve hammer</strong> and the <strong>pulverizer</strong>: together they pull the grind out of making iron and steel. Put both near your forge and run a single line to them. See the <a href="#example">worked example</a> below.</p>
+      </div>
+    </section>
+
+    <!-- 04 POWER BUDGET -->
+    <section class="doc" id="budget">
+      <p class="sec-index">04 — The numbers</p>
+      <h2>Power Budget</h2>
+      <p class="lead">The single most common beginner mistake is too little wind for too heavy a machine — usually the helve hammer. Here is roughly what it takes to move one, and why 1.22 made the whole thing far less twitchy.</p>
+      <div class="data-table">
+        <table>
+          <caption>Driving a helve hammer — sail sets vs wind (approximate; altitude and weather shift everything)</caption>
+          <thead><tr><th>Sail sets</th><th>Wind</th><th>Result on a helve hammer</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1 set</strong></td><td>Storm, at sea level</td><td>Won't budge it — not enough torque, even in the strongest weather low down</td></tr>
+            <tr><td><strong>~2 sets</strong></td><td>Strong breeze</td><td>Barely powers it; turns slowly and stutters when fully loaded</td></tr>
+            <tr><td><strong>~3 sets</strong></td><td>Medium breeze</td><td>Gets it moving reliably — the comfortable target for a working smithy</td></tr>
+            <tr><td>2–3 sets <strong>+ altitude</strong></td><td>Up high / on a tower</td><td>Best value: the same sails make much more power in the stronger high wind</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">Helve hammer, sea level</div><div class="v">1 set <small>= won't move, even in storm</small></div></div>
+        <div class="f"><div class="k">Comfortable target</div><div class="v">~3 sets <small>medium breeze</small></div></div>
+        <div class="f"><div class="k">Free multiplier</div><div class="v">Altitude <small>build high for stronger wind</small></div></div>
+      </div>
+      <div class="note">
+        <span class="label">Why 1.22 networks behave</span>
+        <p>The helve hammer used to charge an <strong>exponential power cost as its speed rose</strong> — push the speed up and the cost ballooned, so a network would surge, overload, stall, recover, and surge again. <strong>1.22 removed that exponential cost</strong>, so the hammer's draw is steady. Networks no longer oscillate; once you have enough sails to start it, it simply runs. Build to the table above and you're done.</p>
+      </div>
+    </section>
+
+    <!-- 05 BUILD -->
+    <section class="doc" id="build">
+      <p class="sec-index">05 — In practice</p>
+      <h2>Build It</h2>
+
+      <h3>Windmill → axle → angled gear → machine</h3>
+      <p>The classic first power line. Build the generator high, drop the power down, turn it into your workshop. Schematic (A) is this exact run, top-down.</p>
+      <ol class="flow">
+        <li><strong>Place the bearing high, in open sky.</strong> Mount a windmill bearing / support on a tower or hilltop where the wind is strong and nothing blocks the sails. Higher is always more power.</li>
+        <li><strong>Attach 1–3 sail sets.</strong> Build the rotor on the bearing's horizontal axle and add sail sets — start with what you can afford, plan for ~3 if you'll run a helve hammer (see schematic C for the sail cross).</li>
+        <li><strong>Run an axle down.</strong> Connect the windmill's output through axles down the tower toward your workshop, supporting the run as it goes.</li>
+        <li><strong>Turn the corner with an angled gear.</strong> Where the vertical drop meets your floor, place an <strong>angled gear</strong> to redirect the rotation 90° into a horizontal axle run.</li>
+        <li><strong>Feed the machine.</strong> Carry that horizontal axle into the back of your quern / helve hammer / pulverizer. It spins; the machine works.</li>
+      </ol>
+      <div id="windline-viewer"></div>
+
+      <h3>Waterwheel → hub → network</h3>
+      <p>The steady option. Find moving water, drop the wheel in, take the power off the middle. Schematic (B) shows the wheel beside its flow with the central hub.</p>
+      <ol class="flow">
+        <li><strong>Find or make rapidly flowing water.</strong> You need the fast-flow water blocks — a steep natural stream, or build a channel and let water run rapidly down a drop beside where the wheel will sit.</li>
+        <li><strong>Place the waterwheel in the flow.</strong> Set the wheel so the rapidly flowing water drives its blades. A faster, deeper flow turns it harder.</li>
+        <li><strong>Take power off the centre via the hub.</strong> The wheel outputs through the small <strong>4-way hub</strong> at its centre — connect an axle there.</li>
+        <li><strong>Wire into your network.</strong> Run that axle (turning corners with angled gears as needed) to your machines, exactly as with a windmill. The hub can also split to several outputs.</li>
+      </ol>
+      <div id="waterwheel-viewer"></div>
+
+      <h3>The sail cross</h3>
+      <p>For reference, here is how the sails mount as a <strong>+ cross</strong> on the rotor — each arm is one sail set, viewed face-on.</p>
+      <div id="sails-viewer"></div>
+    </section>
+
+    <!-- 06 EXAMPLE -->
+    <section class="doc" id="example">
+      <p class="sec-index">06 — Putting it together</p>
+      <h2>Worked Example — Automate The Smithy</h2>
+      <p class="lead">The pay-off build. One windmill, one main line, and the two grindiest jobs in the game run themselves — with a side branch you can switch on only when you need it.</p>
+      <ol class="flow">
+        <li><strong>Generator.</strong> A windmill on a tower beside the forge, with <strong>~3 sail sets</strong> (per the <a href="#budget">power budget</a>) so it can carry the heavy helve hammer in a medium breeze.</li>
+        <li><strong>Main line → helve hammer.</strong> Axle down the tower, an <strong>angled gear</strong> at the floor, then a horizontal run straight into the <strong>helve hammer</strong> by the anvil — this is your always-on steel-and-iron machine.</li>
+        <li><strong>Toggled branch → quern + pulverizer.</strong> Split off the main line with the small <strong>4-way hub</strong> and put a <strong>clutch/gearbox</strong> on the branch. On it, run a <strong>quern</strong> (for flour) and a <strong>pulverizer</strong> (for ore yield). Toggle the branch off while the hammer is doing heavy work, on when you need to grind.</li>
+      </ol>
+      <div class="readout"><b>windmill</b> (≈3 sails, high)
+   │  axle down
+   ▼
+<b>angled gear</b> ──► <b>HELVE HAMMER</b>   (main line · always on)
+   │
+   └─ <b>4-way hub</b> ──[ clutch ]──► <b>QUERN</b> + <b>PULVERIZER</b>   (branch · toggle)</div>
+      <p>This single network ties three of your guides together: the <strong>pulverizer + helve hammer</strong> are the back half of the <a href="vs-metalworking.html">steel pipeline</a>, the <strong>quern</strong> mills the flour for <a href="vs-food.html">your kitchen</a>, and the windmill itself is the first big mechanical build after you've found your feet in <a href="vs-getting-started.html">the early game</a>.</p>
+      <div class="note tip">
+        <span class="label">Sequence the load</span>
+        <p>Because the network shares one speed, don't engage everything at once on a marginal windmill. Keep the helve hammer on the main line and switch the quern/pulverizer branch in only when the hammer is idle. With 1.22's flattened power cost, swapping branches no longer makes the network surge — it just settles to the new speed.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Turning World</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Power figures (sail sets, wind, resistance) are approximate and config-tunable, and shift between versions and biomes; the waterwheel and small 4-way hub were added in 1.22, and 1.22 removed the helve hammer's exponential speed cost. The schematics are simplified top-down diagrams, not exact block layouts. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  /* inline schematic helper — a blank rows×cols grid filled with `f` */
+  const grid = (rows, cols, f = null) =>
+    Array.from({ length: rows }, () => Array(cols).fill(f));
+
+  /* ---- shared palette across the power schematics ---- */
+  const PAL = {
+    hub:   { label: "Windmill hub / output", color: "#e3b755" },
+    axle:  { label: "Wooden axle",           color: "#caa15e" },
+    gear:  { label: "Angled gear (turn 90°)", color: "#4fc7bb" },
+    helve: { label: "Helve hammer (machine)", color: "#d65b39" },
+    quern: { label: "Quern (machine)",        color: "#d98a45" },
+    wheel: { label: "Waterwheel",             color: "#8a6d4a" },
+    water: { label: "Rapidly flowing water",  color: "#3f8fc7" },
+    whub:  { label: "Small 4-way hub",        color: "#4fc7bb" },
+    rotor: { label: "Rotor centre",           color: "#e3b755" },
+    sail:  { label: "Sail set",               color: "#ece3d3" },
+  };
+
+  /* ============================================================ (A)
+     Top-down power line: windmill hub → axle run → angled gear (90°) → machine.
+     8 wide, 5 tall — tappable cells on an iPad. */
+  const lineBase = () => {
+    const g = grid(5, 8);
+    g[2][0] = "hub";                      // windmill output enters at the left
+    for (let c = 1; c <= 5; c++) g[2][c] = "axle";  // straight run of axles
+    g[2][6] = "gear";                     // angled gear at the corner
+    return g;
+  };
+
+  // frame 1 — the corner turns DOWN into a helve hammer
+  const lineHelve = lineBase();
+  lineHelve[3][6] = "axle";
+  lineHelve[4][6] = "helve";
+
+  // frame 2 — same hub & run, gear turns the OTHER way into a quern
+  const lineQuern = lineBase();
+  lineQuern[1][6] = "axle";
+  lineQuern[0][6] = "quern";
+
+  mountSchematic({
+    title: "Power line (A) · hub → axle → angled gear → machine",
+    subtitle: "top-down · the canonical transmission run",
+    meta: { footprint: "8×5", height: "1" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "into a helve hammer", grid: lineHelve,
+        note: "The windmill's output (hub, left) feeds a straight run of wooden axles. At the corner an angled gear turns the rotation 90° — here, downward on the map — and an axle carries it into the helve hammer. Support the axle run as it crosses your floor." },
+      { label: "into a quern", grid: lineQuern,
+        note: "The same hub and axle run; the angled gear is simply pointed the other way to feed a quern instead. One generator can serve whichever machine you turn the corner toward — split with a 4-way hub to feed several." },
+    ],
+  }, "#windline-viewer");
+
+  /* ============================================================ (B)
+     Waterwheel beside a column of rapidly flowing water + the central 4-way hub.
+     Top-down, two layers. 7 wide, 6 tall. */
+  const wheelBase = () => {
+    const g = grid(6, 7);
+    for (let r = 0; r < 6; r++) g[r][1] = "water"; // column of fast-flow water
+    g[2][3] = "wheel"; g[3][3] = "wheel";          // the wheel sits in the flow
+    g[2][2] = "wheel"; g[3][2] = "wheel";
+    return g;
+  };
+
+  // layer: water + wheel
+  const wheelL0 = wheelBase();
+
+  // layer: take power off the centre via the 4-way hub, run an axle out
+  const wheelL1 = wheelBase();
+  wheelL1[2][3] = "whub";              // small 4-way hub at the wheel's centre
+  for (let c = 4; c <= 6; c++) wheelL1[2][c] = "axle";  // axle into the network
+
+  mountSchematic({
+    title: "Waterwheel (B) · wheel in rapid flow → central hub → network",
+    subtitle: "top-down · new in 1.22",
+    meta: { footprint: "7×6", height: "2" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "wheel in the flow", grid: wheelL0,
+        note: "A column of rapidly flowing water (left) drives the waterwheel set beside it. Faster, deeper flow turns the wheel harder. Find a steep natural stream or build a channel with a drop." },
+      { label: "take off the power", grid: wheelL1,
+        note: "Power comes off the wheel's centre through the small 4-way hub (new in 1.22). Run an axle out from the hub into your network — turning corners with angled gears, exactly as with a windmill. The hub can also split to several outputs." },
+    ],
+  }, "#waterwheel-viewer");
+
+  /* ============================================================ (C)
+     Windmill sails as a + cross on the rotor, viewed face-on. 7×7.
+     Each arm of the cross is one sail set. */
+  const sailsCross = () => {
+    const g = grid(7, 7);
+    g[3][3] = "rotor";                  // hub / rotor centre
+    for (let i = 0; i < 7; i++) {       // vertical + horizontal arms = the cross
+      if (i !== 3) { g[3][i] = "sail"; g[i][3] = "sail"; }
+    }
+    return g;
+  };
+
+  mountSchematic({
+    title: "Sail cross (C) · sails as a + on the rotor",
+    subtitle: "viewed face-on · each arm is one sail set",
+    meta: { footprint: "7×7", height: "1" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "rotor + sails", grid: sailsCross(),
+        note: "Sail sets mount on the rotor as a + cross facing the wind. More sail sets means more torque; build the whole assembly high, where the wind is strongest, for the best return. Sails are made from sailcloth / fabric." },
+    ],
+  }, "#sails-viewer");
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The First Day — a Vintage Story survival-start guide (v1.22.3)</title>
+<meta name="description" content="A step-by-step first-day survival guide for Vintage Story 1.22.3 (Standard world, Commoner class): controls and the Survival Handbook, knapping your first knife and axe, cordage, building and lighting a fire pit, finding safe food, building a first-night shelter (with an interactive build plan), and the temporal-stability basics that keep you alive." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body data-ckstore="vs-firstday-v1">
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🌅</span>
+      <span class="wordmark">The First<br>Day<small>VINTAGE STORY · SURVIVAL START</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Before you move</p>
+      <a href="#what"><span class="ix">00</span> What This Game Is</a>
+      <a href="#class"><span class="ix">01</span> You, the Commoner</a>
+      <a href="#controls"><span class="ix">02</span> Controls &amp; the Handbook</a>
+      <p class="group-label">The first hour</p>
+      <a href="#tools"><span class="ix">03</span> Knap Your First Tools</a>
+      <a href="#fire"><span class="ix">04</span> Fire &amp; Light</a>
+      <a href="#food"><span class="ix">05</span> Food on Day One</a>
+      <p class="group-label">Before dark</p>
+      <a href="#shelter"><span class="ix">06</span> A First-Night Shelter</a>
+      <a href="#night"><span class="ix">07</span> Surviving the Night</a>
+      <p class="group-label">The checklist</p>
+      <a href="#checklist"><span class="ix">★</span> Day-One Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world ·<br>Commoner class. Keys are the<br>defaults and numbers are config-<br>tunable — the in-game <b>Survival<br>Handbook (H)</b> is ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Standard · Commoner</p>
+      <h1>The First Day</h1>
+      <p class="lede">You wake with empty hands in a cold, gorgeous wilderness. There is no crafting table, no punching trees into planks, and the night is genuinely dangerous. This is the calm, exact walkthrough from <strong>spawn to your first sunrise</strong> — knap a knife, make fire, eat something that won't kill you, and wall yourself in before dark. Do these eight things and Day Two is yours.</p>
+      <div class="badges">
+        <span class="badge accent">Survival start</span>
+        <span class="badge">Standard world</span>
+        <span class="badge">Commoner class</span>
+        <span class="badge danger">🌙 Night is lethal — plan for it</span>
+      </div>
+    </header>
+
+    <!-- 00 WHAT -->
+    <section class="doc" id="what">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>What This Game Is</h2>
+      <p class="lead">Vintage Story looks like a voxel survival game and shares the grid, but it plays like a patient simulation of the Stone Age clawing its way toward the Iron Age. If you arrive expecting Minecraft, three differences will catch you out on the first day.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">slower</span><h4>No instant tools</h4><p>You don't punch a tree into planks. You <strong>knap</strong> stone into a blade, lash it to a stick, and only then can you cut and chop. The first tool is a minigame, not a recipe.</p></div>
+        <div class="card"><span class="tag">hungrier</span><h4>Nutrition, not just hunger</h4><p>You have a saturation bar <em>and</em> separate nutrition for fruit, vegetable, protein, grain and dairy. Eating one food group forever leaves you frail — variety is health (see <a href="vs-food.html">The Larder</a>).</p></div>
+        <div class="card"><span class="tag">stranger</span><h4>Temporal stability</h4><p>Reality itself has integrity. Deep underground and during <strong>temporal storms</strong>, stability falls and monsters called <strong>drifters</strong> pour in. The surface is mostly safe — at first.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">The golden rule of Day One</span>
+        <p>Do not dig a deep mine and do not wander far. Your only jobs today are a <strong>knife</strong>, an <strong>axe</strong>, a <strong>fire</strong>, some <strong>food</strong>, and four <strong>walls</strong> before sunset. Everything else is tomorrow.</p>
+      </div>
+    </section>
+
+    <!-- 01 CLASS -->
+    <section class="doc" id="class">
+      <p class="sec-index">01 — Who you are</p>
+      <h2>You, the Commoner</h2>
+      <p>At character creation you pick a <strong>class</strong>. This guide assumes the <strong>Commoner</strong> — the default and the best first character. In the game's own words, Commoners <em>"are generalists from a multitude of backgrounds. While they have no defining skills or strengths to speak of, they also lack the weaknesses of those who specialize."</em></p>
+      <p>That neutrality is exactly why it's recommended: every other class trades a bonus for a real penalty, and a beginner doesn't yet know which trade they want.</p>
+      <div class="data-table">
+        <table>
+          <caption>The starting classes at a glance (Commoner is the safe default)</caption>
+          <thead><tr><th>Class</th><th>Gives</th><th>Costs</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Commoner</strong></td><td>No penalties; balanced everything</td><td>No bonuses — the all-rounder</td></tr>
+            <tr><td>Hunter</td><td>Crafts bows; great ranged combat &amp; butchering</td><td>Specialised toward hunting</td></tr>
+            <tr><td>Malefactor</td><td>Stealthy; better foraging &amp; ruin loot; crafts the sling</td><td>Frail; weak in melee</td></tr>
+            <tr><td>Clockmaker</td><td>Repairs/dismantles machinery; strong vs locusts</td><td>Frail; weak against everything else</td></tr>
+            <tr><td>Blacksmith / Tailor / others</td><td>Trade-skill bonuses (metalwork, clothing, …)</td><td>Each has its own drawback</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Commoners can do everything</span>
+        <p>A Commoner can still craft, hunt, smith and tailor — they simply get no head-start. Nothing in this guide is class-locked except the bow (Hunter) and sling (Malefactor); a Commoner throws spears and stabs instead, which is plenty for Day One.</p>
+      </div>
+    </section>
+
+    <!-- 02 CONTROLS -->
+    <section class="doc" id="controls">
+      <p class="sec-index">02 — Hands on</p>
+      <h2>Controls &amp; the Handbook</h2>
+      <p>The controls are close to other voxel games with a few important twists — especially <strong>Shift</strong>, which does double duty as sneak <em>and</em> the "place a knapping/crafting surface" modifier.</p>
+      <div class="data-table">
+        <table>
+          <caption>Default keybinds you need today (rebindable in Settings → Controls)</caption>
+          <thead><tr><th>Key</th><th>Does</th></tr></thead>
+          <tbody>
+            <tr><td><code>W A S D</code></td><td>Move · <code>Space</code> jump</td></tr>
+            <tr><td><code>Ctrl</code></td><td>Sprint (hold)</td></tr>
+            <tr><td><code>Shift</code></td><td>Sneak — and the modifier for <strong>placing loose stone/clay as a work surface</strong></td></tr>
+            <tr><td>Left-click</td><td>Mine / attack / <strong>chip a voxel while knapping</strong></td></tr>
+            <tr><td>Right-click</td><td>Use / place / interact (gather berries, open containers)</td></tr>
+            <tr><td><code>E</code></td><td>Open inventory &amp; the 4-slot crafting grid</td></tr>
+            <tr><td><code>H</code></td><td><strong>Survival Handbook</strong> — the in-game encyclopedia</td></tr>
+            <tr><td><code>M</code> · <code>J</code></td><td>World map · personal Diary (story notes)</td></tr>
+            <tr><td><code>F</code> · <code>G</code></td><td>Toggle held-item function · throw spear (when held)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Press H early and often</span>
+        <p>The <strong>Survival Handbook</strong> is searchable and context-aware: hover almost anything and press <code>H</code> to jump to its page, complete with recipes and where it spawns. It is the single most useful key in the game and the ground truth behind this whole almanac.</p>
+      </div>
+    </section>
+
+    <!-- 03 TOOLS -->
+    <section class="doc" id="tools">
+      <p class="sec-index">03 — The first hour</p>
+      <h2>Knap Your First Tools</h2>
+      <p>Everything starts with <strong>knapping</strong>: shaping a loose stone into a tool head by chipping away voxels, then lashing that head to a <strong>stick</strong>. Your two priorities are a <strong>knife</strong> (harvests grass, reeds, berries and butchers animals) and an <strong>axe</strong> (fells trees for firewood).</p>
+
+      <h3>Gather the raw materials</h3>
+      <ul>
+        <li><strong>Loose stones &amp; flint.</strong> Walk the ground and right-click the small stones lying about. <strong>Flint</strong> (often near gravel and water) is best — it knaps the sharpest blades and is the only stone that makes a usable knife/axe edge. Grab a handful.</li>
+        <li><strong>Sticks.</strong> Pick up the loose sticks on the forest floor, or knock leaves with a tool later. You need one stick per tool as the handle.</li>
+      </ul>
+
+      <h3>How knapping works</h3>
+      <ol class="flow">
+        <li><strong>Place a knapping surface.</strong> With loose stone selected on your hotbar, hold <strong>Shift</strong> and click the top of a solid block. The stone lays out as a flat voxel grid.</li>
+        <li><strong>Chip to the pattern.</strong> Left-click the voxels you need to <em>remove</em>. The Survival Handbook shows the target outline for each tool; chip everything <em>outside</em> the shape until the blade remains.</li>
+        <li><strong>Collect the head.</strong> When the shape is complete it pops off as a tool head (e.g. a Knife Blade or Axe Head).</li>
+        <li><strong>Assemble at the grid.</strong> Press <code>E</code> and combine the <strong>head + a stick</strong> in the crafting grid to finish the tool.</li>
+      </ol>
+      <p>For the exact target patterns of every knappable tool — knife, axe, hoe, shovel, spear and arrowheads — see <a href="vs-crafting.html#knapping">The Four Crafts</a>, which shows each one as an interactive grid you can step through.</p>
+
+      <div class="note warn">
+        <span class="label">Knap the knife first, then the axe</span>
+        <p>A <strong>flint knife</strong> unlocks grass (for the firestarter and torches), cattails and reeds (for cordage), berries and butchering. A <strong>flint axe</strong> then turns trees into firewood. With those two you can make fire and food — the rest of Day One.</p>
+      </div>
+    </section>
+
+    <!-- 04 FIRE -->
+    <section class="doc" id="fire">
+      <p class="sec-index">04 — Warmth &amp; light</p>
+      <h2>Fire &amp; Light</h2>
+      <p>Fire cooks your food, lights your shelter and keeps you warm as nights get cold. You need three things: <strong>dry grass</strong>, <strong>firewood</strong>, and a <strong>firestarter</strong>.</p>
+      <ol class="flow">
+        <li><strong>Cut dry grass</strong> with your knife from tall-grass tiles. A few handfuls will do.</li>
+        <li><strong>Make firewood.</strong> Chop a tree with your axe — the trunk topples realistically; break the felled logs to get <strong>firewood</strong>.</li>
+        <li><strong>Craft a Firestarter</strong> (a bow-drill) in the crafting grid from <strong>sticks + dry grass</strong>. It has a low success rate — hold right-click on the fuel and keep trying until it catches.</li>
+        <li><strong>Build the fire pit.</strong> Place <strong>4 firewood</strong> on the ground to form a fire pit, then ignite it with the firestarter (hold right-click).</li>
+      </ol>
+      <div class="note tip">
+        <span class="label">Torches are nearly free</span>
+        <p>A <strong>torch</strong> is just a <strong>stick + dry grass (or a cattail)</strong>. Make a few — they're cheap portable light, and light level matters: drifters spawn in the dark, so a lit base is a safe base.</p>
+      </div>
+      <p>The fire pit is also your first <strong>cooker</strong>: put raw meat or foraged food in its slots to roast it. Later it becomes the base for a cooking pot and crucible — but tonight, roasted meat is dinner.</p>
+    </section>
+
+    <!-- 05 FOOD -->
+    <section class="doc" id="food">
+      <p class="sec-index">05 — Don't starve, don't poison yourself</p>
+      <h2>Food on Day One</h2>
+      <p>You won't farm today. Day-One calories come from <strong>foraging</strong> and a little <strong>hunting</strong>. Aim for a mix so your nutrition bars don't run dry.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">forage</span><h4>Berries</h4><p>Right-click a berry bush to harvest <em>without</em> destroying it (left-click breaks it — then replant). Quick fruit nutrition.</p></div>
+        <div class="card"><span class="tag">forage</span><h4>Cattail &amp; roots</h4><p>Cut cattails at the water's edge with your knife for <strong>cattail roots</strong> (roast them) and tops for cordage. Reliable early veg.</p></div>
+        <div class="card"><span class="tag">forage</span><h4>Mushrooms</h4><p>Plentiful, but <strong>some are poisonous</strong>. Check the Handbook (<code>H</code>) before eating an unfamiliar one — cook the safe ones.</p></div>
+        <div class="card"><span class="tag">hunt</span><h4>Hares &amp; chickens</h4><p>Easy prey. Stab with a knife or throw a knapped <strong>spear</strong> (<code>G</code>), then harvest with the knife for raw meat to roast.</p></div>
+      </div>
+      <div class="note warn">
+        <span class="label">Cook it, and eat the rainbow</span>
+        <p>Raw meat can make you ill; roast it on the fire pit. And don't binge a single food group — your five nutrition bars (fruit/veg/protein/grain/dairy) each add a little max-health, so a varied diet literally makes you tougher. Full system in <a href="vs-food.html">The Larder</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 SHELTER -->
+    <section class="doc" id="shelter">
+      <p class="sec-index">06 — Before the sun drops</p>
+      <h2>A First-Night Shelter</h2>
+      <p>You don't need a house tonight — you need <strong>walls, a roof, a door and light</strong>. The fastest shelter is a small dirt or cobblestone box dug into a hillside, with the fire pit inside for light and warmth. Below is a minimal, legal 5×5 plan; step through the layers.</p>
+
+      <div id="shelter-viewer"></div>
+
+      <ol class="flow">
+        <li><strong>Floor &amp; walls.</strong> Clear a 5×5 footprint and ring it with dirt or cobblestone two blocks high, leaving a one-block doorway.</li>
+        <li><strong>Fire inside.</strong> Place your lit fire pit in the centre — it lights the interior so nothing spawns in with you, and warms you as the night cools.</li>
+        <li><strong>Roof it.</strong> Cap the top so nothing drops in. A solid roof also keeps rain off your fire.</li>
+        <li><strong>Close the door.</strong> A quick wooden door (planks) or just a stacked block in the gap. If you have grass cordage, you can make a <strong>bedroll</strong> to sleep through safe nights and set your respawn.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">Dig in, don't build up</span>
+        <p>On Day One it's faster to <strong>carve into a hill</strong> than to stack a tower. Three dug walls + one built wall + a roof is a complete shelter in a couple of minutes, and the surrounding stone is free.</p>
+      </div>
+    </section>
+
+    <!-- 07 NIGHT -->
+    <section class="doc" id="night">
+      <p class="sec-index">07 — Holding until dawn</p>
+      <h2>Surviving the Night</h2>
+      <p>The danger after dark is <strong>drifters</strong> — shambling temporal creatures that spawn in low light — and surface predators like <strong>wolves</strong>. Your shelter plus a fire handles drifters; wolves you simply don't go out to meet.</p>
+      <h3>The three night rules</h3>
+      <ul>
+        <li><strong>Stay lit.</strong> Drifters spawn in darkness. A fire pit and a couple of torches keep your interior safe.</li>
+        <li><strong>Stay walled.</strong> If you hear the dry rasp of a drifter, do not open the door. Wait it out or fight from a doorway you control.</li>
+        <li><strong>Stay shallow.</strong> Don't tunnel deep tonight. Stability is high on the surface; it drops as you go down, and that's a Day-Three problem, not a Day-One one.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">You have a grace period</span>
+        <p>Full <strong>temporal storms</strong> — when drifters spawn everywhere, even in daylight — don't begin immediately; the first ones are days away. Use that grace to get established. The whole system is explained in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+      </div>
+      <p>Survive to morning and you've cleared the hardest part of the game's opening. Day Two is about <strong>pottery and clay</strong> (a bowl, a cooking pot, a crucible) and scouting <strong>copper</strong> — which is where <a href="vs-progression.html">The Long Road</a> picks up.</p>
+    </section>
+
+    <!-- ★ CHECKLIST -->
+    <section class="doc" id="checklist">
+      <p class="sec-index">★ — Tick it off</p>
+      <h2>Day-One Checklist</h2>
+      <p class="lead">Eight things, in order. Tick them as you go — your progress is saved in this browser, so you can leave and come back. Finish all eight before you sleep and Day One is a clean success.</p>
+
+      <div class="progress-wrap">
+        <div class="row">
+          <span class="ttl">Day-One progress</span>
+          <span class="pct" data-progress-pct>0%</span>
+        </div>
+        <div class="bar"><div class="fill" data-progress-fill></div></div>
+        <div class="row" style="margin-top:8px">
+          <span class="ttl" data-progress-label>0 of 8 done</span>
+          <button class="reset" data-reset>Reset</button>
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-ck="d1-stone"><span class="ck-body"><span class="ck-title">Gather flint &amp; sticks</span><span class="ck-note">Right-click loose stones (prefer flint near gravel/water) and pick up sticks from the ground.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-knife"><span class="ck-body"><span class="ck-title">Knap a flint knife</span><span class="ck-note">Shift-click to lay a knapping surface, chip to the blade, then combine blade + stick in the grid (E).</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-axe"><span class="ck-body"><span class="ck-title">Knap an axe &amp; make firewood</span><span class="ck-note">Knap an axe head, assemble it, fell a tree and break the logs into firewood.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-fire"><span class="ck-body"><span class="ck-title">Build &amp; light a fire pit</span><span class="ck-note">Cut dry grass, craft a Firestarter (sticks + grass), place 4 firewood, and ignite it.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-torch"><span class="ck-body"><span class="ck-title">Craft a few torches</span><span class="ck-note">Stick + dry grass (or a cattail). Light keeps drifters from spawning near you.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-food"><span class="ck-body"><span class="ck-title">Forage &amp; hunt a meal</span><span class="ck-note">Berries, cattail roots, safe mushrooms, plus a hare or chicken. Roast meat before eating.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-shelter"><span class="ck-body"><span class="ck-title">Build a walled, roofed shelter</span><span class="ck-note">A 5×5 dirt/cobble box (dig into a hill), fire pit inside, door in the gap. See the plan above.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="d1-survive"><span class="ck-body"><span class="ck-title">Survive to sunrise</span><span class="ck-note">Stay lit, stay walled, stay shallow. Don't open the door for drifters. Welcome to Day Two.</span></span></label></li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Next stop</span>
+        <p>With fire, food and four walls behind you, head to <a href="vs-progression.html">The Long Road</a> for the full Stone→Steel ladder, or <a href="vs-crafting.html">The Four Crafts</a> to master knapping, clay forming, smithing and casting.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The First Day</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Keys shown are defaults and are rebindable; spawn rates, recipes and numbers are config-tunable and shift between versions. The shelter plan is a minimal representative build — make it your own. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  /* ---- palette for the first-night shelter ---- */
+  const PAL = {
+    floor: { label: "Dirt / Cobblestone floor", color: "#6e5538" },
+    wall:  { label: "Dirt / Cobblestone wall",  color: "#857056" },
+    door:  { label: "Doorway / wooden door",    color: "#caa15e" },
+    fire:  { label: "Lit fire pit",             color: "#e3782f" },
+    bed:   { label: "Bedroll (optional)",       color: "#5fb9ad" },
+    roof:  { label: "Roof block",               color: "#5b4730" },
+  };
+  const grid = (n, fill = null) => Array.from({ length: n }, () => Array(n).fill(fill));
+  const ring = (n, edge, inner = null) => {
+    const g = grid(n, inner);
+    for (let i = 0; i < n; i++) { g[0][i] = edge; g[n-1][i] = edge; g[i][0] = edge; g[i][n-1] = edge; }
+    return g;
+  };
+
+  // Y1 — walls with a south doorway, fire pit centre, optional bedroll
+  const lvl1 = ring(5, "wall");
+  lvl1[4][2] = "door";   // south doorway
+  lvl1[2][2] = "fire";   // centre fire pit
+  lvl1[1][3] = "bed";    // a corner bedroll
+
+  // Y2 — walls; doorway gap continues up one for headroom
+  const lvl2 = ring(5, "wall");
+  lvl2[4][2] = "door";
+
+  mountSchematic({
+    title: "First-Night Shelter",
+    subtitle: "minimal 5×5 dirt/cobble box · dig it into a hill",
+    meta: { footprint: "5×5", height: "4" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Y0 · floor", grid: grid(5, "floor"),
+        note: "Clear and level a 5×5 footprint. A solid floor keeps things from burrowing or spawning beneath you." },
+      { label: "Y1 · walls + fire", grid: lvl1,
+        note: "Ring the floor with dirt or cobblestone. Leave a 1-wide doorway (south here). Put the lit fire pit in the centre for light + warmth, and a bedroll in a corner if you have cordage." },
+      { label: "Y2 · walls", grid: lvl2,
+        note: "Second wall course for headroom — two blocks tall is enough. Keep the doorway open above for now; you'll hang a door or stack a block to seal it at dusk." },
+      { label: "Y3 · roof", grid: grid(5, "roof"),
+        note: "Cap the top completely so nothing drops in and rain can't reach your fire. Done — four walls, a roof, a door and light. Hold until dawn." },
+    ],
+  }, "#shelter-viewer");
+</script>
+</body>
+</html>

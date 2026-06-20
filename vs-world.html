@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The World — Vintage Story climate, geology &amp; prospecting (v1.22.3)</title>
+<meta name="description" content="How the Vintage Story world is built (v1.22.3): the north–south temperature gradient and rainfall that shape biomes, the main landscapes and what they offer, seasons and surviving your first winter, the vertical world from soil to bedrock, rock types and the ores they host, ore by depth, and a precise how-to for the prospecting pick — density search vs node search, ‰ readings, and a region-then-deposit workflow." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧭</span>
+      <span class="wordmark">The<br>World<small>CLIMATE · GEOLOGY · PROSPECTING</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The lay of the land</p>
+      <a href="#overview"><span class="ix">00</span> Overview</a>
+      <a href="#climate"><span class="ix">01</span> Climate &amp; Temperature</a>
+      <a href="#landscapes"><span class="ix">02</span> Landscapes &amp; Biomes</a>
+      <a href="#seasons"><span class="ix">03</span> Seasons &amp; the Calendar</a>
+      <p class="group-label">Going down</p>
+      <a href="#vertical"><span class="ix">04</span> The Vertical World</a>
+      <a href="#geology"><span class="ix">05</span> Geology</a>
+      <a href="#ore-depth"><span class="ix">06</span> Ore by Depth</a>
+      <p class="group-label">The key skill</p>
+      <a href="#propick"><span class="ix">07</span> Prospecting With the Propick</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Climate, depths and ore odds are<br>config-tunable and vary by world<br>seed — the in-game <b>Survival<br>Handbook (H)</b> is ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Standard world</p>
+      <h1>The World</h1>
+      <p class="lede">Two invisible axes decide everything about where you survive. <strong>Climate</strong> runs across the surface — temperature falls as you travel toward the poles, rainfall shifts region to region — and together they paint the biome you stand in. <strong>Geology</strong> runs straight down — layered rock from soil to bedrock, each stone hosting different ores. Read both and you'll know where to build, what will grow, and exactly where the metal is hiding.</p>
+      <div class="badges">
+        <span class="badge accent">Climate × Geology</span>
+        <span class="badge">North–south gradient</span>
+        <span class="badge">Rock-hosted ores</span>
+        <span class="badge accent">🪨 Prospecting pick how-to</span>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">Density sample</div><div class="v">3 <small>blocks broken</small></div></div>
+        <div class="f"><div class="k">Density range</div><div class="v">~16 <small>blocks around you</small></div></div>
+        <div class="f"><div class="k">Readings in</div><div class="v">‰ <small>parts per thousand</small></div></div>
+        <div class="f"><div class="k">Propick modes</div><div class="v">2 <small>density · node (F)</small></div></div>
+      </div>
+    </header>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Overview</h2>
+      <p class="lead">The world is shaped along two axes, and learning to read both is most of what makes a confident Vintage Story player.</p>
+      <div class="split">
+        <div>
+          <h4>Climate — the horizontal world</h4>
+          <p>Across the surface, <strong>temperature</strong> and <strong>rainfall</strong> set the rules. They decide which biome you're in, what plants and animals appear, and whether your crops thrive or freeze. To change your climate, you <em>travel</em>.</p>
+        </div>
+        <div>
+          <h4>Geology — the vertical world</h4>
+          <p>Straight down, the world is <strong>layered rock</strong> over <strong>depth</strong>. Which stone surrounds you decides which ores can appear, what building blocks you get, and — as you descend — how stable reality stays. To change your geology, you <em>dig</em>.</p>
+        </div>
+      </div>
+      <p>Put simply: climate tells you <strong>where to live and what grows</strong>; geology tells you <strong>where the ore hides</strong>. The rest of this page walks across the surface first, then drills down — and finishes with the one tool that turns guesswork into a map: the prospecting pick.</p>
+    </section>
+
+    <!-- 01 CLIMATE -->
+    <section class="doc" id="climate">
+      <p class="sec-index">01 — The horizontal axis</p>
+      <h2>Climate &amp; Temperature</h2>
+      <p>Temperature follows a <strong>north–south gradient</strong>: it gets hotter as you travel toward the <strong>equator</strong> and colder as you head toward the <strong>poles</strong>. Stacked on top of that is <strong>altitude</strong> — the higher you climb, the colder it gets, so a mountaintop near the equator can still wear snow. <strong>Rainfall</strong> varies region to region independently of temperature, from parched to soaking.</p>
+      <p>A landscape is essentially a <strong>function of temperature × rainfall</strong>. Want warmth for crops and comfort? Travel toward the equator. Want cold, ice and snow? Travel poleward or climb. Check your current reading on the world map (<code>M</code>) and watch the climate change as you move.</p>
+      <div class="data-table">
+        <table>
+          <caption>Temperature × rainfall → the landscape you get (representative; exact bands vary by world)</caption>
+          <thead><tr><th>Temperature ↓ / Rainfall →</th><th>Dry</th><th>Moderate</th><th>Wet</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hot</strong> (toward equator)</td><td>Desert &amp; sand</td><td>Savanna / grassland</td><td>Lush, dense forest</td></tr>
+            <tr><td><strong>Warm / temperate</strong></td><td>Shrubland</td><td>Plains &amp; grassland</td><td>Temperate forest</td></tr>
+            <tr><td><strong>Cool</strong></td><td>Cold steppe</td><td>Taiga / conifer forest</td><td>Wetland &amp; swamp</td></tr>
+            <tr><td><strong>Cold</strong> (toward poles / altitude)</td><td>Frozen barrens</td><td>Tundra</td><td>Snowy taiga &amp; ice</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Read the map before you settle</span>
+        <p>The same world holds every climate — you simply haven't walked to them yet. A first base in a <strong>temperate, moderate-rainfall</strong> band is the easy default: mild winters, good farmland, plenty of wood and game.</p>
+      </div>
+    </section>
+
+    <!-- 02 LANDSCAPES -->
+    <section class="doc" id="landscapes">
+      <p class="sec-index">02 — Knowing your region</p>
+      <h2>Landscapes &amp; Biomes</h2>
+      <p>Each landscape that climate produces offers different resources and different dangers. Here are the main ones you'll meet on the surface and what each is good for.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">temperate</span><h4>Forest</h4><p>The all-rounder home: abundant <strong>wood</strong>, <strong>game</strong> (deer, hares), wild <strong>berries</strong> and forage. Mild winters in the temperate band. The recommended first base.</p></div>
+        <div class="card"><span class="tag">open</span><h4>Plains / grassland</h4><p>Open, flat and sunny — ideal for <strong>farming</strong> and grazing <strong>herds</strong>. Less wood and cover, so build with stone and watch for predators.</p></div>
+        <div class="card"><span class="tag">scrub</span><h4>Shrubland</h4><p>Dry, sparse cover between forest and desert. Scattered bushes and small game; thin resources but easy to cross and clear.</p></div>
+        <div class="card"><span class="tag">hot · arid</span><h4>Desert &amp; savanna</h4><p>Heat-loving crops thrive here; little water and little wood. Home of <strong>hyenas</strong> — fast pack predators. Exposed sand and rock make ore easy to spot.</p></div>
+        <div class="card"><span class="tag">cold</span><h4>Tundra &amp; taiga</h4><p>Snow, <strong>ice</strong> and a brutal growing season — <strong>cold-hardy crops only</strong>. Conifer wood and cold-climate game, but you'll fight winter year-round.</p></div>
+        <div class="card"><span class="tag">wetland</span><h4>Swamp / wetland</h4><p>Boggy ground yielding <strong>peat</strong> (fuel) and bog-iron <strong>limonite</strong> on the surface. Beware the <strong>disease risk</strong> — sickness clouds make swamps a place to harvest, not to live.</p></div>
+        <div class="card"><span class="tag">vertical</span><h4>Mountains</h4><p>Exposed <strong>rock and ore</strong>, dramatic relief and <strong>snow</strong> up high (altitude = cold). Great for surface prospecting and stone; harsh and steep to settle on.</p></div>
+      </div>
+      <div class="note warn">
+        <span class="label">The swamp trade-off</span>
+        <p>Wetlands are a tempting early source of surface limonite and peat, but standing water and disease make a permanent swamp base risky. Mine the resources, then carry them somewhere drier to live.</p>
+      </div>
+    </section>
+
+    <!-- 03 SEASONS -->
+    <section class="doc" id="seasons">
+      <p class="sec-index">03 — The clock and the calendar</p>
+      <h2>Seasons &amp; the Calendar</h2>
+      <p>The year cycles <strong>spring → summer → autumn → winter</strong>. Month length is configurable, but a common default is roughly <strong>9–12 days per month</strong>, so a season is a meaningful stretch of real play. <strong>Day length</strong> also shifts with season and latitude — long summer days near the poles, short dark winter ones.</p>
+      <div class="facts">
+        <div class="f"><div class="k">Cycle</div><div class="v">4 <small>seasons / year</small></div></div>
+        <div class="f"><div class="k">Month length</div><div class="v">~9–12 <small>days (config)</small></div></div>
+        <div class="f"><div class="k">The threat</div><div class="v">❄ <small>winter</small></div></div>
+        <div class="f"><div class="k">Survival rule</div><div class="v">Larder <small>+ warmth</small></div></div>
+      </div>
+      <p><strong>Winter is the threat the whole calendar is built around.</strong> It gets cold, crops stop growing or die outright, surface water and wells <strong>freeze</strong>, and there's little to forage. You survive it on <strong>stored food</strong> and <strong>warmth</strong> — a hearth and warm clothing keep your body temperature up while the world outside goes still.</p>
+
+      <h3>Preparing for your first winter</h3>
+      <ol class="flow">
+        <li><strong>Plant early, harvest before the frost.</strong> Sow in spring and early summer so crops mature with time to spare; cold weather halts growth and kills tender plants outright.</li>
+        <li><strong>Fill a larder.</strong> Preserve and store everything you can — dried, salted, cellared. A full <a href="vs-food.html">larder</a> is what carries you when nothing grows.</li>
+        <li><strong>Build cold-storage and shelter.</strong> A <strong>cellar</strong> slows spoilage and a <strong>greenhouse</strong> can extend the growing season; see <a href="vs-structures.html">structures</a> for both.</li>
+        <li><strong>Secure warmth.</strong> Keep a <strong>hearth or firepit</strong> burning and craft <strong>warm clothing</strong> before the temperature drops, so cold never chips at your health.</li>
+        <li><strong>Stockpile fuel &amp; water.</strong> Lay in firewood/coal and store water indoors before sources freeze, so the cold months are coasting, not scrambling.</li>
+      </ol>
+      <div class="note tip">
+        <span class="label">Plan to the calendar</span>
+        <p>Treat your first autumn as a deadline. Everything you'll eat and burn through winter should be gathered and stored before the first frost — see crops and seasons in <a href="vs-food.html">The Larder</a>.</p>
+      </div>
+    </section>
+
+    <!-- 04 VERTICAL -->
+    <section class="doc" id="vertical">
+      <p class="sec-index">04 — The vertical axis</p>
+      <h2>The Vertical World</h2>
+      <p>Dig straight down and the world reveals its structure: a thin skin of <strong>soil</strong> over many courses of <strong>rock</strong>, sinking through the <strong>deep</strong> toward <strong>bedrock</strong>. <strong>Sea level</strong> sits roughly midway up the column. What you find — and how safe you are — changes with every band.</p>
+      <ul class="ladder">
+        <li style="--rung:var(--accent)"><div class="age">Surface soil<small>DIRT · GRASS · TOP</small></div><div class="body"><p>Dirt and grass over the bedrock world. Plants, forage, farmland and loose surface stones live here. Stability is highest at and above the surface.</p></div></li>
+        <li style="--rung:#9bc24a"><div class="age">Upper rock<small>JUST BELOW SOIL</small></div><div class="body"><p>The first rock layers under the topsoil. Shallow ores like <strong>copper</strong> tend to sit here, and surface metal <strong>nuggets</strong> hint at veins just below.</p></div></li>
+        <li style="--rung:var(--accent-3)"><div class="age">Sea level<small>MID-COLUMN MARKER</small></div><div class="body"><p>The waterline that the column is measured around — a useful mental zero. Caves, water and many mid-depth deposits cluster near here.</p></div></li>
+        <li style="--rung:var(--accent-2)"><div class="age">Mid rock<small>BELOW SEA LEVEL</small></div><div class="body"><p>The middle bands. <strong>Iron</strong>-bearing ores favour these depths. Stability has begun to slip — bring light and watch your temporal meter.</p></div></li>
+        <li style="--rung:var(--danger)"><div class="age">The deep<small>FAR DOWN</small></div><div class="body"><p>Deep stone hosts the rarer metals, <strong>coal seams</strong> and gem pockets. Stability is <strong>low</strong> and drifters press in — this is dangerous ground (see <a href="vs-temporal.html">temporal stability</a>).</p></div></li>
+        <li style="--rung:var(--ink-faint)"><div class="age">Bedrock<small>THE FLOOR</small></div><div class="body"><p>The impassable bottom of the world. You cannot dig through it — when you hit bedrock, you've reached the deepest the column goes.</p></div></li>
+      </ul>
+      <div class="note warn">
+        <span class="label">Stability drops as you descend</span>
+        <p>The deeper you go, the lower your temporal stability falls and the more drifters appear. Depth is where the best ore lives <em>and</em> where the world is most hostile — the full mechanic is in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+      </div>
+    </section>
+
+    <!-- 05 GEOLOGY -->
+    <section class="doc" id="geology">
+      <p class="sec-index">05 — Why rock type matters</p>
+      <h2>Geology</h2>
+      <p>Rock isn't just background — its <strong>type</strong> decides which ores can appear in it and what building stone you get. The world's stone comes in three families:</p>
+      <ul>
+        <li><strong>Sedimentary</strong> — laid down in layers: limestone, chalk, sandstone, shale, claystone, conglomerate.</li>
+        <li><strong>Igneous</strong> — cooled from melt: granite, basalt, andesite, peridotite.</li>
+        <li><strong>Metamorphic</strong> — reformed under heat and pressure: slate, marble, gneiss, phyllite, quartzite.</li>
+      </ul>
+      <p>Because certain ores <strong>favour certain host rocks</strong>, identifying the stone around you is half of prospecting — it tells you what's even <em>possible</em> before you sample. (Bog-iron limonite is the exception: it forms on the surface in wetlands, not inside a host rock.)</p>
+      <div class="data-table">
+        <table>
+          <caption>Rock families, examples and what each is known for (host hints vary by world)</caption>
+          <thead><tr><th>Rock</th><th>Family</th><th>Notable ores / uses</th></tr></thead>
+          <tbody>
+            <tr><td>Limestone / chalk</td><td>Sedimentary</td><td>Common host; source of <strong>lime</strong> for plaster &amp; mortar</td></tr>
+            <tr><td>Sandstone</td><td>Sedimentary</td><td>Easy building stone; sand-rich layers</td></tr>
+            <tr><td>Shale / claystone</td><td>Sedimentary</td><td>Associated with <strong>coal</strong>-bearing strata; clay nearby</td></tr>
+            <tr><td>Conglomerate</td><td>Sedimentary</td><td>Mixed pebble stone; general building</td></tr>
+            <tr><td>Granite</td><td>Igneous</td><td>Hard, handsome building stone; hosts various ores</td></tr>
+            <tr><td>Basalt / andesite</td><td>Igneous</td><td>Dark dense stone; host to several metal ores</td></tr>
+            <tr><td>Peridotite</td><td>Igneous</td><td>Favoured host for <strong>nickel/platinum-group</strong> finds</td></tr>
+            <tr><td>Slate / phyllite</td><td>Metamorphic</td><td>Layered building stone; coal-region association</td></tr>
+            <tr><td>Marble</td><td>Metamorphic</td><td>Prized decorative stone; can host ore</td></tr>
+            <tr><td>Gneiss / quartzite</td><td>Metamorphic</td><td>Hard stone; <strong>quartz</strong> &amp; gem associations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Identify the stone first</span>
+        <p>Press <code>H</code> on a block of rock to see its family and what it can host. Knowing you're standing on the right kind of stone turns prospecting from random digging into a directed search.</p>
+      </div>
+    </section>
+
+    <!-- 06 ORE BY DEPTH -->
+    <section class="doc" id="ore-depth">
+      <p class="sec-index">06 — Reading the column</p>
+      <h2>Ore by Depth</h2>
+      <p>Metals sort themselves roughly by depth. A surface metal <strong>nugget</strong> is a clue — it means a vein of that metal sits somewhere in the rock below. As a rough rule of thumb:</p>
+      <div class="data-table">
+        <table>
+          <caption>Metals by rough depth band and where to look (approximate; world-dependent)</caption>
+          <thead><tr><th>Metal / resource</th><th>Rough depth band</th><th>Host hints</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Copper</strong> (native, malachite)</td><td>Shallow — upper rock</td><td>Surface nuggets; often in/near limestone &amp; similar</td></tr>
+            <tr><td><strong>Tin / zinc</strong> (for bronze)</td><td>Shallow–mid</td><td>Specific host rocks; scarcer than copper</td></tr>
+            <tr><td><strong>Iron</strong> (hematite, magnetite)</td><td>Mid-depth</td><td>Below sea level; bog limonite is the surface shortcut</td></tr>
+            <tr><td><strong>Coal</strong> seams</td><td>Mid–deep</td><td>Shale / claystone / slate strata</td></tr>
+            <tr><td><strong>Silver / gold</strong></td><td>Deep</td><td>Particular host rocks; uncommon</td></tr>
+            <tr><td><strong>Quartz / gems</strong></td><td>Varies (often deep)</td><td>Quartzite &amp; hard stone pockets</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Stone tools can't mine ore</span>
+        <p>A flint or stone pickaxe will not break ore blocks — you need a <strong>metal pickaxe</strong>. That means your first copper has to be smelted into a pick before you can mine anything beyond it, which is exactly the bootstrap covered in <a href="vs-metalworking.html">metalworking</a> and the wider <a href="vs-progression.html">Stone→Steel road</a>.</p>
+      </div>
+    </section>
+
+    <!-- 07 PROPICK -->
+    <section class="doc" id="propick">
+      <p class="sec-index">07 — The key how-to</p>
+      <h2>Prospecting With the Propick</h2>
+      <p>The <strong>prospecting pick</strong> ("propick") turns digging blind into a directed hunt. Craft one as soon as you can spare the metal — it's the single tool that makes finding ore reliable. It has <strong>two modes</strong>; toggle the tool's function with the held-item function key (<strong>default <code>F</code></strong>).</p>
+      <div class="facts">
+        <div class="f"><div class="k">Density sample</div><div class="v">3 <small>rock blocks</small></div></div>
+        <div class="f"><div class="k">Density radius</div><div class="v">~16 <small>blocks</small></div></div>
+        <div class="f"><div class="k">Reported as</div><div class="v">‰ <small>per-thousand</small></div></div>
+        <div class="f"><div class="k">Toggle modes</div><div class="v">F <small>density ⇄ node</small></div></div>
+      </div>
+
+      <div class="split">
+        <div>
+          <h4>Density Search</h4>
+          <p>Break up to <strong>three rock blocks</strong> within about <strong>16 blocks</strong> of each other to take a sample. The propick reports the <strong>probability of each ore type</strong> present in that part of the world, expressed in <strong>‰ (parts per thousand)</strong>. It tells you <em>what</em> a region holds — not exactly where. Some ores only ever read low because of how rarely they generate, so a small number still means "present."</p>
+        </div>
+        <div>
+          <h4>Node Search</h4>
+          <p>Break a <strong>single block</strong> and the game scans a radius around you, reporting nearby ore <strong>nodes</strong> with a <strong>direction</strong> and a relative <strong>size</strong> — from <em>"Trace amounts"</em> up through to <em>"Huge amounts."</em> This is the precise homing-in mode: it points you at a specific deposit so you can dig straight to it.</p>
+        </div>
+      </div>
+
+      <h3>The workflow</h3>
+      <ol class="flow">
+        <li><strong>Survey with Density Search.</strong> Sample as you travel to find a region whose readings show the ore you want. Higher ‰ for that ore = a more promising area to commit to.</li>
+        <li><strong>Switch to Node Search (<code>F</code>).</strong> Once you're in a promising region, toggle the mode and break single blocks to pick up direction-and-size hints on actual nearby nodes.</li>
+        <li><strong>Home in.</strong> Walk toward the reported direction, re-sampling; the size class climbs from <em>Trace</em> toward <em>Huge</em> as you close on the deposit.</li>
+        <li><strong>Dig it out.</strong> When you're on top of a node, mine the ore with a <strong>metal pickaxe</strong> — flint and stone won't break it.</li>
+      </ol>
+
+      <p>A density reading looks like this — the region's ore odds, in ‰:</p>
+      <div class="readout">Density search (3 samples taken):
+Found the following ore deposits:
+  <b>Copper</b> .......... 8.4 ‰  (decent)
+  <b>Cassiterite</b> ..... 1.1 ‰  (poor)
+  <b>Lignite (coal)</b> .. 14.2 ‰ (high)
+  <b>Iron</b> ............ 0.3 ‰  (very poor — likely just generation-limited)
+Reading reflects the area around the samples, not an exact location.</div>
+
+      <p>Switch to Node Search and a hit reads like this — a direction and a size class to walk toward:</p>
+      <div class="readout">Node search:
+<b>Found the following ore nodes:</b>
+  <b>Medium amounts</b> of Copper to the <b>north-west</b>
+  <b>Trace amounts</b> of Cassiterite to the <b>east</b>
+Follow the strongest reading and re-sample as you go.</div>
+
+      <div class="note tip">
+        <span class="label">Density to choose, node to find</span>
+        <p>Think of it as zoom levels: <strong>Density Search</strong> picks the <em>region</em> ("is the ore even here?"), <strong>Node Search</strong> finds the <em>deposit</em> ("which way and how big?"). Use them in that order and you'll stop tunneling on hope. Don't dismiss a low ‰ reading — some ores are capped low by design and a small number is still a green light.</p>
+      </div>
+      <p>With a region surveyed and a node located, the next step is turning that ore into tools and a better pick — pick the road up in <a href="vs-metalworking.html">metalworking</a> and <a href="vs-progression.html">The Long Road</a>.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The World</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings &amp; seed
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Climate bands, layer depths, host-rock pairings and ore odds are config-tunable and vary by world seed and version; depth tiers and ‰ readings shown are representative. Keys are defaults and rebindable. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  /* This page uses .ladder and .data-table for the vertical/depth content —
+     a top-down schematic grid is a poor fit for a rock-layer stack — so no
+     schematic is mounted. The import keeps the shared chrome (nav + scroll
+     spy) running, exactly as on the other guide pages. */
+</script>
+</body>
+</html>

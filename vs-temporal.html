@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Rust &amp; The Gear — temporal stability, rifts &amp; storms in Vintage Story (v1.22.3)</title>
+<meta name="description" content="The complete guide to temporal stability in Vintage Story 1.22.3: what drains it (the deep, rifts, temporal storms), how rifts and storms work and how they're telegraphed, drifters and the escalating deep, temporal gears (instant +~30% stability with a knife in your offhand), how to restore stability, storm-proofing your base, and a spoiler-light look at the lore behind the rust world." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🌀</span>
+      <span class="wordmark">The Rust &amp;<br>The Gear<small>STABILITY · STORMS · RIFTS</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The mechanic</p>
+      <a href="#what"><span class="ix">00</span> What It Is</a>
+      <a href="#drains"><span class="ix">01</span> What Drains Stability</a>
+      <p class="group-label">The threats</p>
+      <a href="#rifts"><span class="ix">02</span> Rifts</a>
+      <a href="#storms"><span class="ix">03</span> Temporal Storms</a>
+      <a href="#drifters"><span class="ix">04</span> Drifters &amp; the Deep</a>
+      <p class="group-label">Fighting back</p>
+      <a href="#gears"><span class="ix">05</span> Temporal Gears</a>
+      <a href="#restore"><span class="ix">06</span> Restoring Stability</a>
+      <a href="#proofing"><span class="ix">07</span> Storm-Proofing</a>
+      <p class="group-label">The mystery</p>
+      <a href="#lore"><span class="ix">08</span> The Lore</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Storm cadence, stability values<br>and damage are config-tunable —<br>your world's settings and the<br>in-game <b>Survival Handbook (H)</b><br>are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Standard · Temporal mechanics</p>
+      <h1>The Rust &amp; The Gear</h1>
+      <p class="lede">Every other survival game makes the dark dangerous. Vintage Story makes <strong>reality itself</strong> dangerous. <em>Temporal stability</em> is the integrity of the world at your exact location — high on the open surface, low in the deep, and torn open by <strong>rifts</strong> and <strong>temporal storms</strong>. Let it fall and the screen warps, monsters pour in, and the rust world reaches through. This is how stability works, what eats it, and how you fight back.</p>
+      <div class="badges">
+        <span class="badge accent">Temporal stability</span>
+        <span class="badge">Rifts &amp; storms</span>
+        <span class="badge">Temporal gears</span>
+        <span class="badge danger">⚡ Storms spawn drifters in daylight</span>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">Surface stability</div><div class="v">~100% <small>mostly safe</small></div></div>
+        <div class="f"><div class="k">Storm cadence</div><div class="v">~10–20 <small>in-game days</small></div></div>
+        <div class="f"><div class="k">Gear restore</div><div class="v">~30% <small>per gear, instant</small></div></div>
+        <div class="f"><div class="k">Gear cost</div><div class="v">~2 HP <small>self-damage + the gear</small></div></div>
+      </div>
+    </header>
+
+    <!-- 00 WHAT IT IS -->
+    <section class="doc" id="what">
+      <p class="sec-index">00 — The mechanic</p>
+      <h2>What It Is</h2>
+      <p class="lead">Temporal stability is a hidden percentage measuring how firmly <em>reality holds together</em> where you are standing. When it's full you'll never see it; the moment it starts to drop, a <strong>stability bar</strong> appears on your HUD and the world begins to misbehave.</p>
+      <p>Most of the world's <strong>surface is stable</strong> — out in daylight, far from a rift, you can live for days without the bar ever appearing. Stability falls in three situations: when you go <strong>deep underground</strong> (the deeper, the worse), when you stand <strong>near a temporal rift</strong>, and during a <strong>temporal storm</strong>. As the number drops, the symptoms escalate.</p>
+      <div class="data-table">
+        <table>
+          <caption>What low stability does to you (symptoms worsen as the number falls)</caption>
+          <thead><tr><th>Stability</th><th>What you see &amp; feel</th></tr></thead>
+          <tbody>
+            <tr><td><strong>High</strong> (surface)</td><td>No bar, no effects. Reality is solid — business as usual.</td></tr>
+            <tr><td><strong>Dropping</strong></td><td>The stability bar appears. Subtle screen <strong>warping</strong> and colour shifts creep in at the edges.</td></tr>
+            <tr><td><strong>Low</strong></td><td>Heavy visual distortion — warping, desaturation, the world "swimming." A clear warning to get out.</td></tr>
+            <tr><td><strong>Very low / zero</strong></td><td>You take <strong>damage over time</strong> and risk being <strong>teleported</strong> elsewhere or attacked by things reaching through the tear.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Watch the bar, not the clock</span>
+        <p>The stability bar is your single most important readout underground and during storms. If it's on screen and falling, you're somewhere reality is thin — move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
+      </div>
+    </section>
+
+    <!-- 01 WHAT DRAINS STABILITY -->
+    <section class="doc" id="drains">
+      <p class="sec-index">01 — The three drains</p>
+      <h2>What Drains Stability</h2>
+      <p>There are exactly three things that pull your stability down. Learn to recognise each one — they have very different rates and very different fixes.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">slow · positional</span><h4>Going deep</h4><p>Ambient stability falls the <strong>deeper you mine</strong>. Near the surface it's fine; far down it sits permanently low, so a long mining trip slowly bleeds your bar. The fix is simple — go up.</p></div>
+        <div class="card"><span class="tag">fast · positional</span><h4>Standing near a rift</h4><p>A temporal <strong>rift</strong> drains stability <strong>rapidly</strong> the closer you get. Linger beside one and your bar empties in moments. Don't camp next to a rift; back away and it recovers.</p></div>
+        <div class="card"><span class="tag">timed · world event</span><h4>Being out in a storm</h4><p>During a <strong>temporal storm</strong> ambient stability drops world-wide for the duration. The storm is telegraphed in advance, so this drain is the one you can plan around.</p></div>
+      </div>
+      <div class="note warn">
+        <span class="label">They stack</span>
+        <p>The worst case is all three at once: mining <strong>deep</strong> when a <strong>storm</strong> hits, near an underground <strong>rift</strong>. That's how stability bottoms out fast and how unprepared players die. The whole game of survival is staying out of that overlap.</p>
+      </div>
+    </section>
+
+    <!-- 02 RIFTS -->
+    <section class="doc" id="rifts">
+      <p class="sec-index">02 — Tears in the world</p>
+      <h2>Rifts</h2>
+      <p>Temporal <strong>rifts</strong> are shimmering tears — "rust world" phenomena that puncture the boundary between your world and the one that's rusting through it. They appear out in the world (more readily at night and where stability is already low) and they do two nasty things at once.</p>
+      <ul>
+        <li><strong>They spawn hostiles on the surface.</strong> A rift acts as a doorway: <strong>drifters</strong> climb out near it, along with tougher rift creatures — <strong>bowtorn</strong> and <strong>shivers</strong> — that are far meaner than an ordinary night-time drifter. The surface around a rift is genuinely dangerous, day or night.</li>
+        <li><strong>They drain stability fast.</strong> Stand too close and your stability bar plummets. The drain is steep and positional, so the cure is distance — step away and it stops.</li>
+      </ul>
+      <p>Rifts <strong>wax and wane on a cycle</strong>: they flare up, fade, and reappear elsewhere rather than sitting in one spot forever. Rift activity rises and falls over time and can be checked — so you can read when the world is "loud" with rifts versus quiet — but the practical rule never changes.</p>
+      <div class="note danger">
+        <span class="label">Never build next to a rift</span>
+        <p>A rift beside your base means a steady drip of surface drifters and a permanent stability sink right where you sleep. If one opens near home, keep your distance and wait for the cycle to move it on — don't try to live alongside it.</p>
+      </div>
+      <p>For the creatures that come out of rifts — drifter tiers, bowtorn, shivers, locusts and the rest — see the full bestiary in <a href="vs-creatures.html">The Bestiary</a>.</p>
+    </section>
+
+    <!-- 03 TEMPORAL STORMS -->
+    <section class="doc" id="storms">
+      <p class="sec-index">03 — The world event</p>
+      <h2>Temporal Storms</h2>
+      <p class="lead">A temporal storm is a periodic, world-wide event that arrives roughly <strong>every ~10–20 in-game days</strong>. For its duration, reality frays everywhere and <strong>drifters spawn all around you regardless of light level — even in broad daylight</strong>. It is the single most dangerous recurring event in the game.</p>
+      <p>The crucial mercy is that storms are <strong>telegraphed well in advance</strong>. You get a <strong>warning message</strong> some time before it begins, and as it approaches the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. There's no excuse for being caught out — the game is explicitly giving you time to prepare.</p>
+      <p>Two more things scale with your save:</p>
+      <ul>
+        <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately — the first temporal storm is days away, giving new players time to get established before the sky ever darkens.</li>
+        <li><strong>Storms escalate.</strong> The further into the game you are, the more <strong>intense and longer</strong> storms become. The early ones are survivable in a hut; late-game storms are a serious siege.</li>
+      </ul>
+
+      <h3>The storm routine</h3>
+      <ol class="flow">
+        <li><strong>Heed the warning.</strong> When the "temporal storm approaching" message appears, stop whatever long project you're on. You have a known window before it hits.</li>
+        <li><strong>Get out of the deep.</strong> The worst place to be when a storm lands is deep underground. Surface and head home <em>before</em> the sky darkens.</li>
+        <li><strong>Stockpile &amp; seal up.</strong> Top off food, arrows and torches; make sure your base is fully lit and walled, with the door shut and every gap closed.</li>
+        <li><strong>Ride it out.</strong> Stay inside, lit and walled. Fight drifters from a chokepoint you control — never wander out into the open during the storm.</li>
+        <li><strong>Wait for the all-clear.</strong> The storm ends with its own message and the sky brightening. Only then go back out; harvest any drifter drops (gears!) once it's safe.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Storms are also harvest time</span>
+        <p>A storm dumps drifters on top of you — and drifters drop <strong>temporal gears</strong>. A well-defended base turns the scariest event in the game into your best source of gears. Fight smart from a doorway and you come out richer.</p>
+      </div>
+    </section>
+
+    <!-- 04 DRIFTERS & THE DEEP -->
+    <section class="doc" id="drifters">
+      <p class="sec-index">04 — The core enemy</p>
+      <h2>Drifters &amp; the Deep</h2>
+      <p><strong>Drifters</strong> are the game's signature hostile — shambling, temporally-corrupted humanoids that spawn in darkness, near rifts, and everywhere during storms. They're manageable one at a time on the surface, but the deep changes the maths entirely.</p>
+      <p>Drifters come in <strong>escalating variants</strong>, and the stronger ones live deeper. The further down you mine, the tougher the drifters you meet and the harder they hit — surface drifters are a nuisance, but their deep cousins can wreck an under-geared miner in seconds.</p>
+      <div class="data-table">
+        <table>
+          <caption>Drifters get stronger with depth (representative tiers — exact damage is config-tunable)</caption>
+          <thead><tr><th>Where</th><th>What you face</th><th>Threat</th></tr></thead>
+          <tbody>
+            <tr><td>Surface, night</td><td>Common drifters</td><td>Low — beatable with a spear/early gear</td></tr>
+            <tr><td>Shallow caves</td><td>Tougher drifter variants</td><td>Moderate — bring armour &amp; a real weapon</td></tr>
+            <tr><td>The deep</td><td>Strongest drifter tiers</td><td>High — they hit hard and stability is already low</td></tr>
+            <tr><td>Near a rift</td><td>Drifters + bowtorn / shivers</td><td>Severe — surface ambush, fast stability drain</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Killing them heals reality</span>
+        <p>There's a built-in reward loop: killing <strong>supernatural enemies</strong> — drifters and their kin — <strong>restores some of your stability</strong>, and <strong>stronger enemies restore more</strong>. Clearing the things attacking you literally shores the world back up, so a good fight is also a refill.</p>
+      </div>
+      <p>For the complete roster — every drifter tier, locusts, bowtorn, shivers and the surface fauna — see <a href="vs-creatures.html">The Bestiary</a>.</p>
+    </section>
+
+    <!-- 05 TEMPORAL GEARS -->
+    <section class="doc" id="gears">
+      <p class="sec-index">05 — The emergency button</p>
+      <h2>Temporal Gears</h2>
+      <p>A <strong>temporal gear</strong> is the most important single item in the temporal system — a dense little clockwork artefact that you obtain two ways: as a <strong>drop from drifters</strong> (especially during storms) and from <strong>traders</strong>. Hoard them. They have two jobs.</p>
+
+      <h3>Use 1 — instant stability</h3>
+      <p>This is the in-a-pinch refill. Hold a temporal gear in your <strong>offhand</strong>, then <strong>use a knife in your main hand</strong> on it: the gear is consumed and your stability jumps back up by about <strong>30%</strong>, instantly, anywhere — even at the bottom of a mine in a storm. It isn't free, though.</p>
+      <div class="facts">
+        <div class="f"><div class="k">Held where</div><div class="v">Offhand <small>gear</small></div></div>
+        <div class="f"><div class="k">Triggered by</div><div class="v">Knife <small>main hand · "use"</small></div></div>
+        <div class="f"><div class="k">Restores</div><div class="v">~30% <small>stability, instant</small></div></div>
+        <div class="f"><div class="k">Costs</div><div class="v">~2 HP <small>+ the gear itself</small></div></div>
+      </div>
+      <div class="note warn">
+        <span class="label">It hurts — that's the trade</span>
+        <p>Consuming a gear deals about <strong>2 HP of self-damage</strong> on top of spending the gear. It's an emergency lever, not a routine top-up: use it when the bar is about to bottom out and you can't reach the surface in time, not every time it dips.</p>
+      </div>
+
+      <h3>Use 2 — powering translocators &amp; teleporters</h3>
+      <p>Temporal gears are also a <strong>crafting and repair</strong> ingredient. They power and <strong>repair translocators</strong> (the ancient teleport gates you find in ruins) and teleporters, and they appear in various <strong>high-tier recipes</strong>. This is the long-game reason to bank gears rather than burning them all on stability.</p>
+      <p>For where translocators and traders live — and how to fix a broken translocator with gears — see <a href="vs-locations.html">The Map &amp; the Ruins</a>.</p>
+    </section>
+
+    <!-- 06 RESTORING STABILITY -->
+    <section class="doc" id="restore">
+      <p class="sec-index">06 — Getting it back</p>
+      <h2>Restoring Stability</h2>
+      <p class="lead">Stability isn't a one-way street. It regenerates on its own in safe places, and you have several active ways to top it up. Here's every lever, weakest to strongest.</p>
+      <div class="data-table">
+        <table>
+          <caption>Ways to restore temporal stability</caption>
+          <thead><tr><th>Method</th><th>How it works</th><th>Strength</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stay on the stable surface</strong></td><td>Out in the open, away from rifts, stability <strong>passively regenerates</strong> back toward full.</td><td>Passive · reliable</td></tr>
+            <tr><td><strong>Leave the deep / leave the rift</strong></td><td>The positional drains stop the moment you move away — go up, or back off the rift, and the bar climbs.</td><td>Immediate fix</td></tr>
+            <tr><td><strong>Stay fed</strong></td><td>Keeping your nutrition up supports your overall resilience — don't fight the temporal system while starving.</td><td>Supporting</td></tr>
+            <tr><td><strong>Kill drifters</strong></td><td>Each supernatural kill returns some stability; <strong>stronger enemies return more</strong>.</td><td>Active · scales</td></tr>
+            <tr><td><strong>Consume a temporal gear</strong></td><td>Gear in offhand + knife in main hand → <strong>~30% instantly</strong>, costs the gear and ~2 HP.</td><td>Strong · emergency</td></tr>
+            <tr><td><strong>Build a safe, lit base</strong></td><td>A sealed, well-lit shelter is a stable refuge to wait out storms and let the bar refill.</td><td>Strategic</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">The default cure is "go up and outside"</span>
+        <p>Nine times out of ten you don't need a gear — you need the surface. Save gears for the storm-in-a-deep-mine situations where you genuinely can't get out in time.</p>
+      </div>
+    </section>
+
+    <!-- 07 STORM-PROOFING YOUR BASE -->
+    <section class="doc" id="proofing">
+      <p class="sec-index">07 — Hold the line</p>
+      <h2>Storm-Proofing Your Base</h2>
+      <p>Because storms are telegraphed, a properly built base turns them from a crisis into a chore. The goal is a <strong>sealed, fully-lit, walled</strong> refuge with <strong>chokepoints you control</strong> — somewhere you can stand and pick off drifters while the bar holds steady.</p>
+
+      <div id="base-viewer"></div>
+
+      <ol class="flow">
+        <li><strong>Seal it.</strong> No gaps, no open roof, no dark corners — drifters spawn in darkness and squeeze through holes. A storm-proof base is light-tight and air-tight.</li>
+        <li><strong>Light it fully.</strong> Wall-to-wall light so nothing spawns <em>inside</em> with you. Torches, lanterns, a fire pit — whatever keeps every tile bright.</li>
+        <li><strong>Build a chokepoint.</strong> One controlled doorway you can fight from, so you face drifters one at a time instead of being surrounded.</li>
+        <li><strong>Stockpile before the storm.</strong> Food, arrows and spare torches laid in <em>before</em> the sky darkens — you don't want to be crafting mid-siege.</li>
+        <li><strong>Never be deep when it hits.</strong> Surface and get home on the warning. Getting caught deep underground during a storm is the classic way to lose a character.</li>
+      </ol>
+
+      <div class="note warn">
+        <span class="label">A doorway is a weapon</span>
+        <p>Fight drifters from a chokepoint you built — a one-wide doorway, a fence-gap, a raised ledge. Funnelling them lets a modest weapon clear a whole storm's worth of drifters (and collect their gears) with little risk.</p>
+      </div>
+      <p>For walls, doors, lighting and defensible layouts in detail, see <a href="vs-structures.html">Walls &amp; Workshops</a>.</p>
+    </section>
+
+    <!-- 08 THE LORE -->
+    <section class="doc" id="lore">
+      <p class="sec-index">08 — The mystery (spoiler-light)</p>
+      <h2>The Lore</h2>
+      <p>Temporal stability isn't just a survival meter — it's the thread of the whole story. The warping, the gears, the drifters and the deep all point at the same thing: a <strong>"rust world"</strong> bleeding into yours, and a long-vanished civilisation that learned to move through time and space and then fell silent.</p>
+      <p>You uncover that story slowly and on your own terms. Your <strong>Diary (<code>J</code>)</strong> records story notes as you find them; <strong>ruins</strong> scatter the clues across the map; and the <strong>translocators</strong> you repair with temporal gears are the literal remnants of whoever came before. Stability is the game asking you a question — the answer is out there to dig up.</p>
+      <div class="note tip">
+        <span class="label">Follow the breadcrumbs, not a wiki</span>
+        <p>Part of the appeal is piecing the rust world together yourself, so we'll leave it teasing rather than spoiling. When you're ready to go looking, <a href="vs-locations.html">The Map &amp; the Ruins</a> covers ruins, traders and translocators — the places the story actually lives.</p>
+      </div>
+      <p>For now, the practical takeaway is the one that keeps you alive: <strong>watch the bar, stay out of the overlap, bank your gears, and seal your base before the sky goes dark.</strong></p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Rust &amp; The Gear</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Storm cadence (~10–20 days), stability values, gear restore (~30%) and self-damage (~2 HP), and spawn rates are config-tunable and shift between versions and world settings. Keys shown are rebindable defaults. The Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  /* ---- palette for a small storm-proof base layout ---- */
+  const PAL = {
+    floor: { label: "Stone / cobble floor",   color: "#6e5538" },
+    wall:  { label: "Solid wall (light-tight)", color: "#857056" },
+    door:  { label: "Door — your chokepoint",  color: "#caa15e" },
+    light: { label: "Torch / lantern",         color: "#e3b755" },
+    fire:  { label: "Lit fire pit",            color: "#e3782f" },
+    store: { label: "Food / arrows / torches", color: "#5fb9ad" },
+    roof:  { label: "Sealed roof block",       color: "#5b4730" },
+  };
+  const grid = (n, fill = null) => Array.from({ length: n }, () => Array(n).fill(fill));
+  const ring = (n, edge, inner = null) => {
+    const g = grid(n, inner);
+    for (let i = 0; i < n; i++) { g[0][i] = edge; g[n-1][i] = edge; g[i][0] = edge; g[i][n-1] = edge; }
+    return g;
+  };
+
+  // Y1 — sealed walls, one controlled doorway, full lighting, supplies
+  const lvl1 = ring(5, "wall");
+  lvl1[4][2] = "door";    // single chokepoint doorway (south)
+  lvl1[2][2] = "fire";    // central light + warmth
+  lvl1[1][1] = "light";   // corner lighting...
+  lvl1[1][3] = "light";
+  lvl1[3][1] = "store";   // stockpiles in the corners
+  lvl1[3][3] = "store";
+
+  // Y2 — second wall course, doorway gap continues for headroom
+  const lvl2 = ring(5, "wall");
+  lvl2[4][2] = "door";
+  lvl2[1][1] = "light";
+  lvl2[1][3] = "light";
+
+  mountSchematic({
+    title: "Storm-Proof Base",
+    subtitle: "sealed · fully lit · one controlled doorway",
+    meta: { footprint: "5×5", height: "4" },
+    palette: PAL, mode: "layers", segmented: false, coords: true,
+    frames: [
+      { label: "Y0 · floor", grid: grid(5, "floor"),
+        note: "A solid 5×5 stone or cobble floor — light-tight from below so nothing spawns or burrows in beneath you." },
+      { label: "Y1 · walls, light, supplies", grid: lvl1,
+        note: "Ring it with solid walls and leave exactly ONE doorway as your chokepoint. Light every corner (torches/lanterns + a central fire) so drifters can't spawn inside, and stockpile food, arrows and torches before the storm." },
+      { label: "Y2 · walls", grid: lvl2,
+        note: "Second wall course for headroom — keep it sealed and lit. The single doorway stays your only opening; fight drifters through it one at a time." },
+      { label: "Y3 · roof", grid: grid(5, "roof"),
+        note: "Cap the top completely — no open sky, no gaps. Sealed, lit and walled with one controlled door, you can ride out a temporal storm and harvest the gears it drops." },
+    ],
+  }, "#base-viewer");
+</script>
+</body>
+</html>
