@@ -11,6 +11,7 @@
    the questline page), keyed by <body data-ckstore="…">.
    ========================================================================== */
 import { initChrome } from "./guide-chrome.js";
+import { initSearch } from "./vs-search.js";
 export { mountSchematic, SchematicViewer } from "./schematic-viewer.js";
 
 /* The Drifter's Almanac, in reading order — drives the chapter pager. */
@@ -29,6 +30,7 @@ const ALMANAC = [
   { f: "vs-creatures.html",        t: "The Bestiary",         s: "🐺" },
   { f: "vs-locations.html",        t: "Ruins & Wayfarers",    s: "🏛" },
   { f: "vs-reference.html",        t: "The Codex",            s: "📊" },
+  { f: "vs-glossary.html",         t: "The Glossary",         s: "📖" },
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -97,10 +99,28 @@ function wireChecklists() {
   update();
 }
 
+/* hover-to-copy permalink on every section heading (a wiki affordance) */
+function injectAnchors() {
+  const heads = document.querySelectorAll("section.doc > h2, section.doc h3[id]");
+  heads.forEach((h) => {
+    const id = h.id || (h.closest("section.doc") || {}).id;
+    if (!id || h.querySelector(".anchor-link")) return;
+    const a = document.createElement("a");
+    a.className = "anchor-link"; a.href = "#" + id; a.textContent = "#";
+    a.setAttribute("aria-label", "Copy link to this section");
+    a.addEventListener("click", () => {
+      try { navigator.clipboard.writeText(location.origin + location.pathname + "#" + id); } catch (e) {}
+    });
+    h.appendChild(a);
+  });
+}
+
 export function initVS() {
   initChrome();
   injectPager();
+  injectAnchors();
   wireChecklists();
+  initSearch();
 }
 
 /* auto-init unless a page opts out with data-manual on <body> */

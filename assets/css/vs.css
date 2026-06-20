@@ -143,6 +143,52 @@ section.doc code { overflow-wrap: anywhere; }
 .readout { font-family: var(--f-mono); font-size: 0.84rem; background: rgba(0,0,0,0.4); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 14px; color: var(--ink-dim); white-space: pre-wrap; overflow-wrap: anywhere; margin: 16px 0; }
 .readout b { color: var(--accent); }
 
+/* ============================================================ SEARCH
+   floating trigger + full-screen overlay (vs-search.js) */
+.vs-search-btn {
+  position: fixed; z-index: 70; right: 18px; bottom: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
+  border: 1px solid var(--accent); border-radius: 999px; padding: 10px 15px; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,.5), 0 0 14px var(--accent-glow);
+}
+.vs-search-btn:hover { color: #fff; }
+.vs-search-btn kbd { font-family: var(--f-mono); font-size: .7rem; color: var(--accent); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; background: rgba(0,0,0,.35); }
+@media print { .vs-search-btn { display: none !important; } }
+
+.vs-search[hidden] { display: none; }
+.vs-search { position: fixed; inset: 0; z-index: 200; display: flex; justify-content: center; align-items: flex-start; padding: clamp(40px, 10vh, 120px) 16px 16px; }
+.vs-search__backdrop { position: absolute; inset: 0; background: rgba(4,5,8,.66); backdrop-filter: blur(3px); }
+.vs-search__box { position: relative; width: min(680px, 100%); background: linear-gradient(180deg, var(--bg-2), var(--bg-1)); border: 1px solid var(--accent); border-radius: 14px; box-shadow: var(--shadow), 0 0 30px var(--accent-glow); overflow: hidden; max-height: 78vh; display: flex; flex-direction: column; }
+.vs-search__input { width: 100%; border: none; outline: none; background: transparent; color: var(--ink); font-family: var(--f-body); font-size: 1.1rem; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.vs-search__input::placeholder { color: var(--ink-faint); }
+.vs-search__results { list-style: none; margin: 0; padding: 6px; overflow-y: auto; }
+.vs-search__results li a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 9px; text-decoration: none; color: inherit; }
+.vs-search__results li.on a, .vs-search__results li a:hover { background: var(--accent-soft); }
+.vs-search__results .r-sec { font-family: var(--f-display); font-weight: 700; color: #fff; font-size: 1rem; }
+.vs-search__results .r-page { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.vs-search__results .r-snip { color: var(--ink-dim); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vs-search__empty { padding: 22px; text-align: center; color: var(--ink-faint); font-family: var(--f-mono); font-size: .85rem; }
+.vs-search__foot { display: flex; justify-content: space-between; gap: 10px; padding: 9px 16px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: .64rem; color: var(--ink-faint); }
+.vs-search__foot kbd { border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin: 0 2px; color: var(--ink-dim); }
+
+/* ============================================================ ANCHOR LINKS
+   hover-to-copy permalinks on section headings */
+section.doc > h2, section.doc h3[id] { position: relative; }
+.anchor-link { margin-left: 10px; font-family: var(--f-mono); font-weight: 400; color: var(--accent); text-decoration: none; opacity: 0; transition: opacity .15s; font-size: .8em; vertical-align: middle; }
+section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anchor-link:focus { opacity: .8; }
+.anchor-link:hover { opacity: 1 !important; color: #fff; }
+@media (pointer: coarse) { .anchor-link { opacity: .4; } }
+@media print { .anchor-link { display: none !important; } }
+
+/* ============================================================ GLOSSARY */
+.gloss h3 { border-bottom: 1px solid var(--line); padding-bottom: 6px; color: var(--accent); font-family: var(--f-display); margin-top: 30px; }
+.gloss dl { margin: 10px 0 4px; }
+.gloss dt { font-family: var(--f-display); font-weight: 700; color: #fff; margin-top: 13px; }
+.gloss dd { margin: 2px 0 0; color: var(--ink-dim); font-size: 0.95rem; max-width: 74ch; }
+.gloss dd a { font-family: var(--f-mono); font-size: .78rem; white-space: nowrap; }
+
 /* ============================================================ HERO BANNER
    A designed, themeable banner behind every guide hero: faint geological
    "strata" lines + a temporal-gear ring motif top-right, masked so the

@@ -62,7 +62,8 @@ How-Tos and interactive build plans:
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
 | `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |
 | `vs-locations.html` | Ruins & Wayfarers | Ruins, translocators, traders, the 1.22 dynamic dungeon, spoiler-light story |
-| `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, anvils, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
+| `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, tool/anvil tiers, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
+| `vs-glossary.html` | The Glossary | An A–Z of terms, each defined in a line and deep-linked to its chapter |
 
 These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
 add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via
@@ -75,7 +76,13 @@ add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and
 - **print/PDF styles** that drop the chrome, go full-width and keep each schematic's auto-tallied
   **build-materials list**, so the structure pages double as printable build sheets;
 - a generic localStorage **checklist/progress meter** covering every `data-ck` checkbox (the
-  progression checklist *and* the questline's tasks), keyed by each page's `data-ckstore`.
+  progression checklist *and* the questline's tasks), keyed by each page's `data-ckstore`;
+- **instant client-side search** (`assets/js/vs-search.js` + the generated
+  `assets/data/vs-search-index.js`) — a floating button and a `/` or Ctrl/Cmd-K overlay that
+  searches every page/section; regenerate the index with `node` over the pages after edits;
+- **hover-to-copy permalinks** on every section heading;
+- a site-wide **favicon** (`favicon.svg`), plus `sitemap.xml` and `robots.txt` for discoverability,
+  and OpenGraph/Twitter meta on the hub.
 
 ## Structure
 

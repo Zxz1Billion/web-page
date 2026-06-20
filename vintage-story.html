@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>The Drifter's Almanac — a complete Vintage Story field guide (v1.22.3)</title>
 <meta name="description" content="A complete, interactive fan-made field guide to Vintage Story 1.22.3 (standard world, Commoner class): stone-age survival, the full Stone→Copper→Bronze→Iron→Steel progression, knapping & clay forming & smithing, mechanical power, food & farming, base & cellar build plans, temporal stability, biomes, the bestiary, ruins and traders." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://zxz1billion.github.io/web-page/vintage-story.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Drifter's Almanac — a Vintage Story guide & wiki (v1.22.3)" />
+<meta property="og:description" content="The complete, interactive, searchable field guide to Vintage Story 1.22.3: Stone→Steel progression, crafting minigames, mechanical power, food & farming, build plans, temporal storms, a bestiary, a reference Codex and an A–Z glossary." />
+<meta property="og:url" content="https://zxz1billion.github.io/web-page/vintage-story.html" />
+<meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -84,8 +91,9 @@
     <h1>The Drifter's<br>Almanac</h1>
     <p class="lede">A complete, interactive field guide to <strong>Vintage Story</strong> — the cold, beautiful, unforgiving survival game where you start with nothing but your hands and a sharp eye for a flint nodule, and end forging steel under a windmill while the temporal storms roll in.</p>
     <div class="stat-row">
-      <span class="chip"><b>15</b> guides</span>
+      <span class="chip"><b>16</b> guides</span>
       <span class="chip"><b>Stone → Steel</b> progression</span>
+      <span class="chip">Searchable <b>(press /)</b></span>
       <span class="chip">FTB-Quests-style book</span>
       <span class="chip">v<b>1.22.3</b></span>
       <span class="chip">Interactive build plans</span>
@@ -122,8 +130,15 @@
         <span class="tag"><span class="emoji">📊</span> Reference · every number</span>
         <h2>The Codex</h2>
         <span class="sub">15 tables · melting points → controls</span>
-        <p>The fact-checked appendix: melting points &amp; alloy ratios, ore hosts, fuel temperatures, anvil tiers, prospecting ladders, crop nutrients, nutrition &amp; preservation maths, temporal timings, creature stats, the seven classes, the calendar and the controls — all sourced.</p>
+        <p>The fact-checked appendix: melting points &amp; alloy ratios, ore hosts, fuel temperatures, tool &amp; anvil tiers, prospecting ladders, crop nutrients, nutrition &amp; preservation maths, temporal timings, creature stats, the seven classes, the calendar and the controls — all sourced.</p>
         <span class="go">Open the Codex</span>
+      </a>
+      <a class="card" style="--ac:var(--violet)" href="vs-glossary.html">
+        <span class="tag"><span class="emoji">📖</span> Reference · A–Z</span>
+        <h2>The Glossary</h2>
+        <span class="sub">every term, defined &amp; linked</span>
+        <p>An A–Z of Vintage Story's vocabulary — anvil to wrought iron — each defined in a line and deep-linked to the chapter that explains it. Or just press <strong>/</strong> anywhere to search the whole Almanac instantly.</p>
+        <span class="go">Open the Glossary</span>
       </a>
     </div>
   </section>
@@ -223,5 +238,9 @@
   </footer>
 
 </div>
+<script type="module">
+  import { initSearch } from "./assets/js/vs-search.js";
+  initSearch();
+</script>
 </body>
 </html>
