@@ -105,6 +105,31 @@ export function renderSceneSVG(def) {
       }
       segs.sort((a, b) => a.key - b.key).forEach((sg) => body += sg.svg);
     },
+    dome(o) { // hemisphere-ish, latitude-banded
+      const { x, y, z, r, h, c, n = 18, lat = 5 } = o;
+      const segs = [];
+      const pt = (rr, a, yy) => pj(x + rr * Math.cos(a), yy, z + rr * Math.sin(a));
+      for (let li = 0; li < lat; li++) {
+        const t0 = (li / lat) * Math.PI / 2, t1 = ((li + 1) / lat) * Math.PI / 2;
+        const y0 = y + h * Math.sin(t0), r0 = r * Math.cos(t0);
+        const y1 = y + h * Math.sin(t1), r1 = r * Math.cos(t1);
+        for (let i = 0; i < n; i++) {
+          const a0 = (i / n) * 2 * Math.PI, a1 = ((i + 1) / n) * 2 * Math.PI, am = (a0 + a1) / 2;
+          const nx = Math.cos(am), nz = Math.sin(am);
+          if (nx + nz <= 0.02) continue;
+          const f = Math.max(-0.22, Math.min(0.13, -0.04 + 0.10 * nx - 0.04 * nz + 0.06 * (li / lat)));
+          segs.push({ key: (nx + nz) * 10 + li, svg: poly([pt(r0, a0, y0), pt(r0, a1, y0), pt(r1, a1, y1), pt(r1, a0, y1)], shade(c, f)) });
+        }
+      }
+      segs.sort((a, b) => a.key - b.key).forEach((sg) => body += sg.svg);
+    },
+    stairs(o) { // solid staircase ascending along +z (or -z), height grows per step
+      const { x, y, z, w, steps, rise, run, c, dir = 1 } = o;
+      for (let i = 0; i < steps; i++) {
+        const zz = dir > 0 ? z + i * run : z + (steps - 1 - i) * run;
+        draw.box({ t: "box", x, y, z: zz, w, h: (i + 1) * rise, d: run, c });
+      }
+    },
     frustum(o) { // tapered box: base w×d, top tw×td (centered), height h
       const { x, y, z, w, d, h, c } = o, tw = o.tw, td = o.td;
       const x1 = x + w, z1 = z + d, y1 = y + h;
