@@ -28,7 +28,7 @@
       <a href="#alloys"><span class="ix">02</span> Alloys</a>
       <a href="#ores"><span class="ix">03</span> Ores &amp; Hosts</a>
       <a href="#fuels"><span class="ix">04</span> Fuels &amp; Heat</a>
-      <a href="#anvils"><span class="ix">05</span> Anvils &amp; Units</a>
+      <a href="#anvils"><span class="ix">05</span> Tool Tiers &amp; Anvils</a>
       <a href="#prospect"><span class="ix">06</span> Prospecting Readouts</a>
       <a href="#rocks"><span class="ix">07</span> Rock Types</a>
       <p class="group-label">Hearth &amp; field</p>
@@ -182,9 +182,37 @@
 
     <!-- 05 ANVILS -->
     <section class="doc" id="anvils">
-      <p class="sec-index">05 — Anvils &amp; quantities</p>
-      <h2>Anvil Tiers &amp; Units</h2>
-      <p>The load-bearing rule of the back half of the game: an <strong>anvil works its own metal tier and one tier above it</strong> (plus everything below). That's why a bronze anvil can shape the higher-tier iron, and why a copper anvil — two tiers below iron — cannot.</p>
+      <p class="sec-index">05 — Tools, anvils &amp; quantities</p>
+      <h2>Tool Tiers, Anvils &amp; Units</h2>
+      <p>A tool's <strong>material sets its tier</strong>, and the tier decides three things: how <strong>fast</strong> it works, how <strong>long</strong> it lasts, and — for a pickaxe — <strong>which ores it can mine at all</strong>. Ore has a minimum pick tier: most ores need copper, but <strong>iron ore needs a bronze (tier-3) pickaxe</strong>, and meteoric iron needs an iron pick. (This is <em>why</em> bronze is doubly mandatory: you need a bronze pick to <em>mine</em> iron ore and a bronze anvil to <em>work</em> it.)</p>
+      <div class="data-table">
+        <table>
+          <caption>Pickaxe mining-tier gate — what each tier can mine</caption>
+          <thead><tr><th>Tier</th><th>Tool material</th><th>Can mine</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Stone · Flint</td><td>Soft stone, clay, loose stones — <strong>not metal ore</strong></td></tr>
+            <tr><td class="num">2</td><td>Copper (also gold/silver/obsidian, weaker)</td><td>Most ores — copper, tin, zinc, bismuth, coal… <strong>not iron</strong></td></tr>
+            <tr><td class="num">3</td><td>Bronze (tin · bismuth · black)</td><td>Adds <strong>iron ore</strong> &amp; harder stone</td></tr>
+            <tr><td class="num">4</td><td>Iron</td><td>Adds meteoric iron, ilmenite &amp; other high-tier ores</td></tr>
+            <tr><td class="num">5</td><td>Meteoric iron</td><td>Premium iron-class</td></tr>
+            <tr><td class="num">6</td><td>Steel</td><td>Everything — the fastest, toughest tools in the game</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="split">
+        <div>
+          <h4>Mining speed (worst → best)</h4>
+          <p style="font-family:var(--f-mono);font-size:.78rem;color:var(--accent-2);line-height:1.7">Stone › Flint › Obsidian › Gold › Silver › Copper › Bismuth&nbsp;bronze › Tin&nbsp;bronze › Black&nbsp;bronze › Iron › Meteoric&nbsp;iron › <b style="color:var(--accent)">Steel</b></p>
+        </div>
+        <div>
+          <h4>Durability (worst → best)</h4>
+          <p style="font-family:var(--f-mono);font-size:.78rem;color:var(--accent-2);line-height:1.7">Stone › Flint › Obsidian › Gold › Silver › Copper › Tin&nbsp;bronze › Bismuth&nbsp;bronze › Black&nbsp;bronze › Iron › Meteoric&nbsp;iron › <b style="color:var(--accent)">Steel</b></p>
+        </div>
+      </div>
+      <p class="muted" style="color:var(--ink-faint);font-size:.85rem">Note the swap: <strong>tin bronze</strong> mines faster, <strong>bismuth bronze</strong> lasts a little longer — black bronze beats both. Gold/silver tools exist but are soft (decorative/novelty).</p>
+
+      <h3>Anvils &amp; quantities</h3>
+      <p>The other tier rule: an <strong>anvil works its own metal tier and one tier above it</strong> (plus everything below) — that's why a bronze anvil shapes the higher-tier iron, and a copper anvil (two tiers below iron) cannot.</p>
       <div class="split">
         <div>
           <h4>Anvil → what it can work</h4>
