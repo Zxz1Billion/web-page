@@ -7,6 +7,11 @@
    ========================================================================== */
 
 import { P, rep, tree, fence } from "./builds/_kit.js";
+import { SET as MECH } from "./builds/set-mech.js";
+import { SET as DEF } from "./builds/set-defence.js";
+import { SET as CIV } from "./builds/set-civic.js";
+import { SET as HOM } from "./builds/set-homes.js";
+import { SET as FRM } from "./builds/set-farm.js";
 
 export const GROUPS = [
   { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters", intro: "Get a roof over your head fast. None are pretty, but each survives a night while you scout for somewhere permanent." },
@@ -749,4 +754,4 @@ const CORE = [
     ] },
 ];
 
-export const SCENES = [...CORE];
+export const SCENES = [...CORE, ...MECH, ...DEF, ...CIV, ...HOM, ...FRM];
