@@ -324,6 +324,9 @@ section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anc
 .quest .qtasks input { margin: 2px 0 0; width: 19px; height: 19px; flex: 0 0 19px; accent-color: var(--qac, var(--accent)); cursor: pointer; }
 .quest .qtasks input:checked + span { color: var(--ink-faint); text-decoration: line-through; }
 .quest .reward { margin-top: auto; padding-top: 10px; border-top: 1px dotted var(--line); font-size: .85rem; color: var(--ink); }
+.quest .qhow { margin: 0; font-size: .85rem; color: var(--ink-dim); background: rgba(0,0,0,.2); border-left: 2px solid var(--qac, var(--accent)); border-radius: 0 6px 6px 0; padding: 7px 10px; }
+.quest .qhow b { display: block; font-family: var(--f-mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--qac, var(--accent)); margin-bottom: 2px; }
+.quest .qhow strong { color: var(--ink); }
 .quest .reward b { display: block; font-family: var(--f-mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 2px; }
 .quest .gate { font-family: var(--f-mono); font-size: .62rem; color: var(--accent-3); }
 @media (pointer: coarse) { .quest .qtasks input { width: 22px; height: 22px; flex-basis: 22px; } }
