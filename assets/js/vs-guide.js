@@ -12,6 +12,7 @@
    ========================================================================== */
 import { initChrome } from "./guide-chrome.js";
 import { initSearch } from "./vs-search.js";
+import { initWakeLock } from "./wake-lock.js";
 export { mountSchematic, SchematicViewer } from "./schematic-viewer.js";
 export { mountIso, IsoViewer } from "./iso-viewer.js";
 
@@ -236,6 +237,7 @@ export function initVS() {
   wireSchematicTaps();
   wireChecklists();
   initSearch();
+  initWakeLock();
 }
 
 /* auto-init unless a page opts out with data-manual on <body> */

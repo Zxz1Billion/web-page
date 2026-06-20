@@ -253,6 +253,24 @@ section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anc
 .sheet .box .mono { font-family: var(--f-mono); font-size: 0.76rem; color: var(--accent-2); line-height: 1.7; }
 .sheet .box.tall { grid-row: span 2; }
 
+/* ============================================================ WAKE-LOCK TOGGLE
+   floating "keep screen on" pill (vs-builds + every guide page) */
+.wakelock {
+  position: fixed; right: 14px; bottom: 14px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg-2, #1b1710); color: var(--ink-faint);
+  font-family: var(--f-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.45); opacity: 0.85;
+  -webkit-tap-highlight-color: transparent; transition: color .15s, border-color .15s, background .15s, opacity .15s;
+}
+.wakelock:hover { color: var(--ink); opacity: 1; }
+.wakelock .wl-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.wakelock[aria-pressed="true"] { color: #fff; border-color: var(--accent); background: var(--accent-soft); opacity: 1; }
+.wakelock[aria-pressed="true"] .wl-dot { background: var(--accent); box-shadow: 0 0 9px var(--accent); }
+@media (max-width: 940px) { .wakelock { bottom: 12px; right: 12px; padding: 8px 12px; } }
+@media print { .wakelock { display: none !important; } }
+
 /* ============================================================ PATTERN BOOK
    gallery of iso structure illustrations (vs-builds.html) */
 .buildgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin: 22px 0 8px; }
