@@ -145,9 +145,24 @@ section.doc code { overflow-wrap: anywhere; }
 
 /* ============================================================ NAV (injected)
    global chapter switcher + sidebar search button + a11y skip link */
-.nav a.current { background: var(--accent-soft); color: #fff; border-left-color: var(--accent); }
-.nav-chapters { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 6px; }
-.nav-chapters .ix { font-size: 0.9rem; width: 20px; text-align: center; }
+.nav a.current { background: var(--accent-soft); color: #fff; border-left-color: var(--accent); font-weight: 600; }
+.nav a.current::after { content: "●"; margin-left: auto; font-size: 0.5rem; color: var(--accent); }
+.nav-chapters { margin: 16px 0 4px; }
+.nav-chapters > summary { list-style: none; cursor: pointer; font-family: var(--f-mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); padding: 6px 8px; border: 1px solid var(--line); border-radius: 7px; background: var(--accent-soft); display: flex; align-items: center; gap: 8px; }
+.nav-chapters > summary::-webkit-details-marker { display: none; }
+.nav-chapters > summary::before { content: "▾"; transition: transform .15s; font-size: 0.7rem; }
+.nav-chapters:not([open]) > summary::before { transform: rotate(-90deg); }
+.nav-chapters > summary::after { content: "all pages"; margin-left: auto; color: var(--ink-faint); letter-spacing: 0.1em; }
+.nav-chapters a { margin-top: 1px; }
+.nav-chapters .ix { font-size: 0.9rem; width: 22px; text-align: center; }
+
+/* breadcrumb */
+.crumbs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: var(--f-mono); font-size: 0.72rem; color: var(--ink-faint); padding: 16px 0 2px; }
+.crumbs a { color: var(--ink-dim); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs .sep { opacity: .55; }
+.crumbs .here { color: var(--accent); }
+@media print { .crumbs { display: none; } }
 .side-search {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%;
   margin: 14px 0 4px; padding: 9px 12px; cursor: pointer;

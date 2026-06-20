@@ -43,7 +43,7 @@ config snippets live in `mekanism-ic2c-compat/`).
 The site also hosts a complete, **iPad-friendly** field guide to **Vintage Story** (the
 standalone survival game by Anego Studios — *not* a Minecraft mod), targeting **v1.22.3**,
 Standard world, Commoner class. Its hub is **`vintage-story.html`** (linked from the top of
-`index.html`), leading to 13 self-contained chapters that lean hard into clear, numbered
+`index.html`), leading to 18 self-contained chapters that lean hard into clear, numbered
 How-Tos and interactive build plans:
 
 | File | Guide | Covers |
@@ -58,6 +58,7 @@ How-Tos and interactive build plans:
 | `vs-food.html` | The Larder | Nutrition groups, foraging, farming & soil nutrients, cooking, 1.22 fishing |
 | `vs-clothing-cold.html` | Warmth & Wear | Body temperature & cold, clothing warmth, winter prep, the 8 armor types & protection tiers |
 | `vs-structures.html` | The Homestead | House, food cellar, charcoal pit, smithy & greenhouse — five interactive layer-by-layer plans |
+| `vs-architect.html` | The Architect | Decorative building: chiseling, palettes, roofs, walls, interiors, six styles + a full cottage build (interactive plans) |
 | `vs-temporal.html` | The Rust & The Gear | Temporal stability, rifts, storms, temporal gears, storm-proofing |
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
 | `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |

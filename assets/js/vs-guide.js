@@ -25,6 +25,7 @@ const ALMANAC = [
   { f: "vs-food.html",             t: "The Larder",           s: "🍲" },
   { f: "vs-clothing-cold.html",    t: "Warmth & Wear",        s: "🧥" },
   { f: "vs-structures.html",       t: "The Homestead",        s: "🏠" },
+  { f: "vs-architect.html",        t: "The Architect",        s: "🏛️" },
   { f: "vs-temporal.html",         t: "The Rust & The Gear",  s: "🌀" },
   { f: "vs-world.html",            t: "The World",            s: "🧭" },
   { f: "vs-creatures.html",        t: "The Bestiary",         s: "🐺" },
@@ -48,6 +49,7 @@ const SOURCES = {
   "vs-food.html": [["Health", W+"Health"], ["Satiety", W+"Satiety"], ["Farming", W+"Farming"], ["Cooking", W+"Cooking"], ["Food preservation", W+"Food_preservation"], ["Bait", W+"Bait"]],
   "vs-clothing-cold.html": [["Temperature", W+"Temperature"], ["Clothes", W+"Clothes"], ["Armor", W+"Armor"], ["Prepare for Winter", W+"Guide:Prepare_for_Winter"]],
   "vs-structures.html": [["Cellar (Room)", W+"Guide:Cellar"], ["Food preservation", W+"Food_preservation"], ["Storage vessel", W+"Storage_vessel"], ["Crock", W+"Crock"], ["Pit kiln", W+"Pit_kiln"]],
+  "vs-architect.html": [["Chiseling", W+"Chiseling"], ["Clay forming", W+"Clay_forming"], ["Building blocks", W+"Building"]],
   "vs-temporal.html": [["Temporal stability", W+"Temporal_stability"], ["Temporal storm", W+"Temporal_storm"], ["Temporal rift", W+"Temporal_rift"], ["Temporal gear", W+"Temporal_gear"], ["Drifter", W+"Drifter"]],
   "vs-world.html": [["Rock", W+"Rock"], ["Ore Deposits", W+"Ore_Deposits"], ["Prospecting Pick", W+"Prospecting_Pick"], ["Temperature", W+"Temperature"], ["Sea level", W+"Sea_level"]],
   "vs-creatures.html": [["Hostile entities", W+"Hostile_entities"], ["Drifter", W+"Drifter"], ["Wolf", W+"Wolf"], ["Bear", W+"Bear"], ["Animal husbandry", W+"Animal_husbandry"]],
@@ -169,14 +171,27 @@ function injectNav() {
     home.insertAdjacentElement("afterend", sb);
   }
 
-  const nav = document.createElement("nav");
-  nav.className = "nav nav-chapters";
-  nav.setAttribute("aria-label", "All chapters");
-  nav.innerHTML = `<p class="group-label">All chapters</p>` + ALMANAC.map((c) =>
+  const det = document.createElement("details");
+  det.className = "nav nav-chapters"; det.open = true;
+  det.innerHTML = `<summary>All chapters</summary>` + ALMANAC.map((c) =>
     `<a href="${c.f}" class="${c.f === page ? "current" : ""}"${c.f === page ? ' aria-current="page"' : ""}><span class="ix">${c.s}</span> ${esc(c.t)}</a>`
   ).join("");
   const dn = sidebar.querySelector("[data-nav]");
-  if (dn) dn.insertAdjacentElement("afterend", nav); else sidebar.appendChild(nav);
+  if (dn) { const lbl = document.createElement("p"); lbl.className = "group-label"; lbl.textContent = "On this page"; dn.insertAdjacentElement("beforebegin", det); dn.insertAdjacentElement("beforebegin", lbl); }
+  else sidebar.appendChild(det);
+}
+
+/* breadcrumb at the top of the content column — constant orientation + home */
+function injectCrumbs() {
+  const main = document.querySelector("main.content");
+  if (!main || main.querySelector(".crumbs")) return;
+  const page = (location.pathname.split("/").pop() || "").toLowerCase();
+  const cur = ALMANAC.find((c) => c.f === page);
+  const name = cur ? cur.t : (document.title.split(/—|·/)[0].trim());
+  const nav = document.createElement("nav");
+  nav.className = "crumbs"; nav.setAttribute("aria-label", "Breadcrumb");
+  nav.innerHTML = `<a href="vintage-story.html">⌂ The Drifter's Almanac</a><span class="sep">›</span><span class="here">${esc(name)}</span>`;
+  main.insertAdjacentElement("afterbegin", nav);
 }
 
 /* a11y: skip-link + keep the menu toggle's aria-expanded honest */
@@ -210,6 +225,7 @@ function wireSchematicTaps() {
 export function initVS() {
   initChrome();
   injectNav();
+  injectCrumbs();
   injectA11y();
   injectSources();
   injectPager();

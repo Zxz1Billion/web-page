@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Architect — decorative building &amp; styles in Vintage Story (v1.22.3)</title>
+<meta name="description" content="A complete decorative-building guide for Vintage Story 1.22.3: chiseling, material palettes early to late game, roofs, timber-frame walls, windows & lighting, interiors & furniture, six build styles with material recipes, and a full step-by-step cottage build — all with interactive top-down plans and palette boards." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body data-ckstore="vs-architect-v1">
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🏛️</span>
+      <span class="wordmark">The<br>Architect<small>VINTAGE STORY · BUILDING</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Principles</p>
+      <a href="#overview"><span class="ix">00</span> What Makes a Build Beautiful</a>
+      <a href="#chisel"><span class="ix">01</span> The Chisel</a>
+      <p class="group-label">Materials</p>
+      <a href="#palettes"><span class="ix">02</span> Palettes, Early → Late</a>
+      <a href="#roofs"><span class="ix">03</span> Roofs</a>
+      <a href="#walls"><span class="ix">04</span> Walls With Depth</a>
+      <a href="#openings"><span class="ix">05</span> Windows, Doors &amp; Light</a>
+      <a href="#interiors"><span class="ix">06</span> Interiors &amp; Furniture</a>
+      <p class="group-label">Build it</p>
+      <a href="#styles"><span class="ix">07</span> Six Styles + Recipes</a>
+      <a href="#cottage"><span class="ix">08</span> Full Build: The Cottage</a>
+      <a href="#finishing"><span class="ix">09</span> Finishing &amp; Landscaping</a>
+      <a href="#rules"><span class="ix">★</span> The Ten Rules</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Functional builds (cellar, smithy,<br>kiln) live in <a href="vs-structures.html" style="color:var(--accent)">The Homestead</a>.<br>This page is about making them<br><b style="color:var(--accent)">beautiful</b>. v<b style="color:var(--accent)">1.22.3</b>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Decoration &amp; style</p>
+      <h1>The Architect</h1>
+      <p class="lede">Vintage Story rewards builders like few games do: every block keeps its real material texture, the <strong>chisel</strong> carves any block into trim and furniture, and the world hands you dozens of natural stones, clays, woods and metals to combine. This is how to go from a survival cube to a build people screenshot — from a Day-Three cob hut to a stone manor — with full material recipes, six styles, and a step-by-step cottage you can copy.</p>
+      <div class="badges">
+        <span class="badge accent">Early → late game</span>
+        <span class="badge">6 interactive plans</span>
+        <span class="badge">Full cottage build</span>
+        <span class="badge">Chiseling &amp; styles</span>
+      </div>
+    </header>
+
+    <!-- 00 -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — Principles</p>
+      <h2>What Makes a Build Beautiful</h2>
+      <p class="lead">Pretty builds in Vintage Story aren't about rare blocks — they're about four levers you can pull with materials you already have. Internalise these and even a cob hut looks intentional.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">1 · texture</span><h4>Material variety</h4><p>Flat single-material walls read as "survival box." <strong>Mix two or three materials</strong> — stone base, cob or plaster body, timber accents — and the eye reads craft.</p></div>
+        <div class="card"><span class="tag">2 · depth</span><h4>Break the flat plane</h4><p>Push and pull the surface: a <strong>stone plinth</strong> at the base, <strong>beams</strong> standing proud, window <strong>lintels &amp; sills</strong>, roof <strong>overhangs</strong>. Shadow lines are what make it look real.</p></div>
+        <div class="card"><span class="tag">3 · palette</span><h4>A limited palette</h4><p>Pick a small set of materials and <em>repeat</em> them. Three woods and two stones beats fifteen random blocks. Tie the whole build together with one accent.</p></div>
+        <div class="card"><span class="tag">4 · light</span><h4>Warm, placed light</h4><p><strong>Lanterns, candles and a hearth</strong> at human height beat a ceiling of torches. Warm pools of light sell coziness and double as drifter defence.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Scale rule of thumb</span>
+        <p>Survival cubes feel cramped because they're too small. Aim for <strong>doorways ~1×2</strong>, <strong>ceilings 3–4 blocks</strong> high, and rooms at least <strong>5×5</strong>. A little extra air makes everything look deliberate.</p>
+      </div>
+    </section>
+
+    <!-- 01 -->
+    <section class="doc" id="chisel">
+      <p class="sec-index">01 — The key tool</p>
+      <h2>The Chisel</h2>
+      <p>The <strong>chisel</strong> is the single most important tool for good-looking builds. Crafted from metal, it lets you carve any solid block into <strong>microblocks</strong> — each full block is a <strong>16×16×16</strong> grid of voxels you can remove one chunk at a time, and the carved result <em>keeps the original block's texture</em>. That's how you make trim, beams, arches, railings, slabs at any thickness, and furniture out of ordinary materials.</p>
+      <h3>How chiseling works</h3>
+      <ol class="flow">
+        <li><strong>Hold the chisel, look at a block.</strong> A grid overlay appears. The block becomes a "chiseled block" you sculpt in place.</li>
+        <li><strong>Pick a voxel size.</strong> Switch the chisel's bite between <strong>1, 2, 4 or 8</strong> voxels (hotkey / radial) — big bites to rough-shape, small bites for detail.</li>
+        <li><strong>Left-click to remove</strong> material; the texture stays. Use <strong>rotate</strong> and <strong>copy/mirror</strong> functions to repeat a shape cleanly.</li>
+        <li><strong>Combine materials:</strong> a single chiseled block can hold more than one material — inlay a stripe of a second stone for trim.</li>
+      </ol>
+      <div class="note">
+        <span class="label">What to chisel first</span>
+        <p>The highest-value beginner chisels: <strong>corner posts &amp; beams</strong> (thinner than a full block), <strong>window sills &amp; lintels</strong>, <strong>roof trim</strong>, <strong>half-thickness walls</strong>, and simple <strong>furniture</strong> (a table is a chiseled plank on legs). You don't need to micro-detail everything — a few chiseled accents lift an entire build.</p>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="doc" id="palettes">
+      <p class="sec-index">02 — The materials</p>
+      <h2>Palettes, Early → Late</h2>
+      <p>Your palette grows with your tech. Here's what's available when, and how each tier <em>looks</em> — pick a small set and repeat it.</p>
+      <div class="data-table">
+        <table>
+          <caption>Building materials by era</caption>
+          <thead><tr><th>Era</th><th>Walls &amp; structure</th><th>Roof</th><th>Accents</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Day 1–3</strong></td><td>Cob, logs, raw &amp; cobblestone, soil/peat</td><td>Thatch (dry grass)</td><td>Log corner posts, raw-stone plinth</td></tr>
+            <tr><td><strong>Early</strong></td><td>Fired <strong>clay bricks</strong>, planks, debarked logs, stone bricks</td><td>Wood shakes; clay shingles once you can fire them</td><td>Chiseled beams, plank panels</td></tr>
+            <tr><td><strong>Mid</strong></td><td><strong>Lime plaster</strong> (whitewash + pigments for colour), polished stone, woodworking (panels, beams)</td><td><strong>Clay shingles</strong> in tones; slate</td><td>Glass windows, shutters, lanterns</td></tr>
+            <tr><td><strong>Late</strong></td><td>Marble, polished/ornate stone, chiseled detail everywhere</td><td>Slate, glazed/painted shingles</td><td><strong>Brass</strong> fittings, leaded glass, banners, carpets, paintings</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Two ready-made palettes</h3>
+      <p>Step through these swatch boards — each cell is one material. Copy a board wholesale for an instant cohesive look.</p>
+      <div class="split">
+        <div><div id="palette-starter"></div></div>
+        <div><div id="palette-manor"></div></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Colour your plaster</span>
+        <p>Lime <strong>plaster</strong> is the secret to mid-game charm: whitewash gives a clean render, and adding <strong>pigments</strong> (from plants, ochre, charcoal) tints it. White plaster between dark timber beams is the classic, always-handsome <em>fachwerk</em> look (see §04).</p>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="doc" id="roofs">
+      <p class="sec-index">03 — The make-or-break</p>
+      <h2>Roofs</h2>
+      <p>Nothing rescues or ruins a build faster than the roof. A flat slab roof says "unfinished"; a pitched, overhanging, textured roof says "home." The plan below is a <strong>hip roof</strong> — it steps inward as it rises; build it with stairs/slabs (or chiseled wedges) on the slopes.</p>
+      <div id="roof-viewer"></div>
+      <h3>Roofing rules</h3>
+      <ul>
+        <li><strong>Always overhang the eaves</strong> by at least one block past the wall — the shadow it casts is half of why pitched roofs look good.</li>
+        <li><strong>Use stairs (or chiseled wedges) for the slope</strong>, not vertical steps; cap the top with a <strong>ridge</strong> line.</li>
+        <li><strong>Mix two shingle tones</strong> (e.g. dark + rust clay shingles) for a weathered, hand-laid texture.</li>
+        <li><strong>Pitch matters:</strong> steeper roofs read as cold-climate/medieval; shallow roofs as warm/rustic. Match it to your biome.</li>
+        <li><strong>Thatch</strong> (dry grass) is the honest early roof — rounded and golden; perfect for a Day-Three cottage.</li>
+      </ul>
+    </section>
+
+    <!-- 04 -->
+    <section class="doc" id="walls">
+      <p class="sec-index">04 — Beating the flat wall</p>
+      <h2>Walls With Depth</h2>
+      <p>The biggest single upgrade to any build is breaking up flat walls. The classic technique is <strong>timber framing</strong> (<em>fachwerk</em>): a grid of dark <strong>beams</strong> with <strong>plaster</strong> infill, on a <strong>stone base course</strong>. Below is a front elevation — note it's a <em>face-on view</em>, not a top-down plan.</p>
+      <div id="wall-viewer"></div>
+      <h3>Techniques, cheapest to fanciest</h3>
+      <ul>
+        <li><strong>Base course / plinth:</strong> the bottom 1–2 rows in stone, the rest in cob/plaster/brick. Instant "grounded" look.</li>
+        <li><strong>Corner posts &amp; a top plate:</strong> chiseled timber at every corner and along the wall top frames the whole face.</li>
+        <li><strong>Lintels &amp; sills:</strong> a timber or stone beam over and under every window and door.</li>
+        <li><strong>Timber framing:</strong> vertical studs + a diagonal brace per panel, plaster between. The most rewarding mid-game wall.</li>
+        <li><strong>String courses &amp; offsets:</strong> a protruding row of brick or a half-block step partway up adds a shadow line on tall walls.</li>
+      </ul>
+    </section>
+
+    <!-- 05 -->
+    <section class="doc" id="openings">
+      <p class="sec-index">05 — Openings &amp; light</p>
+      <h2>Windows, Doors &amp; Light</h2>
+      <div class="cards">
+        <div class="card"><span class="tag">windows</span><h4>Glazing</h4><p>Plain <strong>glass</strong> early; <strong>leaded/coloured glass</strong> later. Frame each window with a chiseled timber or stone surround and add <strong>shutters</strong> — even fake ones add depth.</p></div>
+        <div class="card"><span class="tag">doors</span><h4>Doorways</h4><p>Recess the door a half-block, add a <strong>lintel</strong> above and a stone <strong>threshold</strong> below. A small porch roof or two posts make an entrance feel like one.</p></div>
+        <div class="card"><span class="tag">light</span><h4>Warm light</h4><p><strong>Oil lamps &amp; lanterns</strong> on walls, <strong>candles</strong> on tables, a <strong>chandelier</strong> (chiseled + lanterns) over a hall, and a <strong>hearth</strong> as the heart of the room.</p></div>
+        <div class="card"><span class="tag">fire</span><h4>Hearth &amp; chimney</h4><p>A built fireplace with a stone <strong>chimney</strong> breaking the roofline is the ultimate cozy-and-functional feature — it lights, warms, and anchors the silhouette.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Light at human height</span>
+        <p>Resist the urge to ceiling-spam torches. A few <strong>warm sources low on the walls and tables</strong> light a room far more atmospherically — and a sealed, lit interior still keeps drifters out (see <a href="vs-temporal.html">temporal</a>).</p>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="doc" id="interiors">
+      <p class="sec-index">06 — The inside</p>
+      <h2>Interiors &amp; Furniture</h2>
+      <p>An empty box never looks finished. Vintage Story's storage <em>is</em> decoration — barrels, crocks, shelves and <strong>cabinets</strong> (voxel-placed in 1.22) all double as set dressing. Here's a cozy single-room layout, top-down.</p>
+      <div id="interior-viewer"></div>
+      <ul>
+        <li><strong>Anchor the room with a hearth</strong> on one wall and a <strong>rug</strong> in the centre.</li>
+        <li><strong>Furniture from chisels:</strong> a table is a chiseled plank on legs; benches, stools and shelves are quick carves.</li>
+        <li><strong>Use your storage as decor:</strong> a row of labelled <strong>crocks</strong>, stacked <strong>barrels</strong>, a <strong>cabinet</strong> wall and open <strong>shelves</strong> of food read as a real pantry.</li>
+        <li><strong>Clutter, tastefully:</strong> a few tools on the wall, a <strong>planter</strong> by the window, a <strong>painting</strong>, books — the "lived-in" details.</li>
+      </ul>
+    </section>
+
+    <!-- 07 -->
+    <section class="doc" id="styles">
+      <p class="sec-index">07 — Pick a look</p>
+      <h2>Six Styles + Material Recipes</h2>
+      <p>A style is just a fixed palette + a roof shape. Steal one of these wholesale, early to late.</p>
+      <div class="data-table">
+        <table>
+          <caption>Build styles and their material recipes</caption>
+          <thead><tr><th>Style</th><th>Era</th><th>Recipe</th><th>Roof</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Rustic hut</strong></td><td>Day 1–3</td><td>Cob walls · log corner posts · raw-stone base</td><td>Thatch, steep</td></tr>
+            <tr><td><strong>Timber-frame cottage</strong></td><td>Early–mid</td><td>Stone plinth · white plaster + dark beams · plank floor</td><td>Clay shingles, overhanging</td></tr>
+            <tr><td><strong>Stone longhouse</strong></td><td>Mid</td><td>Stone-brick walls · timber top plate · big shuttered windows</td><td>Slate or wood-shake, long &amp; low</td></tr>
+            <tr><td><strong>Medieval manor / keep</strong></td><td>Late</td><td>Polished stone &amp; marble · chiseled trim · leaded glass · brass</td><td>Steep slate, towers, crenellations</td></tr>
+            <tr><td><strong>Forge hall</strong></td><td>Mid–late</td><td>Stone base · timber truss roof · clerestory windows · big hearth/chimney</td><td>High pitched, vented ridge</td></tr>
+            <tr><td><strong>Wayfarer's inn</strong></td><td>Mid</td><td>Mixed brick + plaster · two storeys · balcony · hanging sign</td><td>Gabled clay shingle</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Start small, in one style</span>
+        <p>Don't sprawl. Build one tidy <strong>timber-frame cottage</strong> well, then extend it (a lean-to workshop, a second storey, a wall) in the <em>same</em> palette. A coherent hamlet beats a field of mismatched boxes.</p>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="doc" id="cottage">
+      <p class="sec-index">08 — Full build, step by step</p>
+      <h2>Full Build: The Timber-Frame Cottage</h2>
+      <p>A complete, copyable build that uses everything above: a stone base course, white-plaster-and-beam walls, glass windows, a log-cornered frame and an overhanging shingle roof. Step through the layers, then follow the build order.</p>
+      <div id="cottage-viewer"></div>
+      <ol class="flow">
+        <li><strong>Foundation (Y0).</strong> Lay a solid <strong>cobblestone / stone-brick</strong> footprint — this is your base course and it lifts the whole build off the dirt.</li>
+        <li><strong>Frame &amp; door (Y1).</strong> Raise <strong>cob or plaster</strong> walls with a <strong>log/chiseled-timber post</strong> at each corner, leaving a 1-wide <strong>door</strong> in the south wall.</li>
+        <li><strong>Windows (Y2).</strong> Continue the walls and cut <strong>glass</strong> windows — two on each long side, framed by the corner posts. Add sills below them.</li>
+        <li><strong>Top plate (Y3).</strong> Cap the walls with a ring of <strong>beam</strong> (the timber top plate) — it ties the frame together and gives the roof something to sit on.</li>
+        <li><strong>Eaves (Y4).</strong> Lay the first roof course as a full <strong>thatch/shingle</strong> layer that <strong>overhangs</strong> the walls by a block all round.</li>
+        <li><strong>Ridge (Y5).</strong> Step the roof inward and run a <strong>shingle</strong> ridge along the top — use stairs/chiseled wedges on the slope between the eaves and the ridge.</li>
+        <li><strong>Dress it.</strong> Hang a <strong>lantern</strong> by the door, add a <strong>hearth &amp; chimney</strong>, a window <strong>planter</strong>, and a stone <strong>path</strong> to the threshold. Done.</li>
+      </ol>
+      <div class="note tip">
+        <span class="label">Make it yours</span>
+        <p>The plan is a 7×6 starter — scale it up, add a second storey on the same footprint, or bolt on a lean-to in the same palette. The proportions and the layering are the point, not the exact size.</p>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="doc" id="finishing">
+      <p class="sec-index">09 — The last 10%</p>
+      <h2>Finishing &amp; Landscaping</h2>
+      <p>The details around a build matter as much as the build. Once the shell is up:</p>
+      <ul>
+        <li><strong>Ground it:</strong> a stone or gravel <strong>path</strong> to the door, a low <strong>fence</strong> or hedge, and a few <strong>planters</strong> or a kitchen garden.</li>
+        <li><strong>Light the exterior:</strong> a lantern either side of the door, path lights, a glowing window at dusk.</li>
+        <li><strong>Add age &amp; asymmetry:</strong> mossy/weathered variants, a slightly off-centre chimney, a lean-to that breaks the symmetry — perfection looks fake.</li>
+        <li><strong>Features:</strong> a <strong>well</strong>, a wood store, a drying rack, a bench under a tree — the marks of a lived-in homestead.</li>
+        <li><strong>Terrain:</strong> nestle the build into the land, terrace a slope with retaining walls, don't float it on a flat platform.</li>
+      </ul>
+      <div class="note">
+        <span class="label">Functional &amp; beautiful aren't separate</span>
+        <p>A drying rack, a quern, a forge and a cellar door are all great <em>decoration</em> when placed thoughtfully. Pair this page with <a href="vs-structures.html">The Homestead</a> (the working builds) and you get a base that's productive <em>and</em> a pleasure to come home to.</p>
+      </div>
+    </section>
+
+    <!-- ★ -->
+    <section class="doc" id="rules">
+      <p class="sec-index">★ — The cheat code</p>
+      <h2>The Ten Rules (Tick as You Master Them)</h2>
+      <p class="lead">Ten habits that turn a survival box into a build. Tick them off as they become second nature — saved in this browser.</p>
+
+      <div class="progress-wrap">
+        <div class="row"><span class="ttl">Builder's skills</span><span class="pct" data-progress-pct>0%</span></div>
+        <div class="bar"><div class="fill" data-progress-fill></div></div>
+        <div class="row" style="margin-top:8px"><span class="ttl" data-progress-label>0 of 0 done</span><button class="reset" data-reset>Reset</button></div>
+      </div>
+
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-ck="r1"><span class="ck-body"><span class="ck-title">Never a flat single-material wall</span><span class="ck-note">Always combine at least two materials on a wall face.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r2"><span class="ck-body"><span class="ck-title">Stone base course on every building</span><span class="ck-note">The bottom 1–2 rows in stone grounds the build.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r3"><span class="ck-body"><span class="ck-title">Pitched roof, always overhanging</span><span class="ck-note">No flat slab roofs; eaves project a block past the wall.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r4"><span class="ck-body"><span class="ck-title">Frame openings with lintels &amp; sills</span><span class="ck-note">A beam over and under every door and window.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r5"><span class="ck-body"><span class="ck-title">Chisel some trim</span><span class="ck-note">Corner posts, beams or a roof edge carved thinner than a full block.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r6"><span class="ck-body"><span class="ck-title">A small, repeated palette</span><span class="ck-note">Three woods + two stones, used consistently, not fifteen random blocks.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r7"><span class="ck-body"><span class="ck-title">Warm light at human height</span><span class="ck-note">Lanterns/candles/hearth instead of a ceiling of torches.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r8"><span class="ck-body"><span class="ck-title">Generous scale</span><span class="ck-note">Ceilings 3–4 high, rooms 5×5+, doorways that don't feel like tunnels.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r9"><span class="ck-body"><span class="ck-title">Furnish &amp; clutter the inside</span><span class="ck-note">Hearth, rug, table, shelves, storage-as-decor, a planter.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="r10"><span class="ck-body"><span class="ck-title">Land it &amp; age it</span><span class="ck-note">Paths, garden, asymmetry, weathered blocks; nestle it into terrain.</span></span></label></li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Where to go next</span>
+        <p>Build the <a href="#cottage">cottage</a> first to practise all ten, then read <a href="vs-structures.html">The Homestead</a> for the working rooms to put inside it. Materials &amp; tech timing are in <a href="vs-progression.html">The Long Road</a>; press <strong>/</strong> to search anything.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Architect</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-structures.html">The Homestead</a> (working builds)<br>
+      · <a href="vs-progression.html">The Long Road</a> (material timing)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The schematics are simplified top-down plans (and one face-on elevation) meant to teach proportion and layering, not exact block lists — chiseled detail and slopes are described in the text. Build heights, recipes and block names are config-/version-dependent; your in-game Handbook and creative palette are the final word.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+
+  const grid = (r, c, f = null) => Array.from({ length: r }, () => Array(c).fill(f));
+  const ringRC = (r, c, edge, inner = null) => {
+    const g = grid(r, c, inner);
+    for (let i = 0; i < c; i++) { g[0][i] = edge; g[r-1][i] = edge; }
+    for (let i = 0; i < r; i++) { g[i][0] = edge; g[i][c-1] = edge; }
+    return g;
+  };
+  const solid = (r, c, k) => grid(r, c, k);
+  const innerSq = (n, k, pad) => { const g = grid(n, n, null); for (let i = pad; i < n-pad; i++) for (let j = pad; j < n-pad; j++) g[i][j] = k; return g; };
+
+  /* ---- palette boards ---- */
+  const PB1 = {
+    cob:{label:"Cob",color:"#9a7b4f"}, thatch:{label:"Thatch",color:"#cda24a"}, log:{label:"Log post",color:"#6e4a24"},
+    plank:{label:"Planks",color:"#b08a4f"}, cobble:{label:"Cobblestone",color:"#8a8a8a"}, brick:{label:"Clay brick",color:"#b0613f"},
+    plaster:{label:"Lime plaster",color:"#e7e0cf"}, glass:{label:"Glass",color:"#bfe6ec"}, door:{label:"Door",color:"#7a5a2f"}, sbrick:{label:"Stone brick",color:"#9a958c"},
+  };
+  mountSchematic({ title:"Starter palette", subtitle:"early-game · copy it wholesale", meta:{footprint:"swatch board"}, palette:PB1, mode:"layers", segmented:false, coords:false,
+    frames:[{ label:"swatches", note:"A cohesive Day-1→early kit: cob & plaster bodies, a stone/brick base, timber accents and thatch above. Repeat these and nothing else.",
+      grid:[["cob","thatch","log","plank","cobble"],["brick","plaster","glass","door","sbrick"]] }] }, "#palette-starter");
+
+  const PB2 = {
+    sbrick:{label:"Stone brick",color:"#9a958c"}, pol:{label:"Polished stone",color:"#b8b2a6"}, marble:{label:"Marble",color:"#d8d2c4"},
+    beam:{label:"Timber beam",color:"#4a341f"}, brass:{label:"Brass fitting",color:"#c9a34a"}, lead:{label:"Leaded glass",color:"#9fcdd6"},
+    slate:{label:"Slate roof",color:"#5b5560"}, carpet:{label:"Carpet",color:"#9b3b3b"}, banner:{label:"Banner",color:"#7a2c3a"}, lantern:{label:"Lantern",color:"#e3b755"},
+  };
+  mountSchematic({ title:"Manor palette", subtitle:"late-game · stone & brass", meta:{footprint:"swatch board"}, palette:PB2, mode:"layers", segmented:false, coords:false,
+    frames:[{ label:"swatches", note:"The late-game upgrade: polished stone & marble bodies, chiseled timber, leaded glass, slate roofs and brass/banner/carpet accents.",
+      grid:[["sbrick","pol","marble","beam","brass"],["lead","slate","carpet","banner","lantern"]] }] }, "#palette-manor");
+
+  /* ---- hip roof (shrinking layers) ---- */
+  const ROOF = { sa:{label:"Shingle (dark)",color:"#8a4a35"}, sb:{label:"Shingle (rust)",color:"#a85a3f"}, ridge:{label:"Ridge cap",color:"#6e3a2a"} };
+  mountSchematic({ title:"Hip roof", subtitle:"7×7 · steps inward as it rises", meta:{footprint:"7×7", height:"4 courses"}, palette:ROOF, mode:"layers", segmented:false, coords:true,
+    frames:[
+      { label:"Y0 · eaves", grid:innerSq(7,"sa",0), note:"The bottom course overhangs the walls by a block all round — the shadow it casts is what sells a pitched roof. Lay it on stairs/chiseled wedges, not flat." },
+      { label:"Y1", grid:innerSq(7,"sa",1), note:"Step inward one block and rise one. Keep the slope continuous with stairs between courses." },
+      { label:"Y2", grid:innerSq(7,"sb",2), note:"A second, lighter shingle tone here gives a weathered, hand-laid texture. Two tones beats one." },
+      { label:"Y3 · ridge", grid:innerSq(7,"ridge",3), note:"Cap the very top with a ridge line. Add a chimney breaking through one slope for the classic silhouette." },
+    ] }, "#roof-viewer");
+
+  /* ---- timber-frame wall (front elevation, single frame) ---- */
+  const WALL = { beam:{label:"Timber beam",color:"#4a341f"}, plaster:{label:"Plaster infill",color:"#e7e0cf"}, glass:{label:"Glass window",color:"#bfe6ec"}, door:{label:"Door",color:"#7a5a2f"}, sill:{label:"Stone base",color:"#8a8a8a"} };
+  const W = [
+    ["beam","beam","beam","beam","beam","beam","beam","beam","beam"],
+    ["beam","plaster","glass","glass","beam","plaster","door","plaster","beam"],
+    ["beam","plaster","glass","glass","beam","plaster","door","plaster","beam"],
+    ["beam","plaster","plaster","plaster","beam","plaster","door","plaster","beam"],
+    ["sill","sill","sill","sill","sill","sill","sill","sill","sill"],
+  ];
+  mountSchematic({ title:"Timber-frame wall", subtitle:"FRONT ELEVATION (face-on, not top-down)", meta:{footprint:"9 × 5 face"}, palette:WALL, mode:"layers", segmented:false, coords:false,
+    frames:[{ label:"front face", note:"Read this as the wall seen head-on. Dark beams (corner posts, a centre post, top plate) frame white plaster infill, on a stone base course, with glazed windows and a framed door. Add a diagonal brace per panel with the chisel.", grid:W }] }, "#wall-viewer");
+
+  /* ---- cozy interior (top-down, single frame) ---- */
+  const INT = { plank:{label:"Plank floor",color:"#b08a4f"}, hearth:{label:"Hearth",color:"#b0613f"}, table:{label:"Table",color:"#6e4a24"}, chair:{label:"Stool",color:"#7a5a2f"}, bed:{label:"Bed",color:"#9b3b3b"}, shelf:{label:"Shelf / cabinet",color:"#4a341f"}, rug:{label:"Rug",color:"#8a2f2f"}, planter:{label:"Planter",color:"#4f7a3a"}, barrel:{label:"Barrel / crocks",color:"#8a6a3a"} };
+  const I = grid(6,7,"plank");
+  I[0][3]="hearth"; I[2][2]="chair"; I[2][3]="table"; I[2][4]="chair"; I[3][3]="rug";
+  I[5][0]="bed"; I[4][0]="bed"; I[0][6]="shelf"; I[1][6]="shelf"; I[5][6]="planter"; I[5][3]="barrel";
+  mountSchematic({ title:"Cozy interior", subtitle:"top-down · one-room layout", meta:{footprint:"7×6"}, palette:INT, mode:"layers", segmented:false, coords:true,
+    frames:[{ label:"floor plan", note:"Hearth on the back wall, table + stools and a rug at the centre, bed in a corner, shelves/cabinet along one wall, storage as decor, and a planter by the window. Light it warmly.", grid:I }] }, "#interior-viewer");
+
+  /* ---- the cottage (full multi-layer build) ---- */
+  const COT = { cobble:{label:"Stone base",color:"#8a8a8a"}, cob:{label:"Cob / plaster wall",color:"#d8c8a8"}, logpost:{label:"Corner post",color:"#6e4a24"}, door:{label:"Door",color:"#7a5a2f"}, glass:{label:"Glass window",color:"#bfe6ec"}, beam:{label:"Top plate (beam)",color:"#4a341f"}, thatch:{label:"Roof eaves",color:"#cda24a"}, shingle:{label:"Roof ridge",color:"#8a4a35"} };
+  const c1 = ringRC(6,7,"cob"); c1[0][0]=c1[0][6]=c1[5][0]=c1[5][6]="logpost"; c1[5][3]="door";
+  const c2 = ringRC(6,7,"cob"); c2[0][0]=c2[0][6]=c2[5][0]=c2[5][6]="logpost"; c2[2][0]=c2[3][0]=c2[2][6]=c2[3][6]="glass"; c2[0][2]=c2[0][4]="glass";
+  const c3 = ringRC(6,7,"beam");
+  const c5 = grid(6,7,null); for (let i=1;i<5;i++) for (let j=1;j<6;j++) c5[i][j]="shingle";
+  mountSchematic({ title:"The timber-frame cottage", subtitle:"full build · step through Y0 → Y5", meta:{footprint:"7×6", height:"6"}, palette:COT, mode:"layers", segmented:false, coords:true,
+    frames:[
+      { label:"Y0 · foundation", grid:solid(6,7,"cobble"), note:"Solid stone base course — lifts the build off the dirt and reads as 'grounded'." },
+      { label:"Y1 · frame + door", grid:c1, note:"Cob/plaster walls with a timber post at each corner and a 1-wide door in the south wall." },
+      { label:"Y2 · windows", grid:c2, note:"Carry the walls up and cut glass windows — two each long side plus two on the front — framed by the corner posts." },
+      { label:"Y3 · top plate", grid:c3, note:"Cap the walls with a ring of beam: the timber top plate that ties the frame and carries the roof." },
+      { label:"Y4 · eaves", grid:solid(6,7,"thatch"), note:"First roof course as a full layer that OVERHANGS the walls by a block all round. (Thatch early; clay shingles later.)" },
+      { label:"Y5 · ridge", grid:c5, note:"Step the roof in and run a shingle ridge along the top; fill the slope between with stairs or chiseled wedges. Then dress it: lantern by the door, hearth & chimney, a path." },
+    ] }, "#cottage-viewer");
+</script>
+</body>
+</html>
