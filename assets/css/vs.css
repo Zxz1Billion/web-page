@@ -142,3 +142,103 @@ section.doc h2 { letter-spacing: 0.005em; }
 section.doc code { overflow-wrap: anywhere; }
 .readout { font-family: var(--f-mono); font-size: 0.84rem; background: rgba(0,0,0,0.4); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 14px; color: var(--ink-dim); white-space: pre-wrap; overflow-wrap: anywhere; margin: 16px 0; }
 .readout b { color: var(--accent); }
+
+/* ============================================================ HERO BANNER
+   A designed, themeable banner behind every guide hero: faint geological
+   "strata" lines + a temporal-gear ring motif top-right, masked so the
+   headline stays crisp. Pure CSS — no image assets. */
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.hero > * { position: relative; z-index: 1; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 91% 16%, transparent 44px, var(--accent-soft) 46px, transparent 50px),
+    radial-gradient(circle at 91% 16%, transparent 70px, var(--accent-soft) 72px, transparent 77px),
+    radial-gradient(circle at 91% 16%, transparent 96px, var(--accent-soft) 98px, transparent 104px),
+    repeating-linear-gradient(116deg, transparent 0 33px, color-mix(in srgb, var(--accent) 8%, transparent) 33px 34px);
+  -webkit-mask: linear-gradient(180deg, #000 28%, transparent 94%);
+          mask: linear-gradient(180deg, #000 28%, transparent 94%);
+  opacity: 0.85;
+}
+@media (max-width: 760px) { .hero::before { background-size: cover; opacity: 0.6; } }
+
+/* ============================================================ CHAPTER PAGER
+   Injected by vs-guide.js at the foot of every guide's main column: prev/next
+   chapter cards, an "all chapters" link, and a Print/Save-as-PDF button. */
+.chapter-pager { margin: 48px 0 0; padding-top: 26px; border-top: 1px solid var(--line); display: grid; gap: 14px; }
+.chapter-pager .pager-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chapter-pager a.pg { display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); text-decoration: none; color: var(--ink); transition: border-color .16s, transform .16s; }
+.chapter-pager a.pg:hover { border-color: var(--accent); transform: translateY(-2px); }
+.chapter-pager span.pg { border: 1px dashed var(--line); border-radius: 12px; opacity: .35; }
+.chapter-pager a.pg.next { text-align: right; align-items: flex-end; }
+.chapter-pager .dir { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); }
+.chapter-pager .ttl { font-family: var(--f-display); font-weight: 700; color: #fff; }
+.chapter-pager .tools { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.chapter-pager .allchapters { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .04em; color: var(--ink-dim); text-decoration: none; }
+.chapter-pager .allchapters:hover { color: var(--accent); }
+.chapter-pager .print-btn { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .06em; color: var(--ink-dim); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 9px 13px; cursor: pointer; }
+.chapter-pager .print-btn:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 600px) { .chapter-pager .pager-nav { grid-template-columns: 1fr; } .chapter-pager a.pg.next { text-align: left; align-items: flex-start; } }
+
+/* ============================================================ QUEST BOOK
+   FTB-Quests-style cards for vs-questline.html. Tasks are real checkboxes
+   (data-ck) persisted + counted by vs-guide.js. */
+.chapter-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.chapter-head .chip { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.quest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; margin: 20px 0; }
+.quest { background: linear-gradient(180deg, var(--bg-2), var(--bg-1)); border: 1px solid var(--line); border-top: 3px solid var(--qac, var(--accent)); border-radius: 12px; padding: 15px 16px 16px; display: flex; flex-direction: column; gap: 9px; }
+.quest h4 { margin: 0; font-family: var(--f-display); font-weight: 700; color: #fff; display: flex; align-items: center; gap: 9px; font-size: 1.06rem; }
+.quest .qicon { font-size: 1.2rem; line-height: 1; }
+.quest .qkind { font-family: var(--f-mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--qac, var(--accent)); }
+.quest .qobj { margin: 0; color: var(--ink-dim); font-size: .9rem; }
+.quest .qtasks { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 7px; }
+.quest .qtasks label { display: flex; gap: 9px; align-items: flex-start; font-size: .9rem; cursor: pointer; color: var(--ink); }
+.quest .qtasks input { margin: 2px 0 0; width: 19px; height: 19px; flex: 0 0 19px; accent-color: var(--qac, var(--accent)); cursor: pointer; }
+.quest .qtasks input:checked + span { color: var(--ink-faint); text-decoration: line-through; }
+.quest .reward { margin-top: auto; padding-top: 10px; border-top: 1px dotted var(--line); font-size: .85rem; color: var(--ink); }
+.quest .reward b { display: block; font-family: var(--f-mono); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 2px; }
+.quest .gate { font-family: var(--f-mono); font-size: .62rem; color: var(--accent-3); }
+@media (pointer: coarse) { .quest .qtasks input { width: 22px; height: 22px; flex-basis: 22px; } }
+
+/* warmth scale used on the clothing page */
+.warmth { display: grid; grid-template-columns: 130px 1fr 70px; gap: 10px; align-items: center; margin: 8px 0; }
+.warmth .lab { font-size: .88rem; color: var(--ink-dim); }
+.warmth .track { height: 12px; border-radius: 999px; background: rgba(0,0,0,.4); border: 1px solid var(--line); overflow: hidden; }
+.warmth .lvl { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.warmth .num { font-family: var(--f-mono); font-size: .8rem; color: var(--accent); text-align: right; }
+
+/* ============================================================ PRINT / PDF
+   Make any guide print cleanly to paper / PDF: drop the chrome, go full width,
+   keep schematic colours + the auto-tallied materials list, avoid mid-block
+   page breaks. The build-materials tally beside each schematic prints, so the
+   structure pages double as printable build sheets. */
+@media print {
+  @page { margin: 14mm; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #fff !important; color: #111 !important; font-size: 11pt; }
+  .menu-toggle, .sidebar, .chapter-pager .tools, .progress-wrap .reset { display: none !important; }
+  .shell { display: block !important; max-width: none !important; }
+  .content { padding: 0 !important; }
+  .hero::before, ::-webkit-scrollbar { display: none !important; }
+  .hero h1, section.doc h2, section.doc h3, section.doc h4, .quest h4,
+  .chapter-pager .ttl, .progress-wrap .pct, .facts .f .v {
+    color: #111 !important; -webkit-text-fill-color: #111 !important; background: none !important; text-shadow: none !important;
+  }
+  body, section.doc, .data-table, .data-table table, .note, .card, .quest, .ladder li,
+  .facts .f, .schematic, .schematic__head, .schematic__rail, .progress-wrap, .readout, .split > div {
+    background: #fff !important; box-shadow: none !important; border-color: #bbb !important;
+  }
+  section.doc a, .quest a { color: #111 !important; text-decoration: underline; }
+  .data-table th { background: #eee !important; color: #111 !important; }
+  .data-table td { color: #111 !important; }
+  /* keep schematic legible & its materials tally visible as a build sheet */
+  .schematic__body { grid-template-columns: 1fr 230px !important; }
+  .schematic__stepper { display: none !important; }
+  .legend li, .tally li, .ck-body, .quest .qobj, .quest .reward { color: #111 !important; }
+  .tally li .q, .legend .sw, .cell, .warmth .lvl, .progress-wrap .fill { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  section.doc, .schematic, .data-table, .note, .card, .ladder li, .quest, .flow li, .progress-wrap, figure, .warmth {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  section.doc { border-bottom: 1px solid #ccc; padding: 18px 0; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; color: #555; word-break: break-all; }
+}

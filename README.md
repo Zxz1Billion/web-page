@@ -50,11 +50,13 @@ How-Tos and interactive build plans:
 | --- | --- | --- |
 | `vintage-story.html` | The Drifter's Almanac | Vintage Story hub / landing |
 | `vs-getting-started.html` | The First Day | Survival start, knapping, fire, first-night shelter (interactive plan) + a saved Day-One checklist |
+| `vs-questline.html` | The Questline | An **FTB-Quests-style** quest book — 10 chapters of tickable objectives + rewards, browser-saved |
 | `vs-progression.html` | The Long Road | Flagship Stone→Copper→Bronze→Iron→Steel ladder as a 40-step browser-saved checklist with a progress meter |
 | `vs-crafting.html` | The Four Crafts | Knapping, clay forming, smithing & casting — with interactive grid/voxel pattern viewers |
 | `vs-metalworking.html` | Fire & Metal | Ores, crucible smelting, alloys, the 1.22 forge, bloomery, blast furnace, cementation steel |
 | `vs-mechanical-power.html` | The Turning World | Axles, gears, windmill & 1.22 waterwheel, quern/helve hammer/pulverizer (with wiring schematics) |
 | `vs-food.html` | The Larder | Nutrition groups, foraging, farming & soil nutrients, cooking, 1.22 fishing |
+| `vs-clothing-cold.html` | Warmth & Wear | Body temperature & cold, clothing warmth, winter prep, the 8 armor types & protection tiers |
 | `vs-structures.html` | The Homestead | House, food cellar, charcoal pit, smithy & greenhouse — five interactive layer-by-layer plans |
 | `vs-temporal.html` | The Rust & The Gear | Temporal stability, rifts, storms, temporal gears, storm-proofing |
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
@@ -63,8 +65,16 @@ How-Tos and interactive build plans:
 
 These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
 add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via
-**`assets/js/vs-guide.js`** (shared nav + a generic localStorage checklist/progress meter keyed
-by each page's `data-ckstore`).
+**`assets/js/vs-guide.js`**. That shared layer also provides:
+
+- a CSS **hero banner** motif (geological strata + a temporal-gear ring) on every guide hero;
+- a **wired chapter pager** auto-injected at the foot of each page (prev/next chapter, an
+  "all chapters" link, and a **Print / Save-as-PDF** button), driven by the `ALMANAC` order in
+  `vs-guide.js`;
+- **print/PDF styles** that drop the chrome, go full-width and keep each schematic's auto-tallied
+  **build-materials list**, so the structure pages double as printable build sheets;
+- a generic localStorage **checklist/progress meter** covering every `data-ck` checkbox (the
+  progression checklist *and* the questline's tasks), keyed by each page's `data-ckstore`.
 
 ## Structure
 

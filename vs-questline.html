@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Questline — an FTB-Quests-style book for Vintage Story (v1.22.3)</title>
+<meta name="description" content="A chapter-by-chapter, FTB-Quests-style quest book for Vintage Story 1.22.3: 10 chapters of tickable objectives with rewards, from your first knapped knife through pottery, copper, bronze, iron and steel to mechanical power, farming, surviving temporal storms and the endgame. Progress saves in your browser." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body data-ckstore="vs-questline-v1">
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📜</span>
+      <span class="wordmark">The<br>Questline<small>VINTAGE STORY · QUEST BOOK</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The book</p>
+      <a href="#how"><span class="ix">★</span> How This Works</a>
+      <p class="group-label">Chapters</p>
+      <a href="#ch1"><span class="ix">1</span> Awakening</a>
+      <a href="#ch2"><span class="ix">2</span> Earth &amp; Fire</a>
+      <a href="#ch3"><span class="ix">3</span> The Red Metal</a>
+      <a href="#ch4"><span class="ix">4</span> The Alloy Age</a>
+      <a href="#ch5"><span class="ix">5</span> The Bloom</a>
+      <a href="#ch6"><span class="ix">6</span> The Crucible of Steel</a>
+      <a href="#ch7"><span class="ix">7</span> The Turning World</a>
+      <a href="#ch8"><span class="ix">8</span> Hearth &amp; Harvest</a>
+      <a href="#ch9"><span class="ix">9</span> Against the Storm</a>
+      <a href="#ch10"><span class="ix">10</span> The Wayfarer</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      A fan-made companion in the spirit<br>of FTB Quests — Vintage Story has<br>no built-in quest book. Progress is<br>saved in <b style="color:var(--accent)">this browser</b>. Mechanics<br>track <b style="color:var(--accent)">v1.22.3</b>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Quest book</p>
+      <h1>The Questline</h1>
+      <p class="lede">Vintage Story doesn't ship a quest book — so here's one. Ten chapters of tickable objectives carry you from a bewildered seraph with empty hands to a steel-clad survivor who weathers temporal storms and walks the translocator network. Each quest names a clear goal, its concrete tasks, and the reward it unlocks. Tick as you play; it all saves here.</p>
+      <div class="badges">
+        <span class="badge accent">10 chapters</span>
+        <span class="badge">~30 quests</span>
+        <span class="badge">Browser-saved</span>
+        <span class="badge">Stone → Steel → Story</span>
+      </div>
+    </header>
+
+    <!-- HOW -->
+    <section class="doc" id="how">
+      <p class="sec-index">★ — Read me first</p>
+      <h2>How This Works</h2>
+      <p class="lead">This is a companion quest book, not an in-game mod. It mirrors how FTB Quests structures a modpack: chapters unlock roughly in order, each quest has <strong>tasks</strong> to complete and a <strong>reward</strong> (here, the capability you've just earned).</p>
+      <ul>
+        <li><strong>Tick the tasks</strong> as you do them in-game. The meter below counts every task in the whole book and saves to this browser — close the tab and come back; your ticks persist.</li>
+        <li><strong>Chapters gate each other</strong> the way Vintage Story's tech does: you can't really start Bronze before Copper, or Steel before Iron. Each chapter notes its prerequisite.</li>
+        <li><strong>Every quest links the deep-dive</strong> page that explains the <em>how</em>. This book is the checklist; the rest of <a href="vintage-story.html">the Almanac</a> is the manual.</li>
+      </ul>
+
+      <div class="progress-wrap">
+        <div class="row">
+          <span class="ttl">Questline progress</span>
+          <span class="pct" data-progress-pct>0%</span>
+        </div>
+        <div class="bar"><div class="fill" data-progress-fill></div></div>
+        <div class="row" style="margin-top:8px">
+          <span class="ttl" data-progress-label>0 of 0 done</span>
+          <button class="reset" data-reset>Reset book</button>
+        </div>
+      </div>
+      <div class="note tip">
+        <span class="label">New here?</span>
+        <p>If you haven't survived a night yet, do <a href="vs-getting-started.html">The First Day</a> first — Chapter 1 below is its quest-form summary. For the continuous tech ladder, keep <a href="vs-progression.html">The Long Road</a> open alongside this book.</p>
+      </div>
+    </section>
+
+    <!-- CH1 -->
+    <section class="doc" id="ch1">
+      <div class="chapter-head"><span class="chip">Chapter 1</span><p class="sec-index" style="margin:0">Stone age · no prerequisite</p></div>
+      <h2>Awakening</h2>
+      <p>You arrive with nothing. Make the first tools, the first fire, and live to see Day Two. Full walkthrough: <a href="vs-getting-started.html">The First Day</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Tools</span>
+          <h4><span class="qicon">🔪</span> First Edges</h4>
+          <p class="qobj">Knap your way out of the Stone Age's first hour.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q1a1"><span>Gather flint &amp; loose stones</span></label></li>
+            <li><label><input type="checkbox" data-ck="q1a2"><span>Knap &amp; assemble a knife (blade + stick)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q1a3"><span>Knap an axe; fell a tree for firewood</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> The ability to harvest grass, reeds, food &amp; wood — the start of everything.</p>
+        </div>
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Survival</span>
+          <h4><span class="qicon">🔥</span> Light Against the Dark</h4>
+          <p class="qobj">Make fire and a place to hide before nightfall.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q1b1"><span>Craft a Firestarter &amp; light a fire pit</span></label></li>
+            <li><label><input type="checkbox" data-ck="q1b2"><span>Make a few torches (stick + dry grass)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q1b3"><span>Build a walled, roofed shelter &amp; survive the night</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A safe base camp and your first full night survived.</p>
+        </div>
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Food</span>
+          <h4><span class="qicon">🍖</span> First Forage</h4>
+          <p class="qobj">Don't starve, don't poison yourself.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q1c1"><span>Forage berries, cattail roots &amp; safe mushrooms</span></label></li>
+            <li><label><input type="checkbox" data-ck="q1c2"><span>Hunt a hare or chicken &amp; roast the meat</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A stocked belly and the first taste of the nutrition system (<a href="vs-food.html">The Larder</a>).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH2 -->
+    <section class="doc" id="ch2">
+      <div class="chapter-head"><span class="chip">Chapter 2</span><p class="sec-index" style="margin:0">Stone age · requires Ch.1</p></div>
+      <h2>Earth &amp; Fire</h2>
+      <p>No metal happens without pottery. Dig clay, shape it, and fire it into the crucible and molds that the whole tech tree depends on. How-to: <a href="vs-crafting.html#clay">The Four Crafts → Clay Forming</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#c98a4a">
+          <span class="qkind">Quest · Pottery</span>
+          <h4><span class="qicon">🏺</span> The Potter</h4>
+          <p class="qobj">Turn raw clay into useful, fired vessels.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q2a1"><span>Dig red/blue clay (and find fire clay)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q2a2"><span>Clay-form a bowl, a crock &amp; a storage vessel</span></label></li>
+            <li><label><input type="checkbox" data-ck="q2a3"><span>Build a pit kiln &amp; fire your pottery (~10–20h)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Food storage, water-carrying, and a working pit kiln.</p>
+        </div>
+        <div class="quest" style="--qac:#c98a4a">
+          <span class="qkind">Quest · Metalprep</span>
+          <h4><span class="qicon">⚗️</span> The Crucible</h4>
+          <p class="qobj">Make the tools that let you handle molten metal.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q2b1"><span>Clay-form a fire-clay crucible &amp; fire it</span></label></li>
+            <li><label><input type="checkbox" data-ck="q2b2"><span>Form &amp; fire an ingot mold + tool molds</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> You can now smelt &amp; cast metal — the gateway to the Copper Age.</p>
+        </div>
+        <div class="quest" style="--qac:#c98a4a">
+          <span class="qkind">Quest · Comfort</span>
+          <h4><span class="qicon">🍲</span> The First Pot</h4>
+          <p class="qobj">Cook real meals, not just roasts.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q2c1"><span>Fire a cooking pot</span></label></li>
+            <li><label><input type="checkbox" data-ck="q2c2"><span>Cook your first stew/soup in it</span></label></li>
+            <li><label><input type="checkbox" data-ck="q2c3"><span>Make a bedroll &amp; set your spawn</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Better nutrition, a saved spawn point, real comfort.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH3 -->
+    <section class="doc" id="ch3">
+      <div class="chapter-head"><span class="chip">Chapter 3</span><p class="sec-index" style="margin:0">Copper age · requires Ch.2</p></div>
+      <h2>The Red Metal</h2>
+      <p>Copper is the real start of the game: stone can't mine ore, so a cast copper pickaxe unlocks mining itself. Deep-dive: <a href="vs-metalworking.html">Fire &amp; Metal</a> and <a href="vs-crafting.html#casting">casting</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#d98a45">
+          <span class="qkind">Quest · Prospect</span>
+          <h4><span class="qicon">🪙</span> First Strike</h4>
+          <p class="qobj">Find your first copper.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q3a1"><span>Collect surface copper nuggets / native copper</span></label></li>
+            <li><label><input type="checkbox" data-ck="q3a2"><span>Identify a copper ore (malachite, etc.)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Enough copper to pour your first tools.</p>
+        </div>
+        <div class="quest" style="--qac:#d98a45">
+          <span class="qkind">Quest · Cast</span>
+          <h4><span class="qicon">🌋</span> The First Pour</h4>
+          <p class="qobj">Smelt and cast copper.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q3b1"><span>Smelt copper in the crucible over a fire pit</span></label></li>
+            <li><label><input type="checkbox" data-ck="q3b2"><span>Cast a copper ingot</span></label></li>
+            <li><label><input type="checkbox" data-ck="q3b3"><span>Cast a copper pickaxe</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A pickaxe — you can finally <em>mine ore veins</em>.</p>
+        </div>
+        <div class="quest" style="--qac:#d98a45">
+          <span class="qkind">Quest · Smith</span>
+          <h4><span class="qicon">🛠️</span> The Smith Awakens</h4>
+          <p class="qobj">Stand up your first metalworking station.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q3c1"><span>Cast (or otherwise obtain) a copper anvil</span></label></li>
+            <li><label><input type="checkbox" data-ck="q3c2"><span>Build a forge to heat metal</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> An anvil + forge: the foundation for all smithing to come.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH4 -->
+    <section class="doc" id="ch4">
+      <div class="chapter-head"><span class="chip">Chapter 4</span><p class="sec-index" style="margin:0">Bronze age · requires Ch.3</p></div>
+      <h2>The Alloy Age</h2>
+      <p>Copper alone won't reach iron — you need a <strong>bronze</strong> anvil first. Gather alloy metals and mix them in the crucible. Recipes: <a href="vs-metalworking.html">Fire &amp; Metal → Alloying</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#caa15e">
+          <span class="qkind">Quest · Gather</span>
+          <h4><span class="qicon">⛏️</span> Gather the Alloys</h4>
+          <p class="qobj">Find what copper needs to become bronze.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q4a1"><span>Mine tin (cassiterite) — for tin bronze</span></label></li>
+            <li><label><input type="checkbox" data-ck="q4a2"><span>Or gather zinc + bismuth, or gold + silver</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> The ingredients for whichever bronze your map offers.</p>
+        </div>
+        <div class="quest" style="--qac:#caa15e">
+          <span class="qkind">Quest · Alloy</span>
+          <h4><span class="qicon">🔶</span> Bronze Casting</h4>
+          <p class="qobj">Mix and pour bronze.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q4b1"><span>Crucible-mix a bronze (e.g. tin bronze 88–92% Cu)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q4b2"><span>Cast a bronze anvil</span></label></li>
+            <li><label><input type="checkbox" data-ck="q4b3"><span>Cast a bronze pickaxe &amp; tool set</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A bronze anvil — the gate that lets you work iron.</p>
+        </div>
+        <div class="quest" style="--qac:#caa15e">
+          <span class="qkind">Quest · Defend</span>
+          <h4><span class="qicon">🛡️</span> First Armor</h4>
+          <p class="qobj">Stop dying to wolves.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q4c1"><span>Tan leather &amp; craft a non-metal armor set</span></label></li>
+            <li><label><input type="checkbox" data-ck="q4c2"><span>Or smith a brigandine set (leather + plates)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Real protection — see <a href="vs-clothing-cold.html#armor">Warmth &amp; Wear</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH5 -->
+    <section class="doc" id="ch5">
+      <div class="chapter-head"><span class="chip">Chapter 5</span><p class="sec-index" style="margin:0">Iron age · requires Ch.4</p></div>
+      <h2>The Bloom</h2>
+      <p>Iron isn't cast — it's smelted into a bloom and <strong>hammered</strong> into shape. First you need charcoal. Deep-dive: <a href="vs-metalworking.html">Fire &amp; Metal → Bloomery</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#b9bcc4">
+          <span class="qkind">Quest · Fuel</span>
+          <h4><span class="qicon">🪵</span> Charcoal Burner</h4>
+          <p class="qobj">Make the high-heat fuel iron demands.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q5a1"><span>Build a charcoal pit (logs under soil)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q5a2"><span>Burn it down to charcoal</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A charcoal stockpile — fuel for bloomery, forge &amp; steel.</p>
+        </div>
+        <div class="quest" style="--qac:#b9bcc4">
+          <span class="qkind">Quest · Smelt</span>
+          <h4><span class="qicon">🔩</span> The Bloomery</h4>
+          <p class="qobj">Pull iron out of the earth.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q5b1"><span>Find iron ore (bog-iron limonite is easiest)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q5b2"><span>Build a bloomery &amp; smelt ore into an iron bloom</span></label></li>
+            <li><label><input type="checkbox" data-ck="q5b3"><span>Hammer the bloom into wrought-iron ingots</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Wrought iron — tools &amp; armor a tier above bronze.</p>
+        </div>
+        <div class="quest" style="--qac:#b9bcc4">
+          <span class="qkind">Quest · Equip</span>
+          <h4><span class="qicon">⚒️</span> Iron Outfit</h4>
+          <p class="qobj">Re-tool in iron.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q5c1"><span>Smith iron tools (pickaxe, axe, saw…)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q5c2"><span>Smith an iron anvil (needed for steel)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> An iron anvil — the prerequisite for the Steel Age.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH6 -->
+    <section class="doc" id="ch6">
+      <div class="chapter-head"><span class="chip">Chapter 6</span><p class="sec-index" style="margin:0">Steel age · requires Ch.5</p></div>
+      <h2>The Crucible of Steel</h2>
+      <p>The endgame metal. Carburize iron in a cementation furnace into blister steel, then hammer it into steel. Deep-dive: <a href="vs-metalworking.html">Fire &amp; Metal → Steel</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#7fd7e8">
+          <span class="qkind">Quest · Industry</span>
+          <h4><span class="qicon">🏭</span> Industrial Heat</h4>
+          <p class="qobj">Scale up your iron pipeline.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q6a1"><span>Build a blast furnace for efficient iron</span></label></li>
+            <li><label><input type="checkbox" data-ck="q6a2"><span>Build a pulverizer (boosts ore yield; needed for steel)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Faster iron and the crushing step steelmaking needs.</p>
+        </div>
+        <div class="quest" style="--qac:#7fd7e8">
+          <span class="qkind">Quest · Carburize</span>
+          <h4><span class="qicon">🔥</span> Cementation</h4>
+          <p class="qobj">Make steel the historical way.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q6b1"><span>Build a cementation furnace</span></label></li>
+            <li><label><input type="checkbox" data-ck="q6b2"><span>Pack iron + charcoal &amp; fire it (~6.67 days) for blister steel</span></label></li>
+            <li><label><input type="checkbox" data-ck="q6b3"><span>Hammer blister steel into steel ingots</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Steel — the top tier of tools and armor.</p>
+        </div>
+        <div class="quest" style="--qac:#7fd7e8">
+          <span class="qkind">Quest · Master</span>
+          <h4><span class="qicon">🗡️</span> Steel-Clad</h4>
+          <p class="qobj">Wear the crown of the tech tree.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q6c1"><span>Smith a full set of steel tools</span></label></li>
+            <li><label><input type="checkbox" data-ck="q6c2"><span>Smith steel plate (or scale) armor</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> The strongest gear in the game. You've "beaten" metallurgy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH7 -->
+    <section class="doc" id="ch7">
+      <div class="chapter-head"><span class="chip">Chapter 7</span><p class="sec-index" style="margin:0">Industry · requires Ch.3+ (best with Ch.5)</p></div>
+      <h2>The Turning World</h2>
+      <p>Stop grinding by hand. Build a mechanical network and let wind or water do the work. Deep-dive: <a href="vs-mechanical-power.html">The Turning World</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Grind</span>
+          <h4><span class="qicon">🌾</span> First Motion</h4>
+          <p class="qobj">Mechanize a single chore.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q7a1"><span>Build a quern &amp; grind grain into flour</span></label></li>
+            <li><label><input type="checkbox" data-ck="q7a2"><span>Build a grindstone for tool upkeep</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Flour (→ bread) and sharper tools.</p>
+        </div>
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Generate</span>
+          <h4><span class="qicon">🌬️</span> Harness Nature</h4>
+          <p class="qobj">Build a power source.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q7b1"><span>Raise a windmill (sails) or a 1.22 waterwheel</span></label></li>
+            <li><label><input type="checkbox" data-ck="q7b2"><span>Route power with axles &amp; angled gears</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A turning network you can hang machines off.</p>
+        </div>
+        <div class="quest" style="--qac:#4fc7bb">
+          <span class="qkind">Quest · Automate</span>
+          <h4><span class="qicon">🔨</span> The Helve Hammer</h4>
+          <p class="qobj">Automate the anvil.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q7c1"><span>Power a helve hammer (≈2–3 sail sets)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q7c2"><span>Auto-work blooms / blister steel with it</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Hands-free iron &amp; steel working — a huge time saver.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH8 -->
+    <section class="doc" id="ch8">
+      <div class="chapter-head"><span class="chip">Chapter 8</span><p class="sec-index" style="margin:0">Homestead · runs alongside Ch.2+</p></div>
+      <h2>Hearth &amp; Harvest</h2>
+      <p>A fed, warm, well-stocked home is what carries you through winter and the late game. Deep-dives: <a href="vs-food.html">The Larder</a>, <a href="vs-structures.html">The Homestead</a>, <a href="vs-clothing-cold.html">Warmth &amp; Wear</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#86b35a">
+          <span class="qkind">Quest · Farm</span>
+          <h4><span class="qicon">🌱</span> The Farmer</h4>
+          <p class="qobj">Grow your own food.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q8a1"><span>Till soil with a hoe &amp; plant crops</span></label></li>
+            <li><label><input type="checkbox" data-ck="q8a2"><span>Harvest &amp; replant; manage N/P/K with rotation</span></label></li>
+            <li><label><input type="checkbox" data-ck="q8a3"><span>Fertilize (compost/bone meal/saltpeter/potash)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A renewable food supply across all five nutrition groups.</p>
+        </div>
+        <div class="quest" style="--qac:#86b35a">
+          <span class="qkind">Quest · Preserve</span>
+          <h4><span class="qicon">🧊</span> The Cellar</h4>
+          <p class="qobj">Stop your food from rotting.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q8b1"><span>Build a high-scoring food cellar (no skylight, cool)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q8b2"><span>Seal meals in crocks; salt meat / dry fish</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Food that lasts a whole winter.</p>
+        </div>
+        <div class="quest" style="--qac:#86b35a">
+          <span class="qkind">Quest · Endure</span>
+          <h4><span class="qicon">🧥</span> Survive a Winter</h4>
+          <p class="qobj">Beat the season that kills new players.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q8c1"><span>Craft a warm fur/wool clothing set</span></label></li>
+            <li><label><input type="checkbox" data-ck="q8c2"><span>Survive a full winter on stored food &amp; warmth</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Proof your homestead is self-sufficient year-round.</p>
+        </div>
+        <div class="quest" style="--qac:#86b35a">
+          <span class="qkind">Quest · Husbandry</span>
+          <h4><span class="qicon">🐑</span> The Farmstead</h4>
+          <p class="qobj">Domesticate animals.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q8d1"><span>Tame &amp; breed animals with a trough</span></label></li>
+            <li><label><input type="checkbox" data-ck="q8d2"><span>Get a renewable source of wool/eggs/milk/meat</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Renewable hides, wool &amp; food — see <a href="vs-creatures.html">The Bestiary</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH9 -->
+    <section class="doc" id="ch9">
+      <div class="chapter-head"><span class="chip">Chapter 9</span><p class="sec-index" style="margin:0">Temporal · escalates all game</p></div>
+      <h2>Against the Storm</h2>
+      <p>Reality itself is unstable here. Learn to manage stability and weather the temporal storms. Deep-dive: <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#d65b39">
+          <span class="qkind">Quest · Stability</span>
+          <h4><span class="qicon">⚙️</span> The Gear</h4>
+          <p class="qobj">Get your hands on a temporal gear.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q9a1"><span>Obtain a temporal gear (drifter drop or trader)</span></label></li>
+            <li><label><input type="checkbox" data-ck="q9a2"><span>Use gear + knife to restore ~30% stability</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> An emergency stability reset — and a translocator key.</p>
+        </div>
+        <div class="quest" style="--qac:#d65b39">
+          <span class="qkind">Quest · Survive</span>
+          <h4><span class="qicon">🌀</span> Weather the Storm</h4>
+          <p class="qobj">Live through a temporal storm.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q9b1"><span>Storm-proof a sealed, lit base with chokepoints</span></label></li>
+            <li><label><input type="checkbox" data-ck="q9b2"><span>Survive a full temporal storm</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Confidence that storms can't wipe your run.</p>
+        </div>
+        <div class="quest" style="--qac:#d65b39">
+          <span class="qkind">Quest · Delve</span>
+          <h4><span class="qicon">🕯️</span> Into the Deep</h4>
+          <p class="qobj">Mine deep without losing your mind (or HP).</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q9c1"><span>Mine into low-stability depths &amp; manage it</span></label></li>
+            <li><label><input type="checkbox" data-ck="q9c2"><span>Survive an encounter with deep drifters / a rift</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Access to the deep ores — and the nerve to use it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH10 -->
+    <section class="doc" id="ch10">
+      <div class="chapter-head"><span class="chip">Chapter 10</span><p class="sec-index" style="margin:0">Endgame · requires good gear</p></div>
+      <h2>The Wayfarer</h2>
+      <p>The world is full of ruins, traders, teleporters and a buried story. Go find it. Deep-dive: <a href="vs-locations.html">Ruins &amp; Wayfarers</a>.</p>
+      <div class="quest-grid">
+        <div class="quest" style="--qac:#9b86e0">
+          <span class="qkind">Quest · Loot</span>
+          <h4><span class="qicon">🏚️</span> Ruins &amp; Relics</h4>
+          <p class="qobj">Plunder the past.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q10a1"><span>Explore a surface or underground ruin</span></label></li>
+            <li><label><input type="checkbox" data-ck="q10a2"><span>Break cracked vessels for loot &amp; rare seeds</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Rare seeds (cabbage!), tools and gears.</p>
+        </div>
+        <div class="quest" style="--qac:#9b86e0">
+          <span class="qkind">Quest · Trade</span>
+          <h4><span class="qicon">💰</span> The Trader</h4>
+          <p class="qobj">Do business with a caravan.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q10b1"><span>Find a trader &amp; sell your surplus</span></label></li>
+            <li><label><input type="checkbox" data-ck="q10b2"><span>Buy something you can't make (rare seeds, gears)</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> A money economy and access to scarce goods.</p>
+        </div>
+        <div class="quest" style="--qac:#9b86e0">
+          <span class="qkind">Quest · Travel</span>
+          <h4><span class="qicon">🌌</span> The Translocator</h4>
+          <p class="qobj">Bend distance to your will.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q10c1"><span>Find &amp; repair/power a translocator</span></label></li>
+            <li><label><input type="checkbox" data-ck="q10c2"><span>Travel through it &amp; secure both ends</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Fast travel across the map — and a thread of the story.</p>
+        </div>
+        <div class="quest" style="--qac:#9b86e0">
+          <span class="qkind">Quest · Conquer</span>
+          <h4><span class="qicon">🗝️</span> The Dynamic Dungeon</h4>
+          <p class="qobj">Clear 1.22's marquee challenge.</p>
+          <ul class="qtasks">
+            <li><label><input type="checkbox" data-ck="q10d1"><span>Find the new dynamic dungeon</span></label></li>
+            <li><label><input type="checkbox" data-ck="q10d2"><span>Clear it in full steel &amp; claim the loot</span></label></li>
+          </ul>
+          <p class="reward"><b>Reward</b> Endgame loot and bragging rights. The Almanac is complete.</p>
+        </div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Finished the book?</span>
+        <p>If every box above is ticked, you've done essentially everything the base game asks of you — and you can read it back as a story in your <a href="vs-locations.html">Diary</a>. From here the game is yours: grand builds, deep automation, and the lore you choose to chase.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Questline</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      A companion in the spirit of FTB Quests; Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a> and ships no quest book of its own.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Progress saves to this browser.<br>
+      Pair with:<br>
+      · <a href="vs-progression.html">The Long Road</a> (continuous ladder)<br>
+      · <a href="vs-getting-started.html">The First Day</a> (Chapter 1 in full)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">This is a fan-made quest companion, not an in-game mod. Numbers (alloy ratios, timings) are config-tunable and version-dependent; the in-game Survival Handbook and the wiki are ground truth.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  /* no schematic; importing runs the shared nav, pager + the questline's saved checklist */
+</script>
+</body>
+</html>

@@ -28,7 +28,16 @@
     background-attachment:fixed; min-height:100vh; -webkit-text-size-adjust:100%;
   }
   .wrap{max-width:1120px; margin:0 auto; padding:0 clamp(16px,4vw,22px)}
-  header.hero{padding:clamp(54px,11vw,112px) 0 24px}
+  header.hero{padding:clamp(54px,11vw,112px) 0 24px; position:relative; overflow:hidden; isolation:isolate}
+  header.hero > *{position:relative; z-index:1}
+  header.hero::before{content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.8;
+    background:
+      radial-gradient(circle at 93% 18%, transparent 44px, rgba(79,199,187,.13) 46px, transparent 50px),
+      radial-gradient(circle at 93% 18%, transparent 70px, rgba(79,199,187,.13) 72px, transparent 77px),
+      radial-gradient(circle at 93% 18%, transparent 96px, rgba(79,199,187,.13) 98px, transparent 104px),
+      repeating-linear-gradient(116deg, transparent 0 33px, rgba(79,199,187,.06) 33px 34px);
+    -webkit-mask:linear-gradient(180deg,#000 26%,transparent 92%); mask:linear-gradient(180deg,#000 26%,transparent 92%)}
+  @media (max-width:760px){header.hero::before{opacity:.5}}
   .eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--teal); margin:0 0 14px}
   h1{font-family:var(--f-display); font-size:clamp(2.3rem,6.4vw,4rem); line-height:1.04; margin:0; letter-spacing:.01em; font-weight:800;
      background:linear-gradient(180deg,#fff 35%,#cdb184); -webkit-background-clip:text; background-clip:text; color:transparent}
@@ -75,11 +84,12 @@
     <h1>The Drifter's<br>Almanac</h1>
     <p class="lede">A complete, interactive field guide to <strong>Vintage Story</strong> — the cold, beautiful, unforgiving survival game where you start with nothing but your hands and a sharp eye for a flint nodule, and end forging steel under a windmill while the temporal storms roll in.</p>
     <div class="stat-row">
-      <span class="chip"><b>12</b> guides</span>
+      <span class="chip"><b>14</b> guides</span>
       <span class="chip"><b>Stone → Steel</b> progression</span>
+      <span class="chip">FTB-Quests-style book</span>
       <span class="chip">v<b>1.22.3</b></span>
       <span class="chip">Interactive build plans</span>
-      <span class="chip">iPad-friendly</span>
+      <span class="chip">iPad-friendly · printable</span>
     </div>
     <p class="intro">This almanac assumes the defaults most players start with: a <b>Standard</b> world preset and the <b>Commoner</b> class — the all-rounder with no bonuses and no penalties. Every page is a self-contained chapter you can read end-to-end, with clear step-by-step <b>How-Tos</b>, real numbers, interactive top-down <b>build schematics</b>, and a tickable progression you can carry from your first knapped knife to the cementation furnace. Pick a door.</p>
   </header>
@@ -100,6 +110,13 @@
         <span class="sub">Stone → Copper → Bronze → Iron → Steel</span>
         <p>The entire metal-age progression as one interactive, browser-saved checklist with a live progress meter — every gate, every tool, every furnace, in the exact order you should build them.</p>
         <span class="go">Walk the road</span>
+      </a>
+      <a class="card" style="--ac:var(--amber)" href="vs-questline.html">
+        <span class="tag"><span class="emoji">📜</span> FTB-Quests-style · guided</span>
+        <h2>The Questline</h2>
+        <span class="sub">10 chapters · tickable objectives + rewards</span>
+        <p>A whole quest book in the spirit of FTB Quests — 10 chapters of objectives with rewards, from your first knife to the dynamic dungeon. Progress saves in your browser. Vintage Story ships no quest book, so here's one.</p>
+        <span class="go">Open the book</span>
       </a>
     </div>
   </section>
@@ -154,6 +171,13 @@
         <span class="sub">Prey · predators · drifters · livestock</span>
         <p>Every creature you'll meet — hares to bears, drifters to locusts — their damage tiers, behaviour and drops, plus how to tame, breed and butcher livestock.</p>
         <span class="go">Read the bestiary</span>
+      </a>
+      <a class="card" style="--ac:var(--teal)" href="vs-clothing-cold.html">
+        <span class="tag"><span class="emoji">🧥</span> Body heat &amp; protection</span>
+        <h2>Warmth &amp; Wear</h2>
+        <span class="sub">Cold · clothing warmth · armor tiers</span>
+        <p>The two systems that decide if you see spring: body temperature &amp; cold damage, clothing warmth values and winter prep, plus the eight armor types across three slots and how protection tiers work.</p>
+        <span class="go">Dress for it</span>
       </a>
     </div>
   </section>

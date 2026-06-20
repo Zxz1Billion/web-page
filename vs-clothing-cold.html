@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Warmth &amp; Wear — Vintage Story body heat, clothing &amp; armor (v1.22.3)</title>
+<meta name="description" content="A complete Vintage Story 1.22.3 guide to staying warm and staying protected: body temperature and cold damage, clothing warmth values, surviving winter, the eight armor types across the three armor slots, protection tiers, and the leather/linen/wool materials behind it all." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🧥</span>
+      <span class="wordmark">Warmth &amp;<br>Wear<small>BODY HEAT · CLOTHING · ARMOR</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Staying alive</p>
+      <a href="#overview"><span class="ix">00</span> Two Systems, Same Body</a>
+      <a href="#cold"><span class="ix">01</span> Body Temperature &amp; Cold</a>
+      <a href="#warmth"><span class="ix">02</span> Clothing for Warmth</a>
+      <a href="#winter"><span class="ix">03</span> Surviving Winter</a>
+      <p class="group-label">Staying whole</p>
+      <a href="#armor"><span class="ix">04</span> The Armor System</a>
+      <a href="#materials"><span class="ix">05</span> Leather, Linen &amp; Wool</a>
+      <a href="#upkeep"><span class="ix">06</span> Wear &amp; Upkeep</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Warmth values, armor numbers and<br>cold thresholds are config-tunable<br>(and depend on "true winters") —<br>the in-game tooltips win.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Survival</p>
+      <h1>Warmth &amp; Wear</h1>
+      <p class="lede">Two invisible bars decide whether you see spring: how <strong>warm</strong> your body is, and how well your gear stops a claw. They share the same clothing screen but pull in opposite directions — fur keeps the cold out, plate keeps the teeth out, and a desert in summer punishes both. Here's how heat and armor actually work, and how to dress for the season and the fight.</p>
+      <div class="badges">
+        <span class="badge accent">Body temperature</span>
+        <span class="badge">Clothing &amp; warmth</span>
+        <span class="badge">8 armor types</span>
+        <span class="badge danger">❄ Winter can freeze you to death</span>
+      </div>
+      <div class="facts">
+        <div class="f"><div class="k">Target body temp</div><div class="v">37°C <small>keep at/above</small></div></div>
+        <div class="f"><div class="k">Cold damage below</div><div class="v">~0°C <small>unclothed, default</small></div></div>
+        <div class="f"><div class="k">Full fur set ≈</div><div class="v">+6.5°C <small>warmth</small></div></div>
+        <div class="f"><div class="k">Armor slots</div><div class="v">3 <small>head · body · legs</small></div></div>
+      </div>
+    </header>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — Orientation</p>
+      <h2>Two Systems, Same Body</h2>
+      <p class="lead">Your equipment screen feeds two completely different survival systems, and confusing them gets people killed in their first winter.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">heat</span><h4>Warmth (clothing)</h4><p>Worn <strong>clothing</strong> adds <em>warmth</em>, which fights cold damage. This is about <strong>surviving the climate</strong> — winter, night, altitude, rain and wind. Fur and wool are king.</p></div>
+        <div class="card"><span class="tag">defense</span><h4>Protection (armor)</h4><p>Worn <strong>armor</strong> in the head/body/legs slots reduces incoming <em>damage</em>. This is about <strong>surviving fights</strong> — wolves, bears, drifters. Metal plate is king.</p></div>
+        <div class="card"><span class="tag">tension</span><h4>The trade-off</h4><p>Heavy metal armor protects but slows you and offers little warmth; thick furs warm you but aren't armor. You balance both for the season and the threat.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Read the tooltip — always</span>
+        <p>Hover any clothing/armor piece and the tooltip shows its <strong>warmth</strong> (in green °C) and its <strong>protection</strong> stats. Those tooltips are ground truth; the numbers below are representative defaults for a Standard world.</p>
+      </div>
+    </section>
+
+    <!-- 01 COLD -->
+    <section class="doc" id="cold">
+      <p class="sec-index">01 — The climate is trying to kill you</p>
+      <h2>Body Temperature &amp; Cold</h2>
+      <p>With <strong>true winters</strong> enabled (the default on Standard), your <strong>body temperature</strong> must stay at about <strong>37°C</strong>. Let it fall and you take steadily mounting <strong>cold damage</strong> — prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you begin taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
+
+      <h3>What pushes your temperature down</h3>
+      <ul>
+        <li><strong>Season &amp; latitude.</strong> Winter is the obvious threat; colder regions (toward the poles, or at altitude) are dangerous year-round.</li>
+        <li><strong>Night.</strong> Temperatures fall sharply after dark, even in mild seasons.</li>
+        <li><strong>Wetness.</strong> Being rained on or swimming chills you fast — a soaked seraph loses heat much quicker. Wear a hat / take cover in rain.</li>
+        <li><strong>Wind &amp; exposure.</strong> Open, exposed terrain bleeds heat; walls and shelter blunt it.</li>
+      </ul>
+
+      <h3>What warms you back up</h3>
+      <ul>
+        <li><strong>Clothing warmth</strong> — the main, portable defence (next section).</li>
+        <li><strong>Heat sources</strong> — standing near a lit <strong>fire pit</strong>, forge or hearth raises your temperature; an enclosed, fire-lit room stays livable through a cold night.</li>
+        <li><strong>Being indoors / out of wind &amp; rain</strong> — shelter alone buys you a lot.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="label">You can also over-heat</span>
+        <p>Warmth isn't a free stat to stack. In hot biomes or high summer, wearing a full fur kit can push you the other way into <strong>heat</strong> discomfort. Keep a light linen set for warm seasons and swap into furs for the cold — dressing for the season is the whole game.</p>
+      </div>
+    </section>
+
+    <!-- 02 WARMTH -->
+    <section class="doc" id="warmth">
+      <p class="sec-index">02 — Dress for the cold</p>
+      <h2>Clothing for Warmth</h2>
+      <p>Each worn clothing piece offsets the effective temperature by its <strong>warmth</strong> value (shown in green on the tooltip), and the pieces <strong>add up</strong>. Condition matters: a worn-down garment gives less than a fresh one.</p>
+
+      <div class="note">
+        <span class="label">Worked example (from the game's own numbers)</span>
+        <p>A full set of <strong>fur</strong> clothes in <em>Good</em> condition might read <strong>+3.0, +2.0, +1.5</strong> across pieces — a combined <strong>+6.5°C</strong> of warmth. That lets you stand outside temperatures as cold as about <strong>−6.5°C</strong> before cold damage begins. Push your total warmth toward <strong>~10</strong> and your body holds near 37.8°C until the ambient temperature drops below roughly 10°C.</p>
+      </div>
+
+      <h3>Relative warmth by material</h3>
+      <p>Exact values vary by slot, garment and condition, but the ranking is stable:</p>
+      <div class="warmth"><span class="lab">Fur</span><span class="track"><span class="lvl" style="width:100%"></span></span><span class="num">warmest</span></div>
+      <div class="warmth"><span class="lab">Wool</span><span class="track"><span class="lvl" style="width:78%"></span></span><span class="num">warm</span></div>
+      <div class="warmth"><span class="lab">Leather</span><span class="track"><span class="lvl" style="width:52%"></span></span><span class="num">mid</span></div>
+      <div class="warmth"><span class="lab">Linen (flax)</span><span class="track"><span class="lvl" style="width:30%"></span></span><span class="num">light</span></div>
+      <div class="warmth"><span class="lab">Bare skin</span><span class="track"><span class="lvl" style="width:6%"></span></span><span class="num">none</span></div>
+
+      <h3>How to dress</h3>
+      <ol class="flow">
+        <li><strong>Fill every clothing slot.</strong> There are many slots (head, face, neck, upper/lower body, arms, hands, legs, feet…); each empty slot is warmth left on the table. Even cheap linen on every slot beats a fur coat with bare legs.</li>
+        <li><strong>Match the season.</strong> A <strong>fur</strong> set for winter and cold biomes; a light <strong>linen</strong> set for summer/deserts. Carry both once you can.</li>
+        <li><strong>Keep a hat on in rain.</strong> Staying dry preserves far more warmth than any single garment adds.</li>
+        <li><strong>Repair before they're ragged.</strong> Condition decays warmth; mend or replace pieces before a long cold spell.</li>
+      </ol>
+      <p>Tailoring clothing uses <strong>linen</strong> (from flax), <strong>wool</strong> (from sheep) and <strong>fur/leather</strong> (from animals) — see <a href="#materials">§05</a> and <a href="vs-creatures.html">The Bestiary</a> for husbandry. The <strong>Tailor</strong> class gets a head-start here, but a Commoner makes everything the same way.</p>
+    </section>
+
+    <!-- 03 WINTER -->
+    <section class="doc" id="winter">
+      <p class="sec-index">03 — The season that ends runs</p>
+      <h2>Surviving Winter</h2>
+      <p>Winter is Vintage Story's first true test of preparation. Crops stop and die, water freezes, foraging dries up, and the cold itself becomes lethal. You survive it by having gotten ready in autumn — not by reacting in the snow.</p>
+      <ol class="flow">
+        <li><strong>Fill the larder before the freeze.</strong> Harvest and <strong>preserve</strong> enough food to last the whole season — sealed crocks and a cold cellar, salted meat and dried fish. See <a href="vs-food.html">The Larder</a> and <a href="vs-structures.html#cellar">The Homestead → the cellar</a>.</li>
+        <li><strong>Make a fur (or wool) set.</strong> Hunt for hides, tan leather, and tailor warm clothing for every slot. Aim for a comfortable warmth buffer above your coldest expected nights.</li>
+        <li><strong>Build a heated, sealed shelter.</strong> Walls + a roof + a lit fire pit/hearth keeps the interior survivable. A door and no draughts; light also keeps drifters out.</li>
+        <li><strong>Stay dry, out of the wind, and close to home.</strong> Don't start a long expedition in deep winter. Bring fire-starting and emergency walling if you must travel.</li>
+        <li><strong>Plan your spring planting.</strong> Keep seeds (and consider a <a href="vs-structures.html#greenhouse">greenhouse</a>) so you can replant the moment the ground thaws.</li>
+      </ol>
+      <div class="note danger">
+        <span class="label">The classic death</span>
+        <p>A new player explores too far on a clear autumn day, gets caught by nightfall and the season's first hard freeze with no fur and no shelter, and freezes before reaching home. Don't be them: carry a fur layer and the means to wall up and light a fire, always.</p>
+      </div>
+    </section>
+
+    <!-- 04 ARMOR -->
+    <section class="doc" id="armor">
+      <p class="sec-index">04 — Surviving the fight</p>
+      <h2>The Armor System</h2>
+      <p>Armor is separate from warmth clothing and goes in three dedicated slots: <strong>Head</strong>, <strong>Body</strong> and <strong>Legs</strong>. There are <strong>eight</strong> armor types — four non-metal and four metal — and within the metal types the <em>metal tier</em> sets how much they protect.</p>
+
+      <div class="split">
+        <div>
+          <h4>Non-metal armor</h4>
+          <ul>
+            <li><strong>Improvised</strong> — scrap protection; better than nothing.</li>
+            <li><strong>Lamellar (wood)</strong> — early laced wooden plates.</li>
+            <li><strong>Leather</strong> — light, cheap, flexible.</li>
+            <li><strong>Gambeson</strong> — quilted cloth; surprisingly good, light, and a fine base layer.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Metal armor (by tier)</h4>
+          <ul>
+            <li><strong>Brigandine</strong> — leather jerkin + metal plates; available from the <em>copper age</em>. Balanced.</li>
+            <li><strong>Chain</strong> — mail; good vs cuts, flexible.</li>
+            <li><strong>Scale</strong> — overlapping scales; solid all-round.</li>
+            <li><strong>Plate</strong> — the tankiest; heaviest and slows you most.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>How protection works</h3>
+      <p>The model combines <strong>flat damage reduction</strong>, <strong>percent protection</strong>, and a <strong>tier</strong> comparison: a higher-tier metal gives both more flat reduction and a higher percentage, <em>and</em> resists higher-tier weapons better. So armor smithed from a better metal protects more — and protects especially well against the powerful, high-tier attacks of late-game foes.</p>
+      <div class="data-table">
+        <table>
+          <caption>Armor metals, lowest → highest protection (smith higher metals into better plates)</caption>
+          <thead><tr><th>Metal tier</th><th>Feel</th><th>When</th></tr></thead>
+          <tbody>
+            <tr><td>Copper</td><td>First real metal armor (brigandine).</td><td>Copper age</td></tr>
+            <tr><td>Bronze</td><td>Solid mid-game protection.</td><td>Bronze age</td></tr>
+            <tr><td>Iron</td><td>Markedly higher flat + % protection.</td><td>Iron age</td></tr>
+            <tr><td>Meteoric iron</td><td>Premium iron-class from sky-metal.</td><td>If you find a meteorite</td></tr>
+            <tr><td>Steel</td><td>The top tier — best protection vs the worst hits.</td><td>Endgame</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Pick a niche</h3>
+      <div class="data-table">
+        <table>
+          <caption>Choosing an armor style</caption>
+          <thead><tr><th>You want…</th><th>Reach for</th><th>Because</th></tr></thead>
+          <tbody>
+            <tr><td>Mobility &amp; cheapness</td><td>Gambeson / Leather</td><td>Light, no real movement penalty, easy to make.</td></tr>
+            <tr><td>Balanced early protection</td><td>Brigandine</td><td>Leather + metal plates; available from copper.</td></tr>
+            <tr><td>Maximum protection</td><td>Plate (iron/steel)</td><td>Highest flat + % reduction vs heavy hits — accept the weight.</td></tr>
+            <tr><td>A middle ground</td><td>Chain / Scale</td><td>Good protection with less penalty than full plate.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Heavier isn't always better</span>
+        <p>Plate's weight carries movement/stamina costs. Against fast packs (wolves, hyenas — see <a href="vs-creatures.html">The Bestiary</a>) the mobility of gambeson or chain can keep you alive better than the raw numbers of plate. Match armor to the threat, not just the tier list.</p>
+      </div>
+    </section>
+
+    <!-- 05 MATERIALS -->
+    <section class="doc" id="materials">
+      <p class="sec-index">05 — Where the gear comes from</p>
+      <h2>Leather, Linen &amp; Wool</h2>
+      <p>Both systems are built from the same handful of soft materials. Set up a steady supply and you can keep yourself warm and armored indefinitely.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">flax → linen</span><h4>Linen</h4><p>Grow <strong>flax</strong> (see <a href="vs-food.html">The Larder</a>), rett/process it into fibre and <strong>twine</strong>, then weave <strong>linen</strong> — light clothing and the base for gambeson.</p></div>
+        <div class="card"><span class="tag">sheep</span><h4>Wool</h4><p>Shear domesticated <strong>sheep</strong> for wool — warm clothing. Start a flock via <a href="vs-creatures.html">animal husbandry</a>.</p></div>
+        <div class="card"><span class="tag">hides → leather</span><h4>Leather</h4><p>Hunt or butcher animals for <strong>hides</strong>, then <strong>tan</strong> them: soak in a barrel with tannin (e.g. from bark) over several days. Leather makes armor (jerkins) and warm wear.</p></div>
+        <div class="card"><span class="tag">fur</span><h4>Fur</h4><p>The warmest clothing material, from the right animals. A fur set is your winter lifeline.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Tanning takes days — start early</span>
+        <p>Leather isn't instant: hides cure in a barrel of tannin solution over <strong>in-game days</strong>. Begin tanning in autumn so your winter armor and fur trim are ready before the first freeze. Metal plates for brigandine/scale/plate come from the forge — see <a href="vs-metalworking.html">Fire &amp; Metal</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 UPKEEP -->
+    <section class="doc" id="upkeep">
+      <p class="sec-index">06 — Keep it serviceable</p>
+      <h2>Wear &amp; Upkeep</h2>
+      <p>Clothing, armor and tools all degrade with use, and a degraded item underperforms — less warmth, less protection, less durability before it fails.</p>
+      <ul>
+        <li><strong>Clothing &amp; armor condition</strong> drops as you take hits and time passes; warmth and protection scale with condition, so keep your kit in good repair and carry spares for expeditions.</li>
+        <li><strong>Metal tools &amp; armor</strong> are maintained at the <strong>anvil</strong> — re-working/adding metal restores a worn metal item; a <strong>grindstone</strong> (hand-cranked or powered, see <a href="vs-mechanical-power.html">The Turning World</a>) sharpens and tends edges.</li>
+        <li><strong>Carry backups.</strong> A spare linen layer and a backup weapon weigh little and have saved many a run when the main kit fails far from home.</li>
+      </ul>
+      <div class="note">
+        <span class="label">Specifics vary by version &amp; settings</span>
+        <p>Exact repair mechanics, warmth values and armor numbers are config-tunable and shift between versions (and some packs add whetstones/repair kits). Treat this page as the shape of the systems; your in-game tooltips and the <a href="https://wiki.vintagestory.at/">wiki</a> are authoritative for precise figures.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">Warmth &amp; Wear</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · in-game clothing/armor tooltips<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your world's "true winters" setting
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Warmth values, cold thresholds and armor numbers are representative defaults and are config-tunable; cold damage depends on the "true winters" world setting. The in-game tooltips and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  /* no schematic on this page; importing runs the shared nav, pager + checklist chrome */
+</script>
+</body>
+</html>
