@@ -42,7 +42,7 @@ export function initWakeLock() {
   if (!supported()) return;                       // older iOS / unsupported: no button
   if (document.querySelector("[data-wake]")) return;
 
-  want = localStorage.getItem(KEY) === "1";
+  want = localStorage.getItem(KEY) !== "0"; // on by default; respects an explicit opt-out
 
   btn = document.createElement("button");
   btn.className = "wakelock";
