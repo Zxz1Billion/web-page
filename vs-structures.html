@@ -314,7 +314,7 @@
 </footer>
 
 <script type="module">
-  import { mountSchematic } from "./assets/js/vs-guide.js";
+  import { mountSchematic, mountIso } from "./assets/js/vs-guide.js";
 
   /* ---- shared inline grid helpers (canonical pattern) ---- */
   const grid = (n, fill = null) => Array.from({ length: n }, () => Array(n).fill(fill));
@@ -349,7 +349,7 @@
     y2[6][3] = "door";
     y2[3][6] = "window";
 
-    mountSchematic({
+    mountIso({
       title: "Starter House",
       subtitle: "cosy 7×7 · door · window · hearth · bed · storage",
       meta: { footprint: "7×7", height: "4" },
@@ -385,7 +385,7 @@
     y1[2][1] = "crock";  y1[2][3] = "crock";
     y1[3][1] = "vessel"; y1[3][3] = "vessel";
 
-    mountSchematic({
+    mountIso({
       title: "Food Cellar",
       subtitle: "enclosed 5×5 · one door · NO skylight · vessels + crocks",
       meta: { footprint: "5×5", height: "3" },
@@ -416,7 +416,7 @@
     const y2 = grid(5, "soil");
     y2[2][2] = "ignite";
 
-    mountSchematic({
+    mountIso({
       title: "Charcoal Pit",
       subtitle: "log core → full soil cover → ignite → smoulders to charcoal",
       meta: { footprint: "5×5", height: "3" },
@@ -455,7 +455,7 @@
     y1[1][4] = "rack";    // tool/ingot rack
     y1[2][4] = "rack";
 
-    mountSchematic({
+    mountIso({
       title: "Smithy",
       subtitle: "6×6 · forge ▸ anvil ▸ quench working triangle",
       meta: { footprint: "6×6", height: "3" },
@@ -483,7 +483,7 @@
     const y1 = ring(5, "glass", "farm");
     y1[4][2] = "door";
 
-    mountSchematic({
+    mountIso({
       title: "Greenhouse",
       subtitle: "glass shell over tilled farmland · grow through the cold",
       meta: { footprint: "5×5", height: "3" },

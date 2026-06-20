@@ -13,6 +13,7 @@
 import { initChrome } from "./guide-chrome.js";
 import { initSearch } from "./vs-search.js";
 export { mountSchematic, SchematicViewer } from "./schematic-viewer.js";
+export { mountIso, IsoViewer } from "./iso-viewer.js";
 
 /* The Drifter's Almanac, in reading order — drives the chapter pager. */
 const ALMANAC = [

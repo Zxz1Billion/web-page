@@ -300,7 +300,7 @@
 </footer>
 
 <script type="module">
-  import { mountSchematic } from "./assets/js/vs-guide.js";
+  import { mountSchematic, mountIso } from "./assets/js/vs-guide.js";
 
   const grid = (r, c, f = null) => Array.from({ length: r }, () => Array(c).fill(f));
   const ringRC = (r, c, edge, inner = null) => {
@@ -333,7 +333,7 @@
 
   /* ---- hip roof (shrinking layers) ---- */
   const ROOF = { sa:{label:"Shingle (dark)",color:"#8a4a35"}, sb:{label:"Shingle (rust)",color:"#a85a3f"}, ridge:{label:"Ridge cap",color:"#6e3a2a"} };
-  mountSchematic({ title:"Hip roof", subtitle:"7×7 · steps inward as it rises", meta:{footprint:"7×7", height:"4 courses"}, palette:ROOF, mode:"layers", segmented:false, coords:true,
+  mountIso({ title:"Hip roof", subtitle:"7×7 · steps inward as it rises", meta:{footprint:"7×7", height:"4 courses"}, palette:ROOF, mode:"layers", segmented:false, coords:true,
     frames:[
       { label:"Y0 · eaves", grid:innerSq(7,"sa",0), note:"The bottom course overhangs the walls by a block all round — the shadow it casts is what sells a pitched roof. Lay it on stairs/chiseled wedges, not flat." },
       { label:"Y1", grid:innerSq(7,"sa",1), note:"Step inward one block and rise one. Keep the slope continuous with stairs between courses." },
@@ -358,7 +358,7 @@
   const I = grid(6,7,"plank");
   I[0][3]="hearth"; I[2][2]="chair"; I[2][3]="table"; I[2][4]="chair"; I[3][3]="rug";
   I[5][0]="bed"; I[4][0]="bed"; I[0][6]="shelf"; I[1][6]="shelf"; I[5][6]="planter"; I[5][3]="barrel";
-  mountSchematic({ title:"Cozy interior", subtitle:"top-down · one-room layout", meta:{footprint:"7×6"}, palette:INT, mode:"layers", segmented:false, coords:true,
+  mountIso({ title:"Cozy interior", subtitle:"top-down · one-room layout", meta:{footprint:"7×6"}, palette:INT, mode:"layers", segmented:false, coords:true,
     frames:[{ label:"floor plan", note:"Hearth on the back wall, table + stools and a rug at the centre, bed in a corner, shelves/cabinet along one wall, storage as decor, and a planter by the window. Light it warmly.", grid:I }] }, "#interior-viewer");
 
   /* ---- the cottage (full multi-layer build) ---- */
@@ -367,7 +367,7 @@
   const c2 = ringRC(6,7,"cob"); c2[0][0]=c2[0][6]=c2[5][0]=c2[5][6]="logpost"; c2[2][0]=c2[3][0]=c2[2][6]=c2[3][6]="glass"; c2[0][2]=c2[0][4]="glass";
   const c3 = ringRC(6,7,"beam");
   const c5 = grid(6,7,null); for (let i=1;i<5;i++) for (let j=1;j<6;j++) c5[i][j]="shingle";
-  mountSchematic({ title:"The timber-frame cottage", subtitle:"full build · step through Y0 → Y5", meta:{footprint:"7×6", height:"6"}, palette:COT, mode:"layers", segmented:false, coords:true,
+  mountIso({ title:"The timber-frame cottage", subtitle:"full build · step through Y0 → Y5", meta:{footprint:"7×6", height:"6"}, palette:COT, mode:"layers", segmented:false, coords:true,
     frames:[
       { label:"Y0 · foundation", grid:solid(6,7,"cobble"), note:"Solid stone base course — lifts the build off the dirt and reads as 'grounded'." },
       { label:"Y1 · frame + door", grid:c1, note:"Cob/plaster walls with a timber post at each corner and a 1-wide door in the south wall." },
