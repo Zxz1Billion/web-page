@@ -46,7 +46,7 @@
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · Wind · Water · Gears</p>
       <h1>The Turning World</h1>
-      <p class="lede">Grinding grain by hand is fine for Day Three. By the time you are smithing steel you want the world to turn the crank for you. <strong>Mechanical power</strong> is a chain — a generator catches wind or water, axles and gears carry that rotation across your base, and a machine at the far end does the work. Master four parts and one rule, and a single windmill can grind your flour, sharpen your tools and hammer your steel while you sleep.</p>
+      <p class="lede">Grinding grain by hand is fine on Day Three. By the time you're smithing steel, automate it. <strong>Mechanical power</strong> is a chain. A generator catches wind or water, axles and gears carry that rotation across your base, and a machine at the far end does the work. Learn four parts and one rule. A single windmill can grind flour, sharpen tools, and hammer steel while you sleep.</p>
       <div class="badges">
         <span class="badge accent">Automation</span>
         <span class="badge">Windmills &amp; waterwheels</span>
@@ -65,19 +65,19 @@
     <section class="doc" id="overview">
       <p class="sec-index">00 — The principle</p>
       <h2>How A Network Works</h2>
-      <p class="lead">A mechanical network is a single chain of three roles, and every connected block spins at <strong>one shared speed</strong>. Get the picture of that chain in your head and everything else is just plumbing.</p>
+      <p class="lead">A mechanical network is a single chain of three roles. Every connected block spins at <strong>one shared speed</strong>. The rest is plumbing.</p>
       <div class="cards">
-        <div class="card"><span class="tag">source</span><h4>Generators</h4><p>Turn an outside force into rotation: a <strong>windmill</strong> catching wind, a <strong>waterwheel</strong> in flowing water, or your own arm on a hand crank. They supply <strong>torque</strong>.</p></div>
+        <div class="card"><span class="tag">source</span><h4>Generators</h4><p>Turn an outside force into rotation: a <strong>windmill</strong> in wind, a <strong>waterwheel</strong> in flowing water, or your arm on a hand crank. They supply <strong>torque</strong>.</p></div>
         <div class="card"><span class="tag">carry</span><h4>Transmission</h4><p><strong>Axles</strong> run rotation in a straight line; <strong>angled gears</strong> turn it 90° around corners; gearboxes, clutches and the small <strong>4-way hub</strong> split it, change ratios or toggle a branch.</p></div>
-        <div class="card"><span class="tag">work</span><h4>Consumers</h4><p>Machines that spend the power doing a job — the <strong>quern</strong>, <strong>grindstone</strong>, <strong>helve hammer</strong> and <strong>pulverizer</strong>. Each adds <strong>resistance</strong>.</p></div>
+        <div class="card"><span class="tag">work</span><h4>Consumers</h4><p>Machines that spend power on a job: the <strong>quern</strong>, <strong>grindstone</strong>, <strong>helve hammer</strong>, and <strong>pulverizer</strong>. Each adds <strong>resistance</strong>.</p></div>
       </div>
-      <p>The whole thing balances like a tug of war. Generators provide <strong>torque</strong>; every machine downstream adds <strong>resistance</strong>. If the torque available is greater than the total resistance, the network turns and does work. If the machines' combined resistance exceeds the torque, <strong>nothing moves at all</strong> — not just the overloaded machine, the entire shared network stalls.</p>
+      <p>The network balances like a tug of war. Generators provide <strong>torque</strong>; every machine downstream adds <strong>resistance</strong>. If torque exceeds total resistance, the network turns and does work. If combined resistance exceeds torque, <strong>nothing moves at all</strong>. The entire shared network stalls, not just the overloaded machine.</p>
       <div class="readout">network turns  ⟺  <b>torque available</b>  ≥  <b>Σ resistance of all engaged machines</b>
 stalls         ⟺  too many / too heavy machines for the wind you have</div>
-      <p>You connect the parts with <strong>axles</strong> — wooden first, metal later for longer, stronger runs — and you change direction with <strong>angled gears</strong>, which take a turning axle and hand the rotation off at 90° around a corner or up a wall.</p>
+      <p>Connect the parts with <strong>axles</strong>, wooden first and metal later for longer, stronger runs. Change direction with <strong>angled gears</strong>, which hand a turning axle's rotation off at 90° around a corner or up a wall.</p>
       <div class="note tip">
         <span class="label">One speed, shared</span>
-        <p>Because the network shares a single rotational speed, adding a slow heavy machine slows <em>everything</em>, and switching one off (with a clutch/toggle) speeds the rest back up. This is why on/off branches matter — you rarely want every machine engaged at once.</p>
+        <p>The network shares a single rotational speed, so adding a slow heavy machine slows <em>everything</em>, and switching one off (with a clutch/toggle) speeds the rest back up. On/off branches matter; you rarely want every machine engaged at once.</p>
       </div>
     </section>
 
@@ -85,25 +85,25 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
     <section class="doc" id="generators">
       <p class="sec-index">01 — The source</p>
       <h2>Generators</h2>
-      <p>A generator is whatever first puts torque into the chain. You have three, in roughly ascending order of effort and output.</p>
+      <p>A generator first puts torque into the chain. You have three, in roughly ascending order of effort and output.</p>
 
       <h3>Windmill — wind into rotation</h3>
-      <p>The windmill is the workhorse. It is a <strong>multiblock</strong>: a horizontal axle on a bearing, a <strong>rotor</strong> mounted on it, and one to several sets of <strong>sails</strong> — broad cloth blades made from sailcloth / fabric — arranged as a cross on the rotor. Wind pushes the sails, the rotor turns, and that rotation is fed into your axle network.</p>
+      <p>The windmill is the workhorse. It is a <strong>multiblock</strong>: a horizontal axle on a bearing, a <strong>rotor</strong> mounted on it, and one to several sets of <strong>sails</strong> arranged as a cross on the rotor. Sails are broad cloth blades made from sailcloth or fabric. Wind pushes the sails, the rotor turns, and that rotation feeds your axle network.</p>
       <ul>
-        <li><strong>More sail sets = more power.</strong> Each set you add increases the torque the windmill can deliver.</li>
-        <li><strong>Higher is windier.</strong> Wind strength rises with altitude, so a windmill on a tower or hilltop produces far more than one at sea level. Weather matters too — a storm is worth several calm days.</li>
+        <li><strong>More sail sets = more power.</strong> Each set adds torque the windmill can deliver.</li>
+        <li><strong>Higher is windier.</strong> Wind strength rises with altitude, so a windmill on a tower or hilltop produces far more than one at sea level. Weather matters too; a storm is worth several calm days.</li>
       </ul>
       <p>See schematic (C) below for how the sails sit as a <strong>+ cross</strong> on the rotor.</p>
 
       <h3>Waterwheel — flowing water into rotation <span class="vs-ver">new in 1.22</span></h3>
-      <p>New in 1.22, the <strong>waterwheel</strong> is the steady alternative to wind. It is driven by <strong>rapidly flowing water</strong> — the fast-flow water blocks introduced alongside it — and it arrived together with the small <strong>4-way hub</strong>. Power is taken off at the wheel's <strong>centre</strong> through that hub, which you then wire into the rest of your network. Where a windmill's output rises and falls with the weather, a wheel in a good flow gives you a dependable, near-constant turn.</p>
+      <p>New in 1.22, the <strong>waterwheel</strong> is the steady alternative to wind. It is driven by <strong>rapidly flowing water</strong>, the fast-flow water blocks introduced alongside it, and it arrived with the small <strong>4-way hub</strong>. Take power off at the wheel's <strong>centre</strong> through that hub, then wire it into your network. A windmill's output rises and falls with the weather; a wheel in a good flow gives a dependable, near-constant turn.</p>
 
       <h3>The hand crank — zero tech</h3>
-      <p>Before any of that, the humble <strong>hand crank</strong> on a quern is your generator: you are the engine. It costs no resources and powers exactly one quern, slowly, for as long as you hold the button. Fine for your first sacks of flour — but the moment you are grinding ore in bulk, build a windmill.</p>
+      <p>Before any of that, the <strong>hand crank</strong> on a quern is your generator. You are the engine. It costs no resources and powers one quern, slowly, for as long as you hold the button. Fine for your first sacks of flour. Once you're grinding ore in bulk, build a windmill.</p>
 
       <div class="note">
         <span class="label">Wind vs water, at a glance</span>
-        <p><strong>Windmill:</strong> easy to site anywhere with sky above; output swings with weather and altitude. <strong>Waterwheel:</strong> needs rapidly flowing water nearby; output is steady and reliable. Many bases run a windmill for headline power and keep a small wheel for a constant baseline.</p>
+        <p><strong>Windmill:</strong> sites anywhere with sky above; output swings with weather and altitude. <strong>Waterwheel:</strong> needs rapidly flowing water nearby; output is steady. Many bases run a windmill for headline power and keep a small wheel for a constant baseline.</p>
       </div>
     </section>
 
@@ -111,23 +111,23 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
     <section class="doc" id="transmission">
       <p class="sec-index">02 — Carrying the power</p>
       <h2>Transmission</h2>
-      <p>Transmission is how rotation gets from the generator to the machine. The pieces are simple and they snap together along the grid.</p>
+      <p>Transmission carries rotation from the generator to the machine. The pieces snap together along the grid.</p>
       <div class="data-table">
         <table>
           <caption>The transmission kit (wooden parts first; metal versions go further and faster)</caption>
           <thead><tr><th>Part</th><th>What it does</th><th>Use it to…</th></tr></thead>
           <tbody>
-            <tr><td><strong>Axle</strong></td><td>Carries rotation in a straight line along its length</td><td>Run power across, down or along — the spine of every network</td></tr>
+            <tr><td><strong>Axle</strong></td><td>Carries rotation in a straight line along its length</td><td>Run power across, down, or along; the spine of every network</td></tr>
             <tr><td><strong>Angled gear</strong></td><td>Transfers rotation through a 90° corner</td><td>Turn a corner, climb a wall, or feed a machine sideways</td></tr>
             <tr><td><strong>Gearbox / clutch</strong></td><td>Changes the gear ratio, or toggles a branch on/off</td><td>Trade speed for torque (or back), and disengage idle machines</td></tr>
             <tr><td><strong>Small 4-way hub</strong> <span class="vs-ver">1.22</span></td><td>Splits one input into multiple outputs at a junction</td><td>Drive several machines from one source; take power off a waterwheel's centre</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Two practical rules keep a network healthy:</p>
+      <p>Two rules keep a network healthy:</p>
       <ul>
-        <li><strong>Support your axle runs.</strong> Long unsupported spans want a block beneath or beside them at intervals; keep runs neat and bridged so they don't float awkwardly through your base.</li>
-        <li><strong>Toggle what you aren't using.</strong> A clutch on a branch lets you cut a heavy machine out of the shared network so the rest can spin up to full speed — essential once you have several consumers on one line.</li>
+        <li><strong>Support your axle runs.</strong> Long unsupported spans need a block beneath or beside them at intervals. Keep runs neat and bridged.</li>
+        <li><strong>Toggle what you aren't using.</strong> A clutch on a branch cuts a heavy machine out of the shared network so the rest can spin up to full speed. Essential once you have several consumers on one line.</li>
       </ul>
       <p>Schematic (A) below shows the canonical run: hub → a row of axles → an angled gear turning 90° → into a machine.</p>
     </section>
@@ -136,16 +136,16 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
     <section class="doc" id="consumers">
       <p class="sec-index">03 — Spending the power</p>
       <h2>Consumers</h2>
-      <p>These are the machines worth automating. Each one can be hand-driven in a pinch, but mechanical power is what turns them from chores into a standing workshop.</p>
+      <p>These machines are worth automating. Each can be hand-driven in a pinch, but mechanical power turns them from chores into a standing workshop.</p>
       <div class="cards">
-        <div class="card"><span class="tag">grind</span><h4>Quern</h4><p>The first machine you'll ever power. Grinds <strong>grain into flour</strong> and <strong>ores / rock into powders</strong>. Hand-crank it early, mechanize it the moment you're milling in volume. Flour feeds straight into <a href="vs-food.html">the kitchen</a>.</p></div>
-        <div class="card"><span class="tag">sharpen</span><h4>Grindstone</h4><p>Sharpens and repairs <strong>tool heads</strong>, restoring an edge so a good tool lasts far longer before it's spent. A light load — easy to add to an existing line.</p></div>
-        <div class="card"><span class="tag">forge</span><h4>Helve hammer</h4><p>Automates the anvil's worst grind: hammering <strong>blooms, ingots and blister steel</strong> flat. Enormous for iron and steel work — see <a href="vs-metalworking.html">the forge</a>. It is also the <strong>heaviest</strong> common consumer.</p></div>
-        <div class="card"><span class="tag">crush</span><h4>Pulverizer</h4><p>Crushes <strong>ore to boost yield</strong> and is a key link in the steel pipeline. Pair it with the helve hammer and you've mechanized the back half of <a href="vs-metalworking.html">metalworking</a>.</p></div>
+        <div class="card"><span class="tag">grind</span><h4>Quern</h4><p>The first machine you'll power. Grinds <strong>grain into flour</strong> and <strong>ores and rock into powders</strong>. Hand-crank it early; mechanize it once you're milling in volume. Flour feeds straight into <a href="vs-food.html">the kitchen</a>.</p></div>
+        <div class="card"><span class="tag">sharpen</span><h4>Grindstone</h4><p>Sharpens and repairs <strong>tool heads</strong>, restoring an edge so a tool lasts longer before it's spent. A light load, easy to add to an existing line.</p></div>
+        <div class="card"><span class="tag">forge</span><h4>Helve hammer</h4><p>Automates the anvil's worst grind: hammering <strong>blooms, ingots, and blister steel</strong> flat. Major for iron and steel work; see <a href="vs-metalworking.html">the forge</a>. It is also the <strong>heaviest</strong> common consumer.</p></div>
+        <div class="card"><span class="tag">crush</span><h4>Pulverizer</h4><p>Crushes <strong>ore to boost yield</strong> and is a key link in the steel pipeline. Pair it with the helve hammer to mechanize the back half of <a href="vs-metalworking.html">metalworking</a>.</p></div>
       </div>
       <div class="note tip">
         <span class="label">The smithy pair</span>
-        <p>The two machines that justify a windmill on their own are the <strong>helve hammer</strong> and the <strong>pulverizer</strong>: together they pull the grind out of making iron and steel. Put both near your forge and run a single line to them. See the <a href="#example">worked example</a> below.</p>
+        <p>The <strong>helve hammer</strong> and the <strong>pulverizer</strong> justify a windmill on their own. Together they pull the grind out of making iron and steel. Put both near your forge and run a single line to them. See the <a href="#example">worked example</a> below.</p>
       </div>
     </section>
 
@@ -153,16 +153,16 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
     <section class="doc" id="budget">
       <p class="sec-index">04 — The numbers</p>
       <h2>Power Budget</h2>
-      <p class="lead">The single most common beginner mistake is too little wind for too heavy a machine — usually the helve hammer. Here is roughly what it takes to move one, and why 1.22 made the whole thing far less twitchy.</p>
+      <p class="lead">A common beginner mistake is too little wind for too heavy a machine, usually the helve hammer. Here is roughly what it takes to move one, and why 1.22 made it less twitchy.</p>
       <div class="data-table">
         <table>
           <caption>Driving a helve hammer — sail sets vs wind (approximate; altitude and weather shift everything)</caption>
           <thead><tr><th>Sail sets</th><th>Wind</th><th>Result on a helve hammer</th></tr></thead>
           <tbody>
-            <tr><td><strong>1 set</strong></td><td>Storm, at sea level</td><td>Won't budge it — not enough torque, even in the strongest weather low down</td></tr>
+            <tr><td><strong>1 set</strong></td><td>Storm, at sea level</td><td>Won't budge it. Not enough torque, even in the strongest weather low down</td></tr>
             <tr><td><strong>~2 sets</strong></td><td>Strong breeze</td><td>Barely powers it; turns slowly and stutters when fully loaded</td></tr>
-            <tr><td><strong>~3 sets</strong></td><td>Medium breeze</td><td>Gets it moving reliably — the comfortable target for a working smithy</td></tr>
-            <tr><td>2–3 sets <strong>+ altitude</strong></td><td>Up high / on a tower</td><td>Best value: the same sails make much more power in the stronger high wind</td></tr>
+            <tr><td><strong>~3 sets</strong></td><td>Medium breeze</td><td>Gets it moving reliably; the comfortable target for a working smithy</td></tr>
+            <tr><td>2–3 sets <strong>+ altitude</strong></td><td>Up high / on a tower</td><td>Best value. The same sails make much more power in the stronger high wind</td></tr>
           </tbody>
         </table>
       </div>
@@ -172,15 +172,15 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
         <div class="f"><div class="k">Free multiplier</div><div class="v">Altitude <small>build high for stronger wind</small></div></div>
       </div>
       <h3>Generation — the actual numbers</h3>
-      <p>Power shows on the Block-Info HUD in <strong>kPa</strong>. A windmill's output is set by its sail count, the live wind speed (0–150%) and its height:</p>
+      <p>Power shows on the Block-Info HUD in <strong>kPa</strong>. A windmill's output is set by its sail count, the live wind speed (0–150%), and its height:</p>
       <div class="data-table">
         <table>
           <caption>Windmill &amp; waterwheel output (approximate; HUD shows live kPa)</caption>
           <thead><tr><th>Factor</th><th>Effect</th></tr></thead>
           <tbody>
             <tr><td>Per <strong>sail set</strong></td><td>≈ <strong>20 kPa</strong> base; each added set ≈ <strong>+20%</strong>. 1 set = 4 sails; <strong>max 5 sets</strong> per rotor</td></tr>
-            <tr><td><strong>Altitude</strong></td><td>+1% wind per block above ~10 over sea level, <strong>capping at +50%</strong> around 60 blocks up — free power, build high</td></tr>
-            <tr><td><strong>Turbulence</strong> <span class="vs-ver">1.22</span></td><td>A windmill disturbs air within 1.5× its sail diameter — space big windmills ~<strong>15 blocks</strong> apart</td></tr>
+            <tr><td><strong>Altitude</strong></td><td>+1% wind per block above ~10 over sea level, <strong>capping at +50%</strong> around 60 blocks up. Free power; build high</td></tr>
+            <tr><td><strong>Turbulence</strong> <span class="vs-ver">1.22</span></td><td>A windmill disturbs air within 1.5× its sail diameter. Space big windmills ~<strong>15 blocks</strong> apart</td></tr>
             <tr><td><strong>Waterwheel</strong> <span class="vs-ver">1.22</span></td><td>Strong, steady torque from <strong>rapidly-flowing water</strong>; built with <strong>two small 4-way hubs</strong> on an axle (no wind needed)</td></tr>
             <tr><td>Sailcloth cost</td><td>≈ 64 flax fibre per set (flax → twine → linen → sail), so a 5-set rotor ≈ 320 fibre</td></tr>
           </tbody>
@@ -201,12 +201,12 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
       </div>
       <div class="note tip">
         <span class="label">Splitting &amp; smoothing the network</span>
-        <p>A <strong>large wooden gear</strong> trades speed ↔ torque (and merges several sources or splits one to many). <strong>Spur gears</strong> <span class="vs-ver">1.22</span> split a power train at a flat <strong>1:1</strong> ratio without a big gear. A <strong>clutch</strong> beside a transmission toggles a branch on/off, so you can leave the helve hammer disengaged until you need it. Pushing speed far past what your torque supports just wastes power to resistance.</p>
+        <p>A <strong>large wooden gear</strong> trades speed for torque, and merges several sources or splits one to many. <strong>Spur gears</strong> <span class="vs-ver">1.22</span> split a power train at a flat <strong>1:1</strong> ratio without a big gear. A <strong>clutch</strong> beside a transmission toggles a branch on or off, so you can leave the helve hammer disengaged until you need it. Pushing speed past what your torque supports wastes power to resistance.</p>
       </div>
 
       <div class="note">
         <span class="label">Why 1.22 networks behave</span>
-        <p>The helve hammer used to charge an <strong>exponential power cost as its speed rose</strong> — push the speed up and the cost ballooned, so a network would surge, overload, stall, recover, and surge again. <strong>1.22 removed that exponential cost</strong>, so the hammer's draw is steady. Networks no longer oscillate; once you have enough sails to start it, it simply runs. Build to the table above and you're done.</p>
+        <p>The helve hammer used to charge an <strong>exponential power cost as its speed rose</strong>. Push the speed up and the cost ballooned, so a network would surge, overload, stall, recover, and surge again. <strong>1.22 removed that exponential cost</strong>, so the hammer's draw is steady. Networks no longer oscillate. Once you have enough sails to start it, it runs. Build to the table above and you're done.</p>
       </div>
     </section>
 
@@ -216,28 +216,28 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
       <h2>Build It</h2>
 
       <h3>Windmill → axle → angled gear → machine</h3>
-      <p>The classic first power line. Build the generator high, drop the power down, turn it into your workshop. Schematic (A) is this exact run, top-down.</p>
+      <p>The classic first power line. Build the generator high, drop the power down, and turn it into your workshop. Schematic (A) is this run, top-down.</p>
       <ol class="flow">
-        <li><strong>Place the bearing high, in open sky.</strong> Mount a windmill bearing / support on a tower or hilltop where the wind is strong and nothing blocks the sails. Higher is always more power.</li>
-        <li><strong>Attach 1–3 sail sets.</strong> Build the rotor on the bearing's horizontal axle and add sail sets — start with what you can afford, plan for ~3 if you'll run a helve hammer (see schematic C for the sail cross).</li>
+        <li><strong>Place the bearing high, in open sky.</strong> Mount a windmill bearing/support on a tower or hilltop where the wind is strong and nothing blocks the sails. Higher is always more power.</li>
+        <li><strong>Attach 1–3 sail sets.</strong> Build the rotor on the bearing's horizontal axle and add sail sets. Start with what you can afford; plan for ~3 if you'll run a helve hammer (see schematic C for the sail cross).</li>
         <li><strong>Run an axle down.</strong> Connect the windmill's output through axles down the tower toward your workshop, supporting the run as it goes.</li>
         <li><strong>Turn the corner with an angled gear.</strong> Where the vertical drop meets your floor, place an <strong>angled gear</strong> to redirect the rotation 90° into a horizontal axle run.</li>
-        <li><strong>Feed the machine.</strong> Carry that horizontal axle into the back of your quern / helve hammer / pulverizer. It spins; the machine works.</li>
+        <li><strong>Feed the machine.</strong> Carry that horizontal axle into the back of your quern, helve hammer, or pulverizer. It spins; the machine works.</li>
       </ol>
       <div id="windline-viewer"></div>
 
       <h3>Waterwheel → hub → network</h3>
-      <p>The steady option. Find moving water, drop the wheel in, take the power off the middle. Schematic (B) shows the wheel beside its flow with the central hub.</p>
+      <p>The steady option. Find moving water, drop the wheel in, and take the power off the middle. Schematic (B) shows the wheel beside its flow with the central hub.</p>
       <ol class="flow">
-        <li><strong>Find or make rapidly flowing water.</strong> You need the fast-flow water blocks — a steep natural stream, or build a channel and let water run rapidly down a drop beside where the wheel will sit.</li>
+        <li><strong>Find or make rapidly flowing water.</strong> You need the fast-flow water blocks: a steep natural stream, or a channel where water runs rapidly down a drop beside where the wheel will sit.</li>
         <li><strong>Place the waterwheel in the flow.</strong> Set the wheel so the rapidly flowing water drives its blades. A faster, deeper flow turns it harder.</li>
-        <li><strong>Take power off the centre via the hub.</strong> The wheel outputs through the small <strong>4-way hub</strong> at its centre — connect an axle there.</li>
-        <li><strong>Wire into your network.</strong> Run that axle (turning corners with angled gears as needed) to your machines, exactly as with a windmill. The hub can also split to several outputs.</li>
+        <li><strong>Take power off the centre via the hub.</strong> The wheel outputs through the small <strong>4-way hub</strong> at its centre. Connect an axle there.</li>
+        <li><strong>Wire into your network.</strong> Run that axle to your machines, turning corners with angled gears as needed, exactly as with a windmill. The hub can also split to several outputs.</li>
       </ol>
       <div id="waterwheel-viewer"></div>
 
       <h3>The sail cross</h3>
-      <p>For reference, here is how the sails mount as a <strong>+ cross</strong> on the rotor — each arm is one sail set, viewed face-on.</p>
+      <p>The sails mount as a <strong>+ cross</strong> on the rotor. Each arm is one sail set, viewed face-on.</p>
       <div id="sails-viewer"></div>
     </section>
 
@@ -245,10 +245,10 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
     <section class="doc" id="example">
       <p class="sec-index">06 — Putting it together</p>
       <h2>Worked Example — Automate The Smithy</h2>
-      <p class="lead">The pay-off build. One windmill, one main line, and the two grindiest jobs in the game run themselves — with a side branch you can switch on only when you need it.</p>
+      <p class="lead">The pay-off build. One windmill, one main line, and the two grindiest jobs in the game run themselves, with a side branch you switch on only when needed.</p>
       <ol class="flow">
         <li><strong>Generator.</strong> A windmill on a tower beside the forge, with <strong>~3 sail sets</strong> (per the <a href="#budget">power budget</a>) so it can carry the heavy helve hammer in a medium breeze.</li>
-        <li><strong>Main line → helve hammer.</strong> Axle down the tower, an <strong>angled gear</strong> at the floor, then a horizontal run straight into the <strong>helve hammer</strong> by the anvil — this is your always-on steel-and-iron machine.</li>
+        <li><strong>Main line → helve hammer.</strong> Axle down the tower, an <strong>angled gear</strong> at the floor, then a horizontal run straight into the <strong>helve hammer</strong> by the anvil. This is your always-on steel-and-iron machine.</li>
         <li><strong>Toggled branch → quern + pulverizer.</strong> Split off the main line with the small <strong>4-way hub</strong> and put a <strong>clutch/gearbox</strong> on the branch. On it, run a <strong>quern</strong> (for flour) and a <strong>pulverizer</strong> (for ore yield). Toggle the branch off while the hammer is doing heavy work, on when you need to grind.</li>
       </ol>
       <div class="readout"><b>windmill</b> (≈3 sails, high)
@@ -257,10 +257,10 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
 <b>angled gear</b> ──► <b>HELVE HAMMER</b>   (main line · always on)
    │
    └─ <b>4-way hub</b> ──[ clutch ]──► <b>QUERN</b> + <b>PULVERIZER</b>   (branch · toggle)</div>
-      <p>This single network ties three of your guides together: the <strong>pulverizer + helve hammer</strong> are the back half of the <a href="vs-metalworking.html">steel pipeline</a>, the <strong>quern</strong> mills the flour for <a href="vs-food.html">your kitchen</a>, and the windmill itself is the first big mechanical build after you've found your feet in <a href="vs-getting-started.html">the early game</a>.</p>
+      <p>This network ties three guides together. The <strong>pulverizer + helve hammer</strong> are the back half of the <a href="vs-metalworking.html">steel pipeline</a>. The <strong>quern</strong> mills flour for <a href="vs-food.html">your kitchen</a>. The windmill is the first big mechanical build after you've found your feet in <a href="vs-getting-started.html">the early game</a>.</p>
       <div class="note tip">
         <span class="label">Sequence the load</span>
-        <p>Because the network shares one speed, don't engage everything at once on a marginal windmill. Keep the helve hammer on the main line and switch the quern/pulverizer branch in only when the hammer is idle. With 1.22's flattened power cost, swapping branches no longer makes the network surge — it just settles to the new speed.</p>
+        <p>The network shares one speed, so don't engage everything at once on a marginal windmill. Keep the helve hammer on the main line and switch the quern/pulverizer branch in only when the hammer is idle. With 1.22's flattened power cost, swapping branches no longer makes the network surge; it settles to the new speed.</p>
       </div>
     </section>
 

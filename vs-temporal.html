@@ -48,7 +48,7 @@
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · Standard · Temporal mechanics</p>
       <h1>The Rust &amp; The Gear</h1>
-      <p class="lede">Every other survival game makes the dark dangerous. Vintage Story makes <strong>reality itself</strong> dangerous. <em>Temporal stability</em> is the integrity of the world at your exact location — high on the open surface, low in the deep, and torn open by <strong>rifts</strong> and <strong>temporal storms</strong>. Let it fall and the screen warps, monsters pour in, and the rust world reaches through. This is how stability works, what eats it, and how you fight back.</p>
+      <p class="lede">Vintage Story makes <strong>reality itself</strong> dangerous. <em>Temporal stability</em> is the integrity of the world at your exact location: high on the open surface, low in the deep, and torn open by <strong>rifts</strong> and <strong>temporal storms</strong>. Let it fall and the screen warps, monsters pour in, and the rust world reaches through. This page covers how stability works, what drains it, and how you fight back.</p>
       <div class="badges">
         <span class="badge accent">Temporal stability</span>
         <span class="badge">Rifts &amp; storms</span>
@@ -67,15 +67,15 @@
     <section class="doc" id="what">
       <p class="sec-index">00 — The mechanic</p>
       <h2>What It Is</h2>
-      <p class="lead">Temporal stability is a percentage measuring how firmly <em>reality holds together</em> where you are standing. It runs on a <strong>0–150%</strong> scale where <strong>100% is neutral</strong> — stable surface areas sit at or above 100% (up to 150%), refilling you fast. The moment it starts to drop, a spinning <strong>stability gauge</strong> — a blue gear icon above the hotbar — appears and the world begins to misbehave.</p>
-      <p>Most of the world's <strong>surface is stable</strong> — out in daylight, far from a rift, you can live for days without the bar ever appearing. Stability falls in three situations: when you go <strong>deep underground</strong> (the deeper, the worse), when you stand <strong>near a temporal rift</strong>, and during a <strong>temporal storm</strong>. As the number drops, the symptoms escalate.</p>
+      <p class="lead">Temporal stability is a percentage measuring how firmly <em>reality holds together</em> where you stand. It runs on a <strong>0–150%</strong> scale where <strong>100% is neutral</strong>. Stable surface areas sit at or above 100% (up to 150%), refilling you fast. The moment it starts to drop, a spinning <strong>stability gauge</strong> (a blue gear icon above the hotbar) appears and the world begins to misbehave.</p>
+      <p>Most of the world's <strong>surface is stable</strong>. Out in daylight, far from a rift, you can live for days without the bar ever appearing. Stability falls in three situations: when you go <strong>deep underground</strong> (the deeper, the worse), when you stand <strong>near a temporal rift</strong>, and during a <strong>temporal storm</strong>. As the number drops, the symptoms escalate.</p>
       <div class="data-table">
         <table>
           <caption>What low stability does to you — and the thresholds where each kicks in</caption>
           <thead><tr><th>Stability</th><th>What you see &amp; feel</th></tr></thead>
           <tbody>
             <tr><td><strong>100%+</strong> (surface)</td><td>No gauge, no effects. Areas read up to 150%, so surface time refills you.</td></tr>
-            <tr><td><strong>Below ~50%</strong></td><td>The gear gauge shows and spins (counter-clockwise = losing). Screen <strong>warping</strong> and colour shifts creep in and worsen as it falls.</td></tr>
+            <tr><td><strong>Below ~50%</strong></td><td>The gear gauge shows and spins (counter-clockwise means losing). Screen <strong>warping</strong> and colour shifts creep in and worsen as it falls.</td></tr>
             <tr><td><strong>≤ 25%</strong></td><td><strong>Bowtorn force-spawn</strong> around you regardless of light level. Distortion is heavy — leave now.</td></tr>
             <tr><td><strong>≤ 12%</strong></td><td>You take <strong>unavoidable damage every 4s</strong>, starting ~0.02 HP and rising toward ~0.15 HP per tick near 0%.</td></tr>
             <tr><td><strong>0%</strong></td><td>You're pulled into the <strong>Rust World</strong> and take continuous damage until your stability recovers.</td></tr>
@@ -84,7 +84,7 @@
       </div>
       <div class="note tip">
         <span class="label">Watch the gauge, not the clock</span>
-        <p>The stability gauge is your single most important readout underground and during storms. A perfectly stable spot refills it (~1% every 4s); a fully unstable one drains it (~1% every 7.5s). If it's on screen and falling, reality is thin where you stand — move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
+        <p>The stability gauge is your key readout underground and during storms. A perfectly stable spot refills it (~1% every 4s). A fully unstable one drains it (~1% every 7.5s). If it's on screen and falling, reality is thin where you stand. Move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
       </div>
     </section>
 
@@ -92,15 +92,15 @@
     <section class="doc" id="drains">
       <p class="sec-index">01 — The three drains</p>
       <h2>What Drains Stability</h2>
-      <p>There are exactly three things that pull your stability down. Learn to recognise each one — they have very different rates and very different fixes.</p>
+      <p>Three things pull your stability down. Learn to recognize each one. They have very different rates and fixes.</p>
       <div class="cards">
-        <div class="card"><span class="tag">slow · positional</span><h4>Going deep</h4><p>Ambient stability falls the <strong>deeper you mine</strong>. Near the surface it's fine; far down it sits permanently low, so a long mining trip slowly bleeds your bar. The fix is simple — go up.</p></div>
-        <div class="card"><span class="tag">fast · positional</span><h4>Standing near a rift</h4><p>A temporal <strong>rift</strong> drains stability <strong>rapidly</strong> the closer you get. Linger beside one and your bar empties in moments. Don't camp next to a rift; back away and it recovers.</p></div>
-        <div class="card"><span class="tag">timed · world event</span><h4>Being out in a storm</h4><p>During a <strong>temporal storm</strong> ambient stability drops world-wide for the duration. The storm is telegraphed in advance, so this drain is the one you can plan around.</p></div>
+        <div class="card"><span class="tag">slow · positional</span><h4>Going deep</h4><p>Ambient stability falls the <strong>deeper you mine</strong>. Near the surface it's fine. Far down it sits permanently low, so a long mining trip slowly bleeds your bar. The fix: go up.</p></div>
+        <div class="card"><span class="tag">fast · positional</span><h4>Standing near a rift</h4><p>A temporal <strong>rift</strong> drains stability <strong>rapidly</strong> the closer you get. Linger beside one and your bar empties in moments. Don't camp next to a rift. Back away and it recovers.</p></div>
+        <div class="card"><span class="tag">timed · world event</span><h4>Being out in a storm</h4><p>During a <strong>temporal storm</strong>, ambient stability drops world-wide for the duration. The storm is telegraphed in advance, so you can plan around this drain.</p></div>
       </div>
       <div class="note warn">
         <span class="label">They stack</span>
-        <p>The worst case is all three at once: mining <strong>deep</strong> when a <strong>storm</strong> hits, near an underground <strong>rift</strong>. That's how stability bottoms out fast and how unprepared players die. The whole game of survival is staying out of that overlap.</p>
+        <p>The worst case is all three at once: mining <strong>deep</strong> when a <strong>storm</strong> hits, near an underground <strong>rift</strong>. That's how stability bottoms out fast and how unprepared players die. Stay out of that overlap.</p>
       </div>
     </section>
 
@@ -108,29 +108,29 @@
     <section class="doc" id="rifts">
       <p class="sec-index">02 — Tears in the world</p>
       <h2>Rifts</h2>
-      <p>Temporal <strong>rifts</strong> are shimmering tears — "rust world" phenomena that puncture the boundary between your world and the one that's rusting through it. They appear out in the world (more readily at night and where stability is already low) and they do two nasty things at once.</p>
+      <p>Temporal <strong>rifts</strong> are shimmering tears, "rust world" phenomena that puncture the boundary between your world and the one rusting through it. They appear out in the world (more readily at night and where stability is already low) and do two things at once.</p>
       <ul>
-        <li><strong>They spawn hostiles on the surface.</strong> A rift acts as a doorway: <strong>drifters</strong> climb out near it, along with tougher rift creatures — <strong>bowtorn</strong> and <strong>shivers</strong> — that are far meaner than an ordinary night-time drifter. The surface around a rift is genuinely dangerous, day or night.</li>
-        <li><strong>They drain stability fast.</strong> Stand too close and the gauge plummets — roughly <strong>3% per second</strong>. The drain is steep and positional, so the cure is distance — step away and it stops.</li>
+        <li><strong>They spawn hostiles on the surface.</strong> A rift acts as a doorway. <strong>Drifters</strong> climb out near it, along with tougher rift creatures (<strong>bowtorn</strong> and <strong>shivers</strong>) that are far meaner than an ordinary night-time drifter. The surface around a rift is dangerous, day or night.</li>
+        <li><strong>They drain stability fast.</strong> Stand too close and the gauge plummets, roughly <strong>3% per second</strong>. The drain is steep and positional. Step away and it stops.</li>
       </ul>
-      <p>Rifts <strong>wax and wane on a cycle</strong>: they flare up, fade, and reappear elsewhere rather than sitting in one spot forever. This is governed by the world's <strong>Rift Activity</strong> setting, which has three modes: <strong>Visible</strong> (default — rifts are seen, heard, drain nearby stability and spawn drifters), <strong>Invisible</strong> (no visuals/sound or stability drain, but drifters still spawn), and <strong>Off</strong> (no rifts at all — which also disables surface drifter spawns entirely).</p>
+      <p>Rifts <strong>wax and wane on a cycle</strong>. They flare up, fade, and reappear elsewhere rather than sitting in one spot forever. The world's <strong>Rift Activity</strong> setting controls this, with three modes: <strong>Visible</strong> (default; rifts are seen, heard, drain nearby stability and spawn drifters), <strong>Invisible</strong> (no visuals, sound or stability drain, but drifters still spawn), and <strong>Off</strong> (no rifts at all, which also disables surface drifter spawns entirely).</p>
       <div class="note danger">
         <span class="label">Never build next to a rift</span>
-        <p>A rift beside your base means a steady drip of surface drifters and a permanent stability sink right where you sleep. If one opens near home, keep your distance and wait for the cycle to move it on — don't try to live alongside it.</p>
+        <p>A rift beside your base means a steady drip of surface drifters and a permanent stability sink right where you sleep. If one opens near home, keep your distance and wait for the cycle to move it on. Don't try to live alongside it.</p>
       </div>
-      <p>For the creatures that come out of rifts — drifter tiers, bowtorn, shivers, locusts and the rest — see the full bestiary in <a href="vs-creatures.html">The Bestiary</a>.</p>
+      <p>For the creatures that come out of rifts (drifter tiers, bowtorn, shivers, locusts and the rest) see the full bestiary in <a href="vs-creatures.html">The Bestiary</a>.</p>
     </section>
 
     <!-- 03 TEMPORAL STORMS -->
     <section class="doc" id="storms">
       <p class="sec-index">03 — The world event</p>
       <h2>Temporal Storms</h2>
-      <p class="lead">A temporal storm is a periodic, world-wide event that arrives roughly <strong>every ~10–20 in-game days</strong>. For its duration, reality frays everywhere and <strong>drifters spawn all around you regardless of light level — even in broad daylight</strong>. It is the single most dangerous recurring event in the game.</p>
-      <p>The crucial mercy is that storms are <strong>telegraphed well in advance</strong> with <em>two</em> messages: a <strong>"temporal storm approaching"</strong> warning about <strong>8½ hours</strong> (in-game) ahead, then a final <strong>"imminent"</strong> warning roughly <strong>29 minutes</strong> before it lands. As it nears, the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. There's no excuse for being caught out.</p>
-      <p>A storm itself lasts about <strong>2.4–4.8 in-game hours</strong>, and each comes at an intensity of <strong>Light, Medium or Heavy</strong> (higher = stronger distortion and more stability loss). Two more things scale with your save:</p>
+      <p class="lead">A temporal storm is a periodic, world-wide event that arrives roughly <strong>every ~10–20 in-game days</strong>. For its duration, reality frays everywhere and <strong>drifters spawn all around you regardless of light level, even in broad daylight</strong>. It is the most dangerous recurring event in the game.</p>
+      <p>Storms are <strong>telegraphed well in advance</strong> with <em>two</em> messages: a <strong>"temporal storm approaching"</strong> warning about <strong>8½ hours</strong> (in-game) ahead, then a final <strong>"imminent"</strong> warning roughly <strong>29 minutes</strong> before it lands. As it nears, the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. You won't be caught out.</p>
+      <p>A storm lasts about <strong>2.4–4.8 in-game hours</strong>, and each comes at an intensity of <strong>Light, Medium or Heavy</strong> (higher means stronger distortion and more stability loss). Two more things scale with your save:</p>
       <ul>
-        <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately — the first one is days away, and the <strong>first storm is never Heavy</strong>, giving new players room to get established.</li>
-        <li><strong>Storms escalate.</strong> Each storm makes the next <strong>~10% more frequent</strong> (capping at +100%, so the cadence tightens toward ~5–15 days), and average duration/intensity climb over time. Early storms are survivable in a hut; late-game storms are a serious siege.</li>
+        <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately. The first one is days away, and the <strong>first storm is never Heavy</strong>, giving new players room to get established.</li>
+        <li><strong>Storms escalate.</strong> Each storm makes the next <strong>~10% more frequent</strong> (capping at +100%, so the cadence tightens toward ~5–15 days), and average duration and intensity climb over time. Early storms are survivable in a hut. Late-game storms are a serious siege.</li>
       </ul>
 
       <h3>The storm routine</h3>
