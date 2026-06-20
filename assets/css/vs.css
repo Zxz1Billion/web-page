@@ -253,6 +253,22 @@ section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anc
 .sheet .box .mono { font-family: var(--f-mono); font-size: 0.76rem; color: var(--accent-2); line-height: 1.7; }
 .sheet .box.tall { grid-row: span 2; }
 
+/* ============================================================ PATTERN BOOK
+   gallery of iso structure illustrations (vs-builds.html) */
+.buildgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; margin: 22px 0 8px; }
+.buildcard { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; scroll-margin-top: 84px; }
+.bc-art { background: radial-gradient(120% 120% at 50% 30%, #1d1812 0%, #100d09 100%); padding: 14px 14px 4px; display: flex; justify-content: center; align-items: flex-end; min-height: 172px; }
+.bc-art svg { width: 100%; max-width: 330px; height: auto; filter: drop-shadow(0 12px 16px rgba(0,0,0,.5)); }
+.bc-body { padding: 14px 16px 18px; }
+.bc-body h3 { margin: 0 0 8px; font-family: var(--f-display); font-size: 1.06rem; color: var(--ink); }
+.bc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 11px; }
+.bc-tags .bt { font-family: var(--f-mono); font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; padding: 3px 9px; }
+.bc-spec { display: flex; flex-direction: column; gap: 5px; margin-bottom: 11px; }
+.bc-spec .brow { display: flex; gap: 10px; font-size: .82rem; line-height: 1.4; }
+.bc-spec .bk { flex: 0 0 84px; color: var(--ink-faint); font-family: var(--f-mono); font-size: .57rem; letter-spacing: .05em; text-transform: uppercase; padding-top: 2px; }
+.bc-spec .bv { color: var(--ink); }
+.bc-note { font-size: .83rem; color: var(--ink-faint); line-height: 1.55; margin: 0; }
+
 /* isometric build viewer */
 .iso-stage { width: 100%; display: flex; justify-content: center; }
 .iso-stage svg { width: 100%; max-width: 520px; height: auto; display: block; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
