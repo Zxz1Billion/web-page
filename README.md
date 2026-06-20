@@ -59,7 +59,7 @@ How-Tos and interactive build plans:
 | `vs-clothing-cold.html` | Warmth & Wear | Body temperature & cold, clothing warmth, winter prep, the 8 armor types & protection tiers |
 | `vs-structures.html` | The Homestead | House, food cellar, charcoal pit, smithy & greenhouse — five interactive layer-by-layer plans |
 | `vs-architect.html` | The Architect | Decorative building: chiseling, palettes, roofs, walls, interiors, six styles + a full cottage build (interactive plans) |
-| `vs-builds.html` | The Pattern Book | 3D isometric gallery of 280+ structures across 20 themes (shelters, homes, grand, workshops, furnaces, farming, livestock, power, water, defence, crossings, mining, monuments, civic, gardens, towers, coastal, storage, advanced, wilderness) with footprint, materials and use |
+| `vs-builds.html` | The Pattern Book | 3D isometric gallery of 500+ structures across 20 themes (shelters, homes, grand, workshops, furnaces, farming, livestock, power, water, defence, crossings, mining, monuments, civic, gardens, towers, coastal, storage, advanced, wilderness) with footprint, materials and use |
 | `vs-temporal.html` | The Rust & The Gear | Temporal stability, rifts, storms, temporal gears, storm-proofing |
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
 | `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |
