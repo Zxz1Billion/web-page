@@ -37,7 +37,7 @@ const html = `<!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>The Pattern Book — a Vintage Story building gallery (v1.22.3)</title>
-<meta name="description" content="A visual pattern book for Vintage Story 1.22.3: ${count} structures drawn in 3D isometric across ten themes — quick shelters, homes, grand stone builds, workshops, furnaces, farming and livestock, power and water, defence and walls, crossings and waterworks, and mining and storage. Each card gives footprint, key materials and what it's best for." />
+<meta name="description" content="A visual pattern book for Vintage Story 1.22.3: ${count} structures drawn in 3D isometric across ${used.length} themes — quick shelters, homes, grand stone builds, workshops, furnaces, farming and livestock, power and water, defence and walls, crossings and waterworks, and mining and storage. Each card gives footprint, key materials and what it's best for." />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,11 +71,11 @@ ${nav}
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · Building gallery</p>
       <h1>The Pattern Book</h1>
-      <p class="lede">A catalogue of things to build, drawn in 3D so you can see the shape before you place a block. ${count} structures across ten themes: shelters, homes, grand stone, workshops, furnaces, farming, power, defence, crossings and mining. Each card gives the footprint, the key materials and what it's best for. Pick one, copy the massing, then dress the detail with <a href="vs-architect.html">The Architect</a>.</p>
+      <p class="lede">A catalogue of things to build, drawn in 3D so you can see the shape before you place a block. ${count} structures across ${used.length} themes, from a night-one lean-to to powered mill complexes. Each card gives the footprint, the key materials and what it's best for. Pick one, copy the massing, then dress the detail with <a href="vs-architect.html">The Architect</a>.</p>
       <div class="badges">
         <span class="badge accent">${count} structures</span>
         <span class="badge">3D isometric</span>
-        <span class="badge">10 themes</span>
+        <span class="badge">${used.length} themes</span>
         <span class="badge accent">🧱 Massing, not block lists</span>
       </div>
     </header>

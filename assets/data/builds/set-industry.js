@@ -347,9 +347,9 @@ export const SET = [
     note: "A long ridge of roots layered with straw and capped with soil. Cheap winter store; open one end at a time.",
     parts: [
       { t: "ground", x: -1, z: -1, w: 11, d: 6, c: P.ground },
-      { t: "box", x: 0.5, y: 0, z: 1, w: 8, h: 0.6, d: 2.4, c: P.hay },
+      { t: "box", x: 0.5, y: 0, z: 1, w: 8, h: 0.6, d: 2.4, c: P.mud },
       { t: "gable", x: 0.5, y: 0.6, z: 1, w: 8, d: 2.4, rise: 1.3, axis: "x", c: P.soil, cGable: P.hay },
-      { t: "box", x: 0.5, y: 0, z: 1, w: 0.3, h: 1.4, d: 2.4, c: P.hay },
+      ...rep(4, (i) => ({ t: "box", x: 1 + i * 1.9, y: 0.6, z: 1, w: 0.12, h: 1.2 - i * 0.05, d: 2.4, c: P.hay })),
     ] },
   { id: "ind-saltstore", group: "store", title: "Salt store", tags: ["Salt", "Dry shed"],
     meta: { size: "5×4", materials: "Stone, plaster, slate", best: "Keeping salt bone dry" },
