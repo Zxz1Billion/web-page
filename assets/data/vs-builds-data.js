@@ -18,6 +18,7 @@ import { SET as FARM2 } from "./builds/set-farm2.js";
 import { SET as HOMES2 } from "./builds/set-homes2.js";
 import { SET as FORT2 } from "./builds/set-fort2.js";
 import { SET as SACRED2 } from "./builds/set-sacred2.js";
+import { SET as IND2 } from "./builds/set-industry2.js";
 
 export const GROUPS = [
   { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters", intro: "Get a roof over your head fast. None are pretty, but each survives a night while you scout for somewhere permanent." },
@@ -760,4 +761,4 @@ const CORE = [
     ] },
 ];
 
-export const SCENES = [...CORE, ...MECH, ...DEF, ...CIV, ...HOM, ...FRM, ...IND, ...MECH2, ...FARM2, ...HOMES2, ...FORT2, ...SACRED2];
+export const SCENES = [...CORE, ...MECH, ...DEF, ...CIV, ...HOM, ...FRM, ...IND, ...MECH2, ...FARM2, ...HOMES2, ...FORT2, ...SACRED2, ...IND2];
