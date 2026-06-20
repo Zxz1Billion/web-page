@@ -64,6 +64,7 @@ How-Tos and interactive build plans:
 | `vs-locations.html` | Ruins & Wayfarers | Ruins, translocators, traders, the 1.22 dynamic dungeon, spoiler-light story |
 | `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, tool/anvil tiers, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
 | `vs-glossary.html` | The Glossary | An A–Z of terms, each defined in a line and deep-linked to its chapter |
+| `vs-whatsnew.html` | What's New in 1.22 | A changelog-style tour of the 1.22 update, each feature linked to its chapter |
 
 These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
 add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via
@@ -81,8 +82,14 @@ add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and
   `assets/data/vs-search-index.js`) — a floating button and a `/` or Ctrl/Cmd-K overlay that
   searches every page/section; regenerate the index with `node` over the pages after edits;
 - **hover-to-copy permalinks** on every section heading;
-- a site-wide **favicon** (`favicon.svg`), plus `sitemap.xml` and `robots.txt` for discoverability,
-  and OpenGraph/Twitter meta on the hub.
+- per-page **Sources & further reading** citations, injected from a map in `vs-guide.js`;
+- a site-wide **favicon** (`favicon.svg`), an OpenGraph **cover image** (`assets/og-cover.svg`),
+  plus `sitemap.xml` and `robots.txt` for discoverability, and OpenGraph/Twitter meta on the hub.
+
+The reference data has also been fact-checked down to the hard cases: **exact armor stats**
+(flat/percent/tier per type, the damage-tier interaction, and slot hit-chances) in
+`vs-clothing-cold.html`, and **mechanical-power numbers** (kPa per sail set, altitude/turbulence,
+per-machine resistance) in `vs-mechanical-power.html`.
 
 ## Structure
 

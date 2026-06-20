@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="The Drifter's Almanac">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#13110c"/><stop offset="1" stop-color="#0c0b08"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cdb184"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- strata -->
+  <g fill="none" stroke="#4fc7bb" stroke-width="2">
+    <path d="M0 150 C220 116 410 188 620 152 S1010 112 1200 160" opacity=".18"/>
+    <path d="M0 210 C240 176 430 246 660 204 S1040 164 1200 218" opacity=".13"/>
+    <path d="M0 470 C220 440 450 506 690 458 S1070 426 1200 480" opacity=".10"/>
+  </g>
+  <!-- gear motif -->
+  <g transform="translate(980 300)" fill="none" stroke="#4fc7bb" opacity=".55">
+    <circle r="150" stroke-width="26" stroke-dasharray="12 28"/>
+    <circle r="86" stroke-width="10"/>
+  </g>
+  <circle cx="980" cy="300" r="20" fill="#d98a45"/>
+  <!-- wordmark -->
+  <text x="90" y="250" font-family="Cinzel, Georgia, serif" font-weight="800" font-size="92" fill="url(#ink)">The Drifter's</text>
+  <text x="90" y="345" font-family="Cinzel, Georgia, serif" font-weight="800" font-size="92" fill="url(#ink)">Almanac</text>
+  <text x="94" y="408" font-family="JetBrains Mono, monospace" font-size="27" letter-spacing="3" fill="#4fc7bb">A COMPLETE VINTAGE STORY GUIDE &amp; WIKI</text>
+  <text x="94" y="452" font-family="JetBrains Mono, monospace" font-size="22" letter-spacing="2" fill="#b6a787">v1.22.3 · Stone → Steel · searchable · 17 chapters</text>
+  <rect x="94" y="486" width="430" height="3" fill="#d98a45" opacity=".8"/>
+</svg>

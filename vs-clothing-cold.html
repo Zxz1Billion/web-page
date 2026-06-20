@@ -176,20 +176,36 @@
       </div>
 
       <h3>How protection works</h3>
-      <p>The model combines <strong>flat damage reduction</strong>, <strong>percent protection</strong>, and a <strong>tier</strong> comparison: a higher-tier metal gives both more flat reduction and a higher percentage, <em>and</em> resists higher-tier weapons better. So armor smithed from a better metal protects more — and protects especially well against the powerful, high-tier attacks of late-game foes.</p>
+      <p>Each piece has a <strong>protection tier</strong>, a <strong>flat damage reduction</strong> and a <strong>percent protection</strong>. On a hit, the <strong>flat reduction comes off first, then the percentage</strong> is taken off what remains. The armor <em>type</em> sets the percentage band (improvised lowest → plate highest); for metal armor the <em>metal</em> shifts everything up the ladder.</p>
       <div class="data-table">
         <table>
-          <caption>Armor metals, lowest → highest protection (smith higher metals into better plates)</caption>
-          <thead><tr><th>Metal tier</th><th>Feel</th><th>When</th></tr></thead>
+          <caption>Armor types — confirmed per-piece stats (metal types scale with the metal used)</caption>
+          <thead><tr><th>Type</th><th>Class</th><th>Prot. tier</th><th>Flat</th><th>Percent</th><th>Move penalty</th><th>Durability</th></tr></thead>
           <tbody>
-            <tr><td>Copper</td><td>First real metal armor (brigandine).</td><td>Copper age</td></tr>
-            <tr><td>Bronze</td><td>Solid mid-game protection.</td><td>Bronze age</td></tr>
-            <tr><td>Iron</td><td>Markedly higher flat + % protection.</td><td>Iron age</td></tr>
-            <tr><td>Meteoric iron</td><td>Premium iron-class from sky-metal.</td><td>If you find a meteorite</td></tr>
-            <tr><td>Steel</td><td>The top tier — best protection vs the worst hits.</td><td>Endgame</td></tr>
+            <tr><td>Improvised</td><td>Non-metal</td><td class="num">0</td><td class="num">~0</td><td class="num">55%</td><td>minimal</td><td class="num">75</td></tr>
+            <tr><td>Lamellar (wood)</td><td>Non-metal</td><td class="num">1</td><td class="num">low</td><td class="num">low</td><td>low</td><td class="num">low</td></tr>
+            <tr><td>Leather</td><td>Non-metal</td><td class="num">1</td><td class="num">0.6</td><td class="num">60%</td><td><strong>none</strong></td><td class="num">700</td></tr>
+            <tr><td>Gambeson</td><td>Non-metal</td><td class="num">2</td><td class="num">0.7</td><td class="num">70%</td><td>small (−heal)</td><td class="num">900</td></tr>
+            <tr><td>Tailored gambeson</td><td>Non-metal</td><td class="num">2</td><td class="num">0.75</td><td class="num">75%</td><td><strong>none</strong></td><td class="num">~900</td></tr>
+            <tr><td>Brigandine</td><td>Metal</td><td class="num">by metal</td><td>scales</td><td>lowest of metals</td><td>medium</td><td>medium</td></tr>
+            <tr><td>Chain</td><td>Metal</td><td class="num">by metal</td><td>scales</td><td>mid (~75%)</td><td><strong>low</strong></td><td>medium</td></tr>
+            <tr><td>Scale</td><td>Metal</td><td class="num">by metal</td><td>scales</td><td>high (~80%+)</td><td>high</td><td>high</td></tr>
+            <tr><td>Plate</td><td>Metal</td><td class="num">highest</td><td>highest <strong>(+0.5)</strong></td><td>steel ~<strong>97%</strong></td><td>highest</td><td>highest</td></tr>
           </tbody>
         </table>
       </div>
+      <p>Metal armors (brigandine / chain / scale / plate) take their flat + percent + durability from the metal, climbing <strong>copper → bronze → iron → meteoric iron → steel</strong>; iron beats black bronze, steel is the peak. Plate adds <strong>+0.5 flat reduction</strong> at every metal tier, and a full <strong>steel plate</strong> set is listed near <strong>97%</strong>. <span class="vflag">numbers for metal tiers are config-tunable — hover the item in-game for exact values</span></p>
+
+      <h3>How the tiers interact</h3>
+      <p>Combat compares the attack's <strong>damage tier</strong> with your <strong>protection tier</strong>:</p>
+      <ul>
+        <li><strong>Attack tier ≤ your armor tier:</strong> for each tier of headroom your armor gains a little — about <strong>+0.1 flat</strong> and <strong>+3% protection</strong> per tier (you take even less).</li>
+        <li><strong>Attack out-tiers your armor:</strong> protection is shed per tier above — roughly <strong>−0.2 flat</strong> and <strong>−15% protection</strong> per tier, which is why a steel weapon punches through copper armor far worse than its listed % suggests.</li>
+        <li><strong>High-tier damage resistance halves</strong> the out-tier penalty — and gambeson is unusually graceful, losing only half the normal % per tier.</li>
+      </ul>
+
+      <h3>The three slots</h3>
+      <p>Armor fills <strong>head</strong>, <strong>body</strong> and <strong>legs</strong>; a type's stats are identical in every slot — the slots differ by <strong>hit chance</strong>: <strong>body ≈ 50%</strong>, <strong>legs ≈ 30%</strong>, <strong>head ≈ 20%</strong>. So the body piece does the most work and <strong>wears out fastest</strong> (carry spare chest pieces), while head/legs last longer. Movement penalties from each piece <strong>stack</strong> (a −7% piece ×3 = −21%).</p>
 
       <h3>Pick a niche</h3>
       <div class="data-table">

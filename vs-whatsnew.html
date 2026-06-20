@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>What's New in Vintage Story 1.22 — the update, explained (v1.22.3)</title>
+<meta name="description" content="Everything new in the Vintage Story 1.22 update (April 2026): the fishing overhaul, the reworked forge with bellows, tongs and quenching & tempering, cementation-furnace steel, waterwheels and spur gears, voxel-placed cabinets, dynamic dungeons, new mushrooms and the fennel & licorice crops — each linked to the chapter that covers it in depth." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">✨</span>
+      <span class="wordmark">What's New<br>in 1.22<small>VINTAGE STORY · UPDATE</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The update</p>
+      <a href="#overview"><span class="ix">00</span> The Headline</a>
+      <a href="#fishing"><span class="ix">01</span> Fishing</a>
+      <a href="#forge"><span class="ix">02</span> Forge &amp; Metalworking</a>
+      <a href="#power"><span class="ix">03</span> Mechanical Power</a>
+      <a href="#storage"><span class="ix">04</span> Storage &amp; Decoration</a>
+      <a href="#worldgen"><span class="ix">05</span> Dynamic Dungeons</a>
+      <a href="#flora"><span class="ix">06</span> Flora &amp; Fauna</a>
+      <a href="#update"><span class="ix">07</span> Updating Safely</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Summary of the <b style="color:var(--accent)">1.22</b> release line<br>(1.22.0, April 2026 → 1.22.3).<br>Every feature links the chapter<br>that covers it in full. Patch<br>notes are the final word.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · the 1.22 update</p>
+      <h1>What's New in 1.22</h1>
+      <p class="lede">The 1.22 release (April 2026) is a big one — <strong>700+</strong> features, tweaks and fixes. It gives the post-1.21 water system its first real activity with a <strong>fishing overhaul</strong>, rebuilds the <strong>forge and metalworking</strong> loop, adds <strong>waterwheels</strong> to mechanical power, drops <strong>dynamic dungeons</strong> into worldgen, and modernises storage with voxel-placed <strong>cabinets</strong>. Here's the tour, with each change linked to the chapter that explains it.</p>
+      <div class="badges">
+        <span class="badge accent">1.22.0 → 1.22.3</span>
+        <span class="badge">700+ changes</span>
+        <span class="badge">April 2026</span>
+        <span class="badge danger">⚠ Back up your world before updating</span>
+      </div>
+    </header>
+
+    <section class="doc" id="overview">
+      <p class="sec-index">00 — The headline</p>
+      <h2>The Headline</h2>
+      <p class="lead">Four pillars define the update: <strong>fishing</strong>, a <strong>metalworking rework</strong>, new <strong>mechanisms</strong>, and <strong>dynamic dungeons</strong> — plus a long tail of flora, fauna and quality-of-life.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">activity</span><h4>🎣 Fishing</h4><p>20+ freshwater species, rods, lures and traps — the water finally has something to do. <a href="#fishing">Jump →</a></p></div>
+        <div class="card"><span class="tag">rework</span><h4>🔥 Metalworking</h4><p>A new forge with bellows, tongs, fuel types and quench-&amp;-temper. <a href="#forge">Jump →</a></p></div>
+        <div class="card"><span class="tag">mechanisms</span><h4>⚙ Mechanical power</h4><p>Waterwheels, the large windmill, spur gears and a 4-way hub. <a href="#power">Jump →</a></p></div>
+        <div class="card"><span class="tag">worldgen</span><h4>🗝️ Dynamic dungeons</h4><p>A procedurally assembled dungeon now spawns in Survival. <a href="#worldgen">Jump →</a></p></div>
+      </div>
+    </section>
+
+    <section class="doc" id="fishing">
+      <p class="sec-index">01 — New activity</p>
+      <h2>Fishing</h2>
+      <p>1.22's flagship feature gives lakes and rivers a purpose. There are <strong>20+ freshwater fish species</strong> with location-specific populations and bait/lure preferences.</p>
+      <ul>
+        <li><strong>Gear:</strong> craft fishing <strong>rods</strong> (active), <strong>lures</strong>, and passive <strong>traps</strong>.</li>
+        <li><strong>Bait:</strong> earthworms (collected via the new <strong>worm grunting</strong>), raw-meat baits, and <strong>stinkbait</strong> made with the new <strong>fennel &amp; licorice</strong> aromatics.</li>
+        <li><strong>After the catch:</strong> fish are <strong>protein</strong> — cook or dry them — and you can mount trophies with new <strong>taxidermy</strong>.</li>
+      </ul>
+      <div class="note tip"><span class="label">Covered in depth</span><p>Full fishing how-to and where it fits in your diet is in <a href="vs-food.html#fishing">The Larder → Fishing</a>.</p></div>
+    </section>
+
+    <section class="doc" id="forge">
+      <p class="sec-index">02 — The big rework</p>
+      <h2>Forge &amp; Metalworking</h2>
+      <p>Smithing got a ground-up overhaul that adds real depth to the forge.</p>
+      <div class="data-table">
+        <table>
+          <caption>What changed at the forge</caption>
+          <thead><tr><th>Addition</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bellows</strong></td><td>Pump air to reach full heat — without one, fuel hits only ~60% of its max temperature.</td></tr>
+            <tr><td><strong>Metal tongs</strong></td><td>Hold hot work safely and move it between forge and anvil.</td></tr>
+            <tr><td><strong>Fuel types matter</strong></td><td>Charcoal, coke and the coals now differ in heat and burn time.</td></tr>
+            <tr><td><strong>Quenching &amp; tempering</strong></td><td>Quench in water, then temper — trade durability for extra power on tool heads.</td></tr>
+            <tr><td><strong>Cementation steel</strong></td><td>Steel is made by carburizing iron in a cementation furnace (blister steel → hammered).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip"><span class="label">Covered in depth</span><p>The whole heat ladder — fuels, forge, bloomery, blast furnace and steel — is in <a href="vs-metalworking.html">Fire &amp; Metal</a>, and the hammering minigame in <a href="vs-crafting.html#smithing">The Four Crafts</a>.</p></div>
+    </section>
+
+    <section class="doc" id="power">
+      <p class="sec-index">03 — New mechanisms</p>
+      <h2>Mechanical Power</h2>
+      <ul>
+        <li><strong>Waterwheel</strong> — a new generator driven by <strong>rapidly flowing water</strong>, introduced alongside <strong>rapid-flow water blocks</strong> and a small <strong>4-way hub</strong>.</li>
+        <li><strong>The large windmill</strong> and <strong>spur gears</strong> expand what you can build and how power is split.</li>
+        <li><strong>Helve hammer fix:</strong> it <strong>no longer has an exponential power cost</strong> as speed rises, so mechanical networks no longer oscillate — automation is far more stable.</li>
+      </ul>
+      <div class="note tip"><span class="label">Covered in depth</span><p>Generators, transmission and a power budget are in <a href="vs-mechanical-power.html">The Turning World</a>.</p></div>
+    </section>
+
+    <section class="doc" id="storage">
+      <p class="sec-index">04 — Home &amp; hearth</p>
+      <h2>Storage &amp; Decoration</h2>
+      <ul>
+        <li><strong>Cabinets</strong> — modern storage placed with <strong>voxel precision</strong>, so they fit your build exactly.</li>
+        <li><strong>Mannequins</strong> — display your clothing and armor sets.</li>
+      </ul>
+      <div class="note tip"><span class="label">Covered in depth</span><p>Storage options and where they fit a base are in <a href="vs-structures.html#storage">The Homestead → Storage</a>; clothing &amp; armor in <a href="vs-clothing-cold.html">Warmth &amp; Wear</a>.</p></div>
+    </section>
+
+    <section class="doc" id="worldgen">
+      <p class="sec-index">05 — Worldgen</p>
+      <h2>Dynamic Dungeons</h2>
+      <p>A fully <strong>dynamic dungeon</strong> now generates in Survival worlds — a procedurally assembled, multi-room structure with loot and threats, and a varied layout each time rather than a fixed prefab.</p>
+      <div class="note tip"><span class="label">Covered in depth</span><p>Approach it with steel armour, light and food — see <a href="vs-locations.html">Ruins &amp; Wayfarers</a>.</p></div>
+    </section>
+
+    <section class="doc" id="flora">
+      <p class="sec-index">06 — The long tail</p>
+      <h2>Flora &amp; Fauna</h2>
+      <ul>
+        <li><strong>Eight mushroom varieties</strong> added to foraging.</li>
+        <li><strong>Two new crops — fennel &amp; licorice</strong> — aromatics that also feed the new fishing stinkbait.</li>
+        <li><strong>Boar variants</strong> added to the wild-pig family.</li>
+        <li>…plus hundreds of smaller tweaks and fixes across the 1.22.x point releases.</li>
+      </ul>
+      <div class="note tip"><span class="label">Covered in depth</span><p>Crops are in <a href="vs-food.html#farming">The Larder</a>; the animals in <a href="vs-creatures.html">The Bestiary</a>.</p></div>
+    </section>
+
+    <section class="doc" id="update">
+      <p class="sec-index">07 — Before you patch</p>
+      <h2>Updating Safely</h2>
+      <ol class="flow">
+        <li><strong>Back up your save.</strong> Major versions change worldgen and mechanics — copy your world folder before launching the new version.</li>
+        <li><strong>Update your mods.</strong> If you run mods, confirm each has a 1.22-compatible build before loading a modded world.</li>
+        <li><strong>Expect new structures only in new chunks.</strong> Dynamic dungeons and new ores/flora appear in <em>freshly generated</em> terrain — travel to unexplored land to find them.</li>
+        <li><strong>Read the official patch notes</strong> for the exact list and any save-migration notes — they're the final word over this summary.</li>
+      </ol>
+      <div class="note"><span class="label">Numbers &amp; specifics</span><p>This page summarises the 1.22 line; exact values live in <a href="vs-reference.html">The Codex</a>, and the official patch notes / <a href="https://wiki.vintagestory.at/">wiki</a> are ground truth.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">What's New in 1.22</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the official 1.22 patch notes<br>
+      · the <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  /* what's new — importing runs the shared nav, search, anchors + pager */
+</script>
+</body>
+</html>

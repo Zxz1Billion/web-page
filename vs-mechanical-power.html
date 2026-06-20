@@ -171,6 +171,39 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
         <div class="f"><div class="k">Comfortable target</div><div class="v">~3 sets <small>medium breeze</small></div></div>
         <div class="f"><div class="k">Free multiplier</div><div class="v">Altitude <small>build high for stronger wind</small></div></div>
       </div>
+      <h3>Generation — the actual numbers</h3>
+      <p>Power shows on the Block-Info HUD in <strong>kPa</strong>. A windmill's output is set by its sail count, the live wind speed (0–150%) and its height:</p>
+      <div class="data-table">
+        <table>
+          <caption>Windmill &amp; waterwheel output (approximate; HUD shows live kPa)</caption>
+          <thead><tr><th>Factor</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Per <strong>sail set</strong></td><td>≈ <strong>20 kPa</strong> base; each added set ≈ <strong>+20%</strong>. 1 set = 4 sails; <strong>max 5 sets</strong> per rotor</td></tr>
+            <tr><td><strong>Altitude</strong></td><td>+1% wind per block above ~10 over sea level, <strong>capping at +50%</strong> around 60 blocks up — free power, build high</td></tr>
+            <tr><td><strong>Turbulence</strong> <span class="vs-ver">1.22</span></td><td>A windmill disturbs air within 1.5× its sail diameter — space big windmills ~<strong>15 blocks</strong> apart</td></tr>
+            <tr><td><strong>Waterwheel</strong> <span class="vs-ver">1.22</span></td><td>Strong, steady torque from <strong>rapidly-flowing water</strong>; built with <strong>two small 4-way hubs</strong> on an axle (no wind needed)</td></tr>
+            <tr><td>Sailcloth cost</td><td>≈ 64 flax fibre per set (flax → twine → linen → sail), so a 5-set rotor ≈ 320 fibre</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Consumers — relative resistance</h3>
+      <div class="data-table">
+        <table>
+          <caption>What each machine demands</caption>
+          <thead><tr><th>Machine</th><th>Resistance</th><th>Rough requirement</th></tr></thead>
+          <tbody>
+            <tr><td>Quern · Grindstone</td><td>Low</td><td>A single small windmill runs them easily</td></tr>
+            <tr><td>Pulverizer</td><td>Moderate</td><td>~1 sail set (slowly) in a strong breeze</td></tr>
+            <tr><td>Helve hammer</td><td><strong>High</strong></td><td>~2–3 sail sets (see table above); the heaviest common machine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Splitting &amp; smoothing the network</span>
+        <p>A <strong>large wooden gear</strong> trades speed ↔ torque (and merges several sources or splits one to many). <strong>Spur gears</strong> <span class="vs-ver">1.22</span> split a power train at a flat <strong>1:1</strong> ratio without a big gear. A <strong>clutch</strong> beside a transmission toggles a branch on/off, so you can leave the helve hammer disengaged until you need it. Pushing speed far past what your torque supports just wastes power to resistance.</p>
+      </div>
+
       <div class="note">
         <span class="label">Why 1.22 networks behave</span>
         <p>The helve hammer used to charge an <strong>exponential power cost as its speed rose</strong> — push the speed up and the cost ballooned, so a network would surge, overload, stall, recover, and surge again. <strong>1.22 removed that exponential cost</strong>, so the hammer's draw is steady. Networks no longer oscillate; once you have enough sails to start it, it simply runs. Build to the table above and you're done.</p>

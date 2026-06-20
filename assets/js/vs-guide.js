@@ -31,9 +31,46 @@ const ALMANAC = [
   { f: "vs-locations.html",        t: "Ruins & Wayfarers",    s: "🏛" },
   { f: "vs-reference.html",        t: "The Codex",            s: "📊" },
   { f: "vs-glossary.html",         t: "The Glossary",         s: "📖" },
+  { f: "vs-whatsnew.html",         t: "What's New in 1.22",   s: "✨" },
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+/* Per-page citations, injected as a "Sources" block before the pager. */
+const W = "https://wiki.vintagestory.at/";
+const SOURCES = {
+  "vs-getting-started.html": [["Survival Guide — first day", W+"Survival_Guide_-_Your_first_day"], ["Controls", W+"Controls"], ["Classes", W+"Classes"], ["Knapping", W+"Knapping"]],
+  "vs-progression.html": [["Metal", W+"Metal"], ["Smithing", W+"Smithing"], ["Crafting", W+"Crafting"], ["Steel making", W+"Steel_making"]],
+  "vs-crafting.html": [["Knapping", W+"Knapping"], ["Clay forming", W+"Clay_forming"], ["Smithing", W+"Smithing"], ["Casting", W+"Casting"], ["Crucible", W+"Crucible"], ["Pit kiln", W+"Pit_kiln"]],
+  "vs-metalworking.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Bloomery", W+"Bloomery"], ["Steel making", W+"Steel_making"], ["Fuel", W+"Fuel"], ["Bellows", W+"Bellows"], ["Anvil", W+"Anvil"]],
+  "vs-mechanical-power.html": [["Mechanical power", W+"Mechanical_power"], ["Windmill", W+"Windmill"], ["Water wheel", W+"Water_wheel"], ["Helve hammer", W+"Helve_hammer"], ["Quern", W+"Quern"]],
+  "vs-food.html": [["Health", W+"Health"], ["Satiety", W+"Satiety"], ["Farming", W+"Farming"], ["Cooking", W+"Cooking"], ["Food preservation", W+"Food_preservation"], ["Bait", W+"Bait"]],
+  "vs-clothing-cold.html": [["Temperature", W+"Temperature"], ["Clothes", W+"Clothes"], ["Armor", W+"Armor"], ["Prepare for Winter", W+"Guide:Prepare_for_Winter"]],
+  "vs-structures.html": [["Cellar (Room)", W+"Guide:Cellar"], ["Food preservation", W+"Food_preservation"], ["Storage vessel", W+"Storage_vessel"], ["Crock", W+"Crock"], ["Pit kiln", W+"Pit_kiln"]],
+  "vs-temporal.html": [["Temporal stability", W+"Temporal_stability"], ["Temporal storm", W+"Temporal_storm"], ["Temporal rift", W+"Temporal_rift"], ["Temporal gear", W+"Temporal_gear"], ["Drifter", W+"Drifter"]],
+  "vs-world.html": [["Rock", W+"Rock"], ["Ore Deposits", W+"Ore_Deposits"], ["Prospecting Pick", W+"Prospecting_Pick"], ["Temperature", W+"Temperature"], ["Sea level", W+"Sea_level"]],
+  "vs-creatures.html": [["Hostile entities", W+"Hostile_entities"], ["Drifter", W+"Drifter"], ["Wolf", W+"Wolf"], ["Bear", W+"Bear"], ["Animal husbandry", W+"Animal_husbandry"]],
+  "vs-locations.html": [["Translocator", W+"Translocator"], ["Trader", W+"Trader"], ["Temporal gear", W+"Temporal_gear"]],
+  "vs-reference.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Farming", W+"Farming"], ["Health", W+"Health"], ["Temporal stability", W+"Temporal_stability"]],
+  "vs-whatsnew.html": [["1.22.0 release notes", "https://www.vintagestory.at/blog.html/news/1220-fishing-mechanisms-metalworking-and-more-r441/"], ["Version history", W+"Version_history"]],
+  "vs-glossary.html": [["Vintage Story Wiki", W+"Main_Page"]],
+  "vs-questline.html": [["Vintage Story Wiki", W+"Main_Page"], ["Survival Guide — first day", W+"Survival_Guide_-_Your_first_day"]],
+};
+
+function injectSources() {
+  const main = document.querySelector("main.content");
+  if (!main || main.querySelector(".sources")) return;
+  const page = (location.pathname.split("/").pop() || "").toLowerCase();
+  const src = SOURCES[page];
+  if (!src || !src.length) return;
+  const sec = document.createElement("section");
+  sec.className = "sources";
+  sec.innerHTML =
+    `<h3>Sources &amp; further reading</h3><ul>` +
+    src.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("") +
+    `</ul><p class="sources-note">Unofficial fan guide · mechanics target v1.22.3 and are config-tunable · the in-game Survival Handbook and the official wiki are ground truth.</p>`;
+  main.appendChild(sec);
+}
 
 function injectPager() {
   const main = document.querySelector("main.content");
@@ -117,6 +154,7 @@ function injectAnchors() {
 
 export function initVS() {
   initChrome();
+  injectSources();
   injectPager();
   injectAnchors();
   wireChecklists();
