@@ -154,11 +154,67 @@ function injectAnchors() {
   });
 }
 
+/* Global chapter switcher + a discoverable search button, injected into the
+   sidebar so the drawer becomes a real nav hub (lateral jumps in one open). */
+function injectNav() {
+  const sidebar = document.querySelector("[data-sidebar]");
+  if (!sidebar || sidebar.querySelector(".nav-chapters")) return;
+  const page = (location.pathname.split("/").pop() || "").toLowerCase();
+
+  const home = sidebar.querySelector(".home-link");
+  if (home && !sidebar.querySelector("[data-search-open]")) {
+    const sb = document.createElement("button");
+    sb.type = "button"; sb.className = "side-search"; sb.setAttribute("data-search-open", "");
+    sb.innerHTML = `<span>🔎 Search the Almanac</span><kbd>/</kbd>`;
+    home.insertAdjacentElement("afterend", sb);
+  }
+
+  const nav = document.createElement("nav");
+  nav.className = "nav nav-chapters";
+  nav.setAttribute("aria-label", "All chapters");
+  nav.innerHTML = `<p class="group-label">All chapters</p>` + ALMANAC.map((c) =>
+    `<a href="${c.f}" class="${c.f === page ? "current" : ""}"${c.f === page ? ' aria-current="page"' : ""}><span class="ix">${c.s}</span> ${esc(c.t)}</a>`
+  ).join("");
+  const dn = sidebar.querySelector("[data-nav]");
+  if (dn) dn.insertAdjacentElement("afterend", nav); else sidebar.appendChild(nav);
+}
+
+/* a11y: skip-link + keep the menu toggle's aria-expanded honest */
+function injectA11y() {
+  if (!document.querySelector(".skip-link")) {
+    const s = document.createElement("a");
+    s.className = "skip-link"; s.href = "#top"; s.textContent = "Skip to content";
+    document.body.insertAdjacentElement("afterbegin", s);
+  }
+  const mb = document.querySelector("[data-menu]");
+  const sb = document.querySelector("[data-sidebar]");
+  if (mb && sb) {
+    mb.setAttribute("aria-expanded", "false");
+    mb.setAttribute("aria-controls", "vs-sidebar");
+    if (!sb.id) sb.id = "vs-sidebar";
+    mb.addEventListener("click", () => mb.setAttribute("aria-expanded", sb.classList.contains("open") ? "true" : "false"));
+    sb.addEventListener("click", (e) => { if (e.target.closest("a")) mb.setAttribute("aria-expanded", "false"); });
+  }
+}
+
+/* touch: tap a schematic cell to pin its block label (hover doesn't exist) */
+function wireSchematicTaps() {
+  document.addEventListener("click", (e) => {
+    const cell = e.target.closest(".schematic .cell");
+    const open = document.querySelector(".cell.show");
+    if (open && open !== cell) open.classList.remove("show");
+    if (cell && cell.classList.contains("filled")) cell.classList.toggle("show");
+  });
+}
+
 export function initVS() {
   initChrome();
+  injectNav();
+  injectA11y();
   injectSources();
   injectPager();
   injectAnchors();
+  wireSchematicTaps();
   wireChecklists();
   initSearch();
 }

@@ -85,6 +85,7 @@ export function initSearch() {
   const close = () => { ov.hidden = true; document.body.style.overflow = ""; };
 
   btn.addEventListener("click", open);
+  document.querySelectorAll("[data-search-open]").forEach((b) => b.addEventListener("click", open));
   ov.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) close(); const li = e.target.closest("li[data-i]"); if (li) go(+li.dataset.i); });
   input.addEventListener("input", () => run(input.value));
   input.addEventListener("keydown", (e) => {
