@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Cheat Sheet — a one-page Vintage Story reference (v1.22.3)</title>
+<meta name="description" content="A printable one-page Vintage Story 1.22.3 cheat sheet: the Stone→Steel progression and its gates, alloy ratios, melting & fuel temperatures, tool/anvil tiers, prospecting ladders, temporal-storm numbers, nutrition, cellar & preservation, crop nutrients, the day-one checklist and default controls — all on a single poster you can print or save as PDF." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🗂️</span>
+      <span class="wordmark">The Cheat<br>Sheet<small>VINTAGE STORY · ONE PAGE</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <a href="#flow"><span class="ix">→</span> Progression Flow</a>
+      <a href="#cards"><span class="ix">▦</span> The Cheat Sheet</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Built to <b style="color:var(--accent)">print on one page</b> (or<br>save as PDF). All the load-bearing<br>numbers in one place. Full detail<br>lives in <a href="vs-reference.html" style="color:var(--accent)">The Codex</a>. v<b style="color:var(--accent)">1.22.3</b>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Printable</p>
+      <h1>The Cheat Sheet</h1>
+      <p class="lede">Everything you keep forgetting, on one page: the progression and its two killer gates, alloy ratios, temperatures, tiers, prospecting words, storm timings and survival numbers. Pin it up, or hit print.</p>
+      <p style="margin-top:14px"><button class="print-btn" type="button" data-sheet-print style="font-family:var(--f-mono);font-size:.8rem;color:var(--ink);background:linear-gradient(180deg,var(--bg-3),var(--bg-2));border:1px solid var(--accent);border-radius:8px;padding:10px 16px;cursor:pointer">🖨 Print / Save as PDF</button></p>
+    </header>
+
+    <section class="doc" id="flow">
+      <p class="sec-index">→ The spine</p>
+      <h2>Stone → Steel, at a glance</h2>
+      <div class="flowdiag" aria-label="Progression flow from stone to steel">
+        <svg viewBox="0 0 880 150" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+          <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#82725a"/></marker></defs>
+          <g stroke="#82725a" stroke-width="2.5" marker-end="url(#ah)">
+            <line x1="158" y1="46" x2="196" y2="46"/><line x1="338" y1="46" x2="376" y2="46"/>
+            <line x1="518" y1="46" x2="556" y2="46"/><line x1="698" y1="46" x2="736" y2="46"/>
+          </g>
+          <g font-size="17" font-weight="700" text-anchor="middle">
+            <g><rect x="28" y="22" width="130" height="48" rx="9" fill="#1b1710" stroke="#9a8d72" stroke-width="2"/><text x="93" y="52" fill="#9a8d72">Stone</text></g>
+            <g><rect x="208" y="22" width="130" height="48" rx="9" fill="#1b1710" stroke="#d98a45" stroke-width="2"/><text x="273" y="52" fill="#d98a45">Copper</text></g>
+            <g><rect x="388" y="22" width="130" height="48" rx="9" fill="#1b1710" stroke="#caa15e" stroke-width="2"/><text x="453" y="52" fill="#caa15e">Bronze</text></g>
+            <g><rect x="568" y="22" width="130" height="48" rx="9" fill="#1b1710" stroke="#b9bcc4" stroke-width="2"/><text x="633" y="52" fill="#b9bcc4">Iron</text></g>
+            <g><rect x="748" y="22" width="130" height="48" rx="9" fill="#1b1710" stroke="#7fd7e8" stroke-width="2"/><text x="813" y="52" fill="#7fd7e8">Steel</text></g>
+          </g>
+          <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#b6a787" text-anchor="middle">
+            <text x="93" y="98">knap · fire</text><text x="93" y="113">pottery · crucible</text>
+            <text x="273" y="98">smelt &amp; cast</text><text x="273" y="113">copper pick + anvil</text>
+            <text x="453" y="98">alloy in crucible</text><text x="453" y="113">bronze pick + anvil</text>
+            <text x="633" y="98">charcoal · bloomery</text><text x="633" y="113">hammer the bloom</text>
+            <text x="813" y="98">cementation furnace</text><text x="813" y="113">~6.67 days</text>
+          </g>
+        </svg>
+      </div>
+      <p style="font-size:.86rem;color:var(--ink-dim);max-width:74ch">The two gates that strand new players: <strong>(1)</strong> stone can't mine ore — cast a <strong>copper pick</strong> first; <strong>(2)</strong> a copper pick can't mine <em>iron</em> ore and a copper anvil can't work it — you need <strong>bronze</strong> for both. Full path: <a href="vs-progression.html">The Long Road</a>.</p>
+    </section>
+
+    <section class="doc" id="cards">
+      <p class="sec-index">▦ The reference</p>
+      <h2>The Cheat Sheet</h2>
+      <div class="sheet">
+
+        <div class="box" style="--bx:#d98a45"><h4><span class="ic">⛏</span> Alloy ratios</h4>
+          <div class="mono">Tin bronze · 88–92% Cu + 8–12% Sn<br>Bismuth bronze · 50–70 Cu + 20–30 Zn + 10–20 Bi<br>Black bronze · 70–90 Cu + 8–16 Au + 8–16 Ag</div>
+          <ul><li>Strength: <b>black &gt; tin &gt; bismuth &gt; copper</b></li><li>±0.1% outside range = melt fails</li></ul>
+        </div>
+
+        <div class="box" style="--bx:#d65b39"><h4><span class="ic">🔥</span> Melting &amp; fuel °C</h4>
+          <dl class="kv">
+            <dt>Copper</dt><dd>1084</dd><dt>Tin / bismuth / lead</dt><dd>232 / 271 / 327</dd>
+            <dt>Cast cap (iron+ smithed)</dt><dd>&gt;1340</dd>
+            <dt>Charcoal · coke</dt><dd>1300 · 1340</dd><dt>Lignite · anthracite</dt><dd>1100 · ~1500</dd>
+            <dt>No bellows = only</dt><dd>~60%</dd><dt>Bloomery needs</dt><dd>≥1200</dd>
+          </dl>
+        </div>
+
+        <div class="box" style="--bx:#b9bcc4"><h4><span class="ic">🛠</span> Tool / anvil tiers</h4>
+          <ul>
+            <li><b>1</b> stone/flint — no ore</li>
+            <li><b>2</b> copper — most ores, <b>not iron</b></li>
+            <li><b>3</b> bronze — adds <b>iron ore</b></li>
+            <li><b>4</b> iron — adds meteoric</li>
+            <li><b>6</b> steel — everything</li>
+            <li>Anvil works its tier <b>+1 above</b> (bronze→iron, iron→steel)</li>
+          </ul>
+        </div>
+
+        <div class="box" style="--bx:#86b35a"><h4><span class="ic">🪨</span> Steel pipeline</h4>
+          <ul>
+            <li>Charcoal pit: seal &lt;30s, ~18h</li>
+            <li>Bloomery: ≤120 ore → 1 bloom / 20 (max 6), ~10h</li>
+            <li>Hammer bloom → wrought iron</li>
+            <li>Cementation: <b>16 iron → 16 blister</b>, ~6.67 days</li>
+            <li>Hammer blister → steel</li>
+          </ul>
+        </div>
+
+        <div class="box" style="--bx:#c8a24a"><h4><span class="ic">🧭</span> Prospecting words</h4>
+          <div class="mono">Density (‰): Miniscule · Very&nbsp;Poor · Poor · <b style="color:var(--accent)">Decent</b> · High · Very&nbsp;High · Ultra&nbsp;High</div>
+          <div class="mono" style="margin-top:6px">Node: Trace · Small · Medium · Large · Very&nbsp;large · Huge</div>
+          <ul><li>Density = 3 blocks /16 · Node radius ~6</li><li>Toggle modes: <b>F</b></li></ul>
+        </div>
+
+        <div class="box" style="--bx:#4fc7bb"><h4><span class="ic">🌀</span> Temporal</h4>
+          <dl class="kv">
+            <dt>Stability scale</dt><dd>0–150% (100 = neutral)</dd>
+            <dt>Damage / bowtorn</dt><dd>≤12% / ≤25%</dd>
+            <dt>Storm cadence</dt><dd>~10–20 d (speeds up)</dd>
+            <dt>Storm duration</dt><dd>~2.4–4.8 h</dd>
+            <dt>Warnings</dt><dd>~8h24 &amp; ~29m</dd>
+            <dt>Gear restore</dt><dd>+30% / ~2 HP</dd>
+            <dt>Rift drain · drifter light</dt><dd>~3%/s · ≤7</dd>
+          </dl>
+        </div>
+
+        <div class="box" style="--bx:#86b35a"><h4><span class="ic">🍲</span> Nutrition &amp; health</h4>
+          <dl class="kv">
+            <dt>Base max HP</dt><dd>15</dd><dt>Per full group ×5</dt><dd>+2.5</dd>
+            <dt>All five full</dt><dd>≈27.5</dd><dt>Saturation cap</dt><dd>1500</dd>
+            <dt>Nutrition / 100 sat.</dt><dd>40</dd>
+          </dl>
+          <ul><li>Groups: fruit · veg · protein · grain · dairy</li></ul>
+        </div>
+
+        <div class="box" style="--bx:#86b35a"><h4><span class="ic">🌱</span> Crop nutrients (N/P/K)</h4>
+          <ul>
+            <li><b>N:</b> turnip, cabbage, spelt, rye</li>
+            <li><b>P:</b> parsnip, onion, pumpkin</li>
+            <li><b>K:</b> carrot, rice, flax, soybean</li>
+            <li>Rotate N→P→K · saltpeter/bonemeal/potash/compost</li>
+          </ul>
+        </div>
+
+        <div class="box" style="--bx:#d98a45"><h4><span class="ic">🧊</span> Cellar &amp; preserving</h4>
+          <ul>
+            <li>Score: <b>100% − ≤40 skylight − ≤50 cooling</b>; holds ~5°C</li>
+            <li>Sealed crock ×0.1 · vessel ×0.75 veg / ×0.5 grain</li>
+            <li>Salt barrel: 20-day cure → ~3.4 yr</li>
+          </ul>
+        </div>
+
+        <div class="box" style="--bx:#9b86e0"><h4><span class="ic">🛡</span> Armor &amp; combat</h4>
+          <ul>
+            <li>Flat reduction first, <b>then %</b></li>
+            <li>Leather t1 60% · Gambeson t2 70% · Steel plate ~97%</li>
+            <li>Out-tiered: −0.2 flat / −15% per tier</li>
+            <li>Slots: body 50 · legs 30 · head 20 (hit%)</li>
+            <li>Predators wolf/hyena/bear = <b>tier 2</b></li>
+          </ul>
+        </div>
+
+        <div class="box tall" style="--bx:#4fc7bb"><h4><span class="ic">🌅</span> Day-one checklist</h4>
+          <ul>
+            <li>Gather flint &amp; sticks</li>
+            <li>Knap a <b>knife</b> (blade + stick)</li>
+            <li>Knap an <b>axe</b> → firewood</li>
+            <li>Firestarter (sticks+grass) → <b>fire pit</b></li>
+            <li>A few torches (stick + dry grass)</li>
+            <li>Forage berries/roots + hunt a hare</li>
+            <li>Wall a shelter, fire inside</li>
+            <li>Survive the night → Day Two</li>
+          </ul>
+          <p style="font-size:.78rem;color:var(--ink-faint);margin:8px 0 0">Full walkthrough: <a href="vs-getting-started.html">The First Day</a></p>
+        </div>
+
+        <div class="box" style="--bx:#56b3d4"><h4><span class="ic">⚙</span> Mechanical power</h4>
+          <ul>
+            <li>Windmill ≈20 kPa/sail set, +20%/set, max 5</li>
+            <li>Altitude +1%/block, cap +50%</li>
+            <li>Helve hammer: ~2–3 sail sets</li>
+            <li>Spur gears split 1:1 · clutch toggles a branch</li>
+          </ul>
+        </div>
+
+        <div class="box" style="--bx:#82725a"><h4><span class="ic">⌨</span> Key controls</h4>
+          <dl class="kv">
+            <dt>Sprint · sneak</dt><dd>Ctrl · Shift</dd>
+            <dt>Place work surface</dt><dd>Shift+click</dd>
+            <dt>Inventory · character</dt><dd>E · C</dd>
+            <dt>Handbook · map · diary</dt><dd>H · M · J</dd>
+            <dt>Tool function · drop</dt><dd>F · Q</dd>
+            <dt>Throw spear</dt><dd>hold RMB</dd>
+          </dl>
+        </div>
+
+        <div class="box" style="--bx:#e3b755"><h4><span class="ic">📅</span> World &amp; calendar</h4>
+          <dl class="kv">
+            <dt>Year / month</dt><dd>108 d / 9 d</dd>
+            <dt>Temp range</dt><dd>−20…+40 °C</dd>
+            <dt>Crops stop below</dt><dd>0 °C</dd>
+            <dt>Greenhouse</dt><dd>+5 °C</dd>
+            <dt>Sea level (h256)</dt><dd>~Y110</dd>
+          </dl>
+        </div>
+
+      </div>
+      <div class="note tip">
+        <span class="label">Want the why, not just the what?</span>
+        <p>This sheet is the quick-reference skin over the whole Almanac — every figure is explained in its chapter, and the full tables live in <a href="vs-reference.html">The Codex</a>. Press <strong>/</strong> to search anything.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Cheat Sheet</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Numbers are config-tunable.<br>
+      Ground truth: the in-game<br>Survival Handbook (<code>H</code>).
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { mountSchematic } from "./assets/js/vs-guide.js";
+  document.querySelector("[data-sheet-print]")?.addEventListener("click", () => window.print());
+</script>
+</body>
+</html>

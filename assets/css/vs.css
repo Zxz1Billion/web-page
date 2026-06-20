@@ -196,6 +196,32 @@ section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anc
 .facts .f { border-left: 2px solid var(--accent); }
 .legend .sw, .tally .sw { box-shadow: inset 0 0 0 1px rgba(0,0,0,.45), inset 0 1px 2px rgba(255,255,255,.22), 0 0 0 1px rgba(0,0,0,.25); }
 
+/* ============================================================ CHEAT SHEET
+   dense, print-first reference poster (vs-cheatsheet.html) */
+.sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 13px; margin: 22px 0; align-items: start; }
+.sheet .box { background: linear-gradient(180deg, var(--bg-2), var(--bg-1)); border: 1px solid var(--line); border-top: 2px solid var(--bx, var(--accent)); border-radius: 10px; padding: 12px 14px; break-inside: avoid; }
+.sheet .box h4 { margin: 0 0 7px; font-family: var(--f-display); font-weight: 700; color: #fff; font-size: 0.98rem; display: flex; align-items: center; gap: 7px; }
+.sheet .box h4 .ic { font-size: 1.05rem; }
+.sheet .box ul { margin: 0; padding-left: 16px; }
+.sheet .box li { margin: 3px 0; font-size: 0.85rem; color: var(--ink-dim); }
+.sheet .box li b, .sheet .box li strong { color: var(--ink); }
+.sheet .box .kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 0.83rem; }
+.sheet .box .kv dt { color: var(--ink-dim); }
+.sheet .box .kv dd { margin: 0; color: var(--accent); font-family: var(--f-mono); font-size: 0.8rem; text-align: right; }
+.sheet .box .mono { font-family: var(--f-mono); font-size: 0.76rem; color: var(--accent-2); line-height: 1.7; }
+.sheet .box.tall { grid-row: span 2; }
+
+.flowdiag { width: 100%; max-width: 880px; margin: 8px 0 0; }
+.flowdiag svg { width: 100%; height: auto; display: block; }
+
+@media print {
+  .sheet { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .sheet .box { padding: 7px 9px; }
+  .sheet .box h4 { font-size: 9pt; margin-bottom: 4px; }
+  .sheet .box li, .sheet .box .kv, .sheet .box .mono { font-size: 7.6pt; }
+  .sheet .box .kv dd { font-size: 7.4pt; }
+}
+
 /* ============================================================ GLOSSARY */
 .gloss h3 { border-bottom: 1px solid var(--line); padding-bottom: 6px; color: var(--accent); font-family: var(--f-display); margin-top: 30px; }
 .gloss dl { margin: 10px 0 4px; }

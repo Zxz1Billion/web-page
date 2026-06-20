@@ -32,6 +32,7 @@ const ALMANAC = [
   { f: "vs-reference.html",        t: "The Codex",            s: "📊" },
   { f: "vs-glossary.html",         t: "The Glossary",         s: "📖" },
   { f: "vs-whatsnew.html",         t: "What's New in 1.22",   s: "✨" },
+  { f: "vs-cheatsheet.html",       t: "The Cheat Sheet",      s: "🗂️" },
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -54,6 +55,7 @@ const SOURCES = {
   "vs-reference.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Farming", W+"Farming"], ["Health", W+"Health"], ["Temporal stability", W+"Temporal_stability"]],
   "vs-whatsnew.html": [["1.22.0 release notes", "https://www.vintagestory.at/blog.html/news/1220-fishing-mechanisms-metalworking-and-more-r441/"], ["Version history", W+"Version_history"]],
   "vs-glossary.html": [["Vintage Story Wiki", W+"Main_Page"]],
+  "vs-cheatsheet.html": [["Vintage Story Wiki", W+"Main_Page"], ["Survival Handbook (in-game)", W+"Main_Page"]],
   "vs-questline.html": [["Vintage Story Wiki", W+"Main_Page"], ["Survival Guide — first day", W+"Survival_Guide_-_Your_first_day"]],
 };
 

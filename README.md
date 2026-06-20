@@ -65,6 +65,7 @@ How-Tos and interactive build plans:
 | `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, tool/anvil tiers, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
 | `vs-glossary.html` | The Glossary | An A–Z of terms, each defined in a line and deep-linked to its chapter |
 | `vs-whatsnew.html` | What's New in 1.22 | A changelog-style tour of the 1.22 update, each feature linked to its chapter |
+| `vs-cheatsheet.html` | The Cheat Sheet | A printable one-page poster of every load-bearing number, with a progression-flow diagram |
 
 These pages reuse the shared `assets/css/guide.css` framework and the `SchematicViewer` engine,
 add a Vintage Story theme + iPad/touch hardening in **`assets/css/vs.css`**, and bootstrap via
