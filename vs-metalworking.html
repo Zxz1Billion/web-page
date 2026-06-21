@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Fire &amp; Metal — Vintage Story smelting, casting &amp; steel guide (v1.22.3)</title>
-<meta name="description" content="The Vintage Story metalworking guide for v1.22.3: the heat ladder from rock to steel — ores and where they hide, the fire-clay crucible and smelting, bronze alloy ranges (tin, bismuth, black), clay molds and casting, the 1.22 forge overhaul (bellows, tongs, quenching &amp; tempering), anvil tiers, charcoal pits, the bloomery, the new blast furnace, and the cementation furnace that turns iron into blister steel." />
+<meta name="description" content="The Vintage Story metalworking guide for v1.22.3: the heat ladder from rock to steel — ores and where they hide, the fire-clay crucible and smelting, bronze alloy ranges (tin, bismuth, black), clay molds and casting, the 1.22 forge overhaul (bellows, tongs, quenching &amp; tempering), anvil tiers, charcoal pits, the bloomery, the cementation furnace that turns iron into blister steel, and a note on the (modded) blast furnace." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -36,7 +36,7 @@
       <a href="#charcoal"><span class="ix">07</span> Charcoal</a>
       <p class="group-label">Iron → steel</p>
       <a href="#bloomery"><span class="ix">08</span> The Bloomery</a>
-      <a href="#blast"><span class="ix">09</span> The Blast Furnace</a>
+      <a href="#blast"><span class="ix">09</span> Blast Furnace (mod)</a>
       <a href="#steel"><span class="ix">10</span> Steel &amp; Cementation</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
@@ -54,7 +54,7 @@
       <div class="badges">
         <span class="badge accent">Smelting &amp; casting</span>
         <span class="badge">Forge overhaul (1.22)</span>
-        <span class="badge">Bloomery → blast furnace</span>
+        <span class="badge">Bloomery → cementation</span>
         <span class="badge danger">🔥 Steel is a multi-day project</span>
       </div>
       <div class="facts">
@@ -94,13 +94,13 @@
         <li><b>1</b> Fire pit</li>
         <li><b>2</b> Forge</li>
         <li><b>3</b> Bloomery</li>
-        <li><b>4</b> Blast furnace</li>
+        <li><b>4</b> Blast furnace <span class="vs-ver">mod</span></li>
         <li><b>5</b> Cementation furnace</li>
       </ul>
 
       <div class="note tip">
         <span class="label">Read the ladder top to bottom</span>
-        <p>Sections 02–04 are the <strong>cast</strong> path (crucible → alloy → mold) for copper and bronze tools. Sections 05–10 are the <strong>smith</strong> path (forge → anvil → bloomery → blast furnace → cementation) for iron and steel. Charcoal (07) fuels almost everything past the forge.</p>
+        <p>Sections 02–04 are the <strong>cast</strong> path (crucible → alloy → mold) for copper and bronze tools. Sections 05–10 are the <strong>smith</strong> path (forge → anvil → bloomery → cementation) for iron and steel. Charcoal (07) fuels almost everything past the forge.</p>
       </div>
     </section>
 
@@ -419,11 +419,11 @@
     <!-- 09 BLAST FURNACE -->
     <section class="doc" id="blast">
       <p class="sec-index">09 — Iron at scale</p>
-      <h2>The Blast Furnace <span class="vs-ver">1.22</span></h2>
-      <p>The <strong>blast furnace</strong> smelts iron ore into iron <strong>more efficiently and in larger batches</strong> than a bloomery. It uses <strong>bellows</strong> to drive its heat. Build one once you've outgrown one-bloom-at-a-time smelting.</p>
+      <h2>The Blast Furnace <span class="vs-ver">mod</span></h2>
+      <p>Heads up: the <strong>blast furnace is not in vanilla Vintage Story</strong>. Vanilla smelts iron in the <strong>bloomery</strong> and makes steel by <strong>cementation</strong>. Popular mods (e.g. <em>Steelmaking Expanded</em>, <em>Improved Metallurgy</em>) add a blast furnace that smelts iron ore more efficiently and in larger batches, driven by bellows. If you run one of those mods, the rest of this section applies; otherwise the bloomery is your iron furnace.</p>
       <div class="note">
         <span class="label">Where it sits in the pipeline</span>
-        <p>The blast furnace is the scaled-up middle of the iron→steel pipeline: <strong>ore → blast furnace → iron → cementation furnace → steel</strong>. The bloomery still works and is fine for a first batch. When steel-making demands lots of iron ingots, the blast furnace feeds it.</p>
+        <p>With a blast-furnace mod the pipeline becomes <strong>ore → blast furnace → iron → cementation → steel</strong>. Vanilla is <strong>ore → bloomery → iron → cementation → steel</strong>. Either way the bloomery is fine for a first batch.</p>
       </div>
       <ul class="pills">
         <li>Bigger batches than the bloomery</li>
@@ -448,7 +448,7 @@
       </div>
       <div class="note tip">
         <span class="label">Keep the bloomery — don't replace it</span>
-        <p>The bloomery never stops being useful. Build a blast furnace <em>in addition</em> when the cementation furnace's appetite for iron ingots outpaces what one-bloom-at-a-time can supply. Exact charge ratios and flux requirements are config- and build-dependent — read the in-game <strong>Handbook (H)</strong> entry for your version before you commit a stockpile of ore.</p>
+        <p>The bloomery never stops being useful. Build a blast furnace <em>in addition</em> when the cementation furnace's appetite for iron ingots outpaces what one-bloom-at-a-time can supply. Exact charge ratios and flux requirements are <strong>mod-dependent</strong> — read the mod's docs (or the in-game <strong>Handbook (H)</strong>) before you commit a stockpile of ore.</p>
       </div>
     </section>
 
@@ -495,7 +495,7 @@
 
       <div class="note tip">
         <span class="label">The heat ladder, complete</span>
-        <p>A fire pit melts your first copper at <strong>1084°C</strong>. The crucible casts it. The forge and anvil shape bronze and iron. The charcoal pit, bloomery, and blast furnace give you iron. After a <strong>~6.67-day</strong> cementation firing and a few swings of the helve hammer, you're holding <strong>steel</strong>. That's the ladder, rock to steel, rung by rung.</p>
+        <p>A fire pit melts your first copper at <strong>1084°C</strong>. The crucible casts it. The forge and anvil shape bronze and iron. The charcoal pit and bloomery give you iron. After a <strong>~6.67-day</strong> cementation firing and a few swings of the helve hammer, you're holding <strong>steel</strong>. That's the ladder, rock to steel, rung by rung.</p>
       </div>
     </section>
 
