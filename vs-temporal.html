@@ -84,8 +84,34 @@
       </div>
       <div class="note tip">
         <span class="label">Watch the gauge, not the clock</span>
-        <p>The stability gauge is your key readout underground and during storms. A perfectly stable spot refills it (~1% every 4s). A fully unstable one drains it (~1% every 7.5s). If it's on screen and falling, reality is thin where you stand. Move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
+        <p>The stability gauge is your key readout underground and during storms. A perfectly stable spot refills it (~1% every 4s, i.e. ~+0.25%/s — that's the natural cap). A fully unstable one drains it instead. If it's on screen and falling, reality is thin where you stand. Move back toward the surface, away from rifts, or toward your lit base before it bottoms out.</p>
       </div>
+
+      <h3>Area stability vs your stability</h3>
+      <p>Two numbers are in play. <strong>Area stability</strong> is the 0–150% reading of the place you're standing. <strong>Your stability</strong> is the personal bar that fills toward, or drains toward, the area value:</p>
+      <ul>
+        <li><strong>Area at or above 100%</strong> → your bar regenerates (capped at ~+0.25%/s in a fully stable spot).</li>
+        <li><strong>Area below 100%</strong> → your bar drains toward that floor. The lower the area, the faster and deeper the drain.</li>
+        <li><strong>Near a rift</strong> → all low-stability effects are forced on you regardless of your actual bar (see §02).</li>
+      </ul>
+      <p>The whole mechanic can be switched off with <code>/worldconfig temporalStability false</code> (default: on). <span class="vflag">defer exact values to your world settings and the in-game Handbook (H)</span></p>
+
+      <h3>Stability by depth</h3>
+      <p>There is no fixed "X% at Y blocks" curve — area stability is driven by world generation, not a clean depth formula. The reliable shape:</p>
+      <div class="data-table">
+        <table>
+          <caption>Where stability sits (general tendency, not a fixed table)</caption>
+          <thead><tr><th>Location</th><th>Area stability</th><th>Net effect on your bar</th></tr></thead>
+          <tbody>
+            <tr><td>Open surface, daylight, no rift</td><td>≥100% (up to 150%)</td><td>Refills you; gauge usually hidden</td></tr>
+            <tr><td>Shallow caves</td><td>Around neutral</td><td>Slow drift; mostly safe</td></tr>
+            <tr><td>The deep</td><td>Persistently low</td><td>Steady drain on long trips</td></tr>
+            <tr><td>Beside a rift (any depth)</td><td>Effectively floored</td><td>Rapid drain (~−3%/s)</td></tr>
+            <tr><td>Anywhere during a storm</td><td>Drops world-wide</td><td>Drain scales with storm intensity</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Rare stable pockets do exist underground, and since v1.20 some surface spots can read permanently low — so trust the gauge over assumptions about depth.</p>
     </section>
 
     <!-- 01 WHAT DRAINS STABILITY -->
@@ -113,11 +139,48 @@
         <li><strong>They spawn hostiles on the surface.</strong> A rift acts as a doorway. <strong>Drifters</strong> climb out near it, along with tougher rift creatures (<strong>bowtorn</strong> and <strong>shivers</strong>) that are far meaner than an ordinary night-time drifter. The surface around a rift is dangerous, day or night.</li>
         <li><strong>They drain stability fast.</strong> Stand too close and the gauge plummets, roughly <strong>3% per second</strong>. The drain is steep and positional. Step away and it stops.</li>
       </ul>
-      <p>Rifts <strong>wax and wane on a cycle</strong>. They flare up, fade, and reappear elsewhere rather than sitting in one spot forever. The world's <strong>Rift Activity</strong> setting controls this, with three modes: <strong>Visible</strong> (default; rifts are seen, heard, drain nearby stability and spawn drifters), <strong>Invisible</strong> (no visuals, sound or stability drain, but drifters still spawn), and <strong>Off</strong> (no rifts at all, which also disables surface drifter spawns entirely).</p>
+      <h3>How rifts form &amp; cycle</h3>
+      <p>Rifts are <strong>generated randomly on the surface near players</strong>. How many exist at once tracks the world's <strong>Rift Activity</strong> level, which itself <strong>shifts at random every few hours</strong> between Low, Medium, High, Very High and Apocalyptic. New worlds are eased in:</p>
+      <div class="data-table">
+        <table>
+          <caption>Rift Activity ramp on a fresh world</caption>
+          <thead><tr><th>World age</th><th>Highest activity possible</th></tr></thead>
+          <tbody>
+            <tr><td>First 3 days</td><td>Low only</td></tr>
+            <tr><td>Until day 20</td><td>up to High</td></tr>
+            <tr><td>From day 20</td><td>Very High unlocks</td></tr>
+            <tr><td>From day 30</td><td>Apocalyptic unlocks</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Rifts <strong>wax and wane on a cycle</strong>. They flare up, fade, and reappear elsewhere rather than sitting in one spot forever. Higher activity means more rifts open at once.</p>
+
+      <h3>The Rift Activity world setting</h3>
+      <p>One config command, <code>/worldconfig temporalRifts</code>, controls how rifts behave, with three modes:</p>
+      <div class="data-table">
+        <table>
+          <caption>temporalRifts modes</caption>
+          <thead><tr><th>Mode</th><th>Visuals / sound</th><th>Stability drain</th><th>Spawns</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Visible</strong> (default)</td><td>Seen &amp; heard</td><td>Yes, drains nearby</td><td>Drifters spawn near rifts</td></tr>
+            <tr><td><strong>Invisible</strong></td><td>None</td><td><strong>Still drains</strong> — you just can't see the rift</td><td>Drifters still spawn</td></tr>
+            <tr><td><strong>Off</strong></td><td>No rifts at all</td><td>None</td><td>Disables surface drifter spawns entirely</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Invisible</strong> is the trap: rifts still bleed your stability with no warning. <strong>Off</strong> trades away the entire rift threat and most surface drifters with it.</p>
       <div class="note danger">
         <span class="label">Never build next to a rift</span>
         <p>A rift beside your base means a steady drip of surface drifters and a permanent stability sink right where you sleep. If one opens near home, keep your distance and wait for the cycle to move it on. Don't try to live alongside it.</p>
       </div>
+
+      <h3>You can't seal a rift (in vanilla)</h3>
+      <p>There is <strong>no vanilla tool to close a rift</strong>. They dissipate on their own as Rift Activity cycles down — the only "fix" is patience and distance. Common misconceptions worth clearing up:</p>
+      <ul>
+        <li><strong>The tuning spear does not seal rifts.</strong> It's a <strong>Clockmaker-only</strong> tool (bronze spear + temporal gear + metal parts) whose job is to <em>hack a bronze or corrupt locust</em> with one hit and turn it into a pet that fights for you. Useful, but unrelated to rifts.</li>
+        <li><strong>Rift-warding blocks are mod-only.</strong> Items that suppress rifts in an area (e.g. a "Rift Ward") come from mods, not the base game.</li>
+        <li><strong>The base-game answer is the world setting.</strong> If rifts ruin a save, change <code>/worldconfig temporalRifts</code> or lower rift activity — there's no in-world device.</li>
+      </ul>
       <p>For the creatures that come out of rifts (drifter tiers, bowtorn, shivers, locusts and the rest) see the full bestiary in <a href="vs-creatures.html">The Bestiary</a>.</p>
     </section>
 
@@ -127,7 +190,33 @@
       <h2>Temporal Storms</h2>
       <p class="lead">A temporal storm is a periodic, world-wide event that arrives roughly <strong>every ~10–20 in-game days</strong>. For its duration, reality frays everywhere and <strong>drifters spawn all around you regardless of light level, even in broad daylight</strong>. It is the most dangerous recurring event in the game.</p>
       <p>Storms are <strong>telegraphed well in advance</strong> with <em>two</em> messages: a <strong>"temporal storm approaching"</strong> warning about <strong>8½ hours</strong> (in-game) ahead, then a final <strong>"imminent"</strong> warning roughly <strong>29 minutes</strong> before it lands. As it nears, the <strong>sky darkens</strong> and an unmistakable <strong>audio cue</strong> sets in. You won't be caught out.</p>
-      <p>A storm lasts about <strong>2.4–4.8 in-game hours</strong>, and each comes at an intensity of <strong>Light, Medium or Heavy</strong> (higher means stronger distortion and more stability loss). Two more things scale with your save:</p>
+      <div class="data-table">
+        <table>
+          <caption>Storm timeline — from first warning to all-clear (in-game time)</caption>
+          <thead><tr><th>Event</th><th>Lead time before storm</th><th>What you do</th></tr></thead>
+          <tbody>
+            <tr><td>"…storm approaching" message</td><td>~8h 24m (≈35% of a day)</td><td>Wrap up long projects, head up out of the deep</td></tr>
+            <tr><td>"…storm imminent" message</td><td>~28m 48s (≈3% of a day)</td><td>Get inside, seal up, last-minute stockpile</td></tr>
+            <tr><td>Storm lands</td><td>—</td><td>Sky darkens, audio cue, drifters everywhere</td></tr>
+            <tr><td>Duration</td><td>~2.4–4.8 hours (10–20% of a day)</td><td>Hold the chokepoint, harvest gears</td></tr>
+            <tr><td>All-clear message</td><td>—</td><td>Sky brightens; safe to go back out</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Each storm comes at an intensity of <strong>Light, Medium or Heavy</strong>. Intensity changes how far stability falls and how strong the distortion is — it does <strong>not</strong> change duration:</p>
+      <div class="data-table">
+        <table>
+          <caption>Storm intensity (stable areas drop to roughly these levels)</caption>
+          <thead><tr><th>Intensity</th><th>Stable area drops to ≈</th><th>Roughly how often</th></tr></thead>
+          <tbody>
+            <tr><td>Light</td><td class="num">~60%</td><td class="num">~20%</td></tr>
+            <tr><td>Medium</td><td class="num">~40%</td><td class="num">~50%</td></tr>
+            <tr><td>Heavy</td><td class="num">~5%</td><td class="num">~30%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>A <strong>Heavy</strong> storm dropping even the surface to ~5% means the unavoidable-damage and forced-spawn thresholds (§00) hit you out in the open — that's why a Heavy storm is a genuine siege. Two more things scale with your save:</p>
       <ul>
         <li><strong>There is a grace period.</strong> A fresh world won't throw a storm at you immediately. The first one is days away, and the <strong>first storm is never Heavy</strong>, giving new players room to get established.</li>
         <li><strong>Storms escalate.</strong> Each storm makes the next <strong>~10% more frequent</strong> (capping at +100%, so the cadence tightens toward ~5–15 days), and average duration and intensity climb over time. Early storms are survivable in a hut. Late-game storms are a serious siege.</li>

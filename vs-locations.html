@@ -127,14 +127,26 @@
     <section class="doc" id="translocators">
       <p class="sec-index">02 — Crossing the map</p>
       <h2>Translocators</h2>
-      <p>Sooner or later you'll find a <strong>translocator</strong> in a ruin: a tall, broken teleporter frame, dark and inert. Many are <strong>static translocators</strong>, each permanently wired to a <em>partner</em> translocator far away on the map. Repair and power one, step through, and you're carried to wherever its partner stands. This is the game's <strong>primary long-distance travel</strong> system, and the way you reach far or story-locked regions.</p>
+      <p>Sooner or later you'll find a <strong>translocator</strong> in a ruin (almost always underground): a tall, broken teleporter frame, dark and inert. Many are <strong>static translocators</strong>, each permanently wired to a <em>partner</em> translocator far away on the map. Repair one, step through, and you're carried to wherever its partner stands. This is the game's <strong>primary long-distance travel</strong> system, and the way you reach far or story-locked regions. You cannot craft one, and in single-player you'll never find an intact one. They all generate broken.</p>
+
+      <div class="facts">
+        <div class="f"><div class="k">Partner range</div><div class="v">400–8000 <small>blocks away</small></div></div>
+        <div class="f"><div class="k">Repair cost</div><div class="v">2+3 <small>metal parts + gears</small></div></div>
+        <div class="f"><div class="k">Clockmaker</div><div class="v">2+2 <small>cheaper repair</small></div></div>
+        <div class="f"><div class="k">Destination</div><div class="v">Fixed <small>world-set, unknown</small></div></div>
+      </div>
+
+      <div class="note warn">
+        <span class="label">Broken can be fixed; ruined cannot</span>
+        <p>There are two states. A <strong>broken</strong> translocator is repairable. A <strong>ruined</strong> one is purely decorative and <em>cannot</em> be brought back. Don't waste gears poking at a ruined frame. Check which you've found before you commit materials.</p>
+      </div>
 
       <h3>Bringing one back to life</h3>
       <ol class="flow">
-        <li><strong>Find one and read it.</strong> A broken translocator usually needs <strong>temporal gears</strong> to repair and energise. Gears are the universal temporal-tech currency, pulled from ruins, traded, or found in the world. The gear system is in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</li>
-        <li><strong>Power it and step through.</strong> Once active, it sends you to its fixed partner. The world sets the destination, not you, so the first trip is a leap into the unknown.</li>
+        <li><strong>Confirm it's broken, not ruined.</strong> Only broken frames repair. Bring the materials: <strong>2 metal parts + 3 temporal gears</strong> (a <strong>Clockmaker</strong> with the Technical skill needs only <strong>2 parts + 2 gears</strong>). Gears come from ruins, drifters and traders. The gear system is in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</li>
+        <li><strong>Repair and step through.</strong> Repairing wires it to a partner placed <strong>400–8000 blocks away</strong> at a fixed spot. The world sets the destination, not you, so the first trip is a leap into the unknown.</li>
         <li><strong>Note where you land.</strong> Open the map (<code>M</code>) and mark the exit point the moment you arrive, so you can find this translocator again from the far side.</li>
-        <li><strong>Build a safe outpost at both ends.</strong> A walled, lit base at each translocator turns a one-way gamble into a reliable two-way route, and a refuge if you arrive somewhere hostile.</li>
+        <li><strong>Build a safe outpost at both ends.</strong> A walled, lit base at each translocator turns a one-way gamble into a reliable two-way route, and a refuge if you arrive somewhere hostile, possibly thousands of blocks from anywhere you know.</li>
       </ol>
 
       <div class="note tip">
@@ -147,24 +159,29 @@
     <section class="doc" id="traders">
       <p class="sec-index">03 — Coins &amp; gears</p>
       <h2>Wandering Traders</h2>
-      <p>Out on the surface you'll find <strong>trader</strong> caravans and tents. Each trader <strong>specialises</strong>, and you deal with them using <strong>gears</strong> (rusty and temporal) and <strong>coins</strong>. They carry <strong>limited stock</strong> that <strong>restocks over time</strong>, and prices drift with supply and demand. Buy out something rare and the price for the rest climbs.</p>
+      <p>Out on the surface you'll find <strong>trader</strong> caravans and tents. There are <strong>nine types</strong>, each <strong>specialising</strong>, and you deal with them in <strong>rusty gears</strong> (the trade currency). A trader has <strong>up to 14 items to sell and 14 to buy</strong>, backed by a <strong>gear pool</strong> they pay you from. They carry <strong>limited stock</strong> that <strong>restocks on the next delivery</strong> (a countdown shows at the top of the trade window), and prices drift with supply and demand. Buy out something rare and the price for the rest climbs.</p>
 
       <div class="data-table">
         <table>
-          <caption>Trader types and what they tend to stock</caption>
-          <thead><tr><th>Trader type</th><th>What they stock</th></tr></thead>
+          <caption>The nine trader types — what they stock and what's unique to each (gear pools approximate)</caption>
+          <thead><tr><th>Trader type</th><th>What they stock</th><th>Notable / unique</th></tr></thead>
           <tbody>
-            <tr><td><strong>Building Supplies</strong></td><td>Blocks, bricks, glass, decorative materials for construction</td></tr>
-            <tr><td><strong>Agriculture</strong></td><td>Seeds, including hard-to-find ones like <strong>cabbage</strong>, plus farming goods</td></tr>
-            <tr><td><strong>Furniture</strong></td><td>Chairs, tables, shelves and other crafted furnishings</td></tr>
-            <tr><td><strong>Clothing</strong></td><td>Garments and outfit pieces for warmth</td></tr>
-            <tr><td><strong>Luxuries</strong></td><td>Fine and decorative goods; the higher-end wares</td></tr>
-            <tr><td><strong>Treasure Hunter</strong></td><td>Rare and unusual finds, exploration-flavoured goods</td></tr>
-            <tr><td><strong>Artisan</strong></td><td>Crafted and worked items, specialist goods</td></tr>
-            <tr><td><strong>Foods</strong></td><td>Edibles and ingredients to round out a diet</td></tr>
-            <tr><td><strong>Commodities</strong></td><td>Raw materials and bulk staples</td></tr>
+            <tr><td><strong>Building Supplies</strong></td><td>Bulk blocks, bricks, decorative wallpapers</td><td>Buys building tools &amp; lanterns well; pool ~20–30</td></tr>
+            <tr><td><strong>Agriculture</strong></td><td>Foods &amp; seeds incl. hard-to-find <strong>cabbage</strong>, saguaro fruit</td><td>Your shortcut to rare crop seeds; pool ~16–24</td></tr>
+            <tr><td><strong>Furniture</strong></td><td>Furniture &amp; decorations not craftable</td><td>Only source of <strong>sleek doors</strong>; sells fire clay direct</td></tr>
+            <tr><td><strong>Clothing</strong></td><td>Garments, many loot/trade-only</td><td>Warm-weather clothing you can't sew</td></tr>
+            <tr><td><strong>Luxuries</strong></td><td>Rare decorative goods, carpets, ornate weapons</td><td>Unique <strong>Forlorn Hope</strong> armor set &amp; estoc; resonators</td></tr>
+            <tr><td><strong>Commodities</strong></td><td>Raw materials &amp; bulk staples</td><td>Reliable saltpeter, potash, halite, cassiterite</td></tr>
+            <tr><td><strong>Survival Goods</strong></td><td>Items for struggling players</td><td>Lets non-Hunters buy the accurate <strong>recurve bow</strong></td></tr>
+            <tr><td><strong>Artisan</strong></td><td>Planters, pots, storage vessels, tapestries</td><td>Often the richest gear pool ~32–48</td></tr>
+            <tr><td><strong>Treasure Hunter</strong></td><td>Loot-only items, lore scrolls</td><td>Sells <strong>temporal gears</strong> (~5 rusty each); <strong>Blackguard</strong> set; <strong>starts the story</strong></td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">The Treasure Hunter is special</span>
+        <p>Beyond stocking the temporal gears that power translocators, the Treasure Hunter carries a <strong>unique dialog option that begins story progression</strong>. If you want to follow the thread, this is one of the traders that opens it. See <a href="#story">Story Locations</a>.</p>
       </div>
 
       <div class="note">
@@ -213,6 +230,31 @@
         <li><strong>Collect clues from special ruins.</strong> Certain authored sites (archives, labs and devastated locations the lore hints at) hold story items and context, not just loot. Read what you find. The pieces add up.</li>
       </ul>
 
+      <h3>The two great story sites</h3>
+      <p>Two authored locations anchor the early story. Both are dangerous, both are optional, and both are worth knowing exist. Kept spoiler-light.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">chapter one</span><h4>Resonance Archives</h4><p>The first major story site: a ruined underground stronghold. Its main room holds <strong>two indestructible locust-nest cages</strong> (around <strong>20 locusts</strong>), and beyond a doorway waits a lone <strong>Bell</strong> that summons drifters and locusts until silenced. Chests can hold <strong>temporal gears</strong>.</p></div>
+        <div class="card"><span class="tag">surface · boss</span><h4>The Devastation</h4><p>A circular blighted zone with a great <strong>central tower</strong>, wrapped in rusty fog, generating <strong>7,000–8,000 blocks from the village</strong>. The ground <strong>drains your temporal stability</strong> and spawns corrupted enemies. A mechanical bird boss, <strong>Erel</strong>, patrols it.</p></div>
+      </div>
+
+      <div class="data-table">
+        <table>
+          <caption>Story locations → what they are → main hazard</caption>
+          <thead><tr><th>Location</th><th>What it is</th><th>Main hazard</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Resonance Archives</strong></td><td>Underground stronghold; Chapter One dungeon</td><td>~20 locusts from nest cages + a summoning <strong>Bell</strong></td></tr>
+            <tr><td><strong>The Devastation</strong></td><td>Surface blight + tower, 7–8k blocks out</td><td>Stability drain, corrupted spawns, fall damage on the tower</td></tr>
+            <tr><td><strong>The tower (Devastation)</strong></td><td>Climbable; uses a hotbar "time-switch" ability near it</td><td>The boss <strong>Erel</strong>; a lens and flier at the top</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="label">These are end-of-chapter content</span>
+        <p>Don't stumble into the Devastation underprepared. The fog drains stability the whole time you're in it, so you need a gear buffer, good armour, food and a way out. The creatures and stability mechanics are in <a href="vs-creatures.html">The Bestiary</a> and <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+      </div>
+
       <div class="note tip">
         <span class="label">Let it unfold at its own pace</span>
         <p>There's no penalty for taking the story slowly. Keep building, keep exploring, read the diary, and the larger picture (the gears, the rust, the storms) assembles itself. The mechanics behind the temporal side are in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
@@ -231,7 +273,7 @@
         <li><strong>Armour &amp; a weapon.</strong> Wear the best armour you can, and carry a <strong>spear or bow</strong> for the drifters and predators in deeper ruins and the dynamic dungeon.</li>
         <li><strong>A prospecting pick.</strong> Sample the ground while you're out. Exploration trips double as ore-scouting, and a prospecting pick tells you what's worth coming back to mine.</li>
         <li><strong>Building blocks.</strong> A stack of cobble or dirt for <strong>emergency walls</strong>: seal yourself in for the night, wall off a drifter, or bracket a translocator with a quick outpost.</li>
-        <li><strong>A few temporal gears.</strong> For <strong>temporal stability</strong> in low-stability depths and for <strong>repairing translocators</strong> in the field. Don't get stranded one gear short of activating your ride home.</li>
+        <li><strong>A few temporal gears.</strong> For <strong>temporal stability</strong> in low-stability depths (a gear in the offhand + knife in hand costs ~2 HP and instantly restores <strong>30% stability</strong>) and for <strong>repairing translocators</strong> in the field (3 gears each). Don't get stranded one gear short of activating your ride home. Gears come from <strong>knifing drifters</strong> (deeper ones drop more often), <strong>Treasure Hunter traders</strong>, and ruin chests.</li>
       </ol>
 
       <div class="note">

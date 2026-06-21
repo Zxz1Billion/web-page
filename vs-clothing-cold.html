@@ -295,7 +295,11 @@
       </div>
 
       <h3>How protection works</h3>
-      <p>Each piece has a <strong>protection tier</strong>, a <strong>flat damage reduction</strong> and a <strong>percent protection</strong>. On a hit, the <strong>flat reduction comes off first, then the percentage</strong> is taken off what remains. The armor <em>type</em> sets the percentage band (improvised lowest, plate highest). For metal armor, the <em>metal</em> shifts everything up the ladder.</p>
+      <p>Each piece has a <strong>protection tier</strong>, a <strong>flat damage reduction</strong> and a <strong>percent protection</strong>. On a hit, the <strong>flat reduction comes off first, then the percentage</strong> is taken off what remains. The armor <em>type</em> sets the percentage band (improvised lowest, plate highest). For metal armor, the <em>metal</em> shifts everything up the ladder. As a reference point, a "high" protection value reads about <strong>0.2 flat + 15%</strong> per piece and a "low" one about <strong>0.1 flat + 3%</strong>.</p>
+      <div class="note">
+        <span class="label">The damage maths, in order</span>
+        <p>Incoming damage <strong>D</strong> resolves as: subtract the <strong>flat</strong> reduction, then multiply what remains by <strong>(1 − percent)</strong>, after the tier comparison below has adjusted both numbers. Stacking flat reduction across head/body/legs is why heavy plate shrugs off small hits entirely — a weak claw can be fully absorbed by the flat term alone.</p>
+      </div>
       <div class="data-table">
         <table>
           <caption>Armor types — confirmed per-piece stats (metal types scale with the metal used)</caption>
@@ -367,8 +371,22 @@
       <p class="sec-index">07 — Keep it serviceable</p>
       <h2>Wear &amp; Upkeep</h2>
       <p>Clothing, armor and tools all degrade with use. A degraded item gives less warmth, less protection, and less durability before it fails.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>Clothing condition vs warmth</caption>
+          <thead><tr><th>Condition</th><th>Warmth delivered</th></tr></thead>
+          <tbody>
+            <tr><td>50% – 100%</td><td>Full (max) warmth</td></tr>
+            <tr><td>Below 50%</td><td>Scales down with condition</td></tr>
+            <tr><td>0%</td><td class="num">+0°C</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Warmth holds at maximum all the way down to <strong>50% condition</strong>, so there's no point repairing above that. Below 50% it falls off, reaching nothing at 0%. Repair clothing with <strong>linen squares</strong>. Plan repairs around that 50% line, not around "looks worn."</p>
+
       <ul>
-        <li><strong>Clothing &amp; armor condition</strong> drops as you take hits and time passes. Warmth and protection scale with condition, so keep your kit in good repair and carry spares for expeditions.</li>
+        <li><strong>Clothing &amp; armor condition</strong> drops as you take hits and time passes. The body armor piece is struck most often (≈50% hit chance, §05) and wears fastest — carry spare chest pieces.</li>
         <li><strong>Metal tools &amp; armor</strong> are maintained at the <strong>anvil</strong>. Re-working or adding metal restores a worn metal item. A <strong>grindstone</strong> (hand-cranked or powered, see <a href="vs-mechanical-power.html">The Turning World</a>) sharpens and tends edges.</li>
         <li><strong>Carry backups.</strong> A spare linen layer and a backup weapon weigh little and save runs when the main kit fails far from home.</li>
       </ul>

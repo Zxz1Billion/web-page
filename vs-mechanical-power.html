@@ -71,9 +71,20 @@
         <div class="card"><span class="tag">carry</span><h4>Transmission</h4><p><strong>Axles</strong> run rotation in a straight line; <strong>angled gears</strong> turn it 90° around corners; gearboxes, clutches and the small <strong>4-way hub</strong> split it, change ratios or toggle a branch.</p></div>
         <div class="card"><span class="tag">work</span><h4>Consumers</h4><p>Machines that spend power on a job: the <strong>quern</strong>, <strong>grindstone</strong>, <strong>helve hammer</strong>, and <strong>pulverizer</strong>. Each adds <strong>resistance</strong>.</p></div>
       </div>
-      <p>The network balances like a tug of war. Generators provide <strong>torque</strong>; every machine downstream adds <strong>resistance</strong>. If torque exceeds total resistance, the network turns and does work. If combined resistance exceeds torque, <strong>nothing moves at all</strong>. The entire shared network stalls, not just the overloaded machine.</p>
+      <p>The network balances like a tug of war on three quantities:</p>
+      <ul>
+        <li><strong>Torque</strong> — rotational force, measured in <strong>kN</strong>. Generators supply it. It directly counteracts resistance.</li>
+        <li><strong>Resistance</strong> — how much rotational energy the network needs just to keep turning. Every component has some; machines have a lot.</li>
+        <li><strong>Speed</strong> — the rate the network turns, and thus how fast machines do their jobs. You only get speed if torque is left over after covering resistance.</li>
+      </ul>
+      <p>If torque exceeds total resistance, the network turns and does work, and the surplus becomes speed. If combined resistance exceeds torque, <strong>the whole train loses speed or halts completely</strong> — not just the overloaded machine, the entire shared network. Pure transmission (axles, gears) has <em>very</em> low resistance; the wiki notes it takes <strong>hundreds of axles</strong> to equal the resistance of a single helve hammer. The machines are what cost you.</p>
       <div class="readout">network turns  ⟺  <b>torque available</b>  ≥  <b>Σ resistance of all engaged machines</b>
+spare torque   ⟹  <b>higher speed</b> (faster work), up to what the train can bear
 stalls         ⟺  too many / too heavy machines for the wind you have</div>
+      <div class="note warn">
+        <span class="label">Don't over-drive the line <span class="vs-ver">1.22</span></span>
+        <p>1.22 added a real penalty for forcing too much torque or speed through a train: the over-stressed blocks <strong>smoke and then catch fire</strong>. Overloading is no longer a free mistake — size the network instead of brute-forcing it.</p>
+      </div>
       <p>Connect the parts with <strong>axles</strong>, wooden first and metal later for longer, stronger runs. Change direction with <strong>angled gears</strong>, which hand a turning axle's rotation off at 90° around a corner or up a wall.</p>
       <div class="note tip">
         <span class="label">One speed, shared</span>
@@ -90,13 +101,31 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
       <h3>Windmill — wind into rotation</h3>
       <p>The windmill is the workhorse. It is a <strong>multiblock</strong>: a horizontal axle on a bearing, a <strong>rotor</strong> mounted on it, and one to several sets of <strong>sails</strong> arranged as a cross on the rotor. Sails are broad cloth blades made from sailcloth or fabric. Wind pushes the sails, the rotor turns, and that rotation feeds your axle network.</p>
       <ul>
-        <li><strong>More sail sets = more power.</strong> Each set adds torque the windmill can deliver.</li>
-        <li><strong>Higher is windier.</strong> Wind strength rises with altitude, so a windmill on a tower or hilltop produces far more than one at sea level. Weather matters too; a storm is worth several calm days.</li>
+        <li><strong>4 sails = 1 set; 5 sets max.</strong> Each set adds <strong>20% output</strong>. One set at full wind makes <strong>20 kN</strong>, so a maxed five-set rotor reaches about <strong>100 kN at 100% wind</strong>, scaling linearly with the live wind percentage.</li>
+        <li><strong>Higher is windier.</strong> Wind speed rises <strong>+1% per block above ~10 over sea level</strong>, capping at <strong>+50% around 60 blocks up</strong>. A full rotor in full wind at altitude can therefore push toward <strong>~150 kN</strong>. Weather adds on top; a storm is worth several calm days.</li>
+        <li><strong>Give the sails room.</strong> Each set wants one block of clearance, so a full 5-set rotor needs <strong>at least 5 blocks</strong> clear of the ground or any solid block. Surrounding walls do <em>not</em> sap wind — a windmill boxed in solid blocks still spins; only altitude and turbulence matter.</li>
       </ul>
-      <p>See schematic (C) below for how the sails sit as a <strong>+ cross</strong> on the rotor.</p>
+      <div class="data-table">
+        <table>
+          <caption>Windmill output by sail set, at 100% wind (v1.22.3; HUD shows live kN)</caption>
+          <thead><tr><th>Sail sets</th><th>Sails</th><th>Output @100% wind</th><th>Flax fibre cost</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>4</td><td class="num">20 kN</td><td class="num">64</td></tr>
+            <tr><td>2</td><td>8</td><td class="num">40 kN</td><td class="num">128</td></tr>
+            <tr><td>3</td><td>12</td><td class="num">60 kN</td><td class="num">192</td></tr>
+            <tr><td>4</td><td>16</td><td class="num">80 kN</td><td class="num">256</td></tr>
+            <tr><td><strong>5 (max)</strong></td><td>20</td><td class="num"><strong>100 kN</strong></td><td class="num">320</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The sail chain is <strong>flax fibre → twine → linen → sail</strong>, four fibre per sail, so a set costs <strong>64 fibre</strong> and a maxed rotor <strong>320</strong>. See schematic (C) below for how the sails sit as a <strong>+ cross</strong> on the rotor.</p>
 
       <h3>Waterwheel — flowing water into rotation <span class="vs-ver">new in 1.22</span></h3>
-      <p>New in 1.22, the <strong>waterwheel</strong> is the steady alternative to wind. It is driven by <strong>rapidly flowing water</strong>, the fast-flow water blocks introduced alongside it, and it arrived with the small <strong>4-way hub</strong>. Take power off at the wheel's <strong>centre</strong> through that hub, then wire it into your network. A windmill's output rises and falls with the weather; a wheel in a good flow gives a dependable, near-constant turn.</p>
+      <p>New in 1.22, the <strong>waterwheel</strong> is the steady alternative to wind. It spins only while its paddles touch one or more <strong>rapidly-flowing water</strong> blocks — the fast-flow water added in 1.22. Take power off at the wheel's <strong>centre</strong> through the small <strong>4-way hub</strong> it arrived with, then wire it into your network. A windmill's output rises and falls with the weather; a wheel in a good flow gives a dependable, near-constant turn, and it cares nothing for altitude or storms.</p>
+      <ul>
+        <li><strong>Where to find the flow.</strong> Rapidly-flowing water generates only <em>rarely</em>, in <strong>stream channels at higher altitudes</strong>, and <strong>only in terrain generated by 1.22 or later</strong>. An old world won't have it near old chunks; explore fresh land or build a channel with a steep drop.</li>
+        <li><strong>It's modular.</strong> The blade configuration is tunable to the local current, so you can match the wheel to a weak or strong flow.</li>
+      </ul>
 
       <h3>The hand crank — zero tech</h3>
       <p>Before any of that, the <strong>hand crank</strong> on a quern is your generator. You are the engine. It costs no resources and powers one quern, slowly, for as long as you hold the button. Fine for your first sacks of flour. Once you're grinding ore in bulk, build a windmill.</p>
@@ -138,10 +167,14 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
       <h2>Consumers</h2>
       <p>These machines are worth automating. Each can be hand-driven in a pinch, but mechanical power turns them from chores into a standing workshop.</p>
       <div class="cards">
-        <div class="card"><span class="tag">grind</span><h4>Quern</h4><p>The first machine you'll power. Grinds <strong>grain into flour</strong> and <strong>ores and rock into powders</strong>. Hand-crank it early; mechanize it once you're milling in volume. Flour feeds straight into <a href="vs-food.html">the kitchen</a>.</p></div>
-        <div class="card"><span class="tag">sharpen</span><h4>Grindstone</h4><p>Sharpens and repairs <strong>tool heads</strong>, restoring an edge so a tool lasts longer before it's spent. A light load, easy to add to an existing line.</p></div>
-        <div class="card"><span class="tag">forge</span><h4>Helve hammer</h4><p>Automates the anvil's worst grind: hammering <strong>blooms, ingots, and blister steel</strong> flat. Major for iron and steel work; see <a href="vs-metalworking.html">the forge</a>. It is also the <strong>heaviest</strong> common consumer.</p></div>
-        <div class="card"><span class="tag">crush</span><h4>Pulverizer</h4><p>Crushes <strong>ore to boost yield</strong> and is a key link in the steel pipeline. Pair it with the helve hammer to mechanize the back half of <a href="vs-metalworking.html">metalworking</a>.</p></div>
+        <div class="card"><span class="tag">grind · 0.1</span><h4>Quern</h4><p>The first machine you'll power. Grinds <strong>grain into flour</strong> and <strong>ores and rock into powders</strong>. Lowest resistance of the set (default <strong>0.1</strong>); a single sail set runs it slowly in a strong breeze. Drive it through the axle on its <strong>top or bottom</strong> (bottom is the efficient way). Flour feeds straight into <a href="vs-food.html">the kitchen</a>.</p></div>
+        <div class="card"><span class="tag">sharpen</span><h4>Grinding wheel</h4><p>The <em>mechanical</em> sharpener (distinct from the hand <strong>grindstone</strong>, which uses no power). Wire it to the network and it sharpens tool heads with a temporary <strong>crit-chance bonus</strong>. A light load, easy to add to a line.</p></div>
+        <div class="card"><span class="tag">forge · heavy</span><h4>Helve hammer</h4><p>Automates the anvil's worst grind: hammering <strong>blooms, ingots, and blister steel</strong> flat. Its resistance is <strong>dynamic, rising with speed</strong> (≈0.1585 at a standstill, higher as it spins). Major for iron and steel work; see <a href="vs-metalworking.html">the forge</a>. The <strong>heaviest</strong> common consumer by far.</p></div>
+        <div class="card"><span class="tag">crush · power-only</span><h4>Pulverizer</h4><p>Crushes <strong>ore to boost yield</strong> and is a key link in the steel pipeline. <strong>Cannot be hand-powered</strong> — it needs the network. Far cheaper than the helve hammer; one sail set turns it slowly. Pair it with the hammer to mechanize the back half of <a href="vs-metalworking.html">metalworking</a>.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Grindstone vs grinding wheel</span>
+        <p>Easy to confuse. The <strong>grindstone</strong> is a hand block you crank yourself to sharpen tools — <em>no mechanical power</em>. The <strong>grinding wheel</strong> is the powered version that <em>must</em> sit on a network. Only the wheel belongs on this page.</p>
       </div>
       <div class="note tip">
         <span class="label">The smithy pair</span>
