@@ -80,6 +80,37 @@
         <p>(1) <strong>Stone tools cannot mine ore veins.</strong> You need a <em>copper</em> pickaxe to mine, so casting copper is the real start of the game. (2) <strong>Iron cannot be worked on a copper anvil.</strong> You must reach <em>bronze</em> and cast a bronze anvil before iron is possible. Plan around those two and you'll never be confused about why you're stuck.</p>
       </div>
 
+      <h3>The anvil rule, stated exactly</h3>
+      <p>The anvil trap strands more players than anything else, so here is the precise rule from the wiki: <strong>an anvil works its own metal tier, one tier above, and everything below.</strong> So a bronze anvil covers everything up to and including iron; the only things it <em>can't</em> work are steel and meteoric iron. Note also <em>how</em> each anvil is made: copper and bronze anvils are <strong>cast in a mold</strong>, while iron, meteoric-iron and steel anvils are <strong>welded together from two halves</strong> on an existing anvil.</p>
+      <div class="data-table">
+        <table>
+          <caption>Which anvil works which metal (config-tunable — Handbook is ground truth)</caption>
+          <thead><tr><th>Anvil</th><th>Made by</th><th>Can work up to</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Copper</strong></td><td>Cast in anvil mold</td><td>Copper, and tin/bismuth bronze (one tier up)</td></tr>
+            <tr><td><strong>Bronze</strong></td><td>Cast in anvil mold</td><td>Up to and including <strong>iron</strong> (the iron gate)</td></tr>
+            <tr><td><strong>Iron</strong></td><td>Welded from two parts</td><td>Up to and including <strong>steel</strong> (the steel gate)</td></tr>
+            <tr><td><strong>Steel</strong></td><td>Welded from two parts</td><td>Everything; the endgame anvil</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cast vs. smithed — which metals do which</h3>
+      <p>The melting point decides the method. Anything that melts at or below <strong>1340&nbsp;°C</strong> can be melted in a crucible and <strong>cast</strong> into molds (copper, bronze, and their components). Iron, meteoric iron and steel melt above that, so they can't be cast at all — they're <strong>smithed</strong> (hammered) from a bloom or blister on an anvil. If you ever go hunting for an "iron mold," that's the sign you've misread the tier.</p>
+      <div class="data-table">
+        <table>
+          <caption>Working temperatures and method (v1.22.3 — config-tunable)</caption>
+          <thead><tr><th>Metal</th><th>Melts ~</th><th>Workable from ~</th><th>Method</th></tr></thead>
+          <tbody>
+            <tr><td>Copper</td><td>1084&nbsp;°C</td><td>542&nbsp;°C</td><td>Cast</td></tr>
+            <tr><td>Tin bronze</td><td>~950&nbsp;°C</td><td>425–510&nbsp;°C</td><td>Cast</td></tr>
+            <tr><td>Iron</td><td>&gt; 1340&nbsp;°C (can't cast)</td><td>~741&nbsp;°C to work the bloom</td><td>Smithed</td></tr>
+            <tr><td>Steel</td><td>&gt; 1340&nbsp;°C (can't cast)</td><td>~751&nbsp;°C</td><td>Smithed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead" style="margin-top:18px">Most metals can be worked once heated above roughly <strong>half their melting point</strong>. The numbers above are the wiki's defaults; your world's settings and the in-game Handbook always win.</p>
+
       <h3>The ladder at a glance</h3>
       <ul class="ladder">
         <li style="--rung:#9a8d72"><div class="age">Stone<small>CHALCO-PREP</small></div><div class="body"><p>Knap tools, make fire, then <strong>pottery</strong>: a fired <em>crucible</em> and <em>molds</em>. No metal until these exist.</p></div></li>
@@ -129,7 +160,19 @@
       </div>
 
       <h3>First cooked meals &amp; a bed</h3>
-      <p>Clay-form and fire a <strong>cooking pot</strong> too. Set on a fire pit, it turns raw ingredients into <strong>meals</strong> (soups, porridges, stews) that feed multiple nutrition groups at once. The full system is in <a href="vs-food.html">The Larder</a>. Finally, craft a <strong>bedroll/bed</strong> from cattail/twine to <strong>set your spawn point</strong>, so a death doesn't send you back to the map's edge.</p>
+      <p>Clay-form and fire a <strong>cooking pot</strong> too. Set on a fire pit, it turns raw ingredients into <strong>meals</strong> (soups, porridges, stews) that feed multiple nutrition groups at once. The full system is in <a href="vs-food.html">The Larder</a>. Finally, craft a <strong>bedroll/bed</strong> from cattail/twine so you can sleep through dangerous nights. (Binding your <em>respawn</em> point comes later, with a <strong>temporal gear</strong> — sleeping alone doesn't set spawn in current versions.)</p>
+
+      <h3>Roughly how long this age takes</h3>
+      <p>Effort, not a fixed clock — but for a first-timer the Stone Age is usually <strong>1–3 in-game days</strong>: a day to survive and tool up (see <a href="vs-getting-started.html">The First Day</a>), then a day or so to find clay, form the pottery, and run the pit kiln. The pit-kiln firing itself eats <strong>~10–20 in-game hours</strong>, so start it and go do other chores while it burns.</p>
+
+      <div class="note tip">
+        <span class="label">You're ready for the Copper Age when…</span>
+        <p>You have a <strong>fired crucible</strong>, an <strong>ingot mold</strong>, and at least a <strong>pickaxe tool mold</strong>; a fire pit you can fuel with <strong>charcoal or peat</strong>; and a safe, lit base to work from. Everything else (bowls, crocks, cooking pot, bed) is comfort — nice to have, not a gate.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Common Stone-Age mistakes</span>
+        <p>Forming the crucible from <strong>ordinary clay instead of fire clay</strong> (it'll fail at metal heat) · cracking pottery by <strong>collecting it before the kiln fully burns out</strong> · firing only the crucible and forgetting a <strong>mold to pour into</strong> · trying to melt copper on a <strong>plain-firewood</strong> fire pit (you need charcoal/peat).</p>
+      </div>
 
       <ul class="checklist">
         <li><label><input type="checkbox" data-ck="p-knap-set"><span class="ck-body"><span class="ck-title">Knap the core tool set</span><span class="ck-note">Knife, axe, spear, shovel and hoe. Patterns: vs-crafting.html#knapping. The axe makes firewood; the knife makes fibre.</span></span></label></li>
@@ -185,6 +228,21 @@
         <p>A <strong>copper pickaxe unlocks ore mining</strong>. A <strong>copper anvil unlocks smithing</strong>. With both, you can dig deep for the alloy metals the Bronze Age needs.</p>
       </div>
 
+      <h3>Counting metal — the units system</h3>
+      <p>All metal is measured in <strong>units</strong>: <strong>100 units = 1 ingot</strong>. A single ore nugget smelts to roughly a fraction of an ingot, so it takes several nuggets per ingot. A crucible holds a stack of material and melts it together, and a typical pour is sized in whole ingots. Most copper tool heads cost on the order of one ingot's worth; an <strong>anvil is a big pour</strong> of several ingots, so smelt up before you cast it.</p>
+
+      <h3>Roughly how long this age takes</h3>
+      <p>Often the <strong>longest single stretch</strong> for new players, because it's gated on finding metal on foot. Surface copper gathering plus your first smelt can be a single busy day; getting enough copper to cast a full tool set <em>and</em> an anvil usually runs <strong>2–4 in-game days</strong>. Stock charcoal in advance — every smelt and every later forge run burns it.</p>
+
+      <div class="note tip">
+        <span class="label">You're ready for the Bronze Age when…</span>
+        <p>You've cast a <strong>copper pickaxe</strong> (so you can finally mine veins), a <strong>prospecting pick</strong> (to find alloy ores), and a <strong>copper anvil + forge</strong> (so smithing is set up for later). With a pick and a propick you can go underground and hunt tin.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Common Copper-Age mistakes</span>
+        <p>Trying to <strong>mine veins with a stone pick</strong> (impossible — cast copper first) · melting copper on plain firewood instead of <strong>charcoal/peat</strong> · casting tools before the <strong>pickaxe</strong> and stalling your mining · forgetting the <strong>anvil + forge</strong> so the Bronze Age can't smith · letting the crucible cool before you pour (work hot).</p>
+      </div>
+
       <ul class="checklist">
         <li><label><input type="checkbox" data-ck="c-gather"><span class="ck-body"><span class="ck-title">Gather surface copper</span><span class="ck-note">Pick up native copper nuggets and surface ore (malachite, cuprite, tetrahedrite). No mining needed yet.</span></span></label></li>
         <li><label><input type="checkbox" data-ck="c-charcoal-fuel"><span class="ck-body"><span class="ck-title">Stock charcoal or peat</span><span class="ck-note">A plain-firewood fire pit struggles to melt copper. Charcoal/peat burn hotter; you need ~1084°C.</span></span></label></li>
@@ -204,7 +262,12 @@
       <p class="lead">Bronze is copper improved with a second (or third) metal. It's stronger and more durable than pure copper. Bronze is also the only way into iron, twice over: you need a <strong>bronze pickaxe to mine iron ore</strong> (a copper pick can't) <em>and</em> a <strong>bronze anvil to work it</strong>. This age is about prospecting for alloy metals and getting the <em>ratios</em> right in your crucible.</p>
 
       <h3>Now you can really mine</h3>
-      <p>With your copper pickaxe and a <strong>prospecting pick</strong> (propick), go underground. The propick samples the rock and reports nearby ore density. Follow the promising readings. The alloy metals you're hunting:</p>
+      <p>With your copper pickaxe and a <strong>prospecting pick</strong> (propick), go underground. The propick has two modes — toggle with <code>F</code>:</p>
+      <ul>
+        <li><strong>Density Search mode</strong> — sample a few blocks within ~16 blocks and it reports the <em>probability of each ore in parts-per-thousand</em>. This tells you <em>what</em> to expect in the area, not exactly where. Use it to decide whether a region is worth digging.</li>
+        <li><strong>Node Search mode</strong> — break one block and it scans a radius, pointing you toward a specific nearby deposit and its rough size. Use it once Density mode says an area is promising.</li>
+      </ul>
+      <p>Ore lives in <strong>disc-shaped deposits</strong> seeded into specific rock types (sedimentary, metamorphic, igneous) at random heights. Surface nuggets are only the shallow tip — the big deposits sit deep, and for some ores you'll be digging well below <strong>Y&nbsp;72</strong> to reach what Density mode forecasts. Sink a staircase or vertical shaft, sample as you go, and dig toward the strongest readings. The alloy metals you're hunting:</p>
       <div class="data-table">
         <table>
           <caption>Alloy metals for bronze (and their ores)</caption>
@@ -236,12 +299,28 @@
         <span class="label">Think in units, not just percent</span>
         <p>Metal is counted in <strong>units</strong> (100 = 1 ingot). For a clean tin-bronze ingot, aim for about <strong>90 units copper + 10 units tin</strong> in the crucible. For a five-ingot pour, scale to ~450 copper + ~50 tin. The crucible shows a running total and tells you when the mix is a valid alloy before you melt.</p>
       </div>
+      <div class="note">
+        <span class="label">A worked tin-bronze example</span>
+        <p>Per the wiki, melting <strong>92 bits copper + 8 bits tin</strong> yields <strong>5 ingots of tin bronze</strong> while spending as little tin as possible — tin is the scarce metal, so this is the efficient mix. Bismuth bronze, if you lack tin, wants roughly <strong>2–4 bismuth + 10–14 copper + 4–6 zinc</strong> nuggets per batch. Always let the crucible confirm "valid alloy" before you melt.</p>
+      </div>
 
       <h3>Cast bronze tools and a bronze anvil</h3>
       <p>Casting bronze is identical to casting copper. Pour the molten alloy into your ingot and tool molds. Replace your copper tools with bronze for the durability bump, and <strong>cast a bronze anvil</strong>. That anvil is the gate: <strong>iron cannot be worked on a copper anvil</strong>, so a bronze (or better) anvil is mandatory before the Iron Age. Also cast a <strong>bronze pickaxe</strong> for harder ore.</p>
       <div class="note warn">
         <span class="label">Don't proceed to iron without these two</span>
         <p>A <strong>bronze anvil</strong> and a <strong>bronze pickaxe</strong> are the iron-age entry tickets. If you head to iron with only copper gear, you'll mine the ore and smelt a bloom, then be unable to hammer it. Cast the anvil first.</p>
+      </div>
+
+      <h3>Roughly how long this age takes</h3>
+      <p>Bound by <strong>finding tin</strong>, which is genuinely scarce — <strong>cassiterite</strong> generates rarely and its shallow nuggets are thin on the ground. Expect to spend real time prospecting. If tin won't turn up, fall back on <strong>bismuth bronze</strong> (zinc + bismuth) to get moving, then upgrade to tin bronze later. Budget <strong>2–5 in-game days</strong>, most of it underground with the propick.</p>
+
+      <div class="note tip">
+        <span class="label">You're ready for the Iron Age when…</span>
+        <p>You've mixed a <strong>valid bronze</strong>, cast a <strong>bronze pickaxe</strong> (mines iron ore that a copper pick can't) and — the real gate — a <strong>bronze anvil</strong> (the only way to hammer an iron bloom). With both in hand, iron is finally on the table.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Common Bronze-Age mistakes</span>
+        <p>Mixing an <strong>invalid ratio</strong> and wasting a melt (watch the crucible's "valid alloy" prompt) · burning scarce <strong>tin</strong> on tools you'll soon replace in iron · heading to iron with <strong>only a copper anvil</strong> and getting stuck on the bloom · not casting a <strong>bronze pickaxe</strong> and being unable to mine iron ore.</p>
       </div>
 
       <ul class="checklist">

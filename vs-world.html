@@ -85,6 +85,28 @@
       <h2>Climate &amp; Temperature</h2>
       <p>Temperature follows a <strong>north–south gradient</strong>. It gets hotter toward the <strong>equator</strong> and colder toward the <strong>poles</strong>. <strong>Altitude</strong> stacks on top: the higher you climb, the colder it gets, so a mountaintop near the equator can still hold snow. <strong>Rainfall</strong> varies region to region independently of temperature, from parched to soaking.</p>
       <p>A landscape is a <strong>function of temperature × rainfall</strong>. For warmth and crops, travel toward the equator. For cold, ice and snow, travel poleward or climb. Check your reading on the world map (<code>M</code>) and watch it change as you move.</p>
+
+      <h3>The three things that move the thermometer</h3>
+      <p>Three effects stack to set the temperature you actually feel at a spot. Knowing the rough sizes tells you whether a region freezes in winter or merely chills.</p>
+      <ul>
+        <li><strong>Latitude (the gradient).</strong> Cold at the poles, warm at the equator. On a realistic world the gradient <em>loops</em>: walk past a pole and temperature climbs again toward the next equator. This is the big knob, worth tens of degrees end to end.</li>
+        <li><strong>Season.</strong> Each spot also swings warmer in summer and colder in winter, and the swing itself grows with latitude. At the equator the seasonal swing is near <strong>±0&nbsp;°C</strong>; in temperate bands about <strong>±16&nbsp;°C</strong>; at the poles up to <strong>±32&nbsp;°C</strong>. A temperate region that's pleasant in summer can still drop below freezing in deep winter.</li>
+        <li><strong>Altitude.</strong> The yearly average falls about <strong>1.5&nbsp;°C per 10 blocks</strong> climbed (~0.15&nbsp;°C/block). Roughly 100 blocks of elevation is ~15&nbsp;°C colder, which is why an equatorial mountaintop can still hold snow.</li>
+      </ul>
+      <p>Rainfall adds a smaller <strong>daily</strong> swing on top: dry, low-humidity areas can vary up to <strong>±9&nbsp;°C</strong> between day and night, while soaking 100%-rainfall regions barely move (~±2.5&nbsp;°C). Deserts roast by day and bite at night; wet forests stay even.</p>
+      <div class="data-table">
+        <table>
+          <caption>Temperature contributions — rough magnitudes (realistic worldgen; varies by world)</caption>
+          <thead><tr><th>Effect</th><th>Driven by</th><th>Approx. magnitude</th></tr></thead>
+          <tbody>
+            <tr><td>Latitude gradient</td><td>Distance from equator/pole</td><td>The dominant effect (tens of °C end to end)</td></tr>
+            <tr><td>Seasonal swing</td><td>Month of year × latitude</td><td>±0&nbsp;°C equator · ±16&nbsp;°C temperate · ±32&nbsp;°C poles</td></tr>
+            <tr><td>Altitude lapse</td><td>Elevation</td><td>−1.5&nbsp;°C per 10 blocks climbed</td></tr>
+            <tr><td>Daily swing</td><td>Rainfall / humidity</td><td>±9&nbsp;°C (dry) → ±2.5&nbsp;°C (wet)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <div class="data-table">
         <table>
           <caption>Temperature × rainfall → the landscape you get (representative; exact bands vary by world)</caption>
@@ -127,7 +149,23 @@
     <section class="doc" id="seasons">
       <p class="sec-index">03 — The clock and the calendar</p>
       <h2>Seasons &amp; the Calendar</h2>
-      <p>The year is <strong>12 months</strong>: three each of <strong>spring → summer → autumn → winter</strong>. The <strong>default month length is 9 days</strong> (configurable), so a season is 27 days and a <strong>full year 108 days</strong>. <strong>Day length</strong> shifts with season and latitude: long summer days near the poles, short dark winter ones.</p>
+      <p>The year is <strong>12 months</strong>: three each of <strong>spring → summer → autumn → winter</strong>. The <strong>default month length is 9 days</strong> (configurable), so a season is 27 days and a <strong>full year 108 days</strong>. <strong>Day length</strong> shifts with season and latitude: long summer days near the poles, short dark winter ones. A new world starts on the <strong>first of May</strong>, early summer, giving you a growing season before the first winter, but not a long one.</p>
+      <p>A full in-game day is roughly <strong>2 real minutes per hour of play at default speed</strong>, regardless of month length, so changing month length stretches the <em>year</em> without changing how long a single day feels.</p>
+      <div class="data-table">
+        <table>
+          <caption>The calendar at default settings (month length is config-tunable)</caption>
+          <thead><tr><th>Unit</th><th>Length</th><th>Months</th></tr></thead>
+          <tbody>
+            <tr><td>Month</td><td>9 days</td><td>—</td></tr>
+            <tr><td>Season</td><td>27 days (3 months)</td><td>—</td></tr>
+            <tr><td><strong>Spring</strong></td><td>27 days</td><td>March · April · May</td></tr>
+            <tr><td><strong>Summer</strong></td><td>27 days</td><td>June · July · August</td></tr>
+            <tr><td><strong>Autumn</strong></td><td>27 days</td><td>September · October · November</td></tr>
+            <tr><td><strong>Winter</strong></td><td>27 days</td><td>December · January · February</td></tr>
+            <tr><td><strong>Year</strong></td><td>108 days</td><td>12 months</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="facts">
         <div class="f"><div class="k">Year</div><div class="v">108 <small>days (default)</small></div></div>
         <div class="f"><div class="k">Month length</div><div class="v">9 <small>days (default)</small></div></div>
@@ -154,7 +192,19 @@
     <section class="doc" id="vertical">
       <p class="sec-index">04 — The vertical axis</p>
       <h2>The Vertical World</h2>
-      <p>Dig straight down and you find a thin skin of <strong>soil</strong> over many courses of <strong>rock</strong>, sinking through the <strong>deep</strong> toward <strong>bedrock</strong>. <strong>Sea level</strong> sits roughly midway up the column. What you find, and how safe you are, changes with every band.</p>
+      <p>Dig straight down and you find a thin skin of <strong>soil</strong> over many courses of <strong>rock</strong>, sinking through the <strong>deep</strong> toward <strong>bedrock</strong>. On a default world the column is <strong>256 blocks</strong> tall and <strong>sea level sits at Y&nbsp;110</strong> (about 43% up the column), so most of the world is <em>below</em> the waterline. What you find, and how safe you are, changes with every band.</p>
+      <div class="data-table">
+        <table>
+          <caption>Vertical reference points (default 256-block world)</caption>
+          <thead><tr><th>Marker</th><th>Approx. Y</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>World ceiling</td><td>256</td><td>Top of the buildable column</td></tr>
+            <tr><td>Sea level</td><td>110</td><td>≈ floor(height × 0.4314); your mental zero</td></tr>
+            <tr><td>Iron-ore band</td><td>~5–93</td><td>0.05–0.85 of sea level; hematite / magnetite / limonite</td></tr>
+            <tr><td>Bedrock</td><td>0</td><td>The impassable floor</td></tr>
+          </tbody>
+        </table>
+      </div>
       <ul class="ladder">
         <li style="--rung:var(--accent)"><div class="age">Surface soil<small>DIRT · GRASS · TOP</small></div><div class="body"><p>Dirt and grass over the rock world. Plants, forage, farmland and loose surface stones sit here. Stability is highest at and above the surface.</p></div></li>
         <li style="--rung:#9bc24a"><div class="age">Upper rock<small>JUST BELOW SOIL</small></div><div class="body"><p>The first rock layers under the topsoil. Shallow ores like <strong>copper</strong> sit here. Surface metal <strong>nuggets</strong> hint at veins just below.</p></div></li>
@@ -181,6 +231,16 @@
       </ul>
       <p>Stone stacks top-to-bottom in the order <strong>basalt → sedimentary → metamorphic → igneous → kimberlite</strong>, so the rock around you hints at how deep you are.</p>
       <p>Certain ores <strong>favour certain host rocks</strong>, so identifying the stone is half of prospecting. It tells you what's even <em>possible</em> before you sample. (Bog-iron limonite is the exception: it forms on the surface in wetlands, not inside a host rock.)</p>
+
+      <h3>How ore deposits generate</h3>
+      <p>Deposits aren't scattered at random. They come in a few shapes, and which rock you're standing in decides which can appear:</p>
+      <ul>
+        <li><strong>Sedimentary-hosted ores.</strong> Soft surface stone hosts the early metals. <strong>Copper</strong> and <strong>lead</strong> favour sedimentary rock, as do flat-layered <strong>hematite</strong>, <strong>limonite</strong>, alum and quartz.</li>
+        <li><strong>Igneous / magmatic-intrusion ores.</strong> <strong>Magnetite</strong>, <strong>cassiterite</strong> (tin), chromite, ilmenite and pentlandite come with igneous intrusions.</li>
+        <li><strong>Vein ores.</strong> Disc- and vein-shaped deposits cut across many rocks: native copper, malachite, galena, bismuthinite, rhodochrosite, sphalerite, native gold &amp; silver, uranium.</li>
+        <li><strong>Special hosts.</strong> <strong>Gold and silver generate only inside quartz</strong> (silver can also ride along in galena). <strong>Sylvite</strong> generates only inside <strong>halite</strong> (rock salt). <strong>Diamonds</strong> only in <strong>kimberlite</strong> at the very bottom.</li>
+      </ul>
+      <p>Native <strong>copper surface deposits</strong> appear nearly everywhere, the exception being where the top stone layer is <strong>bauxite</strong>. A nugget on the ground is the cheapest prospecting signal there is.</p>
       <div class="data-table">
         <table>
           <caption>Rock families, examples and what each is known for (host hints vary by world)</caption>
@@ -217,7 +277,7 @@
           <tbody>
             <tr><td><strong>Copper</strong> (native, malachite)</td><td>Shallow, upper rock</td><td>Surface nuggets; often in/near limestone &amp; similar</td></tr>
             <tr><td><strong>Tin / zinc</strong> (for bronze)</td><td>Shallow–mid</td><td>Specific host rocks; scarcer than copper</td></tr>
-            <tr><td><strong>Iron</strong> (hematite, magnetite)</td><td>Mid-depth</td><td>Below sea level; bog limonite is the surface shortcut</td></tr>
+            <tr><td><strong>Iron</strong> (hematite, magnetite, limonite)</td><td>Y ~5–93 (0.05–0.85 of sea level)</td><td>All three smelt to iron equally; bog limonite is the surface shortcut</td></tr>
             <tr><td><strong>Coal</strong> seams</td><td>Mid–deep</td><td>Shale / claystone / slate strata</td></tr>
             <tr><td><strong>Silver / gold</strong></td><td>Deep</td><td>Particular host rocks; uncommon</td></tr>
             <tr><td><strong>Quartz / gems</strong></td><td>Varies (often deep)</td><td>Quartzite &amp; hard stone pockets</td></tr>
@@ -251,9 +311,9 @@
         </div>
         <div>
           <h4>Node Search</h4>
-          <p>Break a <strong>single block</strong> and the game scans a radius (default <strong>~6 blocks</strong>) around you, reporting nearby ore <strong>nodes</strong> with a <strong>direction</strong> and a relative <strong>size</strong>. The size words, smallest to largest:</p>
+          <p>Break a <strong>single block</strong> and the game scans a cube of <strong>radius 6</strong> around you (a 13×13×13 box, <strong>2,197 blocks</strong>), reporting nearby ore <strong>nodes</strong> with a <strong>direction</strong> and a relative <strong>size</strong>. The size words, smallest to largest:</p>
           <p style="font-family:var(--f-mono);font-size:.8rem;color:var(--accent-2)">Trace › Small › Medium › Large › Very large › Huge <span style="color:var(--ink-faint)">amounts</span></p>
-          <p>Anything other than <em>"No ore node nearby"</em> means ore within range, in <strong>any</strong> direction, including up or down. Use this mode to home in.</p>
+          <p>The bottom rungs are tied to how many ore blocks sit in range: <strong>Trace = 1–9</strong> ore blocks, <strong>Small = 10+</strong>, with the higher classes for richer pockets. Anything other than <em>"No ore node nearby"</em> means ore within range, in <strong>any</strong> direction, including up or down. Use this mode to home in.</p>
         </div>
       </div>
 
@@ -264,6 +324,16 @@
         <li><strong>Home in.</strong> Walk toward the reported direction and re-sample. The size class climbs from <em>Trace</em> toward <em>Huge</em> as you close on the deposit.</li>
         <li><strong>Dig it out.</strong> On top of a node, mine the ore with a <strong>metal pickaxe</strong>. Flint and stone won't break it.</li>
       </ol>
+
+      <h3>Triangulating a node</h3>
+      <p>Direction alone is coarse. To pin a deposit, treat node search like a depth-sounder and compare readings as you move:</p>
+      <ol class="flow">
+        <li><strong>Take a baseline.</strong> Break one block and note the size class and direction.</li>
+        <li><strong>Step a few blocks toward the reading and re-sample.</strong> If the size class climbs, you're closing. If it drops, back off.</li>
+        <li><strong>Box the cardinals.</strong> Sample once each toward N/E/S/W and compare which side reads strongest. The deposit sits that way.</li>
+        <li><strong>Check vertically too.</strong> The scan is a cube, so a "north" hit may be a course or two up or down. If horizontal sampling stalls, dig a step deeper and re-read.</li>
+      </ol>
+      <p>Because the cube only reaches 6 blocks out, walk in <strong>strides of about 10 blocks</strong> while surveying so the scan boxes don't fully overlap and you cover ground.</p>
 
       <p>A density reading looks like this. The region's ore odds, in ‰:</p>
       <div class="readout">Density search (3 samples taken):
@@ -284,6 +354,21 @@ Follow the strongest reading and re-sample as you go.</div>
       <div class="note tip">
         <span class="label">Density to choose, node to find</span>
         <p>Think of it as zoom levels. <strong>Density Search</strong> picks the <em>region</em> ("is the ore even here?"). <strong>Node Search</strong> finds the <em>deposit</em> ("which way and how big?"). Use them in that order to stop tunneling on hope. Don't dismiss a low ‰ reading. Some ores are capped low by design, and a small number is still a green light.</p>
+      </div>
+      <h3>Troubleshooting the propick</h3>
+      <div class="data-table">
+        <table>
+          <caption>Common prospecting problems → what's happening → fix</caption>
+          <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>Density search returns nothing useful</td><td>You sampled soil, gravel or ore itself, not solid rock</td><td>Break <strong>three stone blocks</strong> within 16 blocks of each other; clear loose cover first</td></tr>
+            <tr><td>Reading shows the ore but you can't find it</td><td>Density is a <em>regional</em> probability, not a location</td><td>Toggle to <strong>node search</strong> (<code>F</code>) and triangulate</td></tr>
+            <tr><td>Node search always says "no ore node nearby"</td><td>The 6-block cube simply doesn't reach the deposit</td><td>Walk in ~10-block strides and re-sample; sweep at several depths</td></tr>
+            <tr><td>The ore won't break when you reach it</td><td>Stone/flint pick can't mine ore</td><td>Smelt a <strong>metal pickaxe</strong> first</td></tr>
+            <tr><td>Wanted metal reads only "Miniscule"</td><td>Some ores are capped low by design</td><td>Miniscule still means <em>present</em>; node-search it anyway</td></tr>
+            <tr><td>Propick wears out fast</td><td>Sampling consumes durability per use</td><td>Survey deliberately, not every block; upgrade to a higher-tier pick</td></tr>
+          </tbody>
+        </table>
       </div>
       <p>With a region surveyed and a node located, turn that ore into tools and a better pick. Pick up the road in <a href="vs-metalworking.html">metalworking</a> and <a href="vs-progression.html">The Long Road</a>.</p>
     </section>

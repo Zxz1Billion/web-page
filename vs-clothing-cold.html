@@ -27,11 +27,12 @@
       <a href="#overview"><span class="ix">00</span> Two Systems, Same Body</a>
       <a href="#cold"><span class="ix">01</span> Body Temperature &amp; Cold</a>
       <a href="#warmth"><span class="ix">02</span> Clothing for Warmth</a>
-      <a href="#winter"><span class="ix">03</span> Surviving Winter</a>
+      <a href="#seasons"><span class="ix">03</span> Season &amp; Biome Dressing</a>
+      <a href="#winter"><span class="ix">04</span> Surviving Winter</a>
       <p class="group-label">Staying whole</p>
-      <a href="#armor"><span class="ix">04</span> The Armor System</a>
-      <a href="#materials"><span class="ix">05</span> Leather, Linen &amp; Wool</a>
-      <a href="#upkeep"><span class="ix">06</span> Wear &amp; Upkeep</a>
+      <a href="#armor"><span class="ix">05</span> The Armor System</a>
+      <a href="#materials"><span class="ix">06</span> Leather, Linen &amp; Wool</a>
+      <a href="#upkeep"><span class="ix">07</span> Wear &amp; Upkeep</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
       Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Warmth values, armor numbers and<br>cold thresholds are config-tunable<br>(and depend on "true winters") —<br>the in-game tooltips win.
@@ -51,10 +52,10 @@
         <span class="badge danger">❄ Winter can freeze you to death</span>
       </div>
       <div class="facts">
-        <div class="f"><div class="k">Target body temp</div><div class="v">37°C <small>keep at/above</small></div></div>
+        <div class="f"><div class="k">Neutral body temp</div><div class="v">37.8°C <small>well-clothed hold</small></div></div>
         <div class="f"><div class="k">Cold damage below</div><div class="v">~0°C <small>unclothed, default</small></div></div>
         <div class="f"><div class="k">Full fur set ≈</div><div class="v">+6.5°C <small>warmth</small></div></div>
-        <div class="f"><div class="k">Armor slots</div><div class="v">3 <small>head · body · legs</small></div></div>
+        <div class="f"><div class="k">Clothing slots</div><div class="v">12 <small>+ 3 armor slots</small></div></div>
       </div>
     </header>
 
@@ -78,26 +79,64 @@
     <section class="doc" id="cold">
       <p class="sec-index">01 — The climate is trying to kill you</p>
       <h2>Body Temperature &amp; Cold</h2>
-      <p>With <strong>true winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> at about <strong>37°C</strong>. Let it fall and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
+      <p>With <strong>true (harsh) winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> up. A well-clothed seraph holds at the neutral <strong>37.8°C</strong>; the survival floor is roughly <strong>37°C</strong>. Let it fall far enough and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
+
+      <h3>When cold damage actually starts</h3>
+      <p>The cold doesn't bite the instant the number dips. There's a grace buffer, then a steady tick:</p>
+      <div class="data-table">
+        <table>
+          <caption>Cold-damage timing &amp; thresholds (default Standard world, true winters on)</caption>
+          <thead><tr><th>Condition</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Neutral body temperature (well clothed)</td><td class="num">37.8°C</td></tr>
+            <tr><td>Survival floor — keep at or above</td><td class="num">~37°C</td></tr>
+            <tr><td>How cold before the clock starts</td><td>at least <strong>4°C too cold</strong></td></tr>
+            <tr><td>Grace period before damage ticks</td><td>~<strong>3 in-game hours</strong> continuous</td></tr>
+            <tr><td>Cold damage rate, once ticking</td><td class="num">0.2 HP / 10s</td></tr>
+            <tr><td>Outcome of sustained exposure</td><td>death by hypothermia</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">The 4°C / 3-hour rule</span>
+        <p>You must be <strong>at least 4°C too cold</strong> for <strong>more than three straight in-game hours</strong> before the 0.2 HP / 10s drain begins. Brief exposure between heat sources is survivable; it's the long, uninterrupted cold that kills. Reach warmth and the clock resets. <span class="vflag">exact thresholds are config-tunable — the Handbook and your world settings win</span></p>
+      </div>
 
       <h3>What pushes your temperature down</h3>
       <ul>
         <li><strong>Season &amp; latitude.</strong> Winter is the obvious threat. Colder regions (toward the poles, or at altitude) stay dangerous year-round.</li>
         <li><strong>Night.</strong> Temperatures fall sharply after dark, even in mild seasons.</li>
-        <li><strong>Wetness.</strong> Rain and swimming chill you fast. A soaked seraph loses heat much quicker. Wear a hat or take cover in rain.</li>
-        <li><strong>Wind &amp; exposure.</strong> Open terrain bleeds heat. Walls and shelter blunt it.</li>
+        <li><strong>Wetness.</strong> Rain and swimming chill you fast. A soaked seraph loses heat much quicker, effectively dropping your warmth while wet. Wear a hat or take cover in rain; dry off by a fire. (The wiki states the wetness penalty qualitatively — no fixed number is published.)</li>
+        <li><strong>Wind &amp; exposure.</strong> Open terrain bleeds heat. Walls and shelter blunt it — and crucially, <strong>wind no longer chills you inside an enclosed space</strong>, so a sealed room shuts the wind drain off entirely.</li>
       </ul>
+      <div class="note tip">
+        <span class="label">Enclosed rooms warm you</span>
+        <p>Simply standing in a properly enclosed room raises body temperature by about <strong>+1°C</strong> for as long as you stay inside, on top of killing the wind drain. A roof and four walls is worth real degrees before you even light a fire.</p>
+      </div>
 
       <h3>What warms you back up</h3>
       <ul>
         <li><strong>Clothing warmth.</strong> Your main portable defense (next section).</li>
-        <li><strong>Heat sources.</strong> Stand near a lit <strong>fire pit</strong>, forge or hearth to raise your temperature. An enclosed, fire-lit room stays livable through a cold night.</li>
-        <li><strong>Being indoors, out of wind and rain.</strong> Shelter alone buys you a lot.</li>
+        <li><strong>Heat sources.</strong> Stand near a lit <strong>fire pit</strong>, forge, bloomery, pit kiln, burning coal pile, lava or boiling water to raise your temperature. The warming lingers for a short time after you step away, and the effective <strong>range is much larger indoors</strong> than out in the open.</li>
+        <li><strong>Being indoors, out of wind and rain.</strong> Shelter alone buys you a lot — the +1°C room bonus, no wind drain, and a roof to keep you dry.</li>
       </ul>
 
-      <div class="note warn">
-        <span class="label">You can also over-heat</span>
-        <p>Don't just stack warmth. In hot biomes or high summer, a full fur kit pushes you into <strong>heat</strong> discomfort. Keep a light linen set for warm seasons and swap into furs for the cold. Dress for the season.</p>
+      <div class="data-table">
+        <table>
+          <caption>Heat &amp; shelter sources for body temperature</caption>
+          <thead><tr><th>Source</th><th>Effect</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Lit fire pit / forge / bloomery</td><td>Raises body temp</td><td>Lingers briefly after you leave; rain extinguishes sky-exposed fires</td></tr>
+            <tr><td>Pit kiln, coal pile, lava, boiling water</td><td>Raises body temp</td><td>Any active heat block warms nearby</td></tr>
+            <tr><td>Enclosed room (roof + walls)</td><td class="num">+1°C</td><td>While inside; also cancels the wind drain</td></tr>
+            <tr><td>Indoor heat radius</td><td>Larger than outdoors</td><td>Walls trap the warmth around the source</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="label">Overheating: not a thing in vanilla</span>
+        <p>Unlike cold, <strong>vanilla Vintage Story has no heat-damage / heatstroke penalty</strong> — you cannot overheat to death in a desert or in high summer. A full fur kit in the heat is uncomfortable lore-wise but mechanically harmless; dressing down for warm climates is cosmetic, not survival. (Heatstroke exists only via mods such as <em>Immersive Body Temperature</em>.) Temperature still drives crops, animal weight and biome flora regardless.</p>
       </div>
     </section>
 
@@ -112,6 +151,23 @@
         <p>A full set of <strong>fur</strong> clothes in <em>Good</em> condition might read <strong>+3.0, +2.0, +1.5</strong> across pieces, a combined <strong>+6.5°C</strong> of warmth. That lets you stand outside temperatures as cold as about <strong>−6.5°C</strong> before cold damage begins. Push your total warmth toward <strong>~10</strong> and your body holds near 37.8°C until the ambient temperature drops below roughly 10°C.</p>
       </div>
 
+      <h3>How much warmth is achievable</h3>
+      <p>Warmth is a budget you fill across slots. The ceilings are well-documented:</p>
+      <div class="data-table">
+        <table>
+          <caption>Notable warmth totals (representative; per-item tooltips are authoritative)</caption>
+          <thead><tr><th>Outfit</th><th>Total warmth</th><th>Withstands down to</th></tr></thead>
+          <tbody>
+            <tr><td>Bare skin</td><td class="num">+0°C</td><td class="num">~0°C</td></tr>
+            <tr><td>Full fur set (Good condition)</td><td class="num">+6.5°C</td><td class="num">~−6.5°C</td></tr>
+            <tr><td>Reindeer herder set</td><td class="num">+12.3°C</td><td>warmest coat + shoes in the game</td></tr>
+            <tr><td>Warmest Tailor-craftable outfit</td><td class="num">+21.5°C</td><td>best item in every slot you can craft</td></tr>
+            <tr><td>Absolute warmest (with trader headgear)</td><td class="num">+22°C</td><td>top headgear is Nadiyan-trader only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Each piece's warmth simply <strong>adds</strong> to the rest. The reindeer herder fur coat and fur-lined shoes are the two warmest individual garments in the game. <span class="vflag">exact per-item values vary by version and condition — hover the item in-game</span></p>
+
       <h3>Relative warmth by material</h3>
       <p>Exact values vary by slot, garment and condition, but the ranking is stable:</p>
       <div class="warmth"><span class="lab">Fur</span><span class="track"><span class="lvl" style="width:100%"></span></span><span class="num">warmest</span></div>
@@ -120,19 +176,77 @@
       <div class="warmth"><span class="lab">Linen (flax)</span><span class="track"><span class="lvl" style="width:30%"></span></span><span class="num">light</span></div>
       <div class="warmth"><span class="lab">Bare skin</span><span class="track"><span class="lvl" style="width:6%"></span></span><span class="num">none</span></div>
 
+      <h3>The twelve clothing slots</h3>
+      <p>The character screen has <strong>12 clothing slots</strong>, separate from the three armor slots. Nine carry warmth; three are cosmetic. Every empty warmth slot is wasted degrees.</p>
+      <div class="data-table">
+        <table>
+          <caption>Clothing slots and what fills them</caption>
+          <thead><tr><th>Slot</th><th>What goes here</th><th>Warmth?</th></tr></thead>
+          <tbody>
+            <tr><td>Head</td><td>Hats, hoods, caps</td><td>yes</td></tr>
+            <tr><td>Face</td><td>Masks, face coverings</td><td>yes</td></tr>
+            <tr><td>Neck</td><td>Scarves, collars</td><td>cosmetic*</td></tr>
+            <tr><td>Shoulder</td><td>Capes, cloaks, ponchos, most aprons</td><td>yes</td></tr>
+            <tr><td>Upper body</td><td>Shirts (base layer)</td><td>yes</td></tr>
+            <tr><td>Upper body over</td><td>Coats, outer layer worn over the shirt</td><td>yes</td></tr>
+            <tr><td>Arm</td><td>Arm wear / sleeves</td><td>cosmetic*</td></tr>
+            <tr><td>Hand</td><td>Gloves, mittens</td><td>yes</td></tr>
+            <tr><td>Waist</td><td>Belts, waistbands</td><td>yes</td></tr>
+            <tr><td>Lower body</td><td>Trousers, pants</td><td>yes</td></tr>
+            <tr><td>Foot</td><td>Shoes, boots</td><td>yes</td></tr>
+            <tr><td>Emblem</td><td>Cosmetic badge</td><td>no</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><small>* Neck and arm items are largely cosmetic for warmth; some pieces may carry minor stats. The tooltip is the final word — if it shows green warmth, it counts.</small></p>
+
       <h3>How to dress</h3>
       <ol class="flow">
-        <li><strong>Fill every clothing slot.</strong> There are many slots (head, face, neck, upper/lower body, arms, hands, legs, feet). Each empty slot is wasted warmth. Even cheap linen on every slot beats a fur coat with bare legs.</li>
-        <li><strong>Match the season.</strong> Wear a <strong>fur</strong> set for winter and cold biomes, and a light <strong>linen</strong> set for summer and deserts. Carry both once you can.</li>
+        <li><strong>Fill every warmth slot.</strong> Coat and trousers do the heavy lifting, but headgear, gloves, shoes, waistband and the shirt under the coat all add. Even cheap linen on every slot beats a fur coat with bare legs.</li>
+        <li><strong>Layer the upper body.</strong> A shirt in <em>upper body</em> plus a coat in <em>upper body over</em> stacks two warmth values on your torso. Don't leave the base layer empty under a coat.</li>
+        <li><strong>Match the season.</strong> Wear a <strong>fur</strong> set for winter and cold biomes. In warm climates you can dress down freely — there's no heat penalty (see §01) — so a light kit is fine, but a fur set won't hurt you either.</li>
         <li><strong>Keep a hat on in rain.</strong> Staying dry preserves far more warmth than any single garment adds.</li>
-        <li><strong>Repair before they're ragged.</strong> Worn condition cuts warmth. Mend or replace pieces before a long cold spell.</li>
+        <li><strong>Repair before they're ragged.</strong> Warmth holds full above 50% condition and falls below it (see §06). Mend or replace pieces before a long cold spell.</li>
       </ol>
       <p>Tailoring clothing uses <strong>linen</strong> (from flax), <strong>wool</strong> (from sheep) and <strong>fur/leather</strong> (from animals). See <a href="#materials">§05</a> and <a href="vs-creatures.html">The Bestiary</a> for husbandry. The <strong>Tailor</strong> class gets a head-start, but a Commoner makes everything the same way.</p>
     </section>
 
-    <!-- 03 WINTER -->
+    <!-- 03 SEASONS -->
+    <section class="doc" id="seasons">
+      <p class="sec-index">03 — Dress for where you are</p>
+      <h2>Season &amp; Biome Dressing</h2>
+      <p class="lead">The same outfit can be perfect in one place and useless in another. Climate is driven by season, latitude and altitude, and the only mechanical danger is cold — so dressing is really about how much warmth you need, not whether you'll bake.</p>
+
+      <h3>What sets the ambient temperature</h3>
+      <ul>
+        <li><strong>Season.</strong> Winter is the killer; spring and autumn are mild; summer is warm. Nights are colder than days year-round.</li>
+        <li><strong>Latitude.</strong> Worlds run cold toward the poles and hot toward the equator. A polar spawn is a year-round cold problem; an equatorial one rarely needs heavy warmth.</li>
+        <li><strong>Altitude.</strong> Higher ground is colder. Mountain tops can demand winter kit even in summer.</li>
+      </ul>
+
+      <div class="data-table">
+        <table>
+          <caption>Dressing by climate &amp; season</caption>
+          <thead><tr><th>Where / when</th><th>Recommended kit</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Temperate spring / autumn</td><td>Linen or leather, full slots</td><td>Mild; just don't leave slots empty</td></tr>
+            <tr><td>Temperate / polar winter</td><td>Full fur or wool set</td><td>Nights drop well below 0°C</td></tr>
+            <tr><td>High latitude / high altitude (any season)</td><td>Fur set, carried always</td><td>Cold is permanent here</td></tr>
+            <tr><td>Hot biome / desert / equator</td><td>Anything that fills slots</td><td>No heat penalty — comfort only</td></tr>
+            <tr><td>Any cold expedition</td><td>Fur layer + fire-starting + walling</td><td>Buffer for nightfall and storms</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note tip">
+        <span class="label">There is no "too warm"</span>
+        <p>Because vanilla has no overheating, you never lose by over-dressing — only by under-dressing. If you only want to carry one set, carry the warm one. The single reason to swap into a lighter set is to spare your fur coat's durability for the winter it's actually needed (see §07).</p>
+      </div>
+    </section>
+
+    <!-- 04 WINTER -->
     <section class="doc" id="winter">
-      <p class="sec-index">03 — The season that ends runs</p>
+      <p class="sec-index">04 — The season that ends runs</p>
       <h2>Surviving Winter</h2>
       <p>Winter is Vintage Story's first real test of preparation. Crops stop and die, water freezes, foraging dries up, and the cold turns lethal. Prepare in autumn. You can't react your way through it in the snow.</p>
       <ol class="flow">
@@ -148,11 +262,16 @@
       </div>
     </section>
 
-    <!-- 04 ARMOR -->
+    <!-- 05 ARMOR -->
     <section class="doc" id="armor">
-      <p class="sec-index">04 — Surviving the fight</p>
+      <p class="sec-index">05 — Surviving the fight</p>
       <h2>The Armor System</h2>
       <p>Armor is separate from warmth clothing and goes in three dedicated slots: <strong>Head</strong>, <strong>Body</strong> and <strong>Legs</strong>. There are <strong>eight</strong> armor types: four non-metal and four metal. Within the metal types, the <em>metal tier</em> sets how much they protect.</p>
+
+      <div class="note tip">
+        <span class="label">Clothing armor vs protective armor</span>
+        <p>Two different things share the word "armor." The <strong>12 clothing slots</strong> (§02) give <em>warmth</em> and minor stat bonuses, not meaningful combat protection. Real damage reduction comes only from the <strong>three protective armor slots</strong> below. You can — and should — wear both at once: warmth clothing keeps the cold out, protective armor keeps the teeth out. They don't compete for slots.</p>
+      </div>
 
       <div class="split">
         <div>
@@ -226,9 +345,9 @@
       </div>
     </section>
 
-    <!-- 05 MATERIALS -->
+    <!-- 06 MATERIALS -->
     <section class="doc" id="materials">
-      <p class="sec-index">05 — Where the gear comes from</p>
+      <p class="sec-index">06 — Where the gear comes from</p>
       <h2>Leather, Linen &amp; Wool</h2>
       <p>Both systems are built from the same handful of soft materials. Set up a steady supply and you stay warm and armored indefinitely.</p>
       <div class="cards">
@@ -243,9 +362,9 @@
       </div>
     </section>
 
-    <!-- 06 UPKEEP -->
+    <!-- 07 UPKEEP -->
     <section class="doc" id="upkeep">
-      <p class="sec-index">06 — Keep it serviceable</p>
+      <p class="sec-index">07 — Keep it serviceable</p>
       <h2>Wear &amp; Upkeep</h2>
       <p>Clothing, armor and tools all degrade with use. A degraded item gives less warmth, less protection, and less durability before it fails.</p>
       <ul>

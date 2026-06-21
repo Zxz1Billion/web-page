@@ -71,6 +71,11 @@
         <span class="label">The golden rule of Day One</span>
         <p>Don't dig a deep mine and don't wander far. Today's jobs are a <strong>knife</strong>, an <strong>axe</strong>, a <strong>fire</strong>, some <strong>food</strong>, and four <strong>walls</strong> before sunset. Everything else is tomorrow.</p>
       </div>
+      <p>A fourth surprise is <strong>time itself</strong>. The default day is short — under an hour of real time — so the sun moves fast and the to-do list above is genuinely a race. Keep an eye on the sky colour and the clock; when shadows lengthen, stop foraging and start walling. It is far better to seal an ugly dirt box at dusk than to be caught in the open with a half-built mansion.</p>
+      <div class="note">
+        <span class="label">What you do <em>not</em> need today</span>
+        <p>No farm, no clay pottery, no metal, no big house, no exploring. Those are Day Two and beyond — the whole metal climb lives in <a href="vs-progression.html">The Long Road</a>. Resist the urge to mine: stone tools can't even break ore veins yet, so there is nothing useful underground for you tonight, only danger.</p>
+      </div>
     </section>
 
     <!-- 01 CLASS -->
@@ -128,6 +133,31 @@
         <span class="label">Press H early and often</span>
         <p>The <strong>Survival Handbook</strong> is searchable and context-aware. Hover almost anything and press <code>H</code> to jump to its page, with recipes and spawn locations. It is the ground truth behind this almanac.</p>
       </div>
+
+      <h3>Reading your status bars</h3>
+      <p>Your HUD tells you everything that's about to kill you. Learn to glance at it before it's an emergency.</p>
+      <div class="data-table">
+        <table>
+          <caption>The on-screen meters and what each one is warning you about</caption>
+          <thead><tr><th>Meter</th><th>Watch for</th><th>Day-One fix</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Health</strong> (red)</td><td>Drops from falls, predators, drifters, raw meat, bad mushrooms</td><td>Regenerates slowly when fed; avoid the cause</td></tr>
+            <tr><td><strong>Saturation</strong> (the food bar)</td><td>Drains as you act; at empty you take starvation damage</td><td>Eat anything safe; keep it above a third</td></tr>
+            <tr><td><strong>Temporal stability</strong> (blue gear)</td><td>Colour drains from the gear underground or in a storm</td><td>Stay on the surface today; it's near-full there</td></tr>
+            <tr><td><strong>Body temperature</strong> (thermometer, cold climes)</td><td>Falls at night, in rain, when wet, below 0&nbsp;°C</td><td>Stand by fire; get under a roof; stay dry</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The blue temporal-stability gear sits above your hotbar. On the surface in daylight it reads near 100% and you can ignore it today. It only becomes a problem when you dig deep or when a storm rolls in — see <a href="#night">Surviving the Night</a> and the full system in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+
+      <h3>The four ways to make things</h3>
+      <p>Vintage Story has no single workbench. Different items come from different surfaces, and knowing which is which saves a lot of fumbling on Day One:</p>
+      <ul>
+        <li><strong>Grid crafting</strong> (<code>E</code>) — the 4-slot inventory grid. Torches, the firestarter, tool assembly (head&nbsp;+&nbsp;stick).</li>
+        <li><strong>Knapping</strong> — Shift-click loose stone on the ground, chip a voxel pattern. Your first tool heads.</li>
+        <li><strong>Clay forming</strong> — Day Two work: shape soft clay into pottery, then fire it.</li>
+        <li><strong>Ground &amp; fire interactions</strong> — placing the fire pit, roasting food, lighting torches. Mostly Shift + right-click.</li>
+      </ul>
     </section>
 
     <!-- 03 TOOLS -->
@@ -138,9 +168,23 @@
 
       <h3>Gather the raw materials</h3>
       <ul>
-        <li><strong>Loose stones &amp; flint.</strong> Right-click the small stones lying on the ground. <strong>Flint</strong> (often near gravel and water) is best. It knaps the sharpest blades and is the only stone that makes a usable knife/axe edge. Grab a handful.</li>
-        <li><strong>Sticks.</strong> Pick up loose sticks on the forest floor, or knock leaves with a tool later. You need one stick per tool as the handle.</li>
+        <li><strong>Loose stones &amp; flint.</strong> Right-click the small stones lying on the ground. <strong>Flint</strong> (often near gravel and water) is the easiest start: it's the only material that lays a knapping surface <em>immediately</em>, and it knaps sharp blades. Grab a handful — plan on roughly one stone per tool head, plus spares for misclicks.</li>
+        <li><strong>Sticks.</strong> Pick up loose sticks on the forest floor, or knock them from leaves with a tool later. You need one stick per finished tool as the handle.</li>
       </ul>
+
+      <h3>Which stone to knap</h3>
+      <p>Flint is the friendly default, but several common stones can be knapped if no flint is around. They differ in the strength (durability) of the resulting tool. By the wiki's ordering:</p>
+      <div class="data-table">
+        <table>
+          <caption>Knappable materials, strongest first (config-tunable)</caption>
+          <thead><tr><th>Material</th><th>Tool strength</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Obsidian</strong></td><td>Best</td><td>Rare; volcanic areas. Sharpest stone edge if you find it.</td></tr>
+            <tr><td><strong>Flint</strong></td><td>Very good</td><td>The recommended start — lays a surface instantly, common near gravel/water.</td></tr>
+            <tr><td>Other stone (basalt, chert, granite, andesite, peridotite…)</td><td>Lower</td><td>Works in a pinch. With plain stone you must place it as a surface first.</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>How knapping works</h3>
       <ol class="flow">
@@ -155,6 +199,26 @@
         <span class="label">Knap the knife first, then the axe</span>
         <p>A <strong>flint knife</strong> unlocks grass (for the firestarter and torches), cattails and reeds (for cordage), berries and butchering. A <strong>flint axe</strong> then turns trees into firewood. With those two you can make fire and food, the rest of Day One.</p>
       </div>
+
+      <h3>The starter tool set, in priority order</h3>
+      <p>You can't make everything before dark, so knap in order of what unlocks the next job. The first two are non-negotiable; the rest are nice-to-have on Day One.</p>
+      <div class="data-table">
+        <table>
+          <caption>What each knapped tool does, and how urgent it is today</caption>
+          <thead><tr><th>Tool</th><th>What it's for</th><th>Day-One priority</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Knife</strong></td><td>Cuts grass, reeds &amp; cattails; harvests berries; butchers animals for meat &amp; hide</td><td>First — everything depends on it</td></tr>
+            <tr><td><strong>Axe</strong></td><td>Fells trees; logs break into firewood; chops some plants</td><td>Second — no fire without firewood</td></tr>
+            <tr><td><strong>Spear</strong></td><td>Stab or throw at hares, chickens &amp; predators (hold + release right-click to throw)</td><td>Useful — your only ranged option as a Commoner</td></tr>
+            <tr><td>Shovel</td><td>Digs dirt, sand, gravel, clay; speeds up shelter walls</td><td>Optional today, essential soon</td></tr>
+            <tr><td>Hoe</td><td>Tills soil for farming</td><td>Skip — that's Day Two+</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Make spares of the heads</span>
+        <p>Flint tools are fragile and wear out. If you have stone to spare, knap an <strong>extra knife and axe head</strong> while you're at it — re-knapping in the dark with a wolf nearby is a bad time. A loose head is cheap to carry; finish it with a stick the moment a tool breaks.</p>
+      </div>
     </section>
 
     <!-- 04 FIRE -->
@@ -163,14 +227,37 @@
       <h2>Fire &amp; Light</h2>
       <p>Fire cooks food, lights your shelter and keeps you warm as nights get cold. You need three things: <strong>dry grass</strong>, <strong>firewood</strong>, and a <strong>firestarter</strong>.</p>
       <ol class="flow">
-        <li><strong>Cut dry grass</strong> with your knife from tall-grass tiles. A few handfuls will do.</li>
-        <li><strong>Make firewood.</strong> Chop a tree with your axe. The trunk topples; break the felled logs to get <strong>firewood</strong>.</li>
-        <li><strong>Craft a Firestarter</strong> (a bow-drill) in the crafting grid from <strong>sticks + dry grass</strong>. It has a low success rate. Hold right-click on the fuel and keep trying until it catches.</li>
-        <li><strong>Build the fire pit.</strong> Place <strong>4 firewood</strong> on the ground to form a fire pit, then ignite it with the firestarter (hold right-click).</li>
+        <li><strong>Cut dry grass</strong> with your knife from tall-grass tiles. A few handfuls will do — you'll want some for the firestarter, some for torches.</li>
+        <li><strong>Make firewood.</strong> Chop a tree with your axe. The trunk topples; break the felled logs to get <strong>firewood</strong>. One tree yields plenty.</li>
+        <li><strong>Craft a Firestarter</strong> (a bow-drill) in the crafting grid from <strong>sticks + dry grass</strong>. It has a low success chance per attempt, so keep holding right-click; it will catch after several tries.</li>
+        <li><strong>Build the fire pit.</strong> Sneak (Shift) + right-click the ground with <strong>dry grass</strong> in hand to lay the kindling, then sneak + right-click it with <strong>4 firewood</strong> to complete the pit. Aim at the <em>base</em> of the pit with the firestarter and hold right-click to light it.</li>
       </ol>
       <div class="note tip">
         <span class="label">Torches are nearly free</span>
         <p>A <strong>torch</strong> is a <strong>stick + dry grass (or a cattail)</strong>. Make a few. They are cheap portable light. Drifters spawn in the dark, so a lit base is a safe base.</p>
+      </div>
+
+      <h3>Fire does three jobs</h3>
+      <p>The fire pit is the most important block you'll place today because it solves three problems at once:</p>
+      <ul>
+        <li><strong>Light.</strong> A lit pit floods its surroundings with light, and light suppresses drifter and rift spawns. Build inside your shelter and nothing spawns in with you.</li>
+        <li><strong>Warmth.</strong> Standing near a fire raises your body temperature, and the warmth lingers for a while after you step away. In a cold biome this is the difference between fine and freezing — below 0&nbsp;°C the cold drains health and hikes your hunger rate by roughly 30%.</li>
+        <li><strong>Cooking.</strong> The pit has slots for raw food. Roasted meat is safe; raw meat can make you ill.</li>
+      </ul>
+
+      <h3>Fuel matters later, not tonight</h3>
+      <p>Plain firewood is fine for cooking and warmth tonight. It is <em>not</em> hot enough to melt metal — that needs <strong>charcoal or peat</strong>, which reach the ~1084&nbsp;°C copper needs. That's a Copper-Age concern; see <a href="vs-progression.html#copper">The Copper Age</a>. For Day One, firewood is all you need.</p>
+      <div class="data-table">
+        <table>
+          <caption>Day-one fire build — the shopping list</caption>
+          <thead><tr><th>Item</th><th>Made from</th><th>Roughly how many</th></tr></thead>
+          <tbody>
+            <tr><td>Dry grass</td><td>Knife on tall grass</td><td>4–6 handfuls (fire + torches)</td></tr>
+            <tr><td>Firewood</td><td>Axe on a tree, break logs</td><td>4 for the pit, plus spare</td></tr>
+            <tr><td>Firestarter</td><td>Sticks + dry grass (grid)</td><td>1 (reusable)</td></tr>
+            <tr><td>Torches</td><td>Stick + dry grass / cattail</td><td>3–4 to light the shelter</td></tr>
+          </tbody>
+        </table>
       </div>
       <p>The fire pit is also your first <strong>cooker</strong>. Put raw meat or foraged food in its slots to roast it. Later it becomes the base for a cooking pot and crucible. Tonight, roasted meat is dinner.</p>
     </section>
@@ -190,6 +277,29 @@
         <span class="label">Cook it, and eat the rainbow</span>
         <p>Raw meat can make you ill, so roast it on the fire pit. Don't binge a single food group. Your five nutrition bars (fruit/veg/protein/grain/dairy) each add a little max-health, so a varied diet makes you tougher. Full system in <a href="vs-food.html">The Larder</a>.</p>
       </div>
+
+      <h3>Safe vs. risky forage</h3>
+      <p>Berries are the safest calories in the game — none of the wild bush berries will poison you. <strong>Mushrooms are the trap.</strong> Some are nutritious, some merely useless, and a few will drain your health or kill you, and <em>cooking a poisonous mushroom does not make it safe</em>. The meal still hurts you. The only reliable identifier is the Handbook.</p>
+      <div class="data-table">
+        <table>
+          <caption>Day-one forage at a glance</caption>
+          <thead><tr><th>Food</th><th>Safety</th><th>How to take it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Berries</strong> (blueberry, cranberry, currants, raspberry, blackberry, strawberry…)</td><td><strong>Always safe</strong></td><td><strong>Right-click</strong> the bush to pick without destroying it; it regrows</td></tr>
+            <tr><td><strong>Cattail roots</strong></td><td>Safe (roast first)</td><td>Knife at the water's edge; cook for veg nutrition</td></tr>
+            <tr><td><strong>Wild carrots / onions / other veg</strong></td><td>Safe</td><td>Forage on the ground; some best cooked</td></tr>
+            <tr><td><strong>Mushrooms</strong></td><td><strong>Some are poisonous</strong></td><td><strong>Check Handbook (H) for every species</strong> before eating; cooking won't detoxify a bad one</td></tr>
+            <tr><td><strong>Raw meat</strong></td><td>Risky raw</td><td>Always roast on the fire pit before eating</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note danger">
+        <span class="label">The mushroom rule</span>
+        <p>If you can't identify a mushroom in the Handbook, <strong>don't eat it</strong> — not even cooked. On Day One you have berries, roots and meat; there is no reason to gamble on a fungus. There are over a dozen species and the dangerous ones mimic the safe ones closely.</p>
+      </div>
+
+      <h3>Water &amp; thirst</h3>
+      <p>On Standard settings thirst is light early on, but don't ignore it. Drink at fresh water (rivers, lakes, rain) and later carry water in a clay <strong>jug</strong> or <strong>bowl</strong> from the pottery stage. Being soaked also cools you, which matters more than thirst on a cold first night — see the temperature note below. If your world uses a harsher survival preset, keep water handy from the start; defer to your world settings and the Handbook.</p>
     </section>
 
     <!-- 06 SHELTER -->
@@ -211,6 +321,32 @@
         <span class="label">Dig in, don't build up</span>
         <p>On Day One it's faster to <strong>carve into a hill</strong> than to stack a tower. Three dug walls plus one built wall plus a roof is a complete shelter in a couple of minutes, and the surrounding stone is free.</p>
       </div>
+
+      <h3>Pick the fastest shelter you can finish</h3>
+      <p>"Best" shelter is whichever one you can <em>seal before dark</em>. Match the option to how much daylight is left:</p>
+      <div class="data-table">
+        <table>
+          <caption>Shelter options, fastest first</caption>
+          <thead><tr><th>Option</th><th>Build time</th><th>When to use it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hillside dugout</strong></td><td>Fastest</td><td>Default. Carve into a slope; only 1–2 walls to build, rest is free stone</td></tr>
+            <tr><td><strong>Dirt/cobble box</strong> (the 5×5 plan above)</td><td>Fast</td><td>Flat ground, no hill handy</td></tr>
+            <tr><td><strong>Pillar-up + cap</strong></td><td>Quick &amp; dirty</td><td>Emergency only — jump-place blocks under yourself, roof over. Drifters can't reach you, but you can't do anything either</td></tr>
+            <tr><td><strong>Sealed cave mouth</strong></td><td>Varies</td><td>Only if shallow; deeper caves lower stability and invite drifters</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Don't accidentally trap yourself with stone</span>
+        <p>A real wall is fine, but don't seal yourself somewhere dark with no fire — drifters can spawn inside an unlit enclosed space. <strong>Light first, then seal.</strong> One torch or the fire pit inside makes the box safe.</p>
+      </div>
+
+      <h3>Cordage &amp; a bedroll</h3>
+      <p>If there's daylight to spare, make <strong>cordage</strong>. Cut <strong>cattail tops</strong> or <strong>papyrus</strong> with your knife and craft them in the grid into <strong>twine</strong> (the wiki's "rope" line). Twine binds countless later recipes, so it's never wasted. Twine plus dry grass makes a basic <strong>bedroll/bed</strong>.</p>
+      <div class="note tip">
+        <span class="label">Sleeping vs. setting spawn</span>
+        <p>A grass bed lets you <strong>sleep through most of the night</strong> to skip the dangerous hours. Note the nuance: in current versions, <em>sleeping does not set your respawn point</em> — your spawn is bound with a <strong>temporal gear</strong> (a rare drop/trade item) later. So tonight, the bed is for skipping time safely, not for respawn insurance. Still build it: a slept night is a safe night.</p>
+      </div>
     </section>
 
     <!-- 07 NIGHT -->
@@ -228,6 +364,48 @@
         <span class="label">You have a grace period</span>
         <p>Full <strong>temporal storms</strong> (when drifters spawn everywhere, even in daylight) don't begin immediately. The first ones are days away. Use that grace to get established. The whole system is explained in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
       </div>
+
+      <h3>Know your night-time threats</h3>
+      <p>Two kinds of danger come out after dark. Light handles one; distance handles the other.</p>
+      <div class="data-table">
+        <table>
+          <caption>What's hunting you at night</caption>
+          <thead><tr><th>Threat</th><th>How it finds you</th><th>Your answer</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Drifters</strong></td><td>Spawn in darkness &amp; from surface <em>rifts</em> in low light</td><td>Light. A lit fire/torch near a rift stops it producing drifters. Stay walled and lit</td></tr>
+            <tr><td><strong>Wolves</strong></td><td>Aggro within ~20 blocks; hunt in the open; tier-2 damage</td><td>Don't go out. They can kill an unarmoured Commoner fast. Fight only from a doorway you control</td></tr>
+            <tr><td><strong>Bears / hyenas</strong></td><td>Aggro ~20 blocks; tier-2 damage; bears hit very hard</td><td>Avoid entirely on Day One. Run for your shelter and seal it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The first-night routine</h3>
+      <p>When the sky starts to dim, run this checklist in order:</p>
+      <ol class="flow">
+        <li><strong>Get inside</strong> your walls and put the fire pit / a torch indoors so the interior is lit.</li>
+        <li><strong>Seal the door</strong> — hang a planked door or stack a block in the gap. Don't reopen it for noises.</li>
+        <li><strong>Eat</strong> if your food bar is low, so you regenerate health overnight rather than starve.</li>
+        <li><strong>Sleep or wait.</strong> Use a grass bed to skip the night, or just sit tight by the fire until the sky lightens.</li>
+        <li><strong>Stay put.</strong> Whatever you hear outside, the safest move is to stay lit and walled until dawn.</li>
+      </ol>
+
+      <h3>Common first-day deaths &amp; fixes</h3>
+      <div class="data-table">
+        <table>
+          <caption>How new players die on Day One — and how not to</caption>
+          <thead><tr><th>Cause of death</th><th>Why it happens</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>Caught in the open at dark</td><td>Spent too long foraging/exploring</td><td>Stop and wall in the moment shadows lengthen. An ugly box beats no box</td></tr>
+            <tr><td>Wolf / bear maul</td><td>Wandered near one unarmoured</td><td>Keep ~20+ blocks away; never approach predators on Day One</td></tr>
+            <tr><td>Poison mushroom</td><td>Ate an unidentified fungus (even cooked)</td><td>Only eat Handbook-confirmed mushrooms; stick to berries &amp; meat</td></tr>
+            <tr><td>Hypothermia</td><td>Cold biome, no fire, wet, night</td><td>Build near a fire, get under a roof, stay dry. Below 0&nbsp;°C the cold drains health</td></tr>
+            <tr><td>Starvation</td><td>Ignored the food bar while busy</td><td>Forage early; keep the bar above a third; eat before bed</td></tr>
+            <tr><td>Fall damage</td><td>Jumped down a cliff or into a cave</td><td>Climb down in steps; never leap drops you can't survive</td></tr>
+            <tr><td>Drifters spawning indoors</td><td>Sealed a dark box with no light</td><td>Light before you seal; one torch is enough</td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <p>Survive to morning and you've cleared the hardest part of the opening. Day Two is about <strong>pottery and clay</strong> (a bowl, a cooking pot, a crucible) and scouting <strong>copper</strong>, which is where <a href="vs-progression.html">The Long Road</a> picks up.</p>
     </section>
 

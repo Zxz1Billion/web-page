@@ -75,7 +75,7 @@
       <h3>Doors, windows &amp; weatherproofing</h3>
       <ul>
         <li><strong>Doors</strong> (planks) seal a doorway against rain and let you in and out without leaving a gap drifters can use. A room needs a real door to count as an enclosed cellar.</li>
-        <li><strong>Windows.</strong> Fire <strong>quartz or sand</strong> into <strong>glass</strong>, then craft window panes for light. Windows let in daylight, which <em>hurts</em> a cellar's score. Keep glass in the house, not the larder.</li>
+        <li><strong>Windows.</strong> Smelt <strong>quartz chunks</strong> into <strong>glass</strong> (in a bloomery — not from sand), then craft window panes for light. Glass <em>lets in skylight</em>, which <em>hurts</em> a cellar's score. Keep glass in the house, not the larder.</li>
         <li><strong>Walls &amp; roofs</strong> keep out rain (which sputters your fire and chills you) and keep <strong>drifters</strong> from wandering or spawning inside. Aim for a solid, gap-free shell everywhere on this page.</li>
       </ul>
       <div class="note tip">
@@ -127,9 +127,23 @@
       </div>
       <div class="note tip">
         <span class="label">Food rule of thumb</span>
-        <p>Loose food in a chest spoils at the normal rate. Move it into <strong>storage vessels</strong> or <strong>sealed crocks</strong>, and put those inside a <strong>cellar</strong>. The benefits stack. That's the job of the next section.</p>
+        <p>Loose food in a chest spoils at the normal rate. Move it into <strong>storage vessels</strong> or <strong>sealed crocks</strong>, and put those inside a <strong>cellar</strong>. The benefits stack <em>multiplicatively</em>. That's the job of the next section.</p>
       </div>
-    </section>
+
+      <h3>The numbers that matter</h3>
+      <p>Containers are not interchangeable for food. The storage vessel and the sealed crock each carry a <strong>spoilage multiplier</strong> that stacks on top of the cellar's, and they hold different amounts. Build to these:</p>
+      <div class="data-table">
+        <table>
+          <caption>Storage vessel &amp; crock, exact (v1.22.3)</caption>
+          <thead><tr><th>Container</th><th>Made from</th><th>Capacity</th><th>Spoilage multiplier</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Storage vessel</strong></td><td>35 clay, fired</td><td>12 slots</td><td><strong>×0.50 grains</strong>, ×0.75 vegetables, others normal</td></tr>
+            <tr><td><strong>Crock</strong> (unsealed)</td><td>2 clay, fired</td><td>4 meal servings</td><td>×0.85 on meals</td></tr>
+            <tr><td><strong>Sealed crock</strong></td><td>Crock + fat / beeswax</td><td>4 servings</td><td><strong>×0.10 meals</strong>, ×0.25 pickled veg</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Seal a crock by crafting it together with <strong>a piece of fat or beeswax</strong>. A sealed crock makes a cooked meal perish <strong>ten times slower</strong> on its own; drop that crock into a good cellar and the two multipliers compound. A storage vessel turns grain into a near-archival staple: vessel ×0.50 times a strong cellar's ×0.257 keeps grains good for <strong>over a decade</strong> of in-game time, and vegetables for well over a year.</p>
 
     <!-- 03 CELLAR -->
     <section class="doc" id="cellar">
@@ -141,20 +155,59 @@
         <div class="f"><div class="k">Base room score</div><div class="v">100%</div></div>
         <div class="f"><div class="k">Max skylight penalty</div><div class="v">−40%</div></div>
         <div class="f"><div class="k">Max cooling penalty</div><div class="v">−50%</div></div>
-        <div class="f"><div class="k">Held temperature</div><div class="v">~5°C <small>or colder</small></div></div>
+        <div class="f"><div class="k">Score floor</div><div class="v">10% <small>worst case</small></div></div>
+        <div class="f"><div class="k">Max room size</div><div class="v">14³ <small>interior</small></div></div>
+        <div class="f"><div class="k">Temperature floor</div><div class="v">5°C <small>in warm weather</small></div></div>
       </div>
 
       <p>This plan is a compact, fully enclosed <strong>5×5</strong> cob or stone room: solid roof, <strong>no skylight</strong>, one door, walls lined with storage vessels and sealed crocks. Step through it.</p>
 
       <div id="cellar-viewer"></div>
 
-      <h3>How the cellar score works (be precise)</h3>
-      <p>When you place food storage in a room, the game checks whether that room is enclosed and scores how <strong>cellar-like</strong> it is. The room starts at <strong>100%</strong> effectiveness and loses points two ways:</p>
+      <h3>First, the room must seal</h3>
+      <p>A cellar is just a <strong>room</strong> the game scored as cool and dark. Before anything is scored, the space has to register as a room at all. Two hard requirements:</p>
       <ul>
-        <li><strong>Skylight score — up to −40%.</strong> Any ceiling block that lets <em>direct sunlight</em> in (an open hole, glass, a non-solid roof) raises the room's skylight and cuts effectiveness. A solid, opaque roof with zero sky exposure keeps this penalty at <strong>0</strong>.</li>
-        <li><strong>Cooling score — up to −50%.</strong> The warmer the room sits, the bigger this penalty. A cellar holds a fixed cool temperature of roughly <strong>5°C</strong> (or colder if the surroundings are colder). Build it underground, shaded, and away from heat sources to keep this penalty small.</li>
+        <li><strong>Interior 14×14×14 or smaller.</strong> The room detector only encloses spaces up to <strong>14 blocks</strong> in each interior dimension. A hall bigger than that never becomes a room, so it can never become a cellar. Keep larders small.</li>
+        <li><strong>Every side solid, no gaps.</strong> All six faces must be sealed. Counts as solid: full blocks, <strong>leaded glass panes</strong>, a non-crude/non-ruined <strong>door</strong>, and a <strong>solid (not grated) trapdoor</strong>.</li>
       </ul>
-      <p>A perfect cellar (fully roofed, no skylight, cold) keeps close to the full 100%. A leaky, sun-lit, warm room can drop toward ~10%. Because the cellar holds about 5°C, it only <strong>helps when the outside is warmer than ~8°C</strong>. In deep winter the open air is already that cold, so the cellar matters most in spring, summer and autumn.</p>
+      <div class="note warn">
+        <span class="label">What breaks the seal</span>
+        <p>The usual reasons a "cellar" silently does nothing: a <strong>crude or ruined door</strong>, a <strong>grated trapdoor</strong>, or any <strong>fence / fence gate</strong> in a wall. None of these seal a room. Replace them with a proper door or a solid block. One gap and the whole room fails to register.</p>
+      </div>
+
+      <h3>How the cellar score works (be precise)</h3>
+      <p>Once the room seals, it scores how <strong>cellar-like</strong> it is. The room starts at <strong>100%</strong> effectiveness and loses points two ways, then is clamped to a <strong>10% floor</strong> at worst:</p>
+      <ul>
+        <li><strong>Skylight score — up to −40%.</strong> Counts the share of interior blocks getting as much sunlight as the open air, over the total interior volume. Any glass, open hole or non-solid roof raises it. A solid, opaque roof with zero sky exposure keeps this penalty at <strong>0</strong>.</li>
+        <li><strong>Cooling score — up to −50%.</strong> Counts how many of the enclosing blocks are <strong>cooling-class</strong> — stone, soil, ceramic or ore — versus non-cooling (wood, etc.). More cooling blocks, smaller penalty. Notably, <strong>packed soil and stone count equally</strong>, so a dirt hole cools exactly as well as a stone-brick vault.</li>
+      </ul>
+      <div class="data-table">
+        <table>
+          <caption>What a block contributes to a cellar (v1.22.3 model)</caption>
+          <thead><tr><th>Block in the shell</th><th>Seals room?</th><th>Cooling?</th><th>Skylight?</th></tr></thead>
+          <tbody>
+            <tr><td>Stone / brick / cobblestone</td><td>Yes</td><td><strong>Yes</strong></td><td>No</td></tr>
+            <tr><td>Soil / packed dirt / peat</td><td>Yes</td><td><strong>Yes</strong></td><td>No</td></tr>
+            <tr><td>Fired clay / ceramic / ore</td><td>Yes</td><td><strong>Yes</strong></td><td>No</td></tr>
+            <tr><td>Planks / logs / wood</td><td>Yes</td><td><strong>No</strong> (hurts cooling)</td><td>No</td></tr>
+            <tr><td>Glass block / window</td><td>Yes</td><td>No</td><td><strong>Yes</strong> (hurts)</td></tr>
+            <tr><td>Proper door · leaded pane · solid trapdoor</td><td>Yes</td><td>—</td><td>—</td></tr>
+            <tr><td>Crude/ruined door · grated trapdoor · fence/gate</td><td><strong>No — fails</strong></td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The temperature &amp; perish formulas</h3>
+      <p>The score does not store food directly; it sets the room's <strong>temperature</strong>, and temperature sets the <strong>perish rate</strong>. When the outside is warmer than 5°C:</p>
+      <div class="readout">cellar_temp = 5 + ( (outside_temp − 5) × (1 − cellar_score) )
+
+  e.g. an 80% cellar in 30°C weather:
+       5 + ( (30 − 5) × (1 − 0.80) ) = <b>10°C</b>
+
+perish_rate = max( 0.1 , min( 2.4 , 3^(temp/19 − 1.2) ) − 0.1 )
+
+  best possible cellar multiplier ≈ <b>0.257×</b> (about a quarter of open-air rot)</div>
+      <p>A perfect cellar (fully roofed, no skylight, all cooling blocks) pulls the room to the <strong>5°C floor</strong> in warm weather and keeps close to the full 100%. A leaky, sun-lit, wood-lined room drops toward the <strong>10%</strong> floor and barely beats open air. Because the cellar caps at 5°C, it <strong>only helps when the outside is warmer than 5°C</strong>. In deep winter the open air is already colder than that, so the cellar earns its keep most in spring, summer and autumn. Drive the ambient to <strong>0°C or below</strong> (cold biome or winter) and the perish rate bottoms out at its 0.1 floor — that is the "ice cellar" effect, no special blocks required.</p>
 
       <h3>Vessels multiply the benefit</h3>
       <p>The room score is only half of it. Putting food inside <strong>storage vessels</strong> and <strong>sealed crocks</strong> applies its own spoilage multiplier <em>on top of</em> the cellar's. A cold, dark cellar lined with sealed crocks beats the same cellar with food sitting loose on shelves.</p>
@@ -170,14 +223,21 @@
         </p>
       </div>
 
+      <h3>Ground cellar vs above-ground</h3>
+      <p>The single most effective cellar is the cheapest: <strong>a hole in the ground capped with soil</strong>. Every surrounding block is cooling-class (max cooling score) and there is zero sky exposure (no skylight penalty), so a buried room scores near 100% with no special materials. An above-ground cellar can match it, but only if you build the whole shell from cooling-class blocks (stone, soil, ceramic, ore), cap it with a solid opaque roof, and avoid every window. Add wood or glass and the score drops.</p>
+      <div class="note tip">
+        <span class="label">Dirt is as cool as stone</span>
+        <p>Soil, packed dirt and stone all sit in the cooling class and contribute <strong>equally</strong> to the cooling score. Upgrading a dirt cellar to stone brick buys you durability and looks, <em>not</em> a colder room. Spend the stone on the smithy; let the larder be a dirt hole if you like.</p>
+      </div>
+
       <div class="split">
         <div>
           <h4>Root / stone cellar</h4>
-          <p>The standard build above: a cool, dark, enclosed cob or stone room. Holds ~5°C and gives a reliable spoilage cut for fruit, veg, grain and prepared meals.</p>
+          <p>The standard build above: a cool, dark, enclosed cob, soil or stone room. Holds down to 5°C in warm weather and gives a reliable spoilage cut for fruit, veg, grain and prepared meals year-round.</p>
         </div>
         <div>
-          <h4>Ice cellar</h4>
-          <p>The premium version: line the room with <strong>ice</strong> to push it below freezing for the best preservation of meat and fish. It's harder to keep frozen and works best in cold biomes, but it's the longest-lasting cold storage in the game.</p>
+          <h4>Ice cellar (no special blocks)</h4>
+          <p>There is no ice-lined container in vanilla. The "ice cellar" is simply a sealed cooling room where the <strong>ambient is already at or below 0°C</strong> — dug into cold ground or used through winter in a cold biome. At freezing the perish rate bottoms out at its 0.1 floor: the best preservation in the game, for free.</p>
         </div>
       </div>
     </section>
@@ -188,14 +248,20 @@
       <h2>Food Preservation</h2>
       <p>The cellar slows spoilage. <strong>Preservation</strong> changes the food so it keeps far longer to begin with. Pair the two. The full nutrition and cooking system lives in <a href="vs-food.html">The Larder</a>. This section covers the structural side.</p>
 
-      <h3>Salting</h3>
-      <p>Layer meat or fish with <strong>salt</strong> in a <strong>crock or barrel</strong> for full coverage. Partial coverage preserves less. Salt comes from <strong>saltpeter deposits</strong> or by <strong>evaporating saltwater</strong> (boil it down). Salted food keeps for a very long time.</p>
+      <h3>Salting / curing (barrel)</h3>
+      <p>Cure meat by sealing it in a <strong>barrel</strong> with salt at the fixed ratio of <strong>1 meat to 2 salt</strong> (so 32 meat needs 64 salt). The barrel must stay <strong>sealed for 20 days (480 hours)</strong>; it then yields <strong>cured meat</strong>, the longest-lasting meat in the game — good for up to roughly <strong>3.4 years</strong>. Cured meat gives about <strong>75% of the satiety</strong> of plain cooked meat when eaten straight, the price you pay for the shelf life. Salt comes from <strong>saltpeter deposits</strong> or by <strong>evaporating saltwater</strong> (boil it down).</p>
+
+      <h3>Pickling (barrel)</h3>
+      <p>Brine preserves vegetables and legumes. Mix <strong>water + salt</strong> in a barrel to make brine, then add vegetables — <strong>each vegetable consumes 1 unit of brine</strong>. Seal the barrel for <strong>336 hours (14 days)</strong>. Pickled veg keeps especially well inside a sealed crock (×0.25) in a cellar.</p>
 
       <h3>Drying racks</h3>
-      <p>Place a <strong>drying rack</strong> and hang sliced <strong>meat, fish or mushrooms</strong>. They lose moisture over in-game time and become longer-keeping dried food. Cheap, early, and good for surplus.</p>
+      <p>Hang <strong>bushmeat, poultry or redmeat</strong> on a meat/drying rack to <strong>dry-age it for 2 days</strong>. Raw meat is only fresh for about <strong>1.5 days</strong>, so build the rack <em>inside or beside a cellar</em> — otherwise the meat rots before the age completes. Cheap, early, and good for surplus.</p>
+
+      <h3>Cheese (the slow one)</h3>
+      <p>Milk becomes cheese through a barrel chain, then must <strong>ripen</strong>. Ripening only happens in a spot whose perish multiplier is <strong>0.5× or lower</strong> — the block-info HUD labels it "<em>Suitable spot for food ripening</em>." A cellar that holds the room at or below 5°C qualifies. The longest-keeping dairy is <strong>waxed cheddar</strong>.</p>
 
       <h3>Crocks &amp; vessels in the cold</h3>
-      <p><strong>Sealed crocks</strong> and <strong>storage vessels</strong> in a cold cellar give the longest shelf life. Preservation method, container multiplier and cellar score all stack.</p>
+      <p><strong>Sealed crocks</strong> (×0.10 meals) and <strong>storage vessels</strong> (×0.50 grains) in a cold cellar give the longest shelf life. Preservation method, container multiplier and cellar score all multiply together.</p>
 
       <div class="data-table">
         <table>
@@ -203,16 +269,19 @@
           <thead><tr><th>Method</th><th>Needs</th><th>Good for</th><th>Relative shelf life</th></tr></thead>
           <tbody>
             <tr><td>Loose in a chest</td><td>—</td><td>Nothing (baseline)</td><td class="num">×1 (baseline)</td></tr>
-            <tr><td>Storage vessel</td><td>Fired clay vessel</td><td>Bulk dry &amp; fresh food</td><td class="num">moderate</td></tr>
-            <tr><td>Drying rack</td><td>Rack + slices</td><td>Meat, fish, mushrooms</td><td class="num">good</td></tr>
-            <tr><td>Salting</td><td>Salt + crock/barrel</td><td>Meat, fish</td><td class="num">very long</td></tr>
-            <tr><td><strong>Sealed crock in a cold cellar</strong></td><td>Crock + cellar</td><td>Prepared meals, preserved food</td><td class="num">longest</td></tr>
+            <tr><td>Storage vessel (grain)</td><td>Fired clay vessel</td><td>Bulk dry &amp; fresh food</td><td class="num">×0.50</td></tr>
+            <tr><td>Unsealed crock (meal)</td><td>Fired clay crock</td><td>Cooked meals</td><td class="num">×0.85</td></tr>
+            <tr><td>Drying rack</td><td>Rack + meat</td><td>Bush/poultry/redmeat</td><td class="num">2-day age</td></tr>
+            <tr><td>Pickling</td><td>Barrel + brine</td><td>Vegetables, legumes</td><td class="num">336 h sealed</td></tr>
+            <tr><td>Salting / curing</td><td>1 meat + 2 salt, barrel</td><td>Meat → cured (≈3.4 yr)</td><td class="num">480 h sealed</td></tr>
+            <tr><td>Cold cellar alone</td><td>Sealed cooling room</td><td>Everything</td><td class="num">down to ×0.257</td></tr>
+            <tr><td><strong>Sealed crock in a cold cellar</strong></td><td>Crock + cellar</td><td>Prepared meals</td><td class="num">×0.10 × cellar</td></tr>
           </tbody>
         </table>
       </div>
       <div class="note">
-        <span class="label">Stack everything</span>
-        <p>The best result is preserved food (salted or dried) inside a sealed crock or vessel, inside a high-scoring cellar. Each layer multiplies the last. That's how you carry a summer's harvest through winter.</p>
+        <span class="label">Stack everything — worked</span>
+        <p>The layers multiply. A cooked meal in a <strong>sealed crock</strong> (×0.10) inside a strong <strong>cellar</strong> (×0.257) decays at roughly <strong>×0.026</strong> — about <em>forty times slower</em> than the same meal sitting loose in the open. Grain in a <strong>storage vessel</strong> (×0.50) in that cellar lands near <strong>×0.13</strong>, which is the multi-year, carry-a-harvest-through-winter figure. Preserve first (salt/dry/pickle), then pack into a crock or vessel, then put it in the cellar.</p>
       </div>
     </section>
 
@@ -244,7 +313,24 @@
       <p>Two ground-built "structures" power your early tech. The <strong>pit kiln</strong> fires your pottery. The <strong>charcoal pit</strong> turns logs into the high-heat fuel your forge and bloomery need.</p>
 
       <h3>The pit kiln</h3>
-      <p>To fire clay pots, bowls, crucibles and bricks: place the dry clay items on the ground, pack <strong>dry grass</strong> around and over them, add a layer of fuel (<strong>firewood, peat or coal</strong>), and light it. It smoulders for roughly <strong>10–20 in-game hours</strong> and leaves your fired pottery behind. Build it on bare dirt, away from anything flammable.</p>
+      <p>To fire clay pots, bowls, crucibles and bricks: place the dry clay items on the ground, pack <strong>dry grass and sticks</strong> around and over them, add a layer of fuel (<strong>firewood, peat or coal</strong>), and light it. It smoulders for roughly <strong>10–20 in-game hours</strong> depending on fuel, and leaves your fired pottery behind. Build it on bare dirt, away from anything flammable.</p>
+      <ul>
+        <li><strong>Fuel: 4–8 pieces.</strong> Most pottery needs 4 fuel; a <strong>storage vessel needs 8</strong> on top. The fuel and time are the same whether you fire one item or four — so <strong>always fill the kiln</strong>.</li>
+        <li><strong>Clay costs, exact:</strong> a bowl is 1 clay, a <strong>crock 2</strong>, a <strong>planter 18</strong>, a <strong>storage vessel 35</strong>. Shingles for clay roofing fire the same way.</li>
+        <li><strong>Bulk firing:</strong> a <strong>beehive kiln</strong> (a multiblock you build later) fires many items at once and unlocks up to four ceramic colours per clay.</li>
+      </ul>
+      <div class="data-table">
+        <table>
+          <caption>Clay forming — input cost per item (v1.22.3)</caption>
+          <thead><tr><th>Item</th><th>Clay</th><th>Holds / use</th></tr></thead>
+          <tbody>
+            <tr><td>Bowl</td><td class="num">1</td><td>Eating, mixing</td></tr>
+            <tr><td>Crock</td><td class="num">2</td><td>4 meal servings (seal it)</td></tr>
+            <tr><td>Planter</td><td class="num">18</td><td>Indoor growing / decor</td></tr>
+            <tr><td>Storage vessel</td><td class="num">35</td><td>12 slots; ×0.50 grain</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>The charcoal pit</h3>
       <p>Charcoal comes from smouldering wood in a low-oxygen mound. Stack <strong>firewood logs</strong>, cover the whole pile completely with <strong>soil</strong>, then ignite it. Starved of air, the wood chars into <strong>charcoal</strong> instead of burning to ash. The plan below shows the three stages: ground, log core, soil cap.</p>
