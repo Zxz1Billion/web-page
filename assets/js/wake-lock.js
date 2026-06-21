@@ -63,12 +63,16 @@ export function initWakeLock() {
   document.addEventListener("visibilitychange", () => {
     if (want && document.visibilityState === "visible") acquire();
   });
+  // bfcache back/forward restores arrive as a fresh, lock-less page
+  window.addEventListener("pageshow", () => { if (want) acquire(); });
 
-  // if it was on last time, grab it now and again on the first interaction
+  // Each page navigation is a new document with no user activation, so iOS
+  // won't grant the lock on load. Re-grab it on the first interaction after
+  // any load/return — these listeners stay armed and no-op once held.
+  const tryGrab = () => { if (want && !lock) acquire(); };
+  ["pointerdown", "touchstart", "keydown", "wheel", "scroll"].forEach((ev) =>
+    document.addEventListener(ev, tryGrab, { passive: true }));
+
   render();
-  if (want) {
-    acquire();
-    const once = () => { if (want && !lock) acquire(); document.removeEventListener("pointerdown", once); };
-    document.addEventListener("pointerdown", once, { once: true });
-  }
+  if (want) acquire();
 }

@@ -49,7 +49,7 @@ const SOURCES = {
   "vs-crafting.html": [["Knapping", W+"Knapping"], ["Clay forming", W+"Clay_forming"], ["Smithing", W+"Smithing"], ["Casting", W+"Casting"], ["Crucible", W+"Crucible"], ["Pit kiln", W+"Pit_kiln"]],
   "vs-metalworking.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Bloomery", W+"Bloomery"], ["Steel making", W+"Steel_making"], ["Fuel", W+"Fuel"], ["Bellows", W+"Bellows"], ["Anvil", W+"Anvil"]],
   "vs-mechanical-power.html": [["Mechanical power", W+"Mechanical_power"], ["Windmill", W+"Windmill"], ["Water wheel", W+"Water_wheel"], ["Helve hammer", W+"Helve_hammer"], ["Quern", W+"Quern"]],
-  "vs-food.html": [["Health", W+"Health"], ["Satiety", W+"Satiety"], ["Farming", W+"Farming"], ["Cooking", W+"Cooking"], ["Food preservation", W+"Food_preservation"], ["Bait", W+"Bait"]],
+  "vs-food.html": [["Health", W+"Health"], ["Satiety", W+"Satiety"], ["Farming", W+"Farming"], ["Cooking", W+"Cooking"], ["Cooking pot", W+"Cooking_pot"], ["Pie", W+"Pie"], ["Food preservation", W+"Food_preservation"], ["Bait", W+"Bait"]],
   "vs-clothing-cold.html": [["Temperature", W+"Temperature"], ["Clothes", W+"Clothes"], ["Armor", W+"Armor"], ["Prepare for Winter", W+"Guide:Prepare_for_Winter"]],
   "vs-structures.html": [["Cellar (Room)", W+"Guide:Cellar"], ["Food preservation", W+"Food_preservation"], ["Storage vessel", W+"Storage_vessel"], ["Crock", W+"Crock"], ["Pit kiln", W+"Pit_kiln"]],
   "vs-architect.html": [["Chiseling", W+"Chiseling"], ["Clay forming", W+"Clay_forming"], ["Building blocks", W+"Building"]],
