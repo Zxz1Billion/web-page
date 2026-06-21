@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Arsenal — Vintage Story tools, weapons &amp; armor by age (v1.22.3)</title>
+<meta name="description" content="A complete progression of every craftable tool, weapon and armor in Vintage Story 1.22.3, age by age: the Stone, Copper, Bronze, Meteoric, Iron and Steel tiers, what each unlocks, the material speed/durability ladder, and how the armor system works (improvised, lamellar, leather and gambeson plus chain, scale, brigandine and plate, in copper to steel)." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">⚔️</span>
+      <span class="wordmark">The<br>Arsenal<small>TOOLS · ARMS · ARMOR</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">How gear works</p>
+      <a href="#ladder"><span class="ix">00</span> The Tier Ladder</a>
+      <a href="#armor"><span class="ix">01</span> Armor Explained</a>
+      <p class="group-label">Age by age</p>
+      <a href="#stone"><span class="ix">02</span> Stone Age</a>
+      <a href="#copper"><span class="ix">03</span> Copper Age</a>
+      <a href="#bronze"><span class="ix">04</span> Bronze Age</a>
+      <a href="#meteoric"><span class="ix">05</span> Meteoric Iron</a>
+      <a href="#iron"><span class="ix">06</span> Iron Age</a>
+      <a href="#steel"><span class="ix">07</span> Steel Age</a>
+      <p class="group-label">Reference</p>
+      <a href="#matrix"><span class="ix">★</span> The Full Matrix</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b>. Tiers, durability and<br>armor values are config-tunable —<br>the in-game <b>Survival Handbook (H)</b><br>is ground truth. Pairs with
+      <a href="vs-progression.html" style="color:var(--accent)">The Long Road</a>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Tools · Weapons · Armor</p>
+      <h1>The Arsenal</h1>
+      <p class="lede">Every tool, weapon and piece of armor sits on a <strong>tier ladder</strong>, and each age opens the next rung. Two gates decide your pace: your <strong>pickaxe tier</strong> sets which ore you can mine, and your <strong>anvil tier</strong> sets which metal you can smith. This page lists what becomes craftable in each age, then explains the armor system in full.</p>
+      <div class="badges">
+        <span class="badge accent">Stone → Steel</span>
+        <span class="badge">Tools · weapons · armor</span>
+        <span class="badge">8 armor types</span>
+        <span class="badge accent">⚙ Pickaxe gate · anvil gate</span>
+      </div>
+    </header>
+
+    <!-- 00 LADDER -->
+    <section class="doc" id="ladder">
+      <p class="sec-index">00 — The rungs</p>
+      <h2>The Tier Ladder</h2>
+      <p class="lead">Tool materials run worst to best in a fixed order. Higher tiers mine faster, last longer and hit harder, and each one needs the previous age's gear to make.</p>
+      <div class="data-table">
+        <table>
+          <caption>Tool materials, weakest → strongest (speed and durability climb together)</caption>
+          <thead><tr><th>Material</th><th>Tier</th><th>Mines</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Stone / Flint</td><td>1</td><td>Soil, soft rock</td><td>Knapped by hand. No pickaxe at this tier.</td></tr>
+            <tr><td>Obsidian</td><td>1</td><td>—</td><td>Sharp but brittle; knife/blade niche.</td></tr>
+            <tr><td>Gold / Silver</td><td>2</td><td>Soft only</td><td>Castable but soft; decorative more than practical.</td></tr>
+            <tr><td><strong>Copper</strong></td><td>2</td><td>Most ores</td><td>First real metal. First <strong>pickaxe</strong>, first anvil.</td></tr>
+            <tr><td>Bismuth / Tin / Black <strong>bronze</strong></td><td>3</td><td>+ Iron ore</td><td>Needed to mine iron and to smith it. Black bronze is best.</td></tr>
+            <tr><td><strong>Iron</strong></td><td>4</td><td>Nearly all</td><td>Smithed from bloomery blooms. Iron anvil unlocks steel.</td></tr>
+            <tr><td>Meteoric iron</td><td>4+</td><td>Nearly all</td><td>A notch above iron; needs an iron anvil to work.</td></tr>
+            <tr><td><strong>Steel</strong></td><td>5</td><td>Everything</td><td>Endgame. Fastest, toughest, best armor.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">The two gates</span>
+        <p>You can't mine <strong>iron ore</strong> without a <strong>bronze (tier-3) pickaxe</strong>, and you can't smith <strong>steel</strong> or <strong>meteoric iron</strong> without an <strong>iron anvil</strong>. A bronze anvil works everything up to and including iron. Plan each age around reaching the next gate.</p>
+      </div>
+    </section>
+
+    <!-- 01 ARMOR -->
+    <section class="doc" id="armor">
+      <p class="sec-index">01 — Staying alive</p>
+      <h2>Armor Explained</h2>
+      <p class="lead">Armor fills <strong>three slots</strong> — head, body and legs — separate from your warmth clothing. A hit picks a slot by chance, so a gap anywhere leaks damage.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">20% hit</span><h4>Head</h4><p>Least-often struck, but unprotected head wounds hurt. Cheapest slot to cover first.</p></div>
+        <div class="card"><span class="tag">50% hit</span><h4>Body</h4><p>The most-hit slot by far. Prioritise the best body piece you can carry.</p></div>
+        <div class="card"><span class="tag">30% hit</span><h4>Legs</h4><p>Second most-hit. Don't leave it bare against predators or drifters.</p></div>
+      </div>
+
+      <h3>The eight armor types</h3>
+      <p>Four need <strong>no metal</strong> (early game), four are <strong>forged metal</strong> (copper, bronze, iron or steel). Within a type, the <em>material</em> sets durability; the <em>type</em> sets protection and how much it slows you.</p>
+      <div class="data-table">
+        <table>
+          <caption>Armor types, light → heavy (protection and movement penalty both rise)</caption>
+          <thead><tr><th>Type</th><th>Family</th><th>Protection</th><th>Penalty</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Improvised</td><td>No metal</td><td>Lowest</td><td>None</td><td>Scraps lashed together. Better than bare skin.</td></tr>
+            <tr><td>Lamellar (wood)</td><td>No metal</td><td>Low</td><td>Low</td><td>Wooden plates laced in rows. Cheap and light.</td></tr>
+            <tr><td>Leather</td><td>No metal</td><td>Low–mid</td><td>Low</td><td>Cured hide. Flexible; the base for metal sets.</td></tr>
+            <tr><td>Gambeson</td><td>No metal</td><td>Mid</td><td>Low</td><td>Quilted cloth. Good alone early; worn under metal later.</td></tr>
+            <tr><td>Chain (mail)</td><td>Metal</td><td>Mid</td><td>Medium</td><td>Linked rings. Good vs cuts, less vs blunt/pierce.</td></tr>
+            <tr><td>Scale</td><td>Metal</td><td>Mid–high</td><td>Medium</td><td>Overlapping scales on a backing.</td></tr>
+            <tr><td>Brigandine</td><td>Metal</td><td>High</td><td>High</td><td>Plates riveted inside fabric. Strong all-rounder.</td></tr>
+            <tr><td>Plate</td><td>Metal</td><td>Highest</td><td>Highest</td><td>Full plate over mail and a jerkin. Hinders bows.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">How damage is cut</span>
+        <p>Armor removes a <strong>flat amount</strong> of damage and resists by <strong>tier</strong>. A high-tier blow (bear, storm-grade drifter) punches through flimsy armor; match your set to the threat. A full <strong>steel plate</strong> suit shrugs off almost everything — but the weight wrecks your mobility and ranged aim, so many players run <strong>brigandine</strong> or <strong>chain</strong> for balance, or <strong>gambeson</strong> while exploring.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Making metal armor</span>
+        <p>Metal armor is <strong>forged</strong> (plates and mail on the anvil) or <strong>cast</strong> (lamellar, poured from molds), then assembled — plate stacks plates onto chainmail onto a leather jerkin, so it's the most material-hungry. Upgrade the <strong>body</strong> slot first; it takes half your hits.</p>
+      </div>
+    </section>
+
+    <!-- 02 STONE -->
+    <section class="doc" id="stone">
+      <p class="sec-index">02 — Tier 1 · by hand</p>
+      <h2>Stone Age</h2>
+      <p class="lead">Everything here is <strong>knapped</strong> from stone or flint, or built by hand. You can't mine ore yet — the whole goal is to gather surface <strong>copper nuggets</strong> and reach the next age.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>Knapped</h4><p>Knife, Axe, Shovel, Hoe. <strong>No pickaxe</strong> — copper is the first one.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>First arms</h4><p>Spear (throw or stab), flint arrows + <strong>Bow</strong> (Hunter), <strong>Sling</strong> (Malefactor), scavenged Club.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>No metal</h4><p>Improvised, Lamellar (wood), Leather, Gambeson — all craftable without smithing.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Stations &amp; gear unlocked</span>
+        <p>Firepit, knapping, clay forming + the pit kiln (fired pottery), the clay <strong>cooking pot</strong>, baskets, torches and a firestarter. Build a forge and gather nuggets to cross into the Copper Age.</p>
+      </div>
+    </section>
+
+    <!-- 03 COPPER -->
+    <section class="doc" id="copper">
+      <p class="sec-index">03 — Tier 2 · first metal</p>
+      <h2>Copper Age</h2>
+      <p class="lead">Smelt surface copper in a crucible, cast it in clay molds, and the <strong>full toolset</strong> opens up — most importantly the first <strong>pickaxe</strong>, which lets you mine ore at last.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>The whole kit</h4><p><strong>Pickaxe</strong>, Axe, Knife, Shovel, Hoe, Hammer, Saw, Chisel, Scythe, Prospecting pick, Cleaver.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Cast &amp; smithed</h4><p>Falx (sword), Spear, plus your bow/sling. The Falx first appears here.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>Metal begins</h4><p>Copper Chain, Scale, Brigandine and Plate — and cast Lamellar.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Stations &amp; gear unlocked</span>
+        <p>Crucible + molds (casting), the cast <strong>copper anvil</strong>, bellows and quern. The <strong>hammer + anvil</strong> unlock smithing; the <strong>saw</strong> makes planks; the <strong>chisel</strong> carves blocks and gears. Now mine toward tin or bismuth/zinc to alloy bronze.</p>
+      </div>
+    </section>
+
+    <!-- 04 BRONZE -->
+    <section class="doc" id="bronze">
+      <p class="sec-index">04 — Tier 3 · the gateway</p>
+      <h2>Bronze Age</h2>
+      <p class="lead">Alloy copper into <strong>tin, bismuth or black bronze</strong>. The same toolset returns, tougher and faster — and this age holds the two keys to iron.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>Bronze set</h4><p>The full kit again in bronze. The <strong>bronze pickaxe</strong> is required to mine iron ore.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Harder hits</h4><p>Bronze Falx and Spear: more damage, more durability than copper.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>Bronze sets</h4><p>Chain, Scale, Brigandine, Plate in any of the three bronzes.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Stations &amp; gear unlocked</span>
+        <p>The <strong>bronze anvil</strong> works every metal up to and including iron — it's what refines bloomery blooms into wrought iron. Black bronze is the best of the three. With a bronze pick and bronze anvil, iron is open.</p>
+      </div>
+    </section>
+
+    <!-- 05 METEORIC -->
+    <section class="doc" id="meteoric">
+      <p class="sec-index">05 — Tier 4+ · the shortcut</p>
+      <h2>Meteoric Iron</h2>
+      <p class="lead">A side-grade a notch above plain iron, salvaged from <strong>fallen meteorites</strong> near the surface — no smelting needed, just smithing.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>Iron-plus</h4><p>The full set in meteoric iron: faster and tougher than wrought iron.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Sharp edge</h4><p>Meteoric Falx and Spear sit just above their iron versions.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>Premium</h4><p>Meteoric armor where moulds/plates allow — durable mid-game protection.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">The catch</span>
+        <p>Meteoric iron <strong>can't be worked on a bronze anvil</strong> — you need an <strong>iron anvil</strong> first. So it usually arrives <em>after</em> your first real iron, as a quick quality bump rather than a way to skip the Iron Age.</p>
+      </div>
+    </section>
+
+    <!-- 06 IRON -->
+    <section class="doc" id="iron">
+      <p class="sec-index">06 — Tier 4 · the workhorse</p>
+      <h2>Iron Age</h2>
+      <p class="lead">Mine iron ore with a bronze pick, smelt blooms in a <strong>bloomery</strong>, refine them to wrought iron on a bronze anvil, then smith the lot. Durable, abundant, the backbone of a settled base.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>Iron set</h4><p>The full kit in iron — long-lasting daily drivers. Cast/forge an <strong>iron anvil</strong>.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Reliable steel-lite</h4><p>Iron Falx, Spear and the Tuning spear (for sealing rifts) once you have a temporal gear.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>Iron sets</h4><p>Iron Chain, Scale, Brigandine, Plate — strong, heavy, dependable.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Stations &amp; gear unlocked</span>
+        <p>Bloomery, the optional <strong>blast furnace</strong> for bulk iron, and the <strong>iron anvil</strong> — the gate to both <strong>steel</strong> and <strong>meteoric iron</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 07 STEEL -->
+    <section class="doc" id="steel">
+      <p class="sec-index">07 — Tier 5 · endgame</p>
+      <h2>Steel Age</h2>
+      <p class="lead">Carburise wrought iron in a <strong>cementation furnace</strong> over several days, then smith steel on an iron anvil. The best gear in the game, and a multi-day project to reach.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">Tools</span><h4>The best</h4><p>The full kit in steel: top speed and durability. The last tools you'll make.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Finest blades</h4><p>Steel Falx and Spear; rarer swords like the Blackguard shortsword and Forlorn Hope estoc.</p></div>
+        <div class="card"><span class="tag">Armor</span><h4>Steel plate</h4><p>A full steel <strong>plate</strong> suit takes almost no damage from most attacks — at a heavy mobility cost.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Stations &amp; gear unlocked</span>
+        <p>The <strong>cementation furnace</strong> (turns iron bars into blister steel). After steel, progression is about <em>quantity</em> and decoration, not new tiers. See <a href="vs-metalworking.html">Fire &amp; Metal</a> for the full process.</p>
+      </div>
+    </section>
+
+    <!-- MATRIX -->
+    <section class="doc" id="matrix">
+      <p class="sec-index">★ — At a glance</p>
+      <h2>The Full Matrix</h2>
+      <p class="lead">When each thing first becomes craftable. ● = available, — = not yet.</p>
+      <div class="data-table">
+        <table>
+          <caption>First age a tool, weapon or armor type can be made</caption>
+          <thead><tr><th>Item</th><th>Stone</th><th>Copper</th><th>Bronze</th><th>Iron</th><th>Steel</th></tr></thead>
+          <tbody>
+            <tr><td>Knife / Axe / Shovel / Hoe</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Spear</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Bow (Hunter) / Sling (Malefactor)</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td><strong>Pickaxe</strong></td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Hammer / Saw / Chisel / Scythe</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Prospecting pick / Cleaver</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Falx / Sword</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Anvil</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Mine iron ore (needs bronze pick)</td><td>—</td><td>—</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Smith steel / meteoric (needs iron anvil)</td><td>—</td><td>—</td><td>—</td><td>●</td><td>●</td></tr>
+            <tr><td>No-metal armor (improvised → gambeson)</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Metal armor (chain / scale / brigandine / plate)</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Found, not forged</span>
+        <p>Some gear isn't crafted: <strong>scrap weapons/tools</strong> come from cracked vessels and ruins, and a <strong>scrap weapon kit</strong> rolls a random scrap mace, axe, club, spear or blade. Handy stopgaps before your forge is running.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Arsenal</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-progression.html">The Long Road</a> (the age narrative)<br>
+      · <a href="vs-metalworking.html">Fire &amp; Metal</a> (smelting &amp; smithing)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Tiers, durability, damage and armor values are config-/version-dependent and balanced across updates. Class-locked items (bow, sling) are noted. Your in-game Survival Handbook is the final word.</p>
+</footer>
+
+<script type="module">
+  import "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>

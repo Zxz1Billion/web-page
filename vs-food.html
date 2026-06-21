@@ -244,22 +244,87 @@ Each step drains a different nutrient, so the other two recover before they're t
     <section class="doc" id="recipes">
       <p class="sec-index">04 · The recipe book</p>
       <h2>Cooking Recipes</h2>
-      <p>Meals are built from <strong>ingredient classes</strong>, not fixed recipes. Drop compatible items in the <strong>cooking pot</strong> on a firepit and a meal forms. Each meal needs a minimum, takes up to <strong>4 ingredients</strong>, and yields several portions. The Survival Handbook (<code>H</code>) lists every exact combination.</p>
+      <p>Meals are built from <strong>ingredient classes</strong>, not fixed recipes. Drop compatible items in the <strong>cooking pot</strong> on a firepit and a meal forms. The pot has <strong>4 ingredient slots</strong>; the <strong>first two decide the meal type</strong>, slots 3&ndash;4 are optional extras that raise nutrition and satiety. One pot yields <strong>several portions</strong> (commonly 6). The Survival Handbook (<code>H</code>) lists every exact combination.</p>
+
+      <h3>What counts as what</h3>
+      <p>Each slot is filled by an <strong>ingredient class</strong>, not a specific item. Knowing which class an item falls in is the whole game of cooking.</p>
+      <div class="data-table">
+        <table>
+          <caption>Ingredient classes the cooking pot recognises</caption>
+          <thead><tr><th>Class</th><th>What goes in it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Vegetable</strong></td><td>Carrot, turnip, parsnip, onion, cabbage, pumpkin, cattail root, soybean, and <strong>mushrooms</strong></td></tr>
+            <tr><td><strong>Protein</strong></td><td>Red meat, poultry, bushmeat, <strong>fish</strong>, and <strong>eggs</strong></td></tr>
+            <tr><td><strong>Grain</strong></td><td>Spelt, rye, rice, amaranth, sunflower &amp; cassava grain (and flour-based goods)</td></tr>
+            <tr><td><strong>Fruit</strong></td><td>Berries (every bush type) and tree fruit</td></tr>
+            <tr><td><strong>Dairy</strong></td><td>Milk and cheese</td></tr>
+            <tr><td><strong>Liquid / sweetener</strong></td><td>Water (for soup) and honey (jam, or to sweeten porridge/meat)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <h3>At the cooking pot</h3>
       <div class="recipes">
-        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2&ndash;4 Vegetables</span></div><span class="arr">&rarr;</span><span class="res">Vegetable stew</span></div>
-        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2&ndash;4 Meat / poultry / fish</span><span class="plus">+</span><span class="ing">Honey (opt)</span></div><span class="arr">&rarr;</span><span class="res">Meat stew</span></div>
-        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2 Grain</span><span class="plus">+</span><span class="ing">Fruit / honey (opt)</span></div><span class="arr">&rarr;</span><span class="res">Porridge</span></div>
-        <div class="recipe"><span class="tag">Pot · + water</span><div class="ings"><span class="ing">1&#8201;L Water</span><span class="plus">+</span><span class="ing">Vegetable</span><span class="plus">+</span><span class="ing">2 extra (opt)</span></div><span class="arr">&rarr;</span><span class="res">Soup</span></div>
-        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2 Eggs</span><span class="plus">+</span><span class="ing">Cheese / veg (opt)</span></div><span class="arr">&rarr;</span><span class="res">Scrambled eggs</span></div>
-        <div class="recipe"><span class="tag">Pot · preserve</span><div class="ings"><span class="ing">2 Fruit</span><span class="plus">+</span><span class="ing">Honey</span></div><span class="arr">&rarr;</span><span class="res">Jam &middot; 45 days</span></div>
+        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2&ndash;4 Vegetables</span></div><span class="arr">&rarr;</span><span class="res">Vegetable stew &middot; 6 days</span></div>
+        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2&ndash;4 Meat / poultry / fish</span><span class="plus">+</span><span class="ing">Honey (opt)</span></div><span class="arr">&rarr;</span><span class="res">Meat stew &middot; 6 days</span></div>
+        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2 Grain</span><span class="plus">+</span><span class="ing">Fruit / honey (opt)</span></div><span class="arr">&rarr;</span><span class="res">Porridge &middot; 3 days</span></div>
+        <div class="recipe"><span class="tag">Pot · + water</span><div class="ings"><span class="ing">Water</span><span class="plus">+</span><span class="ing">Veg / meat</span><span class="plus">+</span><span class="ing">2 extra (opt)</span></div><span class="arr">&rarr;</span><span class="res">Soup &middot; 6 days</span></div>
+        <div class="recipe"><span class="tag">Cooking pot</span><div class="ings"><span class="ing">2 Eggs</span><span class="plus">+</span><span class="ing">Cheese / veg (opt)</span></div><span class="arr">&rarr;</span><span class="res">Scrambled eggs &middot; 3 days</span></div>
+        <div class="recipe shaped"><span class="tag">Pot · preserve</span><div class="ings"><span class="ing">2 Fruit</span><span class="plus">+</span><span class="ing">2 &times; 0.2&#8201;L Honey</span></div><span class="arr">&rarr;</span><span class="res">Jam &middot; 45 days</span></div>
+      </div>
+      <div class="note">
+        <span class="label">Reading these cards</span>
+        <p>The first two slots set the dish, so two of one class is the minimum. Slots 3&ndash;4 are optional and exist to add satiety and a second or third nutrition group. <strong>Jam is the exception</strong>: it demands <strong>all four slots</strong> &mdash; two fruit plus two pours of <strong>0.2&#8201;L honey</strong> &mdash; and cooks 6 servings. <strong>Soup</strong> needs enough <strong>water</strong> in the pot to register as soup rather than a stew. Fruits in a jam need not match.</p>
       </div>
       <h3>Baking &mdash; quern &amp; clay oven</h3>
+      <p>Grind grain to <strong>flour</strong> at a quern, mix <strong>1 flour + 1&#8201;L water</strong> into <strong>dough</strong>, then bake. Every grain type makes dough &mdash; spelt, rye, rice, amaranth, sunflower and cassava each give their own bread. Cooking grain into bread raises its satiety roughly <strong>+300%</strong> over the raw grain, so baking is the efficient grain staple.</p>
       <div class="recipes">
         <div class="recipe"><span class="tag">Quern</span><div class="ings"><span class="ing">Grain</span></div><span class="arr">&rarr;</span><span class="res">Flour</span></div>
-        <div class="recipe"><span class="tag">By hand</span><div class="ings"><span class="ing">Flour</span><span class="plus">+</span><span class="ing">Water</span></div><span class="arr">&rarr;</span><span class="res">Dough</span></div>
+        <div class="recipe"><span class="tag">By hand</span><div class="ings"><span class="ing">Flour</span><span class="plus">+</span><span class="ing">1&#8201;L Water</span></div><span class="arr">&rarr;</span><span class="res">Dough</span></div>
         <div class="recipe shaped"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">Dough</span></div><span class="arr">&rarr;</span><span class="res">Bread</span></div>
-        <div class="recipe shaped"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">Dough</span><span class="plus">+</span><span class="ing">Fruit / meat / veg</span></div><span class="arr">&rarr;</span><span class="res">Pie</span></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Watch the bake &mdash; three stages</span>
+        <p>Dough passes through <strong>part-baked &rarr; baked &rarr; charred</strong>. From a fully heated oven that's about <strong>40&#8201;s</strong>, <strong>60&#8201;s</strong> and <strong>85&#8201;s</strong>. Pull it at <em>baked</em>: a perfect loaf restores the most satiety and keeps longest; <strong>part-baked</strong> gives less, and <strong>charred</strong> is wasted grain. A firepit can bake but the clay <strong>oven</strong> does it faster and more evenly.</p>
+      </div>
+
+      <h4>Pies</h4>
+      <p>A pie is the densest baked good: many ingredients in, several rich servings out. Lay <strong>2 dough</strong> on a table to form an empty crust, then add filling. A pie must be <strong>filled four times</strong> &mdash; <strong>2 of the same class per fill, 8 total</strong> &mdash; before it is full and bakeable. Bake the raw pie in a hot <strong>clay oven</strong> (one pie at a time).</p>
+      <div class="recipes">
+        <div class="recipe shaped"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">2 Dough</span><span class="plus">+</span><span class="ing">8 Fruit</span></div><span class="arr">&rarr;</span><span class="res">Fruit / berry pie</span></div>
+        <div class="recipe shaped"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">2 Dough</span><span class="plus">+</span><span class="ing">8 Meat / poultry</span></div><span class="arr">&rarr;</span><span class="res">Meat pie</span></div>
+        <div class="recipe shaped"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">2 Dough</span><span class="plus">+</span><span class="ing">8 Vegetables</span></div><span class="arr">&rarr;</span><span class="res">Vegetable pie</span></div>
+        <div class="recipe"><span class="tag">Bake &middot; oven</span><div class="ings"><span class="ing">2 Dough</span><span class="plus">+</span><span class="ing">Veg &amp; meat mix</span></div><span class="arr">&rarr;</span><span class="res">Pot pie</span></div>
+      </div>
+      <div class="note">
+        <span class="label">Partial pies still feed you</span>
+        <p>You needn't fill all four levels before baking &mdash; a <strong>partial</strong> pie bakes too, just with less filling and lower nutrition than a <strong>full</strong> eight-ingredient pie. Mixing vegetables and meat instead of one class makes a <strong>pot pie</strong>. Pies and bread carry the <strong>grain</strong> group plus whatever filling you chose, so a meat or veg pie tops two bars at once.</p>
+      </div>
+
+      <h3>Dairy &mdash; milk to cheese</h3>
+      <p>Dairy is the late bar. Milk comes from <strong>female bighorn sheep and goats</strong>, and only <strong>after they give birth</strong>: hold a <strong>bucket</strong> on the animal to milk it. Early generations usually refuse &mdash; rejection is high at generation&nbsp;0&ndash;1 and drops to none by generation&nbsp;3, so breed up your herd first. A lactating animal gives about <strong>10&#8201;L every day</strong> for ~20 days after birthing.</p>
+      <p>Milk drunk straight gives dairy satiety but spoils in days. <strong>Cheese</strong> is the point: it keeps for over a year and is usable in cooking. The process runs in a barrel, then on a shelf.</p>
+      <ol class="flow">
+        <li><strong>Curdle the milk.</strong> Seal <strong>1 pickled vegetable</strong> with <strong>~20&ndash;25&#8201;L of milk</strong> in a barrel for <strong>3 days</strong> to get <strong>curdled milk</strong>.</li>
+        <li><strong>Make curds (cottage cheese).</strong> Add <strong>1 salt per 5&#8201;L</strong> of curdled milk and seal <strong>1 more day</strong>. The result is <strong>cottage cheese</strong> &mdash; edible dairy on its own.</li>
+        <li><strong>Press out the whey.</strong> With <strong>~25&#8201;L cottage cheese</strong> in the barrel, press it with a piece of <strong>linen</strong> to get a curd bundle. Set the bundle down, add a stick handle, and twist to squeeze out the liquid.</li>
+        <li><strong>Salt the raw cheese.</strong> Unfold the bundle and rub in <strong>5 more salt</strong> &mdash; that gives <strong>raw salted cheese</strong>, ready to age.</li>
+        <li><strong>Age it on a shelf (14&ndash;20 days).</strong> Place it on a shelf in a cool, enclosed room or cellar. Aged <strong>enclosed / lit</strong> it becomes <strong>cheddar</strong>; aged in an <strong>open, dark</strong> space it becomes <strong>blue cheese</strong>.</li>
+      </ol>
+      <div class="data-table">
+        <table>
+          <caption>Cheese &mdash; what aging gives you</caption>
+          <thead><tr><th>Cheese</th><th>Aged where</th><th>Keeps</th></tr></thead>
+          <tbody>
+            <tr><td>Cheddar</td><td>Enclosed room or light level 2+</td><td class="num">~1.2 years</td></tr>
+            <tr><td>Waxed cheddar</td><td>Cheddar dipped in beeswax</td><td class="num">~2.5 years</td></tr>
+            <tr><td>Blue cheese</td><td>Open space, light below 2</td><td class="num">~1.6 years</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">What cheese is good for</span>
+        <p>Cheese is the only practical way to keep the <strong>dairy</strong> bar filled long-term, and it stores for <em>years</em>. It also slots into <a href="#recipes">scrambled eggs</a> as an extra. Wax your cheddar for the longest shelf life of any food in the game.</p>
       </div>
       <div class="note tip">
         <span class="label">Cook for variety, not just calories</span>

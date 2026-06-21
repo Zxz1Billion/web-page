@@ -54,6 +54,7 @@ How-Tos and interactive build plans:
 | `vs-progression.html` | The Long Road | Flagship Stone→Copper→Bronze→Iron→Steel ladder as a 40-step browser-saved checklist with a progress meter |
 | `vs-crafting.html` | The Four Crafts | Knapping, clay forming, smithing & casting — with interactive grid/voxel pattern viewers |
 | `vs-metalworking.html` | Fire & Metal | Ores, crucible smelting, alloys, the 1.22 forge, bloomery, blast furnace, cementation steel |
+| `vs-arsenal.html` | The Arsenal | Every craftable tool, weapon and armor by age (Stone→Steel), the material tier ladder, and how the armor system works |
 | `vs-mechanical-power.html` | The Turning World | Axles, gears, windmill & 1.22 waterwheel, quern/helve hammer/pulverizer (with wiring schematics) |
 | `vs-food.html` | The Larder | Nutrition groups, foraging, farming & soil nutrients, cooking, 1.22 fishing |
 | `vs-clothing-cold.html` | Warmth & Wear | Body temperature & cold, clothing warmth, winter prep, the 8 armor types & protection tiers |
