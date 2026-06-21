@@ -95,7 +95,7 @@
       <ol class="flow">
         <li><strong>Lay the floor.</strong> Level a 7×7 footprint and floor it (planks or stone brick). A clean floor stops things spawning or burrowing under you.</li>
         <li><strong>Raise the walls.</strong> Ring the footprint two-to-three blocks high in cob or brick. Leave a <strong>1-wide doorway</strong> on one side and a <strong>1-block window gap</strong> on another for daylight.</li>
-        <li><strong>Fit it out.</strong> Put an <strong>indoor fire pit/hearth</strong> against a wall for warmth and cooking, a <strong>bed</strong> in a corner (it sets your spawn point), and a <strong>chest or two</strong> for storage.</li>
+        <li><strong>Fit it out.</strong> Put an <strong>indoor fire pit/hearth</strong> against a wall for warmth and cooking, a <strong>bed</strong> in a corner (to sleep through the night; beds don't set respawn — a temporal gear does), and a <strong>chest or two</strong> for storage.</li>
         <li><strong>Glaze &amp; door it.</strong> Drop a glass pane in the window gap and hang a plank door in the doorway. Now you're sealed against rain and drifters but still lit.</li>
         <li><strong>Roof it.</strong> Cap the top completely. Chisel the edges into a pitched roof later for the look. Flat is fine to start.</li>
       </ol>
@@ -419,7 +419,7 @@ perish_rate = max( 0.1 , min( 2.4 , 3^(temp/19 − 1.2) ) − 0.1 )
       door:   { label: "Plank door",          color: "#caa15e" },
       window: { label: "Glass window",        color: "#7fd1e6" },
       fire:   { label: "Fire pit / hearth",   color: "#e3782f" },
-      bed:    { label: "Bed (sets spawn)",    color: "#5fb9ad" },
+      bed:    { label: "Bed (sleep)",    color: "#5fb9ad" },
       chest:  { label: "Chest / storage",     color: "#9c6f3a" },
       roof:   { label: "Roof block",          color: "#5b4730" },
     };
@@ -445,7 +445,7 @@ perish_rate = max( 0.1 , min( 2.4 , 3^(temp/19 − 1.2) ) − 0.1 )
         { label: "Y0 · floor", grid: grid(7, "floor"),
           note: "Level a 7×7 footprint and floor it with planks or stone brick so nothing spawns or burrows beneath you." },
         { label: "Y1 · walls + fittings", grid: y1,
-          note: "Ring it in cob or brick. Leave a 1-wide doorway (south) and a window gap (east). Set the hearth on a stone tile in one corner, a bed in another (it sets your spawn), and chests for storage." },
+          note: "Ring it in cob or brick. Leave a 1-wide doorway (south) and a window gap (east). Set the hearth on a stone tile in one corner, a bed in another (for sleeping), and chests for storage." },
         { label: "Y2 · walls", grid: y2,
           note: "Second wall course for headroom. The door and window stay open as gaps; you'll fit a plank door and a glass pane next." },
         { label: "Y3 · roof", grid: grid(7, "roof"),
