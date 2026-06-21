@@ -32,7 +32,8 @@
       <a href="#storage"><span class="ix">04</span> Storage &amp; Decoration</a>
       <a href="#worldgen"><span class="ix">05</span> Dynamic Dungeons</a>
       <a href="#flora"><span class="ix">06</span> Flora &amp; Fauna</a>
-      <a href="#update"><span class="ix">07</span> Updating Safely</a>
+      <a href="#qol"><span class="ix">07</span> Quality of Life</a>
+      <a href="#update"><span class="ix">08</span> Updating Safely</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
       Summary of the <b style="color:var(--accent)">1.22</b> release line<br>(1.22.0, April 2026 → 1.22.3).<br>Every feature links the chapter<br>that covers it in full. Patch<br>notes are the final word.
@@ -70,9 +71,10 @@
       <h2>Fishing</h2>
       <p>Fishing gives lakes and rivers a use. There are <strong>20+ freshwater fish species</strong> with location-specific populations and bait/lure preferences.</p>
       <ul>
-        <li><strong>Gear:</strong> craft fishing <strong>rods</strong> (active), <strong>lures</strong>, and passive <strong>traps</strong>.</li>
-        <li><strong>Bait:</strong> earthworms (collected via the new <strong>worm grunting</strong>), raw-meat baits, and <strong>stinkbait</strong> made with the new <strong>fennel &amp; licorice</strong> aromatics.</li>
-        <li><strong>After the catch:</strong> fish are <strong>protein</strong>; cook or dry them. Mount trophies with the new <strong>taxidermy</strong>.</li>
+        <li><strong>Gear:</strong> craft fishing <strong>rods</strong> (active casting), <strong>lures</strong> to attract specific species, and passive <strong>traps</strong> you set and collect later.</li>
+        <li><strong>Bait:</strong> earthworms (collected via the new <strong>worm grunting</strong> — vibrate the ground to draw them up), raw-meat baits, and <strong>stinkbait</strong> made with the new <strong>fennel &amp; licorice</strong> aromatics. Different fish prefer different bait.</li>
+        <li><strong>Where:</strong> populations are <strong>location-specific</strong> — lakes, rivers and different climates hold different species, so scout your water.</li>
+        <li><strong>After the catch:</strong> fish are <strong>protein</strong> nutrition; cook them for meals or <strong>dry/preserve</strong> them for storage. Mount trophies with the new <strong>taxidermy</strong>.</li>
       </ul>
       <div class="note tip"><span class="label">Covered in depth</span><p>Full fishing how-to and where it fits in your diet is in <a href="vs-food.html#fishing">The Larder → Fishing</a>.</p></div>
     </section>
@@ -86,24 +88,28 @@
           <caption>What changed at the forge</caption>
           <thead><tr><th>Addition</th><th>What it does</th></tr></thead>
           <tbody>
+            <tr><td><strong>Updated forge model</strong></td><td>Reworked look and behaviour; the forge now caps at <strong>1100 °C</strong>, enough to work every metal.</td></tr>
             <tr><td><strong>Bellows</strong></td><td>Pump air to reach full heat. Without one, fuel hits only ~60% of its max temperature.</td></tr>
-            <tr><td><strong>Metal tongs</strong></td><td>Hold hot work safely and move it between forge and anvil.</td></tr>
-            <tr><td><strong>Fuel types matter</strong></td><td>Charcoal, coke and the coals now differ in heat and burn time.</td></tr>
-            <tr><td><strong>Quenching &amp; tempering</strong></td><td>Quench in water, then temper. Trade durability for extra power on tool heads.</td></tr>
-            <tr><td><strong>Cementation steel</strong></td><td>Steel is made by carburizing iron in a cementation furnace (blister steel → hammered).</td></tr>
+            <tr><td><strong>Metal tongs</strong></td><td>Hold hot work safely between forge and anvil. Tongs now have <strong>durability</strong> (−1 per item picked up); metal tongs far outlast wooden ones.</td></tr>
+            <tr><td><strong>Fuel types matter</strong></td><td>Charcoal, coke and the coals now differ in heat and burn time; the bloomery still needs a fuel ≥1200 °C.</td></tr>
+            <tr><td><strong>Grinding wheel</strong></td><td>New station that sharpens and improves existing tools and tool heads.</td></tr>
+            <tr><td><strong>Quenching &amp; tempering</strong></td><td>Quench a steel head at <strong>815–1050 °C</strong>, then temper at <strong>550–700 °C</strong> and air-cool. Trade some durability for extra power.</td></tr>
+            <tr><td><strong>Cementation steel</strong></td><td>Steel is made by carburizing iron in a cementation furnace (16 iron → 16 blister steel, ~6.67 days), then hammering the blister.</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="note tip"><span class="label">Covered in depth</span><p>The whole heat ladder (fuels, forge, bloomery, blast furnace and steel) is in <a href="vs-metalworking.html">Fire &amp; Metal</a>. The hammering minigame is in <a href="vs-crafting.html#smithing">The Four Crafts</a>.</p></div>
+      <div class="note warn"><span class="label">Blast furnace?</span><p>A vanilla <strong>blast furnace / cast iron</strong> is a long-requested feature but is <em>not</em> part of base 1.22 — it remains the domain of community mods (e.g. Improved Metallurgy). The 1.22 steel path is still the <strong>bloomery → cementation</strong> route above. If your game has one, you're running a mod.</p></div>
+      <div class="note tip"><span class="label">Covered in depth</span><p>The whole heat ladder (fuels, forge, bloomery and steel) is in <a href="vs-metalworking.html">Fire &amp; Metal</a>. The hammering minigame is in <a href="vs-crafting.html#smithing">The Four Crafts</a>.</p></div>
     </section>
 
     <section class="doc" id="power">
       <p class="sec-index">03 — New mechanisms</p>
       <h2>Mechanical Power</h2>
       <ul>
-        <li><strong>Waterwheel:</strong> a new generator driven by <strong>rapidly flowing water</strong>, added alongside <strong>rapid-flow water blocks</strong> and a small <strong>4-way hub</strong>.</li>
-        <li><strong>The large windmill</strong> and <strong>spur gears</strong> expand what you can build and how power is split.</li>
-        <li><strong>Helve hammer fix:</strong> it <strong>no longer has an exponential power cost</strong> as speed rises. Networks no longer oscillate, so automation is far more stable.</li>
+        <li><strong>Waterwheel:</strong> a new generator driven by <strong>rapidly flowing water</strong> — a steady, weather-independent power source, unlike the windmill. Added alongside new <strong>rapid-flow water blocks</strong> to feed it.</li>
+        <li><strong>4-way hub:</strong> a compact gearbox that <strong>splits or merges power in four directions</strong>, making it far easier to fan one generator out to several machines.</li>
+        <li><strong>The large windmill</strong> and <strong>spur gears</strong> expand what you can build and how power is distributed and geared up or down.</li>
+        <li><strong>Helve hammer fix:</strong> it <strong>no longer has an exponential power cost</strong> as speed rises, and networks no longer oscillate — so a waterwheel-driven helve hammer runs smoothly and automation is far more stable.</li>
       </ul>
       <div class="note tip"><span class="label">Covered in depth</span><p>Generators, transmission and a power budget are in <a href="vs-mechanical-power.html">The Turning World</a>.</p></div>
     </section>
@@ -129,16 +135,31 @@
       <p class="sec-index">06 — The long tail</p>
       <h2>Flora &amp; Fauna</h2>
       <ul>
-        <li><strong>Eight mushroom varieties</strong> added to foraging.</li>
+        <li><strong>Eight mushroom varieties</strong> added to foraging — more variety for the fruit/veg side of your diet.</li>
         <li><strong>Two new crops, fennel &amp; licorice:</strong> aromatics that also feed the new fishing stinkbait.</li>
-        <li><strong>Boar variants</strong> added to the wild-pig family.</li>
+        <li><strong>Boar variants</strong> added to the wild-pig family — the <strong>gray boar</strong> is the dangerous one (tier-2, drops tusks), while bred pigs turn passive from generation 3.</li>
+        <li><strong>20+ freshwater fish</strong> populate lakes and rivers (see §01).</li>
         <li>Plus hundreds of smaller tweaks and fixes across the 1.22.x point releases.</li>
       </ul>
       <div class="note tip"><span class="label">Covered in depth</span><p>Crops are in <a href="vs-food.html#farming">The Larder</a>; the animals in <a href="vs-creatures.html">The Bestiary</a>.</p></div>
     </section>
 
+    <section class="doc" id="qol">
+      <p class="sec-index">07 — Quality of life</p>
+      <h2>Quality of Life &amp; Fixes</h2>
+      <p>Beyond the headline pillars, the 1.22 line lands hundreds of smaller improvements across the point releases (1.22.0 → 1.22.3). A representative slice:</p>
+      <ul>
+        <li><strong>Voxel-placed cabinets &amp; mannequins</strong> (see §04) let storage and displays fit a build exactly.</li>
+        <li><strong>Taxidermy</strong> turns trophy catches and kills into wall-mounted displays.</li>
+        <li><strong>Smithing clarity:</strong> the green/purple voxel guides are easier to read; an ingot supplies 42 voxels, a plate 81.</li>
+        <li><strong>Network stability:</strong> mechanical power no longer oscillates, ending a long-standing automation headache.</li>
+        <li><strong>Point-release polish:</strong> 1.22.1–1.22.3 ship balance passes, worldgen tweaks and bug fixes on top of 1.22.0.</li>
+      </ul>
+      <div class="note tip"><span class="label">The full list</span><p>This is a curated summary. For the exact, complete changelog of every feature, tweak and fix, read the official 1.22 patch notes and the <a href="https://wiki.vintagestory.at/">wiki</a> — they are the final word.</p></div>
+    </section>
+
     <section class="doc" id="update">
-      <p class="sec-index">07 — Before you patch</p>
+      <p class="sec-index">08 — Before you patch</p>
       <h2>Updating Safely</h2>
       <ol class="flow">
         <li><strong>Back up your save.</strong> Major versions change worldgen and mechanics. Copy your world folder before launching the new version.</li>
