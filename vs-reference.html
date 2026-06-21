@@ -117,14 +117,14 @@
     <section class="doc" id="alloys">
       <p class="sec-index">02 — Alloys</p>
       <h2>Alloy Ratios</h2>
-      <p>Alloys are mixed by combining molten metals in a <strong>crucible</strong> to an exact percentage window: even <strong>0.1% outside the range fails</strong> the melt. Tool strength runs <strong>black bronze &gt; tin bronze &gt; bismuth bronze &gt; copper</strong>; tin bronze is roughly twice copper's durability.</p>
+      <p>Alloys are mixed by combining molten metals in a <strong>crucible</strong> to an exact percentage window: even <strong>0.1% outside the range fails</strong> the melt. Tool strength runs <strong>black bronze &gt; tin / bismuth bronze &gt; copper</strong> (bismuth lasts longer, tin mines faster); the bronzes are roughly twice copper's durability.</p>
       <div class="data-table">
         <table>
           <caption>Every base-game alloy &amp; its exact component window</caption>
           <thead><tr><th>Alloy</th><th>Composition (by units)</th><th>Use</th></tr></thead>
           <tbody>
             <tr><td><strong>Tin bronze</strong></td><td>88–92% Cu · 8–12% Sn</td><td>Tools/armor — strongest common bronze</td></tr>
-            <tr><td><strong>Bismuth bronze</strong></td><td>50–70% Cu · 20–30% Zn · 10–20% Bi</td><td>Tools/armor — cheapest, weakest of the three</td></tr>
+            <tr><td><strong>Bismuth bronze</strong></td><td>50–70% Cu · 20–30% Zn · 10–20% Bi</td><td>Cheapest; durable tools/weapons but mines slower than tin</td></tr>
             <tr><td><strong>Black bronze</strong></td><td>70–90% Cu · 8–16% Au · 8–16% Ag</td><td>Tools/armor — highest durability, costly</td></tr>
             <tr><td>Brass</td><td>60–70% Cu · 30–40% Zn</td><td>Decorative (lanterns, fittings); not a tool metal</td></tr>
             <tr><td>Molybdochalkos</td><td>Copper + lead</td><td>Decorative (lanterns)</td></tr>
@@ -374,8 +374,8 @@
           <tbody>
             <tr><td>Turnip</td><td>N</td><td>Vegetable</td><td>Cool-season; overheats in hot summers</td></tr>
             <tr><td>Cabbage</td><td>N</td><td>Vegetable</td><td>Leafy; seeds rare (vessels/traders)</td></tr>
-            <tr><td>Spelt</td><td>N</td><td>Grain</td><td>Staple cereal → flour</td></tr>
-            <tr><td>Rye</td><td>N</td><td>Grain</td><td><strong>Most cold-tolerant</strong> cereal</td></tr>
+            <tr><td>Spelt</td><td>K</td><td>Grain</td><td>Staple cereal → flour</td></tr>
+            <tr><td>Rye</td><td>K</td><td>Grain</td><td><strong>Most cold-tolerant</strong> cereal</td></tr>
             <tr><td>Parsnip</td><td>P</td><td>Vegetable</td><td>Hardy root</td></tr>
             <tr><td>Onion</td><td>P</td><td>Vegetable</td><td>Stew base</td></tr>
             <tr><td>Pumpkin</td><td>P</td><td>Vegetable</td><td>Sprawling; needs space &amp; warmth</td></tr>
@@ -481,7 +481,7 @@
             <tr><td>Bowtorn force-spawn</td><td>at ≤ 25% stability, any light level</td></tr>
             <tr><td>Stability damage</td><td>at ≤ 12% — ~0.02 → ~0.15 HP every 4 s toward 0%</td></tr>
             <tr><td>Drifter spawn light</td><td>light level ≤ 7 (and everywhere during storms)</td></tr>
-            <tr><td>Storm cadence</td><td>~10–20 days; +10% more frequent each storm (cap +100% → ~5–15 days)</td></tr>
+            <tr><td>Storm cadence</td><td>~10–20 days; frequency &amp; duration increase as the save ages</td></tr>
             <tr><td>Storm duration</td><td>~2.4–4.8 in-game hours (rises over time)</td></tr>
             <tr><td>Storm warnings</td><td>"approaching" ~8 h 24 m before · "imminent" ~29 m before</td></tr>
             <tr><td>Storm intensity</td><td>Light / Medium / Heavy — first storm is never Heavy</td></tr>
@@ -505,7 +505,7 @@
           </tbody>
         </table>
       </div>
-      <p class="muted" style="color:var(--ink-faint);font-size:.85rem">Storm intensity rises over a save: <strong>Light → Medium → Heavy</strong>. The first storm is never Heavy, and double-headed drifters spawn <em>only</em> during storms (see §12).</p>
+      <p class="muted" style="color:var(--ink-faint);font-size:.85rem">Storm intensity is rolled <strong>per storm</strong> (roughly light/medium/heavy) — the first is never Heavy. What rises as the save ages is storm <strong>frequency and duration</strong>, not the intensity tier. Double-headed drifters spawn <em>only</em> during storms (see §12).</p>
     </section>
 
     <!-- 12 CREATURES -->
@@ -556,7 +556,7 @@
           <tbody>
             <tr><td>Hare</td><td>Raw meat, hide (small)</td><td>Easy day-one protein</td></tr>
             <tr><td>Wild pig / boar</td><td>Meat, fat, hide, bushmeat; boar adds tusks</td><td>Passive from bred <strong>gen 3</strong></td></tr>
-            <tr><td>Sheep</td><td>Wool, meat, hide; ewes give milk</td><td>Shear ~every <strong>10 days</strong> (2–4 wool)</td></tr>
+            <tr><td>Sheep</td><td>Meat, hide, fat; ewes give milk</td><td>Milk for <strong>21 days</strong> after lambing (no wool in vanilla)</td></tr>
             <tr><td>Goat</td><td>Milk, meat, hide</td><td>Milk <strong>1–2 L/day</strong></td></tr>
             <tr><td>Chicken</td><td>Eggs, meat, feathers</td><td>Lays every <strong>8–15 days</strong>; hens need a rooster to fertilise</td></tr>
             <tr><td>Deer / gazelle</td><td>Meat, hide, fat</td><td>Skittish; flee on sight</td></tr>
@@ -571,7 +571,7 @@
     <!-- 13 CLASSES -->
     <section class="doc" id="classes">
       <p class="sec-index">13 — Character</p>
-      <h2>The Seven Classes</h2>
+      <h2>The Six Classes</h2>
       <div class="data-table">
         <table>
           <caption>All starting classes — bonus &amp; drawback (percentages approximate)</caption>
@@ -583,8 +583,7 @@
             <tr><td>Clockmaker</td><td>+~25% damage vs locusts; repairs/dismantles machinery</td><td>Frail; weaker vs everything else</td></tr>
             <tr><td>Blackguard</td><td>+melee damage, +armor durability, −armor move penalty</td><td>Hungrier; weak ranged &amp; poor food harvest</td></tr>
             <tr><td>Tailor</td><td>Unique clothing; efficient clothing repair</td><td>Ill-suited to wilderness hardship</td></tr>
-            <tr><td>Blacksmith</td><td>Metalworking / smithing efficiency</td><td>Combat/survival trade-off</td></tr>
-          </tbody>
+                      </tbody>
         </table>
       </div>
     </section>

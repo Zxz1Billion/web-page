@@ -35,6 +35,7 @@
       <a href="#iron"><span class="ix">06</span> Iron Age</a>
       <a href="#steel"><span class="ix">07</span> Steel Age</a>
       <p class="group-label">Reference</p>
+      <a href="#values"><span class="ix">★</span> Damage &amp; Armor Values</a>
       <a href="#matrix"><span class="ix">★</span> The Full Matrix</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
@@ -179,7 +180,7 @@
       <p class="lead">A side-grade a notch above plain iron, salvaged from <strong>fallen meteorites</strong> near the surface — no smelting needed, just smithing.</p>
       <div class="cards">
         <div class="card"><span class="tag">Tools</span><h4>Iron-plus</h4><p>The full set in meteoric iron: faster and tougher than wrought iron.</p></div>
-        <div class="card"><span class="tag">Weapons</span><h4>Sharp edge</h4><p>Meteoric Falx and Spear sit just above their iron versions.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Sharp edge</h4><p>Meteoric Falx — a notch above iron. (No meteoric spear: spears stop at bronze.)</p></div>
         <div class="card"><span class="tag">Armor</span><h4>Premium</h4><p>Meteoric armor where moulds/plates allow — durable mid-game protection.</p></div>
       </div>
       <div class="note tip">
@@ -195,7 +196,7 @@
       <p class="lead">Mine iron ore with a bronze pick, smelt blooms in a <strong>bloomery</strong>, refine them to wrought iron on a bronze anvil, then smith the lot. Durable, abundant, the backbone of a settled base.</p>
       <div class="cards">
         <div class="card"><span class="tag">Tools</span><h4>Iron set</h4><p>The full kit in iron — long-lasting daily drivers. Cast/forge an <strong>iron anvil</strong>.</p></div>
-        <div class="card"><span class="tag">Weapons</span><h4>Reliable steel-lite</h4><p>Iron Falx and Spear. (The <strong>Tuning spear</strong> is a Clockmaker tool for disrupting locusts — not a rift-sealer; vanilla has no rift-sealing tool.)</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Reliable steel-lite</h4><p>Iron Falx (no iron spear — spears stop at bronze). The <strong>Tuning spear</strong> is a Clockmaker tool for disrupting locusts, not a rift-sealer; vanilla has no rift-sealing tool.</p></div>
         <div class="card"><span class="tag">Armor</span><h4>Iron sets</h4><p>Iron Chain, Scale, Brigandine, Plate — strong, heavy, dependable.</p></div>
       </div>
       <div class="note">
@@ -211,12 +212,58 @@
       <p class="lead">Carburise wrought iron in a <strong>cementation furnace</strong> over several days, then smith steel on an iron anvil. The best gear in the game, and a multi-day project to reach.</p>
       <div class="cards">
         <div class="card"><span class="tag">Tools</span><h4>The best</h4><p>The full kit in steel: top speed and durability. The last tools you'll make.</p></div>
-        <div class="card"><span class="tag">Weapons</span><h4>Finest blades</h4><p>Steel Falx and Spear; rarer swords like the Blackguard shortsword and Forlorn Hope estoc.</p></div>
+        <div class="card"><span class="tag">Weapons</span><h4>Finest blades</h4><p>Steel Falx (spears stop at bronze); rarer swords like the Blackguard shortsword and Forlorn Hope estoc.</p></div>
         <div class="card"><span class="tag">Armor</span><h4>Steel plate</h4><p>A full steel <strong>plate</strong> suit takes almost no damage from most attacks — at a heavy mobility cost.</p></div>
       </div>
       <div class="note tip">
         <span class="label">Stations &amp; gear unlocked</span>
         <p>The <strong>cementation furnace</strong> (turns iron bars into blister steel). After steel, progression is about <em>quantity</em> and decoration, not new tiers. See <a href="vs-metalworking.html">Fire &amp; Metal</a> for the full process.</p>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="doc" id="values">
+      <p class="sec-index">★ — The numbers</p>
+      <h2>Damage &amp; Armor Values</h2>
+      <p class="lead">Exact figures are config- and version-dependent, so hover an item in-game for live numbers. These are the wiki's published values and the rules that actually decide a fight.</p>
+      <h3>Armor protection</h3>
+      <p>Each piece has a <strong>protection tier</strong>, a <strong>% protection</strong> (applied after the flat cut) and a <strong>flat damage reduction</strong>. Non-metal types have fixed values; metal types climb with the <em>material</em> (copper → steel), which also sets durability.</p>
+      <div class="data-table"><table>
+        <caption>Armor values (wiki figures; metal types rise with material tier)</caption>
+        <thead><tr><th>Type</th><th>Prot. tier</th><th>% protection</th><th>Flat reduction</th><th>Move penalty</th></tr></thead>
+        <tbody>
+          <tr><td>Improvised</td><td>0</td><td>~55%</td><td>~0</td><td>None</td></tr>
+          <tr><td>Lamellar (wood)</td><td>1</td><td>low</td><td>low</td><td>Low</td></tr>
+          <tr><td>Leather</td><td>1</td><td>60%</td><td>0.6</td><td>Low</td></tr>
+          <tr><td>Gambeson</td><td>2</td><td>70%</td><td>0.7</td><td>Low</td></tr>
+          <tr><td>Tailored gambeson</td><td>2</td><td>75%</td><td>0.75</td><td>Low</td></tr>
+          <tr><td>Chain <span class="muted">(metal)</span></td><td>rises w/ material</td><td>rises w/ material</td><td>rises w/ material</td><td>Medium</td></tr>
+          <tr><td>Scale <span class="muted">(metal)</span></td><td>rises w/ material</td><td>higher</td><td>higher</td><td>Medium</td></tr>
+          <tr><td>Brigandine <span class="muted">(metal)</span></td><td>rises w/ material</td><td>high</td><td>high</td><td>High</td></tr>
+          <tr><td>Plate <span class="muted">(metal)</span></td><td>highest</td><td>up to ~90%+</td><td>highest</td><td>Highest</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note">
+        <span class="label">How the tiers interact</span>
+        <p>Compare the <strong>attack tier</strong> to your <strong>armor tier</strong>. For each tier the attack is at or below yours, armor adds a <em>small</em> extra reduction; for each tier it is <em>above</em> yours, a much larger share gets through. A steel plate set (high tier) shrugs off low-tier hits almost entirely, while a copper set leaks against a storm-grade drifter. Flat reduction is subtracted first, then the percentage.</p>
+      </div>
+      <h3>Weapon behaviour</h3>
+      <p>A weapon's <strong>attack tier</strong> (its armor penetration) matters as much as raw damage. Damage and durability rise with the metal; exact points are in the Handbook.</p>
+      <div class="data-table"><table>
+        <caption>Weapons — reach, attack tier and materials</caption>
+        <thead><tr><th>Weapon</th><th>Attack tier</th><th>Materials</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Falx</strong> (sword)</td><td>= material tier</td><td>Copper → steel</td><td>~2.5 m reach; best melee vs armored foes; 25% chance to extract a drop from drifters/shivers/bowtorns</td></tr>
+          <tr><td><strong>Spear</strong></td><td><strong>0</strong> (no penetration)</td><td>Stone → <strong>bronze only</strong></td><td>+1 m reach; throw by holding then releasing right-click (ornate thrown ≈ 2× melee). Great for hunting, poor vs armored monsters</td></tr>
+          <tr><td><strong>Knife</strong></td><td>low</td><td>Stone → steel</td><td>Weak weapon; its real job is butchering &amp; harvesting</td></tr>
+          <tr><td><strong>Club</strong></td><td>low</td><td>Scrap / found</td><td>Cheap stopgap; low damage</td></tr>
+          <tr><td><strong>Sling</strong></td><td>low–mid</td><td>Cloth (Malefactor)</td><td>Ranged; cheap stone/clay ammo</td></tr>
+          <tr><td><strong>Bow</strong></td><td>by arrowhead</td><td>Wood (Hunter)</td><td>Best ranged option; uses flint arrowheads</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note tip">
+        <span class="label">Spears top out at bronze</span>
+        <p>You can't make an iron, meteoric or steel spear, and spears are <strong>attack-tier 0</strong> — they never punch through armored monsters. Carry a <strong>falx</strong> for tiered foes (drifters, locusts); keep spears for hunting and throwing.</p>
       </div>
     </section>
 
@@ -231,7 +278,7 @@
           <thead><tr><th>Item</th><th>Stone</th><th>Copper</th><th>Bronze</th><th>Iron</th><th>Steel</th></tr></thead>
           <tbody>
             <tr><td>Knife / Axe / Shovel / Hoe</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-            <tr><td>Spear</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>Spear (stone–bronze only)</td><td>●</td><td>●</td><td>●</td><td>—</td><td>—</td></tr>
             <tr><td>Bow (Hunter) / Sling (Malefactor)</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
             <tr><td><strong>Pickaxe</strong></td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
             <tr><td>Hammer / Saw / Chisel / Scythe</td><td>—</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>

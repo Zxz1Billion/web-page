@@ -88,7 +88,7 @@
 
       <div class="note warn">
         <span class="label">Flint is special</span>
-        <p>Only <strong>flint</strong> knaps a usable <strong>knife</strong> or <strong>axe</strong> blade, because those edges need its sharpness. Other stones (chert, granite, andesite, peridotite, basalt and others) knap fine for the blunter tools: hoes, shovels, spears and arrow/spear heads. Grab flint whenever you see it near gravel and water.</p>
+        <p>Only <strong>flint</strong> can knap <strong>arrowheads</strong>. Every knappable stone (flint, obsidian, chert, granite, andesite, peridotite, basalt) makes the other heads — knife, axe, hoe, shovel, spear — but <strong>flint and obsidian</strong> heads are the sharpest and longest-lasting. Grab flint whenever you see it near gravel and water.</p>
       </div>
 
       <div class="note">
@@ -100,8 +100,8 @@
       <p>Tool-head <strong>quality scales with the stone</strong>. The knappable stones, in order of resulting strength:</p>
       <ul>
         <li><strong>Obsidian</strong> — the strongest stone head, sharper and longer-lived than flint. Rare (volcanic glass), so save it for the tools you use most.</li>
-        <li><strong>Flint</strong> — the only stone besides obsidian that can knap a working <strong>knife or axe</strong> blade. Your bread-and-butter stone-age material; found loose near gravel, sand and water.</li>
-        <li><strong>Igneous &amp; other rock</strong> — chert, granite, andesite, basalt, peridotite. Fine for the blunt heads (hoe, shovel, spear, arrowheads) but <strong>cannot</strong> make a knife or axe blade.</li>
+        <li><strong>Flint</strong> — the only stone that can knap <strong>arrowheads</strong>, and a top-quality material for every other head. Your bread-and-butter stone-age stone; found loose near gravel, sand and water.</li>
+        <li><strong>Igneous &amp; other rock</strong> — chert, granite, andesite, basalt, peridotite. Knap every head <em>except</em> <strong>arrowheads</strong> (flint-only), just at lower durability than flint or obsidian.</li>
       </ul>
 
       <div class="note tip">
@@ -115,14 +115,13 @@
           <caption>Knappable tool heads (combine each with a stick at the grid unless noted)</caption>
           <thead><tr><th>Tool head</th><th>Stone</th><th>What it's for</th></tr></thead>
           <tbody>
-            <tr><td><strong>Knife blade</strong></td><td>Flint only</td><td>Grass, reeds, berries, butchering; your first tool</td></tr>
-            <tr><td><strong>Axe head</strong></td><td>Flint only</td><td>Felling trees for firewood &amp; logs</td></tr>
+            <tr><td><strong>Knife blade</strong></td><td>Any knappable stone</td><td>Grass, reeds, berries, butchering; your first tool</td></tr>
+            <tr><td><strong>Axe head</strong></td><td>Any knappable stone</td><td>Felling trees for firewood &amp; logs</td></tr>
             <tr><td>Hoe head</td><td>Any knappable stone</td><td>Tilling soil for your first farm</td></tr>
             <tr><td>Shovel head</td><td>Any knappable stone</td><td>Digging dirt, gravel, sand, clay</td></tr>
             <tr><td>Spear head</td><td>Any knappable stone</td><td>Thrown or stabbed; early hunting &amp; defence</td></tr>
-            <tr><td>Arrow heads</td><td>Any knappable stone</td><td>Crafting arrows (with a bow)</td></tr>
+            <tr><td>Arrow heads</td><td><strong>Flint only</strong></td><td>Crafting arrows (with a bow)</td></tr>
             <tr><td>Small shovel head</td><td>Any knappable stone</td><td>Compact digging variant</td></tr>
-            <tr><td>Saw blade <span class="muted">(early)</span></td><td>Flint</td><td>Sawing logs into planks before metal saws</td></tr>
           </tbody>
         </table>
       </div>
@@ -319,7 +318,7 @@
       <h3>How it works</h3>
       <ol class="flow">
         <li><strong>Melt the metal.</strong> Load copper or bronze (ore or bits) into a <strong>fired crucible</strong> and heat it in a <strong>fire pit</strong> or <strong>forge</strong> until it's fully molten.</li>
-        <li><strong>Place a mold.</strong> Set a fired clay <strong>mold</strong> on the ground, either an <strong>ingot mold</strong> (casts several ingots) or a <strong>tool mold</strong> (axe, pickaxe, knife, hoe and more).</li>
+        <li><strong>Place a mold.</strong> Set a fired clay <strong>mold</strong> on the ground, either an <strong>ingot mold</strong> (one ingot each; two fit per block) or a <strong>tool mold</strong> (axe, pickaxe, knife, hoe and more).</li>
         <li><strong>Pour.</strong> Right-click the mold with the hot crucible to fill it with liquid metal.</li>
         <li><strong>Cool &amp; extract.</strong> Wait for the metal to solidify, then take the finished ingot or tool head out. The clay molds are <strong>reusable</strong>, so pour again and again.</li>
       </ol>
@@ -485,7 +484,7 @@
     frames: [
       { label: "Knife blade", grid: knife, note: "A long diagonal edge — flint only. Combine with a stick for a knife." },
       { label: "Axe head", grid: axe, note: "A broad bit with a haft notch — flint only. The tree-feller." },
-      { label: "Spear head", grid: spear, note: "A narrow point on a shaft. Thrown (G) or stabbed; any knappable stone works." },
+      { label: "Spear head", grid: spear, note: "A narrow point on a shaft. Thrown (hold then release right-click) or stabbed; any knappable stone works." },
       { label: "Arrow head", grid: arrow, note: "A small barbed point — knapped in batches for fletching arrows." },
       { label: "Hoe head", grid: hoe, note: "A wide flat blade on a neck — for tilling. Any knappable stone." },
     ],

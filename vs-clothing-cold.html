@@ -52,7 +52,7 @@
         <span class="badge danger">❄ Winter can freeze you to death</span>
       </div>
       <div class="facts">
-        <div class="f"><div class="k">Neutral body temp</div><div class="v">37.8°C <small>well-clothed hold</small></div></div>
+        <div class="f"><div class="k">Neutral body temp</div><div class="v">~37°C <small>well-clothed hold</small></div></div>
         <div class="f"><div class="k">Cold damage below</div><div class="v">~0°C <small>unclothed, default</small></div></div>
         <div class="f"><div class="k">Full fur set ≈</div><div class="v">+6.5°C <small>warmth</small></div></div>
         <div class="f"><div class="k">Clothing slots</div><div class="v">12 <small>+ 3 armor slots</small></div></div>
@@ -79,7 +79,7 @@
     <section class="doc" id="cold">
       <p class="sec-index">01 — The climate is trying to kill you</p>
       <h2>Body Temperature &amp; Cold</h2>
-      <p>With <strong>true (harsh) winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> up. A well-clothed seraph holds at the neutral <strong>37.8°C</strong>; the survival floor is roughly <strong>37°C</strong>. Let it fall far enough and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
+      <p>With <strong>true (harsh) winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> up. A well-clothed seraph holds at the neutral <strong>~37°C</strong>; the survival floor is roughly <strong>37°C</strong>. Let it fall far enough and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
 
       <h3>When cold damage actually starts</h3>
       <p>The cold doesn't bite the instant the number dips. There's a grace buffer, then a steady tick:</p>
@@ -88,7 +88,7 @@
           <caption>Cold-damage timing &amp; thresholds (default Standard world, true winters on)</caption>
           <thead><tr><th>Condition</th><th>Value</th></tr></thead>
           <tbody>
-            <tr><td>Neutral body temperature (well clothed)</td><td class="num">37.8°C</td></tr>
+            <tr><td>Neutral body temperature (well clothed)</td><td class="num">~37°C</td></tr>
             <tr><td>Survival floor — keep at or above</td><td class="num">~37°C</td></tr>
             <tr><td>How cold before the clock starts</td><td>at least <strong>4°C too cold</strong></td></tr>
             <tr><td>Grace period before damage ticks</td><td>~<strong>3 in-game hours</strong> continuous</td></tr>
@@ -148,7 +148,7 @@
 
       <div class="note">
         <span class="label">Worked example (from the game's own numbers)</span>
-        <p>A full set of <strong>fur</strong> clothes in <em>Good</em> condition might read <strong>+3.0, +2.0, +1.5</strong> across pieces, a combined <strong>+6.5°C</strong> of warmth. That lets you stand outside temperatures as cold as about <strong>−6.5°C</strong> before cold damage begins. Push your total warmth toward <strong>~10</strong> and your body holds near 37.8°C until the ambient temperature drops below roughly 10°C.</p>
+        <p>A full set of <strong>fur</strong> clothes in <em>Good</em> condition might read <strong>+3.0, +2.0, +1.5</strong> across pieces, a combined <strong>+6.5°C</strong> of warmth. That lets you stand outside temperatures as cold as about <strong>−6.5°C</strong> before cold damage begins. Push your total warmth toward <strong>~10</strong> and your body holds near ~37°C until the ambient temperature drops below roughly 10°C.</p>
       </div>
 
       <h3>How much warmth is achievable</h3>
@@ -162,7 +162,7 @@
             <tr><td>Full fur set (Good condition)</td><td class="num">+6.5°C</td><td class="num">~−6.5°C</td></tr>
             <tr><td>Reindeer herder set</td><td class="num">+12.3°C</td><td>warmest coat + shoes in the game</td></tr>
             <tr><td>Warmest Tailor-craftable outfit</td><td class="num">+21.5°C</td><td>best item in every slot you can craft</td></tr>
-            <tr><td>Absolute warmest (with trader headgear)</td><td class="num">+22°C</td><td>top headgear is Nadiyan-trader only</td></tr>
+            <tr><td>Absolute warmest (Tailor-crafted)</td><td class="num">+21.5°C</td><td>slightly higher with rare trader headgear</td></tr>
           </tbody>
         </table>
       </div>
@@ -356,7 +356,7 @@
       <p>Both systems are built from the same handful of soft materials. Set up a steady supply and you stay warm and armored indefinitely.</p>
       <div class="cards">
         <div class="card"><span class="tag">flax → linen</span><h4>Linen</h4><p>Grow <strong>flax</strong> (see <a href="vs-food.html">The Larder</a>), rett and process it into fibre and <strong>twine</strong>, then weave <strong>linen</strong>. Linen makes light clothing and the base for gambeson.</p></div>
-        <div class="card"><span class="tag">sheep</span><h4>Wool</h4><p>Shear domesticated <strong>sheep</strong> for wool, which makes warm clothing. Start a flock via <a href="vs-creatures.html">animal husbandry</a>.</p></div>
+        <div class="card"><span class="tag">cloth</span><h4>Linen &amp; fur</h4><p>Spin <strong>flax</strong> into linen for clothing; pelts and the warmest <strong>Tailor-crafted</strong> or traded sets add the most warmth. (Vanilla has no sheep wool.)</p></div>
         <div class="card"><span class="tag">hides → leather</span><h4>Leather</h4><p>Hunt or butcher animals for <strong>hides</strong>, then <strong>tan</strong> them: soak in a barrel with tannin (e.g. from bark) over several days. Leather makes armor (jerkins) and warm wear.</p></div>
         <div class="card"><span class="tag">fur</span><h4>Fur</h4><p>The warmest clothing material, from the right animals. A fur set is your winter lifeline.</p></div>
       </div>
