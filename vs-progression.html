@@ -31,8 +31,10 @@
       <a href="#bronze"><span class="ix">03</span> The Bronze Age</a>
       <a href="#iron"><span class="ix">04</span> The Iron Age</a>
       <a href="#steel"><span class="ix">05</span> The Steel Age</a>
+      <p class="group-label">Reference</p>
+      <a href="#ore-ref"><span class="ix">06</span> Ore &amp; Mining Reference</a>
       <p class="group-label">Threads &amp; what's next</p>
-      <a href="#power"><span class="ix">06</span> Mechanical Power</a>
+      <a href="#power"><span class="ix">07</span> Mechanical Power</a>
       <a href="#next"><span class="ix">★</span> What's Next</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
@@ -362,11 +364,25 @@
       <h3>Bloomery → bloom → wrought iron</h3>
       <ol class="flow">
         <li><strong>Build a bloomery</strong> (a tall clay/brick shaft over a fire base). See <a href="vs-metalworking.html">The Forge &amp; The Anvil</a> for the exact build.</li>
-        <li><strong>Charge it.</strong> Layer <strong>iron ore + charcoal</strong> into the shaft (the Handbook shows the ore-to-fuel ratio). Light it and let it run hot.</li>
-        <li><strong>Collect the bloom.</strong> When it finishes, the bloomery yields an <strong>iron bloom</strong>, a rough slag-filled lump, not a usable ingot.</li>
+        <li><strong>Charge it.</strong> Layer <strong>iron ore + charcoal</strong> into the shaft. The fuel must reach at least <strong>~1200&nbsp;°C</strong> — charcoal, anthracite or black coal qualify; plain firewood does not. A bloomery holds up to <strong>120 nuggets</strong>.</li>
+        <li><strong>Run it ~10 hours.</strong> Light it and let it work for roughly <strong>10 in-game hours</strong>. The conversion is about <strong>20 iron-ore nuggets → 1 iron bloom</strong>, so a full 120-nugget charge yields up to <strong>6 blooms</strong>.</li>
+        <li><strong>Collect the bloom.</strong> The output is an <strong>iron bloom</strong> — a rough, slag-filled lump, not a usable ingot.</li>
         <li><strong>Hammer the bloom.</strong> Heat the bloom in your forge, set it on a <strong>bronze or iron anvil</strong>, and hammer it. This consolidates it into <strong>wrought-iron ingots</strong>. A copper anvil cannot do this step.</li>
-        <li><strong>Smith iron tools + an iron anvil.</strong> Iron is <em>smithed</em>, never cast. Heat an ingot, lay it on the anvil, and hammer to the tool's voxel pattern. Smith a full iron tool set and an <strong>iron anvil</strong> (the anvil you need for steel).</li>
+        <li><strong>Smith iron tools + an iron anvil.</strong> Iron is <em>smithed</em>, never cast. Heat an ingot, lay it on the anvil, and hammer to the tool's voxel pattern. Smith a full iron tool set and an <strong>iron anvil</strong> — note this one is <strong>welded from two parts</strong>, not cast — because steel needs it.</li>
       </ol>
+      <div class="data-table">
+        <table>
+          <caption>Bloomery numbers (v1.22.3 — config-tunable)</caption>
+          <thead><tr><th>Quantity</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Max nuggets per charge</td><td>120</td></tr>
+            <tr><td>Ore per bloom</td><td>~20 nuggets → 1 bloom</td></tr>
+            <tr><td>Max blooms per run</td><td>~6 (from a full charge)</td></tr>
+            <tr><td>Smelt time</td><td>~10 in-game hours</td></tr>
+            <tr><td>Minimum fuel temperature</td><td>~1200&nbsp;°C (charcoal/anthracite/black coal)</td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <div class="note tip">
         <span class="label">1.22 — the blast furnace</span>
@@ -375,6 +391,18 @@
       <div class="note danger">
         <span class="label">Iron is smithed, not cast</span>
         <p>Don't look for an "iron mold." There isn't one. Every iron item comes off the <strong>anvil</strong> under a hammer. If you're trying to pour iron, you've misread the tier.</p>
+      </div>
+
+      <h3>Roughly how long this age takes</h3>
+      <p>The first big <strong>infrastructure</strong> age: charcoal pit, bloomery, forge, and a lot of hammering. Smelting is hands-off (~10h per run), but you'll run several charges, and hand-hammering blooms is slow. Plan on <strong>several in-game days</strong> to outfit yourself in iron — and far more charcoal than you think. This is the point where a <strong>helve hammer</strong> (see <a href="#power">Mechanical Power</a>) starts paying for itself.</p>
+
+      <div class="note tip">
+        <span class="label">You're ready for the Steel Age when…</span>
+        <p>You're producing iron in volume from a <strong>bloomery</strong> (or a <strong>blast furnace</strong>), you've consolidated blooms into <strong>wrought-iron ingots</strong>, and — the steel gate — you've welded an <strong>iron anvil</strong>. A steady charcoal supply and a working forge round it out.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Common Iron-Age mistakes</span>
+        <p>Running out of <strong>charcoal</strong> mid-smelt · fuelling the bloomery with something that won't hit <strong>~1200&nbsp;°C</strong> · expecting a usable ingot straight from the bloomery (it's a <strong>bloom</strong> — hammer it) · forgetting to weld an <strong>iron anvil</strong> and blocking steel · hammering blooms by hand forever instead of building a helve hammer.</p>
       </div>
 
       <ul class="checklist">
@@ -410,9 +438,36 @@
         <li><strong>A pulverizer</strong> to crush ore for better yields (and to feed efficient ironmaking). See Mechanical Power below.</li>
         <li><strong>Lots of fuel</strong>: charcoal, and ideally <strong>coke/coal</strong> for the hotter, longer burns. Steel eats fuel, so stockpile before you start a firing.</li>
       </ul>
+      <div class="data-table">
+        <table>
+          <caption>Steel-making numbers (v1.22.3 — config-tunable)</caption>
+          <thead><tr><th>Quantity</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Firing time per batch</td><td>~6.67 in-game days</td></tr>
+            <tr><td>Fuel for a 16-ingot batch</td><td>~200 coal</td></tr>
+            <tr><td>Packing charcoal consumed</td><td>~8 of 40 pieces per firing (the rest stays)</td></tr>
+            <tr><td>Blister steel workable from</td><td>~801&nbsp;°C — <strong>needs bellows</strong></td></tr>
+            <tr><td>Furnace material</td><td>Refractory blocks (no other block survives the heat)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Two details that catch people out: the packing charcoal is the <strong>carbon source</strong> and is mostly <em>not</em> consumed (only ~8 of 40 pieces per firing), so you reuse it; and unlike lower tiers, getting blister steel hot enough to hammer <strong>requires bellows</strong> on the forge. Break open the lid and coffin with a pickaxe to retrieve the blister-steel ingots.</p>
+
       <div class="note tip">
         <span class="label">Steel tools &amp; armour are the top tier</span>
         <p>Steel gives the strongest, longest-lasting tools and the best armour in the game. A steel pickaxe handles the hardest ore. Steel armour is your best defence when temporal storms turn nasty. From here, progression is about <em>volume and convenience</em>, not a new metal.</p>
+      </div>
+
+      <h3>Roughly how long this age takes</h3>
+      <p>The slowest tier by far, because the furnace bakes for nearly <strong>7 in-game days per batch</strong>. The build (refractory furnace, pulverizer, bellows-equipped forge, iron anvil) is a project in itself, and you'll burn enormous fuel — <strong>~200 coal per 16-ingot batch</strong>. Realistically the Steel Age is measured in <strong>real-world hours</strong> of play spread across many in-game days. Start a firing, then go do everything else while it cooks.</p>
+
+      <div class="note tip">
+        <span class="label">You've finished the climb when…</span>
+        <p>You've hammered <strong>blister steel into usable steel</strong> and smithed a <strong>steel pickaxe</strong> (and ideally steel armour). That's the top of the metal ladder — there's no tier above steel. From here the game is about <em>volume, automation and exploration</em>, covered in <a href="#next">What's Next</a>.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Common Steel-Age mistakes</span>
+        <p>Starting a firing <strong>without enough fuel stockpiled</strong> to finish it · trying to hammer blister steel <strong>without bellows</strong> on the forge · building the furnace from ordinary blocks instead of <strong>refractory</strong> (they melt) · expecting usable steel straight from the furnace (it's <strong>blister steel</strong> — hammer it) · skipping the <strong>pulverizer</strong> and starving the operation of ore.</p>
       </div>
 
       <ul class="checklist">
@@ -425,9 +480,48 @@
       </ul>
     </section>
 
-    <!-- 06 MECHANICAL POWER -->
+    <!-- 06 ORE & MINING REFERENCE -->
+    <section class="doc" id="ore-ref">
+      <p class="sec-index">06 — Reference</p>
+      <h2>Ore &amp; Mining Reference</h2>
+      <p class="lead">One table to keep open while you climb: which ore belongs to which age, where it tends to sit, and how to find it. Distribution and depths are world-gen dependent — treat these as tendencies and let the propick and Handbook give you the real picture in <em>your</em> world.</p>
+
+      <div class="data-table">
+        <table>
+          <caption>The metal ladder's ores, by age</caption>
+          <thead><tr><th>Age</th><th>Metal</th><th>Ores</th><th>Where to look</th></tr></thead>
+          <tbody>
+            <tr><td>Copper</td><td>Copper</td><td>Native copper, malachite, cuprite, tetrahedrite</td><td>Surface nuggets &amp; ridgelines first; bigger veins deep (often below ~Y&nbsp;72)</td></tr>
+            <tr><td>Bronze</td><td>Tin</td><td>Cassiterite</td><td>Scarce; rare shallow nuggets, otherwise deep — the bronze bottleneck</td></tr>
+            <tr><td>Bronze</td><td>Zinc / Bismuth</td><td>Sphalerite / bismuthinite</td><td>For bismuth bronze when tin won't appear</td></tr>
+            <tr><td>Bronze</td><td>Gold / Silver</td><td>Native gold, native silver, galena</td><td>For black bronze (the strongest bronze)</td></tr>
+            <tr><td>Iron</td><td>Iron</td><td>Limonite (bog iron), hematite, magnetite</td><td>Limonite shallow in wet lowlands; hematite/magnetite in stone</td></tr>
+            <tr><td>Steel</td><td>(from iron)</td><td>—</td><td>No new ore — carburize iron in the cementation furnace</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How to prospect efficiently</h3>
+      <ol class="flow">
+        <li><strong>Density mode first.</strong> Hold the propick, press <code>F</code> to Density Search, and sample as you travel. Readings come back in <strong>parts-per-thousand</strong> per ore — strong numbers mean "dig here," not "here exactly."</li>
+        <li><strong>Go deep where it's promising.</strong> Sink a staircase shaft. Many big deposits sit well below the surface, so don't give up after the first few stone layers.</li>
+        <li><strong>Switch to Node mode to home in.</strong> Once Density mode is hot, break a block in Node Search to get a direction and rough size for a specific deposit.</li>
+        <li><strong>Mine the disc.</strong> Deposits are disc-shaped — once you hit ore, fan out along the layer rather than tunnelling straight through.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">Match the pick to the rock</span>
+        <p>A pickaxe only mines ore veins of its tier and below: stone can't touch veins at all, <strong>copper</strong> opens basic mining, <strong>bronze</strong> is needed for iron ore, and <strong>steel</strong> handles the hardest stone fastest. If a vein won't break, you've out-run your pick — go up a tier.</p>
+      </div>
+      <div class="note warn">
+        <span class="label">Stability drops as you dig</span>
+        <p>Underground is where <strong>temporal stability</strong> falls and drifters appear. Carry <strong>torches</strong>, light your shafts as you go, and don't mine through a temporal storm. The deeper you push for ore, the more this matters — full system in <a href="vs-temporal.html">The Rust &amp; The Gear</a>.</p>
+      </div>
+    </section>
+
+    <!-- 07 MECHANICAL POWER -->
     <section class="doc" id="power">
-      <p class="sec-index">06 — The thread that runs through it all</p>
+      <p class="sec-index">07 — The thread that runs through it all</p>
       <h2>Mechanical Power</h2>
       <p class="lead">Running parallel to the metal ladder is <strong>mechanical power</strong>: gears, axles and rotational machines that automate the grind. You start it by hand in the Stone Age and scale up to water and wind by the Iron/Steel age. Treat these as milestones woven between the tiers, not a separate game.</p>
       <div class="cards">
