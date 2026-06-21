@@ -329,6 +329,32 @@
         <p>An <strong>anvil</strong> is itself cast. Pour copper or bronze into an anvil mold to make the first one. That cast anvil is what lets you <em>smith</em> iron and steel later, so casting bootstraps smithing.</p>
       </div>
 
+      <h3>Units, nuggets and ingots</h3>
+      <p>Casting runs on a single currency: <strong>units of metal</strong>. Everything converts cleanly:</p>
+      <ul>
+        <li><strong>1 ore nugget = 5 units.</strong></li>
+        <li><strong>1 ingot = 100 units = 20 nuggets.</strong></li>
+        <li>A <strong>crucible</strong> holds up to <strong>4 stacks of 128 nuggets = 2,560 units</strong> of one metal/alloy at a time — enough for 25 ingots in a single melt.</li>
+        <li><strong>Most molds need 100 units</strong> to fill (one ingot's worth). Tool and weapon heads are all 100 units.</li>
+      </ul>
+      <div class="data-table">
+        <table>
+          <caption>Mold types &amp; the metal each needs (fill from a hot crucible)</caption>
+          <thead><tr><th>Mold</th><th class="num">Units to fill</th><th>Casts</th></tr></thead>
+          <tbody>
+            <tr><td>Ingot mold</td><td class="num">100 / ingot</td><td>Storable bars — feedstock for the forge (2 molds fit per block)</td></tr>
+            <tr><td>Tool molds</td><td class="num">100</td><td>Axe, pickaxe, shovel, hoe, knife, hammer, saw, scythe heads</td></tr>
+            <tr><td>Weapon / armour molds</td><td class="num">100</td><td>Sword blade, spear, lamellae (armour plates)</td></tr>
+            <tr><td><strong>Helve hammer</strong></td><td class="num">200</td><td>The automated hammer head (see Smithing tip)</td></tr>
+            <tr><td><strong>Anvil</strong></td><td class="num">900</td><td>Your first anvil — a 9-ingot pour, so smelt a full crucible first</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Plan the anvil pour</span>
+        <p>An anvil swallows <strong>900 units = 180 nuggets = 9 ingots</strong>. Don't try to top it up from dribs and drabs — fill a crucible with at least that much copper or bronze and pour it in one go, or the metal cools between pours and you waste a reheat.</p>
+      </div>
+
       <h3>Cast · Smithed · Knapped</h3>
       <p>Three ways to make a tool head, with different materials and motions. The whole page in one glance:</p>
       <div class="cards">
@@ -341,6 +367,8 @@
         <span class="label">Where to go next</span>
         <p>For smelting temperatures, ore bits and the bronze alloy recipe, see <a href="vs-metalworking.html">the metalworking guide</a>. To place all four crafts on the broader tech tree, follow <a href="vs-progression.html">The Long Road</a>. If you haven't yet, <a href="vs-getting-started.html">The First Day</a> gets you from spawn to your first knapped knife.</p>
       </div>
+    </section>
+
     <!-- 05 RECIPES -->
     <section class="doc" id="recipes">
       <p class="sec-index">05 — At the crafting grid</p>
@@ -359,6 +387,12 @@
         <div class="recipe shaped"><span class="tag">Shaped · woodworking</span><div class="ings"><span class="ing">Saw</span><span class="plus">+</span><span class="ing">Firewood / log</span></div><span class="arr">→</span><span class="res">Planks</span></div>
         <div class="recipe shaped"><span class="tag">Shaped · rotate the saw</span><div class="ings"><span class="ing">Saw</span><span class="plus">+</span><span class="ing">Plank</span></div><span class="arr">→</span><span class="res">Slabs · Stairs</span></div>
         <div class="recipe"><span class="tag">Detailing</span><div class="ings"><span class="ing">Metal</span><span class="plus">+</span><span class="ing">Stick</span></div><span class="arr">→</span><span class="res">Chisel</span></div>
+        <div class="recipe"><span class="tag">Hunting</span><div class="ings"><span class="ing">Arrow head</span><span class="plus">+</span><span class="ing">Stick</span><span class="plus">+</span><span class="ing">Feather</span></div><span class="arr">→</span><span class="res">Arrow</span></div>
+        <div class="recipe"><span class="tag">Ranged</span><div class="ings"><span class="ing">2 Sticks</span><span class="plus">+</span><span class="ing">3 Twine</span></div><span class="arr">→</span><span class="res">Crude bow</span></div>
+        <div class="recipe"><span class="tag">Fibre</span><div class="ings"><span class="ing">Flax fibres</span></div><span class="arr">→</span><span class="res">Twine</span></div>
+        <div class="recipe"><span class="tag">Container</span><div class="ings"><span class="ing">8 Boards</span></div><span class="arr">→</span><span class="res">Crate</span></div>
+        <div class="recipe"><span class="tag">Cooking</span><div class="ings"><span class="ing">Metal</span><span class="plus">+</span><span class="ing">…</span></div><span class="arr">→</span><span class="res">Cooking pot · Pan</span></div>
+        <div class="recipe shaped"><span class="tag">Shaped · armour</span><div class="ings"><span class="ing">Lamellae</span><span class="plus">+</span><span class="ing">Leather</span></div><span class="arr">→</span><span class="res">Lamellar armour</span></div>
       </div>
       <div class="note">
         <span class="label">Shapeless vs shaped</span>

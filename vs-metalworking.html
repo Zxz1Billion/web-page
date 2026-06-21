@@ -129,11 +129,18 @@
             <tr><td>Bismuthinite</td><td>Bismuth</td><td>Bismuth for <strong>bismuth bronze</strong>.</td></tr>
             <tr><td>Native gold</td><td>Gold</td><td>For <strong>black bronze</strong> (and decoration / trade).</td></tr>
             <tr><td>Native silver</td><td>Silver</td><td>For <strong>black bronze</strong>.</td></tr>
-            <tr><td><strong>Limonite</strong> (bog iron)</td><td>Iron</td><td><strong>The easiest iron.</strong> Found near the surface in and around bogs.</td></tr>
-            <tr><td>Hematite</td><td>Iron</td><td>Common iron ore; deeper than limonite.</td></tr>
-            <tr><td>Magnetite</td><td>Iron</td><td>Iron ore; the deepest of the three.</td></tr>
+            <tr><td>Galena</td><td>Lead + Silver</td><td>Lead, with a chance of silver. No surface bits — find it by propick.</td></tr>
+            <tr><td>Quartz (gold/silver-bearing)</td><td>Gold / Silver</td><td>Can throw <strong>surface bits</strong>, unlike galena.</td></tr>
+            <tr><td><strong>Limonite</strong> (bog iron)</td><td>Iron</td><td><strong>The easiest iron.</strong> In <strong>chert, shale, basalt</strong>; generates near the surface, often around bogs.</td></tr>
+            <tr><td>Hematite</td><td>Iron</td><td>Large deep deposits in <strong>limestone, granite, peridotite, phyllite</strong>.</td></tr>
+            <tr><td>Magnetite</td><td>Iron</td><td>In <strong>andesite, chalk, conglomerate, claystone, slate</strong>.</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="note">
+        <span class="label">Depth &amp; host rock decide what you find</span>
+        <p>Copper sits at the <strong>surface</strong> almost everywhere (native copper bits, or surface malachite in limestone country) — except where the top layer is bauxite. The three <strong>iron ores share a depth band</strong>: all generate between roughly <strong>0.05 and 0.85 of sea level</strong> (about <strong>Y5–Y93</strong> on a default-height world), but each prefers a different host rock, so the rock you're digging through tells you which iron to expect. Match your search to the stone type, not just the depth.</p>
       </div>
 
       <h3>Fuels</h3>
@@ -194,6 +201,16 @@
         <span class="label">Copper's 1084°C is the headline number</span>
         <p>Every bronze is mostly copper, so they all need a fuel that hits roughly copper's melting point. If your crucible stalls below 1084°C, switch to charcoal and bank the fire pit with plenty of fuel.</p>
       </div>
+
+      <div class="note danger">
+        <span class="label">The 1340°C line: castable vs furnace-only</span>
+        <p>There's a hard cut-off. Metals that melt at or below <strong>~1340°C</strong> can be liquefied in a crucible and <strong>cast</strong> — copper, the bronzes, tin, lead, zinc, silver, gold and more. Metals above that line — <strong>iron, meteoric iron and steel</strong> — can never be reached by a crucible. They're won as a solid <strong>bloom</strong> or <strong>blister</strong> from a furnace and then <strong>smithed</strong>, never poured. This single threshold is why the game splits into a cast half and a smith half.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Crucible capacity, in numbers</span>
+        <p>A crucible holds <strong>up to 4 stacks of 128 nuggets</strong> of <em>one</em> metal or alloy — <strong>2,560 units = 25 ingots</strong> per melt. Each nugget is <strong>5 units</strong>; an ingot is <strong>100 units = 20 nuggets</strong>. Smelt one big batch rather than many small ones to save fuel, but remember you can't mix two finished metals in the same crucible.</p>
+      </div>
     </section>
 
     <!-- 03 ALLOYING -->
@@ -234,6 +251,23 @@
         <div class="card"><span class="tag">mold</span><h4>Tool molds</h4><p>Cast specific <strong>tool heads</strong> directly: pickaxe, axe, knife, hammer, and more. Each tool has its own mold shape.</p></div>
         <div class="card"><span class="tag">mold</span><h4>The anvil</h4><p>The <strong>anvil itself is cast</strong> from metal poured into its mold. Your first anvil is copper or bronze. The anvil unlocks the entire smithing half of the game.</p></div>
       </div>
+      <div class="data-table">
+        <table>
+          <caption>How much metal each mold drinks (1 ingot = 100 units = 20 nuggets)</caption>
+          <thead><tr><th>Mold</th><th class="num">Units</th><th class="num">≈ Ingots</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Tool / weapon head</td><td class="num">100</td><td class="num">1</td><td>Axe, pick, knife, hoe, sword, scythe, hammer…</td></tr>
+            <tr><td>Ingot mold</td><td class="num">100/bar</td><td class="num">1</td><td>Two molds fit on one block; the storable bar</td></tr>
+            <tr><td>Lamellae (armour)</td><td class="num">100</td><td class="num">1</td><td>Plates for lamellar armour</td></tr>
+            <tr><td><strong>Helve hammer</strong></td><td class="num">200</td><td class="num">2</td><td>The automated hammer head</td></tr>
+            <tr><td><strong>Anvil</strong></td><td class="num">900</td><td class="num">9</td><td>One pour from a full crucible — smelt 180 nuggets first</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Top up a mold while it's hot</span>
+        <p>You can pour into a mold across <strong>multiple crucibles</strong> as long as the metal hasn't solidified. For the big 900-unit anvil pour, line up enough molten metal first; if it cools mid-fill you'll have to re-melt and start the pour over.</p>
+      </div>
       <div class="note danger">
         <span class="label">Iron and steel cannot be cast</span>
         <p>No mold will hold iron or steel. Their melting points are out of reach of these furnaces, and the game forbids casting them outright. From iron onward, everything is <strong>smithed on an anvil</strong>.</p>
@@ -263,6 +297,26 @@
         <span class="label">Keep the bellows breathing</span>
         <p>Keep the forge well-fed with the bellows worked. A hot forge means fewer reheats and more progress per heat. Stockpile charcoal or coke before a big smithing session.</p>
       </div>
+
+      <h3>What the bellows actually buys you</h3>
+      <p>The <strong>bellows</strong> were added in 1.22 alongside the new forge model, and they change the maths of every heat source they're attached to:</p>
+      <ul>
+        <li><strong>No bellows = 60% of rated heat.</strong> An un-bellowed forge tops out at roughly <strong>60%</strong> of the fuel's maximum temperature. With lignite (1100°C) that's barely enough to reach copper; with charcoal you clear it comfortably.</li>
+        <li><strong>Worked bellows = full temperature, faster.</strong> Pumping drives the fire to the fuel's rated ceiling and gets there quicker, so metal spends less time below working heat.</li>
+        <li>A bellows can be <strong>hand-pumped</strong> or, later, <strong>driven by mechanical power</strong> so the forge and bloomery run hot without you standing on the lever — see <a href="vs-mechanical-power.html">Gears &amp; Grindstones</a>.</li>
+      </ul>
+
+      <h3>Quench &amp; temper</h3>
+      <p>1.22's heat-treatment loop lets you tune a finished tool head before you haft it:</p>
+      <ol class="flow">
+        <li><strong>Heat the finished head</strong> back up in the forge.</li>
+        <li><strong>Quench</strong> it in <strong>water</strong> to harden — this raises its working power.</li>
+        <li><strong>Temper</strong> to dial back brittleness, trading some durability for a harder-hitting edge.</li>
+      </ol>
+      <div class="note">
+        <span class="label">Working temperature is ~50% of melting point</span>
+        <p>As a rule a metal becomes smithable above about <strong>half</strong> its melting temperature, which is why the <strong>orange-to-yellow</strong> glow is the target at the anvil. Iron <strong>blooms</strong> consolidate at a lower bar (~700&deg;C) and lead works at any heat. The exact thresholds per metal are in the Handbook (<code>H</code>).</p>
+      </div>
     </section>
 
     <!-- 06 ANVIL -->
@@ -284,7 +338,23 @@
           <span class="body"><p><strong>Steel requires an iron anvil.</strong> Once you can smith iron on the bronze anvil, make an iron anvil. It's the prerequisite for working blister steel into ingots (section 10).</p></span>
         </li>
       </ul>
+      <div class="data-table">
+        <table>
+          <caption>Anvil tiers — each works its own metal and one tier up</caption>
+          <thead><tr><th>Anvil</th><th>Tier</th><th>Can smith</th><th>Cannot smith</th></tr></thead>
+          <tbody>
+            <tr><td>Copper</td><td class="num">1</td><td>Copper, bronze</td><td>Iron, steel</td></tr>
+            <tr><td>Bronze</td><td class="num">2</td><td>Bronze, <strong>iron</strong></td><td>Steel</td></tr>
+            <tr><td>Iron</td><td class="num">3</td><td>Iron, <strong>steel</strong></td><td>—</td></tr>
+            <tr><td>Steel</td><td class="num">4</td><td>Steel (best durability)</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>To smith, heat an ingot in the forge (section 05) and hammer it to a <strong>Handbook blueprint</strong> on the anvil. The in-game plan shows which voxels to add and remove. The full hammering minigame, with worked examples, is in <a href="vs-crafting.html#smithing">The Four Crafts</a>.</p>
+      <div class="note tip">
+        <span class="label">Don't over-build the anvil</span>
+        <p>You never need a steel anvil to <em>make</em> steel — an <strong>iron anvil (tier 3)</strong> smiths steel ingots fine. A steel anvil is a quality-of-life upgrade (more durable, marginally better results), not a gate. Spend your first hard-won steel on tools, not on an anvil you don't need yet.</p>
+      </div>
       <div class="note">
         <span class="label">Each tier casts the next</span>
         <p>Copper → bronze → iron is a chain of anvils. Use each anvil to make the tools and parts for the next metal, then build the next anvil. You can't skip a rung.</p>
@@ -322,6 +392,24 @@
         <li><strong>Hammer the bloom on an anvil</strong> (bronze or better) to consolidate it into <strong>wrought-iron ingots</strong>.</li>
         <li><strong>Forge &amp; smith</strong> those ingots into tools on the anvil, the same as any other metal.</li>
       </ol>
+      <div class="data-table">
+        <table>
+          <caption>Bloomery, at a glance</caption>
+          <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Ore capacity</td><td class="num">up to 120 nuggets</td></tr>
+            <tr><td>Fuel capacity</td><td class="num">up to 6 pieces</td></tr>
+            <tr><td>Yield</td><td>1 bloom per 20 nuggets — max <strong>6 blooms</strong> per burn</td></tr>
+            <tr><td>Burn time</td><td class="num">~10 hours</td></tr>
+            <tr><td>Fuel accepted</td><td>Any fuel ≥1200°C: <strong>charcoal, anthracite, bituminous coal</strong></td></tr>
+            <tr><td>Fuel rejected</td><td><strong>Lignite</strong> (too cool), peat, firewood</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">A bloom is not an ingot — yet</span>
+        <p>What you pull from a bloomery is a porous, slag-laced <strong>iron bloom</strong>. Heat it (it works above ~700&deg;C) and <strong>hammer it on a bronze-or-better anvil</strong> to squeeze out the slag and consolidate it into <strong>wrought-iron ingots</strong>. Skip this step and you have no usable iron. A <strong>helve hammer</strong> automates the tedium once you have rotational power.</p>
+      </div>
       <div class="note tip">
         <span class="label">Bog iron is the gentle start</span>
         <p><strong>Limonite (bog iron)</strong> sits near the surface, so your first iron rarely needs deep mining. Find a bog, gather limonite, and a bloomery turns it into your first iron tools without a blast furnace.</p>
@@ -342,6 +430,26 @@
         <li><b>Bellows-driven</b> heat</li>
         <li>Feeds the steel pipeline</li>
       </ul>
+
+      <h3>Bloomery vs blast furnace</h3>
+      <p>Both turn iron ore into iron; the blast furnace just does it at volume. Pick by how much iron you're after:</p>
+      <div class="data-table">
+        <table>
+          <caption>Choosing your iron smelter</caption>
+          <thead><tr><th></th><th>Bloomery</th><th>Blast furnace</th></tr></thead>
+          <tbody>
+            <tr><td>Best for</td><td>Your first iron, small batches</td><td>Bulk iron for steel-making</td></tr>
+            <tr><td>Batch size</td><td>≤6 blooms (120 nuggets)</td><td>Much larger</td></tr>
+            <tr><td>Heat driven by</td><td>Natural draught + fuel</td><td><strong>Bellows</strong></td></tr>
+            <tr><td>Output</td><td>Iron blooms (hammer to ingots)</td><td>Iron (hammer to consolidate)</td></tr>
+            <tr><td>Build cost</td><td>Cheap, early</td><td>Higher — a mid-game investment</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Keep the bloomery — don't replace it</span>
+        <p>The bloomery never stops being useful. Build a blast furnace <em>in addition</em> when the cementation furnace's appetite for iron ingots outpaces what one-bloom-at-a-time can supply. Exact charge ratios and flux requirements are config- and build-dependent — read the in-game <strong>Handbook (H)</strong> entry for your version before you commit a stockpile of ore.</p>
+      </div>
     </section>
 
     <!-- 10 STEEL -->
@@ -362,6 +470,24 @@
         <li><strong>Hammer the blister steel</strong> on an <strong>iron anvil</strong> (or under a <strong>helve hammer</strong>) to consolidate it into proper <strong>steel ingots</strong>.</li>
         <li><strong>Smith</strong> the steel ingots into the best tools, weapons, and armour in the game.</li>
       </ol>
+      <div class="data-table">
+        <table>
+          <caption>Cementation furnace, at a glance (config-tunable — Handbook wins)</caption>
+          <thead><tr><th>Spec</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Build material</td><td><strong>Refractory bricks</strong> (fire clay + crushed minerals) + iron structures + a granite/andesite <strong>coffin</strong></td></tr>
+            <tr><td>Coffin charge</td><td>Up to <strong>16 iron ingots</strong>, packed in charcoal</td></tr>
+            <tr><td>Carbon source</td><td>Charcoal around the ingots — <strong>not consumed</strong> by carburizing</td></tr>
+            <tr><td>Fuel beneath</td><td>~<strong>160 fuel</strong> total (≈200 coal to hold the heat) — charcoal, coke or any coal</td></tr>
+            <tr><td>Firing time</td><td>~<strong>6.67 in-game days</strong> of sustained heat</td></tr>
+            <tr><td>Raw output</td><td><strong>Blister steel</strong>, 1:1 with the iron in — then hammer on an iron anvil</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">The prerequisite chain for one batch of steel</span>
+        <p>Before a single blister-steel ingot exists you need: a <strong>pulverizer</strong> (to crush the minerals for refractory brick), enough <strong>fire clay</strong> fired into refractory blocks, a stone <strong>coffin</strong>, an <strong>iron anvil</strong>, a <strong>forge</strong>, <strong>16 iron ingots</strong> already smelted and hammered, and a charcoal pile big enough to bury them <em>and</em> ~160 fuel to fire it for nearly a week. Stage every part before you light it — a half-fuelled firing that cools early wastes days.</p>
+      </div>
       <div class="note warn">
         <span class="label">The full steel setup is an industry</span>
         <p>A working steel operation is more than the furnace. You also need a <strong>pulverizer</strong>, an <strong>iron anvil</strong>, a <strong>forge</strong>, and large stockpiles of fuel (charcoal, coke, or coal). The mechanical helpers, the <strong>helve hammer</strong> for hammering blooms and blister steel and the <strong>pulverizer</strong>, are covered in <a href="vs-mechanical-power.html">Gears &amp; Grindstones</a>. Steel's place in the tech tree is in <a href="vs-progression.html">The Long Road</a>.</p>

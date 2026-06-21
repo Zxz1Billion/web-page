@@ -82,15 +82,28 @@
       <p>The <strong>chisel</strong> is the key tool for good-looking builds. Crafted from metal, it carves any solid block into <strong>microblocks</strong>. Each full block is a <strong>16×16×16</strong> grid of voxels you can remove one chunk at a time, and the carved result <em>keeps the original block's texture</em>. Use it to make trim, beams, arches, railings, slabs at any thickness, and furniture out of ordinary materials.</p>
       <h3>How chiseling works</h3>
       <ol class="flow">
-        <li><strong>Hold the chisel, look at a block.</strong> A grid overlay appears. The block becomes a "chiseled block" you sculpt in place.</li>
-        <li><strong>Pick a voxel size.</strong> Switch the chisel's bite between <strong>1, 2, 4 or 8</strong> voxels (hotkey / radial). Use big bites to rough-shape, small bites for detail.</li>
-        <li><strong>Left-click to remove</strong> material; the texture stays. Use <strong>rotate</strong> and <strong>copy/mirror</strong> to repeat a shape cleanly.</li>
-        <li><strong>Combine materials:</strong> a single chiseled block can hold more than one material. Inlay a stripe of a second stone for trim.</li>
+        <li><strong>Hold the chisel <em>and</em> a hammer.</strong> Chiseling needs the <strong>chisel in the main hand and a hammer in the off hand</strong> — both at once. Look at a placed block and a 16×16×16 grid overlay appears; the block becomes an editable "chiseled block" sculpted in place.</li>
+        <li><strong>Left-click removes</strong> a voxel chunk, <strong>right-click adds</strong> one back. The carving is fully reversible within the block's material set — over-cut and you can replace it.</li>
+        <li><strong>Press <kbd>F</kbd> for the tool-mode menu.</strong> It holds the <strong>grid size</strong> (the bite per click — rough-shape big, detail small), <strong>rotate</strong> (left = clockwise, right = counter-clockwise), <strong>flip</strong> (mirror horizontally relative to your facing), and <strong>set name</strong>.</li>
+        <li><strong>Combine materials.</strong> A single chiseled block can hold more than one material: pick the block up, drop it onto the "+" slot to register a second material, then place voxels of either. (You can also merge two chiseled blocks in the grid — the lower block's <em>material</em> transfers up, but its carving is lost.)</li>
       </ol>
       <div class="note">
-        <span class="label">What to chisel first</span>
-        <p>Start with the highest-value chisels: <strong>corner posts &amp; beams</strong> (thinner than a full block), <strong>window sills &amp; lintels</strong>, <strong>roof trim</strong>, <strong>half-thickness walls</strong>, and simple <strong>furniture</strong> (a table is a chiseled plank on legs). Don't micro-detail everything. A few chiseled accents lift an entire build.</p>
+        <span class="label">Copying: creative only</span>
+        <p>In <strong>survival</strong>, chiseled blocks <strong>cannot be copied</strong> — each is carved by hand, so design a shape once and reproduce it deliberately. In <strong>creative</strong>, <strong>middle-click</strong> copies a finished chiseled block, which is the fast way to prototype a palette before you commit in survival.</p>
       </div>
+      <div class="note">
+        <span class="label">What to chisel first</span>
+        <p>Start with the highest-value chisels: <strong>corner posts &amp; beams</strong> (thinner than a full block), <strong>window sills &amp; lintels</strong>, <strong>roof trim</strong>, <strong>half-thickness walls</strong>, and simple <strong>furniture</strong> (a table is a chiseled plank on legs). Don't micro-detail everything — every chiseled block is its own little entity and is heavier to render than a plain block, so a few sharp accents beat a wall of fiddly carving. A handful of chiseled details lifts an entire build.</p>
+      </div>
+
+      <h3>Five reliable chisel techniques</h3>
+      <ul>
+        <li><strong>The slab at any thickness.</strong> Shave a full block down to a 1-, 2- or 4-voxel sheet for floors, shelves, table tops and panelling thinner than the game's stock slab.</li>
+        <li><strong>The chamfer.</strong> Knock the top voxels off one edge of a beam or post for a soft bevelled corner — instantly reads as worked timber rather than a cube.</li>
+        <li><strong>The recessed panel.</strong> Sink the centre voxels of a wall block a step deep to fake a framed panel or a door inset; pair with an inlaid second material for trim.</li>
+        <li><strong>The wedge / slope.</strong> A diagonal cut makes a roof slope or brace without a dedicated stair block, and matches any material you like.</li>
+        <li><strong>Round it.</strong> Step the corners of four blocks inward in small bites to suggest a column, an arch or a barrel.</li>
+      </ul>
     </section>
 
     <!-- 02 -->
@@ -121,6 +134,29 @@
         <span class="label">Colour your plaster</span>
         <p>Lime <strong>plaster</strong> drives mid-game charm. Whitewash gives a clean render, and adding <strong>pigments</strong> (from plants, ochre, charcoal) tints it. White plaster between dark timber beams is the classic <em>fachwerk</em> look (see §04).</p>
       </div>
+
+      <h3>Where the materials come from</h3>
+      <p>A palette is only useful if you know the cost of each block. The decorative materials trace back to a few simple chains:</p>
+      <div class="data-table">
+        <table>
+          <caption>Decorative material recipes (v1.22.3)</caption>
+          <thead><tr><th>Material</th><th>How it's made</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cob</strong></td><td>Soil + dry grass in the crafting grid. Day-one walls.</td></tr>
+            <tr><td><strong>Clay brick block</strong></td><td>Clay + mortar; mudbrick is soil/clay/grass/sand instead</td></tr>
+            <tr><td><strong>Stone variants</strong></td><td>Cobblestone → dry stone → <strong>polished stone</strong> (hammer + chisel + rock) → ashlar</td></tr>
+            <tr><td><strong>Marble</strong></td><td>Polished only — <em>cannot</em> be turned into brick. A prized late-game body stone</td></tr>
+            <tr><td><strong>Lime / plaster</strong></td><td>Grind limestone, chalk or marble in a <strong>quern</strong> for lime; plaster ≈ quicklime + sand. Mortar = quicklime + water + sand in a barrel</td></tr>
+            <tr><td><strong>Boards</strong></td><td>Saw + a log/plank; <strong>debarked logs</strong> need an axe + a hammer</td></tr>
+            <tr><td><strong>Glass</strong></td><td><strong>Quartz chunks fired in a bloomery</strong> (≥1200°C, ~10 h) — <em>not</em> sand. 24 quartz → 12 glass. Self-craftable: clear, smoky, pink, violet, green; yellow/brown/red/blue are trader-only</td></tr>
+            <tr><td><strong>Leaded glass pane</strong></td><td>Glass block + boards + a <strong>lead ingot</strong> — and it still seals a room (handy for a lit cellar antechamber)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">Two common myths</span>
+        <p><strong>Glass is from quartz, not sand</strong> — sand goes into plaster and mortar. And <strong>marble can't be bricked</strong>; you polish it. Knowing this saves you mining the wrong rock for a manor wall.</p>
+      </div>
     </section>
 
     <!-- 03 -->
@@ -129,13 +165,38 @@
       <h2>Roofs</h2>
       <p>The roof makes or breaks a build. A flat slab roof reads as unfinished. Give it a pitch, an overhang and texture. The plan below is a <strong>hip roof</strong>: it steps inward as it rises. Build it with stairs/slabs (or chiseled wedges) on the slopes.</p>
       <div id="roof-viewer"></div>
+      <h3>The roof pieces the game gives you</h3>
+      <p>Vintage Story ships dedicated roofing blocks in <strong>six materials</strong> — sod, thatch, bamboo, clay, slate and copper — each in a set of slope shapes: <strong>slanted roofing</strong>, <strong>roof ridge</strong>, <strong>roof tip</strong>, and <strong>inner / outer corners</strong>. Clay roofing adds full blocks, slabs and stairs. Between these, stock stairs/slabs, and chiseled wedges, you can build any roofline.</p>
+      <div class="data-table">
+        <table>
+          <caption>Roofing materials &amp; how they're made</caption>
+          <thead><tr><th>Material</th><th>Source</th><th>Reads as</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Thatch</strong></td><td>Thatch (knife on tule), hay or aged hay</td><td>Golden, rounded — Day-three cottage</td></tr>
+            <tr><td><strong>Clay (shingle)</strong></td><td>Fired shingles; 4 colours (blue, brown, red, light)</td><td>Tidy, medieval, the mid-game default</td></tr>
+            <tr><td><strong>Slate</strong></td><td>Loose slate stones + blue clay</td><td>Cold, grey, manor &amp; keep</td></tr>
+            <tr><td><strong>Sod</strong></td><td>Grass turf</td><td>Earthy, half-buried, Norse</td></tr>
+            <tr><td><strong>Copper</strong></td><td>Copper metal</td><td>Showpiece; weathers green over time</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Roof <em>shapes</em> are techniques, not blocks</h3>
+      <p>Gable, hip, gambrel and mansard are <strong>real-world roof forms you build</strong> from the pieces above — the game has no "gable block." Knowing the silhouettes lets you pick one on purpose:</p>
+      <ul>
+        <li><strong>Gable.</strong> Two slopes meeting at a ridge, leaving a triangular wall (the gable end) at each end. The simplest pitched roof; great for cottages and inns.</li>
+        <li><strong>Hip.</strong> All four sides slope inward to the ridge or a point — no gable wall. Calmer, more solid; the schematic above is a hip. Lay it with the inner/outer corner pieces.</li>
+        <li><strong>Gambrel.</strong> A two-pitch slope per side (shallow up top, steep below) — the "barn" roof. Buys headroom in a loft.</li>
+        <li><strong>Mansard.</strong> A four-sided gambrel; very steep lower slopes, almost-flat top. Reads grand and townhouse-like for a manor.</li>
+      </ul>
+
       <h3>Roofing rules</h3>
       <ul>
         <li><strong>Always overhang the eaves</strong> by at least one block past the wall. The shadow it casts is half of why pitched roofs look good.</li>
-        <li><strong>Use stairs (or chiseled wedges) for the slope</strong>, not vertical steps. Cap the top with a <strong>ridge</strong> line.</li>
+        <li><strong>Use slanted roofing, stairs, or chiseled wedges for the slope</strong>, not vertical steps. Cap the top with a <strong>ridge</strong> line and the corners with the corner pieces.</li>
         <li><strong>Mix two shingle tones</strong> (e.g. dark + rust clay shingles) for a weathered, hand-laid texture.</li>
         <li><strong>Pitch matters:</strong> steeper roofs read as cold-climate/medieval, shallow roofs as warm/rustic. Match it to your biome.</li>
-        <li><strong>Thatch</strong> (dry grass) is the early roof: rounded and golden, good for a Day-Three cottage.</li>
+        <li><strong>Slope tricks:</strong> a 1:1 (45°) slope is easy but blunt; mix a 2:1 lower course with a 1:1 upper for a subtle bell-curve, or break a long run with a small dormer to kill the monotony.</li>
       </ul>
     </section>
 
@@ -152,6 +213,16 @@
         <li><strong>Lintels &amp; sills:</strong> a timber or stone beam over and under every window and door.</li>
         <li><strong>Timber framing:</strong> vertical studs + a diagonal brace per panel, plaster between. The best mid-game wall.</li>
         <li><strong>String courses &amp; offsets:</strong> a protruding row of brick or a half-block step partway up adds a shadow line on tall walls.</li>
+        <li><strong>Wattle &amp; daub:</strong> apply daub (soil + sand + dry grass + clay, ~6–8 pieces per block, dyeable) over wattle fencing for a rustic infill between heavier timbers.</li>
+      </ul>
+
+      <h3>Give the wall real depth</h3>
+      <p>The elevation above is one block thick — fine, but the best walls vary their depth. A few ways to do it without doubling your material bill:</p>
+      <ul>
+        <li><strong>Two-block walls where it counts.</strong> Thicken the ground floor or a feature wall to two blocks, then chisel the inner face back to reveal a deep window reveal and a sturdy plinth. Thick cob and stone also <em>insulate</em>, so depth doubles as winter warmth (see <a href="vs-structures.html">The Homestead</a>).</li>
+        <li><strong>Proud beams.</strong> Set the timber frame standing one or two voxels out from the plaster with the chisel. The shadow line between beam and infill is the whole <em>fachwerk</em> effect.</li>
+        <li><strong>Recessed panels.</strong> Sink the plaster infill a step behind the frame instead. Either direction reads as built rather than painted-on.</li>
+        <li><strong>A jettied upper storey.</strong> Overhang the first floor a half-block past the ground floor on a row of chiseled corbels — the classic medieval town look.</li>
       </ul>
     </section>
 
@@ -162,12 +233,24 @@
       <div class="cards">
         <div class="card"><span class="tag">windows</span><h4>Glazing</h4><p>Plain <strong>glass</strong> early, <strong>leaded/coloured glass</strong> later. Frame each window with a chiseled timber or stone surround and add <strong>shutters</strong>. Even fake ones add depth.</p></div>
         <div class="card"><span class="tag">doors</span><h4>Doorways</h4><p>Recess the door a half-block, add a <strong>lintel</strong> above and a stone <strong>threshold</strong> below. A small porch roof or two posts make an entrance feel like one.</p></div>
-        <div class="card"><span class="tag">light</span><h4>Warm light</h4><p><strong>Oil lamps &amp; lanterns</strong> on walls, <strong>candles</strong> on tables, a <strong>chandelier</strong> (chiseled + lanterns) over a hall, and a <strong>hearth</strong> as the heart of the room.</p></div>
+        <div class="card"><span class="tag">light</span><h4>Warm light</h4><p><strong>Oil lamps &amp; lanterns</strong> on walls, <strong>candles</strong> on tables, a <strong>chandelier</strong> over a hall, and a <strong>hearth</strong> as the heart of the room. Lanterns, candles and chandeliers never burn out or get doused by rain.</p></div>
         <div class="card"><span class="tag">fire</span><h4>Hearth &amp; chimney</h4><p>A built fireplace with a stone <strong>chimney</strong> breaking the roofline lights, warms, and anchors the silhouette.</p></div>
+      </div>
+      <div class="data-table">
+        <table>
+          <caption>Light sources by brightness (v1.22.3)</caption>
+          <thead><tr><th>Source</th><th>Light level</th><th>Made from</th></tr></thead>
+          <tbody>
+            <tr><td>Candle</td><td class="num">7</td><td>Tallow / wax</td></tr>
+            <tr><td>Lantern</td><td class="num">18</td><td>Candle + metal plate + glass/quartz</td></tr>
+            <tr><td>Lined lantern (gold/silver)</td><td class="num">~18+</td><td>Best <em>craftable</em> source</td></tr>
+            <tr><td>Chandelier</td><td class="num">24</td><td><strong>Loot / trader only</strong> — not craftable; holds up to 8 candles</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="note">
         <span class="label">Light at human height</span>
-        <p>Don't ceiling-spam torches. A few <strong>warm sources low on the walls and tables</strong> light a room better. A sealed, lit interior also keeps drifters out (see <a href="vs-temporal.html">temporal</a>).</p>
+        <p>Don't ceiling-spam torches. A few <strong>warm sources low on the walls and tables</strong> light a room better than a grid above. The brightest <em>craftable</em> light is a lined lantern (level 18); the level-24 chandelier only comes from <strong>ruins or traders</strong>, so treat it as a found centrepiece, not a recipe. A sealed, lit interior also keeps drifters out (see <a href="vs-temporal.html">temporal</a>).</p>
       </div>
     </section>
 
@@ -182,6 +265,15 @@
         <li><strong>Furniture from chisels:</strong> a table is a chiseled plank on legs; benches, stools and shelves are quick carves.</li>
         <li><strong>Use your storage as decor:</strong> a row of labelled <strong>crocks</strong>, stacked <strong>barrels</strong>, a <strong>cabinet</strong> wall and open <strong>shelves</strong> of food read as a real pantry.</li>
         <li><strong>Clutter, tastefully:</strong> a few tools on the wall, a <strong>planter</strong> by the window, a <strong>painting</strong>, books. The "lived-in" details.</li>
+      </ul>
+      <h3>Furniture from the chisel</h3>
+      <p>Most furniture is just chiseled blocks. A few patterns cover a whole room:</p>
+      <ul>
+        <li><strong>Table:</strong> a thin chiseled plank top on four corner legs carved from a second block — or a single block with the underside hollowed.</li>
+        <li><strong>Bench / stool:</strong> a 4-voxel-tall seat with thin legs; line three along a table.</li>
+        <li><strong>Shelving:</strong> stacked thin slabs with a back panel; fill with real crocks, bowls and books so it reads as storage.</li>
+        <li><strong>Counter &amp; cabinets:</strong> a waist-high run of chiseled blocks with the new <strong>cabinets</strong> (voxel-placed in 1.22) set into it for a kitchen wall.</li>
+        <li><strong>Four-poster bed:</strong> a real bed flanked by four chiseled posts and a thin canopy — instant manor bedroom.</li>
       </ul>
     </section>
 
@@ -242,6 +334,14 @@
         <li><strong>Add age &amp; asymmetry:</strong> mossy/weathered variants, a slightly off-centre chimney, a lean-to that breaks the symmetry. Perfection looks fake.</li>
         <li><strong>Features:</strong> a <strong>well</strong>, a wood store, a drying rack, a bench under a tree. The marks of a lived-in homestead.</li>
         <li><strong>Terrain:</strong> nestle the build into the land, terrace a slope with retaining walls, don't float it on a flat platform.</li>
+      </ul>
+      <h3>Paths &amp; landscaping, in detail</h3>
+      <ul>
+        <li><strong>Paths read by edge, not fill.</strong> A path of gravel, cobble or packed dirt looks best when its edge wanders a voxel or two — chisel the border blocks irregular rather than ruler-straight. Sink the path a step below the lawn so it reads as worn-in.</li>
+        <li><strong>Terrace slopes, don't flatten them.</strong> Hold a hillside with low <strong>retaining walls</strong> of stone and step the garden up in beds. A build cut into the land always beats one on a flat platform.</li>
+        <li><strong>Mix ground textures.</strong> Grass into gravel into a few flagstones into soil for a planting bed — three or four ground materials make a yard look tended.</li>
+        <li><strong>Frame the approach.</strong> A low fence or hedge either side of the path, a gate, two lanterns at the threshold; the eye should be led to the door.</li>
+        <li><strong>Plant for age.</strong> Let saplings, reeds and wild bushes creep up to the walls; a perfectly mown perimeter looks unlived-in.</li>
       </ul>
       <div class="note">
         <span class="label">Functional &amp; beautiful aren't separate</span>
