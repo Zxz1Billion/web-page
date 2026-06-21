@@ -328,7 +328,12 @@ Each step drains a different nutrient, so the other two recover before they're t
       </div>
       <div class="note tip">
         <span class="label">Cook for variety, not just calories</span>
-        <p>Satiety is the <strong>sum of the ingredients</strong>, so a full pot feeds well &mdash; but <strong>different</strong> ingredients matter more. A meal with <strong>3 distinct</strong> ingredients is <em>hearty</em>, <strong>4 distinct</strong> is <em>hefty</em>, and a varied meal refills several <a href="#groups">nutrition bars</a> at once. Pour liquids with a bucket (1&#8201;L) or a bowl (0.1&ndash;0.2&#8201;L).</p>
+        <p>Satiety is the <strong>sum of the ingredients</strong>, so a full pot feeds well &mdash; but <strong>different</strong> ingredients matter more. A meal with <strong>3 distinct</strong> ingredients is <em>hearty</em>, <strong>4 distinct</strong> is <em>hefty</em>, and a varied meal refills several <a href="#groups">nutrition bars</a> at once. Pour liquids with a bucket (up to 1&#8201;L per click) or a bowl (0.1&ndash;0.2&#8201;L) for fine amounts like jam's 0.2&#8201;L honey.</p>
+      </div>
+      <div class="note">
+        <span class="label">Meal strategy</span>
+        <p><strong>Early:</strong> a pot of <strong>2&ndash;4 vegetables</strong> (forage cattail root and safe mushrooms, then carrots) is the cheapest filling meal &mdash; veg stew keeps 6 days and needs no flour, eggs or dairy. Roasted meat covers protein until you can spare it for stew.</p>
+        <p><strong>Once settled:</strong> build <strong>hefty</strong> (4 distinct) meals that span groups &mdash; e.g. a meat stew of <em>meat + onion + carrot + grain</em>, or a soup of <em>water + meat + two vegetables</em>. One hefty pot pushes several <a href="#groups">nutrition bars</a> at once, which is what raises max health. A <strong>meat or veg pie</strong> adds the grain bar on top of its filling and yields rich servings for the work.</p>
       </div>
       <div class="note">
         <span class="label">Make it keep</span>
@@ -360,9 +365,33 @@ Each step drains a different nutrient, so the other two recover before they're t
       <h2>Keeping It Fresh</h2>
       <p>Every food <strong>spoils</strong> over time. Preservation extends shelf life, turning a glut of summer harvest into winter survival. The full preservation system and the cellar build are in <a href="vs-structures.html"><strong>The Homestead</strong></a>. Here's the short version.</p>
       <div class="cards">
-        <div class="card"><span class="tag">salt</span><h4>Salting</h4><p>Use <strong>salt</strong> in a <strong>crock or barrel</strong> to salt-cure meat and fish. A big jump in shelf life over raw.</p></div>
-        <div class="card"><span class="tag">dry</span><h4>Drying racks</h4><p>Hang sliced <strong>meat, fish, or mushrooms</strong> on a drying rack to dry them out and keep them far longer.</p></div>
-        <div class="card"><span class="tag">seal</span><h4>Sealed crocks &amp; cellars</h4><p>Sealed crocks and storage vessels kept in a cold <strong>cellar</strong> last far longer than food left in the open.</p></div>
+        <div class="card"><span class="tag">salt</span><h4>Salting</h4><p>Cure raw <strong>meat or fish</strong> with <strong>salt</strong> in a barrel. A big jump in shelf life over raw.</p></div>
+        <div class="card"><span class="tag">dry</span><h4>Drying racks</h4><p>Hang whole <strong>meat</strong> on a meat rack (~2 days) to dry-age it; bake <strong>fruit</strong> in a hot oven for dried fruit; dry <strong>seaweed</strong> for recipes.</p></div>
+        <div class="card"><span class="tag">seal</span><h4>Sealed crocks &amp; cellars</h4><p>Crocks of cooked meals or pickles, sealed with fat or beeswax and kept in a cold <strong>cellar</strong>, last far longer than food in the open.</p></div>
+      </div>
+
+      <h3>Preservation methods, side by side</h3>
+      <p>Every method below trades effort for time. <strong>Stack</strong> them &mdash; a sealed crock <em>inside</em> a cellar beats either alone. Exact numbers are config- and version-dependent; treat these as representative in-game days and let the Handbook win.</p>
+      <div class="data-table">
+        <table>
+          <caption>Preservation methods &amp; their effect (v1.22.3, representative)</caption>
+          <thead><tr><th>Method</th><th>Preserves</th><th>Effect on shelf life</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cool cellar</strong></td><td>Anything stored inside</td><td>Fixes the room to ~5&deg;C, negating warm-climate decay (hot climates otherwise speed rot up to ~2.5&times;). Everything inside decays slower.</td></tr>
+            <tr><td><strong>Crock (unsealed)</strong></td><td>Cooked meals, pickles</td><td>Holds up to 4 portions; slows decay slightly vs. a bowl.</td></tr>
+            <tr><td><strong>Sealed crock</strong> (fat / beeswax)</td><td>Cooked meals; pickled veg</td><td>Strong slowdown &mdash; roughly <strong>0.1&times;</strong> perish for meals, <strong>0.25&times;</strong> for pickles &amp; other non-meal contents.</td></tr>
+            <tr><td><strong>Salting</strong> (salt + barrel)</td><td>Raw meat &amp; fish</td><td>Salt-cured meat lasts far longer than fresh.</td></tr>
+            <tr><td><strong>Pickling</strong> (brine: water + salt)</td><td>Vegetables &amp; legumes</td><td>Mix brine in a barrel, add veg (1 brine each), seal <strong>~336 h (~14 days)</strong>. Pickled veg keep well and are needed to curdle cheese.</td></tr>
+            <tr><td><strong>Drying rack</strong></td><td>Meat (whole), fruit, seaweed</td><td>Dry-age whole meat ~2 days; oven-dried fruit and dried seaweed keep much longer than fresh.</td></tr>
+            <tr><td><strong>Jam</strong> (fruit + honey)</td><td>Fruit glut</td><td>Fresh jam keeps <strong>~45 days</strong>; in a cellar, up to <strong>~1.5 years</strong>.</td></tr>
+            <tr><td><strong>Cheese ageing</strong></td><td>Milk &rarr; cheese</td><td>Cheddar <strong>~1.2 yr</strong> (waxed ~2.5 yr), blue cheese <strong>~1.6 yr</strong>. The longest-keeping foods in the game.</td></tr>
+            <tr><td><strong>Honey in a skep</strong></td><td>Honey</td><td>Harvested honey is shelf-stable and itself a preservative (jam, sweetening).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note tip">
+        <span class="label">Fresh meals spoil fastest &mdash; cook to portion, not to stockpile</span>
+        <p>Cooked dishes are short-lived: <strong>porridge and scrambled eggs ~3 days</strong>, <strong>stews and soup ~6 days</strong>. Don't cook more than you'll eat unless you can crock-and-cellar it. For bulk winter stores, lean on the durable methods &mdash; <strong>salting, pickling, drying, jam and cheese</strong> &mdash; and keep raw harvest in <strong>storage vessels</strong> in the cellar.</p>
       </div>
       <div class="note">
         <span class="label">Where to read more</span>
