@@ -157,7 +157,7 @@
         <div class="f"><div class="k">Max skylight penalty</div><div class="v">−40%</div></div>
         <div class="f"><div class="k">Max cooling penalty</div><div class="v">−50%</div></div>
         <div class="f"><div class="k">Score floor</div><div class="v">10% <small>worst case</small></div></div>
-        <div class="f"><div class="k">Max room size</div><div class="v">14³ <small>interior</small></div></div>
+        <div class="f"><div class="k">Max cellar size</div><div class="v">7³ <small>interior</small></div></div>
         <div class="f"><div class="k">Temperature floor</div><div class="v">5°C <small>in warm weather</small></div></div>
       </div>
 
@@ -168,7 +168,7 @@
       <h3>First, the room must seal</h3>
       <p>A cellar is just a <strong>room</strong> the game scored as cool and dark. Before anything is scored, the space has to register as a room at all. Two hard requirements:</p>
       <ul>
-        <li><strong>Interior 14×14×14 or smaller.</strong> The room detector only encloses spaces up to <strong>14 blocks</strong> in each interior dimension. A hall bigger than that never becomes a room, so it can never become a cellar. Keep larders small.</li>
+        <li><strong>A cellar must be small: interior 7×7×7 or smaller</strong> (one dimension may reach 9 if the total volume stays ≤150 and the other two are ≤7). The generic room detector allows up to 14×14×14, but only a room within the cellar size limit gets the food-preservation bonus. Keep larders small.</li>
         <li><strong>Every side solid, no gaps.</strong> All six faces must be sealed. Counts as solid: full blocks, <strong>leaded glass panes</strong>, a non-crude/non-ruined <strong>door</strong>, and a <strong>solid (not grated) trapdoor</strong>.</li>
       </ul>
       <div class="note warn">

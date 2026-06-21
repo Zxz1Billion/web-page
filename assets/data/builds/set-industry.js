@@ -126,7 +126,7 @@ export const SET = [
       { t: "cone", x: 4.8, y: 6.3, z: 2.5, r: 0.7, h: 0.6, c: P.black, n: 8 },
     ] },
   { id: "ind-dyeryard", group: "work", title: "Dyer's yard", tags: ["Dye", "Drying cloth"],
-    meta: { size: "7×6", materials: "Stone vats, posts, cloth", best: "Dyeing wool and hanging it to dry" },
+    meta: { size: "7×6", materials: "Stone vats, posts, cloth", best: "Dyeing cloth and hanging it to dry" },
     note: "A row of dye vats with lengths of bright cloth on the line. The colours mark a busy dyer.",
     parts: [
       { t: "ground", x: -1, z: -1, w: 9, d: 8, c: P.ground },

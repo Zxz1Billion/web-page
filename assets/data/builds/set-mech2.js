@@ -84,7 +84,7 @@ export const SET = [
       { t: "sails", x: 0.05, y: 5, z: 2.6, r: 0.9, n: 10, tilt: 0, bw: 0.12, plane: "zy", c: P.iron },
     ] },
   { id: "m2-fullingmill", group: "power", title: "Fulling mill", tags: ["Cloth", "Powered"],
-    meta: { size: "8×5 + wheel", materials: "Timber hall, fulling stocks, a wheel", best: "Pounding woollen cloth in water" },
+    meta: { size: "8×5 + wheel", materials: "Timber hall, fulling stocks, a wheel", best: "Fulling linen cloth in water" },
     note: "Cammed wooden stocks beat soaked cloth in troughs to thicken it. The wheel drives the heavy hammers all day.",
     parts: [
       { t: "ground", x: -5, z: -2, w: 15, d: 7, c: P.ground },

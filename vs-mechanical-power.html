@@ -224,7 +224,7 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
             <tr><td>Per <strong>sail set</strong></td><td><strong>20 kN</strong> at 100% wind, scaling linearly with wind %; each set ≈ <strong>+20%</strong>. 1 set = 4 sails; <strong>max 5 sets</strong> = ~100 kN at full wind</td></tr>
             <tr><td><strong>Altitude</strong></td><td>+1% wind per block above ~10 over sea level, <strong>capping at +50%</strong> around 60 blocks up (so up to ~150 kN, full sails). Free power; build high</td></tr>
             <tr><td><strong>Clearance</strong></td><td>Each set needs 1 block clear; a full 5-set rotor wants <strong>≥5 blocks</strong> of open space. Enclosing walls don't reduce wind</td></tr>
-            <tr><td><strong>Turbulence</strong> <span class="vs-ver">1.22</span></td><td>A windmill disturbs air within <strong>1.5× its sail diameter</strong>. Two maxed mills closer than <strong>~15 blocks</strong> lose <strong>50%</strong> effectiveness — space them out</td></tr>
+            <tr><td><strong>Turbulence</strong> <span class="vs-ver">1.22</span></td><td>Windmills disturb the air around them, so two placed close together each catch less wind — space them well apart or stagger their heights</td></tr>
             <tr><td><strong>Waterwheel</strong> <span class="vs-ver">1.22</span></td><td>Steady torque from <strong>rapidly-flowing water</strong>; power off the <strong>central 4-way hub</strong>. No wind, altitude or storms involved</td></tr>
             <tr><td>Sailcloth cost</td><td><strong>64 flax fibre per set</strong> (flax → twine → linen → sail), so a 5-set rotor = <strong>320 fibre</strong></td></tr>
           </tbody>
@@ -329,7 +329,7 @@ stalls         ⟺  too many / too heavy machines for the wind you have</div>
             <tr><td>Whole network frozen, machine engaged</td><td>Resistance &gt; torque — too heavy a load for the wind</td><td>Toggle off other machines, add sail sets, build higher, or sum a second source with a large gear</td></tr>
             <tr><td>Turns, but agonisingly slowly</td><td>Marginal torque; little spare to become speed</td><td>More wind (altitude), fewer engaged machines, or merge sources for more torque</td></tr>
             <tr><td>Windmill barely spins in open air</td><td>Too low — insufficient wind near the ground</td><td>Raise it; wind only starts climbing ~10 blocks above sea level</td></tr>
-            <tr><td>Two nearby windmills underperform</td><td>Turbulence — they're inside 1.5× sail diameter of each other</td><td>Space them <strong>≥15 blocks</strong> apart, or stagger their heights</td></tr>
+            <tr><td>Two nearby windmills underperform</td><td>Turbulence — they're too close and disturb each other's air</td><td>Space them well apart, or stagger their heights</td></tr>
             <tr><td>Angled gear won't attach</td><td>Axle is unsupported at that spot</td><td>Place a temporary support block under the axle, snap the gear on, remove the block</td></tr>
             <tr><td>Waterwheel won't turn</td><td>Paddles aren't touching rapidly-flowing water (or world predates 1.22)</td><td>Confirm fast-flow blocks reach the blades; build a channel with a drop, or move to 1.22+ terrain</td></tr>
             <tr><td>Blocks smoking / on fire <span class="vs-ver">1.22</span></td><td>Over-driving the train — too much torque/speed forced through</td><td>Reduce input or gear it down; don't brute-force past what the line can bear</td></tr>

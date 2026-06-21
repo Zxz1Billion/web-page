@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Warmth &amp; Wear — Vintage Story body heat, clothing &amp; armor (v1.22.3)</title>
-<meta name="description" content="A complete Vintage Story 1.22.3 guide to staying warm and staying protected: body temperature and cold damage, clothing warmth values, surviving winter, the eight armor types across the three armor slots, protection tiers, and the leather/linen/wool materials behind it all." />
+<meta name="description" content="A complete Vintage Story 1.22.3 guide to staying warm and staying protected: body temperature and cold damage, clothing warmth values, surviving winter, the eight armor types across the three armor slots, protection tiers, and the leather, linen and fur materials behind it all." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -31,7 +31,7 @@
       <a href="#winter"><span class="ix">04</span> Surviving Winter</a>
       <p class="group-label">Staying whole</p>
       <a href="#armor"><span class="ix">05</span> The Armor System</a>
-      <a href="#materials"><span class="ix">06</span> Leather, Linen &amp; Wool</a>
+      <a href="#materials"><span class="ix">06</span> Leather, Linen &amp; Fur</a>
       <a href="#upkeep"><span class="ix">07</span> Wear &amp; Upkeep</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
@@ -65,7 +65,7 @@
       <h2>Two Systems, Same Body</h2>
       <p class="lead">Your equipment screen feeds two separate survival systems. Don't confuse them.</p>
       <div class="cards">
-        <div class="card"><span class="tag">heat</span><h4>Warmth (clothing)</h4><p>Worn <strong>clothing</strong> adds <em>warmth</em>, which fights cold damage. Warmth keeps you alive against the climate: winter, night, altitude, rain and wind. Fur and wool warm best.</p></div>
+        <div class="card"><span class="tag">heat</span><h4>Warmth (clothing)</h4><p>Worn <strong>clothing</strong> adds <em>warmth</em>, which fights cold damage. Warmth keeps you alive against the climate: winter, night, altitude, rain and wind. Fur warms best.</p></div>
         <div class="card"><span class="tag">defense</span><h4>Protection (armor)</h4><p>Worn <strong>armor</strong> in the head/body/legs slots reduces incoming <em>damage</em>. Armor keeps you alive in fights with wolves, bears and drifters. Metal plate protects best.</p></div>
         <div class="card"><span class="tag">tension</span><h4>The trade-off</h4><p>Heavy metal armor protects but slows you and gives little warmth. Thick furs warm you but aren't armor. Balance both for the season and the threat.</p></div>
       </div>
@@ -79,7 +79,7 @@
     <section class="doc" id="cold">
       <p class="sec-index">01 — The climate is trying to kill you</p>
       <h2>Body Temperature &amp; Cold</h2>
-      <p>With <strong>true (harsh) winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> up. A well-clothed seraph holds at the neutral <strong>~37°C</strong>; the survival floor is roughly <strong>37°C</strong>. Let it fall far enough and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
+      <p>With <strong>true (harsh) winters</strong> enabled (the default on Standard), keep your <strong>body temperature</strong> up. A well-clothed seraph sits near a neutral <strong>~37°C</strong>. Let your body temperature fall several degrees below that and stay there, and you take mounting <strong>cold damage</strong>. Prolonged exposure can <strong>freeze you to death</strong>. Unclothed, you start taking cold damage once the surrounding temperature drops below roughly <strong>0°C</strong> (default settings).</p>
 
       <h3>When cold damage actually starts</h3>
       <p>The cold doesn't bite the instant the number dips. There's a grace buffer, then a steady tick:</p>
@@ -89,7 +89,7 @@
           <thead><tr><th>Condition</th><th>Value</th></tr></thead>
           <tbody>
             <tr><td>Neutral body temperature (well clothed)</td><td class="num">~37°C</td></tr>
-            <tr><td>Survival floor — keep at or above</td><td class="num">~37°C</td></tr>
+            <tr><td>Cold damage begins</td><td class="num">several °C below neutral, sustained</td></tr>
             <tr><td>How cold before the clock starts</td><td>at least <strong>4°C too cold</strong></td></tr>
             <tr><td>Grace period before damage ticks</td><td>~<strong>3 in-game hours</strong> continuous</td></tr>
             <tr><td>Cold damage rate, once ticking</td><td class="num">0.2 HP / 10s</td></tr>
@@ -171,7 +171,6 @@
       <h3>Relative warmth by material</h3>
       <p>Exact values vary by slot, garment and condition, but the ranking is stable:</p>
       <div class="warmth"><span class="lab">Fur</span><span class="track"><span class="lvl" style="width:100%"></span></span><span class="num">warmest</span></div>
-      <div class="warmth"><span class="lab">Wool</span><span class="track"><span class="lvl" style="width:78%"></span></span><span class="num">warm</span></div>
       <div class="warmth"><span class="lab">Leather</span><span class="track"><span class="lvl" style="width:52%"></span></span><span class="num">mid</span></div>
       <div class="warmth"><span class="lab">Linen (flax)</span><span class="track"><span class="lvl" style="width:30%"></span></span><span class="num">light</span></div>
       <div class="warmth"><span class="lab">Bare skin</span><span class="track"><span class="lvl" style="width:6%"></span></span><span class="num">none</span></div>
@@ -208,7 +207,7 @@
         <li><strong>Keep a hat on in rain.</strong> Staying dry preserves far more warmth than any single garment adds.</li>
         <li><strong>Repair before they're ragged.</strong> Warmth holds full above 50% condition and falls below it (see §06). Mend or replace pieces before a long cold spell.</li>
       </ol>
-      <p>Tailoring clothing uses <strong>linen</strong> (from flax), <strong>wool</strong> (from sheep) and <strong>fur/leather</strong> (from animals). See <a href="#materials">§05</a> and <a href="vs-creatures.html">The Bestiary</a> for husbandry. The <strong>Tailor</strong> class gets a head-start, but a Commoner makes everything the same way.</p>
+      <p>Tailoring clothing uses <strong>linen</strong> (from flax) and <strong>fur/leather</strong> (from animals). (Wool is a mod addition, not vanilla.) See <a href="#materials">§05</a> and <a href="vs-creatures.html">The Bestiary</a> for husbandry. The <strong>Tailor</strong> class gets a head-start, but a Commoner makes everything the same way.</p>
     </section>
 
     <!-- 03 SEASONS -->
@@ -230,7 +229,7 @@
           <thead><tr><th>Where / when</th><th>Recommended kit</th><th>Why</th></tr></thead>
           <tbody>
             <tr><td>Temperate spring / autumn</td><td>Linen or leather, full slots</td><td>Mild; just don't leave slots empty</td></tr>
-            <tr><td>Temperate / polar winter</td><td>Full fur or wool set</td><td>Nights drop well below 0°C</td></tr>
+            <tr><td>Temperate / polar winter</td><td>Full fur set</td><td>Nights drop well below 0°C</td></tr>
             <tr><td>High latitude / high altitude (any season)</td><td>Fur set, carried always</td><td>Cold is permanent here</td></tr>
             <tr><td>Hot biome / desert / equator</td><td>Anything that fills slots</td><td>No heat penalty — comfort only</td></tr>
             <tr><td>Any cold expedition</td><td>Fur layer + fire-starting + walling</td><td>Buffer for nightfall and storms</td></tr>
@@ -251,7 +250,7 @@
       <p>Winter is Vintage Story's first real test of preparation. Crops stop and die, water freezes, foraging dries up, and the cold turns lethal. Prepare in autumn. You can't react your way through it in the snow.</p>
       <ol class="flow">
         <li><strong>Fill the larder before the freeze.</strong> Harvest and <strong>preserve</strong> enough food to last the whole season: sealed crocks and a cold cellar, salted meat and dried fish. See <a href="vs-food.html">The Larder</a> and <a href="vs-structures.html#cellar">The Homestead → the cellar</a>.</li>
-        <li><strong>Make a fur (or wool) set.</strong> Hunt for hides, tan leather, and tailor warm clothing for every slot. Aim for a warmth buffer above your coldest expected nights.</li>
+        <li><strong>Make a fur set.</strong> Hunt for hides, tan leather, and tailor warm clothing for every slot. Aim for a warmth buffer above your coldest expected nights.</li>
         <li><strong>Build a heated, sealed shelter.</strong> Walls, a roof and a lit fire pit or hearth keep the interior survivable. Hang a door, seal draughts, and use light to keep drifters out.</li>
         <li><strong>Stay dry, out of the wind, and close to home.</strong> Don't start a long expedition in deep winter. Bring fire-starting and emergency walling if you must travel.</li>
         <li><strong>Plan your spring planting.</strong> Keep seeds, and consider a <a href="vs-structures.html#greenhouse">greenhouse</a>, so you can replant the moment the ground thaws.</li>
@@ -352,7 +351,7 @@
     <!-- 06 MATERIALS -->
     <section class="doc" id="materials">
       <p class="sec-index">06 — Where the gear comes from</p>
-      <h2>Leather, Linen &amp; Wool</h2>
+      <h2>Leather, Linen &amp; Fur</h2>
       <p>Both systems are built from the same handful of soft materials. Set up a steady supply and you stay warm and armored indefinitely.</p>
       <div class="cards">
         <div class="card"><span class="tag">flax → linen</span><h4>Linen</h4><p>Grow <strong>flax</strong> (see <a href="vs-food.html">The Larder</a>), rett and process it into fibre and <strong>twine</strong>, then weave <strong>linen</strong>. Linen makes light clothing and the base for gambeson.</p></div>
