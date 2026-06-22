@@ -5,6 +5,8 @@
    (paint back-to-front); cylinders/cones depth-sort their own facets. Pure SVG.
    ========================================================================== */
 
+import { deriveCourses } from "./build-steps.js";
+
 const U = 16, V = 8, K = 18; // iso horizontal half-step, vertical half-step, block height
 const STROKE = "rgba(25,18,12,.38)";
 
@@ -184,6 +186,10 @@ export function buildCard(def) {
   const tags = (def.tags || []).map((t) => `<span class="bt">${t}</span>`).join("");
   const spec = [m.size && ["Footprint", m.size], m.materials && ["Key materials", m.materials], m.best && ["Best for", m.best]]
     .filter(Boolean).map(([k, v]) => `<div class="brow"><span class="bk">${k}</span><span class="bv">${v}</span></div>`).join("");
+  const courses = deriveCourses(def);
+  const steps = courses.length
+    ? `<details class="bc-steps"><summary>Course-by-course build plan</summary><ol class="bc-courses">${courses.map((s) => `<li><b>${s.title}</b> — ${s.body}</li>`).join("")}</ol></details>`
+    : "";
   return `<article class="buildcard" id="${def.id}">
     <div class="bc-art">${renderSceneSVG(def)}</div>
     <div class="bc-body">
@@ -191,6 +197,7 @@ export function buildCard(def) {
       <div class="bc-tags">${tags}</div>
       <div class="bc-spec">${spec}</div>
       ${def.note ? `<p class="bc-note">${def.note}</p>` : ""}
+      ${steps}
     </div>
   </article>`;
 }
