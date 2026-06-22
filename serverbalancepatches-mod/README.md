@@ -82,12 +82,39 @@ are untouched. One op each covers every metal variant (the recipe iterates metal
 - Tool durability ×2: `/worldconfig toolDurability 2`
 - (Optional) winter meat penalty: `/worldconfig harshWinters false`
 
+## Getting ACTUAL 1.22.3 values — `build_from_assets.py`
+
+VS core JSON patches cannot multiply, so every "2×"/"×1.5" is written as a pre-computed literal,
+which means each one has to be derived from the real vanilla baseline for the exact game version.
+Those baselines live in the game install (`assets/survival`), not on GitHub. To guarantee the
+literals match **your** 1.22.3 server, regenerate them from your install:
+
+```bash
+# point it at your 1.22.3 server's asset tree (the folder that contains blocktypes/, itemtypes/, ...)
+python3 build_from_assets.py --assets /path/to/Vintagestory/assets/survival --out ./out
+
+# rebuild the zip (modinfo.json must sit at the zip root)
+cd out/serverbalancepatches && zip -r -X ../serverbalancepatches_v1.0.0.zip modinfo.json assets
+```
+
+The script reads each real file, computes the scaled literal from the actual value, and writes all
+seven patch files + `modinfo.json`. It is version-independent (handles per-variant `quantityByType`,
+finds each crop's true ripe stage, locates the `harvestable` behavior index per entity, etc.), so it
+also tracks any 1.22.3 changes automatically. Tunable multipliers are constants at the top of the file.
+Validation: run against a 1.20.x asset dump it reproduces the values in this repo's committed patches,
+so the logic is verified.
+
 ## Important note on value provenance / version
 The **JSON structure and asset paths** were verified against the Vintage Story **1.22.2**
 C# source (`anegostudios/vssurvivalmod`, e.g. `SmithingRecipe`/`LayeredVoxelRecipe` confirm the
-forge output uses `stacksize`). The exact **vanilla numeric baselines** were read from the most
-complete public vanilla-asset extract (a 1.20.x dump); these values have been stable across recent
-versions but are not guaranteed identical in 1.22.3.
+forge output uses `stacksize`).
+
+The **numeric baselines in the pre-built `serverbalancepatches_v1.0.0.zip`** were read from the most
+complete *publicly reachable* vanilla-asset extract, which is a **1.20.x dump** — the official 1.22.3
+assets ship only inside the game/server download, which was not reachable from the build environment.
+These values have been stable across recent versions but are **not guaranteed identical in 1.22.3**.
+**For a server you care about, regenerate with `build_from_assets.py` against your 1.22.3 install
+(above) and use that zip** — that is the only way to be certain every literal is the true 1.22.3 value.
 
 Because VS core JSON patches can only set literal values (no arithmetic/multiply op), each "2×"
 or "×1.5" is written as a pre-computed literal derived from those baselines. If your 1.22.3 install
