@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>House Schematic — living room, kitchen, bedrooms &amp; cellar (Vintage Story v1.22.3)</title>
+<meta name="description" content="An interactive, course-by-course building schematic for Vintage Story 1.22.3: a four-level house with a cellar below, an entrance into the living room with the kitchen to the right, two bedrooms upstairs, and a roof. Steps up one block-layer at a time with an exact material count." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">📐</span>
+      <span class="wordmark">House<br>Schematic<small>CELLAR · LIVING · KITCHEN · BEDS</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <a href="#plan"><span class="ix">00</span> The plan</a>
+      <a href="#viewer"><span class="ix">01</span> Course-by-course</a>
+      <a href="#notes"><span class="ix">02</span> Build notes</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      A real block-by-block plan that<br>steps up one course at a time,<br>with an exact material count.<br>For more builds see
+      <a href="vs-builds.html" style="color:var(--accent)">The Pattern Book</a>. v<b style="color:var(--accent)">1.22.3</b>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · A buildable schematic</p>
+      <h1>The Four-Level House</h1>
+      <p class="lede">A proper house plan you can actually follow, block by block: a <strong>cellar</strong> under the whole footprint, a front <strong>entrance into the living room</strong> with the <strong>kitchen to the right</strong>, <strong>two bedrooms upstairs</strong>, and a roof on top. A single staircase in the central hall runs down to the cellar and up to the bedrooms. Step the viewer up one course at a time — the material tally on the right counts every block as you go.</p>
+      <div class="badges">
+        <span class="badge accent">4 levels</span>
+        <span class="badge">Cellar · living · kitchen · 2 beds</span>
+        <span class="badge">Steps up course by course</span>
+        <span class="badge accent">📐 Exact material count</span>
+      </div>
+    </header>
+
+    <section class="doc" id="plan">
+      <p class="sec-index">00 — The layout</p>
+      <h2>The plan</h2>
+      <p class="lead">Footprint is <strong>13×8</strong>. The ground floor splits into three down its length: the living room on the left, a central hall holding the staircase, and the kitchen on the right. Upstairs mirrors it as two bedrooms either side of the landing. The cellar sits under the lot.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">ground · left</span><h4>Living room</h4><p>The front door opens straight into it. Windows down the west wall. An interior door links it to the central hall and the staircase.</p></div>
+        <div class="card"><span class="tag">ground · right</span><h4>Kitchen</h4><p>To the right of the hall, through an interior door. A stove/hearth sits against the back wall, with windows on the east and front.</p></div>
+        <div class="card"><span class="tag">upstairs</span><h4>Two bedrooms</h4><p>The staircase lands on a central landing; a door each side opens into a bedroom — one over the living room, one over the kitchen — each with a bed and windows.</p></div>
+        <div class="card"><span class="tag">below</span><h4>Cellar</h4><p>Stone-walled under the whole house, reached by the same staircase running down from the hall. Cool and dark — line the walls with storage vessels for food.</p></div>
+      </div>
+    </section>
+
+    <section class="doc" id="viewer">
+      <p class="sec-index">01 — Build it up</p>
+      <h2>Course-by-course schematic</h2>
+      <p>Frame <strong>Y0</strong> is the cellar floor; each step adds the next block-layer up to the roof. Click any course to jump to it. The legend names every block; the tally is the exact count for everything placed so far.</p>
+      <div id="house-viewer"></div>
+    </section>
+
+    <section class="doc" id="notes">
+      <p class="sec-index">02 — While you build</p>
+      <h2>Build notes</h2>
+      <ul>
+        <li><strong>Dig the cellar first.</strong> The schematic stacks upward for clarity, but in-game you'll cut the cellar into the ground, wall it in stone, then build the ground floor as its ceiling.</li>
+        <li><strong>One staircase, two directions.</strong> The hall stair core (shown in orange) drops to the cellar and climbs to the landing. Leave the stairwell open through each floor — the plan shows the hole in the floor courses.</li>
+        <li><strong>Keep the stove off timber.</strong> Set the kitchen hearth on stone and keep planks a block clear of it, like any indoor fire.</li>
+        <li><strong>Headroom.</strong> Rooms here are two courses tall for a readable plan; add a third wall course before the floor/roof if you want fuller ceilings.</li>
+        <li><strong>Cellar food rule.</strong> A cool, fully-enclosed cellar with one solid door keeps food best — no skylight. Line the walls with storage vessels and crocks.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">House Schematic</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-structures.html">The Homestead</a> (cellars &amp; workshops)<br>
+      · <a href="vs-builds.html">The Pattern Book</a> (more builds)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The schematic is a stylised block plan to show layout and proportion; it isn't a 1:1 in-game export. Sizes and recipes are config-/version-dependent. Your in-game Handbook is the final word.</p>
+</footer>
+
+<script type="module">
+  import { mountIso } from "./assets/js/vs-guide.js";
+
+  const ROWS = 8, COLS = 13;
+  const G = (fill = null) => Array.from({ length: ROWS }, () => Array(COLS).fill(fill));
+  const fillRect = (g, r0, c0, r1, c1, k) => { for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) g[r][c] = k; return g; };
+  const ring = (g, k) => { for (let c = 0; c < COLS; c++) { g[0][c] = k; g[ROWS-1][c] = k; } for (let r = 0; r < ROWS; r++) { g[r][0] = k; g[r][COLS-1] = k; } return g; };
+  const vline = (g, c, r0, r1, k) => { for (let r = r0; r <= r1; r++) g[r][c] = k; return g; };
+
+  // shared interior partitions (col 4 = living|hall, col 8 = hall|kitchen), with a doorway at row 4
+  const partitions = (g, doorKey = "door") => { vline(g, 4, 1, 6, "wall"); vline(g, 8, 1, 6, "wall"); g[4][4] = doorKey; g[4][8] = doorKey; return g; };
+  const STAIR_R = [1, 2], STAIR_C = [6, 7]; // stair core in the hall (back of the house)
+
+  // --- CELLAR ---------------------------------------------------------------
+  const y0 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "stone");               // cellar floor
+  const y1 = ring(G(), "stone");                                          // cellar walls
+  fillRect(y1, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");  // stair up to the hall
+  y1[1][1] = "store"; y1[1][2] = "store"; y1[6][1] = "store";            // storage vessels
+  y1[1][11] = "store"; y1[6][11] = "store";
+
+  // --- GROUND FLOOR ---------------------------------------------------------
+  const y2 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "floor");                // floor deck over cellar
+  fillRect(y2, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], null);     // stairwell opening
+
+  const y3 = partitions(ring(G(), "wall"));                               // walls + rooms
+  y3[7][2] = "door";                                                      // front entrance into the living room
+  y3[1][10] = "hearth";                                                   // kitchen stove on the back wall
+  fillRect(y3, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");  // stair continues up
+
+  const y4 = partitions(ring(G(), "wall"));                               // second course + glazing
+  y4[7][2] = "door";
+  y4[2][0] = "window"; y4[5][0] = "window";                              // living room, west
+  y4[2][12] = "window"; y4[5][12] = "window";                           // kitchen, east
+  y4[7][10] = "window";                                                  // kitchen, front
+  fillRect(y4, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");
+
+  // --- UPSTAIRS -------------------------------------------------------------
+  const y5 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "floor");                // upper floor / landing
+  fillRect(y5, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], null);     // stair emerges onto the landing
+
+  const y6 = partitions(ring(G(), "wall"));                               // bedroom walls
+  y6[1][1] = "bed"; y6[1][2] = "bed";                                     // bedroom over the living room
+  y6[1][10] = "bed"; y6[1][11] = "bed";                                   // bedroom over the kitchen
+
+  const y7 = partitions(ring(G(), "wall"));                               // second course + glazing
+  y7[2][0] = "window"; y7[5][0] = "window";
+  y7[7][2] = "window";
+  y7[2][12] = "window"; y7[5][12] = "window";
+  y7[7][10] = "window";
+
+  // --- ROOF -----------------------------------------------------------------
+  const y8 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "roof");                 // eaves cap
+  const y9 = fillRect(G(), 0, 5, ROWS-1, 7, "roof");                      // ridge band
+
+  mountIso({
+    title: "Four-Level House",
+    subtitle: "13×8 · cellar · living + entrance · kitchen right · 2 bedrooms",
+    meta: { footprint: "13×8", height: "10 courses" },
+    palette: {
+      stone:  { label: "Stone (cellar + footing)", color: "#7c7567" },
+      floor:  { label: "Plank floor / joists",     color: "#6e5538" },
+      wall:   { label: "Cob / brick wall",          color: "#8c7659" },
+      door:   { label: "Doorway",                   color: "#caa15e" },
+      window: { label: "Glass window",              color: "#7fd1e6" },
+      stair:  { label: "Staircase",                 color: "#cf7f33" },
+      hearth: { label: "Kitchen stove / hearth",    color: "#e3782f" },
+      bed:    { label: "Bed",                       color: "#5fb9ad" },
+      store:  { label: "Cellar storage",            color: "#9c6f3a" },
+      roof:   { label: "Roof",                      color: "#5b4730" },
+    },
+    frames: [
+      { label: "Y0 · cellar floor", grid: y0, note: "Dig out the whole 13×8 footprint a couple of blocks down and floor it in stone. Cool and dark is what you want." },
+      { label: "Y1 · cellar walls", grid: y1, note: "Wall the cellar in stone. Leave the hall staircase (orange) running up to the ground floor, and line the walls with storage vessels for food." },
+      { label: "Y2 · ground floor", grid: y2, note: "Cap the cellar with a plank floor — that's your ground-floor deck. Leave the stairwell open so the stair carries through." },
+      { label: "Y3 · ground walls + rooms", grid: y3, note: "Raise the outer walls and the two interior partitions: living room on the left, central hall, kitchen on the right. Front door into the living room; stove against the kitchen's back wall." },
+      { label: "Y4 · doors + windows", grid: y4, note: "Second wall course. Glaze the windows — west and front for the living room, east and front for the kitchen — and keep the interior doorways open." },
+      { label: "Y5 · upper floor", grid: y5, note: "Floor over the ground storey for the upstairs, leaving the stairwell open so the stair lands on the central landing." },
+      { label: "Y6 · bedrooms", grid: y6, note: "Bedroom walls, mirroring the floor below: one bedroom over the living room, one over the kitchen, a door each off the landing. Drop a bed in each." },
+      { label: "Y7 · upper windows", grid: y7, note: "Second course upstairs and glaze the bedroom windows. Headroom is tight at two courses — add a third here if you like." },
+      { label: "Y8 · roof", grid: y8, note: "Cap the whole house against rain and drifters." },
+      { label: "Y9 · ridge", grid: y9, note: "A central ridge course. Chisel the eaves down into a pitched gable roof for the proper look — a flat cap works to start." },
+    ],
+  }, "#house-viewer");
+</script>
+</body>
+</html>
