@@ -37,7 +37,7 @@ const html = `<!DOCTYPE html>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>The Pattern Book — a Vintage Story building gallery (v1.22.3)</title>
-<meta name="description" content="A visual pattern book for Vintage Story 1.22.3: ${count} structures drawn in 3D isometric across ${used.length} themes — quick shelters, homes, grand stone builds, workshops, furnaces, farming and livestock, power and water, defence and walls, crossings and waterworks, and mining and storage. Each card gives footprint, key materials and what it's best for." />
+<meta name="description" content="A visual pattern book for Vintage Story 1.22.3: ${count} structures drawn in 3D isometric across ${used.length} themes — quick shelters, homes, grand stone builds, workshops, furnaces, farming and livestock, power and water, defence and walls, crossings and waterworks, and mining and storage. Each card gives the footprint, key materials, what it's best for and a course-by-course build plan." />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,8 +60,8 @@ const html = `<!DOCTYPE html>
 ${nav}
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
-      ${count} stylised 3D plans, not block lists.<br>For decorative technique see
-      <a href="vs-architect.html" style="color:var(--accent)">The Architect</a>;<br>for course-by-course working<br>plans see
+      ${count} stylised 3D plans, each with a<br>course-by-course build plan.<br>For decorative technique see
+      <a href="vs-architect.html" style="color:var(--accent)">The Architect</a>;<br>for fuller worked<br>plans see
       <a href="vs-structures.html" style="color:var(--accent)">The Homestead</a>. v<b style="color:var(--accent)">1.22.3</b>.
     </p>
   </aside>
@@ -71,12 +71,12 @@ ${nav}
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · Building gallery</p>
       <h1>The Pattern Book</h1>
-      <p class="lede">A catalogue of things to build, drawn in 3D so you can see the shape before you place a block. ${count} structures across ${used.length} themes, from a night-one lean-to to powered mill complexes. Each card gives the footprint, the key materials and what it's best for. Pick one, copy the massing, then dress the detail with <a href="vs-architect.html">The Architect</a>.</p>
+      <p class="lede">A catalogue of things to build, drawn in 3D so you can see the shape before you place a block. ${count} structures across ${used.length} themes, from a night-one lean-to to powered mill complexes. Each card gives the footprint, the key materials, what it's best for and a course-by-course build plan — expand it on any card. Pick one, copy the massing, then dress the detail with <a href="vs-architect.html">The Architect</a>.</p>
       <div class="badges">
         <span class="badge accent">${count} structures</span>
         <span class="badge">3D isometric</span>
         <span class="badge">${used.length} themes</span>
-        <span class="badge accent">🧱 Massing, not block lists</span>
+        <span class="badge accent">📐 Course-by-course plans</span>
       </div>
     </header>
 
@@ -98,7 +98,7 @@ ${sections}
       · <a href="vs-structures.html">The Homestead</a> (course-by-course plans)
     </div>
   </div>
-  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The illustrations are stylised isometric massing studies meant to show shape and proportion, not exact block counts or game textures. Sizes, materials and recipes are config-/version-dependent. Your in-game Handbook and creative palette are the final word.</p>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The illustrations are stylised isometric massing studies meant to show shape and proportion, not exact block counts or game textures. The course-by-course plans are derived from each drawing and give approximate course counts, materials and order of work, not block-by-block schematics. Sizes, materials and recipes are config-/version-dependent. Your in-game Handbook and creative palette are the final word.</p>
 </footer>
 
 <script type="module">
