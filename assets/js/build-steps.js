@@ -57,9 +57,15 @@ export function deriveCourses(def) {
   const structPosts = cols.filter((c) => c.h > 1.4 && isWood(c.c));
   const railPosts = cols.filter((c) => c.h <= 1.4 && isWood(c.c));
   const chimneys = cols.filter((c) => isMasonry(c.c));
+  // substantial flat slabs = floors, terraces, decks, balconies (not the timber frame)
+  const bigSlabs = slabs.filter((s) => s.w >= 2 && s.d >= 2 && s.c !== P.darkwood);
+  const groundSlabs = bigSlabs.filter((s) => (s.y || 0) < 0.6);
+  const upperSlabs = bigSlabs.filter((s) => (s.y || 0) >= 0.6);
 
   const cyls = parts.filter((p) => p.t === "cyl");
   const roundWalls = cyls.filter((p) => p.r > 0.8 && p.h >= 1.2 && p.c !== P.fire && !isFoliage(p.c));
+  // slim round shafts = columns, colonnades, pillars (P.wood excluded: those are tree trunks)
+  const columns = cyls.filter((p) => p.r <= 0.8 && p.h >= 0.8 && p.c !== P.fire && p.c !== P.wood && !isFoliage(p.c));
   const frusta = parts.filter((p) => p.t === "frustum");
   const roofs = parts.filter((p) => ["gable", "hip", "shed"].includes(p.t));
 
@@ -106,12 +112,18 @@ export function deriveCourses(def) {
     add("Foundation course", `Lay the first course as a solid ${fmat} ring on the outline to keep damp out of the walls, then floor the inside.`);
   }
 
+  // 2b — ground floors, porches & terraces
+  if (groundSlabs.length) {
+    const segs = groundSlabs.map((s) => `a ${R(s.w)}×${R(s.d)} pad`);
+    add("Floors & terraces", `Lay ${list(segs)} in ${mat(groundSlabs[0].c)} for the floor, porch and terraces, levelling each flush.`);
+  }
+
   // 3 — walls & openings
   if (walls.length || roundWalls.length || frusta.length) {
     const segs = [];
     for (const w of walls) segs.push(`a ${R(w.w)}×${R(w.d)} block ${courses(w.h)} high`);
     for (const c of roundWalls) segs.push(`a round wall about ${R(c.r * 2)} across and ${courses(c.h)} high`);
-    for (const f of frusta) segs.push(`a mass that tapers from ${R(f.w)}×${R(f.d)} up to ${R(f.tw)}×${R(f.td)} over ${courses(f.h)}`);
+    for (const f of frusta) segs.push(`a ${mat(f.c)} mass tapering from ${R(f.w)}×${R(f.d)} up to ${R(f.tw)}×${R(f.td)} over ${courses(f.h)}`);
     const wm = mat((walls[0] || roundWalls[0] || frusta[0]).c);
     let body = `Raise the walls in ${wm} — ${list(segs)} — keeping each course level and the corners plumb.`;
     const op = [];
@@ -125,6 +137,18 @@ export function deriveCourses(def) {
     }
     if (op.length) body += ` As the courses rise, leave ${list(op)}; bridge each opening with a lintel, then glaze the windows once the wall tops out.`;
     add("Walls & openings", body);
+  }
+
+  // 3a — columns & colonnades
+  if (columns.length) {
+    const c0 = columns[0];
+    add("Columns & pillars", `Raise ${columns.length} round ${mat(c0.c)} column${columns.length > 1 ? "s" : ""} about ${R(c0.r * 2)} across and ${courses(c0.h)} tall, spaced evenly; cap each where it meets the ${roofs.length || roofCones.length || roofDomes.length ? "roof" : "beam above"}.`);
+  }
+
+  // 3c — upper floors, galleries & balconies
+  if (upperSlabs.length) {
+    const segs = upperSlabs.map((s) => `a ${R(s.w)}×${R(s.d)} deck at about course ${courseOf(s.y)}`);
+    add("Upper floors & balconies", `Once the lower walls carry, lay ${list(segs)} in ${mat(upperSlabs[0].c)} for the upper floor${upperSlabs.length > 1 ? "s" : ""}, gallery and balconies, then carry the walls on up.`);
   }
 
   // 3b — ground-level shells with no box walls (tents, mounds, heaps, kilns, domes)
@@ -175,15 +199,17 @@ export function deriveCourses(def) {
   }
   if (wedges.length) add("Banking & ramps", `Bank ${mat(wedges[0].c)} into the ${wedges.length > 1 ? "ramps/buttresses" : "ramp/buttress"} shown, sloping it cleanly into the ground.`);
 
-  // 8 — surroundings & dressing
+  // 8 — shaped detailing (pediments, braces, gable infill, awnings — things square blocks can't make)
+  if (polys.length) add("Detailing", `Cut and fit the angled, shaped pieces the drawing shows — pediments, braces, gable infill and trim — that plain blocks can't form on their own.`);
+
+  // 9 — surroundings & dressing
   const around = [];
   if (railPosts.length) around.push("run a post-and-rail fence around the plot");
   if (foliage.length) around.push(`plant ${foliage.length > 2 ? "trees and shrubs" : "a tree or two"} for shelter`);
   if (crops.length) around.push("till and sow the beds");
-  if (polys.length && !roofs.length && !roofCones.length) around.push("shape the angled details shown in the drawing");
   if (around.length) add("Surroundings", `${list(around).replace(/^./, (s) => s.toUpperCase())}.`);
 
-  // 9 — finishing (reuse the author's terse note as the closing tip)
+  // 10 — finishing (reuse the author's terse note as the closing tip)
   if (def.note) add("Finishing", def.note);
 
   return steps;
