@@ -1,0 +1,32 @@
+[
+  {
+    "op": "replace",
+    "file": "game:blocktypes/stone/ore-graded.json",
+    "path": "/dropsByType/*/0/quantity/avg",
+    "value": 0.012
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/stone/ore-graded.json",
+    "path": "/dropsByType/*/1/quantity/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/stone/ore-ungraded.json",
+    "path": "/dropsByType/*/0/quantity/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/stone/ore-ungraded.json",
+    "path": "/dropsByType/ore-quartz-*/1/quantity/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/stone/ore-ungraded.json",
+    "path": "/dropsByType/ore-sylvite-*/0/quantity/avg",
+    "value": 3.0
+  }
+]

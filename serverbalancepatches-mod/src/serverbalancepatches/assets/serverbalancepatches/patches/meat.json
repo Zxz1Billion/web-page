@@ -1,0 +1,182 @@
+[
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox-arctic-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox-arctic-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/gazelle.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hare-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hare-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hyena-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hyena-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hyena-pup.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/pig-wild-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/pig-wild-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/pig-wild-piglet.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 2.25
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/raccoon-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/raccoon-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/sheep-bighorn-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 24.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/sheep-bighorn-lamb.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 2.25
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/sheep-bighorn-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/wolf-female.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 10.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/wolf-male.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 10.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/wolf-pup.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-black/avg",
+    "value": 18.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-brown/avg",
+    "value": 24.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-sun/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-panda/avg",
+    "value": 15.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-polar/avg",
+    "value": 33.0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/chicken-hen.json",
+    "path": "/server/behaviors/5/drops/0/quantityByType/*-henpoult/avg",
+    "value": 1.875
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/chicken-hen.json",
+    "path": "/server/behaviors/5/drops/0/quantityByType/*/avg",
+    "value": 2.625
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/chicken-rooster.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*-roosterpoult/avg",
+    "value": 1.875
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/chicken-rooster.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/*/avg",
+    "value": 2.625
+  }
+]

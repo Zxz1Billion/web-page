@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "serverbalancepatches",
+  "name": "Server Balance Patches",
+  "description": "Server balance tweaks via JSON asset patches: 2x tree-seed drops from leaves, ~1.2x ore-block drops, 2x firewood/charcoal burn time, 1.5x meat yields, 1.5x crop yields, 2x armor durability, and metal knife/spear-head forging output of 2. Server-authoritative; Universal so clients auto-download and keep handbook/tooltip numbers correct.",
+  "authors": ["esnavarr"],
+  "version": "1.0.0",
+  "side": "Universal",
+  "dependencies": { "game": "1.22.3" }
+}

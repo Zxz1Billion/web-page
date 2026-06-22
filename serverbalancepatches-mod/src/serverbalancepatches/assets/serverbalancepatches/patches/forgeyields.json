@@ -1,0 +1,14 @@
+[
+  {
+    "op": "add",
+    "file": "game:recipes/smithing/knife.json",
+    "path": "/output/stacksize",
+    "value": 2
+  },
+  {
+    "op": "add",
+    "file": "game:recipes/smithing/spear.json",
+    "path": "/output/stacksize",
+    "value": 2
+  }
+]

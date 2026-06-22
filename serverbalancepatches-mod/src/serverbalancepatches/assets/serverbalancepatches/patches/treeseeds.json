@@ -1,0 +1,44 @@
+[
+  {
+    "op": "replace",
+    "file": "game:blocktypes/plant/leaves/normal.json",
+    "path": "/drops/0/quantityByType",
+    "value": {
+      "*-pine": { "avg": 0.1, "var": 0 },
+      "*-acacia": { "avg": 0.1, "var": 0 },
+      "*-larch": { "avg": 0.02, "var": 0 },
+      "*-crimsonkingmaple": { "avg": 0.02, "var": 0 },
+      "*-redwood": { "avg": 0.004, "var": 0 },
+      "*-ebony": { "avg": 0.008, "var": 0 },
+      "*-purpleheart": { "avg": 0.008, "var": 0 },
+      "*": { "avg": 0.04, "var": 0 }
+    }
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/plant/leaves/branchy.json",
+    "path": "/drops/0/quantityByType",
+    "value": {
+      "*-pine": { "avg": 0.24, "var": 0 },
+      "*-acacia": { "avg": 0.24, "var": 0 },
+      "*-larch": { "avg": 0.05, "var": 0 },
+      "*-crimsonkingmaple": { "avg": 0.065, "var": 0 },
+      "*-redwood": { "avg": 0.008, "var": 0 },
+      "*-ebony": { "avg": 0.02, "var": 0 },
+      "*-purpleheart": { "avg": 0.02, "var": 0 },
+      "*": { "avg": 0.1, "var": 0 }
+    }
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/plant/leaves/narrow.json",
+    "path": "/drops/0/quantityByType/*/avg",
+    "value": 0.32
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/plant/leaves/bamboo.json",
+    "path": "/drops/0/quantity/avg",
+    "value": 0.16
+  }
+]
