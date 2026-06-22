@@ -19,6 +19,7 @@ export { mountIso, IsoViewer } from "./iso-viewer.js";
 /* The Drifter's Almanac, in reading order — drives the chapter pager. */
 const ALMANAC = [
   { f: "vs-getting-started.html",  t: "The First Day",        s: "🌅" },
+  { f: "vs-classes.html",          t: "The Six Classes",      s: "🎭" },
   { f: "vs-questline.html",        t: "The Questline",        s: "📜" },
   { f: "vs-progression.html",      t: "The Long Road",        s: "⛏" },
   { f: "vs-crafting.html",         t: "The Four Crafts",      s: "🪨" },
@@ -30,9 +31,11 @@ const ALMANAC = [
   { f: "vs-structures.html",       t: "The Homestead",        s: "🏠" },
   { f: "vs-architect.html",        t: "The Architect",        s: "🏛️" },
   { f: "vs-builds.html",           t: "The Pattern Book",     s: "🧱" },
+  { f: "vs-dreamhome.html",        t: "A Home Worth Keeping", s: "🏡" },
   { f: "vs-temporal.html",         t: "The Rust & The Gear",  s: "🌀" },
   { f: "vs-world.html",            t: "The World",            s: "🧭" },
   { f: "vs-creatures.html",        t: "The Bestiary",         s: "🐺" },
+  { f: "vs-combat.html",           t: "The Art of War",       s: "🛡️" },
   { f: "vs-locations.html",        t: "Ruins & Wayfarers",    s: "🏛" },
   { f: "vs-reference.html",        t: "The Codex",            s: "📊" },
   { f: "vs-glossary.html",         t: "The Glossary",         s: "📖" },
@@ -46,6 +49,7 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const W = "https://wiki.vintagestory.at/";
 const SOURCES = {
   "vs-getting-started.html": [["Survival Guide — first day", W+"Survival_Guide_-_Your_first_day"], ["Controls", W+"Controls"], ["Classes", W+"Classes"], ["Knapping", W+"Knapping"]],
+  "vs-classes.html": [["Classes", W+"Classes"], ["Class", W+"Class"]],
   "vs-progression.html": [["Metal", W+"Metal"], ["Smithing", W+"Smithing"], ["Crafting", W+"Crafting"], ["Steel making", W+"Steel_making"]],
   "vs-crafting.html": [["Knapping", W+"Knapping"], ["Clay forming", W+"Clay_forming"], ["Smithing", W+"Smithing"], ["Casting", W+"Casting"], ["Crucible", W+"Crucible"], ["Pit kiln", W+"Pit_kiln"]],
   "vs-metalworking.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Bloomery", W+"Bloomery"], ["Steel making", W+"Steel_making"], ["Fuel", W+"Fuel"], ["Bellows", W+"Bellows"], ["Anvil", W+"Anvil"]],
@@ -56,9 +60,11 @@ const SOURCES = {
   "vs-structures.html": [["Cellar (Room)", W+"Guide:Cellar"], ["Food preservation", W+"Food_preservation"], ["Storage vessel", W+"Storage_vessel"], ["Crock", W+"Crock"], ["Pit kiln", W+"Pit_kiln"]],
   "vs-architect.html": [["Chiseling", W+"Chiseling"], ["Clay forming", W+"Clay_forming"], ["Building blocks", W+"Building"]],
   "vs-builds.html": [["Building", W+"Building"], ["Windmill", W+"Windmill"], ["Water wheel", W+"Water_wheel"], ["Bloomery", W+"Bloomery"], ["Pit kiln", W+"Pit_kiln"], ["Cellar (Room)", W+"Guide:Cellar"]],
+  "vs-dreamhome.html": [["Building", W+"Building"], ["Chiseling", W+"Chiseling"], ["Cellar (Room)", W+"Guide:Cellar"], ["Clay forming", W+"Clay_forming"], ["Storage vessel", W+"Storage_vessel"]],
   "vs-temporal.html": [["Temporal stability", W+"Temporal_stability"], ["Temporal storm", W+"Temporal_storm"], ["Temporal rift", W+"Temporal_rift"], ["Temporal gear", W+"Temporal_gear"], ["Drifter", W+"Drifter"]],
   "vs-world.html": [["Rock", W+"Rock"], ["Ore Deposits", W+"Ore_Deposits"], ["Prospecting Pick", W+"Prospecting_Pick"], ["Temperature", W+"Temperature"], ["Sea level", W+"Sea_level"]],
   "vs-creatures.html": [["Hostile entities", W+"Hostile_entities"], ["Drifter", W+"Drifter"], ["Wolf", W+"Wolf"], ["Bear", W+"Bear"], ["Animal husbandry", W+"Animal_husbandry"]],
+  "vs-combat.html": [["Combat", W+"Combat"], ["Weapons", W+"Weapons"], ["Armor", W+"Armor"], ["Health", W+"Health"], ["Hostile entities", W+"Hostile_entities"], ["Temporal storm", W+"Temporal_storm"]],
   "vs-locations.html": [["Translocator", W+"Translocator"], ["Trader", W+"Trader"], ["Temporal gear", W+"Temporal_gear"]],
   "vs-reference.html": [["Metal", W+"Metal"], ["Ore", W+"Ore"], ["Farming", W+"Farming"], ["Health", W+"Health"], ["Temporal stability", W+"Temporal_stability"]],
   "vs-whatsnew.html": [["1.22.0 release notes", "https://www.vintagestory.at/blog.html/news/1220-fishing-mechanisms-metalworking-and-more-r441/"], ["Version history", W+"Version_history"]],

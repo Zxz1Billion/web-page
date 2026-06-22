@@ -21,6 +21,8 @@ import { SET as SACRED2 } from "./builds/set-sacred2.js";
 import { SET as IND2 } from "./builds/set-industry2.js";
 import { SET as EXO2 } from "./builds/set-exotic2.js";
 import { SET as INT } from "./builds/set-interiors.js";
+import { SET as INT2 } from "./builds/set-interiors2.js";
+import { SET as WAVE3 } from "./builds/set-wave3.js";
 
 export const GROUPS = [
   { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters", intro: "Get a roof over your head fast. None are pretty, but each survives a night while you scout for somewhere permanent." },
@@ -764,4 +766,4 @@ const CORE = [
     ] },
 ];
 
-export const SCENES = [...CORE, ...MECH, ...DEF, ...CIV, ...HOM, ...FRM, ...IND, ...MECH2, ...FARM2, ...HOMES2, ...FORT2, ...SACRED2, ...IND2, ...EXO2, ...INT];
+export const SCENES = [...CORE, ...MECH, ...DEF, ...CIV, ...HOM, ...FRM, ...IND, ...MECH2, ...FARM2, ...HOMES2, ...FORT2, ...SACRED2, ...IND2, ...EXO2, ...INT, ...INT2, ...WAVE3];

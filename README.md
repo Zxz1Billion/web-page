@@ -50,6 +50,7 @@ How-Tos and interactive build plans:
 | --- | --- | --- |
 | `vintage-story.html` | The Drifter's Almanac | Vintage Story hub / landing |
 | `vs-getting-started.html` | The First Day | Survival start, knapping, fire, first-night shelter (interactive plan) + a saved Day-One checklist |
+| `vs-classes.html` | The Six Classes | Full class guide: Commoner/Hunter/Malefactor/Clockmaker/Blackguard/Tailor — gives, costs, class-locked craftables, playstyles, which to pick |
 | `vs-questline.html` | The Questline | An **FTB-Quests-style** quest book — 10 chapters of tickable objectives + rewards, browser-saved |
 | `vs-progression.html` | The Long Road | Flagship Stone→Copper→Bronze→Iron→Steel ladder as a 40-step browser-saved checklist with a progress meter |
 | `vs-crafting.html` | The Four Crafts | Knapping, clay forming, smithing & casting — with interactive grid/voxel pattern viewers |
@@ -60,10 +61,12 @@ How-Tos and interactive build plans:
 | `vs-clothing-cold.html` | Warmth & Wear | Body temperature & cold, clothing warmth, winter prep, the 8 armor types & protection tiers |
 | `vs-structures.html` | The Homestead | House, food cellar, charcoal pit, smithy & greenhouse — five interactive layer-by-layer plans |
 | `vs-architect.html` | The Architect | Decorative building: chiseling, palettes, roofs, walls, interiors, six styles + a full cottage build (interactive plans) |
-| `vs-builds.html` | The Pattern Book | 3D isometric gallery of 550+ structures across 21 themes (shelters, homes, grand, interiors, workshops, furnaces, farming, livestock, power, water, defence, crossings, mining, monuments, civic, gardens, towers, coastal, storage, advanced, wilderness) with footprint, materials and use |
+| `vs-builds.html` | The Pattern Book | 3D isometric gallery of 600+ structures across 21 themes (shelters, homes, grand, interiors, workshops, furnaces, farming, livestock, power, water, defence, crossings, mining, monuments, civic, gardens, towers, coastal, storage, advanced, wilderness) with footprint, materials and use |
+| `vs-dreamhome.html` | A Home Worth Keeping | Step-by-step guide to building a beautiful, complete home — siting, shell, floor plan, every room, lighting, exterior dressing, with 3D renders and a browser-saved finishing checklist |
 | `vs-temporal.html` | The Rust & The Gear | Temporal stability, rifts, storms, temporal gears, storm-proofing |
 | `vs-world.html` | The World | Climate & biomes, seasons, geology, ore-by-depth, the prospecting-pick How-To |
 | `vs-creatures.html` | The Bestiary | Prey, predators, drifters/locusts, fish, animal husbandry |
+| `vs-combat.html` | The Art of War | How combat works, weapon & armor choices, healing, fighting predators & drifters, surviving temporal storms, and tactics |
 | `vs-locations.html` | Ruins & Wayfarers | Ruins, translocators, traders, the 1.22 dynamic dungeon, spoiler-light story |
 | `vs-reference.html` | The Codex | A fact-checked reference appendix: 15 tables (melting points, alloys, ores, fuels, tool/anvil tiers, prospecting, crops, nutrition, preservation, temporal, creatures, classes, calendar, controls) |
 | `vs-glossary.html` | The Glossary | An A–Z of terms, each defined in a line and deep-linked to its chapter |

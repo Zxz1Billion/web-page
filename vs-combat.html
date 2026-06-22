@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Art of War — Vintage Story combat &amp; survival tactics (v1.22)</title>
+<meta name="description" content="A combat and survival field manual for Vintage Story 1.22: how damage tiers fight armor tiers (flat-then-percent), which weapon for which foe (spear, falx, bow, sling, knife), choosing armor for mobility or protection, how health regenerates from nutrition and saturation plus poultices and bandages, surviving predators (wolves, hyenas, bears, foxes), fighting the temporal threats (drifters, locusts, bowtorn, shivers, the bell), riding out a temporal storm, and the tactics and mistakes that decide a fight." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🛡️</span>
+      <span class="wordmark">The Art<br>of War<small>COMBAT · SURVIVAL · TACTICS</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The fundamentals</p>
+      <a href="#works"><span class="ix">00</span> How Combat Works</a>
+      <a href="#weapons"><span class="ix">01</span> Your Weapons</a>
+      <a href="#armor"><span class="ix">02</span> Your Armor</a>
+      <a href="#healing"><span class="ix">03</span> Healing &amp; Recovery</a>
+      <p class="group-label">The threats</p>
+      <a href="#predators"><span class="ix">04</span> Predators</a>
+      <a href="#temporal"><span class="ix">05</span> The Temporal Threats</a>
+      <a href="#storm"><span class="ix">06</span> Surviving a Storm</a>
+      <p class="group-label">The craft</p>
+      <a href="#tactics"><span class="ix">07</span> Tactics &amp; Mistakes</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22</b> · Standard world.<br>Damage tiers, health, regen and<br>spawn rules are config-tunable —<br>the in-game <b>Survival Handbook (H)</b><br>is ground truth. Pairs with
+      <a href="vs-arsenal.html" style="color:var(--accent)">The Arsenal</a>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22 · Combat · Survival · Tactics</p>
+      <h1>The Art of War</h1>
+      <p class="lede">Most deaths in Vintage Story aren't bad luck — they're bad positioning. Combat runs on <strong>tiers</strong>, not button-mashing: an attack's damage tier meets your armor's tier, and whoever is out-matched bleeds. This manual covers how a fight is actually decided, which weapon and armor to bring, how you heal between blows, and how to handle every threat from a lone fox to a Heavy temporal storm. Pick your ground, match your gear to the foe, and almost everything becomes survivable.</p>
+      <div class="badges">
+        <span class="badge accent">Damage vs armor tiers</span>
+        <span class="badge">Weapons &amp; armor</span>
+        <span class="badge">Healing &amp; recovery</span>
+        <span class="badge danger">⚔ Position beats panic</span>
+      </div>
+    </header>
+
+    <!-- 00 HOW COMBAT WORKS -->
+    <section class="doc" id="works">
+      <p class="sec-index">00 — The fundamentals</p>
+      <h2>How Combat Works</h2>
+      <p class="lead">Every fight is a contest of two numbers: the attack's <strong>damage tier</strong> (its armor penetration) against your armor's <strong>protection tier</strong>. Match your gear to the threat and a blow that would gut you barely scratches. Mismatch it and even the best plate leaks.</p>
+
+      <h3>Damage tiers vs armor tiers</h3>
+      <p>Armor doesn't just subtract a number — it works in two stages and is <strong>tier-aware</strong>. First it removes a <strong>flat amount</strong> of damage, then it resists the remainder by a <strong>percentage</strong>, and how much of that percentage applies depends on how the attack's tier compares to your armor's tier:</p>
+      <ul>
+        <li>For each tier the attack is <strong>at or below</strong> your armor's tier, armor adds a <em>small</em> extra reduction — low-tier hits get shrugged off almost entirely.</li>
+        <li>For each tier the attack is <strong>above</strong> your armor's tier, a much larger share <strong>punches through</strong> — a storm-grade drifter or a bear cuts straight past flimsy gear.</li>
+      </ul>
+      <div class="note">
+        <span class="label">Flat first, then percent</span>
+        <p>The <strong>flat reduction</strong> is subtracted before the percentage, so it matters most against weak, frequent hits (it can wipe out a 1-damage thrown rock entirely). The <strong>percentage</strong> and the tier comparison are what save you from the big blows. A steel plate set (high tier) ignores low-tier attacks; a copper set leaks against anything storm-grade. See the published figures in <a href="vs-arsenal.html#values">The Arsenal</a>.</p>
+      </div>
+
+      <h3>Attack cooldown, reach &amp; aim</h3>
+      <p>There is <strong>no stamina bar</strong> in Vintage Story — you don't tire from swinging. What paces melee is each weapon's <strong>attack cooldown</strong>: swing, then wait out the recovery before the next hit lands for full damage. Spamming clicks doesn't help; timing your hits to land as the cooldown clears does.</p>
+      <p><strong>Reach decides who hits first.</strong> A spear adds about <strong>1&nbsp;m</strong> over a bare fist; a falx reaches roughly <strong>2.5&nbsp;m</strong>. Longer reach lets you strike a step before the enemy can, and lets you poke from behind a doorway or a one-block ledge without taking the return blow. Ranged weapons (bow, sling, thrown spear) skip the reach contest entirely — you aim, you hit at distance, and a missed shot is just an arrow to recover.</p>
+      <div class="note tip">
+        <span class="label">The whole fight in one sentence</span>
+        <p>Bring a weapon whose tier can hurt the foe, armor whose tier can survive it, and ground where you only face one enemy at a time. Get those three right and the actual swinging is the easy part.</p>
+      </div>
+    </section>
+
+    <!-- 01 YOUR WEAPONS -->
+    <section class="doc" id="weapons">
+      <p class="sec-index">01 — Pick the right tool</p>
+      <h2>Your Weapons</h2>
+      <p class="lead">No single weapon does everything. The trick is carrying the right one for the foe in front of you — a tool for hunting, a blade for armored monsters, and something ranged to open the fight before it reaches you.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">hunt · throw</span><h4>Spear</h4><p><strong>Attack tier 0</strong> — no armor penetration — and it tops out at <strong>bronze</strong>. Adds ~1&nbsp;m reach and can be <strong>thrown</strong> (hold then release right-click) for a ranged opener. Superb for hunting prey and as a Day-One ranged option; poor against anything armored.</p></div>
+        <div class="card"><span class="tag">tiered foes</span><h4>Falx</h4><p>The workhorse sword, <strong>copper → steel</strong>, with attack tier equal to its material. ~2.5&nbsp;m reach, the best melee against drifters, locusts and other tiered foes. Also has a chance to extract an extra drop from drifters, shivers and bowtorn.</p></div>
+        <div class="card"><span class="tag">Hunter</span><h4>Bow</h4><p>The best ranged weapon, crafted by the <strong>Hunter</strong> class. Penetration depends on the <strong>arrowhead</strong>. Kite predators, soften temporal foes, and pick off skittish prey before they bolt.</p></div>
+        <div class="card"><span class="tag">Malefactor</span><h4>Sling</h4><p>The <strong>Malefactor</strong>'s ranged tool with cheap stone/clay ammo. A solid stand-in when you can't craft a bow — soften targets from cover.</p></div>
+      </div>
+      <p>And the one tool that isn't really a weapon: the <strong>knife</strong>. It's a weak attack, but it's how you <strong>butcher</strong> downed animals and <strong>harvest temporal gears</strong> from drifter corpses. Carry one on every outing — a kill you can't harvest is half wasted.</p>
+
+      <div class="note tip">
+        <span class="label">Two weapons, always</span>
+        <p>Keep a <strong>falx</strong> for tiered monsters and a <strong>spear or bow</strong> for hunting and for opening at range. Spears never punch through armored foes (tier 0), so don't rely on one against a Corrupt drifter — that's the falx's job. Full reach, tier and material tables live in <a href="vs-arsenal.html#values">The Arsenal</a>.</p>
+      </div>
+    </section>
+
+    <!-- 02 YOUR ARMOR -->
+    <section class="doc" id="armor">
+      <p class="sec-index">02 — Mobility vs protection</p>
+      <h2>Your Armor</h2>
+      <p class="lead">Armor fills <strong>three slots</strong> — head, body, legs — and every type trades <strong>protection against mobility</strong>. The heaviest set saves you from the hardest hits but wrecks your speed and your aim. The right choice depends on what you're walking into.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">explore</span><h4>Gambeson / Chain</h4><p>Light and quick. <strong>Gambeson</strong> (quilted cloth) and <strong>chain</strong> keep you mobile for scouting, hunting and long mining trips where speed and stamina-free ranged aim matter more than tanking a big blow.</p></div>
+        <div class="card"><span class="tag">balanced</span><h4>Brigandine</h4><p>The all-rounder. Plates riveted inside fabric give <strong>high protection at a moderate penalty</strong> — enough to stand in a doorway and trade hits with drifters or a wolf without seizing up.</p></div>
+        <div class="card"><span class="tag">tank</span><h4>Plate</h4><p>Full plate over mail and a jerkin shrugs off almost everything at the <strong>highest mobility cost</strong>. It also <strong>hinders bow use</strong>, so it's a melee-tank loadout, not a kiting one. Save it for storms and bosses.</p></div>
+      </div>
+      <p>Within a type, the <strong>material</strong> (copper → steel) sets durability and pushes the protection tier up; the <strong>type</strong> sets how much it protects and how much it slows you. Because the <strong>body slot takes ~50% of hits</strong>, upgrade it first; head (~20%) and legs (~30%) follow.</p>
+
+      <div class="note warn">
+        <span class="label">Heavy isn't always right</span>
+        <p>Plate makes you slow and clumsy with a bow, which is a problem when your best answer to a bear or a pack is to <strong>kite</strong>. Many players run <strong>brigandine</strong> or <strong>chain</strong> for everyday balance and keep a <strong>steel plate</strong> set for sieges. Match the tier of your armor to the tier of the threat — the full system and values are in <a href="vs-arsenal.html#armor">The Arsenal</a>.</p>
+      </div>
+    </section>
+
+    <!-- 03 HEALING & RECOVERY -->
+    <section class="doc" id="healing">
+      <p class="sec-index">03 — Between the blows</p>
+      <h2>Healing &amp; Recovery</h2>
+      <p class="lead">You don't heal by waiting at full belly and hoping. In Vintage Story, recovery is tied to <strong>food</strong>: health regenerates slowly off your saturation, eating a varied diet raises your ceiling, and a few crafted items speed things up. There is <strong>no instant-heal potion</strong>.</p>
+
+      <h3>How HP comes back</h3>
+      <p>Health regenerates <strong>passively over time</strong> at a slow rate (about <strong>0.01 HP/s</strong> at defaults), and that regen <strong>spends extra satiety</strong> — healing literally costs food. Crucially, when your <strong>satiety drops below ~75%</strong>, both the natural healing and its food cost <strong>slow down</strong>, and they keep slowing as satiety falls further. Run yourself hungry and you barely heal at all.</p>
+      <div class="note tip">
+        <span class="label">Eating is healing</span>
+        <p>The single best thing you can do between fights is <strong>stay topped up</strong>. Keep your <strong>satiety</strong> (the green bar; max ~1500 at defaults) high so passive regen runs at full speed. Don't try to out-heal a wound on an empty stomach — eat first.</p>
+      </div>
+
+      <h3>Eat varied to raise your max</h3>
+      <p>There are <strong>five nutrition categories</strong> (fruit, vegetable, grain, protein, dairy). Filling each one raises your <strong>maximum health by +2.5</strong>, for up to <strong>+12.5</strong> when all five are satisfied. A one-note diet caps you low; a varied larder makes you tougher to drop in the first place. The full food and nutrition system lives in <a href="vs-creatures.html#husbandry">The Bestiary</a>'s husbandry section and your wider cooking notes.</p>
+
+      <h3>Poultices &amp; bandages</h3>
+      <p>For faster recovery you can craft <strong>healing-over-time</strong> items. A poultice or bandage applies its effect across about <strong>10 seconds</strong> (roughly 10% of its total per second) rather than instantly:</p>
+      <div class="data-table">
+        <table>
+          <caption>Crafted healing items (wiki figures; defaults, config-tunable)</caption>
+          <thead><tr><th>Item</th><th>Heals (total)</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Horsetail poultice (cattail base)</td><td class="num">~2 HP</td><td>Cheapest; reed/horsetail base</td></tr>
+            <tr><td>Horsetail poultice (linen base)</td><td class="num">~4 HP</td><td>Linen base improves it</td></tr>
+            <tr><td>Honey-sulfur poultice (cattail base)</td><td class="num">~4 HP</td><td>Honey + sulfur beats horsetail</td></tr>
+            <tr><td>Honey-sulfur poultice (linen base)</td><td class="num">~7 HP</td><td>Best common poultice</td></tr>
+            <tr><td>Bandage (clean)</td><td class="num">~3 HP</td><td>From linen or twine</td></tr>
+            <tr><td>Bandage (alcohol-soaked)</td><td class="num">~7 HP</td><td>+0.2 L aqua vitae; dries out after ~1 in-game hour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note warn">
+        <span class="label">No instant heals — retreat is a tool</span>
+        <p>Even poultices and bandages heal <strong>over ~10 seconds</strong>, not instantly, so you can't tank-and-chug your way out of a losing fight. When your health drops, <strong>break contact</strong>: back behind a door, up a ledge or out of seek range, let the bleeding stop, eat, apply a bandage, and re-engage once you're stable. Living to fight again beats trading the last hit.</p>
+      </div>
+    </section>
+
+    <!-- 04 PREDATORS -->
+    <section class="doc" id="predators">
+      <p class="sec-index">04 — Things that hunt you</p>
+      <h2>Predators</h2>
+      <p class="lead">Before metal armor and a metal blade, wild predators are the most likely thing to kill you in daylight. The fight is won by <strong>reading aggro range</strong> and <strong>never standing in the open</strong> against a pack.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">tier 2 · packs</span><h4>🐺 Wolf</h4><p>Hunts in <strong>packs of 2–3</strong> for <strong>tier-2</strong> damage, aggros any player within <strong>20 blocks</strong> (hit one and the rest pile on within ~15). The deadliest early animal. A lone wolf is survivable; three in the open are not.</p></div>
+        <div class="card"><span class="tag">tier 2 · warm</span><h4>🐆 Hyena</h4><p>The warm-region wolf. Also <strong>tier-2</strong> and pack-hunting, but its aggro radius is much shorter (<strong>~10 blocks</strong>), so a wide arc around one often slips past the fight entirely.</p></div>
+        <div class="card"><span class="tag">15 dmg · tier 2</span><h4>🐻 Bear</h4><p>A <strong>15-point tier-2</strong> slash and a deep health pool, with a <strong>20-block</strong> aggro radius. Brown, black and polar can charge unprovoked; panda and sun only retaliate. A hazard to walk around early, not a fight.</p></div>
+        <div class="card"><span class="tag">skittish</span><h4>🦊 Fox</h4><p>Small wildlife, not a real threat to you — it flees rather than hunts. Its only menace is to <strong>loose poultry</strong>; a fox will scatter and prey on an unpenned flock. Pen your chickens.</p></div>
+      </div>
+
+      <h3>How to handle each</h3>
+      <ol class="flow">
+        <li><strong>Use terrain against packs.</strong> Wolves and hyenas surround you. Put your back to a wall, cliff or tree so they can't flank — being surrounded is what kills you, not any single bite.</li>
+        <li><strong>Fight from a doorway.</strong> A one-block gap funnels a pack into single file so you face one mouth at a time. A shelter doorway is a fortress against wolves.</li>
+        <li><strong>Kite with ranged.</strong> Throw spears or loose arrows while backing away. For a bear, kiting that deep health pool down is often the <em>only</em> safe approach.</li>
+        <li><strong>Give the hyena space.</strong> Its short ~10-block radius means a wide berth usually avoids it.</li>
+        <li><strong>Leave the bear early.</strong> Walk around it. Come back with metal armor and a bow or metal spear when you can afford the fight.</li>
+      </ol>
+
+      <div class="note danger">
+        <span class="label">Never fight a pack in the open</span>
+        <p>Hear a pack while you're out? Get to a doorway, a one-wide ledge, or up a block they can't reach — anywhere they come at you one at a time. Sprinting across flat ground gets you surrounded and torn down. Better armor (see <a href="vs-arsenal.html#armor">The Arsenal</a>) turns these tier-2 hits from lethal into survivable. The full predator roster is in <a href="vs-creatures.html#predators">The Bestiary</a>.</p>
+      </div>
+    </section>
+
+    <!-- 05 THE TEMPORAL THREATS -->
+    <section class="doc" id="temporal">
+      <p class="sec-index">05 — The unliving</p>
+      <h2>The Temporal Threats</h2>
+      <p class="lead">The world's broken time bleeds monsters into reality. They spawn in darkness, swarm near rifts, and pour out everywhere during a storm. Beat them with <strong>light discipline</strong> and by fighting from cover — never trade blows in the open.</p>
+
+      <h3>Drifters — the core enemy</h3>
+      <p><strong>Drifters</strong> are the creature you'll fight most. They spawn at <strong>light level 7 or below</strong>; on the surface only the basic <strong>Surface</strong> type appears, within ~25 blocks of a rift, while the meaner tiers are gated to the deep. They aggro within <strong>20 blocks</strong>, swing on a <strong>0.5–1.75&nbsp;s</strong> cooldown, and one that can't reach you <strong>throws a rock for 1 damage</strong>. There are <strong>six tiers</strong>, and deeper means harder:</p>
+      <div class="data-table">
+        <table>
+          <caption>Drifter tiers, weakest to strongest (HP/melee are community estimates, config-tunable)</caption>
+          <thead><tr><th>Tier</th><th>Where</th><th>HP*</th><th>Melee*</th></tr></thead>
+          <tbody>
+            <tr><td>Surface</td><td>Surface darkness, near rifts</td><td class="num">~10</td><td class="num">~1.5</td></tr>
+            <tr><td>Deep</td><td>Shallow underground</td><td class="num">~13</td><td class="num">~2.5</td></tr>
+            <tr><td>Tainted</td><td>Deeper</td><td class="num">~18</td><td class="num">~5</td></tr>
+            <tr><td>Corrupt</td><td>Deeper still</td><td class="num">~25</td><td class="num">~7</td></tr>
+            <tr><td>Nightmare</td><td>The deep</td><td class="num">~32</td><td class="num">~12</td></tr>
+            <tr><td>Double-headed</td><td><strong>Storms only</strong></td><td>&gt; Nightmare</td><td>highest</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><small>* Estimates from community/secondary sources, not confirmed wiki values; they vary by version. <span class="vflag">treat the in-game Survival Handbook (H) as authoritative</span></small></p>
+
+      <h3>The other temporal foes</h3>
+      <ul>
+        <li><strong>Locusts</strong> — corrupt-metal insectoids in dark caves. The common <strong>bronze locust</strong> hits for ~1.5; the deep <strong>corrupt locust</strong> hits for ~4 and is brutal in a cramped tunnel. The <strong>Clockmaker</strong> class excels against them.</li>
+        <li><strong>Bowtorn</strong> — <strong>ranged</strong> attackers effective from <strong>14 to 29 blocks</strong> that flee for ~10s below <strong>30% HP</strong>. They <strong>force-spawn around you at ≤25% stability</strong> regardless of light, and gain a tier for every 5% below that. Close the gap or take cover from their fire.</li>
+        <li><strong>Shivers</strong> — melee-only horrors that <strong>climb walls</strong> to reach you, so a tall fence alone won't stop them. Tougher than basic drifters.</li>
+        <li><strong>The bell</strong> — a rare, stationary deep mini-boss with <strong>extreme HP and no attack of its own</strong>. When it detects you it <strong>rings</strong>, spawning drifters and the odd bronze locust — up to <strong>6 enemies at once</strong>, a new one every <strong>1–5&nbsp;s</strong> — until you destroy it. It's a damage race against an endless add-spawner. Come prepared or leave it be.</li>
+      </ul>
+
+      <div class="note tip">
+        <span class="label">Light discipline wins the war</span>
+        <p>Drifters spawn in <strong>darkness</strong>, so a fully lit base is a quiet base — light wall-to-wall and nothing spawns inside with you. When you do fight, do it from a <strong>doorway or one-wide ledge</strong> so you face one foe at a time and bowtorn can't line up a shot. Killing these creatures also <strong>restores some temporal stability</strong> and drops <strong>temporal gears</strong> — knife the corpses. Full mechanics in <a href="vs-temporal.html#drifters">The Rust &amp; The Gear</a>; full roster in <a href="vs-creatures.html#temporal">The Bestiary</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 SURVIVING A TEMPORAL STORM -->
+    <section class="doc" id="storm">
+      <p class="sec-index">06 — Hold the line</p>
+      <h2>Surviving a Temporal Storm</h2>
+      <p class="lead">A temporal storm is the most dangerous recurring event in the game: for its duration, <strong>drifters spawn everywhere, even in daylight</strong>, and stability falls world-wide. But it's <strong>telegraphed well in advance</strong>, so with a prepared base it becomes a chore — and your best source of gears.</p>
+
+      <p>Two warnings precede every storm: a <strong>"storm approaching"</strong> message about <strong>8½ hours</strong> (in-game) out, then an <strong>"imminent"</strong> warning roughly <strong>29 minutes</strong> before it lands. The sky darkens and an unmistakable audio cue sets in — you won't be caught out. Each storm runs at <strong>Light, Medium or Heavy</strong> intensity; a <strong>Heavy</strong> storm can drop even the surface to ~5%, which triggers the unavoidable-damage and force-spawn thresholds out in the open. The <strong>double-headed drifter</strong> spawns only during storms.</p>
+
+      <h3>The storm routine</h3>
+      <ol class="flow">
+        <li><strong>Heed the warning.</strong> On the "approaching" message, stop long projects. You have a known window before it hits.</li>
+        <li><strong>Get out of the deep.</strong> The worst place to be when a storm lands is deep underground — stability is already low there. Surface and head home <em>before</em> the sky darkens.</li>
+        <li><strong>Stockpile &amp; seal up.</strong> Top off food, arrows and torches. Make sure the base is <strong>fully lit and walled</strong>, door shut, every gap closed and roofed.</li>
+        <li><strong>Hold your position.</strong> Stay inside, lit and walled. Fight drifters from a <strong>chokepoint you control</strong> — one doorway, one foe at a time. Never wander into the open during the storm.</li>
+        <li><strong>Harvest the gears.</strong> Wait for the all-clear and the sky to brighten, then <strong>knife the corpses</strong>. A defended storm dumps drifters on top of you, and drifters drop <strong>temporal gears</strong> — the scariest event becomes your best harvest.</li>
+      </ol>
+
+      <div class="note tip">
+        <span class="label">A doorway is a weapon</span>
+        <p>Fighting from a one-wide doorway or fence-gap lets even a modest blade clear a whole storm's worth of drifters with little risk. Keep a gear or two in reserve in case stability bottoms out — held in the <strong>offhand</strong> and used with a knife, a gear restores ~30% instantly (at ~2 HP cost). The full prep checklist and a sample base layout are in <a href="vs-temporal.html#proofing">The Rust &amp; The Gear</a>.</p>
+      </div>
+    </section>
+
+    <!-- 07 TACTICS & MISTAKES -->
+    <section class="doc" id="tactics">
+      <p class="sec-index">07 — The craft</p>
+      <h2>Tactics &amp; Mistakes</h2>
+      <p class="lead">Gear gets you into a fight; tactics get you out of one. Most of survival is a handful of habits — control the ground, open at range, and know when the right move is to leave.</p>
+
+      <div class="split">
+        <div>
+          <h3>The habits that keep you alive</h3>
+          <ul>
+            <li><strong>Kite everything you can.</strong> Back away while you throw spears or loose arrows. A foe taking hits before it reaches you is a foe you might never have to trade blows with.</li>
+            <li><strong>Make terrain do the work.</strong> Doorways, one-wide ledges, cliffs at your back, blocks they can't climb. The map is your second weapon — packs and shivers both fold against a good chokepoint.</li>
+            <li><strong>Open at range.</strong> The first hit should be yours, from outside the enemy's reach. Spears throw, bows and slings reach far; use them before the gap closes.</li>
+            <li><strong>Stay fed and topped up.</strong> Full satiety means full regen; a varied diet means more max health. You win fights before they start by not being hungry.</li>
+            <li><strong>Carry an exit.</strong> Know where the door, the ledge, or the way up is <em>before</em> you engage, so retreat is a step, not a scramble.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>The mistakes that get you killed</h3>
+          <ul>
+            <li><strong>Fighting a pack in the open.</strong> Wolves and hyenas surround and tear you down. Always find a wall or doorway first.</li>
+            <li><strong>Bringing a spear to a tiered fight.</strong> Tier-0 spears don't penetrate armored drifters or locusts. Carry a <strong>falx</strong> for those.</li>
+            <li><strong>Picking a fight you can walk around.</strong> A bear early, a bell unprepared, a rift you could just leave — the cheapest fight is the one you skip.</li>
+            <li><strong>Being deep when a storm lands.</strong> Stability is already low underground; a storm on top of it bottoms you out fast. Surface on the warning.</li>
+            <li><strong>Hoarding healing for "later."</strong> Poultices and bandages heal over ~10s, not instantly — apply them <em>after</em> you break contact, not while still trading hits.</li>
+            <li><strong>Ignoring the dark.</strong> An unlit base or mine is a drifter spawner. Light wall-to-wall.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="label">When to flee</span>
+        <p>Retreat is a tactic, not a failure. If your health is dropping faster than you can answer, if you're flanked, or if the foe out-tiers your gear, <strong>break contact</strong> — behind a door, up a ledge, out of seek range — and come back better armed or not at all. A dead seraph harvests nothing; the next attempt with a falx and brigandine usually ends very differently.</p>
+      </div>
+      <p>That's the whole art of it: <strong>match your tier to the threat, fight from ground you control, open at range, stay fed, and leave the fights you can't win.</strong> Do that and Vintage Story's most lethal moments become routine.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Art of War</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-arsenal.html">The Arsenal</a> (weapons &amp; armor)<br>
+      · <a href="vs-creatures.html">The Bestiary</a> (the creatures)<br>
+      · <a href="vs-temporal.html">The Rust &amp; The Gear</a> (stability &amp; storms)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Damage tiers, health, regen rates, healing values, spawn rules and aggression radii are representative defaults — they are config-tunable and vary by world, region and version. Class-locked items (bow, sling) are noted. Your in-game Survival Handbook is the final word.</p>
+</footer>
+
+<script type="module">
+  import "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>

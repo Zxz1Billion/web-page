@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>A Home Worth Keeping — build a complete, beautiful Vintage Story home (v1.22.3)</title>
+<meta name="description" content="A step-by-step guide to building a complete, beautiful home in Vintage Story 1.22.3: choosing the site, laying the foundation, raising timber-frame or cob walls and a pitched roof, a room-by-room floor plan (hearth hall, kitchen, bedroom, workshop, pantry/cellar, storage), windows and warm light, the exterior with porch, path, garden, well and fence, and a finishing checklist — with interactive 3D illustrations." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body data-ckstore="vs-dreamhome-v1">
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🏡</span>
+      <span class="wordmark">A Home<br>Worth Keeping<small>VINTAGE STORY · THE DREAM HOME</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Plan it</p>
+      <a href="#vision"><span class="ix">00</span> The Vision</a>
+      <a href="#site"><span class="ix">01</span> Site &amp; Foundation</a>
+      <a href="#shell"><span class="ix">02</span> Walls &amp; Roof</a>
+      <p class="group-label">Lay it out</p>
+      <a href="#plan"><span class="ix">03</span> The Floor Plan</a>
+      <a href="#rooms"><span class="ix">04</span> Room by Room</a>
+      <p class="group-label">Make it lovely</p>
+      <a href="#light"><span class="ix">05</span> Windows &amp; Light</a>
+      <a href="#exterior"><span class="ix">06</span> Garden &amp; Approach</a>
+      <a href="#finish"><span class="ix">★</span> Finishing Checklist</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      One complete build, start to finish.<br>For technique see <a href="vs-architect.html" style="color:var(--accent)">The Architect</a>;<br>for room ideas see the <a href="vs-builds.html#interior" style="color:var(--accent)">Interiors</a>;<br>for the cellar see <a href="vs-structures.html" style="color:var(--accent)">The Homestead</a>.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · A complete home build</p>
+      <h1>A Home Worth Keeping</h1>
+      <p class="lede">Most bases stay an ugly dirt box forever. This guide builds <strong>one complete, beautiful home</strong> instead — a timber-and-cob cottage with a hearth hall, a kitchen, a bedroom, a workshop and a cool cellar, dressed with windows, a porch, a path and a garden. Follow it room by room, or steal the parts you like.</p>
+      <div class="badges">
+        <span class="badge accent">Start → finished</span>
+        <span class="badge">6 rooms</span>
+        <span class="badge">Beautiful &amp; functional</span>
+        <span class="badge accent">🏡 With a build checklist</span>
+      </div>
+      <div class="iso-stage" data-fig="home" style="margin-top:18px"></div>
+      <p class="framenote" style="text-align:center;font-family:var(--f-mono);font-size:.6rem;color:var(--ink-faint)">The finished cottage — porch, gable roof, chimney, well and garden.</p>
+    </header>
+
+    <!-- 00 VISION -->
+    <section class="doc" id="vision">
+      <p class="sec-index">00 — Before the first block</p>
+      <h2>The Vision</h2>
+      <p class="lead">A home reads as <em>beautiful</em> when it has <strong>proportion, depth, material variety and light</strong> — not when it's big. Aim small and finished over large and bare.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">shape</span><h4>Massing first</h4><p>Decide the footprint and roofline before detail. A <strong>pitched roof</strong>, a chimney and a porch already make a "house" instead of a box.</p></div>
+        <div class="card"><span class="tag">materials</span><h4>Two or three, no more</h4><p>Pick a wall material, a trim material and a roof material. <strong>Cob + timber + thatch</strong>, or <strong>stone + plaster + shingle</strong>. Variety reads as craft; ten materials read as noise.</p></div>
+        <div class="card"><span class="tag">light</span><h4>Warm light</h4><p>Glazed windows by day, lanterns and a hearth by night. Light is what makes a room feel lived-in (and keeps drifters out).</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">This build</span>
+        <p>A <strong>~8×6 cottage</strong>, cob-and-timber walls, a shingled gable roof, a stone chimney, a small porch, and a partial cellar dug beneath. Big enough for every early need, small enough to actually finish. Technique lives in <a href="vs-architect.html">The Architect</a>; this page is the plan.</p>
+      </div>
+    </section>
+
+    <!-- 01 SITE -->
+    <section class="doc" id="site">
+      <p class="sec-index">01 — Where &amp; what it stands on</p>
+      <h2>Site &amp; Foundation</h2>
+      <p>Build where you'll actually live: a <strong>temperate, moderate-rainfall</strong> spot with wood, water and game nearby, and flat-ish ground. A gentle slope is a gift — it gives you a free cellar under the high side.</p>
+      <ol class="flow">
+        <li><strong>Clear and level a footprint.</strong> Mark out <strong>8×6</strong> (plus a block of margin). Flatten it; a clean base stops things spawning or burrowing under the floor.</li>
+        <li><strong>Lay a stone base course.</strong> Ring the footprint one block high in <strong>stone brick or cobble</strong>. It lifts the timber off wet soil, stops rot-rooms, and visually "grounds" the build.</li>
+        <li><strong>Floor it.</strong> Plank or stone-brick the interior. Leave a <strong>1-wide stair down</strong> in one corner for the cellar (next section's bonus).</li>
+      </ol>
+      <div class="note">
+        <span class="label">A free cellar</span>
+        <p>Dig a <strong>≤7×7×7</strong> room under the floor and seal it with solid stone/soil walls and a solid door — that's a working <strong>cellar</strong> for food (the size limit matters; bigger rooms don't preserve). Full rules in <a href="vs-structures.html#cellar">The Homestead</a>.</p>
+      </div>
+    </section>
+
+    <!-- 02 SHELL -->
+    <section class="doc" id="shell">
+      <p class="sec-index">02 — The shell</p>
+      <h2>Walls &amp; Roof</h2>
+      <p class="lead">Walls give the house its face; the roof gives it its silhouette. Spend your effort here — it's 80% of the look.</p>
+      <h3>Walls with depth</h3>
+      <ul>
+        <li><strong>Frame the corners</strong> with timber posts, then fill the panels with <strong>cob or plaster</strong>. The dark posts against pale infill is the classic timber-frame look.</li>
+        <li><strong>Add a diagonal brace</strong> per panel with the chisel, and let a beam or two sit <strong>proud</strong> of the wall for shadow. Depth — not colour — is what makes a wall interesting.</li>
+        <li><strong>Two storeys?</strong> Jetty the upper floor out one block over the lower for a cosy, weighty overhang.</li>
+      </ul>
+      <h3>The roof</h3>
+      <ul>
+        <li><strong>Pitch it.</strong> A flat roof is a box; a <strong>gable or hip</strong> is a home. Use roofing blocks (thatch early, clay shingle or slate later) and smooth the slope with stairs/slabs.</li>
+        <li><strong>Overhang the eaves</strong> by a block all round — it casts shadow, sheds rain and reads as deliberate.</li>
+        <li><strong>Run a chimney</strong> up one gable end from the hearth. A roofline broken by a chimney instantly looks inhabited.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Copy the cottage</span>
+        <p>The exact course-by-course shell — foundation → frame → windows → top plate → eaves → ridge — is the worked example in <a href="vs-architect.html#cottage">The Architect → Full Build</a>. This page handles the <em>rooms</em>.</p>
+      </div>
+    </section>
+
+    <!-- 03 PLAN -->
+    <section class="doc" id="plan">
+      <p class="sec-index">03 — Dividing the space</p>
+      <h2>The Floor Plan</h2>
+      <p class="lead">Split the shell into rooms with <strong>low interior walls</strong>. Keep the hearth central so its warmth and light reach everywhere.</p>
+      <div class="iso-stage" data-fig="plan"></div>
+      <p class="framenote" style="text-align:center;font-family:var(--f-mono);font-size:.6rem;color:var(--ink-faint)">Cutaway plan: hearth hall (centre), kitchen, bedroom, workshop and a pantry/cellar stair.</p>
+      <div class="data-table">
+        <table>
+          <caption>A six-part home in an 8×6 footprint (+ cellar below)</caption>
+          <thead><tr><th>Room</th><th>Holds</th><th>Why here</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hearth hall</strong></td><td>Hearth/firepit, table, stools, a rug</td><td>The warm heart; central so heat &amp; light spread</td></tr>
+            <tr><td><strong>Kitchen</strong></td><td>Cooking firepit + pot, shelves of crocks, a barrel</td><td>Beside the hearth; near the cellar stair</td></tr>
+            <tr><td><strong>Bedroom</strong></td><td>Bed, chest, bedside lamp</td><td>A quiet corner away from the door</td></tr>
+            <tr><td><strong>Workshop</strong></td><td>Anvil, a small forge, a tool rack, a chest</td><td>By an outside wall for the chimney/heat &amp; venting</td></tr>
+            <tr><td><strong>Pantry / cellar</strong></td><td>Shelves of crocks, barrels, salted &amp; pickled stores</td><td>Down the stair; cool and dark preserves food</td></tr>
+            <tr><td><strong>Storage</strong></td><td>Labelled chests, a storage vessel or two</td><td>Near the door for hauling in and out</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04 ROOMS -->
+    <section class="doc" id="rooms">
+      <p class="sec-index">04 — Furnishing it</p>
+      <h2>Room by Room</h2>
+      <p class="lead">A room reads as <em>that room</em> when it has its one signature fitting plus a little clutter. Don't leave floors empty.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">heart</span><h4>Hearth hall</h4><p>A stone <strong>hearth</strong> against the back wall, a <strong>table with stools</strong> centred on a <strong>rug</strong>, a lantern overhead. This is the room guests "see".</p></div>
+        <div class="card"><span class="tag">cook</span><h4>Kitchen</h4><p>A <strong>firepit with a cooking pot</strong>, a <strong>quern</strong> for flour, <strong>shelves of crocks</strong> and a water barrel. Keep it next to the cellar stair.</p></div>
+        <div class="card"><span class="tag">rest</span><h4>Bedroom</h4><p>A <strong>bed</strong> in a corner, a <strong>chest</strong> for clothes, a small rug and a bedside <strong>candle</strong>. (Remember: the bed is for sleeping; a temporal gear sets respawn.)</p></div>
+        <div class="card"><span class="tag">work</span><h4>Workshop</h4><p>An <strong>anvil</strong> on a stump, a small <strong>forge</strong> with a hood, a <strong>tool rack</strong> and an ingot chest. Vent it to an outside wall.</p></div>
+        <div class="card"><span class="tag">store</span><h4>Pantry / cellar</h4><p>Down the stair: <strong>shelves of crocks</strong>, <strong>barrels</strong> of salted meat and pickles, a <strong>storage vessel</strong> of grain. Cool, dark, sealed.</p></div>
+        <div class="card"><span class="tag">tidy</span><h4>Storage nook</h4><p><strong>Labelled chests</strong> by the door and a couple of <strong>storage vessels</strong>. A place for everything keeps the lovely rooms uncluttered.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Steal a layout</span>
+        <p>Every one of these rooms has a furnished diorama in the <a href="vs-builds.html#interior">Pattern Book → Interiors</a> — copy the bakery, smithy, kitchen, bedroom, pantry and great-hall arrangements straight across.</p>
+      </div>
+    </section>
+
+    <!-- 05 LIGHT -->
+    <section class="doc" id="light">
+      <p class="sec-index">05 — Glass &amp; flame</p>
+      <h2>Windows &amp; Light</h2>
+      <ul>
+        <li><strong>Glaze the windows.</strong> Fire <strong>quartz into glass</strong> (in a bloomery, ≥1200&nbsp;°C — not sand) and frame panes with timber. Two per long side, framed by the corner posts, looks intentional.</li>
+        <li><strong>Light low, not high.</strong> A few <strong>lanterns and candles</strong> on walls and tables beat a grid of ceiling torches. Lanterns and candles never burn out or get rained on.</li>
+        <li><strong>Keep it sealed and lit.</strong> A fully enclosed, well-lit interior is both cosy and <strong>drifter-proof</strong> — light level keeps the dark things out.</li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Colour with light</span>
+        <p>Self-craftable glass comes in clear, smoky, pink, violet and green; lanterns can be lined for warmth. A single coloured pane over the door is a lovely signature. Full palette in <a href="vs-architect.html#openings">The Architect</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 EXTERIOR -->
+    <section class="doc" id="exterior">
+      <p class="sec-index">06 — The setting</p>
+      <h2>Garden &amp; Approach</h2>
+      <p class="lead">A house in bare dirt never looks finished. The <strong>setting</strong> sells it — give the eye a path, a threshold and some green.</p>
+      <ul>
+        <li><strong>A porch or threshold.</strong> Two posts and a small shed roof over the door give shelter and a sense of arrival.</li>
+        <li><strong>A path.</strong> Lay stone or gravel from the door out into the world. A path implies a lived-in place more than anything else.</li>
+        <li><strong>A garden.</strong> A small <strong>fenced kitchen-garden</strong> of vegetables and herbs, a fruit <strong>tree</strong> or two, maybe a beehive. Function and beauty at once.</li>
+        <li><strong>A well &amp; a fence.</strong> A covered <strong>well</strong> for water and a low <strong>fence</strong> to frame the plot. Add a lamp post by the gate for night.</li>
+        <li><strong>Landscape the edges.</strong> Break the straight ground line with shrubs, a woodpile, a bench. Asymmetry reads as natural.</li>
+      </ul>
+      <div class="note">
+        <span class="label">Build the extras</span>
+        <p>The well, fence, garden beds, beehive, woodshed and gazebo are all in the <a href="vs-builds.html">Pattern Book</a> — drop them around the plot.</p>
+      </div>
+    </section>
+
+    <!-- FINISH -->
+    <section class="doc" id="finish">
+      <p class="sec-index">★ — Done when</p>
+      <h2>Finishing Checklist</h2>
+      <p class="lead">Tick these off and you have a complete, beautiful home — saved across visits.</p>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-ck="dh-site"><span class="ck-body"><span class="ck-title">Level the site &amp; lay a stone base course</span><span class="ck-note">8×6 footprint, raised one block off the soil.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-shell"><span class="ck-body"><span class="ck-title">Raise timber-frame walls &amp; a pitched roof</span><span class="ck-note">Corner posts + cob infill; gable/hip roof with overhanging eaves.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-chimney"><span class="ck-body"><span class="ck-title">Run a chimney from the hearth up the gable</span><span class="ck-note">Breaks the roofline; vents the fire.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-rooms"><span class="ck-body"><span class="ck-title">Divide into rooms &amp; furnish each</span><span class="ck-note">Hearth hall, kitchen, bedroom, workshop, storage — one signature fitting each.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-cellar"><span class="ck-body"><span class="ck-title">Dig a ≤7×7×7 cellar &amp; stock it</span><span class="ck-note">Solid walls + solid door; crocks, barrels, a grain vessel.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-glass"><span class="ck-body"><span class="ck-title">Glaze the windows &amp; light it warmly</span><span class="ck-note">Framed glass panes; lanterns &amp; candles low on walls/tables.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-porch"><span class="ck-body"><span class="ck-title">Add a porch, a path &amp; a fence</span><span class="ck-note">A threshold and an approach make it read as a home.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-garden"><span class="ck-body"><span class="ck-title">Plant a garden &amp; sink a well</span><span class="ck-note">Fenced veg + herbs, a fruit tree, a covered well, a lamp post.</span></span></label></li>
+        <li><label><input type="checkbox" data-ck="dh-dress"><span class="ck-body"><span class="ck-title">Dress the edges &amp; clear clutter</span><span class="ck-note">Woodpile, shrubs, a bench; tuck storage away so the rooms stay lovely.</span></span></label></li>
+      </ul>
+      <div class="note tip">
+        <span class="label">Where to go next</span>
+        <p>Master the detail in <a href="vs-architect.html">The Architect</a>, raise the working outbuildings in <a href="vs-structures.html">The Homestead</a>, and browse <a href="vs-builds.html">554 structures</a> for ideas in the Pattern Book.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">A Home Worth Keeping</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-architect.html">The Architect</a> (decorative technique)<br>
+      · <a href="vs-builds.html#interior">Pattern Book → Interiors</a> (room layouts)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The illustrations are stylised isometric studies, not exact block lists. Build blocks, recipes and room rules are config-/version-dependent; the in-game Survival Handbook and creative palette are the final word.</p>
+</footer>
+
+<script type="module">
+  import "./assets/js/vs-guide.js";
+  import { renderSceneSVG } from "./assets/js/iso-scene.js";
+  import { P, tree, fence } from "./assets/data/builds/_kit.js";
+
+  const HOME = { title: "The finished home", parts: [
+    { t: "ground", x: -2, z: -2, w: 17, d: 14, c: P.ground },
+    { t: "water", x: 12.5, y: 0.04, z: 8, w: 0, d: 0, c: P.water },
+    { t: "box", x: 6, y: 0.05, z: 8, w: 1.8, h: 0.05, d: 4.5, c: P.stone },          // path
+    ...fence(-1, -1, 15, 12, P.post, 1),
+    { t: "box", x: 3, y: 0, z: 1, w: 8, h: 5, d: 6, c: P.plaster },                    // house body
+    { t: "box", x: 3, y: 0, z: 1, w: 0.4, h: 5, d: 6, c: P.wood },                     // corner posts (timber frame)
+    { t: "box", x: 10.6, y: 0, z: 1, w: 0.4, h: 5, d: 6, c: P.wood },
+    { t: "win", face: "S", x: 4.3, y: 1.7, z: 7, w: 1, h: 1.3, c: P.glass },
+    { t: "win", face: "S", x: 8.7, y: 1.7, z: 7, w: 1, h: 1.3, c: P.glass },
+    { t: "door", face: "S", x: 6.3, y: 0, z: 7, w: 1.3, h: 2.6, c: P.wood },
+    { t: "win", face: "E", x: 11, y: 1.7, z: 3, d: 1.2, h: 1.3, c: P.glass },
+    { t: "gable", x: 3, y: 5, z: 1, w: 8, d: 6, rise: 3.2, axis: "x", c: P.shingle, cGable: P.plaster },
+    { t: "box", x: 4, y: 0, z: 7.1, w: 0.3, h: 3, d: 0.3, c: P.wood },                 // porch posts
+    { t: "box", x: 8.4, y: 0, z: 7.1, w: 0.3, h: 3, d: 0.3, c: P.wood },
+    { t: "shed", x: 3.6, y: 3, z: 7, w: 5.4, d: 1.6, rise: 0.9, c: P.shingle },        // porch roof
+    { t: "box", x: 9.4, y: 5, z: 1.6, w: 1, h: 3, d: 1, c: P.stone },                  // chimney
+    ...tree(13.5, 10, 1),
+    { t: "cyl", x: 1.3, y: 0, z: 9.5, r: 1, h: 1.2, c: P.stone, n: 14 },               // well
+    { t: "box", x: 1.1, y: 1.2, z: 8.7, w: 0.3, h: 2.4, d: 0.3, c: P.wood },
+    { t: "box", x: 1.1, y: 1.2, z: 10.3, w: 0.3, h: 2.4, d: 0.3, c: P.wood },
+    { t: "gable", x: 0.2, y: 3.4, z: 8.3, w: 2.2, d: 2.8, rise: 1, axis: "x", c: P.roofdk },
+    { t: "box", x: 5.2, y: 0, z: 10.5, w: 0.2, h: 2.2, d: 0.2, c: P.wood },            // lamp post
+    { t: "cone", x: 5.3, y: 2.2, z: 10.6, r: 0.35, h: 0.5, c: P.glow, n: 8 },
+  ] };
+
+  const PLAN = { title: "Floor plan", parts: [
+    { t: "box", x: 0, y: 0, z: 0, w: 10, h: 0.4, d: 8, c: P.wood },                    // floor
+    { t: "box", x: 0, y: 0.4, z: 0, w: 10, h: 2.6, d: 0.4, c: P.plaster },             // north wall
+    { t: "box", x: 0, y: 0.4, z: 0, w: 0.4, h: 2.6, d: 8, c: P.plaster },             // west wall
+    { t: "box", x: 5.6, y: 0.4, z: 0, w: 0.3, h: 2, d: 8, c: P.plaster },             // centre divider
+    { t: "box", x: 0, y: 0.4, z: 4.4, w: 5.6, h: 2, d: 0.3, c: P.plaster },           // left cross divider
+    // hearth hall (back-left)
+    { t: "box", x: 0.5, y: 0.4, z: 0.4, w: 1.6, h: 1.6, d: 0.8, c: P.stone },          // hearth
+    { t: "cone", x: 1.3, y: 2.0, z: 0.8, r: 0.4, h: 0.6, c: P.fire, n: 8 },
+    { t: "box", x: 1.6, y: 0.4, z: 1.8, w: 0.5, h: 0.05, d: 1.6, c: P.red },           // rug
+    { t: "box", x: 2.3, y: 0.4, z: 2.1, w: 1.6, h: 0.7, d: 1, c: P.wood },             // table
+    { t: "box", x: 1.7, y: 0.4, z: 2.4, w: 0.5, h: 0.5, d: 0.5, c: P.darkwood },       // stool
+    { t: "box", x: 4, y: 0.4, z: 2.4, w: 0.5, h: 0.5, d: 0.5, c: P.darkwood },
+    // bedroom (front-left)
+    { t: "box", x: 0.6, y: 0.4, z: 5, w: 1.4, h: 0.6, d: 2.6, c: P.wood },             // bed
+    { t: "box", x: 0.6, y: 1.0, z: 5, w: 1.4, h: 0.25, d: 0.7, c: "#e8e0cc" },          // pillow
+    { t: "box", x: 0.6, y: 0.4, z: 7.2, w: 0.05, h: 0.05, d: 0.05, c: P.wood },
+    { t: "box", x: 2.6, y: 0.4, z: 6.6, w: 0.9, h: 0.7, d: 0.7, c: P.darkwood },        // chest
+    // workshop / kitchen (right)
+    { t: "cyl", x: 7.5, y: 0.4, z: 1.4, r: 0.9, h: 1.1, c: P.stone, n: 12 },           // forge
+    { t: "cone", x: 7.5, y: 1.5, z: 1.4, r: 0.9, h: 1, c: P.black, n: 12 },            // hood
+    { t: "box", x: 9, y: 0.4, z: 3, w: 1, h: 0.6, d: 0.5, c: P.metal },                // anvil
+    { t: "box", x: 6.2, y: 0.4, z: 6, w: 3.2, h: 1.8, d: 0.4, c: P.darkwood },         // shelves (kitchen/pantry)
+    ...[6.4, 7.1, 7.8, 8.5].map((x) => ({ t: "cyl", x, y: 1.0, z: 6.3, r: 0.22, h: 0.5, c: P.clay, n: 8 })), // crocks
+    { t: "cyl", x: 9.1, y: 0.4, z: 6.6, r: 0.5, h: 1, c: P.wood, n: 12 },              // barrel
+  ] };
+
+  const mount = (sel, def) => { const el = document.querySelector(`[data-fig="${sel}"]`); if (el) el.innerHTML = renderSceneSVG(def); };
+  mount("home", HOME);
+  mount("plan", PLAN);
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Six Classes — a Vintage Story class guide (v1.22.3)</title>
+<meta name="description" content="A full class guide for Vintage Story 1.22.3: how the six character classes work (Commoner, Hunter, Malefactor, Clockmaker, Blackguard, Tailor), what each gives and costs, their class-locked craftables (bows, the sling, the tuning spear, the Blackguard shortsword and shield, tailored clothing), playstyles, and which class to pick for your first or next run." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🎭</span>
+      <span class="wordmark">The Six<br>Classes<small>VINTAGE STORY · WHO YOU ARE</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">Before you choose</p>
+      <a href="#how"><span class="ix">00</span> How Classes Work</a>
+      <p class="group-label">The six</p>
+      <a href="#commoner"><span class="ix">01</span> Commoner</a>
+      <a href="#hunter"><span class="ix">02</span> Hunter</a>
+      <a href="#malefactor"><span class="ix">03</span> Malefactor</a>
+      <a href="#clockmaker"><span class="ix">04</span> Clockmaker</a>
+      <a href="#blackguard"><span class="ix">05</span> Blackguard</a>
+      <a href="#tailor"><span class="ix">06</span> Tailor</a>
+      <p class="group-label">Decide</p>
+      <a href="#pick"><span class="ix">★</span> Which Should I Pick?</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b>. Exact trait values show<br>on the <b>character-creation</b> screen and<br>are config-tunable. Class is chosen<br>at creation and is permanent in vanilla.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Character classes</p>
+      <h1>The Six Classes</h1>
+      <p class="lede">At character creation you pick one of <strong>six classes</strong>. Each is a bundle of small <strong>bonuses</strong>, matching <strong>penalties</strong>, and sometimes a <strong>class-locked recipe</strong> no one else can make. Only the <strong>Commoner</strong> is neutral. The choice is <strong>permanent</strong>, so this page lays out what each one gives, what it costs, and who it suits.</p>
+      <div class="badges">
+        <span class="badge accent">6 classes</span>
+        <span class="badge">Bonuses &amp; penalties</span>
+        <span class="badge">Class-locked recipes</span>
+        <span class="badge accent">🎭 Commoner = safe default</span>
+      </div>
+    </header>
+
+    <!-- 00 HOW -->
+    <section class="doc" id="how">
+      <p class="sec-index">00 — The rules</p>
+      <h2>How Classes Work</h2>
+      <p class="lead">A class is a set of <strong>traits</strong> applied to your character. Most are small percentage tweaks (a little more damage here, a little less health there); a few are <strong>unique craftables</strong> that gate a whole weapon or item behind one class.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">permanent</span><h4>Chosen once</h4><p>You pick at <strong>character creation</strong>. In vanilla you <strong>can't change class later</strong>, so pick for the run you want.</p></div>
+        <div class="card"><span class="tag">trade-offs</span><h4>Give and take</h4><p>Every class except the Commoner <strong>trades a bonus for a penalty</strong>. There is no strictly-best class, only fits for a playstyle.</p></div>
+        <div class="card"><span class="tag">not locked out</span><h4>You can still do everything</h4><p>Only a handful of recipes are class-locked. Any class can farm, smith, build and cook — just without that class's head-start.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">New player? Pick Commoner</span>
+        <p>The Commoner has <strong>no penalties</strong>, so nothing on this list will surprise or hamper you while you learn. Every other class assumes you already know which trade you want. The numbers below are deliberately qualitative — the exact percentages show on the <strong>creation screen</strong> and are config-tunable.</p>
+      </div>
+    </section>
+
+    <!-- 01 COMMONER -->
+    <section class="doc" id="commoner">
+      <p class="sec-index">01 — The all-rounder</p>
+      <h2>Commoner</h2>
+      <p class="lead">The default. <strong>No bonuses, no penalties</strong> — balanced at everything, weak at nothing.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>A clean slate: full health, normal damage, normal hunger, normal harvesting. Nothing to plan around.</p></div>
+        <div><h4>Costs</h4><p>No head-start in any field. You craft and fight the ordinary way (spears and thrown spears instead of a bow or sling).</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Best for</span>
+        <p>First-timers, blind playthroughs, and anyone who wants flexibility over specialisation. You can become a smith, hunter, builder or farmer freely — see <a href="vs-arsenal.html">The Arsenal</a> and <a href="vs-progression.html">The Long Road</a>.</p>
+      </div>
+    </section>
+
+    <!-- 02 HUNTER -->
+    <section class="doc" id="hunter">
+      <p class="sec-index">02 — The ranged specialist</p>
+      <h2>Hunter</h2>
+      <p class="lead">A bow-and-wilderness expert. Kills game from range and butchers it efficiently — but suffers in the dark underground.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>Stronger <strong>ranged combat</strong> and more efficient <strong>butchering</strong> (more meat/hide per kill). Thrives in forests, plains and mountains.</p></div>
+        <div><h4>Costs</h4><p>Weaker in close melee, and less comfortable in confined tunnels — a poor pure-miner.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Class-locked craftables</span>
+        <p>Only the Hunter crafts the <strong>crude bow</strong>, <strong>arrows</strong> and the <strong>recurve bow</strong>. That makes the Hunter the only class with a true craftable ranged weapon from the start (everyone else throws spears or, as a Malefactor, slings).</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Playstyle</span>
+        <p>Open the fight at range, soften or drop prey before it closes, and live off the land. Pair with light <strong>gambeson/chain</strong> armor so you can keep firing (plate hampers the bow). See <a href="vs-creatures.html">The Bestiary</a> for what to hunt.</p>
+      </div>
+    </section>
+
+    <!-- 03 MALEFACTOR -->
+    <section class="doc" id="malefactor">
+      <p class="sec-index">03 — The scavenger</p>
+      <h2>Malefactor</h2>
+      <p class="lead">A tenacious survivor who avoids unwanted attention and finds loot others miss — at the cost of a frail body in a fight.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>Better <strong>foraging</strong> and <strong>more loot</strong> from cracked vessels and ruins. Good at slipping past trouble rather than facing it.</p></div>
+        <div><h4>Costs</h4><p><strong>Frail</strong> (less health) and weak in melee — a heavy conscience, the game says. You can't trade blows.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Class-locked craftables</span>
+        <p>The Malefactor crafts the <strong>sling</strong> — a cheap ranged weapon with stone/clay ammo, the class's answer to its weak melee.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Playstyle</span>
+        <p>Loot-focused exploration: raid <a href="vs-locations.html">ruins and cracked vessels</a>, sling from cover, and avoid stand-up fights. Lean on stealth and distance, not armor.</p>
+      </div>
+    </section>
+
+    <!-- 04 CLOCKMAKER -->
+    <section class="doc" id="clockmaker">
+      <p class="sec-index">04 — The machinist</p>
+      <h2>Clockmaker</h2>
+      <p class="lead">A tinkerer specialised against the mechanical horrors of the deep, and a fixer of machinery — but frail and weak against anything else.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>Big bonus <strong>damage versus locusts</strong> (the mechanical cave creatures), and the ability to <strong>repair and dismantle machinery</strong>.</p></div>
+        <div><h4>Costs</h4><p><strong>Frail</strong>, and deals <strong>less damage to everything that isn't a locust</strong>. A narrow specialist.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Class-locked craftables</span>
+        <p>The Clockmaker crafts the <strong>tuning spear</strong> — a tool that hacks a bronze or corrupt locust with one hit and turns it into a pet that fights for you. (It does <em>not</em> seal rifts; see <a href="vs-temporal.html#rifts">The Rust &amp; The Gear</a>.)</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Playstyle</span>
+        <p>A deep-delving, machinery-loving niche. Strongest where locusts swarm; bring backup or a falx for everything else. Pairs well with heavy <a href="vs-mechanical-power.html">mechanical-power</a> bases.</p>
+      </div>
+    </section>
+
+    <!-- 05 BLACKGUARD -->
+    <section class="doc" id="blackguard">
+      <p class="sec-index">05 — The soldier</p>
+      <h2>Blackguard</h2>
+      <p class="lead">A close-quarters fighter who thrives in a skirmish and wears armor better than anyone — but eats more and fumbles delicate work.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>More <strong>melee damage</strong>, more <strong>armor durability</strong>, and a <strong>smaller movement penalty</strong> from heavy armor — so plate slows a Blackguard less.</p></div>
+        <div><h4>Costs</h4><p><strong>Hungrier</strong> (food drains faster), <strong>weak at range</strong>, and <strong>poor at harvesting food</strong> — no talent for delicate work.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Class-locked craftables</span>
+        <p>The Blackguard alone crafts the <strong>Blackguard shortsword</strong> and a <strong>shield</strong> — the only class that fields a shield in vanilla.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Playstyle</span>
+        <p>Front-line melee: stack the best <strong>plate</strong> you can (the penalty hurts you least), wade in with shortsword and shield, and keep a big larder for the hunger. See <a href="vs-arsenal.html#armor">armor</a>.</p>
+      </div>
+    </section>
+
+    <!-- 06 TAILOR -->
+    <section class="doc" id="tailor">
+      <p class="sec-index">06 — The clothier</p>
+      <h2>Tailor</h2>
+      <p class="lead">A master of clothing — unique garments and cheap repairs to beat the winter — but a city-soul ill-prepared for raw wilderness.</p>
+      <div class="split">
+        <div><h4>Gives</h4><p>Crafts <strong>unique clothing</strong> other classes can't, and <strong>repairs clothing far more efficiently</strong> — a real edge against cold and wear.</p></div>
+        <div><h4>Costs</h4><p>Ill-suited to wilderness hardship: weaker in the survival and combat departments that the Blackguard or Hunter shine in.</p></div>
+      </div>
+      <div class="note">
+        <span class="label">Class-locked craftables</span>
+        <p>The Tailor makes <strong>unique clothing items</strong> and gets a large discount on <strong>clothing repair</strong>. Warmth and durability for less material — valuable on long, cold saves. See <a href="vs-clothing-cold.html">Warmth &amp; Wear</a>.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Playstyle</span>
+        <p>A settled, base-building, long-haul class — strongest in harsh-winter worlds where staying warm is the real fight. Less about combat, more about thriving.</p>
+      </div>
+    </section>
+
+    <!-- PICK -->
+    <section class="doc" id="pick">
+      <p class="sec-index">★ — The decision</p>
+      <h2>Which Should I Pick?</h2>
+      <p class="lead">Match the class to the run you want. When in doubt, Commoner.</p>
+      <div class="data-table">
+        <table>
+          <caption>The six classes at a glance</caption>
+          <thead><tr><th>Class</th><th>Gives</th><th>Costs</th><th>Unique craftable</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Commoner</strong></td><td>Balanced; no penalties</td><td>No head-start</td><td>—</td><td>First-timers; flexibility</td></tr>
+            <tr><td><strong>Hunter</strong></td><td>Ranged combat; efficient butchering</td><td>Weak melee; poor underground</td><td>Crude &amp; recurve bow, arrows</td><td>Wilderness &amp; hunting runs</td></tr>
+            <tr><td><strong>Malefactor</strong></td><td>Foraging; more ruin loot</td><td>Frail; weak melee</td><td>Sling</td><td>Explorers &amp; scavengers</td></tr>
+            <tr><td><strong>Clockmaker</strong></td><td>+dmg vs locusts; fixes machinery</td><td>Frail; weak vs everything else</td><td>Tuning spear</td><td>Deep miners; machinists</td></tr>
+            <tr><td><strong>Blackguard</strong></td><td>+melee; armor durability &amp; mobility</td><td>Hungry; weak ranged; poor harvest</td><td>Blackguard shortsword + shield</td><td>Front-line fighters</td></tr>
+            <tr><td><strong>Tailor</strong></td><td>Unique clothing; cheap repairs</td><td>Weak at wilderness/combat</td><td>Unique clothing</td><td>Settled, cold-climate bases</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Multiplayer tip</span>
+        <p>On a server, classes shine as <strong>roles</strong>: a Blackguard tank, a Hunter for meat, a Clockmaker for deep runs and machine repair, a Tailor kitting everyone out, a Malefactor scouting ruins. Solo, the Commoner or Hunter covers the most ground.</p>
+      </div>
+      <div class="note tip">
+        <span class="label">Where to go next</span>
+        <p>New character? Start with <a href="vs-getting-started.html">The First Day</a>. Then plan your climb in <a href="vs-progression.html">The Long Road</a>, gear up with <a href="vs-arsenal.html">The Arsenal</a>, and follow the <a href="vs-questline.html">Questline</a>.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Six Classes</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Companion pages:<br>
+      · <a href="vs-getting-started.html">The First Day</a> (your first hours)<br>
+      · <a href="vs-arsenal.html">The Arsenal</a> (tools, arms &amp; armor)
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Exact class trait values are shown on the in-game character-creation screen and are config-/version-dependent. Class is permanent in vanilla. Your in-game Survival Handbook is the final word.</p>
+</footer>
+
+<script type="module">
+  import "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>
