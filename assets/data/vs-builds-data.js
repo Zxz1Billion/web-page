@@ -25,6 +25,7 @@ export const GROUPS = [
   { id: "camp", index: "01", kicker: "Night one", title: "Quick shelters", intro: "Get a roof over your head fast. None are pretty, but each survives a night while you scout for somewhere permanent." },
   { id: "homes", index: "02", kicker: "Settling in", title: "Homes", intro: "The builds you actually live in for a season or three: cabins, cottages, longhouses, timber-frame and houses over the water." },
   { id: "grand", index: "03", kicker: "Built to last", title: "Grand & stone", intro: "When the base is established and stone is cheap: homesteads, manors, halls, keeps and chateaux." },
+  { id: "interior", index: "03b", kicker: "Inside the walls", title: "Interiors & rooms", intro: "Room layouts, not exteriors: how to lay out and furnish the spaces inside your base \u2014 a bakery, a smithing area, a kitchen, a bedroom and more. Cutaway dioramas show the floor, two walls and the key fittings." },
   { id: "work", index: "04", kicker: "Making things", title: "Workshops", intro: "Sheds and halls for the trades — smithing, sawing, tanning, brewing, baking, weaving, glass and carpentry." },
   { id: "furnace", index: "05", kicker: "Fire & ore", title: "Furnaces & industry", intro: "The hot end of the tech tree: charcoal, kilns, bloomeries, blast and cementation furnaces, foundries and quarries." },
   { id: "farm", index: "06", kicker: "Food & crops", title: "Farming & crops", intro: "Feed the base: tilled fields, terraces, orchards, vineyards, greenhouses and the stores that hold the harvest." },

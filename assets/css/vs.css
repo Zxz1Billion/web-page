@@ -423,3 +423,6 @@ section.doc > h2:hover .anchor-link, section.doc h3[id]:hover .anchor-link, .anc
   section.doc { border-bottom: 1px solid #ccc; padding: 18px 0; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; color: #555; word-break: break-all; }
 }
+
+.quest.bridge { border-style: dashed; }
+.quest.bridge .qkind { color: var(--accent); }
