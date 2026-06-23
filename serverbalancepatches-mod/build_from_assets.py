@@ -10,7 +10,7 @@ GitHub. Point this script at a 1.22.3 install and it regenerates the mod with tr
 
 Usage:
     python3 build_from_assets.py --assets /path/to/Vintagestory/assets/survival --out ./out
-    # then zip:  cd out/serverbalancepatches && zip -r -X ../serverbalancepatches_v1.0.0.zip modinfo.json assets
+    # then zip:  cd out/serverbalancepatches && zip -r -X ../serverbalancepatches_v1.1.0.zip modinfo.json assets
 
 Where to find assets/survival:
     Linux server:   <serverdir>/assets/survival
@@ -219,7 +219,7 @@ def main():
         "type": "content", "modid": "serverbalancepatches",
         "name": "Server Balance Patches",
         "description": "Drop, yield, fuel, durability and recipe tweaks for our server.",
-        "authors": ["esnavarr"], "version": "1.0.0", "side": "Universal",
+        "authors": ["esnavarr"], "version": "1.1.0", "side": "Universal",
         "dependencies": {"game": GAME_VERSION}
     }, open(os.path.join(root, 'modinfo.json'), 'w'), indent=2)
     print("Done ->", root)

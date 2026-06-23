@@ -6,9 +6,9 @@ so the game auto-downloads it to clients on join (keeps handbook/tooltip numbers
 correct, no mod-list mismatch).
 
 - **modid:** `serverbalancepatches`
-- **version:** `1.0.0`
+- **version:** `1.1.0`
 - **target game version:** `1.22.3` (dependency `game: 1.22.3`)
-- **build:** `serverbalancepatches_v1.0.0.zip` (modinfo.json sits at the zip root)
+- **build:** `serverbalancepatches_v1.1.0.zip` (modinfo.json sits at the zip root)
 
 No world regen needed — every value here is read at runtime (block break, harvest,
 burn, forge), so changes apply to already-explored chunks on restart.
@@ -82,7 +82,7 @@ per-metal files — `spear-copper.json`, `spear-bronze.json`, `spear-blackbronze
 `spear-iron.json`, `spear-meteoriciron.json` — each patched. The grid assembly recipes are untouched.
 
 ## Install
-1. Drop `serverbalancepatches_v1.0.0.zip` into the server's `Mods/` folder.
+1. Drop `serverbalancepatches_v1.1.0.zip` into the server's `Mods/` folder.
 2. Restart the server. Clients auto-download it on join (Universal mod).
 
 ## Validate (do this once after first load)
@@ -109,7 +109,7 @@ literals match **your** 1.22.3 server, regenerate them from your install:
 python3 build_from_assets.py --assets /path/to/Vintagestory/assets/survival --out ./out
 
 # rebuild the zip (modinfo.json must sit at the zip root)
-cd out/serverbalancepatches && zip -r -X ../serverbalancepatches_v1.0.0.zip modinfo.json assets
+cd out/serverbalancepatches && zip -r -X ../serverbalancepatches_v1.1.0.zip modinfo.json assets
 ```
 
 The script reads each real file, computes the scaled literal from the actual value, and writes the
@@ -123,7 +123,7 @@ The **JSON structure and asset paths** were verified against the Vintage Story *
 C# source (`anegostudios/vssurvivalmod`, e.g. `SmithingRecipe`/`LayeredVoxelRecipe` confirm the
 forge output uses `stacksize`).
 
-The **numeric baselines in the pre-built `serverbalancepatches_v1.0.0.zip`** were read from a real
+The **numeric baselines in the pre-built `serverbalancepatches_v1.1.0.zip`** were read from a real
 **1.22.3** `assets/survival` extract (captured via `extract_remote.py` against an actual install),
 so every literal, file path, and entity behavior index is the true 1.22.3 value — not a guess and
 not carried over from an older version.
@@ -139,5 +139,5 @@ or "×1.5" is a pre-computed literal. Notes on the patch strategy:
 
 ## Rebuild the zip
 ```
-cd src/serverbalancepatches && zip -r -X ../../serverbalancepatches_v1.0.0.zip modinfo.json assets
+cd src/serverbalancepatches && zip -r -X ../../serverbalancepatches_v1.1.0.zip modinfo.json assets
 ```
