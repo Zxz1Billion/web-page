@@ -24,6 +24,12 @@ burn, forge), so changes apply to already-explored chunks on restart.
 | 5 | Armor durability | **2×** | `itemtypes/wearable/seraph/armor.json` (50 variants) | `armor.json` |
 | 6 | Knife & spear-head forging output | **exactly 2** | `recipes/smithing/knife.json` + `spear-{metal}.json` ×5 | `forgeyields.json` |
 
+### Added recipe (new content, not a patch)
+- **Sticks from firewood** — a grid/handbook crafting recipe: **1 firewood → 2 sticks**
+  (`game:firewood` → `game:stick` ×2). File: `assets/serverbalancepatches/recipes/grid/sticks.json`.
+  To change the input or yield, edit that file's `ingredients`/`output.quantity`.
+
+
 > **Crop yields: not changed.** A crop-yield tweak was removed at the owner's request, so this mod
 > does not touch crop harvest drops. (Crop *growth speed* is a separate worldconfig setting — see
 > Out of scope below.)
