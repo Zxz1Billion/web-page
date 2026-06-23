@@ -1,182 +1,230 @@
 [
   {
     "op": "replace",
-    "file": "game:entities/land/fox-arctic-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/fox-arctic-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/fox-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/fox-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/gazelle.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 19.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/hare-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/hyena-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 13.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/hyena-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 13.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/hyena-pup.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 1.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/pig-wild-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 13.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/pig-wild-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 13.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/pig-wild-piglet.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 2.25
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/raccoon-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/raccoon-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/sheep-bighorn-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 24.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/sheep-bighorn-lamb.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 2.25
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/sheep-bighorn-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 19.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/wolf-female.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 10.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/wolf-male.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 10.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/wolf-pup.json",
-    "path": "/server/behaviors/6/drops/0/quantity/avg",
-    "value": 3.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-black/avg",
-    "value": 18.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-brown/avg",
-    "value": 24.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-sun/avg",
-    "value": 13.5
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-panda/avg",
-    "value": 15.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-polar/avg",
-    "value": 33.0
-  },
-  {
-    "op": "replace",
-    "file": "game:entities/land/chicken-hen.json",
-    "path": "/server/behaviors/5/drops/0/quantityByType/*-henpoult/avg",
+    "file": "game:entities/animal/bird/chicken-adult.json",
+    "path": "/server/behaviors/5/drops/0/quantityByType/*poult/avg",
     "value": 1.875
   },
   {
     "op": "replace",
-    "file": "game:entities/land/chicken-hen.json",
+    "file": "game:entities/animal/bird/chicken-adult.json",
     "path": "/server/behaviors/5/drops/0/quantityByType/*/avg",
     "value": 2.625
   },
   {
     "op": "replace",
-    "file": "game:entities/land/chicken-rooster.json",
-    "path": "/server/behaviors/6/drops/0/quantityByType/*-roosterpoult/avg",
-    "value": 1.875
+    "file": "game:entities/animal/mammal/bear-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/bear-black-*/avg",
+    "value": 18
   },
   {
     "op": "replace",
-    "file": "game:entities/land/chicken-rooster.json",
+    "file": "game:entities/animal/mammal/bear-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/bear-brown-*/avg",
+    "value": 24
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/bear-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/bear-sun-*/avg",
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/bear-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/bear-panda-*/avg",
+    "value": 15
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/bear-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/bear-polar-*/avg",
+    "value": 33
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-redbrocket-*/avg",
+    "value": 7.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-water-*/avg",
+    "value": 7.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-elk-*/avg",
+    "value": 30
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-pampas-*/avg",
+    "value": 7.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-pudu-*/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/*/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-redbrocket-*/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-water-*/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-elk-*/avg",
+    "value": 6
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/deer-pampas-*/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/deer-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/*/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/gazelle-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/gazelle-baby.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/goat-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/goat-muskox-*/avg",
+    "value": 24
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/goat-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/goat-takingold-*/avg",
+    "value": 24
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/goat-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantityByType/*/avg",
+    "value": 18
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/goat-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/moose-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/moose-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/pig-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantityByType/pig-eurasian-elder-*/avg",
+    "value": 27
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/pig-adult.json",
     "path": "/server/behaviors/6/drops/0/quantityByType/*/avg",
-    "value": 2.625
+    "value": 13.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/pig-baby.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 2.25
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/sheep-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 19.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hooved/sheep-baby.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 2.25
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hyena-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 7.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/hyena-baby.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 1.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/raccoon-adult.json",
+    "path": "/server/behaviors/7/drops/0/quantity/avg",
+    "value": 3
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/wolf-adult.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 10.5
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/animal/mammal/wolf-baby.json",
+    "path": "/server/behaviors/6/drops/0/quantity/avg",
+    "value": 3
   }
 ]

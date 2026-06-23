@@ -20,21 +20,22 @@ burn, forge), so changes apply to already-explored chunks on restart.
 | 1 | Tree seed drops from leaves | **2×** drop chance (capped < 1.0) | `blocktypes/plant/leaves/{normal,branchy,narrow,bamboo}.json` | `treeseeds.json` |
 | 2 | Ore drops per block mined | **1.2×** (+20%, under +25% cap) | `blocktypes/stone/{ore-graded,ore-ungraded}.json` | `oredrops.json` |
 | 3 | Fuel burn duration | **2×** | `itemtypes/resource/{firewood,firewood-aged,charcoal}.json` | `fuel.json` |
-| 4 | Meat yields | **1.5×** | 24 land-animal entities (`entities/land/*`) | `meat.json` ⚠ pending 1.22.3 re-extract |
+| 4 | Meat yields | **1.5×** | 21 animal entities (`entities/animal/**`) | `meat.json` |
 | 5 | Crop yields | **1.5×** (+50%) | 17 crops (`blocktypes/plant/crop/*`) | `crops.json` |
 | 6 | Armor durability | **2×** | `itemtypes/wearable/seraph/armor.json` (50 variants) | `armor.json` |
 | 7 | Knife & spear-head forging output | **exactly 2** | `recipes/smithing/knife.json` + `spear-{metal}.json` ×5 | `forgeyields.json` |
 
-> **1.22.3 verification status.** Values for fuel, leaves, ore, crops, armor, and forging were
-> regenerated from real 1.22.3 `assets/survival` extracts and are exact. The extracts caught
-> three version changes vs. older data, all corrected here: **armor moved to
-> `itemtypes/wearable/seraph/armor.json`** (durability numbers unchanged); **grains were
-> rebalanced down** (rice/rye/spelt/sunflower/amaranth/flax); and the forge rework **split the
-> spear recipe into per-metal files** (`spear-copper/bronze/blackbronze/iron/meteoriciron.json`)
-> instead of a single `spear.json`. New crops **fennel** and **licorice** are included; **bell
-> pepper** is no longer a yielding crop. **Only meat is still pending** — `entities/land/` was not
-> present in the asset copies checked (an AppData copy without entities); `meat.json` currently
-> holds best-effort values until a server-install extract confirms the per-entity indices/values.
+> **1.22.3 verification status — fully verified.** Every value was generated from a real 1.22.3
+> `assets/survival` extract; nothing is guessed. The extracts caught **four** structural changes
+> vs. older data, all corrected here:
+> 1. armor moved to `itemtypes/wearable/seraph/armor.json` (durability numbers unchanged);
+> 2. grains rebalanced down (rice/rye/spelt/sunflower/amaranth/flax);
+> 3. the forge rework split the spear recipe into per-metal files (`spear-copper/bronze/blackbronze/iron/meteoriciron.json`);
+> 4. animals moved from `entities/land/` to `entities/animal/**`, were renamed `-adult`/`-baby`, the
+>    roster changed (deer/goat/moose/elk added), the `harvestable` behavior index now varies (5/6/7),
+>    and the per-variant selectors changed format (`bear-black-*` not `*-black`).
+>
+> New crops **fennel** and **licorice** are included; **bell pepper** is no longer a yielding crop.
 
 ### Exact values
 
@@ -54,11 +55,13 @@ purpleheart, crimsonkingmaple) are doubled too. All results stay well below the 
 **3. Fuel (`fuel.json`)** — `combustibleProps.burnDuration` doubled:
 firewood `24 → 48`, aged firewood `24 → 48`, charcoal `40 → 80`.
 
-**4. Meat (`meat.json`)** — `harvestable` drop `avg` ×1.5 on every meat-bearing land animal:
-gazelle `13→19.5`, wild sheep (male `13→19.5`, female `16→24`, lamb `1.5→2.25`),
-wild pig (`9→13.5`, piglet `1.5→2.25`), wolf (`7→10.5`, pup `2→3`), hyena (`9→13.5`, pup `1→1.5`),
-fox/raccoon (`2→3`), hare (`2→3`), bear bushmeat by colour (`9–22 → 13.5–33`),
-chicken poultry (`1.25/1.75 → 1.875/2.625`). Hides/fat/feathers left vanilla.
+**4. Meat (`meat.json`)** — `harvestable` drop `avg` ×1.5 on every meat-bearing animal in 1.22.3
+(`entities/animal/**`, adult + baby): sheep/gazelle/moose `13→19.5` (baby `2→3`),
+pig `9→13.5` (eurasian elder `18→27`, piglet `1.5→2.25`), deer by species (`5→7.5`, elk `20→30`,
+default `13→19.5`), goat (`12→18`, muskox/takin `16→24`), wolf `7→10.5`, hyena `5→7.5`,
+fox/raccoon/hare `2→3`, bear bushmeat by colour (`9–22 → 13.5–33`), chicken poultry
+(`1.25/1.75 → 1.875/2.625`). Each op targets the entity's real `harvestable` index (5/6/7).
+Hides/fat/feathers left vanilla.
 
 **5. Crops (`crops.json`)** — ripe-stage food `avg` ×1.5, using **actual 1.22.3** baselines:
 vegetables carrot `11→16.5`, onion `12→18`, parsnip `12→18`, turnip `7→10.5`, cabbage `2→3`,
@@ -122,22 +125,19 @@ The **JSON structure and asset paths** were verified against the Vintage Story *
 C# source (`anegostudios/vssurvivalmod`, e.g. `SmithingRecipe`/`LayeredVoxelRecipe` confirm the
 forge output uses `stacksize`).
 
-The **numeric baselines in the pre-built `serverbalancepatches_v1.0.0.zip`** were read from the most
-complete *publicly reachable* vanilla-asset extract, which is a **1.20.x dump** — the official 1.22.3
-assets ship only inside the game/server download, which was not reachable from the build environment.
-These values have been stable across recent versions but are **not guaranteed identical in 1.22.3**.
-**For a server you care about, regenerate with `build_from_assets.py` against your 1.22.3 install
-(above) and use that zip** — that is the only way to be certain every literal is the true 1.22.3 value.
+The **numeric baselines in the pre-built `serverbalancepatches_v1.0.0.zip`** were read from a real
+**1.22.3** `assets/survival` extract (captured via `extract_remote.py` against an actual install),
+so every literal, file path, and entity behavior index is the true 1.22.3 value — not a guess and
+not carried over from an older version.
 
 Because VS core JSON patches can only set literal values (no arithmetic/multiply op), each "2×"
-or "×1.5" is written as a pre-computed literal derived from those baselines. If your 1.22.3 install
-differs, the validation step above (server log + handbook) will surface it — adjust the affected
-literal and rebuild. Notes on version-sensitive bits:
-- **Meat** uses array-index pointers (`/server/behaviors/<i>/drops/0/...`). In this data the
-  `harvestable` behavior is index 6 for all animals except `chicken-hen` (index 5). If a future
-  update reorders entity behaviors, those ops would fail-log and need the index updated.
+or "×1.5" is a pre-computed literal. Notes on the patch strategy:
+- **Meat** uses array-index pointers (`/server/behaviors/<i>/drops/0/...`); the real `harvestable`
+  index per animal (5/6/7) was taken from the extract. If a future update reorders entity behaviors,
+  re-run `extract_remote.py` + `build_from_assets.py` to refresh.
 - **Armor** is patched per-key with `replace`; any armor key renamed/removed upstream (or new
-  1.21+ armors like hide armor) is simply left vanilla rather than breaking other entries.
+  armors added later) is simply left vanilla rather than breaking other entries.
+- After any game update, regenerate with `build_from_assets.py` (or re-extract) to re-confirm.
 
 ## Rebuild the zip
 ```
