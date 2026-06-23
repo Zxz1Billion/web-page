@@ -33,7 +33,7 @@ const ALMANAC = [
   { f: "vs-builds.html",           t: "The Pattern Book",     s: "🧱" },
   { f: "vs-dreamhome.html",        t: "A Home Worth Keeping", s: "🏡" },
   { f: "vs-dreamhome-estate.html", t: "The Dream Estate",     s: "🏡" },
-  { f: "vs-house-schematic.html",  t: "House Floor Plans",    s: "📐" },
+  { f: "vs-house-schematic.html",  t: "House Layouts",        s: "📐" },
   { f: "vs-temporal.html",         t: "The Rust & The Gear",  s: "🌀" },
   { f: "vs-world.html",            t: "The World",            s: "🧭" },
   { f: "vs-creatures.html",        t: "The Bestiary",         s: "🐺" },
