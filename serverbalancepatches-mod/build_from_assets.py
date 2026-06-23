@@ -28,6 +28,7 @@ MEAT_MULT    = 1.5      # harvestable meat
 CROP_MULT    = 1.5      # crop harvest yield
 ARMOR_MULT   = 2.0      # armor durability
 FORGE_OUT    = 2        # knife blade / spear head forging output (exact)
+CLAYFIRE_MULT= 0.6      # clay/brick pit-kiln firing time (smeltingType "fire")
 GAME_VERSION = "1.22.3"
 
 # ----- relaxed (HJSON-ish) -> strict JSON ----------------------------------
@@ -203,16 +204,47 @@ def main():
     write('armor.json', ops)
 
     # ---- 7. forge yields (knife blade / spear head) -----------------------
+    # 1.22 split spear into per-metal files; scan recipes/smithing for any
+    # recipe whose output is knifeblade-* or spearhead-*.
     ops = []
-    for code in ('knife', 'spear'):
-        rel = f'recipes/smithing/{code}.json'
-        if not fexists(rel): continue
-        d = load(os.path.join(A, rel))
-        out = d.get('output', {})
-        op = 'replace' if 'stacksize' in {k.lower() for k in out} else 'add'
-        ops.append({"op": op, "file": f"game:{rel}",
-                    "path": "/output/stacksize", "value": FORGE_OUT})
+    for fp in sorted(glob.glob(os.path.join(A, 'recipes/smithing/*.json'))):
+        rel = os.path.relpath(fp, A).replace('\\', '/')
+        try: d = load(fp)
+        except Exception: continue
+        recipes = d if isinstance(d, list) else [d]
+        if isinstance(d, list):
+            continue  # array-shaped smithing files would need indexed paths; vanilla knife/spear are single objects
+        o = d.get('output', {}) or {}
+        if any(k in str(o.get('code', '')) for k in ('knifeblade', 'spearhead')):
+            op = 'replace' if 'stacksize' in {k.lower() for k in o} else 'add'
+            ops.append({"op": op, "file": f"game:{rel}",
+                        "path": "/output/stacksize", "value": FORGE_OUT})
     write('forgeyields.json', ops)
+
+    # ---- 8. clay firing time (smeltingType "fire") ------------------------
+    ops = []
+    cand = glob.glob(os.path.join(A, 'blocktypes/**/*.json'), recursive=True) + \
+           glob.glob(os.path.join(A, 'itemtypes/**/*.json'), recursive=True)
+    for fp in cand:
+        try: txt = open(fp, encoding='utf-8').read()
+        except Exception: continue
+        if 'smeltingType' not in txt or 'fire' not in txt: continue
+        try: d = load(fp)
+        except Exception: continue
+        rel = os.path.relpath(fp, A).replace('\\', '/')
+        cp = d.get('combustibleProps')
+        if isinstance(cp, dict) and cp.get('smeltingType') == 'fire' and 'meltingDuration' in cp:
+            ops.append({"op": "replace", "file": f"game:{rel}",
+                        "path": "/combustibleProps/meltingDuration",
+                        "value": num(cp['meltingDuration'] * CLAYFIRE_MULT)})
+        cpbt = d.get('combustiblePropsByType')
+        if isinstance(cpbt, dict):
+            for k, v in cpbt.items():
+                if isinstance(v, dict) and v.get('smeltingType') == 'fire' and 'meltingDuration' in v:
+                    ops.append({"op": "replace", "file": f"game:{rel}",
+                                "path": f"/combustiblePropsByType/{esc(k)}/meltingDuration",
+                                "value": num(v['meltingDuration'] * CLAYFIRE_MULT)})
+    write('clayfire.json', ops)
 
     # ---- modinfo ----------------------------------------------------------
     json.dump({

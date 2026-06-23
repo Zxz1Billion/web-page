@@ -154,6 +154,26 @@ def main():
         if any(isinstance(b,dict) and b.get('code')=='harvestable' for b in behs):
             out["entity_meat_files_found"]+=1
 
+    # 8 clay firing — any block/item whose combustibleProps(ByType) has smeltingType "fire"
+    out["clayfire"]={}
+    cand=glob.glob(P('blocktypes/**/*.json'),recursive=True)+glob.glob(P('itemtypes/**/*.json'),recursive=True)
+    for fp in cand:
+        try: txt=open(fp,encoding='utf-8').read()
+        except Exception: continue
+        if 'smeltingType' not in txt or 'fire' not in txt: continue   # fast prefilter
+        try: d=load(fp)
+        except Exception: continue
+        rel=os.path.relpath(fp,A).replace('\\','/'); entries=[]
+        cp=d.get('combustibleProps')
+        if isinstance(cp,dict) and cp.get('smeltingType')=='fire' and 'meltingDuration' in cp:
+            entries.append({"path":"/combustibleProps/meltingDuration","value":cp['meltingDuration']})
+        cpbt=d.get('combustiblePropsByType')
+        if isinstance(cpbt,dict):
+            for k,v in cpbt.items():
+                if isinstance(v,dict) and v.get('smeltingType')=='fire' and 'meltingDuration' in v:
+                    entries.append({"path":f"/combustiblePropsByType/{k}/meltingDuration","value":v['meltingDuration']})
+        if entries: out["clayfire"][rel]=entries
+
     print("=====BEGIN serverbalancepatches EXTRACT=====")
     print(json.dumps(out, separators=(',',':')))
     print("=====END serverbalancepatches EXTRACT=====")
