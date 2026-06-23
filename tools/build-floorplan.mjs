@@ -405,6 +405,12 @@ const circle = (cx, cy, r, n = 24) => Array.from({ length: n }, (_, i) => {
   return [+(cx + r * Math.cos(a)).toFixed(2), +(cy + r * Math.sin(a)).toFixed(2)];
 });
 
+/* radial partition walls (r0..r1) at the given angles, for round buildings */
+const radial = (cx, cy, r0, r1, angs) => angs.map((d) => {
+  const a = d * Math.PI / 180;
+  return { x1: +(cx + r0 * Math.cos(a)).toFixed(2), y1: +(cy + r0 * Math.sin(a)).toFixed(2), x2: +(cx + r1 * Math.cos(a)).toFixed(2), y2: +(cy + r1 * Math.sin(a)).toFixed(2) };
+});
+
 /* ================================================ THE LAYOUT GALLERY (no furniture) === */
 const LAYOUTS = [
   // ---- COTTAGES -------------------------------------------------------------
@@ -776,6 +782,117 @@ const LAYOUTS = [
     doors: [{ x: 3.5, y: 10, axis: "h", len: 1.4, dir: -1 }, { x: 9, y: 6, axis: "v", len: 1.3, dir: 1 }],
     windows: [{ x: 0, y: 4, axis: "v", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 5.5, y: 0, axis: "h", len: 1.4 }, { x: 7, y: 10, axis: "h", len: 1.6 }, { x: 12, y: 4, axis: "v", len: 1.4 }, { x: 12, y: 7.5, axis: "v", len: 1.4 }, { x: 10.5, y: 10, axis: "h", len: 1.4 }],
     stairs: [{ x: 0.4, y: 2.4, w: 2.0, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  // ---- MORE SHAPES ----------------------------------------------------------
+  { name: "The Hexagon", sub: "12×8 · SIX SIDES · POINTED ENDS",
+    blurb: "A six-sided cottage with flat front and back and pointed ends — a long living room one side, kitchen and stair-hall the other.",
+    outline: [[3, 0], [9, 0], [12, 4], [9, 8], [3, 8], [0, 4]],
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 6, y1: 4, x2: 12, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 8, label: "Living Room", dim: "6 × 8" }, { x: 6, y: 0, w: 6, h: 4, label: "Kitchen", dim: "6 × 4" }, { x: 6, y: 4, w: 6, h: 4, label: "Hall", dim: "stairs" }],
+    doors: [{ x: 3, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.2, dir: 1 }, { x: 6, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 9, y: 4, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 4.5, y: 0, axis: "h", len: 1.4 }, { x: 7.5, y: 0, axis: "h", len: 1.4 }, { x: 4.5, y: 8, axis: "h", len: 1.4 }, { x: 7.5, y: 8, axis: "h", len: 1.4 }],
+    stairs: [{ x: 7, y: 4.4, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Wheelhouse", sub: "12Ø · RADIAL CELLS · CENTRE HEARTH",
+    blurb: "An Iron-Age round: wedge-shaped cells round a central hearth, each its own snug bay. Thick stone wall, one low door.",
+    outline: circle(6, 6, 5.5, 24),
+    walls: radial(6, 6, 1.8, 5.5, [30, 102, 174, 246, 318]),
+    rooms: [{ x: 5.5, y: 8.2, w: 2, h: 1, label: "Bed", dim: "" }, { x: 1.4, y: 7.3, w: 2, h: 1, label: "Store", dim: "" }, { x: 1.0, y: 3.7, w: 2, h: 1, label: "Byre", dim: "" }, { x: 4.7, y: 2.1, w: 2, h: 1, label: "Loom", dim: "" }, { x: 7.5, y: 5.1, w: 2, h: 1, label: "Larder", dim: "" }],
+    doors: [{ x: 5.9, y: 11.4, axis: "h", len: 1.4, dir: -1 }],
+    windows: [{ x: 0.5, y: 6, axis: "v", len: 1.0 }, { x: 11.5, y: 6, axis: "v", len: 1.0 }],
+    stairs: [{ x: 4.9, y: 5.0, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  // ---- MULTI-DWELLING & GRAND ----------------------------------------------
+  { name: "The Almshouse Row", sub: "16×6 · FOUR DWELLINGS IN A TERRACE",
+    blurb: "A charitable terrace: four little one-room dwellings side by side, each with its own door, window and cellar stair. Cheap to raise as a set.",
+    W: 16, H: 6,
+    walls: [{ x1: 4, y1: 0, x2: 4, y2: 6 }, { x1: 8, y1: 0, x2: 8, y2: 6 }, { x1: 12, y1: 0, x2: 12, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 4, h: 6, label: "Dwelling", dim: "4 × 6" }, { x: 4, y: 0, w: 4, h: 6, label: "Dwelling", dim: "4 × 6" }, { x: 8, y: 0, w: 4, h: 6, label: "Dwelling", dim: "4 × 6" }, { x: 12, y: 0, w: 4, h: 6, label: "Dwelling", dim: "4 × 6" }],
+    doors: [{ x: 1.3, y: 6, axis: "h", len: 1.2, dir: -1 }, { x: 5.3, y: 6, axis: "h", len: 1.2, dir: -1 }, { x: 9.3, y: 6, axis: "h", len: 1.2, dir: -1 }, { x: 13.3, y: 6, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 2.7, y: 6, axis: "h", len: 1.0 }, { x: 6.7, y: 6, axis: "h", len: 1.0 }, { x: 10.7, y: 6, axis: "h", len: 1.0 }, { x: 14.7, y: 6, axis: "h", len: 1.0 }, { x: 1.5, y: 0, axis: "h", len: 1.0 }, { x: 5.5, y: 0, axis: "h", len: 1.0 }, { x: 9.5, y: 0, axis: "h", len: 1.0 }, { x: 13.5, y: 0, axis: "h", len: 1.0 }, { x: 0, y: 3, axis: "v", len: 1.2 }, { x: 16, y: 3, axis: "v", len: 1.2 }],
+    stairs: [{ x: 2.2, y: 0.4, w: 1.4, h: 1.6, flow: "+x", label: "↓" }, { x: 6.2, y: 0.4, w: 1.4, h: 1.6, flow: "+x", label: "↓" }, { x: 10.2, y: 0.4, w: 1.4, h: 1.6, flow: "+x", label: "↓" }, { x: 14.2, y: 0.4, w: 1.4, h: 1.6, flow: "+x", label: "↓" }] },
+
+  { name: "The Long Gallery Manor", sub: "16×9 · GALLERY ALONG THE FRONT",
+    blurb: "A grand front taken up by a long gallery for walking and light, with the parlours, dining and kitchen ranked behind it.",
+    W: 16, H: 9,
+    walls: [{ x1: 0, y1: 6, x2: 16, y2: 6 }, { x1: 5, y1: 0, x2: 5, y2: 6 }, { x1: 8, y1: 0, x2: 8, y2: 6 }, { x1: 12, y1: 0, x2: 12, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 6, label: "Kitchen", dim: "5 × 6" }, { x: 5, y: 0, w: 3, h: 6, label: "Parlour", dim: "3 × 6" }, { x: 8, y: 0, w: 4, h: 6, label: "Dining", dim: "4 × 6" }, { x: 12, y: 0, w: 4, h: 6, label: "Study", dim: "4 × 6" }, { x: 0, y: 6, w: 16, h: 3, label: "Long Gallery", dim: "16 × 3" }],
+    doors: [{ x: 7.4, y: 9, axis: "h", len: 1.3, dir: -1 }, { x: 2.4, y: 6, axis: "h", len: 1.3, dir: 1 }, { x: 6, y: 6, axis: "h", len: 1.2, dir: 1 }, { x: 9.4, y: 6, axis: "h", len: 1.3, dir: 1 }, { x: 13.4, y: 6, axis: "h", len: 1.3, dir: 1 }],
+    windows: [{ x: 2, y: 9, axis: "h", len: 1.4 }, { x: 5, y: 9, axis: "h", len: 1.4 }, { x: 9, y: 9, axis: "h", len: 1.4 }, { x: 12, y: 9, axis: "h", len: 1.4 }, { x: 15, y: 9, axis: "h", len: 1.4 }, { x: 0, y: 3, axis: "v", len: 1.4 }, { x: 16, y: 3, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 10, y: 0, axis: "h", len: 1.4 }, { x: 14, y: 0, axis: "h", len: 1.4 }],
+    stairs: [{ x: 0.5, y: 6.2, w: 2.2, h: 1.6, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Inn", sub: "16×9 · TAPROOM · SNUG · STABLE",
+    blurb: "A roadside inn: a big taproom, a private snug, a kitchen, a stair to guest rooms and the cellar, and a stable at the gable end.",
+    W: 16, H: 9,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 9 }, { x1: 11, y1: 0, x2: 11, y2: 9 }, { x1: 13, y1: 0, x2: 13, y2: 9 }, { x1: 7, y1: 5, x2: 11, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 9, label: "Taproom", dim: "7 × 9" }, { x: 7, y: 0, w: 4, h: 5, label: "Kitchen", dim: "4 × 5" }, { x: 7, y: 5, w: 4, h: 4, label: "Snug", dim: "4 × 4" }, { x: 11, y: 0, w: 2, h: 9, label: "Hall", dim: "stairs" }, { x: 13, y: 0, w: 3, h: 9, label: "Stable", dim: "3 × 9" }],
+    doors: [{ x: 3, y: 9, axis: "h", len: 1.4, dir: -1 }, { x: 7, y: 7, axis: "v", len: 1.2, dir: 1 }, { x: 7, y: 2.5, axis: "v", len: 1.2, dir: 1 }, { x: 11, y: 2.5, axis: "v", len: 1.2, dir: 1 }, { x: 11, y: 7, axis: "v", len: 1.2, dir: 1 }, { x: 13, y: 4.5, axis: "v", len: 1.2, dir: 1 }, { x: 14.5, y: 9, axis: "h", len: 1.4, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.4 }, { x: 0, y: 6.5, axis: "v", len: 1.4 }, { x: 3, y: 9, axis: "h", len: 1.4 }, { x: 3, y: 0, axis: "h", len: 1.4 }, { x: 9, y: 0, axis: "h", len: 1.3 }, { x: 9, y: 9, axis: "h", len: 1.3 }, { x: 16, y: 3, axis: "v", len: 1.3 }, { x: 16, y: 6.5, axis: "v", len: 1.3 }],
+    stairs: [{ x: 11.05, y: 0.4, w: 1.8, h: 2.4, flow: "+y", label: "↓ cellar · ↑ rooms" }] },
+
+  // ---- TRADES & OUTBUILDINGS ------------------------------------------------
+  { name: "The Smithy & Cottage", sub: "14×8 · FORGE + LIVING UNDER ONE ROOF",
+    blurb: "A smith's place: an open forge hall with a wide door for the work, and a snug two-room cottage attached at the warm end.",
+    W: 14, H: 8,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 8 }, { x1: 7, y1: 4, x2: 14, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 8, label: "Smithy", dim: "forge · anvil" }, { x: 7, y: 0, w: 7, h: 4, label: "Kitchen", dim: "7 × 4" }, { x: 7, y: 4, w: 7, h: 4, label: "Living Room", dim: "7 × 4" }],
+    doors: [{ x: 2, y: 8, axis: "h", len: 1.7, dir: -1 }, { x: 10, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 7, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 10, y: 4, axis: "h", len: 1.3, dir: -1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 0, y: 5.5, axis: "v", len: 1.4 }, { x: 4, y: 0, axis: "h", len: 1.4 }, { x: 14, y: 2, axis: "v", len: 1.4 }, { x: 9, y: 0, axis: "h", len: 1.3 }, { x: 14, y: 6, axis: "v", len: 1.4 }, { x: 8.5, y: 8, axis: "h", len: 1.4 }],
+    stairs: [{ x: 12, y: 4.4, w: 1.8, h: 1.6, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Watermill", sub: "14×9 · MILL · WHEEL PIT · GRANARY",
+    blurb: "Set on the race: the mill room with the wheel and gears, a hall and stair in the middle, and a granary at the dry end for the sacks.",
+    W: 14, H: 9,
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 9 }, { x1: 10, y1: 0, x2: 10, y2: 9 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 9, label: "Mill", dim: "wheel · gears" }, { x: 6, y: 0, w: 4, h: 9, label: "Hall", dim: "+ stairs" }, { x: 10, y: 0, w: 4, h: 9, label: "Granary", dim: "4 × 9" }],
+    doors: [{ x: 7.4, y: 9, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 4.5, axis: "v", len: 1.3, dir: -1 }, { x: 10, y: 4.5, axis: "v", len: 1.3, dir: 1 }, { x: 2, y: 9, axis: "h", len: 1.5, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.3 }, { x: 0, y: 6, axis: "v", len: 1.3 }, { x: 4, y: 0, axis: "h", len: 1.3 }, { x: 8, y: 0, axis: "h", len: 1.3 }, { x: 14, y: 3, axis: "v", len: 1.3 }, { x: 14, y: 6, axis: "v", len: 1.3 }, { x: 12, y: 9, axis: "h", len: 1.3 }],
+    stairs: [{ x: 7.8, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↓ wheel pit" }] },
+
+  { name: "The Oast House", sub: "12×8 · DRYING KILN + STOWAGE BARN",
+    blurb: "A drying house: a tall round kiln with its cowl, attached to a stowage barn where the crop is spread, turned and stored.",
+    outline: [[0, 0], [10, 0], [11.5, 1.5], [12.5, 4], [11.5, 6.5], [10, 8], [0, 8]],
+    walls: [{ x1: 9, y1: 0, x2: 9, y2: 8 }],
+    rooms: [{ x: 0, y: 0, w: 9, h: 8, label: "Stowage Barn", dim: "9 × 8" }, { x: 9, y: 0, w: 3.5, h: 8, label: "Kiln", dim: "drying floor" }],
+    doors: [{ x: 3, y: 8, axis: "h", len: 1.6, dir: -1 }, { x: 9, y: 4, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.4 }, { x: 0, y: 5.5, axis: "v", len: 1.4 }, { x: 5, y: 0, axis: "h", len: 1.4 }, { x: 6, y: 8, axis: "h", len: 1.4 }],
+    stairs: [{ x: 6.5, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Boathouse", sub: "7×14 · BOAT SLIP · NET STORE · LOFT",
+    blurb: "Built at the water's edge: a long bay for the boat opening to a slip, a net store and a snug living end with a stair to the sleeping loft.",
+    W: 7, H: 14,
+    walls: [{ x1: 0, y1: 4, x2: 7, y2: 4 }, { x1: 3.5, y1: 0, x2: 3.5, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 3.5, h: 4, label: "Net Store", dim: "" }, { x: 3.5, y: 0, w: 3.5, h: 4, label: "Living", dim: "loft over" }, { x: 0, y: 4, w: 7, h: 10, label: "Boat Bay", dim: "slip to water" }],
+    doors: [{ x: 2.6, y: 14, axis: "h", len: 1.8, dir: -1 }, { x: 1.5, y: 4, axis: "h", len: 1.2, dir: -1 }, { x: 5, y: 4, axis: "h", len: 1.2, dir: -1 }, { x: 3.5, y: 2, axis: "v", len: 1.0, dir: -1 }],
+    windows: [{ x: 7, y: 2, axis: "v", len: 1.3 }, { x: 5.2, y: 0, axis: "h", len: 1.2 }, { x: 0, y: 8, axis: "v", len: 1.4 }, { x: 7, y: 8, axis: "v", len: 1.4 }, { x: 0, y: 11, axis: "v", len: 1.4 }, { x: 7, y: 11, axis: "v", len: 1.4 }],
+    stairs: [{ x: 5, y: 0.4, w: 1.6, h: 1.6, flow: "+x", label: "↑ loft" }] },
+
+  { name: "The Stable Block", sub: "12×7 · FOUR STALLS · TACK + FEED",
+    blurb: "For the horses: a row of stalls down one side off a grooming passage, with a tack room and a feed store, and a stair up to the hayloft.",
+    W: 12, H: 7,
+    walls: [{ x1: 8, y1: 0, x2: 8, y2: 7 }, { x1: 8, y1: 4, x2: 12, y2: 4 }, { x1: 2, y1: 0, x2: 2, y2: 3.5 }, { x1: 4, y1: 0, x2: 4, y2: 3.5 }, { x1: 6, y1: 0, x2: 6, y2: 3.5 }],
+    rooms: [{ x: 0, y: 0, w: 8, h: 7, label: "Stalls", dim: "four stalls" }, { x: 8, y: 0, w: 4, h: 4, label: "Feed Store", dim: "" }, { x: 8, y: 4, w: 4, h: 3, label: "Tack Room", dim: "" }],
+    doors: [{ x: 3, y: 7, axis: "h", len: 1.6, dir: -1 }, { x: 8, y: 5.5, axis: "v", len: 1.2, dir: 1 }, { x: 8, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 10, y: 4, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 1, y: 0, axis: "h", len: 1.0 }, { x: 5, y: 0, axis: "h", len: 1.0 }, { x: 0, y: 3.5, axis: "v", len: 1.2 }, { x: 12, y: 2, axis: "v", len: 1.3 }, { x: 12, y: 5.5, axis: "v", len: 1.3 }, { x: 10, y: 7, axis: "h", len: 1.3 }],
+    stairs: [{ x: 9.8, y: 0.4, w: 1.6, h: 1.6, flow: "+x", label: "↑ hayloft" }] },
+
+  { name: "The Chapel", sub: "8×14 · NAVE · CHANCEL · PORCH",
+    blurb: "A small place of worship: a long nave entered through a porch, a chancel for the altar at the far end, tall windows down both sides and a crypt stair.",
+    outline: [[2, 0], [6, 0], [6, 3], [8, 3], [8, 12], [5, 12], [5, 13.5], [3, 13.5], [3, 12], [0, 12], [0, 3], [2, 3]],
+    walls: [{ x1: 0, y1: 3, x2: 2, y2: 3 }, { x1: 6, y1: 3, x2: 8, y2: 3 }, { x1: 2, y1: 3, x2: 6, y2: 3 }],
+    rooms: [{ x: 0, y: 3, w: 8, h: 9, label: "Nave", dim: "open" }, { x: 2, y: 0, w: 4, h: 3, label: "Chancel", dim: "altar" }],
+    doors: [{ x: 3.6, y: 13.5, axis: "h", len: 1.3, dir: -1 }, { x: 3.6, y: 3, axis: "h", len: 1.4, dir: -1 }],
+    windows: [{ x: 0, y: 5, axis: "v", len: 1.4 }, { x: 0, y: 8.5, axis: "v", len: 1.4 }, { x: 8, y: 5, axis: "v", len: 1.4 }, { x: 8, y: 8.5, axis: "v", len: 1.4 }, { x: 2, y: 1.2, axis: "v", len: 1.2 }, { x: 6, y: 1.2, axis: "v", len: 1.2 }, { x: 3.5, y: 0, axis: "h", len: 1.4 }],
+    stairs: [{ x: 0.4, y: 3.4, w: 1.7, h: 1.8, flow: "+x", label: "↓ crypt" }] },
+
+  { name: "The Cob Cottage", sub: "10×8 · ROUNDED CORNERS · COSY",
+    blurb: "Hand-built in cob with soft rounded corners — a living room across the front, a kitchen and a snug stair-hall behind. No draughty angles.",
+    outline: [[1.5, 0], [8.5, 0], [10, 1.5], [10, 6.5], [8.5, 8], [1.5, 8], [0, 6.5], [0, 1.5]],
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 6, y1: 4, x2: 10, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 8, label: "Living Room", dim: "6 × 8" }, { x: 6, y: 0, w: 4, h: 4, label: "Kitchen", dim: "4 × 4" }, { x: 6, y: 4, w: 4, h: 4, label: "Hall", dim: "stairs" }],
+    doors: [{ x: 2.5, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.2, dir: 1 }, { x: 6, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 8, y: 4, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 0, y: 4, axis: "v", len: 1.4 }, { x: 4, y: 0, axis: "h", len: 1.4 }, { x: 4, y: 8, axis: "h", len: 1.4 }, { x: 10, y: 5.5, axis: "v", len: 1.4 }, { x: 8, y: 0, axis: "h", len: 1.3 }],
+    stairs: [{ x: 6.4, y: 4.4, w: 2.2, h: 1.8, flow: "+x", label: "↓ cellar" }] },
 ];
 
 const gallery = LAYOUTS.map((L) =>
@@ -834,10 +951,10 @@ const html = `<!DOCTYPE html>
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · ${LAYOUTS.length} floor plans</p>
       <h1>House Layouts</h1>
-      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> to copy or remix — from a night-one cabin to a courtyard manor. Every shape is here: cottages and longhouses, L-, T- and E-wings, a U-shaped courtyard, a cross-plan, an H-range, an atrium, a round-house and an eight-sided octagon, even a fortified bastle and a working farmstead. Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you can see the whole house before you place a block. Pick one, scale it to your spot, and build.</p>
+      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> to copy or remix — from a night-one cabin to a courtyard manor. Every shape is here: cottages and longhouses, L-, T- and E-wings, a U-shaped courtyard, a cross-plan, an H-range, an atrium, a round-house, a wheel-house and an eight-sided octagon. And it's not just homes — a smithy, a watermill, an oast, a stable, an inn and a chapel too. Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you can see the whole building before you place a block. Pick one, scale it to your spot, and build.</p>
       <div class="badges">
         <span class="badge accent">${LAYOUTS.length} layouts</span>
-        <span class="badge">Cabin → manor</span>
+        <span class="badge">Cabin → manor + trades</span>
         <span class="badge">round · octagon · L · T · U · cross · H</span>
         <span class="badge accent">📐 Rooms · doors · windows · stairs</span>
       </div>
