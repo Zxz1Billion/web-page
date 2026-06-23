@@ -272,6 +272,109 @@ const cellar = drawPlan({
   ],
 });
 
+/* ===================================== GROUND-FLOOR LAYOUT OPTIONS (flow) === */
+// Option A — Open "great room": fewest walls, fewest steps. Storage central + utility wing.
+const optA = drawPlan({
+  W: 13, H: 9, name: "Option A · The Great Room", sub: "OPEN PLAN · FEWEST STEPS", tint: "#e7d9b6",
+  walls: [{ x1: 9, y1: 0, x2: 9, y2: 9 }, { x1: 9, y1: 4, x2: 13, y2: 4 }],
+  rooms: [
+    { x: 0, y: 0, w: 9, h: 9, label: "Great Room", dim: "kitchen · dining · living" },
+    { x: 9, y: 0, w: 4, h: 4, label: "Workshop", dim: "+ storage" },
+    { x: 9, y: 4, w: 4, h: 5, label: "Stairs", dim: "↓ cold cellar" },
+  ],
+  doors: [
+    { x: 3.4, y: 9, axis: "h", len: 1.3, dir: -1, hinge: 0 },
+    { x: 9, y: 1.3, axis: "v", len: 1.2, dir: 1, hinge: 0 },
+    { x: 9, y: 7.0, axis: "v", len: 1.2, dir: 1, hinge: 0 },
+  ],
+  windows: [
+    { x: 0, y: 1.6, axis: "v", len: 1.3 }, { x: 0, y: 5.6, axis: "v", len: 1.3 },
+    { x: 1.6, y: 9, axis: "h", len: 1.3 }, { x: 6.4, y: 9, axis: "h", len: 1.3 }, { x: 4.8, y: 0, axis: "h", len: 1.3 },
+    { x: 13, y: 1.4, axis: "v", len: 1.3 }, { x: 13, y: 6.2, axis: "v", len: 1.3 },
+  ],
+  stairs: [{ x: 9.5, y: 4.4, w: 2.6, h: 2.2, flow: "+x", label: "↓ cellar" }],
+  furniture: [
+    { t: "stove", x: 0.4, y: 0.3 }, { t: "counter", x: 1.6, y: 0.3, w: 3.2, h: 0.8 }, { t: "hearth", x: 6.3, y: 0.25, w: 2 },
+    { t: "table", x: 3.1, y: 2.7, w: 2.2, h: 1.6 }, { t: "sofa", x: 0.5, y: 7.4, w: 2.6, h: 0.95 },
+    { t: "shelf", x: 4.2, y: 4.1, w: 0.8, h: 1.8 }, { t: "chest", x: 5.4, y: 4.2 }, { t: "chest", x: 5.4, y: 5.1 }, { t: "chest", x: 7.6, y: 7.5 },
+    { t: "table", x: 9.6, y: 0.5, w: 1.7, h: 1.3 }, { t: "shelf", x: 12.0, y: 0.4, w: 0.8, h: 3.1 }, { t: "chest", x: 9.6, y: 2.4 },
+  ],
+});
+
+// Option B — central storage core; every room opens onto it. Storage ≤ a step or two from anywhere.
+const optB = drawPlan({
+  W: 13, H: 9, name: "Option B · Central Store", sub: "STORAGE AT THE HUB", tint: "#e7d9b6",
+  walls: [
+    { x1: 5, y1: 0, x2: 5, y2: 9 }, { x1: 8, y1: 0, x2: 8, y2: 9 },
+    { x1: 5, y1: 3, x2: 8, y2: 3 }, { x1: 5, y1: 6, x2: 8, y2: 6 }, { x1: 8, y1: 5, x2: 13, y2: 5 },
+  ],
+  rooms: [
+    { x: 0, y: 0, w: 5, h: 9, label: "Living Room", dim: "5 × 9" },
+    { x: 5, y: 0, w: 3, h: 3, label: "Dining", dim: "3 × 3" },
+    { x: 5, y: 3, w: 3, h: 3, label: "Store", dim: "central" },
+    { x: 5, y: 6, w: 3, h: 3, label: "Stairs", dim: "↓ cellar" },
+    { x: 8, y: 0, w: 5, h: 5, label: "Kitchen", dim: "5 × 5" },
+    { x: 8, y: 5, w: 5, h: 4, label: "Workshop", dim: "5 × 4" },
+  ],
+  doors: [
+    { x: 2.0, y: 9, axis: "h", len: 1.3, dir: -1, hinge: 0 },   // entrance → living
+    { x: 5, y: 4.0, axis: "v", len: 1.2, dir: -1, hinge: 0 },   // living ↔ store
+    { x: 5, y: 1.0, axis: "v", len: 1.2, dir: -1, hinge: 0 },   // living ↔ dining
+    { x: 6.3, y: 3, axis: "h", len: 1.2, dir: 1, hinge: 0 },    // dining ↔ store
+    { x: 6.3, y: 6, axis: "h", len: 1.2, dir: -1, hinge: 0 },   // store ↔ stairs
+    { x: 8, y: 4.0, axis: "v", len: 1.2, dir: 1, hinge: 0 },    // store ↔ kitchen
+    { x: 10.0, y: 5, axis: "h", len: 1.2, dir: 1, hinge: 0 },   // kitchen ↔ workshop
+  ],
+  windows: [
+    { x: 0, y: 2.0, axis: "v", len: 1.3 }, { x: 0, y: 6.4, axis: "v", len: 1.3 }, { x: 2.0, y: 9, axis: "h", len: 1.3 },
+    { x: 6.3, y: 0, axis: "h", len: 1.2 }, { x: 13, y: 1.6, axis: "v", len: 1.3 }, { x: 10.4, y: 0, axis: "h", len: 1.3 },
+    { x: 13, y: 6.6, axis: "v", len: 1.3 },
+  ],
+  stairs: [{ x: 5.4, y: 6.4, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }],
+  furniture: [
+    { t: "hearth", x: 1.6, y: 0.25, w: 2 }, { t: "sofa", x: 0.5, y: 7.4, w: 2.6, h: 0.95 }, { t: "table", x: 1.4, y: 3.4, w: 2, h: 1.5 },
+    { t: "table", x: 5.5, y: 0.5, w: 1.8, h: 1.5 },
+    { t: "shelf", x: 5.2, y: 3.3, w: 2.4, h: 0.7 }, { t: "chest", x: 5.4, y: 4.4 }, { t: "chest", x: 6.6, y: 4.4 },
+    { t: "stove", x: 8.4, y: 0.3 }, { t: "counter", x: 9.6, y: 0.3, w: 3.0, h: 0.8 }, { t: "counter", x: 12.1, y: 1.2, w: 0.8, h: 3.2 },
+    { t: "table", x: 9.0, y: 6.0, w: 1.8, h: 1.4 }, { t: "shelf", x: 12.0, y: 5.4, w: 0.8, h: 3.2 },
+  ],
+});
+
+// Option C — service cluster: kitchen + store + workshop in one back strip, big living front.
+const optC = drawPlan({
+  W: 13, H: 9, name: "Option C · Work Cluster", sub: "STORE BETWEEN KITCHEN & WORKSHOP", tint: "#e7d9b6",
+  walls: [
+    { x1: 0, y1: 4, x2: 13, y2: 4 }, { x1: 5, y1: 0, x2: 5, y2: 4 }, { x1: 8, y1: 0, x2: 8, y2: 4 }, { x1: 9, y1: 4, x2: 9, y2: 9 },
+  ],
+  rooms: [
+    { x: 0, y: 0, w: 5, h: 4, label: "Workshop", dim: "5 × 4" },
+    { x: 5, y: 0, w: 3, h: 4, label: "Store", dim: "3 × 4" },
+    { x: 8, y: 0, w: 5, h: 4, label: "Kitchen", dim: "5 × 4" },
+    { x: 0, y: 4, w: 9, h: 5, label: "Living Room", dim: "9 × 5" },
+    { x: 9, y: 4, w: 4, h: 5, label: "Stairs", dim: "↓ cellar" },
+  ],
+  doors: [
+    { x: 3.0, y: 9, axis: "h", len: 1.3, dir: -1, hinge: 0 },   // entrance → living
+    { x: 2.0, y: 4, axis: "h", len: 1.2, dir: 1, hinge: 0 },    // living ↔ workshop
+    { x: 6.3, y: 4, axis: "h", len: 1.2, dir: 1, hinge: 0 },    // living ↔ store
+    { x: 5, y: 1.4, axis: "v", len: 1.2, dir: -1, hinge: 0 },   // store ↔ workshop
+    { x: 8, y: 1.4, axis: "v", len: 1.2, dir: 1, hinge: 0 },    // store ↔ kitchen
+    { x: 9, y: 6.8, axis: "v", len: 1.2, dir: 1, hinge: 0 },    // living ↔ stairs
+  ],
+  windows: [
+    { x: 0, y: 1.6, axis: "v", len: 1.3 }, { x: 2.0, y: 0, axis: "h", len: 1.3 },
+    { x: 6.3, y: 0, axis: "h", len: 1.2 }, { x: 13, y: 1.6, axis: "v", len: 1.3 }, { x: 10.4, y: 0, axis: "h", len: 1.3 },
+    { x: 0, y: 6.4, axis: "v", len: 1.3 }, { x: 2.0, y: 9, axis: "h", len: 1.3 }, { x: 6.0, y: 9, axis: "h", len: 1.3 }, { x: 13, y: 6.6, axis: "v", len: 1.3 },
+  ],
+  stairs: [{ x: 9.5, y: 4.4, w: 2.6, h: 2.2, flow: "+x", label: "↓ cellar" }],
+  furniture: [
+    { t: "table", x: 0.6, y: 0.6, w: 1.8, h: 1.4 }, { t: "shelf", x: 3.5, y: 0.4, w: 0.8, h: 3.1 },
+    { t: "shelf", x: 5.2, y: 0.4, w: 2.4, h: 0.7 }, { t: "chest", x: 5.4, y: 1.5 }, { t: "chest", x: 6.6, y: 1.5 }, { t: "barrel", x: 5.6, y: 2.7 }, { t: "barrel", x: 6.6, y: 2.7 },
+    { t: "stove", x: 8.4, y: 0.3 }, { t: "counter", x: 9.6, y: 0.3, w: 3.0, h: 0.8 }, { t: "counter", x: 12.1, y: 1.2, w: 0.8, h: 2.4 },
+    { t: "hearth", x: 1.6, y: 4.2, w: 2 }, { t: "sofa", x: 0.5, y: 7.4, w: 2.6, h: 0.95 }, { t: "table", x: 4.0, y: 5.6, w: 2.2, h: 1.6 },
+  ],
+});
+
 /* =============================================================== THE PAGE == */
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -309,6 +412,7 @@ const html = `<!DOCTYPE html>
     </div>
     <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
     <nav class="nav" data-nav>
+      <a href="#options"><span class="ix">00</span> Layout options</a>
       <a href="#ground"><span class="ix">01</span> Ground floor</a>
       <a href="#first"><span class="ix">02</span> First floor</a>
       <a href="#cellar"><span class="ix">03</span> Cellar</a>
@@ -339,6 +443,35 @@ const html = `<!DOCTYPE html>
         <span>▦ stairs (arrow = up)</span>
       </p>
     </header>
+
+    <section class="doc" id="options">
+      <p class="sec-index">00 — Pick a layout</p>
+      <h2>Three ground-floor layouts, built for short trips</h2>
+      <p class="lead">Three ways to arrange the same rooms, each cutting down how far you walk. All keep <strong>regular storage</strong> (tools, blocks, materials — not food) close to where it's used, and put the <strong>cold cellar down the stairs</strong>, since Vintage Story food storage wants cool, dark, sealed rooms away from the kitchen's heat. Skim them and pick the one that fits how you play.</p>
+
+      <div class="plan-grid"><div class="plan">${optA}</div></div>
+      <div class="note tip">
+        <span class="label">Option A · The Great Room — fewest steps</span>
+        <p>One open, heated room for kitchen, dining and living, so there are almost no walls to walk around and a single hearth warms the lot — ideal for a cold biome. Regular storage sits as a central island plus a side workshop; the stairs drop to a cold cellar. <strong>Best if</strong> you want the least walking and don't mind an open-plan look.</p>
+      </div>
+
+      <div class="plan-grid"><div class="plan">${optB}</div></div>
+      <div class="note tip">
+        <span class="label">Option B · Central Store — storage at the hub</span>
+        <p>A small storage room sits dead-centre with every room opening onto it, so fetching or dropping materials is one short step from anywhere. Dining, kitchen, workshop and living all ring the core. <strong>Best if</strong> you haul a lot between rooms and want storage equidistant from all of them.</p>
+      </div>
+
+      <div class="plan-grid"><div class="plan">${optC}</div></div>
+      <div class="note tip">
+        <span class="label">Option C · Work Cluster — storage on the work path</span>
+        <p>Kitchen, store and workshop share one back strip, with the store <em>between</em> the kitchen and workshop so materials are a step from both — great when you're processing ore, clay or food prep in bulk. A big living room fills the front, stairs in the corner. <strong>Best if</strong> your base is a workshop first and a home second.</p>
+      </div>
+
+      <div class="note">
+        <span class="label">Vintage Story notes</span>
+        <p>Keep the kitchen's firepit/oven on stone with a block of clearance from timber. Put your <strong>food</strong> in the cold cellar down the stairs — small, sealed, no skylight scores best and keeps food longest — and leave these ground-floor stores for tools, blocks and ores, which don't care about temperature. A single central hearth (Option A) doubles as winter warmth. The detailed plan below is Option A worked up over three floors.</p>
+      </div>
+    </section>
 
     <section class="doc" id="ground">
       <p class="sec-index">01 — Ground floor</p>
