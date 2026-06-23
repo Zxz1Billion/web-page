@@ -399,6 +399,12 @@ const optC = drawPlan({
   ],
 });
 
+/* a polygon approximating a circle (for round footprints), clockwise from the top */
+const circle = (cx, cy, r, n = 24) => Array.from({ length: n }, (_, i) => {
+  const a = (i / n) * 2 * Math.PI - Math.PI / 2;
+  return [+(cx + r * Math.cos(a)).toFixed(2), +(cy + r * Math.sin(a)).toFixed(2)];
+});
+
 /* ================================================ THE LAYOUT GALLERY (no furniture) === */
 const LAYOUTS = [
   // ---- COTTAGES -------------------------------------------------------------
@@ -658,6 +664,118 @@ const LAYOUTS = [
     doors: [{ x: 2, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 2.4, y: 6, axis: "h", len: 1.3, dir: 1 }, { x: 7.4, y: 6, axis: "h", len: 1.3, dir: 1 }, { x: 12.4, y: 6, axis: "h", len: 1.3, dir: 1 }],
     windows: [{ x: 0, y: 2.5, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 7.5, y: 0, axis: "h", len: 1.4 }, { x: 12.5, y: 0, axis: "h", len: 1.4 }, { x: 15, y: 2.5, axis: "v", len: 1.4 }, { x: 8, y: 8, axis: "h", len: 1.4 }, { x: 12, y: 8, axis: "h", len: 1.4 }],
     stairs: [{ x: 12.6, y: 6.2, w: 2.2, h: 1.6, flow: "+x", label: "↓ cellar" }] },
+
+  // ---- ROUND & ANGULAR ------------------------------------------------------
+  { name: "The Octagon", sub: "12×12 · EIGHT SIDES · LIGHT ALL ROUND",
+    blurb: "An eight-sided house with a window facing every way — four rooms quartered round a central stair, never a dark corner.",
+    outline: [[3, 0], [9, 0], [12, 3], [12, 9], [9, 12], [3, 12], [0, 9], [0, 3]],
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 12 }, { x1: 0, y1: 6, x2: 12, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 6, label: "Kitchen", dim: "6 × 6" }, { x: 6, y: 0, w: 6, h: 6, label: "Dining", dim: "6 × 6" }, { x: 0, y: 6, w: 6, h: 6, label: "Living Room", dim: "6 × 6" }, { x: 6, y: 6, w: 6, h: 6, label: "Hall", dim: "stairs" }],
+    doors: [{ x: 3.4, y: 12, axis: "h", len: 1.3, dir: -1 }, { x: 3, y: 6, axis: "h", len: 1.2, dir: -1 }, { x: 6, y: 9.5, axis: "v", len: 1.2, dir: 1 }, { x: 9, y: 6, axis: "h", len: 1.2, dir: 1 }, { x: 6, y: 3, axis: "v", len: 1.2, dir: -1 }],
+    windows: [{ x: 4.5, y: 0, axis: "h", len: 1.4 }, { x: 7.5, y: 0, axis: "h", len: 1.4 }, { x: 0, y: 4.5, axis: "v", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 12, y: 4.5, axis: "v", len: 1.4 }, { x: 12, y: 7.5, axis: "v", len: 1.4 }, { x: 7.5, y: 12, axis: "h", len: 1.4 }],
+    stairs: [{ x: 7.3, y: 8.6, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Roundhouse", sub: "11Ø · ONE ROUND ROOM · CENTRE HEARTH",
+    blurb: "The old round: a single circular room about a central hearth and stair, beds round the wall. No corners to draught.",
+    outline: circle(5.5, 5.5, 5, 24),
+    walls: [],
+    rooms: [{ x: 0.5, y: 0.5, w: 10, h: 10, label: "Roundhouse", dim: "hearth · beds" }],
+    doors: [{ x: 4.8, y: 10.5, axis: "h", len: 1.4, dir: -1 }],
+    windows: [{ x: 0.5, y: 5, axis: "v", len: 1.2 }, { x: 10.5, y: 5, axis: "v", len: 1.2 }, { x: 4.9, y: 0.5, axis: "h", len: 1.2 }],
+    stairs: [{ x: 4.4, y: 4.5, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Z-Plan Tower", sub: "Z-PLAN · TWO CORNER TOWERS",
+    blurb: "A fortified Z — a central range with a stair-tower at one corner and a watch-room at the other, set diagonally for covering fire.",
+    outline: [[0, 0], [11, 0], [11, 6], [14, 6], [14, 10], [11, 10], [3, 10], [3, 4], [0, 4]],
+    walls: [{ x1: 3, y1: 0, x2: 3, y2: 4 }, { x1: 3, y1: 4, x2: 11, y2: 4 }, { x1: 3, y1: 7, x2: 11, y2: 7 }, { x1: 11, y1: 6, x2: 11, y2: 10 }],
+    rooms: [{ x: 0, y: 0, w: 3, h: 4, label: "Study", dim: "tower" }, { x: 3, y: 0, w: 8, h: 4, label: "Kitchen", dim: "8 × 4" }, { x: 3, y: 4, w: 8, h: 3, label: "Hall", dim: "+ stairs" }, { x: 3, y: 7, w: 8, h: 3, label: "Living Room", dim: "8 × 3" }, { x: 11, y: 6, w: 3, h: 4, label: "Pantry", dim: "tower" }],
+    doors: [{ x: 6, y: 10, axis: "h", len: 1.3, dir: -1 }, { x: 5, y: 7, axis: "h", len: 1.2, dir: -1 }, { x: 5, y: 4, axis: "h", len: 1.2, dir: -1 }, { x: 3, y: 2, axis: "v", len: 1.2, dir: -1 }, { x: 11, y: 8.5, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.2 }, { x: 1.4, y: 0, axis: "h", len: 1.2 }, { x: 7, y: 0, axis: "h", len: 1.4 }, { x: 11, y: 2, axis: "v", len: 1.4 }, { x: 3, y: 5.5, axis: "v", len: 1.2 }, { x: 14, y: 8, axis: "v", len: 1.2 }, { x: 12.4, y: 10, axis: "h", len: 1.2 }, { x: 9, y: 10, axis: "h", len: 1.4 }],
+    stairs: [{ x: 4, y: 4.3, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  // ---- SYMMETRIC & DOUBLE-FRONTED ------------------------------------------
+  { name: "The Villa", sub: "SYMMETRIC · CENTRAL PORTICO",
+    blurb: "A balanced front with a columned portico over the door, a central hall and stair, and four matched rooms — formal and calm.",
+    outline: [[0, 0], [14, 0], [14, 9], [9, 9], [9, 10.5], [5, 10.5], [5, 9], [0, 9]],
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 9 }, { x1: 9, y1: 0, x2: 9, y2: 9 }, { x1: 0, y1: 4.5, x2: 5, y2: 4.5 }, { x1: 9, y1: 4.5, x2: 14, y2: 4.5 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 4.5, label: "Dining", dim: "5 × 5" }, { x: 0, y: 4.5, w: 5, h: 4.5, label: "Parlour", dim: "5 × 5" }, { x: 5, y: 0, w: 4, h: 9, label: "Hall", dim: "+ stairs" }, { x: 9, y: 0, w: 5, h: 4.5, label: "Kitchen", dim: "5 × 5" }, { x: 9, y: 4.5, w: 5, h: 4.5, label: "Study", dim: "5 × 5" }],
+    doors: [{ x: 6.4, y: 10.5, axis: "h", len: 1.3, dir: -1 }, { x: 5, y: 6.5, axis: "v", len: 1.3, dir: -1 }, { x: 5, y: 2.6, axis: "v", len: 1.2, dir: -1 }, { x: 9, y: 6.5, axis: "v", len: 1.3, dir: 1 }, { x: 9, y: 2.6, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 0, y: 6.5, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 2.5, y: 9, axis: "h", len: 1.4 }, { x: 14, y: 2, axis: "v", len: 1.4 }, { x: 14, y: 6.5, axis: "v", len: 1.4 }, { x: 11.5, y: 0, axis: "h", len: 1.4 }, { x: 11.5, y: 9, axis: "h", len: 1.4 }],
+    stairs: [{ x: 5.3, y: 0.4, w: 3.0, h: 1.8, flow: "+x", label: "UP · ↓ cellar" }] },
+
+  { name: "The Garrison", sub: "12×10 · ENTRY HALL · FOUR ROOMS",
+    blurb: "A square, symmetric house: you step into a central hall with the stair, two living rooms either side and the kitchen and dining behind.",
+    W: 12, H: 10,
+    walls: [{ x1: 4.5, y1: 5, x2: 4.5, y2: 10 }, { x1: 7.5, y1: 5, x2: 7.5, y2: 10 }, { x1: 0, y1: 5, x2: 4.5, y2: 5 }, { x1: 7.5, y1: 5, x2: 12, y2: 5 }, { x1: 4.5, y1: 5, x2: 7.5, y2: 5 }, { x1: 6, y1: 0, x2: 6, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 5, label: "Kitchen", dim: "6 × 5" }, { x: 6, y: 0, w: 6, h: 5, label: "Dining", dim: "6 × 5" }, { x: 0, y: 5, w: 4.5, h: 5, label: "Living Room", dim: "5 × 5" }, { x: 4.5, y: 5, w: 3, h: 5, label: "Hall", dim: "stairs" }, { x: 7.5, y: 5, w: 4.5, h: 5, label: "Parlour", dim: "5 × 5" }],
+    doors: [{ x: 5.5, y: 10, axis: "h", len: 1.3, dir: -1 }, { x: 4.5, y: 7.5, axis: "v", len: 1.3, dir: -1 }, { x: 7.5, y: 7.5, axis: "v", len: 1.3, dir: 1 }, { x: 5, y: 5, axis: "h", len: 1.2, dir: -1 }, { x: 6.6, y: 5, axis: "h", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 12, y: 2, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 9, y: 0, axis: "h", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 12, y: 7.5, axis: "v", len: 1.4 }, { x: 2, y: 10, axis: "h", len: 1.4 }, { x: 10, y: 10, axis: "h", len: 1.4 }],
+    stairs: [{ x: 4.7, y: 5.4, w: 2.4, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Back-to-Back", sub: "14×7 · TWO HOMES · ONE PARTY WALL",
+    blurb: "Two mirrored cottages sharing a central wall — a cheap pair of homes, each with a living room, a back kitchen and a corner stair.",
+    W: 14, H: 7,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 7 }, { x1: 0, y1: 3, x2: 7, y2: 3 }, { x1: 7, y1: 3, x2: 14, y2: 3 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 3, label: "Kitchen A", dim: "7 × 3" }, { x: 0, y: 3, w: 7, h: 4, label: "Living A", dim: "7 × 4" }, { x: 7, y: 0, w: 7, h: 3, label: "Kitchen B", dim: "7 × 3" }, { x: 7, y: 3, w: 7, h: 4, label: "Living B", dim: "7 × 4" }],
+    doors: [{ x: 2, y: 7, axis: "h", len: 1.3, dir: -1 }, { x: 2, y: 3, axis: "h", len: 1.3, dir: -1 }, { x: 11, y: 7, axis: "h", len: 1.3, dir: -1 }, { x: 11, y: 3, axis: "h", len: 1.3, dir: -1 }],
+    windows: [{ x: 0, y: 4.5, axis: "v", len: 1.4 }, { x: 4.5, y: 7, axis: "h", len: 1.4 }, { x: 0, y: 1.5, axis: "v", len: 1.3 }, { x: 2.5, y: 0, axis: "h", len: 1.3 }, { x: 14, y: 4.5, axis: "v", len: 1.4 }, { x: 9.5, y: 7, axis: "h", len: 1.4 }, { x: 14, y: 1.5, axis: "v", len: 1.3 }, { x: 11.5, y: 0, axis: "h", len: 1.3 }],
+    stairs: [{ x: 5.0, y: 3.4, w: 1.8, h: 1.6, flow: "+x", label: "↓ A" }, { x: 7.2, y: 3.4, w: 1.8, h: 1.6, flow: "+x", label: "↓ B" }] },
+
+  // ---- HOMESTEADS & DEFENSIVE ----------------------------------------------
+  { name: "The Courtyard Farmstead", sub: "16×14 · HOUSE + BARN + BYRE",
+    blurb: "A working farmstead round three sides of a yard: the house along the back, a barn down one side and a byre and cart-shed down the other.",
+    outline: [[0, 0], [16, 0], [16, 14], [12, 14], [12, 5], [4, 5], [4, 14], [0, 14]],
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 5 }, { x1: 10, y1: 0, x2: 10, y2: 5 }, { x1: 0, y1: 5, x2: 4, y2: 5 }, { x1: 12, y1: 5, x2: 16, y2: 5 }, { x1: 12, y1: 9, x2: 16, y2: 9 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 5, label: "Kitchen", dim: "6 × 5" }, { x: 6, y: 0, w: 4, h: 5, label: "Hall", dim: "+ stairs" }, { x: 10, y: 0, w: 6, h: 5, label: "Parlour", dim: "6 × 5" }, { x: 0, y: 5, w: 4, h: 9, label: "Barn", dim: "4 × 9" }, { x: 12, y: 5, w: 4, h: 4, label: "Byre", dim: "stock" }, { x: 12, y: 9, w: 4, h: 5, label: "Cart-shed", dim: "4 × 5" }],
+    doors: [{ x: 7.4, y: 5, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 2.5, axis: "v", len: 1.3, dir: -1 }, { x: 10, y: 2.5, axis: "v", len: 1.3, dir: 1 }, { x: 2, y: 5, axis: "h", len: 1.3, dir: 1 }, { x: 14, y: 5, axis: "h", len: 1.3, dir: 1 }, { x: 14, y: 9, axis: "h", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 8, y: 0, axis: "h", len: 1.3 }, { x: 13, y: 0, axis: "h", len: 1.4 }, { x: 16, y: 2.5, axis: "v", len: 1.4 }, { x: 0, y: 9, axis: "v", len: 1.3 }, { x: 0, y: 12, axis: "v", len: 1.3 }, { x: 16, y: 7, axis: "v", len: 1.3 }, { x: 16, y: 12, axis: "v", len: 1.3 }],
+    stairs: [{ x: 6.5, y: 0.4, w: 2.6, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Bastle House", sub: "8×10 · DEFENSIVE · BYRE BELOW",
+    blurb: "A fortified farmhouse: thick walls, stock and stores on the ground floor, and a stair up to the living room above out of reach of raiders.",
+    W: 8, H: 10,
+    walls: [{ x1: 0, y1: 3, x2: 8, y2: 3 }],
+    rooms: [{ x: 0, y: 0, w: 8, h: 3, label: "Store", dim: "8 × 3" }, { x: 0, y: 3, w: 8, h: 7, label: "Byre", dim: "stock · stair up" }],
+    doors: [{ x: 3.4, y: 10, axis: "h", len: 1.1, dir: -1 }, { x: 4, y: 3, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 0, y: 6, axis: "v", len: 0.8 }, { x: 8, y: 6, axis: "v", len: 0.8 }, { x: 0, y: 1.5, axis: "v", len: 0.8 }, { x: 8, y: 1.5, axis: "v", len: 0.8 }],
+    stairs: [{ x: 5.6, y: 3.4, w: 2.0, h: 2.0, flow: "+x", label: "↑ living" }] },
+
+  // ---- SINGLE-STOREY & TRADES ----------------------------------------------
+  { name: "The L-Bungalow", sub: "L-PLAN · SINGLE STOREY",
+    blurb: "All on one floor in an L — bedrooms and kitchen along the back, the living room reaching out in the leg, the cellar stair in the hall.",
+    outline: [[0, 0], [14, 0], [14, 5], [7, 5], [7, 10], [0, 10]],
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 5 }, { x1: 9, y1: 0, x2: 9, y2: 5 }, { x1: 0, y1: 5, x2: 7, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 5, label: "Kitchen", dim: "5 × 5" }, { x: 5, y: 0, w: 4, h: 5, label: "Hall", dim: "+ stairs" }, { x: 9, y: 0, w: 5, h: 5, label: "Bed Chamber", dim: "5 × 5" }, { x: 0, y: 5, w: 7, h: 5, label: "Living Room", dim: "7 × 5" }],
+    doors: [{ x: 3, y: 10, axis: "h", len: 1.3, dir: -1 }, { x: 5.6, y: 5, axis: "h", len: 1.3, dir: -1 }, { x: 2.5, y: 5, axis: "h", len: 1.2, dir: -1 }, { x: 5, y: 2.5, axis: "v", len: 1.3, dir: -1 }, { x: 9, y: 2.5, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 7, y: 0, axis: "h", len: 1.3 }, { x: 11.5, y: 0, axis: "h", len: 1.4 }, { x: 14, y: 2.5, axis: "v", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 3.5, y: 10, axis: "h", len: 1.4 }, { x: 7, y: 7.5, axis: "v", len: 1.4 }],
+    stairs: [{ x: 5.5, y: 0.4, w: 2.2, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Weaver's Cottage", sub: "14×6 · LOOMSHOP · GLAZED FOR LIGHT",
+    blurb: "A trade cottage: a long loomshop at one end glazed with windows for the light, the living hall and stair in the middle, kitchen at the warm end.",
+    W: 14, H: 6,
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 6 }, { x1: 10, y1: 0, x2: 10, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 6, label: "Loomshop", dim: "6 × 6" }, { x: 6, y: 0, w: 4, h: 6, label: "Hall", dim: "+ stairs" }, { x: 10, y: 0, w: 4, h: 6, label: "Kitchen", dim: "4 × 6" }],
+    doors: [{ x: 7.4, y: 6, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 3, axis: "v", len: 1.3, dir: -1 }, { x: 10, y: 3, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 1.5, axis: "v", len: 1.4 }, { x: 0, y: 4, axis: "v", len: 1.4 }, { x: 1.5, y: 0, axis: "h", len: 1.3 }, { x: 3.2, y: 0, axis: "h", len: 1.3 }, { x: 4.9, y: 0, axis: "h", len: 1.3 }, { x: 1.5, y: 6, axis: "h", len: 1.3 }, { x: 3.2, y: 6, axis: "h", len: 1.3 }, { x: 4.9, y: 6, axis: "h", len: 1.3 }, { x: 14, y: 3, axis: "v", len: 1.4 }, { x: 12, y: 0, axis: "h", len: 1.3 }],
+    stairs: [{ x: 8, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Three-Room Cottage", sub: "13×6 · CROSS-PASSAGE · PARLOUR + KITCHEN",
+    blurb: "The classic three-room plan: a cross-passage you enter by, a parlour the warm side and a kitchen the cool side, the stair in the kitchen corner.",
+    W: 13, H: 6,
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 6 }, { x1: 8, y1: 0, x2: 8, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 6, label: "Parlour", dim: "5 × 6" }, { x: 5, y: 0, w: 3, h: 6, label: "Passage", dim: "open" }, { x: 8, y: 0, w: 5, h: 6, label: "Kitchen", dim: "5 × 6" }],
+    doors: [{ x: 5.6, y: 6, axis: "h", len: 1.3, dir: -1 }, { x: 5.6, y: 0, axis: "h", len: 1.3, dir: 1 }, { x: 5, y: 3, axis: "v", len: 1.3, dir: -1 }, { x: 8, y: 3, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 1.6, axis: "v", len: 1.4 }, { x: 0, y: 4.4, axis: "v", len: 1.4 }, { x: 2.5, y: 6, axis: "h", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 13, y: 3, axis: "v", len: 1.4 }, { x: 10.5, y: 6, axis: "h", len: 1.4 }, { x: 10.5, y: 0, axis: "h", len: 1.4 }],
+    stairs: [{ x: 11, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Apsidal Hall", sub: "GREAT HALL · CANTED BAY · SOLAR",
+    blurb: "A grand hall ending in a canted bay window, with a private solar partitioned off the warm end and the stair in the corner.",
+    outline: [[5, 0], [7, 0], [8, 2], [12, 2], [12, 10], [0, 10], [0, 2], [4, 2]],
+    walls: [{ x1: 9, y1: 2, x2: 9, y2: 10 }],
+    rooms: [{ x: 0, y: 0, w: 9, h: 10, label: "Great Hall", dim: "open · bay" }, { x: 9, y: 2, w: 3, h: 8, label: "Solar", dim: "3 × 8" }],
+    doors: [{ x: 3.5, y: 10, axis: "h", len: 1.4, dir: -1 }, { x: 9, y: 6, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 4, axis: "v", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 5.5, y: 0, axis: "h", len: 1.4 }, { x: 7, y: 10, axis: "h", len: 1.6 }, { x: 12, y: 4, axis: "v", len: 1.4 }, { x: 12, y: 7.5, axis: "v", len: 1.4 }, { x: 10.5, y: 10, axis: "h", len: 1.4 }],
+    stairs: [{ x: 0.4, y: 2.4, w: 2.0, h: 2.0, flow: "+x", label: "↓ cellar" }] },
 ];
 
 const gallery = LAYOUTS.map((L) =>
@@ -716,11 +834,11 @@ const html = `<!DOCTYPE html>
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · ${LAYOUTS.length} floor plans</p>
       <h1>House Layouts</h1>
-      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> to copy or remix — from a night-one cabin to a courtyard manor. Every shape is here: square cottages, L- and T-wings, a U-shaped courtyard, a cross-plan, an H-range and an atrium. Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you can see the whole house before you place a block. Pick one, scale it to your spot, and build.</p>
+      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> to copy or remix — from a night-one cabin to a courtyard manor. Every shape is here: cottages and longhouses, L-, T- and E-wings, a U-shaped courtyard, a cross-plan, an H-range, an atrium, a round-house and an eight-sided octagon, even a fortified bastle and a working farmstead. Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you can see the whole house before you place a block. Pick one, scale it to your spot, and build.</p>
       <div class="badges">
         <span class="badge accent">${LAYOUTS.length} layouts</span>
-        <span class="badge">Cottage → manor</span>
-        <span class="badge">L · T · U · cross · H · atrium</span>
+        <span class="badge">Cabin → manor</span>
+        <span class="badge">round · octagon · L · T · U · cross · H</span>
         <span class="badge accent">📐 Rooms · doors · windows · stairs</span>
       </div>
       <p class="legend-key">
