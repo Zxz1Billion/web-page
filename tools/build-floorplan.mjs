@@ -135,7 +135,7 @@ function furn(o, X, Y) {
   const st = `stroke="${INK}" stroke-width="1.3" fill="#00000010"`;
   const fillSoft = `fill="${INK}" opacity=".10"`;
   const r = (x, y, w, h, rx = 3, extra = st) => `<rect x="${X(x)}" y="${Y(y)}" width="${f(w * S)}" height="${f(h * S)}" rx="${rx}" ${extra}/>`;
-  const lbl = (x, y, t) => `<text x="${X(x)}" y="${Y(y)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="${INK}" opacity=".7">${esc(t)}</text>`;
+  const lbl = () => ""; // furniture is shown as icons only — keeps the plan uncluttered
   switch (o.t) {
     case "bed": { // {x,y,w,h}
       const w = o.w || 2, h = o.h || 2.6;
@@ -181,81 +181,94 @@ function dim(a, b, axis, X, Y, W, H) {
 
 /* ======================================================= THE THREE LEVELS == */
 const ground = drawPlan({
-  W: 12, H: 9, name: "Ground Floor", sub: "ENTRANCE · LIVING ROOM · KITCHEN", tint: "#e7d9b6",
-  walls: [{ x1: 7, y1: 0, x2: 7, y2: 9 }, { x1: 7, y1: 5, x2: 12, y2: 5 }],
+  W: 15, H: 11, name: "Ground Floor", sub: "ENTRANCE HALL · DINING · LIVING · KITCHEN · STUDY", tint: "#e7d9b6",
+  walls: [
+    { x1: 6, y1: 0, x2: 6, y2: 11 }, { x1: 9, y1: 0, x2: 9, y2: 11 }, // central hall
+    { x1: 0, y1: 5, x2: 6, y2: 5 }, { x1: 9, y1: 5, x2: 15, y2: 5 },  // left & right wings split
+  ],
   rooms: [
-    { x: 0, y: 0, w: 7, h: 9, label: "Living Room", dim: "7 × 9", fill: "#ecdfbf" },
-    { x: 7, y: 0, w: 5, h: 5, label: "Kitchen", dim: "5 × 5", fill: "#e5d6b2" },
-    { x: 7, y: 5, w: 5, h: 4, label: "Hall & Stairs", dim: "5 × 4", fill: "#dfd0aa" },
+    { x: 0, y: 0, w: 6, h: 5, label: "Dining Room", dim: "6 × 5", fill: "#e9dcbb" },
+    { x: 0, y: 5, w: 6, h: 6, label: "Living Room", dim: "6 × 6", fill: "#ecdfbf" },
+    { x: 6, y: 0, w: 3, h: 11, label: "Hall", dim: "3 × 11", fill: "#dfd0aa" },
+    { x: 9, y: 0, w: 6, h: 5, label: "Kitchen", dim: "6 × 5", fill: "#e5d6b2" },
+    { x: 9, y: 5, w: 6, h: 6, label: "Study", dim: "6 × 6", fill: "#e3d6bd" },
   ],
   doors: [
-    { x: 2, y: 9, axis: "h", len: 1.6, dir: -1, hinge: 0 },     // front entrance → living room
-    { x: 7, y: 1.6, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // living ↔ kitchen
-    { x: 7, y: 6.0, axis: "v", len: 1.4, dir: -1, hinge: 1 },   // living ↔ hall
-    { x: 9.8, y: 9, axis: "h", len: 1.2, dir: -1, hinge: 0 },   // back door from hall
+    { x: 6.9, y: 11, axis: "h", len: 1.3, dir: -1, hinge: 0 },  // front entrance → hall
+    { x: 6, y: 7.0, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // hall ↔ living
+    { x: 6, y: 1.6, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // hall ↔ dining
+    { x: 2.0, y: 5, axis: "h", len: 1.4, dir: 1, hinge: 0 },    // living ↔ dining
+    { x: 9, y: 1.6, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // hall ↔ kitchen
+    { x: 9, y: 7.0, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // hall ↔ study
+    { x: 11.0, y: 5, axis: "h", len: 1.4, dir: 1, hinge: 0 },   // kitchen ↔ study
+    { x: 11.4, y: 0, axis: "h", len: 1.2, dir: 1, hinge: 0 },   // back door → kitchen
   ],
   windows: [
-    { x: 0, y: 2.0, axis: "v", len: 1.2 }, { x: 0, y: 5.6, axis: "v", len: 1.2 }, // living west
-    { x: 4.3, y: 9, axis: "h", len: 1.3 },                                        // living front
-    { x: 8.5, y: 0, axis: "h", len: 1.3 },                                        // kitchen back
-    { x: 12, y: 1.6, axis: "v", len: 1.3 },                                       // kitchen east
-    { x: 12, y: 6.2, axis: "v", len: 1.2 },                                       // hall east
+    { x: 0, y: 1.6, axis: "v", len: 1.3 }, { x: 2.0, y: 0, axis: "h", len: 1.3 },  // dining
+    { x: 0, y: 7.2, axis: "v", len: 1.3 }, { x: 2.0, y: 11, axis: "h", len: 1.3 }, // living
+    { x: 15, y: 1.6, axis: "v", len: 1.3 }, { x: 9.8, y: 0, axis: "h", len: 1.3 }, // kitchen
+    { x: 15, y: 7.2, axis: "v", len: 1.3 }, { x: 11.2, y: 11, axis: "h", len: 1.3 }, // study
   ],
-  stairs: [{ x: 8, y: 6, w: 3.4, h: 1.6, flow: "+x", label: "UP · cellar below" }],
+  stairs: [{ x: 6.4, y: 0.6, w: 2.2, h: 3.6, flow: "+y", label: "UP · cellar below" }],
   furniture: [
-    { t: "hearth", x: 2.5, y: 0.1, w: 2 },
-    { t: "sofa", x: 0.35, y: 4, w: 2.4, h: 0.95 },
-    { t: "table", x: 3.2, y: 4.2, w: 2.2, h: 1.5 },
-    { t: "chest", x: 0.4, y: 7.6 }, { t: "chest", x: 1.6, y: 7.6 },
-    { t: "stove", x: 7.4, y: 0.3 },
-    { t: "counter", x: 8.6, y: 0.3, w: 3.1, h: 0.8 },
-    { t: "counter", x: 11.0, y: 1.3, w: 0.8, h: 3.0 },
-    { t: "table", x: 8.3, y: 2.6, w: 1.9, h: 1.5 },
+    { t: "table", x: 1.8, y: 1.4, w: 2.6, h: 2.2 },
+    { t: "hearth", x: 3.7, y: 5.15, w: 2 },
+    { t: "sofa", x: 0.4, y: 9.5, w: 2.6, h: 0.95 }, { t: "chest", x: 4.7, y: 9.6 },
+    { t: "stove", x: 9.4, y: 0.3 }, { t: "counter", x: 10.6, y: 0.3, w: 4.0, h: 0.8 }, { t: "counter", x: 14.1, y: 1.2, w: 0.8, h: 3.2 },
+    { t: "table", x: 12.4, y: 6.0, w: 2, h: 1.5 }, { t: "shelf", x: 9.2, y: 5.5, w: 0.8, h: 4.8 },
   ],
 });
 
 const first = drawPlan({
-  W: 12, H: 9, name: "First Floor", sub: "TWO BEDROOMS · LANDING", tint: "#e3d9c0",
-  walls: [{ x1: 7, y1: 0, x2: 7, y2: 9 }, { x1: 7, y1: 5, x2: 12, y2: 5 }],
+  W: 15, H: 11, name: "First Floor", sub: "MASTER + ENSUITE · TWO BEDROOMS · LANDING", tint: "#e3d9c0",
+  walls: [
+    { x1: 6, y1: 0, x2: 6, y2: 11 }, { x1: 9, y1: 0, x2: 9, y2: 11 },
+    { x1: 0, y1: 3, x2: 6, y2: 3 }, { x1: 9, y1: 5, x2: 15, y2: 5 },
+  ],
   rooms: [
-    { x: 0, y: 0, w: 7, h: 9, label: "Bedroom 1", dim: "7 × 9", fill: "#e8ddc4" },
-    { x: 7, y: 0, w: 5, h: 5, label: "Bedroom 2", dim: "5 × 5", fill: "#e2d6bc" },
-    { x: 7, y: 5, w: 5, h: 4, label: "Landing", dim: "5 × 4", fill: "#dccfaf" },
+    { x: 0, y: 0, w: 6, h: 3, label: "Ensuite", dim: "6 × 3", fill: "#dde3da" },
+    { x: 0, y: 3, w: 6, h: 8, label: "Master Bedroom", dim: "6 × 8", fill: "#e8ddc4" },
+    { x: 6, y: 0, w: 3, h: 11, label: "Landing", dim: "3 × 11", fill: "#dccfaf" },
+    { x: 9, y: 0, w: 6, h: 5, label: "Bedroom 2", dim: "6 × 5", fill: "#e2d6bc" },
+    { x: 9, y: 5, w: 6, h: 6, label: "Bedroom 3", dim: "6 × 6", fill: "#e5d8bf" },
   ],
   doors: [
-    { x: 7, y: 6.0, axis: "v", len: 1.4, dir: -1, hinge: 1 },   // landing ↔ bedroom 1
-    { x: 8.6, y: 5, axis: "h", len: 1.4, dir: -1, hinge: 0 },   // landing ↔ bedroom 2
+    { x: 6, y: 7.0, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // landing ↔ master
+    { x: 2.0, y: 3, axis: "h", len: 1.3, dir: -1, hinge: 0 },   // master ↔ ensuite
+    { x: 9, y: 1.6, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // landing ↔ bedroom 2
+    { x: 9, y: 7.0, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // landing ↔ bedroom 3
   ],
   windows: [
-    { x: 0, y: 2.0, axis: "v", len: 1.2 }, { x: 0, y: 5.6, axis: "v", len: 1.2 }, // bd1 west
-    { x: 2.8, y: 9, axis: "h", len: 1.3 },                                        // bd1 front
-    { x: 8.5, y: 0, axis: "h", len: 1.3 },                                        // bd2 back
-    { x: 12, y: 1.6, axis: "v", len: 1.3 },                                       // bd2 east
-    { x: 12, y: 6.2, axis: "v", len: 1.2 },                                       // landing east
+    { x: 0, y: 5.0, axis: "v", len: 1.3 }, { x: 0, y: 8.4, axis: "v", len: 1.3 }, { x: 2.0, y: 11, axis: "h", len: 1.3 }, // master
+    { x: 2.0, y: 0, axis: "h", len: 1.3 },                                          // ensuite
+    { x: 15, y: 1.6, axis: "v", len: 1.3 }, { x: 9.8, y: 0, axis: "h", len: 1.3 },  // bedroom 2
+    { x: 15, y: 7.2, axis: "v", len: 1.3 }, { x: 11.2, y: 11, axis: "h", len: 1.3 }, // bedroom 3
   ],
-  stairs: [{ x: 8, y: 6, w: 3.4, h: 1.6, flow: "-x", label: "DOWN" }],
+  stairs: [{ x: 6.4, y: 0.6, w: 2.2, h: 3.6, flow: "+y", label: "DOWN" }],
   furniture: [
-    { t: "bed", x: 0.5, y: 0.5, w: 2.4, h: 3 },
-    { t: "wardrobe", x: 5, y: 0.4, w: 1.8, h: 0.8 },
-    { t: "chest", x: 0.5, y: 7.7 },
-    { t: "bed", x: 7.5, y: 0.5, w: 2.2, h: 2.6 },
-    { t: "wardrobe", x: 10, y: 3.7, w: 1.6, h: 0.8 },
+    { t: "bed", x: 0.5, y: 3.6, w: 2.8, h: 3.2 }, { t: "wardrobe", x: 4.0, y: 3.5, w: 1.6, h: 0.8 }, { t: "chest", x: 0.5, y: 9.5 },
+    { t: "barrel", x: 0.6, y: 0.6 }, { t: "barrel", x: 1.7, y: 0.6 },
+    { t: "bed", x: 9.5, y: 0.5, w: 2.4, h: 2.8 }, { t: "wardrobe", x: 13.0, y: 0.5, w: 1.6, h: 0.8 },
+    { t: "bed", x: 9.5, y: 5.6, w: 2.4, h: 2.8 }, { t: "wardrobe", x: 13.0, y: 5.5, w: 1.6, h: 0.8 },
   ],
 });
 
 const cellar = drawPlan({
-  W: 8, H: 7, name: "Cellar", sub: "COLD STORE · UNDER THE HALL", tint: "#cfc6b4",
-  walls: [],
-  rooms: [{ x: 0, y: 0, w: 8, h: 7, label: "Cold Store", dim: "8 × 7", fill: "#c8bfa9" }],
-  doors: [],
+  W: 10, H: 8, name: "Cellar", sub: "COLD STORE · STORE ROOM · UNDER THE HALL", tint: "#cfc6b4",
+  walls: [{ x1: 5, y1: 0, x2: 5, y2: 8 }],
+  rooms: [
+    { x: 0, y: 0, w: 5, h: 8, label: "Cold Store", dim: "5 × 8", fill: "#c8bfa9" },
+    { x: 5, y: 0, w: 5, h: 8, label: "Store Room", dim: "5 × 8", fill: "#cdc4ae" },
+  ],
+  doors: [{ x: 5, y: 3.3, axis: "v", len: 1.4, dir: -1, hinge: 0 }], // cold store ↔ store room
   windows: [],
-  stairs: [{ x: 5, y: 0.6, w: 2.4, h: 1.5, flow: "-x", label: "UP · to hall" }],
+  stairs: [{ x: 6.4, y: 0.6, w: 2.4, h: 1.6, flow: "+y", label: "UP · to hall" }],
   furniture: [
-    { t: "shelf", x: 0.3, y: 0.3, w: 0.8, h: 6.4, label: "vessels" },
-    { t: "shelf", x: 6.9, y: 3.0, w: 0.8, h: 3.4, label: "" },
-    { t: "shelf", x: 1.4, y: 6.0, w: 5.2, h: 0.8, label: "crocks" },
-    { t: "barrel", x: 1.4, y: 0.6 }, { t: "barrel", x: 2.4, y: 0.6 }, { t: "barrel", x: 3.4, y: 0.6 },
-    { t: "chest", x: 1.5, y: 2.4 }, { t: "chest", x: 2.7, y: 2.4 },
+    { t: "shelf", x: 0.3, y: 0.3, w: 0.8, h: 7.4 }, { t: "shelf", x: 1.3, y: 6.9, w: 3.4, h: 0.8 },
+    { t: "barrel", x: 1.4, y: 0.6 }, { t: "barrel", x: 2.5, y: 0.6 }, { t: "barrel", x: 3.6, y: 0.6 },
+    { t: "shelf", x: 8.9, y: 3.2, w: 0.8, h: 4.5 },
+    { t: "chest", x: 5.4, y: 3.6 }, { t: "chest", x: 6.6, y: 3.6 },
+    { t: "barrel", x: 5.4, y: 6.4 }, { t: "barrel", x: 6.5, y: 6.4 }, { t: "barrel", x: 7.6, y: 6.4 },
   ],
 });
 
@@ -312,12 +325,12 @@ const html = `<!DOCTYPE html>
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · Floor plans</p>
       <h1>House Floor Plans</h1>
-      <p class="lede">A clean, top-down plan of a real two-bedroom house, level by level: a <strong>cellar</strong> cold store below, a <strong>ground floor</strong> where the entrance opens into the living room with the kitchen to the right, and a <strong>first floor</strong> with two bedrooms off a central landing. One staircase in the hall serves both the cellar and upstairs. Every room is labelled with its size; doors show their swing, windows sit in the walls, and the furniture marks how each room is used.</p>
+      <p class="lede">A clean, top-down plan of a proper family house, level by level. The <strong>ground floor</strong> runs off a central entrance hall: dining room and living room on the left, kitchen and study on the right. <strong>Upstairs</strong> are three bedrooms — a master with its own ensuite — off the landing. <strong>Below</strong>, a two-room cellar: a cold store and a general store room. One staircase in the hall serves the cellar and the upstairs. Every room is labelled with its size; doors show their swing and windows sit in the walls.</p>
       <div class="badges">
-        <span class="badge accent">3 levels</span>
-        <span class="badge">Living · kitchen · 2 beds · cellar</span>
-        <span class="badge">Labelled rooms &amp; sizes</span>
-        <span class="badge accent">📐 Doors · windows · stairs</span>
+        <span class="badge accent">3 levels · 9 rooms</span>
+        <span class="badge">Dining · living · kitchen · study</span>
+        <span class="badge">3 bedrooms + ensuite</span>
+        <span class="badge accent">📐 Two-room cellar</span>
       </div>
       <p class="legend-key">
         <span><i></i> wall</span>
@@ -329,22 +342,22 @@ const html = `<!DOCTYPE html>
 
     <section class="doc" id="ground">
       <p class="sec-index">01 — Ground floor</p>
-      <h2>Entrance, living room &amp; kitchen</h2>
-      <p class="lead">The front door opens straight into the <strong>living room</strong> — a hearth, seating and a table — with windows down the west wall. A door on the right leads to the <strong>kitchen</strong> (stove and counters along the back and side) and to the <strong>hall</strong>, which holds the staircase up and the steps down to the cellar. A back door opens off the hall.</p>
+      <h2>Hall, dining, living, kitchen &amp; study</h2>
+      <p class="lead">The front door opens into a central <strong>hall</strong> that holds the staircase. To the left, a <strong>dining room</strong> at the back and a <strong>living room</strong> at the front (hearth and seating), linked by their own door. To the right, the <strong>kitchen</strong> (stove and counters, with a back door) and a <strong>study</strong> at the front. Doors off the hall reach every room.</p>
       <div class="plan-grid"><div class="plan">${ground}</div></div>
     </section>
 
     <section class="doc" id="first">
       <p class="sec-index">02 — First floor</p>
-      <h2>Two bedrooms off the landing</h2>
-      <p class="lead">The stair lands on a central <strong>landing</strong>, with a door each side. <strong>Bedroom 1</strong> sits over the living room — the larger room, bed and wardrobe, windows west and front. <strong>Bedroom 2</strong> is over the kitchen, with windows to the back and east.</p>
+      <h2>Three bedrooms off the landing</h2>
+      <p class="lead">The stair lands on a central <strong>landing</strong>. The <strong>master bedroom</strong> runs down the left with its own <strong>ensuite</strong> at the back; <strong>bedroom 2</strong> and <strong>bedroom 3</strong> sit on the right, one over the kitchen and one over the study. Each has a bed, a wardrobe and windows on two sides.</p>
       <div class="plan-grid"><div class="plan">${first}</div></div>
     </section>
 
     <section class="doc" id="cellar">
       <p class="sec-index">03 — Cellar</p>
-      <h2>The cold store</h2>
-      <p class="lead">Dug under the hall and reached by the same staircase, the <strong>cellar</strong> is a single stone-walled cold store. Line the walls with shelving for storage vessels and sealed crocks, and keep barrels for bulk. Cool, dark and fully enclosed keeps food longest — no skylight.</p>
+      <h2>Cold store &amp; store room</h2>
+      <p class="lead">Dug under the hall and reached by the same staircase, the cellar is split in two: a <strong>cold store</strong> lined with shelving for storage vessels and sealed crocks, and a general <strong>store room</strong> for barrels and chests. Keep it cool, dark and fully enclosed — no skylight — and food lasts longest.</p>
       <div class="plan-grid"><div class="plan">${cellar}</div></div>
     </section>
 
