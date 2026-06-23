@@ -163,28 +163,31 @@ def main():
                                     "value": num(v['avg'] * MEAT_MULT)})
     write('meat.json', ops)
 
-    # ---- 5. crops ---------------------------------------------------------
-    ops = []
-    for fp in sorted(glob.glob(os.path.join(A, 'blocktypes/plant/crop/*.json'))):
-        rel = os.path.relpath(fp, A)
-        if os.path.basename(fp) == 'dead.json': continue
-        try: d = load(fp)
-        except Exception: continue
-        db = d.get('dropsByType')
-        if not db: continue
-        # ripe stage = key '*-N' with the largest N
-        staged = [(int(k.split('-')[-1]), k) for k in db if re.fullmatch(r'\*-\d+', k)]
-        if not staged: continue
-        _, ripe = max(staged)
-        for i, drop in enumerate(db[ripe]):
-            c = drop.get('code', '')
-            if 'seeds' in c: continue            # leave replant seeds alone
-            q = drop.get('quantity', {})
-            if 'avg' in q:
-                ops.append({"op": "replace", "file": f"game:{rel}",
-                            "path": f"/dropsByType/{esc(ripe)}/{i}/quantity/avg",
-                            "value": num(q['avg'] * CROP_MULT)})
-    write('crops.json', ops)
+    # ---- 5. crops (DISABLED) ---------------------------------------------
+    # Crop yield changes were intentionally removed from this mod. Logic kept
+    # for reference; flip ENABLE_CROPS to re-enable.
+    ENABLE_CROPS = False
+    if ENABLE_CROPS:
+        ops = []
+        for fp in sorted(glob.glob(os.path.join(A, 'blocktypes/plant/crop/*.json'))):
+            rel = os.path.relpath(fp, A).replace('\\', '/')
+            if os.path.basename(fp) == 'dead.json': continue
+            try: d = load(fp)
+            except Exception: continue
+            db = d.get('dropsByType')
+            if not db: continue
+            staged = [(int(k.split('-')[-1]), k) for k in db if re.fullmatch(r'\*-\d+', k)]
+            if not staged: continue
+            _, ripe = max(staged)
+            for i, drop in enumerate(db[ripe]):
+                c = drop.get('code', '')
+                if 'seeds' in c: continue
+                q = drop.get('quantity', {})
+                if 'avg' in q:
+                    ops.append({"op": "replace", "file": f"game:{rel}",
+                                "path": f"/dropsByType/{esc(ripe)}/{i}/quantity/avg",
+                                "value": num(q['avg'] * CROP_MULT)})
+        write('crops.json', ops)
 
     # ---- 6. armor durability ---------------------------------------------
     ops = []
