@@ -893,10 +893,145 @@ const LAYOUTS = [
     doors: [{ x: 2.5, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.2, dir: 1 }, { x: 6, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 8, y: 4, axis: "h", len: 1.2, dir: -1 }],
     windows: [{ x: 0, y: 4, axis: "v", len: 1.4 }, { x: 4, y: 0, axis: "h", len: 1.4 }, { x: 4, y: 8, axis: "h", len: 1.4 }, { x: 10, y: 5.5, axis: "v", len: 1.4 }, { x: 8, y: 0, axis: "h", len: 1.3 }],
     stairs: [{ x: 6.4, y: 4.4, w: 2.2, h: 1.8, flow: "+x", label: "↓ cellar" }] },
+
+  // ---- VILLAGE TRADES & PUBLIC BUILDINGS -----------------------------------
+  { name: "The Bakehouse", sub: "10×7 · OVEN · SHOP · STORE",
+    blurb: "A baker's: a hot room with the wood oven and the kneading benches, a flour store, and a little shop with a counter onto the street.",
+    W: 10, H: 7,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 7 }, { x1: 7, y1: 4, x2: 10, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 7, label: "Bakehouse", dim: "oven · bench" }, { x: 7, y: 0, w: 3, h: 4, label: "Flour Store", dim: "" }, { x: 7, y: 4, w: 3, h: 3, label: "Shop", dim: "counter" }],
+    doors: [{ x: 8.3, y: 7, axis: "h", len: 1.2, dir: -1 }, { x: 7, y: 5.5, axis: "v", len: 1.2, dir: 1 }, { x: 7, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 2, y: 7, axis: "h", len: 1.4, dir: -1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.3 }, { x: 0, y: 5, axis: "v", len: 1.3 }, { x: 4, y: 0, axis: "h", len: 1.3 }, { x: 10, y: 5.5, axis: "v", len: 1.3 }, { x: 10, y: 2, axis: "v", len: 1.2 }],
+    stairs: [{ x: 4.8, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Brewhouse", sub: "11×8 · MASH · BOIL · BEER CELLAR",
+    blurb: "A brewery: a mash room, a boil room with the copper, a malt store, and a stair down to the cool beer cellar where the barrels rest.",
+    W: 11, H: 8,
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 8 }, { x1: 8, y1: 0, x2: 8, y2: 8 }, { x1: 8, y1: 4, x2: 11, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 8, label: "Mash Room", dim: "5 × 8" }, { x: 5, y: 0, w: 3, h: 8, label: "Boil Room", dim: "copper" }, { x: 8, y: 0, w: 3, h: 4, label: "Malt Store", dim: "" }, { x: 8, y: 4, w: 3, h: 4, label: "Hall", dim: "+ stairs" }],
+    doors: [{ x: 9.3, y: 8, axis: "h", len: 1.2, dir: -1 }, { x: 8, y: 5.5, axis: "v", len: 1.2, dir: -1 }, { x: 8, y: 2, axis: "v", len: 1.2, dir: -1 }, { x: 5, y: 4, axis: "v", len: 1.3, dir: -1 }, { x: 6, y: 8, axis: "h", len: 1.3, dir: -1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.3 }, { x: 0, y: 5.5, axis: "v", len: 1.3 }, { x: 2.5, y: 0, axis: "h", len: 1.3 }, { x: 6.5, y: 0, axis: "h", len: 1.2 }, { x: 11, y: 2, axis: "v", len: 1.2 }, { x: 11, y: 5.5, axis: "v", len: 1.3 }],
+    stairs: [{ x: 9, y: 4.4, w: 1.8, h: 1.6, flow: "+x", label: "↓ beer cellar" }] },
+
+  { name: "The Pottery", sub: "12×8 · WHEELS · DRYING · ROUND KILN",
+    blurb: "A potter's: a light workshop for the wheels, a drying and store room, and a tall round kiln at the end for the firing.",
+    outline: [[0, 0], [9, 0], [10.5, 1.5], [11.5, 4], [10.5, 6.5], [9, 8], [0, 8]],
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 9, y1: 0, x2: 9, y2: 8 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 8, label: "Workshop", dim: "wheels" }, { x: 6, y: 0, w: 3, h: 8, label: "Drying", dim: "& store" }, { x: 9, y: 0, w: 3.5, h: 8, label: "Kiln", dim: "firing" }],
+    doors: [{ x: 2.5, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 4, axis: "v", len: 1.3, dir: 1 }, { x: 9, y: 4, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 0, y: 5.5, axis: "v", len: 1.4 }, { x: 3, y: 0, axis: "h", len: 1.4 }, { x: 3, y: 8, axis: "h", len: 1.4 }, { x: 7.5, y: 0, axis: "h", len: 1.2 }],
+    stairs: [{ x: 4, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↓ clay store" }] },
+
+  { name: "The Bath House", sub: "14×8 · COLD · WARM · HOT · FURNACE",
+    blurb: "A Roman sequence: undress, then cold, warm and hot rooms in a row over a hypocaust, with the furnace stoked from the far end.",
+    W: 14, H: 8,
+    walls: [{ x1: 3, y1: 0, x2: 3, y2: 8 }, { x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 9, y1: 0, x2: 9, y2: 8 }, { x1: 12, y1: 0, x2: 12, y2: 8 }],
+    rooms: [{ x: 0, y: 0, w: 3, h: 8, label: "Changing", dim: "" }, { x: 3, y: 0, w: 3, h: 8, label: "Cold Room", dim: "plunge" }, { x: 6, y: 0, w: 3, h: 8, label: "Warm Room", dim: "" }, { x: 9, y: 0, w: 3, h: 8, label: "Hot Room", dim: "bath" }, { x: 12, y: 0, w: 2, h: 8, label: "Furnace", dim: "" }],
+    doors: [{ x: 1.3, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 3, y: 4, axis: "v", len: 1.2, dir: 1 }, { x: 6, y: 4, axis: "v", len: 1.2, dir: 1 }, { x: 9, y: 4, axis: "v", len: 1.2, dir: 1 }, { x: 12, y: 2, axis: "v", len: 1.0, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.3 }, { x: 1.5, y: 0, axis: "h", len: 1.2 }, { x: 4.5, y: 0, axis: "h", len: 1.0 }, { x: 7.5, y: 8, axis: "h", len: 1.0 }, { x: 14, y: 5.5, axis: "v", len: 1.0 }],
+    stairs: [{ x: 0.5, y: 0.4, w: 1.6, h: 1.6, flow: "+x", label: "↓ hypocaust" }] },
+
+  { name: "The Schoolhouse", sub: "12×9 · SCHOOLROOM · PORCH · MASTER",
+    blurb: "One big schoolroom lit from both sides, entered through a porch, with a cloakroom and the master's own room off the end.",
+    outline: [[0, 0], [12, 0], [12, 9], [7, 9], [7, 10.5], [5, 10.5], [5, 9], [0, 9]],
+    walls: [{ x1: 8, y1: 0, x2: 8, y2: 9 }, { x1: 8, y1: 4, x2: 12, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 8, h: 9, label: "Schoolroom", dim: "8 × 9" }, { x: 8, y: 0, w: 4, h: 4, label: "Cloakroom", dim: "" }, { x: 8, y: 4, w: 4, h: 5, label: "Master's Room", dim: "" }],
+    doors: [{ x: 5.8, y: 10.5, axis: "h", len: 1.3, dir: -1 }, { x: 8, y: 6, axis: "v", len: 1.3, dir: 1 }, { x: 8, y: 2, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.4 }, { x: 0, y: 4.5, axis: "v", len: 1.4 }, { x: 0, y: 7, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 5.5, y: 0, axis: "h", len: 1.4 }, { x: 12, y: 2, axis: "v", len: 1.3 }, { x: 12, y: 6.5, axis: "v", len: 1.4 }, { x: 9.5, y: 9, axis: "h", len: 1.3 }],
+    stairs: [{ x: 0.4, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Market Hall", sub: "12×9 · OPEN BELOW · GUILDROOM OVER",
+    blurb: "Open arcaded ground for the market stalls, on stone pillars, with a corner stair up to the closed guildroom above.",
+    W: 12, H: 9,
+    walls: [{ x1: 3, y1: 3, x2: 3, y2: 3.6 }, { x1: 6, y1: 3, x2: 6, y2: 3.6 }, { x1: 9, y1: 3, x2: 9, y2: 3.6 }, { x1: 3, y1: 6, x2: 3, y2: 6.6 }, { x1: 6, y1: 6, x2: 6, y2: 6.6 }, { x1: 9, y1: 6, x2: 9, y2: 6.6 }],
+    rooms: [{ x: 0, y: 0, w: 12, h: 9, label: "Market Floor", dim: "open · pillared" }],
+    doors: [{ x: 5, y: 9, axis: "h", len: 2.2, dir: -1 }, { x: 0, y: 4, axis: "v", len: 2.0, dir: 1 }, { x: 12, y: 4, axis: "v", len: 2.0, dir: -1 }, { x: 5, y: 0, axis: "h", len: 2.2, dir: 1 }],
+    windows: [],
+    stairs: [{ x: 0.4, y: 0.4, w: 2.0, h: 2.0, flow: "+x", label: "↑ guildroom" }] },
+
+  { name: "The Shop House", sub: "8×10 · SHOPFRONT · LIVING BEHIND",
+    blurb: "A trader's home: a shop with a wide window onto the street, a parlour and kitchen behind, and a stair to the living rooms and cellar.",
+    W: 8, H: 10,
+    walls: [{ x1: 0, y1: 6, x2: 8, y2: 6 }, { x1: 4, y1: 0, x2: 4, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 4, h: 6, label: "Parlour", dim: "4 × 6" }, { x: 4, y: 0, w: 4, h: 6, label: "Kitchen", dim: "4 × 6" }, { x: 0, y: 6, w: 8, h: 4, label: "Shop", dim: "counter" }],
+    doors: [{ x: 1.5, y: 10, axis: "h", len: 1.3, dir: -1 }, { x: 1.5, y: 6, axis: "h", len: 1.2, dir: 1 }, { x: 6, y: 6, axis: "h", len: 1.2, dir: 1 }, { x: 4, y: 3, axis: "v", len: 1.2, dir: -1 }],
+    windows: [{ x: 5, y: 10, axis: "h", len: 1.8 }, { x: 0, y: 8, axis: "v", len: 1.3 }, { x: 8, y: 8, axis: "v", len: 1.3 }, { x: 0, y: 2.5, axis: "v", len: 1.3 }, { x: 8, y: 2.5, axis: "v", len: 1.3 }, { x: 2, y: 0, axis: "h", len: 1.3 }, { x: 6, y: 0, axis: "h", len: 1.3 }],
+    stairs: [{ x: 6.0, y: 6.2, w: 1.8, h: 1.6, flow: "+x", label: "↑ living · ↓ cellar" }] },
+
+  // ---- BARNS & STORES -------------------------------------------------------
+  { name: "The Tithe Barn", sub: "16×10 · AISLED · CART PORCHES",
+    blurb: "A great aisled barn: a tall central nave between two rows of posts, with cart porches front and back to drive a wagon straight through.",
+    W: 16, H: 10,
+    walls: [{ x1: 4, y1: 1.5, x2: 4, y2: 2.5 }, { x1: 4, y1: 4.5, x2: 4, y2: 5.5 }, { x1: 4, y1: 7.5, x2: 4, y2: 8.5 }, { x1: 12, y1: 1.5, x2: 12, y2: 2.5 }, { x1: 12, y1: 4.5, x2: 12, y2: 5.5 }, { x1: 12, y1: 7.5, x2: 12, y2: 8.5 }],
+    rooms: [{ x: 0, y: 0, w: 16, h: 10, label: "Threshing Barn", dim: "aisled" }],
+    doors: [{ x: 6.9, y: 10, axis: "h", len: 2.2, dir: -1 }, { x: 6.9, y: 0, axis: "h", len: 2.2, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 0.8 }, { x: 0, y: 5, axis: "v", len: 0.8 }, { x: 0, y: 7.5, axis: "v", len: 0.8 }, { x: 16, y: 2.5, axis: "v", len: 0.8 }, { x: 16, y: 5, axis: "v", len: 0.8 }, { x: 16, y: 7.5, axis: "v", len: 0.8 }],
+    stairs: [{ x: 0.4, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↓ undercroft" }] },
+
+  { name: "The Dovecote", sub: "7×7 · NEST TIERS · CENTRAL LADDER",
+    blurb: "A pigeon house: a small square tower lined inside with nest boxes, a central revolving ladder to reach them, and flight holes high in the walls.",
+    W: 7, H: 7,
+    walls: [],
+    rooms: [{ x: 0, y: 0, w: 7, h: 7, label: "Dovecote", dim: "nest tiers" }],
+    doors: [{ x: 3, y: 7, axis: "h", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 0.6 }, { x: 7, y: 3, axis: "v", len: 0.6 }, { x: 3, y: 0, axis: "h", len: 0.6 }],
+    stairs: [{ x: 2.8, y: 2.8, w: 1.4, h: 1.4, flow: "+x", label: "↑ tiers" }] },
+
+  { name: "The Windmill", sub: "9Ø · ROUND TOWER · SACK HOIST",
+    blurb: "A round tower mill: the millstones on the round stone floor, a sack hoist up the centre and a stair winding to the cap and sails above.",
+    outline: circle(4.5, 4.5, 4.2, 22),
+    walls: [],
+    rooms: [{ x: 0.3, y: 0.3, w: 8.4, h: 8.4, label: "Mill Floor", dim: "stones · hoist" }],
+    doors: [{ x: 3.8, y: 8.7, axis: "h", len: 1.3, dir: -1 }],
+    windows: [{ x: 0.3, y: 4, axis: "v", len: 1.0 }, { x: 8.7, y: 4, axis: "v", len: 1.0 }, { x: 4, y: 0.3, axis: "h", len: 1.0 }],
+    stairs: [{ x: 3.5, y: 3.5, w: 2.0, h: 1.8, flow: "+x", label: "↑ cap" }] },
+
+  { name: "The Granary", sub: "8×6 · RAISED ON STADDLES · DRY STORE",
+    blurb: "A grain store kept dry and rat-proof on staddle stones, reached by an external stair — one snug, sealed room for the year's seed and flour.",
+    W: 8, H: 6,
+    walls: [],
+    rooms: [{ x: 0, y: 0, w: 8, h: 6, label: "Granary", dim: "sealed store" }],
+    doors: [{ x: 3.4, y: 6, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 0.8 }, { x: 8, y: 3, axis: "v", len: 0.8 }, { x: 2, y: 0, axis: "h", len: 0.8 }, { x: 6, y: 0, axis: "h", len: 0.8 }],
+    stairs: [{ x: 4.4, y: 6.2, w: 2.0, h: 1.4, flow: "-y", label: "↑ external stair" }] },
+
+  { name: "The Counting House", sub: "10×8 · OFFICE · STRONGROOM · CLERKS",
+    blurb: "A merchant's office: a counting room, a clerks' room, a thick-walled strongroom for the strongbox, and a stair to the living rooms above.",
+    W: 10, H: 8,
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 0, y1: 4, x2: 6, y2: 4 }, { x1: 6, y1: 4, x2: 10, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 4, label: "Clerks' Room", dim: "" }, { x: 0, y: 4, w: 6, h: 4, label: "Counting Room", dim: "" }, { x: 6, y: 0, w: 4, h: 4, label: "Strongroom", dim: "vault" }, { x: 6, y: 4, w: 4, h: 4, label: "Hall", dim: "+ stairs" }],
+    doors: [{ x: 8, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.3, dir: -1 }, { x: 2, y: 4, axis: "h", len: 1.3, dir: 1 }, { x: 6, y: 2, axis: "v", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 1.3 }, { x: 0, y: 6, axis: "v", len: 1.3 }, { x: 2.5, y: 8, axis: "h", len: 1.4 }, { x: 3, y: 0, axis: "h", len: 1.3 }, { x: 10, y: 6, axis: "v", len: 1.3 }],
+    stairs: [{ x: 8, y: 4.4, w: 1.8, h: 1.6, flow: "+x", label: "↑ living" }] },
 ];
 
-const gallery = LAYOUTS.map((L) =>
-  `<figure class="planfig"><div class="plan">${drawPlan(L)}</div><figcaption>${esc(L.blurb)}</figcaption></figure>`).join("\n");
+const byName = Object.fromEntries(LAYOUTS.map((L) => [L.name, L]));
+const CATS = [
+  { id: "cottages", title: "Cottages & small homes", intro: "Starter homes and snug cottages — a night's roof, a croft, a weaver's place.",
+    names: ["The One-Room Cabin", "The Crofter's Cottage", "The Square Cottage", "The Porch Cottage", "The Cob Cottage", "The Three-Room Cottage", "The Shotgun", "The Terrace House", "The Weaver's Cottage", "The Saltbox", "The Pinwheel"] },
+  { id: "family", title: "Family homes", intro: "Room for a household — halls, wings and double-fronted plans to live in for good.",
+    names: ["The L-Cottage", "The Centre-Hall", "The Cross-Gable", "The Side-Wing Farmhouse", "The Long House", "The Dogtrot", "The Garrison", "The Villa", "The Bungalow", "The L-Bungalow", "The Hall House", "The Hall & Solar", "The Wealden Hall", "The Back-to-Back"] },
+  { id: "grand", title: "Grand houses & manors", intro: "When stone is cheap and the base is set: manors, courtyards and great halls.",
+    names: ["The Manor", "The E-Plan Manor", "The Long Gallery Manor", "The Quadrangle", "The Atrium House", "The Courtyard", "The H-Plan Hall", "The Cross-Plan", "The Apsidal Hall"] },
+  { id: "round", title: "Round, angular & towers", intro: "Geometry for show and defence — circles, an octagon, a wheel-house and stone towers.",
+    names: ["The Octagon", "The Hexagon", "The Roundhouse", "The Wheelhouse", "The Z-Plan Tower", "The Tower House", "The Windmill"] },
+  { id: "farm", title: "Farmsteads & homestead buildings", intro: "The working yard: byres and barns, stables, kilns, a watermill and stores.",
+    names: ["The Courtyard Farmstead", "The Longhouse & Byre", "The Bastle House", "The Stable Block", "The Oast House", "The Watermill", "The Granary", "The Dovecote", "The Tithe Barn", "The Boathouse"] },
+  { id: "village", title: "Village trades & public buildings", intro: "A whole village's worth — an inn, a smithy, a chapel, a school and the trades.",
+    names: ["The Gatehouse", "The Almshouse Row", "The Inn", "The Smithy & Cottage", "The Chapel", "The Bakehouse", "The Brewhouse", "The Pottery", "The Bath House", "The Schoolhouse", "The Market Hall", "The Shop House", "The Counting House"] },
+];
+const placed = new Set(CATS.flatMap((c) => c.names));
+for (const L of LAYOUTS) if (!placed.has(L.name)) console.warn("UNGROUPED:", L.name);
+
+const gallery = CATS.map((cat) => {
+  const cards = cat.names.map((n) => byName[n]).filter(Boolean)
+    .map((L) => `<figure class="planfig"><div class="plan">${drawPlan(L)}</div><figcaption>${esc(L.blurb)}</figcaption></figure>`).join("\n");
+  return `      <h3 class="cat-h" id="${cat.id}">${esc(cat.title)} <span class="cat-n">${cat.names.length}</span></h3>
+      <p class="cat-intro">${esc(cat.intro)}</p>
+      <div class="layouts">
+${cards}
+      </div>`;
+}).join("\n\n");
 
 /* =============================================================== THE PAGE == */
 const html = `<!DOCTYPE html>
@@ -919,6 +1054,9 @@ const html = `<!DOCTYPE html>
   .planfig .plan { background: #efe4c9; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
   .planfig .plan svg { width: 100%; height: auto; display: block; }
   .planfig figcaption { font-size: .82rem; color: var(--ink-dim); line-height: 1.5; margin: 9px 4px 0; }
+  .cat-h { font-family: var(--f-display); font-size: 1.4rem; color: var(--accent); margin: 40px 0 4px; padding-bottom: 8px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 11px; }
+  .cat-h .cat-n { font-family: var(--f-mono); font-size: .8rem; color: var(--ink-faint); }
+  .cat-intro { color: var(--ink-dim); font-size: .9rem; margin: 0 0 4px; }
   .legend-key { display: flex; flex-wrap: wrap; gap: 14px 22px; font-family: var(--f-mono); font-size: .72rem; color: var(--ink-dim); margin: 10px 0 0; }
   .legend-key span { display: inline-flex; align-items: center; gap: 7px; }
   .legend-key i { width: 22px; height: 0; border-top: 3px solid #3a2b18; display: inline-block; }
@@ -937,8 +1075,13 @@ const html = `<!DOCTYPE html>
     </div>
     <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
     <nav class="nav" data-nav>
-      <a href="#gallery"><span class="ix">01</span> The layouts</a>
-      <a href="#notes"><span class="ix">02</span> Reading a plan</a>
+      <a href="#cottages"><span class="ix">01</span> Cottages</a>
+      <a href="#family"><span class="ix">02</span> Family homes</a>
+      <a href="#grand"><span class="ix">03</span> Grand &amp; manors</a>
+      <a href="#round"><span class="ix">04</span> Round &amp; towers</a>
+      <a href="#farm"><span class="ix">05</span> Farmsteads</a>
+      <a href="#village"><span class="ix">06</span> Village &amp; trades</a>
+      <a href="#notes"><span class="ix">07</span> Reading a plan</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
       ${LAYOUTS.length} top-down house plans —<br>shapes, rooms, doors, windows<br>and stairs. For built examples see
@@ -967,12 +1110,10 @@ const html = `<!DOCTYPE html>
     </header>
 
     <section class="doc" id="gallery">
-      <p class="sec-index">01 — ${LAYOUTS.length} plans</p>
+      <p class="sec-index">01 — ${LAYOUTS.length} plans in ${CATS.length} groups</p>
       <h2>The layouts</h2>
-      <p class="lead">Sizes are in blocks; the front door is on the lower edge of each plan and the staircase runs down to a cold cellar. Mix and match — borrow a wing from one, a porch from another.</p>
-      <div class="layouts">
+      <p class="lead">Grouped by kind, smallest first. Sizes are in blocks; the front door is on the lower edge of each plan and the staircase runs down to a cold cellar. Mix and match — borrow a wing from one, a porch from another.</p>
 ${gallery}
-      </div>
     </section>
 
     <section class="doc" id="notes">
