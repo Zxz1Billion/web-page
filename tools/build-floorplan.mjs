@@ -196,9 +196,9 @@ const ground = drawPlan({
   doors: [
     { x: 6.9, y: 11, axis: "h", len: 1.3, dir: -1, hinge: 0 },  // front entrance → hall
     { x: 6, y: 7.0, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // hall ↔ living
-    { x: 6, y: 1.6, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // hall ↔ dining
+    { x: 6, y: 3.7, axis: "v", len: 1.2, dir: -1, hinge: 0 },   // hall ↔ dining (clear of the stairs)
     { x: 2.0, y: 5, axis: "h", len: 1.4, dir: 1, hinge: 0 },    // living ↔ dining
-    { x: 9, y: 1.6, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // hall ↔ kitchen
+    { x: 9, y: 3.7, axis: "v", len: 1.2, dir: 1, hinge: 0 },    // hall ↔ kitchen (clear of the stairs)
     { x: 9, y: 7.0, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // hall ↔ study
     { x: 11.0, y: 5, axis: "h", len: 1.4, dir: 1, hinge: 0 },   // kitchen ↔ study
     { x: 11.4, y: 0, axis: "h", len: 1.2, dir: 1, hinge: 0 },   // back door → kitchen
@@ -209,7 +209,7 @@ const ground = drawPlan({
     { x: 15, y: 1.6, axis: "v", len: 1.3 }, { x: 9.8, y: 0, axis: "h", len: 1.3 }, // kitchen
     { x: 15, y: 7.2, axis: "v", len: 1.3 }, { x: 11.2, y: 11, axis: "h", len: 1.3 }, // study
   ],
-  stairs: [{ x: 6.4, y: 0.6, w: 2.2, h: 3.6, flow: "+y", label: "UP · cellar below" }],
+  stairs: [{ x: 6.3, y: 0.4, w: 2.4, h: 3.0, flow: "-y", label: "UP · cellar below" }],
   furniture: [
     { t: "table", x: 1.8, y: 1.4, w: 2.6, h: 2.2 },
     { t: "hearth", x: 3.7, y: 5.15, w: 2 },
@@ -235,7 +235,7 @@ const first = drawPlan({
   doors: [
     { x: 6, y: 7.0, axis: "v", len: 1.4, dir: -1, hinge: 0 },   // landing ↔ master
     { x: 2.0, y: 3, axis: "h", len: 1.3, dir: -1, hinge: 0 },   // master ↔ ensuite
-    { x: 9, y: 1.6, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // landing ↔ bedroom 2
+    { x: 9, y: 3.7, axis: "v", len: 1.2, dir: 1, hinge: 0 },    // landing ↔ bedroom 2 (clear of the stairs)
     { x: 9, y: 7.0, axis: "v", len: 1.4, dir: 1, hinge: 0 },    // landing ↔ bedroom 3
   ],
   windows: [
@@ -244,7 +244,7 @@ const first = drawPlan({
     { x: 15, y: 1.6, axis: "v", len: 1.3 }, { x: 9.8, y: 0, axis: "h", len: 1.3 },  // bedroom 2
     { x: 15, y: 7.2, axis: "v", len: 1.3 }, { x: 11.2, y: 11, axis: "h", len: 1.3 }, // bedroom 3
   ],
-  stairs: [{ x: 6.4, y: 0.6, w: 2.2, h: 3.6, flow: "+y", label: "DOWN" }],
+  stairs: [{ x: 6.3, y: 0.4, w: 2.4, h: 3.0, flow: "+y", label: "DOWN" }],
   furniture: [
     { t: "bed", x: 0.5, y: 3.6, w: 2.8, h: 3.2 }, { t: "wardrobe", x: 4.0, y: 3.5, w: 1.6, h: 0.8 }, { t: "chest", x: 0.5, y: 9.5 },
     { t: "barrel", x: 0.6, y: 0.6 }, { t: "barrel", x: 1.7, y: 0.6 },
