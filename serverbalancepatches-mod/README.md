@@ -20,10 +20,20 @@ burn, forge), so changes apply to already-explored chunks on restart.
 | 1 | Tree seed drops from leaves | **2×** drop chance (capped < 1.0) | `blocktypes/plant/leaves/{normal,branchy,narrow,bamboo}.json` | `treeseeds.json` |
 | 2 | Ore drops per block mined | **1.2×** (+20%, under +25% cap) | `blocktypes/stone/{ore-graded,ore-ungraded}.json` | `oredrops.json` |
 | 3 | Fuel burn duration | **2×** | `itemtypes/resource/{firewood,firewood-aged,charcoal}.json` | `fuel.json` |
-| 4 | Meat yields | **1.5×** | 24 land-animal entities (`entities/land/*`) | `meat.json` |
-| 5 | Crop yields | **1.5×** (+50%) | 15 crops (`blocktypes/plant/crop/*`) | `crops.json` |
-| 6 | Armor durability | **2×** | `itemtypes/wearable/armor.json` (50 variants) | `armor.json` |
-| 7 | Knife & spear-head forging output | **exactly 2** | `recipes/smithing/{knife,spear}.json` | `forgeyields.json` |
+| 4 | Meat yields | **1.5×** | 24 land-animal entities (`entities/land/*`) | `meat.json` ⚠ pending 1.22.3 re-extract |
+| 5 | Crop yields | **1.5×** (+50%) | 17 crops (`blocktypes/plant/crop/*`) | `crops.json` |
+| 6 | Armor durability | **2×** | `itemtypes/wearable/seraph/armor.json` (50 variants) | `armor.json` |
+| 7 | Knife forging output | **exactly 2** | `recipes/smithing/knife.json` | `forgeyields.json` (spear ⚠ pending) |
+
+> **1.22.3 verification status.** Values for fuel, leaves, ore, crops, and armor were
+> regenerated from a real 1.22.3 `assets/survival` extract and are exact. The extract found
+> two version changes vs. older data: **armor moved to `itemtypes/wearable/seraph/armor.json`**
+> (durability numbers unchanged) and **grains were rebalanced down** (rice/rye/spelt/sunflower/
+> amaranth/flax) — both corrected here. New crops **fennel** and **licorice** are included;
+> **bell pepper** is no longer a yielding crop. **Meat** (`entities/land/`) and the **spear-head
+> smithing recipe** were not present in the partial asset folder used, so those two are pending a
+> second extract — `meat.json` currently holds best-effort values and the spear patch is omitted
+> until its real recipe path is confirmed.
 
 ### Exact values
 
@@ -49,22 +59,24 @@ wild pig (`9→13.5`, piglet `1.5→2.25`), wolf (`7→10.5`, pup `2→3`), hyen
 fox/raccoon (`2→3`), hare (`2→3`), bear bushmeat by colour (`9–22 → 13.5–33`),
 chicken poultry (`1.25/1.75 → 1.875/2.625`). Hides/fat/feathers left vanilla.
 
-**5. Crops (`crops.json`)** — ripe-stage food `avg` ×1.5 (e.g. carrot `11→16.5`, onion `12→18`,
-cassava `16→24`, rice/sunflower `13→19.5`, rye `11→16.5`, spelt/parsnip `12→18`, flax grain `6→9`
-**and** flax fibers `8→12`, pineapple fruit `1→1.5`, etc.). Seeds left vanilla.
-Bell pepper is skipped — its block break yields only seeds (peppers are picked off the plant,
-not a block drop), so there is no meaningful "+50%" target there.
+**5. Crops (`crops.json`)** — ripe-stage food `avg` ×1.5, using **actual 1.22.3** baselines:
+vegetables carrot `11→16.5`, onion `12→18`, parsnip `12→18`, turnip `7→10.5`, cabbage `2→3`,
+cassava `16→24`, fennel `11→16.5`, peanut `10→15`, soybean `6→9`, pineapple fruit `1→1.5`,
+licorice spice `11→16.5`; grains (rebalanced down in 1.22) rice `6.5→9.75`, rye `5.5→8.25`,
+spelt `6→9`, sunflower `6.5→9.75`, amaranth `3→4.5`, flax grain `3→4.5` **and** flax fibers `4→6`.
+Seeds left vanilla. Bell pepper is no longer a yielding crop in 1.22.3, so it is not patched.
 
 **6. Armor (`armor.json`)** — every `durabilityByType` entry doubled (improvised/cloth/leather,
 lamellar, brigandine, chain, scale, plate across all metals, plus antique blackguard/forlorn).
 E.g. iron plate `2200 → 4400`, steel plate `5500 → 11000`, iron chain `800 → 1600`.
+File is `game:itemtypes/wearable/seraph/armor.json` (1.22.3 location).
 Mirrors the `/worldconfig toolDurability 2` setting used for tools.
 
-**7. Forging (`forgeyields.json`)** — adds `output.stacksize = 2` to the anvil smithing recipes
-that forge a **metal knife blade** and a **metal spear head** (`knifeblade-{metal}`,
-`spearhead-{metal}`). These are the "forge metal → blade/head" steps; the grid assembly recipes
-are untouched. One op each covers every metal variant (the recipe iterates metals via
-`output.code: "...-{metal}"`).
+**7. Forging (`forgeyields.json`)** — adds `output.stacksize = 2` to the anvil smithing recipe
+that forges a **metal knife blade** (`knifeblade-{metal}`); one op covers every metal variant
+(the recipe iterates metals via `output.code`). The grid assembly recipe is untouched.
+The **spear-head** recipe is **not** at `recipes/smithing/spear.json` in 1.22.3 (the forge
+rework moved/renamed it) — that patch is omitted until the real path is confirmed (see below).
 
 ## Install
 1. Drop `serverbalancepatches_v1.0.0.zip` into the server's `Mods/` folder.

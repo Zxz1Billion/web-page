@@ -1,301 +1,301 @@
 [
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-improvised-wood",
     "value": 150
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-jerkin-leather",
     "value": 500
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-sewn-leather",
     "value": 1400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-sewn-linen",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-tailored-*-linen",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-wood",
     "value": 400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-copper",
     "value": 900
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-tinbronze",
     "value": 1200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-bismuthbronze",
     "value": 1050
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-blackbronze",
     "value": 1350
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-iron",
     "value": 1600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-lamellar-steel",
     "value": 3200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-copper",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-tinbronze",
     "value": 2200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-bismuthbronze",
     "value": 2100
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-blackbronze",
     "value": 2400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-iron",
     "value": 2600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-meteoriciron",
     "value": 3000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-brigandine-steel",
     "value": 5200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-gold",
     "value": 1000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-copper",
     "value": 1200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-silver",
     "value": 1400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-tinbronze",
     "value": 1400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-bismuthbronze",
     "value": 1300
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-blackbronze",
     "value": 1500
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-iron",
     "value": 1600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-meteoriciron",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-chain-steel",
     "value": 4000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-copper",
     "value": 1600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-tinbronze",
     "value": 2400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-bismuthbronze",
     "value": 2300
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-blackbronze",
     "value": 2600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-iron",
     "value": 2800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-meteoriciron",
     "value": 3400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-scale-steel",
     "value": 7000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-gold",
     "value": 800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-silver",
     "value": 2000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-copper",
     "value": 1000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-tinbronze",
     "value": 2000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-bismuthbronze",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-blackbronze",
     "value": 2400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-iron",
     "value": 4400
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-meteoriciron",
     "value": 5600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-plate-steel",
     "value": 11000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-blackguard-pristine",
     "value": 3600
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-blackguard-damaged",
     "value": 1800
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-blackguard-broken",
     "value": 1200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-forlorn-pristine",
     "value": 3200
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-forlorn-damaged",
     "value": 2000
   },
   {
     "op": "replace",
-    "file": "game:itemtypes/wearable/armor.json",
+    "file": "game:itemtypes/wearable/seraph/armor.json",
     "path": "/durabilityByType/armor-*-antique-forlorn-broken",
     "value": 1000
   }
