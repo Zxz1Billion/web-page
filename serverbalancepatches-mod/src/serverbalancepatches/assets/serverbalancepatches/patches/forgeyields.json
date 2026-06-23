@@ -1,8 +1,8 @@
 [
-  {
-    "op": "add",
-    "file": "game:recipes/smithing/knife.json",
-    "path": "/output/stacksize",
-    "value": 2
-  }
+  { "op": "add", "file": "game:recipes/smithing/knife.json", "path": "/output/stacksize", "value": 2 },
+  { "op": "add", "file": "game:recipes/smithing/spear-copper.json", "path": "/output/stacksize", "value": 2 },
+  { "op": "add", "file": "game:recipes/smithing/spear-bronze.json", "path": "/output/stacksize", "value": 2 },
+  { "op": "add", "file": "game:recipes/smithing/spear-blackbronze.json", "path": "/output/stacksize", "value": 2 },
+  { "op": "add", "file": "game:recipes/smithing/spear-iron.json", "path": "/output/stacksize", "value": 2 },
+  { "op": "add", "file": "game:recipes/smithing/spear-meteoriciron.json", "path": "/output/stacksize", "value": 2 }
 ]
