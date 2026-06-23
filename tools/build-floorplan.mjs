@@ -1003,6 +1003,135 @@ const LAYOUTS = [
     doors: [{ x: 8, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.3, dir: -1 }, { x: 2, y: 4, axis: "h", len: 1.3, dir: 1 }, { x: 6, y: 2, axis: "v", len: 1.0, dir: -1 }],
     windows: [{ x: 0, y: 2, axis: "v", len: 1.3 }, { x: 0, y: 6, axis: "v", len: 1.3 }, { x: 2.5, y: 8, axis: "h", len: 1.4 }, { x: 3, y: 0, axis: "h", len: 1.3 }, { x: 10, y: 6, axis: "v", len: 1.3 }],
     stairs: [{ x: 8, y: 4.4, w: 1.8, h: 1.6, flow: "+x", label: "↑ living" }] },
+
+  // ---- DEFENCES & FORTIFICATIONS -------------------------------------------
+  { name: "The Keep", sub: "12×12 · GREAT TOWER · HALL · SOLAR · CHAPEL",
+    blurb: "A great square keep: the hall floor with a lord's solar, a chapel and a vice (spiral) stair, all behind walls thick enough to laugh at a battering-ram.",
+    W: 12, H: 12,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 12 }, { x1: 7, y1: 4, x2: 12, y2: 4 }, { x1: 7, y1: 8, x2: 12, y2: 8 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 12, label: "Great Hall", dim: "7 × 12" }, { x: 7, y: 0, w: 5, h: 4, label: "Solar", dim: "5 × 4" }, { x: 7, y: 4, w: 5, h: 4, label: "Stair", dim: "vice" }, { x: 7, y: 8, w: 5, h: 4, label: "Chapel", dim: "5 × 4" }],
+    doors: [{ x: 3, y: 12, axis: "h", len: 1.2, dir: -1 }, { x: 7, y: 2, axis: "v", len: 1.2, dir: 1 }, { x: 7, y: 6, axis: "v", len: 1.2, dir: 1 }, { x: 7, y: 10, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.0 }, { x: 0, y: 9, axis: "v", len: 1.0 }, { x: 3.5, y: 0, axis: "h", len: 1.0 }, { x: 12, y: 2, axis: "v", len: 1.0 }, { x: 12, y: 10, axis: "v", len: 1.0 }, { x: 9.5, y: 12, axis: "h", len: 1.0 }],
+    stairs: [{ x: 8, y: 5, w: 2.2, h: 2.0, flow: "+x", label: "↑ chambers · ↓ undercroft" }] },
+
+  { name: "The Gatehouse & Barbican", sub: "12×12 · TWIN GUARD ROOMS · FORECOURT",
+    blurb: "A castle gate: a vaulted passage with a portcullis between two guard rooms, and a walled barbican forecourt out front to trap attackers under fire.",
+    outline: [[0, 0], [12, 0], [12, 9], [9, 9], [9, 12], [3, 12], [3, 9], [0, 9]],
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 9 }, { x1: 7, y1: 0, x2: 7, y2: 9 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 9, label: "Guard Room", dim: "5 × 9" }, { x: 5, y: 0, w: 2, h: 9, label: "Gate Passage", dim: "portcullis" }, { x: 7, y: 0, w: 5, h: 9, label: "Guard Room", dim: "5 × 9" }, { x: 3, y: 9, w: 6, h: 3, label: "Barbican", dim: "forecourt" }],
+    doors: [{ x: 5.3, y: 12, axis: "h", len: 1.4, dir: -1 }, { x: 5.3, y: 9, axis: "h", len: 1.4, dir: 1 }, { x: 5.3, y: 0, axis: "h", len: 1.4, dir: 1 }, { x: 5, y: 4.5, axis: "v", len: 1.2, dir: -1 }, { x: 7, y: 4.5, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 0.8 }, { x: 0, y: 6, axis: "v", len: 0.8 }, { x: 12, y: 3, axis: "v", len: 0.8 }, { x: 12, y: 6, axis: "v", len: 0.8 }, { x: 2, y: 0, axis: "h", len: 0.8 }, { x: 10, y: 0, axis: "h", len: 0.8 }],
+    stairs: [{ x: 0.5, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↑ chamber" }, { x: 9.7, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↑ chamber" }] },
+
+  { name: "The Bastion", sub: "ARROW-PLAN · CASEMATES · GUN PLATFORM",
+    blurb: "An angle bastion for a star-fort corner: a pointed salient toward the field, a gun platform on top and casemates — magazine, guard and store — in the gorge behind.",
+    outline: [[0, 0], [10, 0], [10, 3], [5, 8], [0, 3]],
+    walls: [{ x1: 3, y1: 0, x2: 3, y2: 3 }, { x1: 7, y1: 0, x2: 7, y2: 3 }, { x1: 0, y1: 3, x2: 10, y2: 3 }],
+    rooms: [{ x: 0, y: 0, w: 3, h: 3, label: "Magazine", dim: "" }, { x: 3, y: 0, w: 4, h: 3, label: "Guardroom", dim: "" }, { x: 7, y: 0, w: 3, h: 3, label: "Store", dim: "" }, { x: 0, y: 3, w: 10, h: 5, label: "Gun Platform", dim: "open rampart" }],
+    doors: [{ x: 4.5, y: 0, axis: "h", len: 1.4, dir: 1 }, { x: 3, y: 1.5, axis: "v", len: 1.0, dir: -1 }, { x: 7, y: 1.5, axis: "v", len: 1.0, dir: 1 }, { x: 5, y: 3, axis: "h", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 1.5, axis: "v", len: 0.8 }, { x: 10, y: 1.5, axis: "v", len: 0.8 }],
+    stairs: [{ x: 0.4, y: 0.4, w: 1.6, h: 1.6, flow: "+x", label: "↓ powder" }] },
+
+  { name: "The Blockhouse", sub: "10×10 · GUNS ALL ROUND · CENTRAL MAGAZINE",
+    blurb: "A squat artillery fort: a ring of casemates with gun-ports facing every way, wrapped round a central powder magazine and the only stair down to it.",
+    W: 10, H: 10,
+    walls: [{ x1: 4, y1: 4, x2: 6, y2: 4 }, { x1: 4, y1: 6, x2: 6, y2: 6 }, { x1: 4, y1: 4, x2: 4, y2: 6 }, { x1: 6, y1: 4, x2: 6, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 10, h: 10, label: "Gun Deck", dim: "casemates" }, { x: 4, y: 4, w: 2, h: 2, label: "", dim: "" }],
+    doors: [{ x: 4.5, y: 10, axis: "h", len: 1.2, dir: -1 }, { x: 5, y: 6, axis: "h", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 0.8 }, { x: 0, y: 7.5, axis: "v", len: 0.8 }, { x: 10, y: 2.5, axis: "v", len: 0.8 }, { x: 10, y: 7.5, axis: "v", len: 0.8 }, { x: 2.5, y: 0, axis: "h", len: 0.8 }, { x: 7.5, y: 0, axis: "h", len: 0.8 }, { x: 2.5, y: 10, axis: "h", len: 0.8 }, { x: 7.5, y: 10, axis: "h", len: 0.8 }],
+    stairs: [{ x: 4.05, y: 4.1, w: 1.9, h: 1.8, flow: "+x", label: "↓ magazine" }] },
+
+  // ---- COASTAL & HARBOUR ----------------------------------------------------
+  { name: "The Lighthouse", sub: "9Ø · ROUND TOWER · LAMP GALLERY",
+    blurb: "A round sea-tower: an oil store and a winding stair up to the lamp gallery and its great light. Build it tall on the headland and keep the wick trimmed.",
+    outline: circle(4.5, 4.5, 4, 22),
+    walls: [],
+    rooms: [{ x: 0.5, y: 0.5, w: 8, h: 8, label: "Lighthouse", dim: "oil store · stair" }],
+    doors: [{ x: 3.8, y: 8.5, axis: "h", len: 1.2, dir: -1 }],
+    windows: [{ x: 0.5, y: 4.5, axis: "v", len: 0.8 }, { x: 8.5, y: 4.5, axis: "v", len: 0.8 }, { x: 4.5, y: 0.5, axis: "h", len: 0.8 }],
+    stairs: [{ x: 3.5, y: 3.5, w: 2.0, h: 1.8, flow: "+x", label: "↑ lamp gallery" }] },
+
+  { name: "The Harbour Warehouse", sub: "14×9 · STORE BAYS · LOADING DOORS",
+    blurb: "A bonded store on the quay: two deep cargo bays with wide doors for the cranes, plus a counting office and a stair to the upper floors of goods.",
+    W: 14, H: 9,
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 9 }, { x1: 10, y1: 0, x2: 10, y2: 9 }, { x1: 10, y1: 5, x2: 14, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 9, label: "Store Bay", dim: "5 × 9" }, { x: 5, y: 0, w: 5, h: 9, label: "Store Bay", dim: "5 × 9" }, { x: 10, y: 0, w: 4, h: 5, label: "Office", dim: "4 × 5" }, { x: 10, y: 5, w: 4, h: 4, label: "Hall", dim: "+ stairs" }],
+    doors: [{ x: 2, y: 9, axis: "h", len: 1.6, dir: -1 }, { x: 7, y: 9, axis: "h", len: 1.6, dir: -1 }, { x: 12, y: 9, axis: "h", len: 1.3, dir: -1 }, { x: 12, y: 5, axis: "h", len: 1.3, dir: 1 }, { x: 10, y: 7, axis: "v", len: 1.2, dir: -1 }, { x: 5, y: 4.5, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 0.9 }, { x: 0, y: 6, axis: "v", len: 0.9 }, { x: 14, y: 2.5, axis: "v", len: 1.3 }, { x: 14, y: 7, axis: "v", len: 1.3 }],
+    stairs: [{ x: 12, y: 5.4, w: 1.8, h: 1.6, flow: "+x", label: "↑ upper floors" }] },
+
+  { name: "The Customs House", sub: "12×9 · LONG ROOM · BOND STORE · OFFICE",
+    blurb: "Where duty is paid: a public long room with the scales, the officer's room, a locked bond store for seized goods and a stair to the records above.",
+    W: 12, H: 9,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 9 }, { x1: 0, y1: 5, x2: 7, y2: 5 }, { x1: 4, y1: 0, x2: 4, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 4, h: 5, label: "Officer", dim: "" }, { x: 4, y: 0, w: 3, h: 5, label: "Bond Store", dim: "" }, { x: 0, y: 5, w: 7, h: 4, label: "Long Room", dim: "scales" }, { x: 7, y: 0, w: 5, h: 9, label: "Hall", dim: "+ stairs" }],
+    doors: [{ x: 9.5, y: 9, axis: "h", len: 1.3, dir: -1 }, { x: 7, y: 7, axis: "v", len: 1.3, dir: -1 }, { x: 2, y: 5, axis: "h", len: 1.3, dir: 1 }, { x: 4, y: 2.5, axis: "v", len: 1.0, dir: 1 }, { x: 7, y: 2.5, axis: "v", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.2 }, { x: 0, y: 7, axis: "v", len: 1.3 }, { x: 2, y: 9, axis: "h", len: 1.4 }, { x: 12, y: 2.5, axis: "v", len: 1.3 }, { x: 12, y: 6.5, axis: "v", len: 1.3 }],
+    stairs: [{ x: 9.5, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↑ records" }] },
+
+  { name: "The Fish Market", sub: "14×8 · OPEN HALL · SLABS · ICE STORE",
+    blurb: "An open market hall on the harbourside: stone slabs for the catch, an ice store to keep it, and a small office for the harbour-master's cut.",
+    W: 14, H: 8,
+    walls: [{ x1: 11, y1: 0, x2: 11, y2: 8 }, { x1: 11, y1: 4, x2: 14, y2: 4 }, { x1: 3, y1: 1, x2: 3, y2: 1.6 }, { x1: 6, y1: 1, x2: 6, y2: 1.6 }, { x1: 9, y1: 1, x2: 9, y2: 1.6 }],
+    rooms: [{ x: 0, y: 0, w: 11, h: 8, label: "Market Floor", dim: "open · slabs" }, { x: 11, y: 0, w: 3, h: 4, label: "Ice Store", dim: "" }, { x: 11, y: 4, w: 3, h: 4, label: "Office", dim: "" }],
+    doors: [{ x: 4, y: 8, axis: "h", len: 2.2, dir: -1 }, { x: 0, y: 4, axis: "v", len: 2.0, dir: 1 }, { x: 11, y: 6, axis: "v", len: 1.2, dir: 1 }, { x: 11, y: 2, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 14, y: 6, axis: "v", len: 1.3 }, { x: 12.5, y: 0, axis: "h", len: 1.2 }],
+    stairs: [{ x: 12, y: 4.4, w: 1.6, h: 1.6, flow: "+x", label: "↓ cellar" }] },
+
+  { name: "The Net Loft", sub: "9×8 · NET STORE · CAPSTAN · LOFT",
+    blurb: "A fisherman's: a ground store for the boat and nets, a gear room with the capstan, a snug living end, and a stair up to the loft where the nets are hung to dry.",
+    W: 9, H: 8,
+    walls: [{ x1: 5, y1: 0, x2: 5, y2: 8 }, { x1: 5, y1: 4, x2: 9, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 8, label: "Net Store", dim: "& boat" }, { x: 5, y: 0, w: 4, h: 4, label: "Gear", dim: "capstan" }, { x: 5, y: 4, w: 4, h: 4, label: "Living", dim: "4 × 4" }],
+    doors: [{ x: 2, y: 8, axis: "h", len: 1.6, dir: -1 }, { x: 7, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 5, y: 6, axis: "v", len: 1.2, dir: -1 }, { x: 5, y: 2, axis: "v", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.2 }, { x: 0, y: 6, axis: "v", len: 1.2 }, { x: 9, y: 6, axis: "v", len: 1.3 }, { x: 9, y: 2, axis: "v", len: 1.2 }, { x: 7, y: 0, axis: "h", len: 1.2 }],
+    stairs: [{ x: 7.2, y: 4.4, w: 1.6, h: 1.6, flow: "+x", label: "↑ net loft" }] },
+
+  // ---- MORE HOMESTEAD BUILDINGS ---------------------------------------------
+  { name: "The Sawmill", sub: "14×9 · SAW FLOOR · TIMBER STORE",
+    blurb: "Water-powered: the saw and its carriage on the mill floor, a long timber store for the planks, and a hall with the stair down to the wheel race.",
+    W: 14, H: 9,
+    walls: [{ x1: 7, y1: 0, x2: 7, y2: 9 }, { x1: 11, y1: 0, x2: 11, y2: 9 }],
+    rooms: [{ x: 0, y: 0, w: 7, h: 9, label: "Saw Floor", dim: "saw · carriage" }, { x: 7, y: 0, w: 4, h: 9, label: "Timber Store", dim: "4 × 9" }, { x: 11, y: 0, w: 3, h: 9, label: "Hall", dim: "+ stairs" }],
+    doors: [{ x: 2, y: 9, axis: "h", len: 1.8, dir: -1 }, { x: 12.5, y: 9, axis: "h", len: 1.3, dir: -1 }, { x: 11, y: 4.5, axis: "v", len: 1.3, dir: -1 }, { x: 7, y: 4.5, axis: "v", len: 1.3, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.3 }, { x: 0, y: 6, axis: "v", len: 1.3 }, { x: 5, y: 0, axis: "h", len: 1.3 }, { x: 9, y: 0, axis: "h", len: 1.3 }, { x: 9, y: 9, axis: "h", len: 1.3 }, { x: 14, y: 3, axis: "v", len: 1.3 }, { x: 14, y: 6, axis: "v", len: 1.3 }],
+    stairs: [{ x: 12, y: 0.4, w: 1.8, h: 2.0, flow: "+x", label: "↓ wheel race" }] },
+
+  { name: "The Cider House", sub: "11×8 · PRESS · APPLE STORE · CELLAR",
+    blurb: "A press room with the mill and the great screw press, an apple store kept airy, and a hall with the stair down to the cool cider cellar.",
+    W: 11, H: 8,
+    walls: [{ x1: 6, y1: 0, x2: 6, y2: 8 }, { x1: 6, y1: 4, x2: 11, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 6, h: 8, label: "Press Room", dim: "mill · press" }, { x: 6, y: 0, w: 5, h: 4, label: "Hall", dim: "+ stairs" }, { x: 6, y: 4, w: 5, h: 4, label: "Apple Store", dim: "5 × 4" }],
+    doors: [{ x: 2, y: 8, axis: "h", len: 1.6, dir: -1 }, { x: 8.5, y: 8, axis: "h", len: 1.3, dir: -1 }, { x: 6, y: 6, axis: "v", len: 1.3, dir: -1 }, { x: 8, y: 4, axis: "h", len: 1.2, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.3 }, { x: 0, y: 5.5, axis: "v", len: 1.3 }, { x: 3, y: 0, axis: "h", len: 1.3 }, { x: 8.5, y: 0, axis: "h", len: 1.3 }, { x: 11, y: 6, axis: "v", len: 1.3 }],
+    stairs: [{ x: 7, y: 0.4, w: 1.8, h: 1.8, flow: "+x", label: "↓ cider cellar" }] },
+
+  { name: "The Hen House & Run", sub: "8×10 · COOP + FENCED RUN",
+    blurb: "A coop with roosts and nest-boxes and a pop-hole through to a fenced run where the birds scratch by day. Shut the little door at dusk against the fox.",
+    outline: [[0, 0], [5, 0], [5, 4], [8, 4], [8, 10], [0, 10]],
+    walls: [{ x1: 0, y1: 4, x2: 5, y2: 4 }],
+    rooms: [{ x: 0, y: 0, w: 5, h: 4, label: "Coop", dim: "roost · nests" }, { x: 0, y: 4, w: 8, h: 6, label: "Run", dim: "open yard" }],
+    doors: [{ x: 2, y: 4, axis: "h", len: 0.8, dir: 1 }, { x: 3.5, y: 10, axis: "h", len: 1.3, dir: -1 }, { x: 5, y: 2, axis: "v", len: 1.0, dir: -1 }],
+    windows: [{ x: 0, y: 2, axis: "v", len: 0.8 }, { x: 3, y: 0, axis: "h", len: 0.8 }],
+    stairs: [] },
+
+  { name: "The Linhay", sub: "12×6 · OPEN-FRONTED SHELTER · HAYLOFT",
+    blurb: "An open-fronted cattle shelter on posts, with a tallet (hayloft) over and a closed store at the end. The beasts come and go; the hay stays dry above.",
+    W: 12, H: 6,
+    walls: [{ x1: 8, y1: 0, x2: 8, y2: 6 }],
+    rooms: [{ x: 0, y: 0, w: 8, h: 6, label: "Cattle Shelter", dim: "open-fronted" }, { x: 8, y: 0, w: 4, h: 6, label: "Store", dim: "hayloft over" }],
+    doors: [{ x: 0.6, y: 6, axis: "h", len: 2.2, dir: -1 }, { x: 4.2, y: 6, axis: "h", len: 2.2, dir: -1 }, { x: 10, y: 6, axis: "h", len: 1.3, dir: -1 }, { x: 8, y: 3, axis: "v", len: 1.3, dir: -1 }],
+    windows: [{ x: 0, y: 3, axis: "v", len: 1.0 }, { x: 12, y: 3, axis: "v", len: 1.2 }, { x: 10, y: 0, axis: "h", len: 1.0 }],
+    stairs: [{ x: 9.8, y: 0.4, w: 1.6, h: 1.6, flow: "+x", label: "↑ hayloft" }] },
+
+  { name: "The Guildhall", sub: "14×10 · GREAT HALL · COUNCIL · PORCH",
+    blurb: "The town's pride: a great meeting hall lit down both sides, a council chamber and a clerk's office off the end, entered through a stone porch.",
+    outline: [[0, 0], [14, 0], [14, 10], [7, 10], [7, 11.5], [4, 11.5], [4, 10], [0, 10]],
+    walls: [{ x1: 9, y1: 0, x2: 9, y2: 10 }, { x1: 9, y1: 5, x2: 14, y2: 5 }],
+    rooms: [{ x: 0, y: 0, w: 9, h: 10, label: "Great Hall", dim: "9 × 10" }, { x: 9, y: 0, w: 5, h: 5, label: "Council Chamber", dim: "" }, { x: 9, y: 5, w: 5, h: 5, label: "Clerk's Office", dim: "" }],
+    doors: [{ x: 4.8, y: 11.5, axis: "h", len: 1.4, dir: -1 }, { x: 9, y: 2.5, axis: "v", len: 1.3, dir: 1 }, { x: 9, y: 7.5, axis: "v", len: 1.3, dir: 1 }],
+    windows: [{ x: 0, y: 2.5, axis: "v", len: 1.4 }, { x: 0, y: 5, axis: "v", len: 1.4 }, { x: 0, y: 7.5, axis: "v", len: 1.4 }, { x: 2.5, y: 0, axis: "h", len: 1.4 }, { x: 6.5, y: 0, axis: "h", len: 1.4 }, { x: 14, y: 2.5, axis: "v", len: 1.4 }, { x: 14, y: 7.5, axis: "v", len: 1.4 }, { x: 11, y: 0, axis: "h", len: 1.4 }, { x: 11, y: 10, axis: "h", len: 1.4 }],
+    stairs: [{ x: 0.4, y: 0.4, w: 2.2, h: 2.2, flow: "+x", label: "↑ gallery · ↓ cellar" }] },
 ];
 
 const byName = Object.fromEntries(LAYOUTS.map((L) => [L.name, L]));
@@ -1015,10 +1144,14 @@ const CATS = [
     names: ["The Manor", "The E-Plan Manor", "The Long Gallery Manor", "The Quadrangle", "The Atrium House", "The Courtyard", "The H-Plan Hall", "The Cross-Plan", "The Apsidal Hall"] },
   { id: "round", title: "Round, angular & towers", intro: "Geometry for show and defence — circles, an octagon, a wheel-house and stone towers.",
     names: ["The Octagon", "The Hexagon", "The Roundhouse", "The Wheelhouse", "The Z-Plan Tower", "The Tower House", "The Windmill"] },
-  { id: "farm", title: "Farmsteads & homestead buildings", intro: "The working yard: byres and barns, stables, kilns, a watermill and stores.",
-    names: ["The Courtyard Farmstead", "The Longhouse & Byre", "The Bastle House", "The Stable Block", "The Oast House", "The Watermill", "The Granary", "The Dovecote", "The Tithe Barn", "The Boathouse"] },
-  { id: "village", title: "Village trades & public buildings", intro: "A whole village's worth — an inn, a smithy, a chapel, a school and the trades.",
-    names: ["The Gatehouse", "The Almshouse Row", "The Inn", "The Smithy & Cottage", "The Chapel", "The Bakehouse", "The Brewhouse", "The Pottery", "The Bath House", "The Schoolhouse", "The Market Hall", "The Shop House", "The Counting House"] },
+  { id: "defence", title: "Defences & fortifications", intro: "When the drifters come knocking — keeps, gatehouses, bastions and blockhouses.",
+    names: ["The Keep", "The Gatehouse & Barbican", "The Bastion", "The Blockhouse"] },
+  { id: "coast", title: "Coastal & harbour", intro: "Down on the shore — a lighthouse, warehouses, the customs house, a fish market and a net loft.",
+    names: ["The Lighthouse", "The Harbour Warehouse", "The Customs House", "The Fish Market", "The Net Loft"] },
+  { id: "farm", title: "Farmsteads & homestead buildings", intro: "The working yard: byres and barns, stables, kilns, a watermill, a sawmill and stores.",
+    names: ["The Courtyard Farmstead", "The Longhouse & Byre", "The Bastle House", "The Stable Block", "The Linhay", "The Hen House & Run", "The Oast House", "The Watermill", "The Sawmill", "The Cider House", "The Granary", "The Dovecote", "The Tithe Barn", "The Boathouse"] },
+  { id: "village", title: "Village trades & public buildings", intro: "A whole village's worth — an inn, a guildhall, a smithy, a chapel, a school and the trades.",
+    names: ["The Gatehouse", "The Almshouse Row", "The Inn", "The Guildhall", "The Smithy & Cottage", "The Chapel", "The Bakehouse", "The Brewhouse", "The Pottery", "The Bath House", "The Schoolhouse", "The Market Hall", "The Shop House", "The Counting House"] },
 ];
 const placed = new Set(CATS.flatMap((c) => c.names));
 for (const L of LAYOUTS) if (!placed.has(L.name)) console.warn("UNGROUPED:", L.name);
@@ -1079,9 +1212,11 @@ const html = `<!DOCTYPE html>
       <a href="#family"><span class="ix">02</span> Family homes</a>
       <a href="#grand"><span class="ix">03</span> Grand &amp; manors</a>
       <a href="#round"><span class="ix">04</span> Round &amp; towers</a>
-      <a href="#farm"><span class="ix">05</span> Farmsteads</a>
-      <a href="#village"><span class="ix">06</span> Village &amp; trades</a>
-      <a href="#notes"><span class="ix">07</span> Reading a plan</a>
+      <a href="#defence"><span class="ix">05</span> Defences</a>
+      <a href="#coast"><span class="ix">06</span> Coastal &amp; harbour</a>
+      <a href="#farm"><span class="ix">07</span> Farmsteads</a>
+      <a href="#village"><span class="ix">08</span> Village &amp; trades</a>
+      <a href="#notes"><span class="ix">09</span> Reading a plan</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
       ${LAYOUTS.length} top-down house plans —<br>shapes, rooms, doors, windows<br>and stairs. For built examples see
@@ -1094,11 +1229,11 @@ const html = `<!DOCTYPE html>
     <header class="hero" id="top">
       <p class="kicker">Vintage Story · v1.22.3 · ${LAYOUTS.length} floor plans</p>
       <h1>House Layouts</h1>
-      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> to copy or remix — from a night-one cabin to a courtyard manor. Every shape is here: cottages and longhouses, L-, T- and E-wings, a U-shaped courtyard, a cross-plan, an H-range, an atrium, a round-house, a wheel-house and an eight-sided octagon. And it's not just homes — a smithy, a watermill, an oast, a stable, an inn and a chapel too. Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you can see the whole building before you place a block. Pick one, scale it to your spot, and build.</p>
+      <p class="lede">A gallery of <strong>${LAYOUTS.length} ground-floor plans</strong> in ${CATS.length} groups — a whole settlement to copy or remix. Homes of every shape (cottages, L-, T- and E-wings, courtyards, an atrium, a round-house, a wheel-house and an octagon), then the trades and public buildings (smithy, mill, bakehouse, inn, chapel, school), a set of <strong>defences</strong> (keep, gatehouse, bastion, blockhouse) and a <strong>harbour</strong> (lighthouse, warehouse, customs house, fish market). Each is drawn top-down with labelled rooms, doors, windows and the cellar stair, so you see the whole building before you place a block.</p>
       <div class="badges">
-        <span class="badge accent">${LAYOUTS.length} layouts</span>
-        <span class="badge">Cabin → manor + trades</span>
-        <span class="badge">round · octagon · L · T · U · cross · H</span>
+        <span class="badge accent">${LAYOUTS.length} layouts · ${CATS.length} groups</span>
+        <span class="badge">Cabin → manor</span>
+        <span class="badge">trades · forts · harbour</span>
         <span class="badge accent">📐 Rooms · doors · windows · stairs</span>
       </div>
       <p class="legend-key">
