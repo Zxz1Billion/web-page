@@ -81,10 +81,10 @@ def main():
             db[key]=[{"i":i,"code":dr.get('code',''),"avg":dr.get('quantity',{}).get('avg')} for i,dr in enumerate(arr)]
         out["ore"][rel]=db
 
-    # 4 meat
+    # 4 meat  (animals live under entities/animal/ in 1.22; recurse to be layout-proof)
     out["meat"]={}
-    for fp in sorted(glob.glob(P('entities/land/*.json'))):
-        rel=os.path.relpath(fp,A)
+    for fp in sorted(glob.glob(P('entities/**/*.json'), recursive=True)):
+        rel=os.path.relpath(fp,A).replace('\\','/')
         try: d=load(fp)
         except Exception as ee: out["warnings"].append(f"parsefail {rel}: {str(ee)[:40]}"); continue
         behs=(d.get('server') or {}).get('behaviors',[])

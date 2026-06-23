@@ -140,8 +140,8 @@ def main():
 
     # ---- 4. meat (harvestable on land entities) ---------------------------
     ops = []
-    for fp in sorted(glob.glob(os.path.join(A, 'entities/land/*.json'))):
-        rel = os.path.relpath(fp, A)
+    for fp in sorted(glob.glob(os.path.join(A, 'entities/**/*.json'), recursive=True)):
+        rel = os.path.relpath(fp, A).replace('\\', '/')
         try: d = load(fp)
         except Exception: continue
         behs = (d.get('server') or {}).get('behaviors', [])
