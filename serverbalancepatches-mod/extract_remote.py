@@ -140,8 +140,19 @@ def main():
                     "isArray": isinstance(d,list), "index": ri if isinstance(d,list) else None,
                     "hasStacksize": 'stacksize' in {k.lower() for k in o}, "outputCode": code})
     if not out["forge"]: out["warnings"].append("no knife/spear smithing recipe found under recipes/smithing")
-    # also check whether entities/land exists (meat source)
+    # also check whether entities/land exists (meat source) + diagnostics to locate animals
     out["entities_land_exists"]=os.path.isdir(P('entities/land'))
+    out["survival_dirs"]=sorted(os.path.basename(p) for p in glob.glob(P('*')) if os.path.isdir(p))
+    edir=P('entities')
+    out["entities_dirs"]=sorted(os.path.basename(p) for p in glob.glob(os.path.join(edir,'*')) if os.path.isdir(p)) if os.path.isdir(edir) else []
+    # count any entity json that has a meat harvestable drop, anywhere under entities/
+    out["entity_meat_files_found"]=0
+    for fp in glob.glob(P('entities/**/*.json'), recursive=True):
+        try: d=load(fp)
+        except Exception: continue
+        behs=(d.get('server') or {}).get('behaviors',[])
+        if any(isinstance(b,dict) and b.get('code')=='harvestable' for b in behs):
+            out["entity_meat_files_found"]+=1
 
     print("=====BEGIN serverbalancepatches EXTRACT=====")
     print(json.dumps(out, separators=(',',':')))
