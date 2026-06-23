@@ -122,14 +122,26 @@ def main():
         d=load(P(rel)); out["armor"]={"path":rel,"durabilityByType":d.get('durabilityByType',{})}
     else: out["warnings"].append("armor.json not found in itemtypes/wearable")
 
-    # 7 forge
+    # 7 forge — list the whole smithing folder and auto-find knife & spear by output code
     out["forge"]={}
-    for c in ('knife','spear'):
-        rel=f'recipes/smithing/{c}.json'
-        if ex(rel):
-            d=load(P(rel)); o=d.get('output',{})
-            out["forge"][rel]={"hasStacksize":'stacksize' in {k.lower() for k in o}, "outputCode":o.get('code')}
-        else: out["warnings"].append("missing "+rel)
+    smdir=P('recipes/smithing')
+    out["smithing_dir"]=sorted(os.path.basename(p) for p in glob.glob(os.path.join(smdir,'*.json'))) if os.path.isdir(smdir) else []
+    for fp in glob.glob(os.path.join(smdir,'*.json')):
+        rel=os.path.relpath(fp,A).replace('\\','/')
+        try: d=load(fp)
+        except Exception as ee: out["warnings"].append(f"parsefail {rel}: {str(ee)[:40]}"); continue
+        recipes=d if isinstance(d,list) else [d]
+        for ri,r in enumerate(recipes):
+            if not isinstance(r,dict): continue
+            o=r.get('output',{}) or {}
+            code=str(o.get('code',''))
+            if any(k in code for k in ('knifeblade','spearhead')) or (isinstance(d,dict) and os.path.basename(fp) in ('knife.json','spear.json','spearhead.json')):
+                out["forge"].setdefault(rel,[]).append({
+                    "isArray": isinstance(d,list), "index": ri if isinstance(d,list) else None,
+                    "hasStacksize": 'stacksize' in {k.lower() for k in o}, "outputCode": code})
+    if not out["forge"]: out["warnings"].append("no knife/spear smithing recipe found under recipes/smithing")
+    # also check whether entities/land exists (meat source)
+    out["entities_land_exists"]=os.path.isdir(P('entities/land'))
 
     print("=====BEGIN serverbalancepatches EXTRACT=====")
     print(json.dumps(out, separators=(',',':')))
