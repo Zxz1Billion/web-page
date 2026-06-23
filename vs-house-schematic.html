@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>House Schematic — living room, kitchen, bedrooms &amp; cellar (Vintage Story v1.22.3)</title>
-<meta name="description" content="An interactive, course-by-course building schematic for Vintage Story 1.22.3: a four-level house with a cellar below, an entrance into the living room with the kitchen to the right, two bedrooms upstairs, and a roof. Steps up one block-layer at a time with an exact material count." />
+<title>House Floor Plans — living room, kitchen, bedrooms &amp; cellar (Vintage Story v1.22.3)</title>
+<meta name="description" content="Clean top-down architectural floor plans for a Vintage Story house: a cellar cold store, a ground floor with the entrance into the living room and the kitchen to the right, and a first floor with two bedrooms. Labelled rooms, doors, windows, stairs and furniture." />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/guide.css" />
 <link rel="stylesheet" href="assets/css/vs.css" />
+<style>
+  .plan-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin: 18px 0 8px; }
+  @media (min-width: 880px) { .plan-grid.two { grid-template-columns: 1fr 1fr; } }
+  .plan { background: #efe4c9; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+  .plan svg { width: 100%; height: auto; display: block; }
+  .legend-key { display: flex; flex-wrap: wrap; gap: 14px 22px; font-family: var(--f-mono); font-size: .72rem; color: var(--ink-dim); margin: 10px 0 0; }
+  .legend-key span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend-key i { width: 22px; height: 0; border-top: 3px solid #3a2b18; display: inline-block; }
+  .legend-key i.win { border-top: 3px solid #6f8c99; }
+</style>
 </head>
 <body>
 
@@ -20,16 +30,17 @@
   <aside class="sidebar" data-sidebar>
     <div class="brand">
       <span class="sigil" aria-hidden="true">📐</span>
-      <span class="wordmark">House<br>Schematic<small>CELLAR · LIVING · KITCHEN · BEDS</small></span>
+      <span class="wordmark">House<br>Floor Plans<small>CELLAR · GROUND · FIRST</small></span>
     </div>
     <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
     <nav class="nav" data-nav>
-      <a href="#plan"><span class="ix">00</span> The plan</a>
-      <a href="#viewer"><span class="ix">01</span> Course-by-course</a>
-      <a href="#notes"><span class="ix">02</span> Build notes</a>
+      <a href="#ground"><span class="ix">01</span> Ground floor</a>
+      <a href="#first"><span class="ix">02</span> First floor</a>
+      <a href="#cellar"><span class="ix">03</span> Cellar</a>
+      <a href="#build"><span class="ix">04</span> Building it</a>
     </nav>
     <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
-      A real block-by-block plan that<br>steps up one course at a time,<br>with an exact material count.<br>For more builds see
+      Top-down plans — rooms, doors,<br>windows, stairs and furniture.<br>For more builds see
       <a href="vs-builds.html" style="color:var(--accent)">The Pattern Book</a>. v<b style="color:var(--accent)">1.22.3</b>.
     </p>
   </aside>
@@ -37,45 +48,53 @@
   <main class="content">
 
     <header class="hero" id="top">
-      <p class="kicker">Vintage Story · v1.22.3 · A buildable schematic</p>
-      <h1>The Four-Level House</h1>
-      <p class="lede">A proper house plan you can actually follow, block by block: a <strong>cellar</strong> under the whole footprint, a front <strong>entrance into the living room</strong> with the <strong>kitchen to the right</strong>, <strong>two bedrooms upstairs</strong>, and a roof on top. A single staircase in the central hall runs down to the cellar and up to the bedrooms. Step the viewer up one course at a time — the material tally on the right counts every block as you go.</p>
+      <p class="kicker">Vintage Story · v1.22.3 · Floor plans</p>
+      <h1>House Floor Plans</h1>
+      <p class="lede">A clean, top-down plan of a real two-bedroom house, level by level: a <strong>cellar</strong> cold store below, a <strong>ground floor</strong> where the entrance opens into the living room with the kitchen to the right, and a <strong>first floor</strong> with two bedrooms off a central landing. One staircase in the hall serves both the cellar and upstairs. Every room is labelled with its size; doors show their swing, windows sit in the walls, and the furniture marks how each room is used.</p>
       <div class="badges">
-        <span class="badge accent">4 levels</span>
-        <span class="badge">Cellar · living · kitchen · 2 beds</span>
-        <span class="badge">Steps up course by course</span>
-        <span class="badge accent">📐 Exact material count</span>
+        <span class="badge accent">3 levels</span>
+        <span class="badge">Living · kitchen · 2 beds · cellar</span>
+        <span class="badge">Labelled rooms &amp; sizes</span>
+        <span class="badge accent">📐 Doors · windows · stairs</span>
       </div>
+      <p class="legend-key">
+        <span><i></i> wall</span>
+        <span><i class="win"></i> window</span>
+        <span>⌐ door (with swing)</span>
+        <span>▦ stairs (arrow = up)</span>
+      </p>
     </header>
 
-    <section class="doc" id="plan">
-      <p class="sec-index">00 — The layout</p>
-      <h2>The plan</h2>
-      <p class="lead">Footprint is <strong>13×8</strong>. The ground floor splits into three down its length: the living room on the left, a central hall holding the staircase, and the kitchen on the right. Upstairs mirrors it as two bedrooms either side of the landing. The cellar sits under the lot.</p>
-      <div class="cards">
-        <div class="card"><span class="tag">ground · left</span><h4>Living room</h4><p>The front door opens straight into it. Windows down the west wall. An interior door links it to the central hall and the staircase.</p></div>
-        <div class="card"><span class="tag">ground · right</span><h4>Kitchen</h4><p>To the right of the hall, through an interior door. A stove/hearth sits against the back wall, with windows on the east and front.</p></div>
-        <div class="card"><span class="tag">upstairs</span><h4>Two bedrooms</h4><p>The staircase lands on a central landing; a door each side opens into a bedroom — one over the living room, one over the kitchen — each with a bed and windows.</p></div>
-        <div class="card"><span class="tag">below</span><h4>Cellar</h4><p>Stone-walled under the whole house, reached by the same staircase running down from the hall. Cool and dark — line the walls with storage vessels for food.</p></div>
-      </div>
+    <section class="doc" id="ground">
+      <p class="sec-index">01 — Ground floor</p>
+      <h2>Entrance, living room &amp; kitchen</h2>
+      <p class="lead">The front door opens straight into the <strong>living room</strong> — a hearth, seating and a table — with windows down the west wall. A door on the right leads to the <strong>kitchen</strong> (stove and counters along the back and side) and to the <strong>hall</strong>, which holds the staircase up and the steps down to the cellar. A back door opens off the hall.</p>
+      <div class="plan-grid"><div class="plan"><svg viewBox="0 0 620 556" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ground Floor floor plan"><rect x="0" y="0" width="620" height="556" fill="#efe4c9"/><rect x="6" y="6" width="608" height="544" fill="none" stroke="#43331f" stroke-width="1" opacity=".4"/><text x="310" y="34" text-anchor="middle" font-family="Cinzel, serif" font-size="22" fill="#43331f" letter-spacing="1.5">Ground Floor</text><text x="310" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#43331f" opacity=".7" letter-spacing="1">ENTRANCE · LIVING ROOM · KITCHEN</text><rect x="58" y="120" width="504" height="378" fill="#e7d9b6" opacity=".5"/><line x1="100" y1="120" x2="100" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="142" y1="120" x2="142" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="184" y1="120" x2="184" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="226" y1="120" x2="226" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="268" y1="120" x2="268" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="310" y1="120" x2="310" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="352" y1="120" x2="352" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="394" y1="120" x2="394" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="436" y1="120" x2="436" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="478" y1="120" x2="478" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="520" y1="120" x2="520" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="162" x2="562" y2="162" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="204" x2="562" y2="204" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="246" x2="562" y2="246" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="288" x2="562" y2="288" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="330" x2="562" y2="330" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="372" x2="562" y2="372" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="414" x2="562" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="456" x2="562" y2="456" stroke="#43331f" stroke-width=".5" opacity=".08"/><rect x="58" y="120" width="294" height="378" fill="#ecdfbf" opacity=".45"/><rect x="352" y="120" width="210" height="210" fill="#e5d6b2" opacity=".45"/><rect x="352" y="330" width="210" height="168" fill="#dfd0aa" opacity=".45"/><rect x="163" y="124.2" width="84" height="25.2" rx="1" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1.3"/><path d="M179.8,147.3 Q205,111.6 230.2,147.3" fill="none" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="205" y="164.1" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">hearth</text><rect x="72.7" y="288" width="100.8" height="39.9" rx="4" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="72.7" y="288" width="100.8" height="14.7" rx="3" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><text x="123.1" y="339.7" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">seating</text><rect x="205" y="309" width="67.2" height="37.8" rx="3" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="192.4" y="315.3" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="263.8" y="315.3" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="211.3" y="296.4" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="211.3" y="338.4" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><text x="238.6" y="332.1" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">table</text><rect x="74.8" y="439.2" width="42" height="29.4" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="74.8" y1="453.9" x2="116.8" y2="453.9" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="95.8" y="481.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">chest</text><rect x="125.2" y="439.2" width="42" height="29.4" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="125.2" y1="453.9" x2="167.2" y2="453.9" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="146.2" y="481.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">chest</text><rect x="368.8" y="132.6" width="42" height="42" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><circle cx="389.8" cy="153.6" r="12.6" fill="none" stroke="#43331f" stroke-width="1.2"/><text x="389.8" y="188" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">stove</text><rect x="419.2" y="132.6" width="130.2" height="33.6" rx="2" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1.2"/><rect x="520" y="174.6" width="33.6" height="126" rx="2" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1.2"/><rect x="419.2" y="241.8" width="54.6" height="37.8" rx="3" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="406.6" y="248.1" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="465.4" y="248.1" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="425.5" y="229.2" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="425.5" y="271.2" width="21" height="21" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><text x="446.5" y="264.9" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">table</text><rect x="58" y="120" width="504" height="378" fill="none" stroke="#3a2b18" stroke-width="9" stroke-linejoin="miter"/><line x1="352" y1="120" x2="352" y2="498" stroke="#3a2b18" stroke-width="7" stroke-linecap="square"/><line x1="352" y1="330" x2="562" y2="330" stroke="#3a2b18" stroke-width="7" stroke-linecap="square"/><rect x="142" y="492.5" width="67.2" height="11" fill="#efe4c9"/><line x1="142" y1="498" x2="142" y2="430.8" stroke="#43331f" stroke-width="1.6"/><path d="M142,430.8 A67.2 67.2 0 0 1 209.2,498" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="346.5" y="187.2" width="11" height="58.8" fill="#efe4c9"/><line x1="352" y1="187.2" x2="293.2" y2="187.2" stroke="#43331f" stroke-width="1.6"/><path d="M293.2,187.2 A58.8 58.8 0 0 0 352,246" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="346.5" y="372" width="11" height="58.8" fill="#efe4c9"/><line x1="352" y1="430.8" x2="293.2" y2="430.8" stroke="#43331f" stroke-width="1.6"/><path d="M293.2,430.8 A58.8 58.8 0 0 1 352,372" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="469.6" y="492.5" width="50.4" height="11" fill="#efe4c9"/><line x1="469.6" y1="498" x2="469.6" y2="447.6" stroke="#43331f" stroke-width="1.6"/><path d="M469.6,447.6 A50.4 50.4 0 0 1 520,498" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="52.5" y="204" width="11" height="50.4" fill="#efe4c9"/><rect x="53.5" y="204" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="58" y1="204" x2="58" y2="254.4" stroke="#6f8c99" stroke-width="2"/><rect x="52.5" y="355.2" width="11" height="50.4" fill="#efe4c9"/><rect x="53.5" y="355.2" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="58" y1="355.2" x2="58" y2="405.6" stroke="#6f8c99" stroke-width="2"/><rect x="238.6" y="492.5" width="54.6" height="11" fill="#efe4c9"/><rect x="238.6" y="493.5" width="54.6" height="9" fill="none" stroke="#43331f" stroke-width="1"/><line x1="238.6" y1="498" x2="293.2" y2="498" stroke="#6f8c99" stroke-width="2"/><rect x="415" y="114.5" width="54.6" height="11" fill="#efe4c9"/><rect x="415" y="115.5" width="54.6" height="9" fill="none" stroke="#43331f" stroke-width="1"/><line x1="415" y1="120" x2="469.6" y2="120" stroke="#6f8c99" stroke-width="2"/><rect x="556.5" y="187.2" width="11" height="54.6" fill="#efe4c9"/><rect x="557.5" y="187.2" width="9" height="54.6" fill="none" stroke="#43331f" stroke-width="1"/><line x1="562" y1="187.2" x2="562" y2="241.8" stroke="#6f8c99" stroke-width="2"/><rect x="556.5" y="380.4" width="11" height="50.4" fill="#efe4c9"/><rect x="557.5" y="380.4" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="562" y1="380.4" x2="562" y2="430.8" stroke="#6f8c99" stroke-width="2"/><rect x="394" y="372" width="142.8" height="67.2" fill="none" stroke="#43331f" stroke-width="1.2" opacity=".8"/><line x1="436" y1="372" x2="436" y2="439.2" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="478" y1="372" x2="478" y2="439.2" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="410.8" y1="405.6" x2="520" y2="405.6" stroke="#43331f" stroke-width="1.4"/><polygon points="520,405.6 511,400.6 511,410.6" fill="#43331f"/><text x="465.4" y="452.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f" opacity=".8">UP · cellar below</text><text x="205" y="307" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Living Room</text><text x="205" y="324" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">7 × 9</text><text x="457" y="223" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Kitchen</text><text x="457" y="240" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">5 × 5</text><text x="457" y="412" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Hall &amp; Stairs</text><text x="457" y="429" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">5 × 4</text><line x1="58" y1="524" x2="562" y2="524" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="58" y1="520" x2="58" y2="528" stroke="#43331f" stroke-width="1"/><line x1="562" y1="520" x2="562" y2="528" stroke="#43331f" stroke-width="1"/><text x="310" y="518" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7">12 blocks</text><line x1="32" y1="120" x2="32" y2="498" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="28" y1="120" x2="36" y2="120" stroke="#43331f" stroke-width="1"/><line x1="28" y1="498" x2="36" y2="498" stroke="#43331f" stroke-width="1"/><text x="32" y="309" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7" transform="rotate(-90 32 309)">9 blocks</text><g opacity=".75"><circle cx="586" cy="86" r="14" fill="none" stroke="#43331f" stroke-width="1"/><path d="M586,75 L590,88 L586,85 L582,88 Z" fill="#43331f"/><text x="586" y="110" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f">N</text></g></svg></div></div>
     </section>
 
-    <section class="doc" id="viewer">
-      <p class="sec-index">01 — Build it up</p>
-      <h2>Course-by-course schematic</h2>
-      <p>Frame <strong>Y0</strong> is the cellar floor; each step adds the next block-layer up to the roof. Click any course to jump to it. The legend names every block; the tally is the exact count for everything placed so far.</p>
-      <div id="house-viewer"></div>
+    <section class="doc" id="first">
+      <p class="sec-index">02 — First floor</p>
+      <h2>Two bedrooms off the landing</h2>
+      <p class="lead">The stair lands on a central <strong>landing</strong>, with a door each side. <strong>Bedroom 1</strong> sits over the living room — the larger room, bed and wardrobe, windows west and front. <strong>Bedroom 2</strong> is over the kitchen, with windows to the back and east.</p>
+      <div class="plan-grid"><div class="plan"><svg viewBox="0 0 620 556" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First Floor floor plan"><rect x="0" y="0" width="620" height="556" fill="#efe4c9"/><rect x="6" y="6" width="608" height="544" fill="none" stroke="#43331f" stroke-width="1" opacity=".4"/><text x="310" y="34" text-anchor="middle" font-family="Cinzel, serif" font-size="22" fill="#43331f" letter-spacing="1.5">First Floor</text><text x="310" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#43331f" opacity=".7" letter-spacing="1">TWO BEDROOMS · LANDING</text><rect x="58" y="120" width="504" height="378" fill="#e3d9c0" opacity=".5"/><line x1="100" y1="120" x2="100" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="142" y1="120" x2="142" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="184" y1="120" x2="184" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="226" y1="120" x2="226" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="268" y1="120" x2="268" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="310" y1="120" x2="310" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="352" y1="120" x2="352" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="394" y1="120" x2="394" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="436" y1="120" x2="436" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="478" y1="120" x2="478" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="520" y1="120" x2="520" y2="498" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="162" x2="562" y2="162" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="204" x2="562" y2="204" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="246" x2="562" y2="246" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="288" x2="562" y2="288" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="330" x2="562" y2="330" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="372" x2="562" y2="372" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="414" x2="562" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="456" x2="562" y2="456" stroke="#43331f" stroke-width=".5" opacity=".08"/><rect x="58" y="120" width="294" height="378" fill="#e8ddc4" opacity=".45"/><rect x="352" y="120" width="210" height="210" fill="#e2d6bc" opacity=".45"/><rect x="352" y="330" width="210" height="168" fill="#dccfaf" opacity=".45"/><rect x="79" y="141" width="100.8" height="126" rx="4" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="84" y="146" width="90.7" height="29.4" rx="3" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="83.2" y1="183" x2="175.6" y2="183" stroke="#43331f" stroke-width="1" opacity=".4"/><text x="129.4" y="212.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">bed</text><rect x="268" y="136.8" width="75.6" height="33.6" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="305.8" y1="136.8" x2="305.8" y2="170.4" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="305.8" y="182.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">wardrobe</text><rect x="79" y="443.4" width="42" height="29.4" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="79" y1="458.1" x2="121" y2="458.1" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="100" y="485.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">chest</text><rect x="373" y="141" width="92.4" height="109.2" rx="4" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="378" y="146" width="82.3" height="29.4" rx="3" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="377.2" y1="183" x2="461.2" y2="183" stroke="#43331f" stroke-width="1" opacity=".4"/><text x="419.2" y="204" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">bed</text><rect x="478" y="275.4" width="67.2" height="33.6" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="511.6" y1="275.4" x2="511.6" y2="309" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="511.6" y="320.8" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">wardrobe</text><rect x="58" y="120" width="504" height="378" fill="none" stroke="#3a2b18" stroke-width="9" stroke-linejoin="miter"/><line x1="352" y1="120" x2="352" y2="498" stroke="#3a2b18" stroke-width="7" stroke-linecap="square"/><line x1="352" y1="330" x2="562" y2="330" stroke="#3a2b18" stroke-width="7" stroke-linecap="square"/><rect x="346.5" y="372" width="11" height="58.8" fill="#efe4c9"/><line x1="352" y1="430.8" x2="293.2" y2="430.8" stroke="#43331f" stroke-width="1.6"/><path d="M293.2,430.8 A58.8 58.8 0 0 1 352,372" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="419.2" y="324.5" width="58.8" height="11" fill="#efe4c9"/><line x1="419.2" y1="330" x2="419.2" y2="271.2" stroke="#43331f" stroke-width="1.6"/><path d="M419.2,271.2 A58.8 58.8 0 0 1 478,330" fill="none" stroke="#43331f" stroke-width="1" opacity=".55"/><rect x="52.5" y="204" width="11" height="50.4" fill="#efe4c9"/><rect x="53.5" y="204" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="58" y1="204" x2="58" y2="254.4" stroke="#6f8c99" stroke-width="2"/><rect x="52.5" y="355.2" width="11" height="50.4" fill="#efe4c9"/><rect x="53.5" y="355.2" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="58" y1="355.2" x2="58" y2="405.6" stroke="#6f8c99" stroke-width="2"/><rect x="175.6" y="492.5" width="54.6" height="11" fill="#efe4c9"/><rect x="175.6" y="493.5" width="54.6" height="9" fill="none" stroke="#43331f" stroke-width="1"/><line x1="175.6" y1="498" x2="230.2" y2="498" stroke="#6f8c99" stroke-width="2"/><rect x="415" y="114.5" width="54.6" height="11" fill="#efe4c9"/><rect x="415" y="115.5" width="54.6" height="9" fill="none" stroke="#43331f" stroke-width="1"/><line x1="415" y1="120" x2="469.6" y2="120" stroke="#6f8c99" stroke-width="2"/><rect x="556.5" y="187.2" width="11" height="54.6" fill="#efe4c9"/><rect x="557.5" y="187.2" width="9" height="54.6" fill="none" stroke="#43331f" stroke-width="1"/><line x1="562" y1="187.2" x2="562" y2="241.8" stroke="#6f8c99" stroke-width="2"/><rect x="556.5" y="380.4" width="11" height="50.4" fill="#efe4c9"/><rect x="557.5" y="380.4" width="9" height="50.4" fill="none" stroke="#43331f" stroke-width="1"/><line x1="562" y1="380.4" x2="562" y2="430.8" stroke="#6f8c99" stroke-width="2"/><rect x="394" y="372" width="142.8" height="67.2" fill="none" stroke="#43331f" stroke-width="1.2" opacity=".8"/><line x1="436" y1="372" x2="436" y2="439.2" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="478" y1="372" x2="478" y2="439.2" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="410.8" y1="405.6" x2="520" y2="405.6" stroke="#43331f" stroke-width="1.4"/><polygon points="410.8,405.6 419.8,400.6 419.8,410.6" fill="#43331f"/><text x="465.4" y="452.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f" opacity=".8">DOWN</text><text x="205" y="307" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Bedroom 1</text><text x="205" y="324" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">7 × 9</text><text x="457" y="223" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Bedroom 2</text><text x="457" y="240" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">5 × 5</text><text x="457" y="412" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Landing</text><text x="457" y="429" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">5 × 4</text><line x1="58" y1="524" x2="562" y2="524" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="58" y1="520" x2="58" y2="528" stroke="#43331f" stroke-width="1"/><line x1="562" y1="520" x2="562" y2="528" stroke="#43331f" stroke-width="1"/><text x="310" y="518" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7">12 blocks</text><line x1="32" y1="120" x2="32" y2="498" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="28" y1="120" x2="36" y2="120" stroke="#43331f" stroke-width="1"/><line x1="28" y1="498" x2="36" y2="498" stroke="#43331f" stroke-width="1"/><text x="32" y="309" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7" transform="rotate(-90 32 309)">9 blocks</text><g opacity=".75"><circle cx="586" cy="86" r="14" fill="none" stroke="#43331f" stroke-width="1"/><path d="M586,75 L590,88 L586,85 L582,88 Z" fill="#43331f"/><text x="586" y="110" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f">N</text></g></svg></div></div>
     </section>
 
-    <section class="doc" id="notes">
-      <p class="sec-index">02 — While you build</p>
-      <h2>Build notes</h2>
+    <section class="doc" id="cellar">
+      <p class="sec-index">03 — Cellar</p>
+      <h2>The cold store</h2>
+      <p class="lead">Dug under the hall and reached by the same staircase, the <strong>cellar</strong> is a single stone-walled cold store. Line the walls with shelving for storage vessels and sealed crocks, and keep barrels for bulk. Cool, dark and fully enclosed keeps food longest — no skylight.</p>
+      <div class="plan-grid"><div class="plan"><svg viewBox="0 0 452 472" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cellar floor plan"><rect x="0" y="0" width="452" height="472" fill="#efe4c9"/><rect x="6" y="6" width="440" height="460" fill="none" stroke="#43331f" stroke-width="1" opacity=".4"/><text x="226" y="34" text-anchor="middle" font-family="Cinzel, serif" font-size="22" fill="#43331f" letter-spacing="1.5">Cellar</text><text x="226" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#43331f" opacity=".7" letter-spacing="1">COLD STORE · UNDER THE HALL</text><rect x="58" y="120" width="336" height="294" fill="#cfc6b4" opacity=".5"/><line x1="100" y1="120" x2="100" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="142" y1="120" x2="142" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="184" y1="120" x2="184" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="226" y1="120" x2="226" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="268" y1="120" x2="268" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="310" y1="120" x2="310" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="352" y1="120" x2="352" y2="414" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="162" x2="394" y2="162" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="204" x2="394" y2="204" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="246" x2="394" y2="246" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="288" x2="394" y2="288" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="330" x2="394" y2="330" stroke="#43331f" stroke-width=".5" opacity=".08"/><line x1="58" y1="372" x2="394" y2="372" stroke="#43331f" stroke-width=".5" opacity=".08"/><rect x="58" y="120" width="336" height="294" fill="#c8bfa9" opacity=".45"/><rect x="70.6" y="132.6" width="33.6" height="268.8" rx="1" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1"/><text x="87.4" y="412.3" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">vessels</text><rect x="347.8" y="246" width="33.6" height="142.8" rx="1" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1"/><text x="364.6" y="399.7" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">shelving</text><rect x="116.8" y="372" width="218.4" height="33.6" rx="1" fill="#43331f" opacity=".10" stroke="#43331f" stroke-width="1"/><text x="226" y="416.5" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">crocks</text><circle cx="133.6" cy="162" r="16" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><circle cx="175.6" cy="162" r="16" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><circle cx="217.6" cy="162" r="16" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><rect x="121" y="220.8" width="42" height="29.4" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="121" y1="235.5" x2="163" y2="235.5" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="142" y="262.8" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">chest</text><rect x="171.4" y="220.8" width="42" height="29.4" rx="2" stroke="#43331f" stroke-width="1.3" fill="#00000010"/><line x1="171.4" y1="235.5" x2="213.4" y2="235.5" stroke="#43331f" stroke-width="1" opacity=".5"/><text x="192.4" y="262.8" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#43331f" opacity=".7">chest</text><rect x="58" y="120" width="336" height="294" fill="none" stroke="#3a2b18" stroke-width="9" stroke-linejoin="miter"/><rect x="268" y="145.2" width="100.8" height="63" fill="none" stroke="#43331f" stroke-width="1.2" opacity=".8"/><line x1="310" y1="145.2" x2="310" y2="208.2" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="284.8" y1="176.7" x2="352" y2="176.7" stroke="#43331f" stroke-width="1.4"/><polygon points="284.8,176.7 293.8,171.7 293.8,181.7" fill="#43331f"/><text x="318.4" y="221.2" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f" opacity=".8">UP · to hall</text><text x="226" y="265" text-anchor="middle" font-family="Cinzel, serif" font-size="15" fill="#43331f" letter-spacing=".5">Cold Store</text><text x="226" y="282" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#43331f" opacity=".6">8 × 7</text><line x1="58" y1="440" x2="394" y2="440" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="58" y1="436" x2="58" y2="444" stroke="#43331f" stroke-width="1"/><line x1="394" y1="436" x2="394" y2="444" stroke="#43331f" stroke-width="1"/><text x="226" y="434" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7">8 blocks</text><line x1="32" y1="120" x2="32" y2="414" stroke="#43331f" stroke-width="1" opacity=".55"/><line x1="28" y1="120" x2="36" y2="120" stroke="#43331f" stroke-width="1"/><line x1="28" y1="414" x2="36" y2="414" stroke="#43331f" stroke-width="1"/><text x="32" y="267" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#43331f" opacity=".7" transform="rotate(-90 32 267)">7 blocks</text><g opacity=".75"><circle cx="418" cy="86" r="14" fill="none" stroke="#43331f" stroke-width="1"/><path d="M418,75 L422,88 L418,85 L414,88 Z" fill="#43331f"/><text x="418" y="110" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#43331f">N</text></g></svg></div></div>
+    </section>
+
+    <section class="doc" id="build">
+      <p class="sec-index">04 — From plan to blocks</p>
+      <h2>Building it</h2>
       <ul>
-        <li><strong>Dig the cellar first.</strong> The schematic stacks upward for clarity, but in-game you'll cut the cellar into the ground, wall it in stone, then build the ground floor as its ceiling.</li>
-        <li><strong>One staircase, two directions.</strong> The hall stair core (shown in orange) drops to the cellar and climbs to the landing. Leave the stairwell open through each floor — the plan shows the hole in the floor courses.</li>
-        <li><strong>Keep the stove off timber.</strong> Set the kitchen hearth on stone and keep planks a block clear of it, like any indoor fire.</li>
-        <li><strong>Headroom.</strong> Rooms here are two courses tall for a readable plan; add a third wall course before the floor/roof if you want fuller ceilings.</li>
-        <li><strong>Cellar food rule.</strong> A cool, fully-enclosed cellar with one solid door keeps food best — no skylight. Line the walls with storage vessels and crocks.</li>
+        <li><strong>Set out the ground floor first</strong> at 12×9, walls two-to-three blocks high. Mark the two interior partitions (living/kitchen and the hall) before you raise them so the doorways line up.</li>
+        <li><strong>Dig the cellar</strong> down under the hall, 8×7, walled in stone, before you floor the ground level over it. Put the staircase in the hall so one run reaches both the cellar and upstairs.</li>
+        <li><strong>Floor and repeat upstairs</strong> for the two bedrooms, mirroring the partitions below so the walls stack and carry the roof.</li>
+        <li><strong>Doors swing into the room</strong> shown by the arc; hang plank doors and glaze the windows once the walls top out.</li>
+        <li><strong>Keep the stove on stone</strong> and a block clear of timber. A cool, sealed cellar with one solid door keeps food best.</li>
       </ul>
     </section>
 
@@ -85,7 +104,7 @@
 <footer class="site">
   <div class="cols">
     <div>
-      <strong style="font-family:var(--f-display);color:var(--accent)">House Schematic</strong><br>
+      <strong style="font-family:var(--f-display);color:var(--accent)">House Floor Plans</strong><br>
       Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
       Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
     </div>
@@ -95,92 +114,11 @@
       · <a href="vs-builds.html">The Pattern Book</a> (more builds)
     </div>
   </div>
-  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">The schematic is a stylised block plan to show layout and proportion; it isn't a 1:1 in-game export. Sizes and recipes are config-/version-dependent. Your in-game Handbook is the final word.</p>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Plans are stylised to show layout and proportion; sizes and recipes are config-/version-dependent. Your in-game Handbook is the final word.</p>
 </footer>
 
 <script type="module">
-  import { mountIso } from "./assets/js/vs-guide.js";
-
-  const ROWS = 8, COLS = 13;
-  const G = (fill = null) => Array.from({ length: ROWS }, () => Array(COLS).fill(fill));
-  const fillRect = (g, r0, c0, r1, c1, k) => { for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) g[r][c] = k; return g; };
-  const ring = (g, k) => { for (let c = 0; c < COLS; c++) { g[0][c] = k; g[ROWS-1][c] = k; } for (let r = 0; r < ROWS; r++) { g[r][0] = k; g[r][COLS-1] = k; } return g; };
-  const vline = (g, c, r0, r1, k) => { for (let r = r0; r <= r1; r++) g[r][c] = k; return g; };
-
-  // shared interior partitions (col 4 = living|hall, col 8 = hall|kitchen), with a doorway at row 4
-  const partitions = (g, doorKey = "door") => { vline(g, 4, 1, 6, "wall"); vline(g, 8, 1, 6, "wall"); g[4][4] = doorKey; g[4][8] = doorKey; return g; };
-  const STAIR_R = [1, 2], STAIR_C = [6, 7]; // stair core in the hall (back of the house)
-
-  // --- CELLAR ---------------------------------------------------------------
-  const y0 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "stone");               // cellar floor
-  const y1 = ring(G(), "stone");                                          // cellar walls
-  fillRect(y1, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");  // stair up to the hall
-  y1[1][1] = "store"; y1[1][2] = "store"; y1[6][1] = "store";            // storage vessels
-  y1[1][11] = "store"; y1[6][11] = "store";
-
-  // --- GROUND FLOOR ---------------------------------------------------------
-  const y2 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "floor");                // floor deck over cellar
-  fillRect(y2, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], null);     // stairwell opening
-
-  const y3 = partitions(ring(G(), "wall"));                               // walls + rooms
-  y3[7][2] = "door";                                                      // front entrance into the living room
-  y3[1][10] = "hearth";                                                   // kitchen stove on the back wall
-  fillRect(y3, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");  // stair continues up
-
-  const y4 = partitions(ring(G(), "wall"));                               // second course + glazing
-  y4[7][2] = "door";
-  y4[2][0] = "window"; y4[5][0] = "window";                              // living room, west
-  y4[2][12] = "window"; y4[5][12] = "window";                           // kitchen, east
-  y4[7][10] = "window";                                                  // kitchen, front
-  fillRect(y4, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], "stair");
-
-  // --- UPSTAIRS -------------------------------------------------------------
-  const y5 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "floor");                // upper floor / landing
-  fillRect(y5, STAIR_R[0], STAIR_C[0], STAIR_R[1], STAIR_C[1], null);     // stair emerges onto the landing
-
-  const y6 = partitions(ring(G(), "wall"));                               // bedroom walls
-  y6[1][1] = "bed"; y6[1][2] = "bed";                                     // bedroom over the living room
-  y6[1][10] = "bed"; y6[1][11] = "bed";                                   // bedroom over the kitchen
-
-  const y7 = partitions(ring(G(), "wall"));                               // second course + glazing
-  y7[2][0] = "window"; y7[5][0] = "window";
-  y7[7][2] = "window";
-  y7[2][12] = "window"; y7[5][12] = "window";
-  y7[7][10] = "window";
-
-  // --- ROOF -----------------------------------------------------------------
-  const y8 = fillRect(G(), 0, 0, ROWS-1, COLS-1, "roof");                 // eaves cap
-  const y9 = fillRect(G(), 0, 5, ROWS-1, 7, "roof");                      // ridge band
-
-  mountIso({
-    title: "Four-Level House",
-    subtitle: "13×8 · cellar · living + entrance · kitchen right · 2 bedrooms",
-    meta: { footprint: "13×8", height: "10 courses" },
-    palette: {
-      stone:  { label: "Stone (cellar + footing)", color: "#7c7567" },
-      floor:  { label: "Plank floor / joists",     color: "#6e5538" },
-      wall:   { label: "Cob / brick wall",          color: "#8c7659" },
-      door:   { label: "Doorway",                   color: "#caa15e" },
-      window: { label: "Glass window",              color: "#7fd1e6" },
-      stair:  { label: "Staircase",                 color: "#cf7f33" },
-      hearth: { label: "Kitchen stove / hearth",    color: "#e3782f" },
-      bed:    { label: "Bed",                       color: "#5fb9ad" },
-      store:  { label: "Cellar storage",            color: "#9c6f3a" },
-      roof:   { label: "Roof",                      color: "#5b4730" },
-    },
-    frames: [
-      { label: "Y0 · cellar floor", grid: y0, note: "Dig out the whole 13×8 footprint a couple of blocks down and floor it in stone. Cool and dark is what you want." },
-      { label: "Y1 · cellar walls", grid: y1, note: "Wall the cellar in stone. Leave the hall staircase (orange) running up to the ground floor, and line the walls with storage vessels for food." },
-      { label: "Y2 · ground floor", grid: y2, note: "Cap the cellar with a plank floor — that's your ground-floor deck. Leave the stairwell open so the stair carries through." },
-      { label: "Y3 · ground walls + rooms", grid: y3, note: "Raise the outer walls and the two interior partitions: living room on the left, central hall, kitchen on the right. Front door into the living room; stove against the kitchen's back wall." },
-      { label: "Y4 · doors + windows", grid: y4, note: "Second wall course. Glaze the windows — west and front for the living room, east and front for the kitchen — and keep the interior doorways open." },
-      { label: "Y5 · upper floor", grid: y5, note: "Floor over the ground storey for the upstairs, leaving the stairwell open so the stair lands on the central landing." },
-      { label: "Y6 · bedrooms", grid: y6, note: "Bedroom walls, mirroring the floor below: one bedroom over the living room, one over the kitchen, a door each off the landing. Drop a bed in each." },
-      { label: "Y7 · upper windows", grid: y7, note: "Second course upstairs and glaze the bedroom windows. Headroom is tight at two courses — add a third here if you like." },
-      { label: "Y8 · roof", grid: y8, note: "Cap the whole house against rain and drifters." },
-      { label: "Y9 · ridge", grid: y9, note: "A central ridge course. Chisel the eaves down into a pitched gable roof for the proper look — a flat cap works to start." },
-    ],
-  }, "#house-viewer");
+  import "./assets/js/vs-guide.js";
 </script>
 </body>
 </html>
