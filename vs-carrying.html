@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Knapsack — bags, backpacks &amp; carrying capacity in Vintage Story (v1.22.3)</title>
+<meta name="description" content="A carrying-capacity progression guide for Vintage Story 1.22.3: how the four bag slots work, and the climb from empty hands to a hand basket (reeds), linen sack, hunter and leather backpacks, and the specialist mining bag. With exact slot counts, the slot-math table, and how it fits with chests and storage vessels." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/guide.css" />
+<link rel="stylesheet" href="assets/css/vs.css" />
+</head>
+<body>
+
+<button class="menu-toggle" aria-label="Toggle navigation" data-menu>☰</button>
+
+<div class="shell">
+  <aside class="sidebar" data-sidebar>
+    <div class="brand">
+      <span class="sigil" aria-hidden="true">🎒</span>
+      <span class="wordmark">The<br>Knapsack<small>BAGS · SLOTS · CARRY</small></span>
+    </div>
+    <a href="vintage-story.html" class="home-link">← The Drifter's Almanac</a>
+    <nav class="nav" data-nav>
+      <p class="group-label">The basics</p>
+      <a href="#slots"><span class="ix">00</span> How Carrying Works</a>
+      <p class="group-label">The climb</p>
+      <a href="#ladder"><span class="ix">01</span> The Progression</a>
+      <a href="#basket"><span class="ix">02</span> The Hand Basket</a>
+      <a href="#sack"><span class="ix">03</span> The Linen Sack</a>
+      <a href="#packs"><span class="ix">04</span> The Backpacks</a>
+      <a href="#mining"><span class="ix">05</span> The Mining Bag</a>
+      <p class="group-label">Putting it together</p>
+      <a href="#math"><span class="ix">06</span> The Slot Math</a>
+      <a href="#beyond"><span class="ix">07</span> Beyond Your Back</a>
+    </nav>
+    <p style="margin-top:28px;font-family:var(--f-mono);font-size:0.58rem;letter-spacing:0.06em;color:var(--ink-faint);line-height:1.7">
+      Mechanics track Vintage Story<br><b style="color:var(--accent)">v1.22.3</b> · Standard world.<br>Slot counts are config-tunable —<br>the in-game <b>Survival Handbook (H)</b><br>and the wiki are ground truth.
+    </p>
+  </aside>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <p class="kicker">Vintage Story · v1.22.3 · Standard · Inventory &amp; carrying</p>
+      <h1>The Knapsack</h1>
+      <p class="lede">On Day One you carry everything in your bare hands — ten hotbar squares and not a stitch more. Every bag you weave, sew or tan after that is space you don't have to walk back for. This is the climb from empty-handed to a fully-loaded pack: the four <strong>bag slots</strong> that change the game, the <strong>reed hand basket</strong> that comes first, and the linen sack, backpacks and specialist <strong>mining bag</strong> that follow.</p>
+      <div class="badges">
+        <span class="badge accent">Inventory progression</span>
+        <span class="badge">4 bag slots</span>
+        <span class="badge">+3 → +24 slots</span>
+        <span class="badge">Hand basket = day-one</span>
+      </div>
+    </header>
+
+    <!-- 00 HOW IT WORKS -->
+    <section class="doc" id="slots">
+      <p class="sec-index">00 — The four bag slots</p>
+      <h2>How Carrying Works</h2>
+      <p class="lead">You always have your <strong>hotbar</strong> — the row of ten squares along the bottom of the screen. That's your entire carrying capacity until you make your first bag. Everything beyond it comes from <strong>bags</strong>, and bags go in their own special slots.</p>
+
+      <div class="cards">
+        <div class="card"><span class="tag">always</span><h4>The hotbar</h4><p>Ten slots, there from the start. It's your hands, your tools, your day-one inventory. With no bags equipped, this is <em>all</em> you can carry.</p></div>
+        <div class="card"><span class="tag">the key</span><h4>4 bag slots</h4><p>Open your inventory (<code>E</code>) and you'll see <strong>four slots marked with a basket icon</strong>. Each one holds one bag, and each bag adds its slots to your inventory grid.</p></div>
+        <div class="card"><span class="tag">flexible</span><h4>Mix &amp; match</h4><p>The four slots are independent — you can run four hand baskets, four leather backpacks, or any mix. Swap a bag and its contents come with it.</p></div>
+      </div>
+
+      <div class="note tip">
+        <span class="label">Bags stack — that's the whole point</span>
+        <p>One bag is nice; <strong>four bags is transformative.</strong> Because all four slots add their capacity together, your effective inventory is <code>10 hotbar + (sum of the four equipped bags)</code>. Four leather backpacks take you from 10 slots to <strong>34 total</strong>. The progression below is really a race to fill those four slots with the best bags you can craft.</p>
+      </div>
+
+      <h3>A bag is an item, not a building</h3>
+      <p>Bags live on your person. You can pull one out of its slot and drop it in a <strong>chest</strong> (with its contents intact), hand it to a friend, or — for the hand basket — set it down as a placeable container. But to add its slots to <em>your</em> inventory, it has to sit in one of your four bag slots.</p>
+    </section>
+
+    <!-- 01 THE PROGRESSION -->
+    <section class="doc" id="ladder">
+      <p class="sec-index">01 — From nothing to a full pack</p>
+      <h2>The Progression</h2>
+      <p class="lead">Bags don't unlock on a tech tree — they unlock on <em>materials</em>. Each rung below is gated by something you naturally acquire as you settle in: reeds from a pond, flax from your first field, leather from your first hunt. Climb it in the order your world hands you the parts.</p>
+
+      <ol class="flow">
+        <li><strong>Empty hands — 10 slots.</strong> Just the hotbar. You're knapping stone tools and hauling one stack at a time. The goal of this whole guide is to never stay here long.</li>
+        <li><strong>The Hand Basket — <span style="color:var(--accent)">+3 each</span>.</strong> Woven from <strong>cattail / reed tops</strong> found at the edge of nearly any water. The earliest expansion in the game and the one you should rush — even one basket eases the day-one squeeze.</li>
+        <li><strong>The Linen Sack — <span style="color:var(--accent)">+5 each</span>.</strong> Sewn from <strong>linen</strong> once you're growing flax and have knapped your way to cloth. A clean upgrade over the basket; four of them give you 20 carried slots.</li>
+        <li><strong>The Hunter Backpack — <span style="color:var(--accent)">+4 each</span>.</strong> An early leather-and-cordage pack — a step up from baskets when you've taken your first animals but aren't drowning in hides yet.</li>
+        <li><strong>The Leather Backpack — <span style="color:var(--accent)">+6 each</span>.</strong> The carrying king: the most slots per bag of any general pack. Four of them is the practical end-game of personal capacity — <strong>34 total slots.</strong></li>
+        <li><strong>The Mining Bag — <span style="color:var(--accent)">+12, specialist</span>.</strong> A huge twelve slots, but it <em>only</em> holds stone, ores, minerals, metals and mining tools. The deep-cave loadout, not an everyday pack.</li>
+      </ol>
+
+      <div class="note">
+        <span class="label">You won't replace all four at once</span>
+        <p>Bags trickle in. A realistic early game is <strong>basket → basket → sack → sack</strong>, then backpacks replacing baskets one at a time as leather comes in. There's no penalty to a mixed loadout — every slot counts the same whatever bag it came from.</p>
+      </div>
+    </section>
+
+    <!-- 02 HAND BASKET -->
+    <section class="doc" id="basket">
+      <p class="sec-index">02 — The first rung</p>
+      <h2>The Hand Basket</h2>
+      <p>Your <strong>reed basket</strong>, and almost certainly the first storage you'll ever make. Cattails and other reeds grow in dense stands at the margins of ponds, lakes and rivers in wetter climates — harvest the tops, and you have basket material before you've even smelted a thing.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">+3 slots</span><h4>What it gives</h4><p>Three inventory slots per basket. Modest, but it's available on Day One when three slots is a real difference, and you can equip up to four for +12.</p></div>
+        <div class="card"><span class="tag">reeds</span><h4>What it costs</h4><p>Woven from <strong>cattail / papyrus tops</strong> — a renewable, no-tech material gathered by hand from waterside reed beds.</p></div>
+        <div class="card"><span class="tag">bonus</span><h4>Also a container</h4><p>The hand basket can be <strong>set down as a placeable container</strong> too — handy as a cheap early chest before you've sawn planks.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">Rush the reeds</span>
+        <p>If your spawn is anywhere near water, detour for reeds <em>before</em> you build. A couple of hand baskets on your back early pays for itself in trips not made back to a base you haven't even built yet.</p>
+      </div>
+    </section>
+
+    <!-- 03 LINEN SACK -->
+    <section class="doc" id="sack">
+      <p class="sec-index">03 — The cloth upgrade</p>
+      <h2>The Linen Sack</h2>
+      <p>Once you're farming <strong>flax</strong> and processing it into linen, the sack is a straight upgrade over the basket — <strong>five slots</strong> against the basket's three, for cloth you'll be making anyway for clothes and sails.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">+5 slots</span><h4>What it gives</h4><p>Five slots per sack. Four equipped is <strong>20 carried slots</strong> — 30 with the hotbar, a comfortable working inventory.</p></div>
+        <div class="card"><span class="tag">linen</span><h4>What it costs</h4><p>Sewn from <strong>linen</strong>, the cloth you rett and process from harvested flax. A mid-early material, gated only by your first field.</p></div>
+        <div class="card"><span class="tag">found</span><h4>Other ways to get one</h4><p>You don't always have to craft it — sacks turn up in <strong>trade</strong>, and smashing certain <strong>cracked storage vessels</strong> in ruins can drop one.</p></div>
+      </div>
+    </section>
+
+    <!-- 04 BACKPACKS -->
+    <section class="doc" id="packs">
+      <p class="sec-index">04 — Leather on your back</p>
+      <h2>The Backpacks</h2>
+      <p>Hunting and tanning open the two leather packs. The <strong>hunter backpack</strong> is the early option; the <strong>leather backpack</strong> is the best general-purpose bag in the game and what you'll ideally fill all four slots with.</p>
+      <div class="data-table">
+        <table>
+          <caption>The two leather packs (v1.22.3)</caption>
+          <thead><tr><th>Pack</th><th>Slots</th><th>Made from</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hunter backpack</strong></td><td>+4</td><td>Leather &amp; cordage</td><td>A step above baskets for your first hides — bridges you to the leather backpack.</td></tr>
+            <tr><td><strong>Leather backpack</strong></td><td>+6</td><td>Cured leather</td><td>The most slots of any general pack. Four equipped = <strong>24 carried + 10 hotbar = 34 total</strong>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="label">Leather takes time</span>
+        <p>Tanning hides into usable leather runs through a soak in a barrel and a wait — it isn't instant. Don't sit on baskets and sacks waiting for the "perfect" loadout; equip what you have and swap up to leather backpacks as the tannery delivers.</p>
+      </div>
+    </section>
+
+    <!-- 05 MINING BAG -->
+    <section class="doc" id="mining">
+      <p class="sec-index">05 — The specialist</p>
+      <h2>The Mining Bag</h2>
+      <p>The biggest single bag — <strong>twelve slots</strong> — but with a hard restriction: it only accepts <strong>stone, ores, minerals, metals and mining tools</strong>. It's not a general pack; it's a deep-dive loadout for when you're hauling a cartload of ore out of a cave.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">+12 slots</span><h4>Enormous, but narrow</h4><p>Twelve slots is four times a hand basket — but you can't put food, planks or tools-that-aren't-mining-tools in it. The capacity is real <em>only</em> for rock and metal.</p></div>
+        <div class="card"><span class="tag">swap it in</span><h4>A loadout, not a fixture</h4><p>The smart play is to <strong>slot mining bags before a dig</strong> and swap them back out for backpacks topside. One or two mining bags plus a couple of backpacks is a strong cave kit.</p></div>
+      </div>
+      <div class="note tip">
+        <span class="label">The math on a deep dig</span>
+        <p>Two mining bags (+24, ore-only) and two leather backpacks (+12, anything) gives you <strong>36 carried + 10 hotbar = 46 slots</strong> — with two-thirds of it reserved for the rock you came down for. That's the most efficient way to carry a mine on your back.</p>
+      </div>
+    </section>
+
+    <!-- 06 SLOT MATH -->
+    <section class="doc" id="math">
+      <p class="sec-index">06 — Every bag, every number</p>
+      <h2>The Slot Math</h2>
+      <p>The whole game has <strong>seven craftable player bags</strong>. Here they are side by side, with what four of each adds up to. Remember: every total below is <em>on top of</em> your permanent 10-slot hotbar.</p>
+      <div class="data-table">
+        <table>
+          <caption>Player bags by capacity — added inventory slots (v1.22.3)</caption>
+          <thead><tr><th>Bag</th><th>Slots each</th><th>×4 slots</th><th>Material</th><th>Holds</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hand basket</strong></td><td>3</td><td>12</td><td>Reeds / cattail tops</td><td>Anything</td></tr>
+            <tr><td><strong>Hunter backpack</strong></td><td>4</td><td>16</td><td>Leather &amp; cordage</td><td>Anything</td></tr>
+            <tr><td><strong>Linen sack</strong></td><td>5</td><td>20</td><td>Linen (flax)</td><td>Anything</td></tr>
+            <tr><td><strong>Leather backpack</strong></td><td>6</td><td>24</td><td>Cured leather</td><td>Anything</td></tr>
+            <tr><td><strong>Mining bag</strong></td><td>12</td><td>48*</td><td>Leather &amp; cordage</td><td><em>Stone, ore, metal &amp; mining tools only</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-family:var(--f-mono);font-size:0.72rem;color:var(--ink-faint);margin-top:-6px">*A full set of mining bags is theoretical — you'll always want at least one general pack for food, tools and torches. Counts are config-tunable; the in-game Handbook is final.</p>
+      <div class="note">
+        <span class="label">The two numbers to remember</span>
+        <p><strong>20</strong> — four linen sacks, a solid mid-game inventory you can reach early from a single flax field. <strong>24</strong> — four leather backpacks, the practical ceiling for general carrying (34 slots total with the hotbar). Everything past that is specialist mining-bag space.</p>
+      </div>
+    </section>
+
+    <!-- 07 BEYOND YOUR BACK -->
+    <section class="doc" id="beyond">
+      <p class="sec-index">07 — When your back is full</p>
+      <h2>Beyond Your Back</h2>
+      <p>Bags solve <em>carrying</em>. They don't solve <em>keeping</em> — a backpack does nothing to stop your food rotting, and 34 slots fills fast once you're hauling building stone. The moment you're back at base, things should come off your back and into proper storage.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">bulk</span><h4>Chests</h4><p>Cheap plank storage for tools, blocks and ore. No spoilage benefit — never your food. The workhorse for everything a bag carried home.</p></div>
+        <div class="card"><span class="tag">food</span><h4>Storage vessels</h4><p>Fired clay; holds big stacks and <strong>slows spoilage</strong>. Where harvested grain and veg belong once they're off your back.</p></div>
+        <div class="card"><span class="tag">depth</span><h4>The cellar</h4><p>A sealed, dark, cool room multiplies a vessel's preservation. The endpoint of the food chain that started with the bag you carried it home in.</p></div>
+      </div>
+      <p>For containers, the food cellar and how preservation actually scores, see <a href="vs-structures.html">The Homestead</a>. For the clothing your hide-and-flax materials also feed into, see <a href="vs-clothing-cold.html">Warmth &amp; Wear</a>.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site">
+  <div class="cols">
+    <div>
+      <strong style="font-family:var(--f-display);color:var(--accent)">The Knapsack</strong><br>
+      Part of <a href="vintage-story.html">The Drifter's Almanac</a>, an unofficial fan-made guide to Vintage Story (v1.22.3).<br>
+      Vintage Story is by <a href="https://www.vintagestory.at/">Anego Studios</a>. This guide is not affiliated with them.
+    </div>
+    <div style="font-family:var(--f-mono);font-size:0.74rem;line-height:1.9">
+      Ground truth:<br>
+      · the in-game Survival Handbook (<code>H</code>)<br>
+      · the official <a href="https://wiki.vintagestory.at/">Vintage Story wiki</a><br>
+      · your own world's settings
+    </div>
+  </div>
+  <p style="margin-top:24px;font-family:var(--f-mono);font-size:0.62rem;color:var(--ink-faint)">Bag slot counts, materials and recipes are config-tunable and shift between versions. The Survival Handbook and wiki win any disagreement.</p>
+</footer>
+
+<script type="module">
+  import "./assets/js/vs-guide.js";
+</script>
+</body>
+</html>
